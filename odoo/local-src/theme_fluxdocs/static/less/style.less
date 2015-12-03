@@ -1,0 +1,215 @@
+@darkColor: #2E112D;
+@maxWidth: 1000px;
+
+
+body #wrapwrap{ //Outside of wrapwrap is the backend
+	font-size: 20px;
+	color: @darkColor;
+	font-family: "noyhlight";
+
+	// GENERAL ELEMENTS
+	h1, h2{
+		text-transform: uppercase;
+		text-align: center;
+	}
+	
+	a{
+		color: @darkColor;
+		&:hover{
+			color: @darkColor;
+		}
+	}
+	
+	h1{
+		font-size: 24px; 
+	}
+	h2{
+		font-size: 20px;
+	}
+	
+	// HEADER
+	#my_header{
+		position: fixed;
+		background-color: white;
+		width: 100%;
+		.navbar-static-top{
+			z-index: 50;
+		}
+		.navbar-default{
+			background-color: transparent;
+			border: none;
+			.navbar-brand{
+				display: none;
+			}
+			.fluxdock-header-logo{
+				position: absolute;
+				top: 27px;
+				left: 10px;
+				width: 260px;
+				height: 90px;
+				.fluxdock-logo{
+					width: 70px;
+					height: 50px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-image: url("/theme_fluxdocs/static/img/fluxdock_logo_retina.png");
+					background-size: 70px;
+				}
+				.fluxdock-title{
+					width: 150px;
+					height: 13px;
+					position: absolute;
+					top: 21px;
+					right: 0;
+					display: block;
+					background-image: url("/theme_fluxdocs/static/img/fluxdock_title.png");
+					background-size: 150px;
+					background-repeat: no-repeat;
+				}
+			}
+			
+			ul#top_menu{
+				width: 100%;
+				text-align: center;
+				margin-top: 30px;
+				li{
+					text-transform: UPPERCASE;
+					float: none;
+					display: inline-block;
+					font-size: 20px;
+					font-family: noyhsemilight;
+					a{
+						color: @darkColor;
+					}
+					&.active a{
+						background-color: transparent;
+					}
+					&:first-of-type{
+						//Hide "Home"
+						//display: none;
+					}
+					&.dropdown{
+						//Hide "Administration" dropdown
+						//display: none;
+					}
+				}
+			}
+		}
+	}
+	
+	
+	
+	// MAIN
+	main{
+		padding-top: 100px;
+		
+		//Snippets
+		.animated-logo{
+			.logo{
+				text-align: center;
+				h1{
+					letter-spacing: 4px;
+				}
+			}
+		}
+		
+		section.content{
+			padding-top: 24px;
+			padding-bottom: 24px;
+			.content-wrap{
+				max-width: 610px;
+				text-align: center;
+				margin: 0 auto;
+				.content-icon{
+					img{
+						width: 150px;
+						height: 100px;
+					}
+				}
+			}
+			&.opt_dark_bg{
+				background-color: @darkColor;
+				color: white;
+			}
+		}
+	}
+	
+	
+	// FOOTER
+	footer#my_footer{
+	
+		#footer{
+			//Hide Odoo crap
+			display: none;
+		}
+		
+		.fluxdock-footer{
+			max-width: 1000px;
+			margin: 50px auto 75px;
+			position: relative;
+			.footer-logo-title{
+				float: left;
+				width: 180px;
+				height: 100px;
+				
+				.footer-logo{
+					width: 145px;
+					height: 120px;
+					background-image: url("/theme_fluxdocs/static/img/fluxdock_logo_retina.png");
+					background-repeat: no-repeat;
+					background-size: 145px;
+				}
+				.footer-title{
+					width: 145px;
+					height: 13px;
+					background-image: url("/theme_fluxdocs/static/img/fluxdock_title.png");
+					background-repeat: no-repeat;
+					background-size: 145px;
+				}
+			}
+			.footer-navigation{
+				width: 800px;
+				float: right;
+				.footer-col{
+					width: 25%;
+					float: left;
+					h3{
+						text-transform: UPPERCASE;
+						margin-bottom: 6px;
+					}
+					ul{
+						list-style-type: none;
+						padding-left: 0;
+						li{
+							font-size: 16px;
+						}
+					}
+				}
+			}
+		}
+		.fluxdock-copyright{
+			height: 84px;
+			background-color: @darkColor;
+			text-align: center;
+			color: white;
+			font-size: 26px;
+			text-transform: uppercase;
+			padding-bottom: 12px;
+	    	padding-top: 25px;
+		}
+	}
+	
+	//Clearfix
+	.fluxdock-footer,
+	.footer-navigation,
+	.clearfix { 
+		&:after{
+		    content: ".";
+		    display: block;
+		    height: 0;
+		    clear: both;
+		    visibility: hidden;
+		}
+	}
+}

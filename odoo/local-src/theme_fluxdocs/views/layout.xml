@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+		<!-- Customize header -->
+		<template id="custom_header" inherit_id="website.layout" name="Custom Header">
+
+			<!-- Assign an id -->
+			<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+				<attribute name="id">my_header</attribute>
+			</xpath>
+
+			<!-- Add an element after the top menu -->
+<!-- 			<xpath expr="//div[@id='wrapwrap']/header/div" position="after"> -->
+<!-- 				<div class="container"> -->
+<!-- 					<div class="alert alert-info mt16" role="alert"> -->
+<!-- 						<strong>Welcome</strong> -->
+<!-- 						in our website! -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</xpath> -->
+		</template>
+		
+		<template id="header_logo" inherit_id="website.layout">
+		    <xpath expr="//header//a[@class='navbar-brand']" position="after">
+		        <a href="/" class="fluxdock-header-logo">
+		            <div class="fluxdock-logo"></div>
+		            <div class="fluxdock-title"></div>
+		        </a>
+		    </xpath>
+		</template>
+		
+		<template id="fluxdock_footer" inherit_id="website.layout" name="Fluxdock Footer">
+			<xpath expr="//div[@id='wrapwrap']/footer" position="attributes">
+				<attribute name="id">my_footer</attribute>
+			</xpath>
+			<xpath expr="//div[@id='wrapwrap']/footer/div" position="after">
+				<div class="fluxdock-footer">
+					<div class="footer-logo-title gaga">
+						<div class="footer-logo"></div>
+						<div class="footer-title"></div>
+					</div>
+					<div class="footer-navigation">
+						<div class="footer-col col-1">
+							<h3>Fluxdock</h3>
+							<ul>
+								<li>
+									<a href="#">
+										About us
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Sign Up
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Login
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-col col-2">
+							<h3>Help</h3>
+							<ul>
+								<li>
+									<a href="#">
+										Support
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Mailing List
+									</a>
+								</li>
+								<li>
+									<a href="mailto:support@fluxdock.ch">
+										support@fluxdock.ch
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-col col-3">
+							<h3>Social</h3>
+							<ul>
+								<li>
+									<a href="#">
+										Facebok
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Twitter
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Google+
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="footer-col col-4">
+							<h3>Legal</h3>
+							<ul>
+								<li>
+									<a href="#">
+										Terms of Service
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Privacy Policy
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Security
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="fluxdock-copyright">
+					<span class="copyright">COPYRIGHT © 2015</span>
+				</div>
+			</xpath>
+		</template>
+		
+	</data>
+</openerp>

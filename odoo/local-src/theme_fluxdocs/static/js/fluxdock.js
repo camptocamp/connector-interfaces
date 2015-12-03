@@ -1,0 +1,1 @@
+console.log('fluxdocs.js is here :-)')
