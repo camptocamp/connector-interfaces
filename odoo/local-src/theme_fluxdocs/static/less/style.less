@@ -85,13 +85,15 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					&.active a{
 						background-color: transparent;
 					}
-					&:first-of-type{
-						//Hide "Home"
-						//display: none;
-					}
 					&.dropdown{
 						//Hide "Administration" dropdown
 						//display: none;
+					}
+				}
+				>li{
+					&:first-of-type{
+						//Hide "Home"
+						display: none;
 					}
 				}
 			}
@@ -199,6 +201,38 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	    	padding-top: 25px;
 		}
 	}
+	
+	//LOGIN
+	.oe_website_login_container{
+		background-color: @darkColor;
+		background-image: url("/theme_fluxdocs/static/img/netz.png");
+		padding: 50px 20px;
+		
+		.oe_login_form{
+			max-width: 600px;
+			margin: 0 auto;
+		}
+		.oe_login_buttons{
+			text-align: center;
+		}
+		
+	}
+	
+	label{
+		color: white;
+		font-weight: normal;
+	}
+	
+	input[type="text"], input[type="password"], button[type="submit"]{
+		background-color: @darkColor;
+		color: white;
+		border: solid 1px white;
+		border-radius: 0;
+		box-shadow: none;
+		height: 42px;
+		font-size: 20px;
+	}
+
 	
 	//Clearfix
 	.fluxdock-footer,
