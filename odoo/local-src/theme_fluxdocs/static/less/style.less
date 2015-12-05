@@ -27,11 +27,62 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		font-size: 20px;
 	}
 	
+	label{
+		font-weight: normal;
+	}
+	.label{
+		color: @darkColor;
+	}
+	
+	a.button{
+		display: inline-block;
+		border: solid 1px;
+		height: 42px;
+		font-size: 20px;
+		padding: 0 20px;
+		margin: 0 4px;
+		line-height: 40px;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+	input[type="text"], input[type="password"], button[type="submit"]{
+		border: solid 1px white;
+		border-radius: 0;
+		box-shadow: none;
+		height: 42px;
+		font-size: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.opt_dark_bg{
+		background-color: @darkColor;
+		color: white;
+		a{
+			color: white;
+			&.button{
+				background-color: @darkColor;
+				border-color: white;
+			}
+		}
+		.label{
+			color: white;
+		}
+		input[type="text"], input[type="password"], button[type="submit"]{
+			background-color: @darkColor;
+		}
+	}
+	
+
+	
+	
 	// HEADER
 	#my_header{
 		position: fixed;
 		background-color: white;
 		width: 100%;
+		z-index: 100;
 		.navbar-static-top{
 			z-index: 50;
 		}
@@ -42,11 +93,18 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				display: none;
 			}
 			.fluxdock-header-logo{
+				opacity: 0;
+				transition: opacity .25s ease-in-out;
+			   -moz-transition: opacity .25s ease-in-out;
+			   -webkit-transition: opacity .25s ease-in-out;
 				position: absolute;
 				top: 27px;
 				left: 10px;
 				width: 260px;
-				height: 90px;
+				height: 70px;
+				&.visible-scroll{
+					opacity: 1;
+				}
 				.fluxdock-logo{
 					width: 70px;
 					height: 50px;
@@ -97,6 +155,22 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					}
 				}
 			}
+			ul#service_menu{
+				position: absolute;
+				right: 20px;
+				top: 41px;
+				list-style-type: none;
+				li{
+					display: inline-block;
+					margin-left: 16px;
+					a{
+						opacity: 0.63;
+						&:hover{
+							text-decoration: none;
+						}
+					}
+				}
+			}
 		}
 	}
 	
@@ -108,10 +182,20 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		
 		//Snippets
 		.animated-logo{
+			padding-top: 100px;
+			padding-bottom: 100px;
 			.logo{
 				text-align: center;
-				h1{
-					letter-spacing: 4px;
+				margin: 0 auto 40px;
+   	 			max-width: 610px;
+				img.fluxdock-logo{
+					display: block;
+					margin: 0 auto 40px;
+				}
+				img.fluxdock-title{
+					display: block;
+					width: 286px;
+					margin: 0 auto;
 				}
 			}
 		}
@@ -122,7 +206,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			.content-wrap{
 				max-width: 610px;
 				text-align: center;
-				margin: 0 auto;
+				margin: 0 auto 40px;
 				.content-icon{
 					img{
 						width: 150px;
@@ -130,76 +214,228 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					}
 				}
 			}
-			&.opt_dark_bg{
-				background-color: @darkColor;
-				color: white;
+		}
+		
+		//Numbers
+		.numbers-wrap{
+			background-color: rgba(255, 255, 255, 0.13);
+			height: 168px;
+			padding-top: 45px;
+			.content-wrap{
+				font-size: 0;
+			}
+			.number-entry{
+				display: inline-block;
+				width: 33%;
+				font-size: 20px;
+				.number-value{
+					font-size: 60px;
+				}
+				.number-label{
+					text-transform: UPPERCASE;
+					font-size: 26px;
+					position: relative;
+					top: 13px;
+    				vertical-align: top;
+				}
 			}
 		}
+		
+		.members-wrap{
+			position: relative;
+			.arrow-left, .arrow-right{
+				position: absolute;
+				top: 100px;
+				width: 50px;
+				height: 75px;
+				cursor: pointer;
+				background-image: url("/theme_fluxdocs/static/img/arrow.png");
+				background-size: 25px 75px;
+				background-repeat: no-repeat;
+			}
+			.arrow-left{
+				left: -80px;
+			}
+			.arrow-right{
+				right: -80px;
+			    transform: rotate(180deg);
+				-webkit-transform: rotate(180deg);
+			    -moz-transform: rotate(180deg);
+			    -ms-transform: rotate(180deg);
+			    -o-transform: rotate(180deg);
+			}
+			
+			.members-container{
+				width: 606px;
+				overflow: hidden;
+				.members-slide{
+					width: 1818px;
+					position: relative;
+					left: 0;
+				}
+				.members-box{
+					background-color: #e5e2ed;
+					margin-right: 22px;
+					margin-bottom: 22px;
+					position: relative;
+					a{
+						display: block;
+						height: 100%;
+					}
+					img{
+						position: absolute;
+					    top: 0;
+					    bottom: 0;
+					    left: 8px;
+					    margin: auto;
+						width: 118px;
+					}
+					display: block;
+					width: 135px;
+					height: 135px;
+					float: left;
+				}
+			}
+		}
+		
+		.newsletter-form-wrap{
+			.newsletter-form{
+				input[type="text"]{
+					width: 455px;
+				}
+				button[type="submit"]{
+					width: 150px;
+				}
+			}
+		}
+		
 	}
 	
 	
 	// FOOTER
 	footer#my_footer{
-	
+		
+		
 		#footer{
 			//Hide Odoo crap
-			display: none;
+			.container{
+				width: 100%;
+			}
+			>section>.container>.row{
+				width: 920px;
+				padding-left: 250px;
+				box-sizing: border-box;
+				margin: 0 auto;
+				>.col-md-4{
+					width: 25%;
+					h4{
+						font-size: 24px;
+						text-transform: UPPERCASE;
+					}
+					p{
+						
+					}
+				}
+			}
+			>.container{
+				//COPYRIGHT
+				height: 84px;
+				background-color: @darkColor;
+				padding-bottom: 12px;
+		    	padding-top: 25px;
+		    	.pull-right{
+		    		display: none;
+		    	}
+		    	.pull-left{
+		    		float: none!important;
+		    	}
+		    	.text-muted{
+					text-align: center;
+					text-transform: uppercase;
+					color: white;
+					font-size: 26px;
+		    	}
+			}
 		}
 		
-		.fluxdock-footer{
-			max-width: 1000px;
-			margin: 50px auto 75px;
-			position: relative;
-			.footer-logo-title{
-				float: left;
-				width: 180px;
-				height: 100px;
-				
-				.footer-logo{
-					width: 145px;
-					height: 120px;
-					background-image: url("/theme_fluxdocs/static/img/fluxdock_logo_retina.png");
-					background-repeat: no-repeat;
-					background-size: 145px;
-				}
-				.footer-title{
-					width: 145px;
-					height: 13px;
-					background-image: url("/theme_fluxdocs/static/img/fluxdock_title.png");
-					background-repeat: no-repeat;
-					background-size: 145px;
-				}
+		.footer-logo-title{
+			float: left;
+			width: 180px;
+			height: 100px;
+			
+			.footer-logo{
+				width: 145px;
+				height: 120px;
+				background-image: url("/theme_fluxdocs/static/img/fluxdock_logo_retina.png");
+				background-repeat: no-repeat;
+				background-size: 145px;
 			}
-			.footer-navigation{
-				width: 800px;
-				float: right;
-				.footer-col{
-					width: 25%;
-					float: left;
-					h3{
-						text-transform: UPPERCASE;
-						margin-bottom: 6px;
-					}
-					ul{
-						list-style-type: none;
-						padding-left: 0;
-						li{
-							font-size: 16px;
-						}
-					}
-				}
+			.footer-title{
+				width: 145px;
+				height: 13px;
+				background-image: url("/theme_fluxdocs/static/img/fluxdock_title.png");
+				background-repeat: no-repeat;
+				background-size: 145px;
 			}
 		}
-		.fluxdock-copyright{
-			height: 84px;
-			background-color: @darkColor;
-			text-align: center;
-			color: white;
-			font-size: 26px;
-			text-transform: uppercase;
-			padding-bottom: 12px;
-	    	padding-top: 25px;
-		}
+		
+//		.fluxdock-footer{
+//			max-width: 1000px;
+//			margin: 50px auto 75px;
+//			position: relative;
+//			display: none;
+//			.footer-logo-title{
+//				float: left;
+//				width: 180px;
+//				height: 100px;
+//				
+//				.footer-logo{
+//					width: 145px;
+//					height: 120px;
+//					background-image: url("/theme_fluxdocs/static/img/fluxdock_logo_retina.png");
+//					background-repeat: no-repeat;
+//					background-size: 145px;
+//				}
+//				.footer-title{
+//					width: 145px;
+//					height: 13px;
+//					background-image: url("/theme_fluxdocs/static/img/fluxdock_title.png");
+//					background-repeat: no-repeat;
+//					background-size: 145px;
+//				}
+//			}
+//			.footer-navigation{
+//				width: 800px;
+//				float: right;
+//				.footer-col{
+//					width: 25%;
+//					float: left;
+//					h3{
+//						text-transform: UPPERCASE;
+//						margin-bottom: 6px;
+//					}
+//					ul{
+//						list-style-type: none;
+//						padding-left: 0;
+//						li{
+//							font-size: 16px;
+//						}
+//					}
+//				}
+//			}
+//		}
+//		.fluxdock-copyright{
+//			display: none;
+//			height: 84px;
+//			background-color: @darkColor;
+//			text-align: center;
+//			color: white;
+//			font-size: 26px;
+//			text-transform: uppercase;
+//			padding-bottom: 12px;
+//	    	padding-top: 25px;
+//		}
+
 	}
 	
 	//LOGIN
@@ -207,7 +443,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		background-color: @darkColor;
 		background-image: url("/theme_fluxdocs/static/img/netz.png");
 		padding: 50px 20px;
-		
+		label{
+			color: white;
+		}
 		.oe_login_form{
 			max-width: 600px;
 			margin: 0 auto;
@@ -218,21 +456,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		
 	}
 	
-	label{
-		color: white;
-		font-weight: normal;
-	}
-	
-	input[type="text"], input[type="password"], button[type="submit"]{
-		background-color: @darkColor;
-		color: white;
-		border: solid 1px white;
-		border-radius: 0;
-		box-shadow: none;
-		height: 42px;
-		font-size: 20px;
-	}
-
 	
 	//Clearfix
 	.fluxdock-footer,

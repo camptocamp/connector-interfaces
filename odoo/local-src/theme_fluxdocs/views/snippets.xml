@@ -14,6 +14,9 @@
 	        <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="replace">
 	            
 	            <div class="o_panel_body">
+		             
+		             
+		            <!-- LOGO -->
 		             <div>
 		                <div class="oe_snippet_thumbnail">
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/logo.png"/>
@@ -21,19 +24,16 @@
 		                </div>
 		                 <section class="animated-logo">
 			                <div class="logo">
-	<!-- 							<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r72/three.min.js" type="text/JavaScript"></script> -->
-	<!-- 							<script src="http://threejs.org/examples/js/controls/TrackballControls.js" type="text/JavaScript"></script> -->
-	<!-- 							<script src="http://threejs.org/examples/js/renderers/CanvasRenderer.js" type="text/JavaScript"></script> -->
-	<!-- 							<script src="http://threejs.org/examples/js/renderers/Projector.js" type="text/JavaScript"></script> -->
-	<!-- 		                	<script type="text/javascript" src="/theme_fluxdocs/static/js/line_cube.js"></script> -->
-	<!-- 		                	<canvas class="logo-canvas" width="400" height="400" style="width: 400px; height: 400px;"></canvas> -->
-								<img src="/theme_fluxdocs/static/img/fluxdock_logo.png"></img>
-			                	<h1>Fluxdock</h1>
+								<img class="fluxdock-logo" src="/theme_fluxdocs/static/img/fluxdock_logo.png" />
+			                	<img class="fluxdock-title" src="/theme_fluxdocs/static/img/fluxdock_title.png" />
 			                </div>
 							
 						</section>
 		            </div>
-		             <div>
+		            
+		            
+	            	<!-- CONTENT -->
+		            <div>
 		                <div class="oe_snippet_thumbnail">
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Content</span>
@@ -49,6 +49,221 @@
 							
 						</section>
 		            </div>
+		            
+		            
+	            	<!-- SIGNUP LOGIN -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/signup_login.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Signup / Login</span>
+		                </div>
+		                 <section class="content signup_login">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Lorem ipsum dolor</h2>
+			                	<p>Collaborative. Effective. Innovative. Fluxdock is a project management platform for startups and agile developers &amp; designers who want a simple, beautiful tool that makes work truly enjoyable.</p>
+			                </div>
+			                <div class="content-wrap">
+			                	<a class="button" href="/web/signup">Sign up</a>
+			                	<a class="button" href="/web/login">Login</a>
+			                </div>
+							
+						</section>
+		            </div>
+		            
+	            	
+	            	<!-- COMMUNITY NUMBERS -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/numbers.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Community Members</span>
+		                </div>
+		                 <section class="content signup_login opt_dark_bg">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Lorem ipsum dolor</h2>
+			                	<p>fluxdock bieten Firmen die Plattform um sich zu präsentieren, vernetzen und den offenen, interdisziplinären Austausch und die gleichberechtigte Kollaboration zu pflegen. Durch geeignete Regeln, Methoden und Tools befähigt fluxdock dabei seine Mitglieder zu mehr Innovation.</p>
+			                </div>
+			                <div class="numbers-wrap">
+				                <div class="content-wrap">
+				                	<div class="number-entry">
+				                		<span class="number-value">52</span> <!--  TODO Get dymamically -->
+				                		<span class="number-label">Members</span> 
+				                	</div>
+				                	<div class="number-entry">
+				                		<span class="number-value">86</span> <!--  TODO Get dymamically -->
+				                		<span class="number-label">Users</span> 
+				                	</div>
+				                	<div class="number-entry">
+				                		<span class="number-value">17</span> <!--  TODO Get dymamically -->
+				                		<span class="number-label">Projects</span> 
+				                	</div>
+			                	</div>
+			                </div>							
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- NEWSLETTER SUBSCRIBE -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/newsletter.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Newsletter</span>
+		                </div>
+		                 <section class="content signup_login opt_dark_bg">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Newsletter</h2>
+			                	<p>Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole.</p>
+			                </div>
+			                <div class="content-wrap newsletter-form-wrap">
+				                <form class="newsletter-form">
+				                	<input type="text" placeholder="email"></input>
+				                	<button type="submit">Subscribe</button>
+				                </form>
+			                </div>							
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- MEMBERS -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/members.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Members</span>
+		                </div>
+		                 <section class="content members">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
+			                	</div>
+			                	<h2>Members</h2>
+								<p>Hier sehen Sie wer im Netzwerk steckt.</p>
+								<p>Werden Sie Teil vom Netzwerk - zeigen Sie was ihre Firma kann werden Sie kollaborativ</p>
+			                </div>
+			                <div class="content-wrap members-wrap">
+			                	<div class="arrow-left"></div>
+			                	<div class="members-container">
+			                		<div class="members-slide">
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+			                		</div>
+			                	</div>
+			                	
+			                	<p>
+			                		<a href="/pages/members">More...</a>
+			                	</p>
+			                	
+			                	<div class="arrow-right"></div>
+			                </div>
+						</section>
+		            </div>
+		            
+		            
 	            </div>
 	        </xpath>
 	        
