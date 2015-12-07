@@ -309,6 +309,29 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 		}
 		
+		.website_blog{
+			.container{
+				max-width: 610px;
+				margin: 0 auto;
+				padding: 0;
+			}
+			.mb32{
+				>span{
+					display: none; //hide picture
+				}
+				h2{
+					font-family: "noyhmedium";
+					text-align: left;
+				}
+				div[name="blog_post_data"]{
+					display: none;
+				}
+				.text-muted{
+					color: @darkColor;
+				}
+			}
+		}
+		
 	}
 	
 	
@@ -326,6 +349,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				padding-left: 250px;
 				box-sizing: border-box;
 				margin: 0 auto;
+				background-image: url("/theme_fluxdocs/static/img/fluxdock-footer-logo.png");
+				background-repeat: no-repeat;
+				background-size: 144px 145px;
 				>.col-md-4{
 					width: 25%;
 					h4{
