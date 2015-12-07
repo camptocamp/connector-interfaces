@@ -154,6 +154,26 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						display: none;
 					}
 				}
+				ul.js_language_selector{
+					display: inline-block;
+					>li{
+						a{
+							width: 20px;
+							display: inline-block;
+							font-size: 0;
+							&.o_editable{
+								width: auto;
+								font-size: 14px;
+							}
+							&:hover{
+								text-decoration: none;
+							}
+							&:first-letter{
+								font-size: 20px;
+							}
+						}
+					}
+				} 
 			}
 			ul#service_menu{
 				position: absolute;
@@ -310,10 +330,19 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		
 		.website_blog{
+			margin-bottom: 50px;
 			.container{
 				max-width: 610px;
 				margin: 0 auto;
 				padding: 0;
+				.row{
+					margin: 0;
+					#main_column{
+						margin-left: 0;
+						padding: 0;
+						width: 100%;
+					}
+				}
 			}
 			.mb32{
 				>span{

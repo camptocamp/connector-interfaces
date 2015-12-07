@@ -26,7 +26,11 @@
                     <t t-foreach="website.menu_id.child_id" t-as="submenu">
                         <t t-call="website.submenu"/>
                     </t>
+                    <li>
+	            		<t t-call="website.language_selector"/>
+                    </li>
             	</ul>
+            	
             	
             	<!-- Logged in -->
                 <ul id="service_menu" t-ignore="true" t-if="website.user_id != user_id">
