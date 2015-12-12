@@ -51,6 +51,31 @@
 		            </div>
 		            
 		            
+	            	<!-- CONTENT WITH IMAGE -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content-image.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Content Image</span>
+		                </div>
+		                 <section class="content">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
+			                	</div>
+			                	<h2>Lorem ipsum dolor</h2>
+								<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                </div>
+			                
+			                <div class="image-wrap">
+			                	<a href="page/contactus">
+			                		<img src="/theme_fluxdocs/static/img/standort-wide.jpg" />
+			                	</a>
+			                </div>
+							
+						</section>
+		            </div>
+		            
+		            
 	            	<!-- SIGNUP LOGIN -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
