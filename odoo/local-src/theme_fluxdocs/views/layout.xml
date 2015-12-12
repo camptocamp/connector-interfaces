@@ -4,20 +4,8 @@
 		<!-- Customize header -->
 		<template id="custom_header" inherit_id="website.layout" name="Custom Header">
 
-			<!-- Assign an id -->
-<!-- 			<xpath expr="//div[@id='wrapwrap']/header" position="attributes"> -->
-<!-- 				<attribute name="id">my_header</attribute> -->
-<!-- 			</xpath> -->
 
-
-			<!-- Add a header logo -->
-<!-- 		    <xpath expr="//header//a[@class='navbar-brand']" position="after"> -->
-<!-- 		        <a href="/" class="fluxdock-header-logo"> -->
-<!-- 		            <div class="fluxdock-logo"></div> -->
-<!-- 		            <div class="fluxdock-title"></div> -->
-<!-- 		        </a> -->
-<!-- 		    </xpath> -->
-
+			<!-- Customize Header -->
 			<xpath expr="//div[@id='wrapwrap']/header" position="replace">
 				<header id="my_header">
                     <div class="fluxdock-topbar">
@@ -67,61 +55,9 @@
                 </header>
 			</xpath>
 
-			<!-- Customize Menu -->
-<!-- 			<xpath expr="//ul[@id='top_menu']" position="replace"> -->
-			
-<!-- 				<ul class="nav navbar-nav navbar-right" id="top_menu"> -->
-<!--                     <t t-foreach="website.menu_id.child_id" t-as="submenu"> -->
-<!--                         <t t-call="website.submenu"/> -->
-<!--                     </t> -->
-<!--             	</ul> -->
-            	
-            	
-<!--             	Logged in -->
-<!--                 <ul id="service_menu" t-ignore="true" t-if="website.user_id != user_id"> -->
-<!--                     <li id="o_logout"> -->
-<!--                     	<a t-attf-href="/web/session/logout?redirect=/" role="menuitem"> -->
-<!--                     		Logout -->
-<!--                     		<span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/> -->
-<!--                     	</a> -->
-<!--                     </li> -->
-<!--                     <li> -->
-<!-- 	            		<t t-call="website.language_selector"/> -->
-<!--                     </li> -->
-<!--                 </ul> -->
-                
-<!--                 Anonymous -->
-<!--                  <ul id="service_menu" t-ignore="true" t-if="not website.user_id != user_id"> -->
-<!--                     <li> -->
-<!--                     	<a href="/web/login?redirect=/">Login</a> -->
-<!--                     </li> -->
-<!--                     <li> -->
-<!--                     	<a href="/web/signup">Sign Up</a> -->
-<!--                     </li> -->
-<!--                     <li> -->
-<!-- 	            		<t t-call="website.language_selector"/> -->
-<!--                     </li> -->
-<!--                 </ul> -->
-                
-<!-- 		    </xpath> -->
-
-
-			<!-- Add the service menu -->
-<!-- 			<xpath expr="//div[@id='wrapwrap']/header/div" position="after"> -->
-<!-- 				<div class="service-menu"> -->
-<!-- 					<ul> -->
-<!-- 						<li> -->
-<!-- 							<a href="/web/login">Login</a> -->
-<!-- 							<a href="/web/signup">Sign Up</a> -->
-<!-- 						</li> -->
-<!-- 					</ul> -->
-<!-- 				</div> -->
-<!-- 			</xpath> -->
 			
 		</template>
 		
-<!-- 		<template id="header_logo" inherit_id="website.layout"> -->
-<!-- 		</template> -->
 		
 		
 		<!-- Customize footer -->
@@ -134,31 +70,6 @@
 			
 		</template>
 		
-		
-		<!-- ADD LOGO -->
-		
-<!-- 		<template id="fluxdock_footer_logo" inherit_id="footer_custom" name="Fluxdock Footer Logo"> -->
-		    
-<!-- 		    <xpath expr="//div[@id='footer']" position="inside"> -->
-<!-- 		        GAGA -->
-<!-- 		    </xpath> -->
-		    
-<!-- 		</template> -->
-		
-<!-- 		<template id="fluxdock_footer_logo" inherit_id="footer_custom" name="Fluxdock Footer Logo"> -->
-			
-<!-- 			<xpath expr="//div[@id='footer']" position="after"> -->
-				
-<!-- 				<div>GAGA</div> -->
-				
-<!-- 			</xpath> -->
-<!-- 		</template> -->
-		
-		
-<!-- 				<div class="footer-logo-title"> -->
-<!-- 					<div class="footer-logo"></div> -->
-<!-- 					<div class="footer-title"></div> -->
-<!-- 				</div> -->
 		
 	</data>
 </openerp>
