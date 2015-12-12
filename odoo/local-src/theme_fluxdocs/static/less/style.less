@@ -1,12 +1,13 @@
 @darkColor: #2E112D;
 @maxWidth: 1000px;
+@minWidth: 440px;
 
 
 body #wrapwrap{ //Outside of wrapwrap is the backend
 	font-size: 20px;
 	color: @darkColor;
 	font-family: "noyhlight";
-	min-width: 320px;
+	min-width: @minWidth;
 
 	// GENERAL ELEMENTS
 	h1, h2{
@@ -234,9 +235,10 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			padding-top: 24px;
 			padding-bottom: 24px;
 			.content-wrap{
-				max-width: 610px;
+				max-width: 646px;
 				text-align: center;
 				margin: 0 auto 40px;
+				padding: 0 20px;
 				.content-icon{
 					img{
 						width: 150px;
@@ -305,7 +307,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 			
 			.members-container{
-				width: 606px;
+//				width: 606px;
 				overflow: hidden;
 				.members-slide{
 					width: 1818px;
@@ -561,7 +563,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 
 @media only screen and (max-width : 980px) {
 	body #wrapwrap #my_header{
-		min-width: 320px;
+		min-width: @minWidth;
 		.fluxdock-topbar{
 			.mobile-menu-trigger{
 				display: block;
@@ -589,5 +591,22 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				}
 			}
 		} 
+	}
+}
+
+//Memberslide Responsive 2 col
+@media only screen and (max-width : 700px) {
+	body #wrapwrap main section.content .members-wrap{
+		width: 332px;
+		.members-container{
+			width: 292px;
+			margin: 0 auto;
+		}
+		.arrow-left{
+			left: -40px;
+		}
+		.arrow-right{
+			right: -40px;
+		}
 	}
 }
