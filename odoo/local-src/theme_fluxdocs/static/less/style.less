@@ -6,6 +6,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	font-size: 20px;
 	color: @darkColor;
 	font-family: "noyhlight";
+	min-width: 320px;
 
 	// GENERAL ELEMENTS
 	h1, h2{
@@ -83,13 +84,13 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		background-color: white;
 		width: 100%;
 		z-index: 100;
-		.navbar-static-top{
-			z-index: 50;
-		}
-		.navbar-default{
+		height: 110px;
+		
+		.fluxdock-topbar{
 			background-color: transparent;
 			border: none;
-			.navbar-brand{
+			padding: 0 210px;
+			.mobile-menu-trigger{
 				display: none;
 			}
 			.fluxdock-header-logo{
@@ -99,8 +100,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			   -webkit-transition: opacity .25s ease-in-out;
 				position: absolute;
 				top: 27px;
-				left: 10px;
-				width: 260px;
+				left: 34px;
+				width: 250px;
 				height: 70px;
 				&.visible-scroll{
 					opacity: 1;
@@ -127,17 +128,21 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				}
 			}
 			
-			ul#top_menu{
+			ul.main-menu{
 				width: 100%;
+				max-width: 768px;
+				margin: 0 auto;
 				text-align: center;
 				margin-top: 30px;
+				display: table;
 				li{
 					text-transform: UPPERCASE;
 					float: none;
-					display: inline-block;
+					display: table-cell;
 					font-size: 20px;
 					font-family: noyhsemilight;
-					a{
+					padding: 11px 11px;
+ 					a{
 						color: @darkColor;
 					}
 					&.active a{
@@ -154,39 +159,44 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						display: none;
 					}
 				}
+			}
+			ul.service-menu{
+				position: absolute;
+				right: 40px;
+				top: 29px;
+				list-style-type: none;
+				li{
+					display: inline-block;
+					margin-left: 10px;
+					font-size: 16px;
+					a{
+//						opacity: 0.63;
+						&:hover{
+							text-decoration: none;
+						}
+					}
+				}
 				ul.js_language_selector{
 					display: inline-block;
 					>li{
+						margin-left: 0;
+						margin-right: 0;
 						a{
-							width: 20px;
+							width: 12px;
 							display: inline-block;
 							font-size: 0;
-							&.o_editable{
-								width: auto;
-								font-size: 14px;
-							}
 							&:hover{
 								text-decoration: none;
 							}
 							&:first-letter{
-								font-size: 20px;
+								font-size: 16px;
 							}
 						}
-					}
-				} 
-			}
-			ul#service_menu{
-				position: absolute;
-				right: 20px;
-				top: 41px;
-				list-style-type: none;
-				li{
-					display: inline-block;
-					margin-left: 16px;
-					a{
-						opacity: 0.63;
-						&:hover{
-							text-decoration: none;
+						&[groups="base.group_website_publisher"]{
+							a{
+								font-size: 12px;
+								width: auto;
+							}
 						}
 					}
 				}
@@ -234,6 +244,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					}
 				}
 			}
+			.image-wrap{
+				img{
+					max-width: 100%;
+					height: auto;
+				}
+			}
 		}
 		
 		//Numbers
@@ -272,6 +288,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				background-image: url("/theme_fluxdocs/static/img/arrow.png");
 				background-size: 25px 75px;
 				background-repeat: no-repeat;
+				&.disabled{
+					background-image: url("/theme_fluxdocs/static/img/arrow-disabled.png");
+				}
 			}
 			.arrow-left{
 				left: -80px;
@@ -523,5 +542,52 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		    clear: both;
 		    visibility: hidden;
 		}
+	}
+}
+
+
+
+@media only screen and (max-width : 1250px) {
+	.fluxdock-header-logo{
+		.fluxdock-title{
+			opacity: 0;
+			transition: opacity .25s ease-in-out;
+		   -moz-transition: opacity .25s ease-in-out;
+		   -webkit-transition: opacity .25s ease-in-out;
+		}
+	}
+}
+
+
+@media only screen and (max-width : 980px) {
+	body #wrapwrap #my_header{
+		min-width: 320px;
+		.fluxdock-topbar{
+			.mobile-menu-trigger{
+				display: block;
+				position: absolute;
+				top: 25px;
+				right: 26px;
+				font-size: 32px;
+				padding: 10px;
+				cursor: pointer;
+			}
+			ul.main-menu{
+				display: none;
+			}
+			ul.service-menu{
+				display: none;
+			}
+			.fluxdock-header-logo{
+				opacity: 1;
+				.fluxdock-logo{
+					display: none;
+				}
+				.fluxdock-title{
+					opacity: 1;
+					left: 0;
+				}
+			}
+		} 
 	}
 }

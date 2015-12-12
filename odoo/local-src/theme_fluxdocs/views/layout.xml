@@ -5,54 +5,105 @@
 		<template id="custom_header" inherit_id="website.layout" name="Custom Header">
 
 			<!-- Assign an id -->
-			<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
-				<attribute name="id">my_header</attribute>
-			</xpath>
+<!-- 			<xpath expr="//div[@id='wrapwrap']/header" position="attributes"> -->
+<!-- 				<attribute name="id">my_header</attribute> -->
+<!-- 			</xpath> -->
 
 
 			<!-- Add a header logo -->
-		    <xpath expr="//header//a[@class='navbar-brand']" position="after">
-		        <a href="/" class="fluxdock-header-logo">
-		            <div class="fluxdock-logo"></div>
-		            <div class="fluxdock-title"></div>
-		        </a>
-		    </xpath>
+<!-- 		    <xpath expr="//header//a[@class='navbar-brand']" position="after"> -->
+<!-- 		        <a href="/" class="fluxdock-header-logo"> -->
+<!-- 		            <div class="fluxdock-logo"></div> -->
+<!-- 		            <div class="fluxdock-title"></div> -->
+<!-- 		        </a> -->
+<!-- 		    </xpath> -->
 
+			<xpath expr="//div[@id='wrapwrap']/header" position="replace">
+				<header id="my_header">
+                    <div class="fluxdock-topbar">
+                    	
+                    	<a href="/" class="fluxdock-header-logo">
+				        	<div class="fluxdock-logo"></div>
+				        	<div class="fluxdock-title"></div>
+		        		</a>
+		        		
+		        		<div class="mobile-menu-trigger">
+		        			<i class="fa fa-bars"></i>
+		        		</div>
+		        		
+                        <ul class="main-menu">
+		                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
+		                		<t t-call="website.submenu"/>
+		                	</t>
+		            	</ul>
+            	
+            	
+						<!-- Logged in -->
+		                <ul class="service-menu" t-ignore="true" t-if="website.user_id != user_id">
+		                    <li id="o_logout">
+		                    	<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">
+		                    		Logout
+		                    		<!-- <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>  -->
+		                    	</a>
+		                    </li>
+		                    <li>
+			            		<t t-call="website.language_selector"/>
+		                    </li>
+		                </ul>
+                
+						<!-- Anonymous -->
+		                <ul class="service-menu" t-ignore="true" t-if="not website.user_id != user_id">
+							<li>
+		                    	<a href="/web/login?redirect=/">Login</a>
+		                    </li>
+		                    <li>
+		                    	<a href="/web/signup">Sign Up</a>
+		                    </li>
+		                    <li>
+			            		<t t-call="website.language_selector"/>
+		                    </li>
+		            	</ul>
+	                </div>
+                </header>
+			</xpath>
 
 			<!-- Customize Menu -->
-			<xpath expr="//ul[@id='top_menu']" position="replace">
+<!-- 			<xpath expr="//ul[@id='top_menu']" position="replace"> -->
 			
-				<ul class="nav navbar-nav navbar-right" id="top_menu">
-                    <t t-foreach="website.menu_id.child_id" t-as="submenu">
-                        <t t-call="website.submenu"/>
-                    </t>
-                    <li>
-	            		<t t-call="website.language_selector"/>
-                    </li>
-            	</ul>
+<!-- 				<ul class="nav navbar-nav navbar-right" id="top_menu"> -->
+<!--                     <t t-foreach="website.menu_id.child_id" t-as="submenu"> -->
+<!--                         <t t-call="website.submenu"/> -->
+<!--                     </t> -->
+<!--             	</ul> -->
             	
             	
-            	<!-- Logged in -->
-                <ul id="service_menu" t-ignore="true" t-if="website.user_id != user_id">
-                    <li id="o_logout">
-                    	<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">
-                    		Logout
-                    		<!-- <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/> -->
-                    	</a>
-                    </li>
-                </ul>
+<!--             	Logged in -->
+<!--                 <ul id="service_menu" t-ignore="true" t-if="website.user_id != user_id"> -->
+<!--                     <li id="o_logout"> -->
+<!--                     	<a t-attf-href="/web/session/logout?redirect=/" role="menuitem"> -->
+<!--                     		Logout -->
+<!--                     		<span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/> -->
+<!--                     	</a> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!-- 	            		<t t-call="website.language_selector"/> -->
+<!--                     </li> -->
+<!--                 </ul> -->
                 
-                <!-- Anonymous -->
-                 <ul id="service_menu" t-ignore="true" t-if="not website.user_id != user_id">
-                    <li>
-                    	<a href="/web/login?redirect=/">Login</a>
-                    </li>
-                    <li>
-                    	<a href="/web/signup">Sign Up</a>
-                    </li>
-                </ul>
+<!--                 Anonymous -->
+<!--                  <ul id="service_menu" t-ignore="true" t-if="not website.user_id != user_id"> -->
+<!--                     <li> -->
+<!--                     	<a href="/web/login?redirect=/">Login</a> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!--                     	<a href="/web/signup">Sign Up</a> -->
+<!--                     </li> -->
+<!--                     <li> -->
+<!-- 	            		<t t-call="website.language_selector"/> -->
+<!--                     </li> -->
+<!--                 </ul> -->
                 
-		    </xpath>
+<!-- 		    </xpath> -->
 
 
 			<!-- Add the service menu -->
