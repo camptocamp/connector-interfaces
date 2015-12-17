@@ -22,11 +22,22 @@
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/logo.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Fluxdock Logo</span>
 		                </div>
-		                 <section class="animated-logo">
+						<section class="animated-logo">
 			                <div class="logo">
-								<img class="fluxdock-logo" src="/theme_fluxdocs/static/img/fluxdock_logo.png" />
+								<canvas width="400" height="400" id="logo-canvas" />
 			                	<img class="fluxdock-title" src="/theme_fluxdocs/static/img/fluxdock_title.png" />
 			                </div>
+							<script type="text/JavaScript">
+								var THREE = {
+									Math: {
+										degToRad: function(degrees)
+											{ return degrees * Math.PI / 180; }
+									}
+								};
+							</script>
+							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Matrix4.js"></script>
+							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Vector3.js"></script>
+							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/line_cube.js"></script>
 							
 						</section>
 		            </div>
@@ -105,7 +116,7 @@
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/numbers.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Community Members</span>
 		                </div>
-		                 <section class="content signup_login opt_dark_bg">
+		                 <section class="content numbers opt_dark_bg">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>

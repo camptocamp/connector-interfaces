@@ -1,141 +1,7 @@
-var gScene;
-var gObject;
-var gLineContainer;
-var gCamera;
-var gRenderer;
-var gControls;
-var gLines;
-var gSymbolLines;
-var gRandomLines;
-var gTargetRotation;
-var gCurrentSymbolKeyIndex = 0;
-var gRotationAxis;
-var gRotationMatrix;
-var gProjection;
+'use strict';
 
 
-const kViewWidth = 400;
-const kViewHeight = 400;
-const kZoom = 100;
-
-const kRotationSteps = 240;
-const kLineBuildSteps = kRotationSteps / 4 * 3;
-const kSymbolLineWidth = 4;
-const kRandomLineWidth = 2;
-const kRandomLineCount = 4;
-const kMinLineLength = 5;
-const kMaxLineLength = 8;
-const kCubeSize = 4;
-
-const kAllOnesVector = new THREE.Vector3(1, 1, 1);
-const kCubeBounds = {
-	min: {
-		x: 0,
-		y: 0,
-		z: 0
-	},
-	max: {
-		x: kCubeSize,
-		y: kCubeSize,
-		z: kCubeSize
-	}
-};
-
-const kCubeTranslation = new THREE.Vector3(-kCubeSize / 2, -kCubeSize / 2,
-	-kCubeSize / 2);
-
-const kDirections = [
-	new THREE.Vector3(1, 0, 0),
-	new THREE.Vector3(0, 1, 0),
-	new THREE.Vector3(0, 0, 1),
-	new THREE.Vector3(-1, 0, 0),
-	new THREE.Vector3(0, -1, 0),
-	new THREE.Vector3(0, 0, -1),
-	new THREE.Vector3(1, 1, 0),
-	new THREE.Vector3(0, 1, 1),
-	new THREE.Vector3(1, 0, 1),
-	new THREE.Vector3(-1, 1, 0),
-	new THREE.Vector3(0, -1, 1),
-	new THREE.Vector3(1, 0, -1),
-	new THREE.Vector3(1, -1, 0),
-	new THREE.Vector3(0, 1, -1),
-	new THREE.Vector3(-1, 0, 1),
-	new THREE.Vector3(-1, -1, 0),
-	new THREE.Vector3(0, -1, -1),
-	new THREE.Vector3(-1, 0, -1)
-];
-
-const kSymbols = {
-	'c': new Symbol([
-		[
-			[ 1, 0, 0 ], [ 2, 0, 1 ], [ 2, 0, 2 ], [ 1, 0, 2 ], [ 0, 0, 2 ],
-			[ 0, 1, 2 ], [ 0, 2, 2 ], [ 0, 2, 1 ], [ 0, 2, 0 ], [ 1, 2, 0 ],
-			[ 1, 1, 0 ], [ 0, 1, 0 ], [ 0, 1, 1 ], [ 0, 0, 1 ], [ 1, 0, 1 ],
-			[ 1, 0, 0 ]
-		]
-	]),
-	'd': new Symbol([
-		[
-			[ 2, 0, 2 ], [ 1, 0, 2 ], [ 0, 0, 1 ], [ 0, 1, 1 ], [ 0, 2, 1 ],
-			[ 0, 2, 0 ], [ 1, 2, 0 ], [ 2, 2, 0 ], [ 2, 1, 0 ], [ 2, 0, 0 ],
-			[ 2, 0, 1 ], [ 2, 0, 2 ]
-		],
-		[
-			[ 1, 0, 1 ], [ 0, 0, 0 ], [ 0, 1, 0 ], [ 1, 1, 0 ], [ 1, 0, 0 ],
-			[ 1, 0, 1 ]
-		]
-	]),
-	'f': new Symbol([
-		[
-			[ 3, 0, 2 ], [ 2, 0, 2 ], [ 1, 0, 2 ], [ 0, 0, 1 ], [ 0, 1, 1 ],
-			[ 0, 2, 1 ], [ 0, 3, 1 ], [ 0, 2, 0 ], [ 0, 1, 0 ], [ 1, 1, 0 ],
-			[ 1, 0, 0 ], [ 0, 0, 0 ], [ 1, 0, 1 ], [ 2, 0, 1 ], [ 3, 0, 2 ]
-		]
-	]),
-	'k': new Symbol([
-		[
-			[ 3, 0, 3 ], [ 2, 0, 3 ], [ 1, 0, 2 ], [ 0, 0, 1 ], [ 0, 1, 1 ],
-			[ 0, 2, 1 ], [ 0, 2, 0 ], [ 0, 1, 0 ], [ 1, 2, 0 ], [ 2, 3, 0 ],
-			[ 2, 2, 0 ], [ 1, 1, 0 ], [ 0, 0, 0 ], [ 1, 0, 0 ], [ 2, 0, 0 ],
-			[ 3, 0, 1 ], [ 2, 0, 1 ], [ 1, 0, 1 ], [ 2, 0, 2 ], [ 3, 0, 3 ]
-		]
-	]),
-	'l': new Symbol([
-		[
-			[ 2, 0, 2 ], [ 2, 0, 3 ], [ 1, 0, 2 ], [ 0, 0, 1 ], [ 0, 1, 1 ],
-			[ 0, 2, 1 ], [ 0, 2, 0 ], [ 1, 3, 0 ], [ 1, 2, 0 ], [ 0, 1, 0 ],
-			[ 0, 0, 0 ], [ 1, 0, 1 ], [ 2, 0, 2 ]
-		]
-	]),
-	'o': new Symbol([
-		[
-			[ 0, 0, 1 ], [ 1, 0, 1 ], [ 1, 0, 0 ], [ 1, 1, 0 ], [ 0, 1, 0 ],
-			[ 0, 1, 1 ], [ 0, 0, 1 ]
-		],
-		[
-			[ 0, 0, 2 ], [ 1, 0, 2 ], [ 2, 0, 2 ], [ 2, 0, 1 ], [ 2, 0, 0 ],
-			[ 2, 1, 0 ], [ 2, 2, 0 ], [ 1, 2, 0 ], [ 0, 2, 0 ], [ 0, 2, 1 ],
-			[ 0, 2, 2 ], [ 0, 1, 2 ], [ 0, 0, 2 ]
-		]
-	]),
-	'u': new Symbol([
-		[
-			[ 1, 0, 2 ], [ 0, 0, 2 ], [ 0, 1, 2 ], [ 0, 2, 2 ], [ 0, 2, 1 ],
-			[ 0, 2, 0 ], [ 1, 2, 0 ], [ 2, 2, 0 ], [ 2, 1, 0 ], [ 2, 0, 0 ],
-			[ 2, 0, 1 ], [ 1, 0, 0 ], [ 1, 1, 0 ], [ 0, 1, 0 ], [ 0, 1, 1 ],
-			[ 0, 0, 1 ], [ 1, 0, 2 ]
-		]
-	]),
-	'x': new Symbol([
-		[
-			[ 0, 0, 0 ], [ 1, 0, 1 ], [ 2, 0, 2 ], [ 2, 0, 1 ], [ 1, 0, 0 ],
-			[ 2, 0, 0 ], [ 3, 1, 0 ], [ 2, 1, 0 ], [ 1, 1, 0 ], [ 1, 2, 0 ],
-			[ 1, 3, 0 ], [ 0, 2, 0 ], [ 0, 1, 0 ], [ 0, 2, 1 ], [ 0, 2, 2 ],
-			[ 0, 1, 1 ], [ 0, 0, 0 ]
-		]
-	])
-};
-const kSymbolKeys = [ 'f', 'l', 'u', 'x', 'd', 'o', 'c', 'k' ];
+new function(LogoNamespace) {
 
 
 function randomInteger(max, min)
@@ -149,13 +15,13 @@ function randomInteger(max, min)
 
 function randomVector(bounds)
 {
-	return new THREE.Vector3(randomInteger(bounds.max.x, bounds.min.x),
-		randomInteger(bounds.max.y, bounds.min.y),
-		randomInteger(bounds.max.z, bounds.min.z));
+	return new THREE.Vector3(randomInteger(bounds.max[0], bounds.min[0]),
+		randomInteger(bounds.max[1], bounds.min[1]),
+		randomInteger(bounds.max[2], bounds.min[2]));
 }
 
 
-function randomDirection(previousDirection)
+function randomDirection(previousDirection, directions)
 {
 	var negatedPreviousDirection;
 	if (previousDirection) {
@@ -164,7 +30,7 @@ function randomDirection(previousDirection)
 	}
 
 	while (true) {
-		var direction = kDirections[randomInteger(kDirections.length - 1)];
+		var direction = directions[randomInteger(directions.length - 1)];
 		if (previousDirection && direction.equals(negatedPreviousDirection))
 			continue;
 
@@ -173,40 +39,11 @@ function randomDirection(previousDirection)
 }
 
 
-function withinBounds(vector, bounds)
+function progression(previousVector, direction, boundingBox)
 {
-	return vector.x >= bounds.min.x && vector.y >= bounds.min.y
-		&& vector.z >= bounds.min.z && vector.x <= bounds.max.x
-		&& vector.y <= bounds.max.y && vector.z <= bounds.max.z;
-}
-
-
-function boundingBox(vector, size, bounds)
-{
-	return {
-		min: {
-			x: Math.max(vector.x - size.x, bounds.min.x),
-			y: Math.max(vector.y - size.y, bounds.min.y),
-			z: Math.max(vector.z - size.z, bounds.min.z)
-		},
-		max: {
-			x: Math.min(vector.x + size.x, bounds.max.x),
-			y: Math.min(vector.y + size.y, bounds.max.y),
-			z: Math.min(vector.z + size.z, bounds.max.z)
-		}
-	};
-}
-
-
-function progression(previousVector, direction, bounds)
-{
-	result = previousVector.clone();
+	var result = previousVector.clone();
 	result.add(direction);
-
-	if (!withinBounds(result, bounds))
-		return false;
-
-	return result;
+	return boundingBox.vectorWithin(result) ? result : false;
 }
 
 
@@ -243,13 +80,25 @@ Symbol.prototype.clone = function()
 }
 
 
-Symbol.prototype.rotateByMatrix = function(rotationMatrix)
+Symbol.prototype.copy = function(other)
+{
+	this.shapes.forEach(function(shape, shapeIndex) {
+			shape.forEach(function(vertex, vertexIndex) {
+					vertex.copy(other.shapes[shapeIndex][vertexIndex]);
+				});
+		});
+
+	return this;
+}
+
+
+Symbol.prototype.rotateByMatrix = function(rotationMatrix, center)
 {
 	this.shapes.forEach(function(shape) {
 			shape.forEach(function(vertex) {
-					vertex.add(kCubeTranslation)
+					vertex.sub(center)
 						.applyMatrix4(rotationMatrix)
-						.sub(kCubeTranslation)
+						.add(center)
 						.round();
 				});
 		});
@@ -258,96 +107,87 @@ Symbol.prototype.rotateByMatrix = function(rotationMatrix)
 }
 
 
-function Projection(rotationAxis, viewVector, rotation)
+function Projection()
 {
-	this.rotationAxis = rotationAxis;
-	this.viewVector = viewVector;
-	this.negatedViewVector = viewVector.clone().negate();
-	this.rotation = rotation;
+	this.viewVector = new THREE.Vector3();
+	this.negatedViewVector = new THREE.Vector3();
+}
+
+
+Projection.prototype.setTo = function(viewVector)
+{
+	this.viewVector.copy(viewVector);
+	this.negatedViewVector.copy(viewVector).negate();
 }
 
 
 Projection.prototype.findEquivalentPoints = function(base, vector, into,
-	bounds)
+	boundingBox)
 {
 	var next = base;
-	while (next = progression(next, vector, bounds))
+	while (next = progression(next, vector, boundingBox))
 		into.push(next);
 }
 
 
-Projection.prototype.equivalentPointsFor = function(projectedPoint, bounds)
+Projection.prototype.equivalentPointsFor = function(projectedPoint, boundingBox)
 {
-	if (bounds == undefined)
-		bounds = kCubeBounds;
-
 	var points = [];
-	if (withinBounds(projectedPoint, bounds))
+	if (boundingBox.vectorWithin(projectedPoint))
 		points.push(projectedPoint.clone());
 
-	this.findEquivalentPoints(projectedPoint, this.viewVector, points, bounds);
+	this.findEquivalentPoints(projectedPoint, this.viewVector, points,
+		boundingBox);
 	this.findEquivalentPoints(projectedPoint, this.negatedViewVector, points,
-		bounds);
+		boundingBox);
 
 	return points;
 }
 
 
 Projection.prototype.randomVectorForProjectedPoint = function(projectedPoint,
-	bounds)
+	boundingBox)
 {
-	var candidates = this.equivalentPointsFor(projectedPoint, bounds);
+	var candidates = this.equivalentPointsFor(projectedPoint, boundingBox);
 	return candidates[randomInteger(candidates.length - 1)];
 }
 
 
 Projection.prototype.randomProgression = function(originalFrom, randomizedFrom,
-	originalTo)
+	originalTo, boundingBox)
 {
 	var equivalentTo = originalTo.clone();
 	equivalentTo.sub(originalFrom);
 	equivalentTo.add(randomizedFrom);
 	return this.randomVectorForProjectedPoint(equivalentTo,
-		boundingBox(randomizedFrom, kAllOnesVector, kCubeBounds));
+		new BoundingBox(3).fromVector(randomizedFrom, randomizedFrom)
+			.extendByWidth(1).constrainTo(boundingBox));
 }
 
 
-Projection.prototype.randomProjectedSegment = function(from, to)
-{
-	var randomizedFrom = this.randomVectorForProjectedPoint(from);
-	return [ randomizedFrom, this.randomProgression(from, randomizedFrom, to) ];
-}
-
-
-function Line(initialVectors, minLineLength, maxLineLength, lineWidth, steps)
+function Line(initialVectors, directions, boundingBox, center, minLineLength,
+	maxLineLength, lineWidth, time)
 {
 	this.minLineLength = minLineLength;
 	this.maxLineLength = maxLineLength;
+	this.lineWidth = lineWidth;
 
-	this.geometry = new THREE.Geometry();
-	this.geometry.dynamic = true;
-
-	this.material = new THREE.LineBasicMaterial({
-			color: 0,//randomInteger(0x888888),
-			linewidth: lineWidth,
-			linejoin: 'round',
-			linecap: 'round'
-		});
-	this.object = new THREE.Line(this.geometry, this.material);
-
-	this.buildSegments(initialVectors);
+	this.buildSegments(initialVectors, directions, boundingBox);
 
 	this.vectors.forEach(function(vector) {
-			this.geometry.vertices.push(this.vectors[0].clone());
-		}.bind(this));
+			vector.sub(center);
+		});
+
+	this.vertices = [ this.vectors[0].clone() ];
+	this.projectedVertices = [ new THREE.Vector3() ];
+	this.startSegment();
 
 	this.state = this.STATE_BUILDUP;
 	this.completeSegments = 0;
 	this.tornSegments = 0;
-	this.steps = steps;
 
-	this.stepsPerCycle = Math.floor(steps / this.segments.length);
-	this.cycleSteps = this.stepsPerCycle;
+	this.timePerCycle = time / this.segments.length;
+	this.currentCycle = 0;
 }
 
 
@@ -356,7 +196,7 @@ Line.prototype.STATE_STATIC = 1;
 Line.prototype.STATE_TEARDOWN = 2;
 
 
-Line.prototype.buildSegments = function(initialVectors)
+Line.prototype.buildSegments = function(initialVectors, directions, boundingBox)
 {
 	this.vectors = [ initialVectors[0] ];
 	this.segments = [];
@@ -376,9 +216,8 @@ Line.prototype.buildSegments = function(initialVectors)
 
 	for (var i = this.segments.length;
 		i < randomInteger(this.maxLineLength, this.minLineLength); i++) {
-		var nextSegment = randomDirection(previousSegment);
-		var nextVector
-			= progression(previousVector, nextSegment, kCubeBounds);
+		var nextSegment = randomDirection(previousSegment, directions);
+		var nextVector = progression(previousVector, nextSegment, boundingBox);
 		if (!nextVector) {
 			i--;
 			continue;
@@ -393,10 +232,13 @@ Line.prototype.buildSegments = function(initialVectors)
 }
 
 
-Line.prototype.queueTeardown = function()
+Line.prototype.startTeardown = function()
 {
-	this.queuedState = this.STATE_TEARDOWN;
-	this.cycleSteps = 0;
+	if (this.state == this.STATE_TEARDOWN)
+		return;
+
+	this.state = this.STATE_TEARDOWN;
+	this.currentCycle = 0;
 }
 
 
@@ -427,50 +269,54 @@ Line.prototype.cycle = function()
 			break;
 	}
 
-	if (this.queuedState) {
-		this.state = this.queuedState;
-		this.queuedState = undefined;
-	}
-
-	this.cycleSteps = this.stepsPerCycle;
+	this.currentCycle++;
 }
 
 
 Line.prototype.completeSegment = function()
 {
-	var lastIndex = this.geometry.vertices.length - 1;
-	this.geometry.vertices[lastIndex].copy(
-		this.vectors[this.completeSegments + 1]);
-
-	this.geometry.verticesNeedUpdate = true;
 	this.completeSegments++;
+	this.vertices[this.vertices.length - 1].copy(
+		this.vectors[this.completeSegments]);
 }
 
 
 Line.prototype.startSegment = function()
 {
-	var lastIndex = this.geometry.vertices.length - 1;
-	for (var i = this.completeSegments; i >= 0; i--) {
-		this.geometry.vertices[lastIndex - i - 1].copy(
-			this.geometry.vertices[lastIndex - i]);
+	if (this.completeSegments > 0
+		&& this.segments[this.completeSegments].equals(
+			this.segments[this.completeSegments - 1])) {
+		return;
 	}
+
+	this.vertices.push(this.vertices[this.vertices.length - 1].clone());
+	this.projectedVertices.push(new THREE.Vector3());
 }
 
 
 Line.prototype.tearSegment = function()
 {
-	for (var i = 0; i < this.geometry.vertices.length - 1; i++) {
-		this.geometry.vertices[i].copy(
-			this.geometry.vertices[i + 1]);
+	this.tornSegments++;
+	if (this.tornSegments >= this.segments.length
+		|| this.segments[this.tornSegments].equals(
+			this.segments[this.tornSegments - 1])) {
+		return;
 	}
 
-	this.geometry.verticesNeedUpdate = true;
-	this.tornSegments++;
+	this.vertices.shift();
+	this.projectedVertices.shift();
 }
 
 
-Line.prototype.animationStep = function()
+Line.prototype.animationStep = function(elapsedTime)
 {
+	var progress = (elapsedTime - this.timePerCycle * this.currentCycle)
+		/ this.timePerCycle;
+	while (progress >= 1) {
+		this.cycle();
+		progress--;
+	}
+
 	switch (this.state) {
 		case this.STATE_STATIC:
 			break;
@@ -479,14 +325,10 @@ Line.prototype.animationStep = function()
 		{
 			var base = this.vectors[this.completeSegments];
 			var segment = this.segments[this.completeSegments];
-			var last
-				= this.geometry.vertices[this.geometry.vertices.length - 1];
+			var last = this.vertices[this.vertices.length - 1];
 
 			last.copy(base);
-			last.addScaledVector(segment,
-				1 - (this.cycleSteps / this.stepsPerCycle));
-
-			this.geometry.verticesNeedUpdate = true;
+			last.addScaledVector(segment, progress);
 			break;
 		}
 
@@ -494,155 +336,487 @@ Line.prototype.animationStep = function()
 		{
 			var base = this.vectors[this.tornSegments];
 			var segment = this.segments[this.tornSegments];
-			var first = this.geometry.vertices[0];
+			var first = this.vertices[0];
 
 			first.copy(base);
-			first.addScaledVector(segment,
-				1 - (this.cycleSteps / this.stepsPerCycle));
-
-			this.geometry.verticesNeedUpdate = true;
+			first.addScaledVector(segment, progress);
 			break;
 		}
 	}
-
-	this.cycleSteps--;
-	if (this.cycleSteps <= 0)
-		this.cycle();
 }
 
 
-function ObjectRotator(object)
+function ObjectRotator(matrix)
 {
-	this.object = object;
+	this.matrix = matrix;
+	this.initialMatrix = matrix.clone();
+	this.rotationMatrix = new THREE.Matrix4();
 	this.currentRotation = 0;
-	this.steps = 0;
 }
 
 
-ObjectRotator.prototype.rotateTo = function(rotationAxis, rotation, steps,
+ObjectRotator.prototype.resetMatrix = function(matrix)
+{
+	this.matrix.copy(matrix);
+	this.initialMatrix.copy(matrix);
+}
+
+
+ObjectRotator.prototype.rotateTo = function(rotationAxis, rotation, time,
 	onComplete)
 {
 	this.rotationAxis = rotationAxis;
 	this.targetRotation = rotation;
-	this.rotationStep = (this.targetRotation - this.currentRotation) / steps;
-	this.steps = steps;
+	this.rotationStep = (this.targetRotation - this.currentRotation) / time;
+	this.totalTime = time;
+	this.complete = false;
 	this.onComplete = onComplete;
 }
 
 
 ObjectRotator.prototype.cycle = function()
 {
+	this.complete = true;
 	this.currentRotation = this.targetRotation;
-	this.steps = 0;
+	this.rotationStep = 0;
 	if (this.onComplete)
 		this.onComplete();
 }
 
 
-ObjectRotator.prototype.animationStep = function()
+ObjectRotator.prototype.animationStep = function(elapsedTime)
 {
-	if (this.steps == 0)
+	if (this.complete)
 		return;
 
-	this.object.rotateOnAxis(this.rotationAxis,
-		THREE.Math.degToRad(this.rotationStep));
-
-	this.steps--;
-	if (this.steps == 0)
+	if (elapsedTime >= this.totalTime)
 		this.cycle();
+
+	this.rotationMatrix.makeRotationAxis(this.rotationAxis,
+		THREE.Math.degToRad(this.currentRotation
+			+ this.rotationStep * elapsedTime));
+	this.matrix.multiplyMatrices(this.initialMatrix, this.rotationMatrix);
 }
 
 
-function render()
+function BoundingBox(components)
 {
-	gControls.update();
+	this.min = new Array(components);
+	this.max = new Array(components);
+}
 
-	gLines.forEach(function(element) {
-			element.animationStep();
+
+BoundingBox.prototype.fromArray = function(min, max)
+{
+	for (var i = 0; i < this.min.length; i++) {
+		this.min[i] = min[i];
+		this.max[i] = max[i];
+	}
+
+	return this;
+}
+
+
+BoundingBox.prototype.fromVector = function(min, max)
+{
+	for (var i = 0; i < this.min.length; i++) {
+		this.min[i] = min.getComponent(i);
+		this.max[i] = max.getComponent(i);
+	}
+
+	return this;
+}
+
+
+BoundingBox.prototype.reset = function()
+{
+	for (var i = 0; i < this.min.length; i++) {
+		this.min[i] = 1000000;
+		this.max[i] = 0;
+	}
+
+	return this;
+}
+
+
+BoundingBox.prototype.round = function()
+{
+	for (var i = 0; i < this.min.length; i++) {
+		this.min[i] = Math.floor(this.min[i]);
+		this.max[i] = Math.ceil(this.max[i]);
+	}
+
+	return this;
+}
+
+
+BoundingBox.prototype.vectorWithin = function(vector)
+{
+	for (var i = 0; i < this.min.length; i++) {
+		if (vector.getComponent(i) < this.min[i]
+			|| vector.getComponent(i) > this.max[i]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+
+BoundingBox.prototype.include = function(components)
+{
+	for (var i = 0; i < this.min.length; i++) {
+		this.min[i] = Math.min(this.min[i], components[i]);
+		this.max[i] = Math.max(this.max[i], components[i]);
+	}
+
+	return this;
+}
+
+
+BoundingBox.prototype.extendByWidth = function(width)
+{
+	for (var i = 0; i < this.min.length; i++) {
+		this.min[i] -= width;
+		this.max[i] += width;
+	}
+
+	return this;
+}
+
+
+BoundingBox.prototype.constrainTo = function(boundingBox)
+{
+	for (var i = 0; i < this.min.length; i++) {
+		this.min[i] = Math.max(this.min[i], boundingBox.min[i]);
+		this.max[i] = Math.min(this.max[i], boundingBox.max[i]);
+	}
+
+	return this;
+}
+
+
+function Logo(targetElementId)
+{
+	this.initConfig();
+
+	var canvas = document.getElementById(targetElementId);
+
+	this.graphicsContext = canvas.getContext('2d', { alpha: false });
+	this.graphicsContext.fillStyle = '#ffffff';
+	this.graphicsContext.strokeStyle = '#000000';
+	this.graphicsContext.lineCap = 'round';
+	this.graphicsContext.lineJoin = 'round';
+
+	this.boundingBox = new BoundingBox(2)
+		.fromArray([ 0, 0 ], [ canvas.width, canvas.height ]);
+
+	var orthographicProjection = new THREE.Matrix4().makeOrthographic(
+		-this.config.cubeSize, this.config.cubeSize, -this.config.cubeSize,
+		this.config.cubeSize, 1,
+		this.config.cubeSize * 2 * this.config.cubeSize * 2);
+	var lookAt = new THREE.Matrix4().lookAt(
+		new THREE.Vector3(this.config.cubeSize * 2, this.config.cubeSize * 2,
+			this.config.cubeSize * 2),
+		new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 1, 0));
+
+	var matrix = new THREE.Matrix4().makeScale(canvas.width / 2,
+		-canvas.height / 2, 1);
+	matrix.multiply(new THREE.Matrix4().makeTranslation(1, -1, 0));
+	matrix.multiply(orthographicProjection);
+	matrix.multiply(new THREE.Matrix4().getInverse(lookAt));
+
+	this.initialMatrix = matrix.clone();
+	this.objectRotator = new ObjectRotator(matrix);
+
+	this.targetRotation = 0;
+	this.rotationAxis = new THREE.Vector3(1, -1, 1).normalize();
+	this.rotationMatrix = new THREE.Matrix4();
+	this.viewVector = new THREE.Vector3();
+	this.projection = new Projection();
+
+	this.randomLines = [];
+	this.symbolLines = [];
+	this.lineClasses = [ this.randomLines, this.symbolLines ];
+
+	this.currentSymbolKeyIndex = 0;
+	this.symbolCache = {};
+
+	this.triggerNextRotation();
+
+	for (var i = 0; i < this.config.randomLineCount; i++)
+		this.addRandomLine();
+}
+
+
+Logo.prototype.initConfig = function()
+{
+	var config = {};
+	config.rotationTime = 4000;
+	config.lineBuildTime = config.rotationTime / 4 * 3;
+	config.pauseDuration = 1000;
+	config.symbolLineWidth = 4;
+	config.randomLineWidth = 2;
+	config.randomLineCount = 4;
+	config.minLineLength = 5;
+	config.maxLineLength = 8;
+	config.cubeSize = 4;
+
+	config.cubeBounds = new BoundingBox(3).fromArray([ 0, 0, 0 ],
+		[ config.cubeSize, config.cubeSize, config.cubeSize ]);
+
+	config.cubeCenter = new THREE.Vector3(config.cubeSize / 2,
+		config.cubeSize / 2, config.cubeSize / 2);
+
+	config.directions = [
+			new THREE.Vector3(1, 0, 0),
+			new THREE.Vector3(0, 1, 0),
+			new THREE.Vector3(0, 0, 1),
+			new THREE.Vector3(-1, 0, 0),
+			new THREE.Vector3(0, -1, 0),
+			new THREE.Vector3(0, 0, -1),
+			new THREE.Vector3(1, 1, 0),
+			new THREE.Vector3(0, 1, 1),
+			new THREE.Vector3(1, 0, 1),
+			new THREE.Vector3(-1, 1, 0),
+			new THREE.Vector3(0, -1, 1),
+			new THREE.Vector3(1, 0, -1),
+			new THREE.Vector3(1, -1, 0),
+			new THREE.Vector3(0, 1, -1),
+			new THREE.Vector3(-1, 0, 1),
+			new THREE.Vector3(-1, -1, 0),
+			new THREE.Vector3(0, -1, -1),
+			new THREE.Vector3(-1, 0, -1)
+		];
+
+	config.symbols = {
+			' ': new Symbol(),
+			'c': new Symbol([
+				[
+					[ 1, 0, 0 ], [ 2, 0, 1 ], [ 2, 0, 2 ], [ 1, 0, 2 ],
+					[ 0, 0, 2 ], [ 0, 1, 2 ], [ 0, 2, 2 ], [ 0, 2, 1 ],
+					[ 0, 2, 0 ], [ 1, 2, 0 ], [ 1, 1, 0 ], [ 0, 1, 0 ],
+					[ 0, 1, 1 ], [ 0, 0, 1 ], [ 1, 0, 1 ], [ 1, 0, 0 ]
+				]
+			]),
+			'd': new Symbol([
+				[
+					[ 2, 0, 2 ], [ 1, 0, 2 ], [ 0, 0, 1 ], [ 0, 1, 1 ],
+					[ 0, 2, 1 ], [ 0, 2, 0 ], [ 1, 2, 0 ], [ 2, 2, 0 ],
+					[ 2, 1, 0 ], [ 2, 0, 0 ], [ 2, 0, 1 ], [ 2, 0, 2 ]
+				],
+				[
+					[ 1, 0, 1 ], [ 0, 0, 0 ], [ 0, 1, 0 ], [ 1, 1, 0 ],
+					[ 1, 0, 0 ], [ 1, 0, 1 ]
+				]
+			]),
+			'f': new Symbol([
+				[
+					[ 3, 0, 2 ], [ 2, 0, 2 ], [ 1, 0, 2 ], [ 0, 0, 1 ],
+					[ 0, 1, 1 ], [ 0, 2, 1 ], [ 0, 3, 1 ], [ 0, 2, 0 ],
+					[ 0, 1, 0 ], [ 1, 1, 0 ], [ 1, 0, 0 ], [ 0, 0, 0 ],
+					[ 1, 0, 1 ], [ 2, 0, 1 ], [ 3, 0, 2 ]
+				]
+			]),
+			'k': new Symbol([
+				[
+					[ 3, 0, 3 ], [ 2, 0, 3 ], [ 1, 0, 2 ], [ 0, 0, 1 ],
+					[ 0, 1, 1 ], [ 0, 2, 1 ], [ 0, 2, 0 ], [ 0, 1, 0 ],
+					[ 1, 2, 0 ], [ 2, 3, 0 ], [ 2, 2, 0 ], [ 1, 1, 0 ],
+					[ 0, 0, 0 ], [ 1, 0, 0 ], [ 2, 0, 0 ], [ 3, 0, 1 ],
+					[ 2, 0, 1 ], [ 1, 0, 1 ], [ 2, 0, 2 ], [ 3, 0, 3 ]
+				]
+			]),
+			'l': new Symbol([
+				[
+					[ 2, 0, 2 ], [ 2, 0, 3 ], [ 1, 0, 2 ], [ 0, 0, 1 ],
+					[ 0, 1, 1 ], [ 0, 2, 1 ], [ 0, 2, 0 ], [ 1, 3, 0 ],
+					[ 1, 2, 0 ], [ 0, 1, 0 ], [ 0, 0, 0 ], [ 1, 0, 1 ],
+					[ 2, 0, 2 ]
+				]
+			]),
+			'o': new Symbol([
+				[
+					[ 0, 0, 1 ], [ 1, 0, 1 ], [ 1, 0, 0 ], [ 1, 1, 0 ],
+					[ 0, 1, 0 ], [ 0, 1, 1 ], [ 0, 0, 1 ]
+				],
+				[
+					[ 0, 0, 2 ], [ 1, 0, 2 ], [ 2, 0, 2 ], [ 2, 0, 1 ],
+					[ 2, 0, 0 ], [ 2, 1, 0 ], [ 2, 2, 0 ], [ 1, 2, 0 ],
+					[ 0, 2, 0 ], [ 0, 2, 1 ], [ 0, 2, 2 ], [ 0, 1, 2 ],
+					[ 0, 0, 2 ]
+				]
+			]),
+			'u': new Symbol([
+				[
+					[ 1, 0, 2 ], [ 0, 0, 2 ], [ 0, 1, 2 ], [ 0, 2, 2 ],
+					[ 0, 2, 1 ], [ 0, 2, 0 ], [ 1, 2, 0 ], [ 2, 2, 0 ],
+					[ 2, 1, 0 ], [ 2, 0, 0 ], [ 2, 0, 1 ], [ 1, 0, 0 ],
+					[ 1, 1, 0 ], [ 0, 1, 0 ], [ 0, 1, 1 ], [ 0, 0, 1 ],
+					[ 1, 0, 2 ]
+				]
+			]),
+			'x': new Symbol([
+				[
+					[ 0, 0, 0 ], [ 1, 0, 1 ], [ 2, 0, 2 ], [ 2, 0, 1 ],
+					[ 1, 0, 0 ], [ 2, 0, 0 ], [ 3, 1, 0 ], [ 2, 1, 0 ],
+					[ 1, 1, 0 ], [ 1, 2, 0 ], [ 1, 3, 0 ], [ 0, 2, 0 ],
+					[ 0, 1, 0 ], [ 0, 2, 1 ], [ 0, 2, 2 ], [ 0, 1, 1 ],
+					[ 0, 0, 0 ]
+				]
+			])
+		};
+
+	config.symbolKeys = [ 'f', 'l', 'u', 'x', 'd', 'o', 'c', 'k', ' ' ];
+
+	this.config = config;
+}
+
+
+Logo.prototype.clearCanvas = function()
+{
+	this.boundingBox.round();
+
+	//gContext.fillStyle = '#' + randomInteger(0xffffff);
+	this.graphicsContext.fillRect(this.boundingBox.min[0],
+		this.boundingBox.min[1],
+		this.boundingBox.max[0] - this.boundingBox.min[0],
+		this.boundingBox.max[1] - this.boundingBox.min[1]);
+
+	this.boundingBox.reset();
+}
+
+
+Logo.prototype.renderLines = function()
+{
+	for (var i = 0; i < this.lineClasses.length; i++) {
+		this.graphicsContext.beginPath();
+
+		for (var j = 0; j < this.lineClasses[i].length; j++) {
+			var line = this.lineClasses[i][j];
+
+			this.graphicsContext.lineWidth = line.lineWidth;
+			for (var k = 0; k < line.vertices.length; k++) {
+				var projected = line.projectedVertices[k];
+				projected.copy(line.vertices[k])
+					.applyMatrix4(this.objectRotator.matrix);
+
+				if (k == 0)
+					this.graphicsContext.moveTo(projected.x, projected.y);
+				else
+					this.graphicsContext.lineTo(projected.x, projected.y);
+
+				this.boundingBox.include([ projected.x, projected.y ]);
+			}
+		}
+
+		this.graphicsContext.stroke();
+	}
+
+	this.boundingBox.extendByWidth(this.config.symbolLineWidth);
+}
+
+
+Logo.prototype.render = function()
+{
+	var elapsedTime = performance.now() - this.cycleStartTime;
+
+	this.lineClasses.forEach(function(lineClass) {
+			lineClass.forEach(function(line) {
+					line.animationStep(elapsedTime);
+				});
 		});
 
-	gObjectRotator.animationStep();
+	this.objectRotator.animationStep(elapsedTime);
 
-	//console.log(gLines[0].geometry.vertices[0]);
+	this.clearCanvas();
+	this.renderLines();
 
-	//gObject.rotateOnAxis(new THREE.Vector3(1, 0, 0), 0.01);
-
-	gRenderer.render(gScene, gCamera);
-
-	requestAnimationFrame(render);
+	if (!this.pauseAnimation)
+		requestAnimationFrame(this.render.bind(this));
 }
 
 
-function rotateBy(vector)
+Logo.prototype.startRotation = function()
 {
-	gObject.rotateOnAxis(vector, THREE.Math.degToRad(90));
+	this.rotationMatrix.makeRotationAxis(this.rotationAxis,
+		THREE.Math.degToRad(this.targetRotation));
+	this.viewVector.set(-1, -1, -1).applyMatrix4(this.rotationMatrix).round();
+	this.projection.setTo(this.viewVector);
+
+	this.objectRotator.rotateTo(this.rotationAxis, -this.targetRotation,
+		this.config.rotationTime, this.endRotation.bind(this));
+
+	this.addSymbol(this.config.symbolKeys[this.currentSymbolKeyIndex],
+		this.rotationMatrix);
+	this.currentSymbolKeyIndex
+		= (this.currentSymbolKeyIndex + 1) % this.config.symbolKeys.length;
+
+	this.addRandomLine();
 }
 
 
-function startRotation(rotation)
+Logo.prototype.endRotation = function()
 {
-	gRotationAxis = new THREE.Vector3(1, -1, 1).normalize();
-	gRotationMatrix = new THREE.Matrix4().makeRotationAxis(gRotationAxis,
-		THREE.Math.degToRad(rotation));
+	this.pauseAnimation = true;
+	if (Math.round(this.targetRotation % 360) == 0)
+		this.objectRotator.resetMatrix(this.initialMatrix);
 
-	var viewVector = new THREE.Vector3(-1, -1, -1).applyMatrix4(gRotationMatrix)
-		.round();
-	gProjection = new Projection(gRotationAxis, viewVector, rotation);
-
-	gObjectRotator.rotateTo(gRotationAxis, -rotation, kRotationSteps,
-		endRotation);
-
-	gSymbolLines = [];
-	addSymbol(kSymbolKeys[gCurrentSymbolKeyIndex]);
-	gCurrentSymbolKeyIndex = (gCurrentSymbolKeyIndex + 1) % kSymbolKeys.length;
-
-	addRandomLine();
+	setTimeout(this.triggerNextRotation.bind(this), this.config.pauseDuration);
 }
 
 
-function endRotation()
+Logo.prototype.triggerNextRotation = function()
 {
-	setTimeout(function() {
-			gSymbolLines.forEach(function(line) {
-					line.queueTeardown();
-					line.onTeardownComplete = function() {
-							gLines.splice(gLines.indexOf(line), 1);
-							gLineContainer.remove(line.object);
-						};
-				});
+	this.symbolLines.forEach(function(line) {
+			line.startTeardown();
+			line.onTeardownComplete = function() {
+					this.symbolLines.splice(this.symbolLines.indexOf(line), 1);
+				}.bind(this);
+		}.bind(this));
 
-			var recycle = gRandomLines[0];
-			recycle.queueTeardown();
-			recycle.onTeardownComplete = function() {
-					gLines.splice(gLines.indexOf(recycle), 1);
-					gLineContainer.remove(recycle.object);
-				};
-			gRandomLines.splice(0, 1);
+	if (this.randomLines.length > 0) {
+		this.randomLines[0].startTeardown();
+		this.randomLines[0].onTeardownComplete = function() {
+				this.randomLines.shift();
+			}.bind(this);
+	}
 
-			gTargetRotation += 120;
-			startRotation(gTargetRotation);
-		}, 1000);
+	this.targetRotation += 120;
+	this.startRotation();
+
+	this.pauseAnimation = false;
+	this.cycleStartTime = performance.now();
+	requestAnimationFrame(this.render.bind(this));
 }
 
 
-function addSymbol(symbolKey)
+Logo.prototype.addSymbol = function(symbolKey, rotationMatrix)
 {
-	var symbol = kSymbols[symbolKey].clone().rotateByMatrix(gRotationMatrix);
-	symbol.shapes.forEach(function(shape) {
+	if (this.symbolCache.hasOwnProperty(symbolKey))
+		this.symbolCache[symbolKey].copy(this.config.symbols[symbolKey]);
+	else
+		this.symbolCache[symbolKey] = this.config.symbols[symbolKey].clone();
+
+	this.symbolCache[symbolKey].rotateByMatrix(rotationMatrix,
+		this.config.cubeCenter);
+	this.symbolCache[symbolKey].shapes.forEach(function(shape) {
 			var segmentCount = shape.length - 1;
 			for (var i = 0; i < segmentCount;) {
 				var count = randomInteger(
-					Math.min(segmentCount - i, kMaxLineLength), 1);
+					Math.min(segmentCount - i, this.config.maxLineLength), 1);
 				var previousVector = shape[i];
 				var previousRandomizedVector
-					= gProjection.randomVectorForProjectedPoint(previousVector);
+					= this.projection.randomVectorForProjectedPoint(
+						previousVector, this.config.cubeBounds);
 				var vectors = [ previousRandomizedVector ];
 
 				for (var j = 0; j < count; j++) {
 					var vector = shape[i + j + 1];
 					var randomizedVector
-						= gProjection.randomProgression(previousVector,
-							previousRandomizedVector, vector);
+						= this.projection.randomProgression(previousVector,
+							previousRandomizedVector, vector,
+							this.config.cubeBounds);
 
 					vectors.push(randomizedVector);
 
@@ -650,102 +824,33 @@ function addSymbol(symbolKey)
 					previousRandomizedVector = randomizedVector;
 				}
 
-				var line = new Line(vectors, 0, 0, kSymbolLineWidth,
-					kLineBuildSteps);
+				var line = new Line(vectors, this.config.directions,
+					this.config.cubeBounds, this.config.cubeCenter, 0, 0,
+					this.config.symbolLineWidth, this.config.lineBuildTime);
 
-				gLines.push(line);
-				gSymbolLines.push(line);
-				gLineContainer.add(line.object);
+				this.symbolLines.push(line);
 
 				i += count;
 			}
-		});
+		}.bind(this));
 }
 
 
-function addRandomLine()
+Logo.prototype.addRandomLine = function()
 {
-	var start = randomVector(kCubeBounds);
-	var line = new Line([ start ], kMinLineLength, kMaxLineLength,
-		kRandomLineWidth, kLineBuildSteps);
+	var start = randomVector(this.config.cubeBounds);
+	var line = new Line([ start ], this.config.directions,
+		this.config.cubeBounds, this.config.cubeCenter,
+		this.config.minLineLength, this.config.maxLineLength,
+		this.config.randomLineWidth, this.config.lineBuildTime);
 
-	gLines.push(line);
-	gRandomLines.push(line);
-	gLineContainer.add(line.object);
+	this.randomLines.push(line);
 }
 
 
-function init()
-{
-	console.log('line_cube init');
-	
-	gRenderer = new THREE.CanvasRenderer();
-	gRenderer.setSize(kViewWidth, kViewHeight);
-	gRenderer.setClearColor(0xffffff);
-	document.body.appendChild(gRenderer.domElement);
-
-	gCamera = new THREE.OrthographicCamera(-kViewWidth / kZoom,
-		kViewWidth / kZoom, -kViewHeight / kZoom, kViewHeight / kZoom, 1, 1000);
-
-	gCamera.position.set(10, 10, 10);
-	gCamera.lookAt(new THREE.Vector3(0, 0, 0));
-
-	gControls = new THREE.TrackballControls(gCamera);
-	gControls.rotateSpeed = 10.0;
-	gControls.zoomSpeed = 1.0;
-	gControls.noPan = true;
-	gControls.staticMoving = true;
-	gControls.dynamicDampingFactor = 0.3;
-
-	gLineContainer = new THREE.Object3D();
-	gLines = [];
-	gSymbolLines = [];
-	gRandomLines = [];
-
-	for (var i = 0; i < kRandomLineCount; i++)
-		addRandomLine();
-
-	for (var i = 0; i < 10; i++) {
-		var start = randomVector(kCubeBounds);
-		var middle = randomDirection(new THREE.Vector3(0, 0, 0));
-		middle.add(start);
-
-		var end = randomDirection(new THREE.Vector3(0, 0, 0));
-		end.add(start);
-
-		var geometry = new THREE.Geometry();
-		geometry.vertices.push(start);
-		geometry.vertices.push(middle);
-		geometry.vertices.push(end);
-
-		geometry.faces.push(new THREE.Face3(0, 1, 2));
-
-		var material = new THREE.MeshBasicMaterial({
-				color: 0x000000,
-				side: THREE.DoubleSide
-			});
-
-		//gLineContainer.add(new THREE.Mesh(geometry, material));
-	}
-
-	gLineContainer.translateX(kCubeTranslation.x);
-	gLineContainer.translateY(kCubeTranslation.y);
-	gLineContainer.translateZ(kCubeTranslation.z);
-
-	gObject = new THREE.Object3D();
-	gObject.add(gLineContainer);
-	//gObject.add(new THREE.AxisHelper(5));
-
-	gScene = new THREE.Scene();
-	gScene.add(gObject);
-
-	gObjectRotator = new ObjectRotator(gObject);
-
-	gTargetRotation = 120;
-	startRotation(gTargetRotation);
-
-	requestAnimationFrame(render);
-}
+window.addEventListener('load', function() {
+		window.logo = new Logo('logo-canvas');
+	});
 
 
-window.onload = init;
+} // LogoNamespace
