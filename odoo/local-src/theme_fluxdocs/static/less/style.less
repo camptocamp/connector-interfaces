@@ -1,4 +1,5 @@
 @darkColor: #2E112D;
+@brightColor: #968896;
 @maxWidth: 1000px;
 @minWidth: 440px;
 
@@ -362,22 +363,20 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						margin-left: 0;
 						padding: 0;
 						width: 100%;
+						
+						h2{
+							font-family: "noyhmedium";
+							text-align: left;
+							margin-top: 10px;
+						}
+						.text-muted{
+							color: @darkColor;
+						}
+						.blog-date{
+							color: @brightColor;
+							font-size: 16px;
+						}
 					}
-				}
-			}
-			.mb32{
-				>span{
-					display: none; //hide picture
-				}
-				h2{
-					font-family: "noyhmedium";
-					text-align: left;
-				}
-				div[name="blog_post_data"]{
-					display: none;
-				}
-				.text-muted{
-					color: @darkColor;
 				}
 			}
 		}
