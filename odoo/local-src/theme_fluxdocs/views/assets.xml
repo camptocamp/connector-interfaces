@@ -9,9 +9,6 @@
 				<link href="/theme_fluxdocs/static/less/style.less" rel="stylesheet" type="text/less" />
 			</xpath>
 			
-<!-- 			<xpath expr="link[@href='/website/static/src/less/import_bootstrap.less']" position="replace"> -->
-<!-- 				Removed -->
-<!-- 			</xpath> -->
 			
  			<!-- JS & Favicon -->
 			<xpath expr="." position="inside">
@@ -23,35 +20,5 @@
 			
 		</template>
 		
-<!-- 		<template id="fluxdock-js" name="Fluxdock javascript" inherit_id="website.assets_frontend"> -->
-			
-			
-<!-- 		</template> -->
-		
-		
-		
-<!-- 		<template id="mystyle" name="My style" inherit_id="website.assets_frontend"> -->
-<!-- 			<xpath expr="website.assets_frontend" position="replace"> -->
-<!-- 				<link href="/theme_fluxdocs/static/less/style.less" rel="stylesheet" -->
-<!-- 					type="text/less" /> -->
-<!-- 			</xpath> -->
-<!-- 		</template> -->
-		
-<!-- 		<template id="assets_frontend" name="Website assets"> -->
-<!-- 		    <link id="bootstrap_css" rel="stylesheet" href='/website/static/src/less/import_bootstrap.less'/> -->
-		
-<!-- 		    <link rel="stylesheet" href='/website/static/src/css/website.css'/> -->
-		
-<!-- 		    <script type="text/javascript" src="/web/static/src/js/framework/session_instance.js"></script> -->
-<!-- 		    <script type="text/javascript" src="/website/static/src/js/website.js"></script> -->
-<!-- 		    <script type="text/javascript" src="/website/static/src/js/website.share.js"></script> -->
-		
-<!-- 		    <script type="text/javascript" src="/website/static/src/js/website.snippets.animation.js"></script> -->
-		
-<!-- 		    <t t-call="web.bootstrap"/> -->
-		
-<!-- 		    <link rel="stylesheet" href="/web/static/src/less/variables.less"/> -->
-<!-- 		    <link rel="stylesheet" href="/web/static/src/less/utils.less"/> -->
-<!-- 		</template> -->
 	</data>
 </openerp>
