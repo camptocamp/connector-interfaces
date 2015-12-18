@@ -292,6 +292,40 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 		}
 		
+		.content.latest_news{
+			.latest-news-container{
+				font-size: 0; //because of inline-block
+				text-align: left;
+				margin-top: 36px;
+				.news-teaser{
+					font-size: 14px; //because of inline-block
+					display: inline-block;
+					vertical-align: top;
+					width: 50%;
+					padding: 0 10px;
+					margin-bottom: 30px;
+					.news-teaser-date{
+						color: @brightColor;
+						margin-bottom: 8px;
+					}
+					h2{
+						font-family: "noyhmedium";
+						font-size: 20px;
+						text-align: left;
+						margin-top: 0;
+					}
+					p{
+						margin-bottom: 0;
+					}
+					.read-more{
+						a{
+							color: @brightColor;
+						}
+					}
+				}
+			}
+		}
+		
 		.members-wrap{
 			position: relative;
 			.arrow-left, .arrow-right{
@@ -466,64 +500,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 		}
 		
-//		.fluxdock-footer{
-//			max-width: 1000px;
-//			margin: 50px auto 75px;
-//			position: relative;
-//			display: none;
-//			.footer-logo-title{
-//				float: left;
-//				width: 180px;
-//				height: 100px;
-//				
-//				.footer-logo{
-//					width: 145px;
-//					height: 120px;
-//					background-image: url("/theme_fluxdocs/static/img/fluxdock_logo_retina.png");
-//					background-repeat: no-repeat;
-//					background-size: 145px;
-//				}
-//				.footer-title{
-//					width: 145px;
-//					height: 13px;
-//					background-image: url("/theme_fluxdocs/static/img/fluxdock_title.png");
-//					background-repeat: no-repeat;
-//					background-size: 145px;
-//				}
-//			}
-//			.footer-navigation{
-//				width: 800px;
-//				float: right;
-//				.footer-col{
-//					width: 25%;
-//					float: left;
-//					h3{
-//						text-transform: UPPERCASE;
-//						margin-bottom: 6px;
-//					}
-//					ul{
-//						list-style-type: none;
-//						padding-left: 0;
-//						li{
-//							font-size: 16px;
-//						}
-//					}
-//				}
-//			}
-//		}
-//		.fluxdock-copyright{
-//			display: none;
-//			height: 84px;
-//			background-color: @darkColor;
-//			text-align: center;
-//			color: white;
-//			font-size: 26px;
-//			text-transform: uppercase;
-//			padding-bottom: 12px;
-//	    	padding-top: 25px;
-//		}
 
 	}
+	
 	
 	//LOGIN
 	.oe_website_login_container{

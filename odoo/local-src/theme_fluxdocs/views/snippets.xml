@@ -17,7 +17,7 @@
 		             
 		             
 		            <!-- LOGO -->
-		             <div>
+		            <div>
 		                <div class="oe_snippet_thumbnail">
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/logo.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Fluxdock Logo</span>
@@ -106,6 +106,70 @@
 			                	<a class="button" href="/web/login">Login</a>
 			                </div>
 							
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- LATEST NEWS -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/latest-news.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Latest news</span>
+		                </div>
+		                
+		                 <section class="content latest_news">
+			                <div class="content-wrap">
+			                	<h2>News</h2>
+			                	<div class="latest-news-container">
+			                		
+			                		<div class="news-teaser">
+			                			<div class="news-teaser-date">28 Aug 2015</div>
+			                			<h2>Webplattform Fluxdock erfolgreich gestartet</h2>
+			                			<p>Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region.</p>
+			                			<div class="read-more">
+			                				<a href="#">Read More</a>
+			                			</div>
+			                		</div>
+			                		<div class="news-teaser">
+			                			<div class="news-teaser-date">27 Aug 2015</div>
+			                			<h2>Durch geeignete Regeln, Methoden und Tools zum Erfolg.</h2>
+			                			<p>Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region.</p>
+			                			<div class="read-more">
+			                				<a href="#">Read More</a>
+			                			</div>
+			                		</div>
+			                		<div class="news-teaser">
+			                			<div class="news-teaser-date">27 Aug 2015</div>
+			                			<h2>Durch geeignete Regeln, Methoden und Tools zum Erfolg.</h2>
+			                			<p>Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region.</p>
+			                			<div class="read-more">
+			                				<a href="#">Read More</a>
+			                			</div>
+			                		</div>
+			                		<div class="news-teaser">
+			                			<div class="news-teaser-date">26 Aug 2015</div>
+			                			<h2>Webplattform Fluxdock erfolgreich gestartet</h2>
+			                			<p>Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region.</p>
+			                			<div class="read-more">
+			                				<a href="#">Read More</a>
+			                			</div>
+			                		</div>
+			                		
+<!-- 			                		<div t-foreach="blog_posts" t-as="blog_post" class="blog-list"> -->
+					                	
+<!-- 					                    <h2 t-field="blog_post.name" class="blog-name"> -->
+<!-- 					                    	<t t-if="not blog_post.name">Untitled Post</t> -->
+<!-- 					                    </h2> -->
+					                    
+<!-- 					                </div> -->
+			                		
+			                	</div>
+			                	<div class="news-list-link">
+			                		<a href="/blog/news-1">
+			                			Alle News...
+			                		</a>
+			                	</div>
+			                </div>
 						</section>
 		            </div>
 		            
@@ -304,17 +368,17 @@
 	        </xpath>
 	        
 	        <xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="replace">
-	            <!-- Remove all Snippets -->
+	            Remove all Snippets
 	            <div class="o_panel_body"></div>
 	        </xpath>
 	        
 	        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="replace">
-	            <!-- Remove all Snippets -->
+	            Remove all Snippets
 	            <div class="o_panel_body"></div>
 	        </xpath>
 	        
 	        <xpath expr="//div[@id='snippet_effect']/div[@class='o_panel_body']" position="replace">
-	            <!-- Remove all Snippets -->
+	            Remove all Snippets
 	            <div class="o_panel_body"></div>
 	        </xpath>
 	        
