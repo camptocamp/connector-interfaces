@@ -440,7 +440,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				width: 100%;
 			}
 			>section>.container>.row{
-				width: 920px;
+				max-width: 920px;
 				padding-left: 250px;
 				box-sizing: border-box;
 				margin: 0 auto;
@@ -673,6 +673,37 @@ ul.service-menu{
 }
 
 
+@media only screen and (max-width : 1000px) {
+	// FOOTER
+	body #wrapwrap footer#my_footer{
+		#footer{
+			>section>.container>.row{
+				background-position: center 20px;
+				padding-top: 220px;
+				padding-left: 0;
+				.col-md-4{
+					float: left;
+					width: 25%;
+				}
+			} 
+		} 
+	}
+}
+
+@media only screen and (max-width : 640px) {
+	// FOOTER
+	body #wrapwrap footer#my_footer{
+		#footer{
+			>section>.container>.row{
+				.col-md-4{
+					width: 50%;
+				}
+			} 
+		} 
+	}
+}
+
+
 @media only screen and (max-width : 980px) {
 	body #wrapwrap #my_header{
 		min-width: @minWidth;
@@ -702,8 +733,9 @@ ul.service-menu{
 					left: 0;
 				}
 			}
-		} 
+		}
 	}
+		
 }
 
 //Memberslide Responsive 2 col
