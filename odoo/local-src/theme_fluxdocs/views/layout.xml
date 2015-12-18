@@ -13,9 +13,7 @@
 				        	<div class="fluxdock-title"></div>
 		        		</a>
 		        		
-		        		<div class="mobile-menu-trigger">
-		        			<i class="fa fa-bars"></i>
-		        		</div>
+		        		
 		        		
                         <ul class="main-menu">
 		                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
@@ -49,12 +47,65 @@
 			            		<t t-call="website.language_selector"/>
 		                    </li>
 		            	</ul>
+		            	
+						<!-- Hamburger -->
+		            	<div id="mobile-menu-trigger">
+		        			<i class="fa fa-bars"></i>
+		        		</div>
 	                </div>
                 </header>
 			</xpath>
 			
 		</template>
 		
+		
+		
+		<!-- Add mobile menu -->
+		<template id="mobile-menu" inherit_id="website.layout" name="Fluxdock Mobile Menu">
+			
+			<!-- ADD ID -->
+			<xpath expr="//div[@id='wrapwrap']" position="before">
+				<nav class="mobile-menu">
+					<ul class="main-menu">
+	                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
+	                		<t t-call="website.submenu"/>
+	                	</t>
+	            	</ul>
+           	
+           	
+					<!-- Logged in -->
+	                <ul class="service-menu" t-ignore="true" t-if="website.user_id != user_id">
+	                    <li id="o_logout">
+	                    	<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">
+	                    		Logout
+	                    		<!-- <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>  -->
+	                    	</a>
+	                    </li>
+	                </ul>
+               
+					<!-- Anonymous -->
+	                <ul class="service-menu" t-ignore="true" t-if="not website.user_id != user_id">
+						<li>
+	                    	<a href="/web/login?redirect=/">Login</a>
+	                    </li>
+	                    <li>
+	                    	<a href="/web/signup">Sign Up</a>
+	                    </li>
+	            	</ul>
+	            	
+	            	
+		            <t t-call="website.language_selector"/>
+	                
+	                <div class="social-media">
+	                	<a class="facebook" href="https://www.facebook.com/groups/KitingThailand/"></a>
+	                	<a class="twitter" href="https://www.facebook.com/groups/KitingThailand/"></a>
+	                	<a class="mail" href="mailto:info@fluxdock.ch"></a>
+	                </div>
+	                
+				</nav>
+			</xpath>
+			
+		</template>
 		
 		
 		<!-- Customize footer -->

@@ -92,7 +92,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			background-color: transparent;
 			border: none;
 			padding: 0 210px;
-			.mobile-menu-trigger{
+			#mobile-menu-trigger{
 				display: none;
 			}
 			.fluxdock-header-logo{
@@ -138,11 +138,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				margin-top: 30px;
 				display: table;
 				li{
-					text-transform: UPPERCASE;
 					float: none;
 					display: table-cell;
-					font-size: 20px;
-					font-family: noyhsemilight;
 					padding: 11px 11px;
  					a{
 						color: @darkColor;
@@ -561,6 +558,128 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	}
 }
 
+body{
+	overflow-x: hidden;
+}
+
+body #wrapwrap{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.mobile-menu{
+	position: fixed;
+	right: -260px;
+	top: 0;
+	bottom: 0;
+	width: 260px;
+	background-color: @darkColor;
+	font-family: "noyhlight";
+	padding-top: 50px;
+	ul{
+		list-style-type: none;
+		padding-left: 10px;
+		padding-right: 10px;
+		li{
+			text-align: center;
+		}
+		&.main-menu{
+			margin-bottom: 40px;
+			li{
+				margin-bottom: 6px;
+				a{
+					color: white;
+				}
+			}
+			>li{
+				&:first-of-type{
+					//Hide "Home"
+					display: none;
+				}
+			}
+		}
+		&.service-menu{
+			li{
+				font-size: 16px;
+				margin-bottom: 6px;
+				a{
+					color: @brightColor;
+				}
+			}
+		}
+		&.js_language_selector{
+			text-align: center;
+			margin-left: 0;
+			margin-right: 0;
+			li{
+				font-size: 16px;
+				display: inline-block;
+				a{
+					color: @brightColor;
+					font-size: 0;
+					display: inline-block;
+					width: 20px;
+					&:hover{
+						text-decoration: none;
+					}
+					&:first-letter{
+						font-size: 16px;
+					}
+				}
+				&[groups="base.group_website_publisher"]{
+					a{
+						font-size: 12px;
+						width: auto;
+					}
+				}
+			}
+		}
+	}
+	.social-media{
+		text-align: center;
+		margin-top: 64px;
+		a{
+			display: inline-block;
+			height: 36px;
+			width: 45px;
+			background-repeat: no-repeat;
+			background-position: center center;
+			margin-left: 4px;
+			margin-right: 4px;
+			&.facebook{
+				background-image: url("/theme_fluxdocs/static/img/social-media/facebook.png");
+				background-size: 9px 18px;
+			}
+			&.twitter{
+				background-image: url("/theme_fluxdocs/static/img/social-media/twitter.png");
+				background-size: 19px 15px;
+				
+			}
+			&.mail{
+				background-image: url("/theme_fluxdocs/static/img/social-media/mail.png");
+				background-size: 19px 15px;
+			}
+		}
+	}
+}
+ul.main-menu{
+	li{
+		font-family: noyhsemilight;
+		text-transform: UPPERCASE;
+		font-size: 20px;
+		a:hover{
+			text-decoration: none;
+		}
+	}
+}
+ul.service-menu{
+	li{
+		a:hover{
+			text-decoration: none;
+		}
+	}
+}
 
 
 @media only screen and (max-width : 1250px) {
@@ -579,7 +698,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	body #wrapwrap #my_header{
 		min-width: @minWidth;
 		.fluxdock-topbar{
-			.mobile-menu-trigger{
+			#mobile-menu-trigger{
 				display: block;
 				position: absolute;
 				top: 25px;
