@@ -12,7 +12,7 @@
 			
  			<!-- JS & Favicon -->
 			<xpath expr="." position="inside">
-				<link rel="shortcut icon" href="/theme_fluxdocs/static/favicon/favicon_v01.png" type="image/x-icon" />
+				<link rel="shortcut icon" href="/theme_fluxdocs/static/favicon/favicon_v02.png" type="image/x-icon" />
 				<link rel="icon" href="/theme_fluxdocs/static/favicon/favicon_v01.png" type="image/x-icon" />
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/fluxdock.js"></script>
 			</xpath>
