@@ -137,6 +137,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				text-align: center;
 				margin-top: 30px;
 				display: table;
+				padding-left: 0;
 				li{
 					float: none;
 					display: table-cell;
@@ -292,6 +293,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 		}
 		
+		//Latest News
 		.content.latest_news{
 			.latest-news-container{
 				font-size: 0; //because of inline-block
@@ -326,6 +328,31 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 		}
 		
+		//Projects
+		section.projects-teaser{
+			.projects-teaser-container{
+				.project-box{
+					position: relative;
+					float: left;
+					width: 50%;
+					h2{
+						position: absolute;
+						top: 50%;
+						left: 0;
+						right: 0;
+						z-index: 15;
+						margin-top: -15px;
+					}
+					img{
+						display: block;
+						max-width: 100%;
+						height: auto;
+					}
+				}
+			}
+		}
+		
+		//Members
 		.members-wrap{
 			position: relative;
 			.arrow-left, .arrow-right{

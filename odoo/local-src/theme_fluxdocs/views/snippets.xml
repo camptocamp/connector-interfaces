@@ -173,6 +173,60 @@
 						</section>
 		            </div>
 		            
+		            
+	            	<!-- PROJECTS TEASER -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/projects-teaser.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Projects teaser</span>
+		                </div>
+		                
+		                 <section class="content projects-teaser">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Projects</h2>
+			                	<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                </div>
+		                	<div class="projects-teaser-container">
+		                		
+		                		<div class="project-box">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
+			                			<h2>Cern</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/shanghai.jpg"></img>
+			                			<h2>Expo Shanghai</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
+			                			<h2>Kraftwerk Basel</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/museum.jpg"></img>
+			                			<h2>Archäologisches Museum</h2>
+			                		</a>
+		                		</div>
+	                		
+		                	</div>
+		                	<div class="content-wrap">
+		                		<p>
+			                		<a href="/page/projects">
+			                			More...
+			                		</a>
+		                		</p>
+			                </div>
+						</section>
+		            </div>
+		            
 	            	
 	            	<!-- COMMUNITY NUMBERS -->
 		            <div>
