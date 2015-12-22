@@ -1,6 +1,6 @@
 {
-  'name':'Fluxdocs Theme',
-  'description': 'Custom Theme for the fluxdocks website.',
+  'name':'Fluxdock Theme',
+  'description': 'Custom Theme for the fluxdock website.',
   'version':'1.0',
   'author':'Pierre Sandrin',
 
