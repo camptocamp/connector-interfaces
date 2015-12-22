@@ -1,3 +1,9 @@
 *.pyc
 *.swp
 *.ropeproject
+/snippet_latest_posts-8.0.1.1/
+/odoo-sourcecode/
+/.project
+/.pydevproject
+/theme_fluxdocs.zip
+/theme_fluxdocs-backup.zip
