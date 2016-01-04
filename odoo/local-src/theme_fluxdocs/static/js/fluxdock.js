@@ -63,6 +63,7 @@ $(document).ready(function() {
 	$('.members-wrap').each(function() {
 		var membersWrap = $(this);
 		var membersSlide = membersWrap.find('.members-slide');
+		var membersContainer = membersWrap.find('.members-container');
 		var rightArrow = membersWrap.find('.arrow-right');
 		var leftArrow = membersWrap.find('.arrow-left');
 		var memberSlideIndex = 0;
@@ -70,9 +71,8 @@ $(document).ready(function() {
 		leftArrow.addClass('disabled');
 		
 		//Set width 
-		var boxes = Math.ceil(membersWrap.find('.members-box').length / 2);
-		console.log(boxes);
-		var width = boxes * boxWidth;
+		var boxRows = Math.ceil(membersWrap.find('.members-box').length / 2);
+		var width = boxRows * boxWidth;
 		membersSlide.css('width', width);
 		
 		function updateArrows(membersWrap){
@@ -82,30 +82,56 @@ $(document).ready(function() {
 				leftArrow.removeClass('disabled');
 			}
 			
-			if(memberSlideIndex == boxes-1){
+			if(memberSlideIndex == boxRows - getVisibleRows()){
 				rightArrow.addClass('disabled');
 			}else{
 				rightArrow.removeClass('disabled');
 			}
 		}
 		
-		function slideTo(membersWrap){
+		function slideTo(){
 			membersSlide.animate({left: -memberSlideIndex*boxWidth}, 250)
 		}
+		
+		/*
+		 * Returns if 2 or 4 rows are visible
+		 */
+		function getVisibleRows(){
+			console.log(membersContainer.width());
+			if(membersContainer.width() > 292){
+				return 4;
+			}else{
+				return 2;
+			}
+		}
+		
+		function indexBounds(index){
+			if(index < 0){
+				index = 0;
+			}
+			else if(index > boxRows-getVisibleRows()){
+				index = boxRows-getVisibleRows();
+			}
+			return index;
+		}
+		
 		
 		//Events
 		leftArrow.click(function() {
 			if(memberSlideIndex > 0){
-				memberSlideIndex--;
+				memberSlideIndex = memberSlideIndex - getVisibleRows();
+				memberSlideIndex = indexBounds(memberSlideIndex);
 				slideTo();
 			}
 			
 			//Update arrows
 			updateArrows(membersWrap);
 		});
+		
 		rightArrow.click(function() {
-			if(memberSlideIndex < boxes-1){
-				memberSlideIndex++;
+			if(memberSlideIndex <= boxRows-getVisibleRows()){
+				memberSlideIndex = memberSlideIndex + getVisibleRows();
+				memberSlideIndex = indexBounds(memberSlideIndex);
 				slideTo();
 			}
 			
@@ -115,6 +141,51 @@ $(document).ready(function() {
 		
 	});
 	
+	
+	//Project search
+	$('form.search-panel').submit(function(event) {
+		event.preventDefault();
+		filter();
+	});
+	
+	$('input.filter').keyup(function(event) {
+		console.log('typed something');
+		filter();
+	});
+	
+	$('select.filter').change(function(event) {
+		filter();
+	});
+	
+	function filter(){
+		//show all
+		$('.filterable').show();
+		
+		//Filter title
+		$('input[type="text"].filter').each(function() {
+			var facet = $(this).data('facet');
+			if(facet == 'title'){
+				var searchString = $(this).val();
+				$('.filterable').each(function() {
+					var title = $(this).find('.title').text();
+					console.log(title, searchString);
+					if(title.toLowerCase().indexOf(searchString.toLowerCase().trim()) == -1){
+						$(this).hide();
+					}
+				});
+			}
+		});
+		
+		//Filter selects
+		$('select.filter').each(function() {
+			var facet = $(this).data('facet');
+			var value = $(this).val();
+			if(value != 'all'){
+				$('.filterable:not([data-facet-'+facet+'="'+value+'"])').hide();
+			}
+		});
+		
+	}
 	
 	
 	

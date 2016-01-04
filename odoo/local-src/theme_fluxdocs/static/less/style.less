@@ -57,6 +57,18 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		font-size: 20px;
 		padding-left: 10px;
 		padding-right: 10px;
+		background-color: @darkColor;
+	}
+	
+	select{
+		border: solid 1px white;
+		height: 42px;
+		padding-left: 6px;
+		padding-right: 6px;
+		option{
+			height: 42px;
+			padding-top: 10px;
+		}
 	}
 	
 	.opt_dark_bg{
@@ -73,6 +85,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			color: white;
 		}
 		input[type="text"], input[type="password"], button[type="submit"]{
+			background-color: @darkColor;
+		}
+		select{
 			background-color: @darkColor;
 		}
 	}
@@ -329,8 +344,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		
 		//Projects
-		section.projects-teaser{
-			.projects-teaser-container{
+		section.projects{
+			.projects-container{
+				margin-bottom: 30px;
 				.project-box{
 					position: relative;
 					float: left;
@@ -351,6 +367,37 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				}
 			}
 		}
+		
+		.search-panel{
+			.filter-row{
+				margin-bottom: 20px;
+				&.row-1{
+					input[type="text"]{
+						display: block;
+						width: 78%;
+						margin-right: 2%;
+						float: left;
+					}
+					button[type="submit"]{
+						display: block;
+						width: 20%;
+						float: left;
+					}
+				}
+				&.row-2{
+					select{
+						display: block;
+						width: 32%;
+						margin-right: 2%;
+						float: left;
+						&:nth-of-type(3n){
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+		
 		
 		//Members
 		.members-wrap{
@@ -417,6 +464,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			.newsletter-form{
 				input[type="text"]{
 					width: 455px;
+					margin-bottom: 30px;
 				}
 				button[type="submit"]{
 					width: 150px;
@@ -552,7 +600,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	
 	//Clearfix
 	.fluxdock-footer,
+	.projects-teaser-container,
 	.footer-navigation,
+	.filter-row,
 	.clearfix { 
 		&:after{
 		    content: ".";
@@ -763,6 +813,20 @@ ul.service-menu{
 		}
 	}
 		
+}
+
+//Projects boxes
+@media only screen and (max-width : 700px) {
+	body #wrapwrap main section.projects .projects-container{
+		.project-box{
+			position: relative;
+			float: none;
+			width: 100%;
+		}
+	}
+	.projects-teaser-container{
+		display: none;
+	}
 }
 
 //Memberslide Responsive 2 col

@@ -174,6 +174,78 @@
 		            </div>
 		            
 		            
+	            	<!-- PROJECTS LIST -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/projects-list.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Projects List</span>
+		                </div>
+		                
+		                 <section class="content projects projects-list opt_dark_bg">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Projects</h2>
+			                	<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                	<form class="search-panel projects-search-panel">
+			                		<div class="filter-row row-1">
+			                			<input class="filter" type="text" placeholder="firma suchen" data-type="project" data-facet="title"></input>
+			                			<button type="submit">suchen</button>
+			                		</div>
+			                		<div class="filter-row row-2">
+			                			<select class="filter category" data-type="project" data-facet="category">
+			                				<option value="all">alle Kategorien</option>
+			                				<option value="design">Design</option>
+			                				<option value="web">Web</option>
+			                			</select>
+			                			<select class="filter expertise" data-type="project" data-facet="expertise">
+			                				<option value="all">alle Expertisen</option>
+			                				<option value="design">Desktop publishing</option>
+			                				<option value="webdevelopment">Webentwicklung</option>
+			                				<option value="pingpong">Pingpong</option>
+			                			</select>
+			                			<select class="filter country" data-type="project" data-facet="country">
+			                				<option value="all">alle Länder</option>
+			                				<option value="ch">Schweiz</option>
+			                				<option value="de">Deutschland</option>
+			                				<option value="fr">Frankreich</option>
+			                			</select>
+			                		</div>
+			                	</form>
+			                </div>
+		                	<div class="projects-container projects-list-container">
+		                		
+		                		<div class="project-box filterable" data-type="project" data-facet-category="design" data-facet-expertise="design" data-facet-country="ch">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
+			                			<h2 class="title">Cern</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box filterable" data-type="project" data-facet-category="web" data-facet-expertise="webdevelopment" data-facet-country="ch">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/shanghai.jpg"></img>
+			                			<h2 class="title">Expo Shanghai</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box filterable" data-type="project" data-facet-category="design" data-facet-expertise="design" data-facet-country="ch">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
+			                			<h2 class="title">Kraftwerk Basel</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box filterable" data-type="project" data-facet-category="design" data-facet-expertise="design" data-facet-country="de">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/museum.jpg"></img>
+			                			<h2 class="title">Archäologisches Museum</h2>
+			                		</a>
+		                		</div>
+	                		
+		                	</div>
+						</section>
+		            </div>
+		            
+		            
 	            	<!-- PROJECTS TEASER -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -181,7 +253,7 @@
 		                    <span class="oe_snippet_thumbnail_title">Projects teaser</span>
 		                </div>
 		                
-		                 <section class="content projects-teaser">
+		                 <section class="content projects projects-teaser">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
@@ -189,7 +261,7 @@
 			                	<h2>Projects</h2>
 			                	<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 			                </div>
-		                	<div class="projects-teaser-container">
+		                	<div class="projects-container projects-teaser-container">
 		                		
 		                		<div class="project-box">
 		                			<a href="#project-detail">
