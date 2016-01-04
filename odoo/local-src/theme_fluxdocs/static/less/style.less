@@ -484,7 +484,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						margin-left: 0;
 						padding: 0;
 						width: 100%;
-						
+						.blog-list{
+							margin-bottom: 60px;
+						}
 						h2{
 							font-family: "noyhmedium";
 							text-align: left;
@@ -495,7 +497,16 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						}
 						.blog-date{
 							color: @brightColor;
-							font-size: 16px;
+							font-size: 18px;
+						}
+						h4.blog-subtitle{
+							margin-bottom: 0;
+						}
+						.read-more{
+							color: @brightColor;
+							i.fa{
+								font-size: 14px;
+							}
 						}
 					}
 				}
@@ -825,7 +836,7 @@ ul.service-menu{
 		}
 	}
 	.projects-teaser-container{
-		display: none;
+//		display: none;
 	}
 }
 
@@ -844,4 +855,20 @@ ul.service-menu{
 			right: -40px;
 		}
 	}
+}
+
+//Numbers
+@media only screen and (max-width : 700px) {
+	body #wrapwrap main .numbers-wrap{
+		padding-top: 55px;
+		height: 150px;
+		.number-entry{
+			.number-value{
+				font-size: 40px;
+			}
+			.number-label{
+				font-size: 20px;
+			}
+		}
+	} 
 }
