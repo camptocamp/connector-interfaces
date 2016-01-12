@@ -12,7 +12,7 @@
         'auth_signup', 'website', 'website_portal'
     ],
     'data': [
-        # 'views/templates.xml',
+        'views/templates.xml',
     ],
     'installable': True,
 }
