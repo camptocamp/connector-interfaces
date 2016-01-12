@@ -7,21 +7,21 @@
 			<xpath expr="//div[@id='wrapwrap']/header" position="replace">
 				<header id="my_header">
                     <div class="fluxdock-topbar">
-                    	
-                    	<a href="/" class="fluxdock-header-logo">
+
+                    	<a href="/" class="navbar-brand">
 				        	<div class="fluxdock-logo"></div>
 				        	<div class="fluxdock-title"></div>
 		        		</a>
-		        		
-		        		
-		        		
-                        <ul class="main-menu">
+
+
+
+                        <ul class="main-menu" id="top_menu">
 		                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
 		                		<t t-call="website.submenu"/>
 		                	</t>
 		            	</ul>
-            	
-            	
+
+
 						<!-- Logged in -->
 		                <ul class="service-menu" t-ignore="true" t-if="website.user_id != user_id">
 		                    <li id="o_logout">
@@ -34,20 +34,20 @@
 			            		<t t-call="website.language_selector"/>
 		                    </li>
 		                </ul>
-                
+
 						<!-- Anonymous -->
 		                <ul class="service-menu" t-ignore="true" t-if="not website.user_id != user_id">
 							<li>
 		                    	<a href="/web/login?redirect=/">Login</a>
 		                    </li>
 		                    <li>
-		                    	<a href="/web/signup">Sign Up</a>
+		                    	<a href="/web/presignup">Sign Up</a>
 		                    </li>
 		                    <li>
 			            		<t t-call="website.language_selector"/>
 		                    </li>
 		            	</ul>
-		            	
+
 						<!-- Hamburger -->
 		            	<div id="mobile-menu-trigger">
 		        			<i class="fa fa-bars"></i>
@@ -55,7 +55,7 @@
 	                </div>
                 </header>
 			</xpath>
-			
+
 		</template>
 		
 		
@@ -71,6 +71,7 @@
 	                		<t t-call="website.submenu"/>
 	                	</t>
 	            	</ul>
+
            	
            	
 					<!-- Logged in -->
@@ -89,7 +90,7 @@
 	                    	<a href="/web/login?redirect=/">Login</a>
 	                    </li>
 	                    <li>
-	                    	<a href="/web/signup">Sign Up</a>
+	                    	<a href="/web/presignup">Sign Up</a>
 	                    </li>
 	            	</ul>
 	            	

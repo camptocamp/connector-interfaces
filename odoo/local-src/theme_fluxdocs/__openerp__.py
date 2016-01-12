@@ -13,5 +13,5 @@
     'views/assets.xml'
   ],
   'category': 'Theme/Creative',
-  'depends': ['website', 'website_blog'],
+  'depends': ['website', 'website_blog','website_portal','website_fluxdock_signup'],
 }

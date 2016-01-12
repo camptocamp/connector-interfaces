@@ -47,7 +47,7 @@ $(document).ready(function() {
 	if($('section.animated-logo').length > 0){
 		$(window).scroll(function(event) {
 			var scrollPosition = $(window).scrollTop();
-			var logo = $('.fluxdock-header-logo');
+			var logo = $('.navbar-brand');
 			if(scrollPosition > 500){
 				logo.addClass('visible-scroll');
 			}else{
@@ -55,7 +55,7 @@ $(document).ready(function() {
 			}
 	    });
 	}else{
-		$('.fluxdock-header-logo').addClass('visible-scroll');
+		$('.navbar-brand').addClass('visible-scroll');
 	}
 	
 	//Members slider
