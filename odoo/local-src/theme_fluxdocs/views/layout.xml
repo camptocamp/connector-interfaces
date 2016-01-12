@@ -38,6 +38,11 @@
 		                    		<!-- <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>  -->
 		                    	</a>
 		                    </li>
+		                    <li id="myhome">
+		                    	<a t-attf-href="/my/home" role="menuitem">
+		                    		My Account
+		                    	</a>
+		                    </li>
 		                    <li>
 			            		<t t-call="website.language_selector"/>
 		                    </li>
