@@ -8,7 +8,7 @@
 				<header id="my_header">
                     <div class="fluxdock-topbar">
 
-                    	<a class="hidden" href="/" class="navbar-brand">
+                    	<a href="/" class="navbar-brand hidden">
 							<!-- Needed for other modules to put their stuff in it -->
                     	</a>
                     	
