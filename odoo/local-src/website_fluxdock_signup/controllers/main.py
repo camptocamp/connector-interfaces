@@ -11,7 +11,7 @@ from openerp.addons.website_portal.controllers.main import website_account
 class AuthSignupHome(openerp.addons.web.controllers.main.Home):
 
     @http.route('/web/presignup', type='http', auth='public', website=True)
-    def web_fluxdock_pre_signup(self, *args, **kw):
+    def website_fluxdock_presignup(self, *args, **kw):
         # qcontext = self.get_auth_signup_qcontext()
         #
         # if not qcontext.get('token') and not qcontext.get('signup_enabled'):

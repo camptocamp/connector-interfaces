@@ -5,17 +5,32 @@
 
             <t t-call="web.login_layout">
 		<div class="clearfix oe_login_buttons">
-                        <a t-attf-href="/web/signup" class="btn btn-primary">Firma</a>
-                        <a t-attf-href="/web/signup" class="btn btn-primary">Privatperson</a>
+			<div>
+				THROUGH COLLABORATION TO INNOVATION
+			</div>
+			<div>
+				I represent a
+				<a t-attf-href="/web/signup" class="btn btn-primary">Firma</a>
+				<a t-attf-href="/web/signup" class="btn btn-primary">Privatperson</a>
+			</div>
+			<div>
+				Are you already registered? Log in <a t-attf-href="/web/login">here</a>
+		       	</div>
 		</div>
             </t>
         </template>
 
-	<template id="website_fluxdock_signup.country" name="Signup country" inherit_id="auth_signup.fields">
+	<template id="website_fluxdock_signup.signup" name="Signup country" inherit_id="auth_signup.fields">
 		<xpath expr="//div[contains(@class,'field-name')]" position="after">
 			<div class="form-group field-country">
 				<label for="country" class="control-label">Country</label>
 				<input type="search" name="country" t-att-value="country" id="country" class="form-control" autofocus="autofocus" required="required"/>
+			</div>
+		</xpath>
+		<xpath expr="//div[contains(@class,'field-confirm_password')]" position="after">
+			<div class="form-group field-agree_to_terms">
+				<label for="agree_to_terms" class="control-label">Agree to terms</label>
+				<input type="checkbox" name="agree_to_terms" t-att-value="agree_to_terms" id="agree_to_terms" class="window-new" required="required"/>
 			</div>
 		</xpath>
 	</template>
