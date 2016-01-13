@@ -96,10 +96,6 @@
 						<label class="control-label label-optional" for="video_url">Video URL</label>
 						<input type="text" name="video_url" class="form-control" t-att-value="project.video_url"/>
 					</div>
-					<div class="col-md-7 col-sm-8">
-						<label class="control-label label-optional" for="agree_to_terms">Agree to terms</label>
-						<input type="text" name="agree_to_terms" class="form-control" t-att-value="project.agree_to_terms"/>
-					</div>
                                 </div>
                             </div>
                         </div>

@@ -17,4 +17,3 @@ class ProjectProject(models.Model):
     referenz_kurzbeschreibung = fields.Char('Referenzprojekt Kurzbeschreibung', size=64, help='Referenzprojekt Kurzbeschreibung')
     video_url = fields.Char('Video URL', size=64, help='Video URL')
     referenz_partner = fields.Char('Referenzprojekt Partner', size=64, help='Referenzprojekt Partner')
-    agree_to_terms = fields.Char('Agree to unity terms', size=64, help='Agree to terms')

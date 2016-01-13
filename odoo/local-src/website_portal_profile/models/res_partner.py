@@ -13,3 +13,4 @@ class ResPartner(models.Model):
     facebook = fields.Char(string='Facebook')
     twitter = fields.Char(string='Twitter')
     expertise = fields.Char(string='Expertise')
+    agree_to_terms = fields.Boolean('Agree to unity terms', help='Agree to terms')
