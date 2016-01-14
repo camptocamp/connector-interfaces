@@ -4,10 +4,10 @@
         <template id="website_fluxdock_signup.presignup" name="Pre Signup Form">
 
             <t t-call="web.login_layout">
-		<div class="clearfix oe_login_buttons">
-                        <a t-attf-href="/web/signup" class="btn btn-primary">Firma</a>
-                        <a t-attf-href="/web/signup" class="btn btn-primary">Privatperson</a>
-		</div>
+				<div class="clearfix oe_login_buttons presignup">
+					<a t-attf-href="/web/signup" class="btn btn-primary">Firma</a>
+					<a t-attf-href="/web/signup" class="btn btn-primary">Privatperson</a>
+				</div>
             </t>
         </template>
 
