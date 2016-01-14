@@ -37,19 +37,24 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		color: @darkColor;
 	}
 	
+//	a.btn,
+//	a.button{
+//		display: inline-block;
+//		border: solid 1px white;
+//		background-color: @darkColor;
+//		height: 42px;
+//		font-size: 20px;
+//		padding: 0 20px;
+//		margin: 0 4px;
+//		line-height: 40px;
+//	}
+	
+	input[type="text"],
+	input[type="password"],
+	button[type="submit"],
+	a.btn,
 	a.button{
-		display: inline-block;
-		border: solid 1px;
-		height: 42px;
-		font-size: 20px;
-		padding: 0 20px;
-		margin: 0 4px;
-		line-height: 40px;
-		&:hover{
-			text-decoration: none;
-		}
-	}
-	input[type="text"], input[type="password"], button[type="submit"]{
+		color: white;
 		border: solid 1px white;
 		border-radius: 0;
 		box-shadow: none;
@@ -58,6 +63,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		padding-left: 10px;
 		padding-right: 10px;
 		background-color: @darkColor;
+		&:hover{
+			text-decoration: none;
+		}
 	}
 	
 	select{
@@ -363,6 +371,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						display: block;
 						max-width: 100%;
 						height: auto;
+						filter: grayscale(60%) brightness(50%);
 					}
 				}
 			}
@@ -595,6 +604,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		background-color: @darkColor;
 		background-image: url("/theme_fluxdocs/static/img/netz.png");
 		padding: 50px 20px;
+//		min-height: 400px;
 		label{
 			color: white;
 		}
@@ -604,6 +614,10 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		.oe_login_buttons{
 			text-align: center;
+		}
+		.presignup{
+			margin-top: 100px;
+			margin-bottom: 100px;
 		}
 		
 	}
