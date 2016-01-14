@@ -93,7 +93,7 @@
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/signup_login.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Signup / Login</span>
 		                </div>
-		                 <section class="content signup_login">
+		                 <section class="content signup_login opt_dark_bg">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
@@ -102,8 +102,8 @@
 			                	<p>Collaborative. Effective. Innovative. Fluxdock is a project management platform for startups and agile developers &amp; designers who want a simple, beautiful tool that makes work truly enjoyable.</p>
 			                </div>
 			                <div class="content-wrap">
-			                	<a class="button" href="/web/presignup">Sign up</a>
-			                	<a class="button" href="/web/login">Login</a>
+			                	<a class="btn" href="/web/presignup">Sign up</a>
+			                	<a class="btn" href="/web/login">Login</a>
 			                </div>
 							
 						</section>
@@ -340,7 +340,7 @@
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/newsletter.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Newsletter</span>
 		                </div>
-		                 <section class="content signup_login opt_dark_bg">
+		                 <section class="content newsletter_subscribe opt_dark_bg">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
@@ -357,6 +357,27 @@
 						</section>
 		            </div>
 		            
+	            	<!-- CAROUSEL -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/carousel.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Image Carousel</span>
+		                </div>
+		                <section class="carousel">
+							<ul class="bxslider">
+				        		<li class="carousel-item">
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-1.jpg" />
+				        	    </li>
+				        	    <li class="carousel-item">
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-2.jpg" />
+				        		</li>
+				            	<li class="carousel-item">
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-3.jpg" />
+				            	</li>
+							</ul>
+						</section>
+		            </div>
+		            
 		            
 	            	<!-- MEMBERS -->
 		            <div>
@@ -364,7 +385,7 @@
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/members.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Members</span>
 		                </div>
-		                 <section class="content members">
+		                <section class="content members">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
