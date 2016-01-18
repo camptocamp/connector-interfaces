@@ -262,6 +262,44 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 		}
 		
+		//Carousel (bxslider)
+		.bx-wrapper{
+			.bx-viewport{
+				border: none;
+				box-shadow: none;
+				left: 0;
+			}
+			.bx-pager.bx-default-pager{
+				bottom: 0;
+				a{
+					background-color: #929292;
+				}
+				 a.active, a:hover{
+					background-color: #fff;
+				}
+			}
+			.bx-controls-direction a{
+				margin-top: -32px;
+				height: 75px;
+				width: 50px;
+				background-size: 25px 75px;
+				background-position: 0 0;
+				&.bx-prev{
+					background-image: url("/theme_fluxdocs/static/img/arrow-white.png");
+					left: 28px;
+				}
+				&.bx-next{
+					background-image: url("/theme_fluxdocs/static/img/arrow-white.png");
+					-webkit-transform: rotate(180deg);
+					-moz-transform: rotate(180deg);
+					-ms-transform: rotate(180deg);
+					-o-transform: rotate(180deg);
+					transform: rotate(180deg);
+					right: 28px;
+				}
+			}
+		}
+		
 		section.content{
 			padding-top: 24px;
 			padding-bottom: 24px;
@@ -610,12 +648,17 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		label{
 			color: white;
 		}
-		.oe_login_form{
+		>form{
 			max-width: 600px;
 			margin: 0 auto;
 		}
 		.oe_login_buttons{
 			text-align: center;
+			.btn-link{
+				border: none;
+				background-color: transparent;
+				width: 100%;
+			}
 		}
 		.presignup{
 			margin-top: 100px;
