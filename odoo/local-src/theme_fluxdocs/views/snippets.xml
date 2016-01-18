@@ -366,13 +366,13 @@
 		                <section class="carousel">
 							<ul class="bxslider">
 				        		<li class="carousel-item">
-			                		<img src="/theme_fluxdocs/static/img/carousel/slide-1.jpg" />
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-1-1600.jpg" />
 				        	    </li>
 				        	    <li class="carousel-item">
-			                		<img src="/theme_fluxdocs/static/img/carousel/slide-2.jpg" />
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-2-1600.jpg" />
 				        		</li>
 				            	<li class="carousel-item">
-			                		<img src="/theme_fluxdocs/static/img/carousel/slide-3.jpg" />
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-3-1600.jpg" />
 				            	</li>
 							</ul>
 						</section>
