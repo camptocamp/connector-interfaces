@@ -194,23 +194,29 @@
 			                			<button type="submit">suchen</button>
 			                		</div>
 			                		<div class="filter-row row-2">
-		                				<select class="filter category" data-type="project" data-facet="category">
-			                				<option value="all">alle Kategorien</option>
-			                				<option value="design">Design</option>
-			                				<option value="web">Web</option>
-			                			</select>
-			                			<select class="filter expertise" data-type="project" data-facet="expertise">
-			                				<option value="all">alle Expertisen</option>
-			                				<option value="design">Desktop publishing</option>
-			                				<option value="webdevelopment">Webentwicklung</option>
-			                				<option value="pingpong">Pingpong</option>
-			                			</select>
-			                			<select class="filter country" data-type="project" data-facet="country">
-			                				<option value="all">alle Länder</option>
-			                				<option value="ch">Schweiz</option>
-			                				<option value="de">Deutschland</option>
-			                				<option value="fr">Frankreich</option>
-			                			</select>
+		                				<div class="styled-select">
+		                					<select class="filter category" data-type="project" data-facet="category">
+				                				<option value="all">alle Kategorien</option>
+				                				<option value="design">Design</option>
+				                				<option value="web">Web</option>
+				                			</select>
+		                				</div>
+		                				<div class="styled-select">
+				                			<select class="filter expertise" data-type="project" data-facet="expertise">
+				                				<option value="all">alle Expertisen</option>
+				                				<option value="design">Desktop publishing</option>
+				                				<option value="webdevelopment">Webentwicklung</option>
+				                				<option value="pingpong">Pingpong</option>
+				                			</select>
+		                				</div>
+		                				<div class="styled-select">
+				                			<select class="filter country" data-type="project" data-facet="country">
+				                				<option value="all">alle Länder</option>
+				                				<option value="ch">Schweiz</option>
+				                				<option value="de">Deutschland</option>
+				                				<option value="fr">Frankreich</option>
+				                			</select>
+		                				</div>
 			                		</div>
 			                	</form>
 			                </div>
