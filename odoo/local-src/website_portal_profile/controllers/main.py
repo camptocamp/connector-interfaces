@@ -11,7 +11,9 @@ class website_account(website_account):
     def details(self, redirect=None, **post):
         response = super(website_account, self).details()
         categories = request.env['res.partner.category'].sudo().search([])
+        areas = request.env['res.partner.area'].sudo().search([])
         response.qcontext.update({
             'categories': categories,
+            'areas': areas,
         })
         return response

@@ -77,6 +77,17 @@
                                             </t>
                                         </select>
                                     </div>
+                                    <div t-attf-class="form-group #{error.get('area_ids') and 'has-error' or ''} col-lg-6">
+                                        <label class="control-label" for="area_ids">Area</label>
+                                        <select name="area_ids" class="form-control">
+                                            <option value="">Areas</option>
+                                            <t t-foreach="areas or []" t-as="area">
+                                                <option t-att-value="area.id" t-att-selected="area.id == partner.area_ids.id">
+                                                    <t t-esc="area.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
                                     <div t-attf-class="form-group #{error.get('expertise') and 'has-error' or ''} col-lg-6">
                                         <label class="control-label label-optional" for="expertise">URL</label>
                                         <input type="text" name="expertise" class="form-control" t-att-value="partner.expertise"/>
