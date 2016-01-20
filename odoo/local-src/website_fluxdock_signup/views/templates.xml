@@ -20,6 +20,26 @@
             </t>
         </template>
 
+        <template id="website_fluxdock_signup.thanks_for_registration" name="Thanks for registration">
+
+            <t t-call="web.login_layout">
+		<div class="clearfix oe_login_buttons">
+			<p>
+				THANK YOU FOR YOUR REGISTRATION.
+			</p>
+			<p>
+				Please confirm your email address:
+			</p>
+			<p>
+				You can edit your profile in the Fluxdock members area. To login please use the choosen 
+			        password and user name.	
+		       	</p>
+			<p>
+				<a t-attf-href="/my/account" class="btn btn-primary">Edit profile</a>
+			</p>
+		</div>
+            </t>
+        </template>
 	<template id="website_fluxdock_signup.signup" name="Signup country" inherit_id="auth_signup.fields">
 		<xpath expr="//div[contains(@class,'field-name')]" position="after">
 			<div class="form-group field-country">

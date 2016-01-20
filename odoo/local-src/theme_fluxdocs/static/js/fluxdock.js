@@ -47,7 +47,7 @@ $(document).ready(function() {
 	if($('section.animated-logo').length > 0){
 		$(window).scroll(function(event) {
 			var scrollPosition = $(window).scrollTop();
-			var logo = $('.navbar-brand');
+			var logo = $('.fluxdock-header-logo');
 			if(scrollPosition > 500){
 				logo.addClass('visible-scroll');
 			}else{
@@ -55,7 +55,7 @@ $(document).ready(function() {
 			}
 	    });
 	}else{
-		$('.navbar-brand').addClass('visible-scroll');
+		$('.fluxdock-header-logo').addClass('visible-scroll');
 	}
 	
 	//Members slider
@@ -186,6 +186,9 @@ $(document).ready(function() {
 		});
 		
 	}
+	
+	//Init Carousel with bxslider
+	$('.bxslider').bxSlider();
 	
 	
 	
