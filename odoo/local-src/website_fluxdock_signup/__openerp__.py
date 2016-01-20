@@ -9,7 +9,11 @@
         """,
     'website': 'https://www.sunjka.de/',
     'depends': [
-        'auth_signup', 'website', 'website_portal'
+        'auth_signup',
+        'partner_area',
+        'website',
+        'website_portal',
+        'website_portal_profile'
     ],
     'data': [
         'views/templates.xml',
