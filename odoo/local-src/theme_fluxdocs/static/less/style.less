@@ -68,6 +68,23 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 	}
 	
+	.styled-select{
+		overflow: hidden;
+		border: solid 1px white;
+		background-image: url("/theme_fluxdocs/static/img/arrow-white-down.png");
+		background-repeat: no-repeat;
+		background-position: right 11px top 16px;
+		background-size: 26px 9px;
+		select{
+			border: none;
+			background-color: transparent;
+			option{
+				height: 42px;
+				padding-top: 10px;
+			}
+		}
+	}
+	
 	select{
 		border: solid 1px white;
 		height: 42px;
@@ -94,6 +111,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		input[type="text"], input[type="password"], button[type="submit"]{
 			background-color: @darkColor;
+		}
+		.styled-select{
+			background-color: @darkColor;
+			select{
+				background-color: transparent;
+			}
 		}
 		select{
 			background-color: @darkColor;
@@ -435,13 +458,16 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					}
 				}
 				&.row-2{
-					select{
-						display: block;
+					.styled-select{
 						width: 32%;
 						margin-right: 2%;
 						float: left;
 						&:nth-of-type(3n){
 							margin-right: 0;
+						}
+						select{
+							display: block;
+							width: 120%;
 						}
 					}
 				}
@@ -568,8 +594,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	
 	// FOOTER
 	footer#my_footer{
-		
-		
+		margin-top: 60px;
 		#footer{
 			//Hide Odoo crap
 			.container{
@@ -925,4 +950,12 @@ ul.service-menu{
 			}
 		}
 	} 
+}
+
+//Search fields
+@media only screen and (max-width : 600px) {
+	body #wrapwrap main .search-panel .filter-row.row-2 .styled-select{
+		width: 100%;
+		margin-bottom: 20px;
+	}
 }
