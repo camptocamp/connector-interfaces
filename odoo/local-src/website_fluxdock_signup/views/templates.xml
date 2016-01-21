@@ -5,17 +5,17 @@
 
             <t t-call="web.login_layout">
 		<div class="clearfix oe_login_buttons">
-			<div>
+			<p>
 				THROUGH COLLABORATION TO INNOVATION
-			</div>
-			<div>
+			</p>
+			<p>
 				I represent a
 				<a t-attf-href="/web/signup" class="btn btn-primary">Firma</a>
 				<a t-attf-href="/web/signup" class="btn btn-primary">Privatperson</a>
-			</div>
-			<div>
+			</p>
+			<p>
 				Are you already registered? Log in <a t-attf-href="/web/login">here</a>
-		       	</div>
+		       	</p>
 		</div>
             </t>
         </template>
@@ -40,6 +40,7 @@
 		</div>
             </t>
         </template>
+
 	<template id="website_fluxdock_signup.signup" name="Signup country" inherit_id="auth_signup.fields">
 		<xpath expr="//div[contains(@class,'field-name')]" position="after">
 			<div class="form-group field-country">

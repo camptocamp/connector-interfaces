@@ -5,7 +5,7 @@
     'summary': '',
     'version': '1.0',
     'description': """
-    Fluxdock specific sign up
+    Fluxdock sign up
         """,
     'website': 'https://www.sunjka.de/',
     'depends': [
@@ -13,7 +13,8 @@
         'partner_area',
         'website',
         'website_portal',
-        'website_portal_profile'
+        'website_portal_profile',
+        'website_portal_project'
     ],
     'data': [
         'views/templates.xml',
