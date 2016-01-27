@@ -19,3 +19,8 @@ class WebsitePortalProject(http.Controller):
     def projects_followup(self, project_id=None):
         project = request.env['project.project'].browse(project_id)
         return request.website.render("website_portal_project.projects_followup", {'project': project})
+
+    @http.route(['/my/projects/new'], type='http', auth="user", website=True)
+    def projects_new(self, project_id=None):
+        project = request.env['project.project'].browse(project_id)
+        return request.website.render("website_portal_project.projects_new", {'project': project})

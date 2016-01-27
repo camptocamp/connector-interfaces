@@ -33,6 +33,7 @@
             </t>
         </xpath>
     </template>
+
     <template id="projects_followup" name="Projects">
         <t t-call="website.layout">
             <div id="wrap">
@@ -101,6 +102,71 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="projects_new" name="New Project">
+        <t t-call="website.layout">
+            <div id="wrap">
+                    <div class="container">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>
+                                            Project <span t-field="project.id"/> - <span t-field="project.name"/>
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-md-8">
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="referenz_titel">Referenz Titel</label>
+						<input type="text" name="referenz_titel" class="form-control" t-att-value="project.referenz_titel"/>
+					</div>
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="zeitpunkt_implementierung">Zeitpunkt Implementierung</label>
+						<input type="text" name="zeitpunkt_implementierung" class="form-control" t-att-value="project.zeitpunkt_implementierung"/>
+					</div>
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="ort">Ort</label>
+						<input type="text" name="ort" class="form-control" t-att-value="project.ort"/>
+					</div>
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="kategorie">Kategorie</label>
+						<input type="text" name="kategorie" class="form-control" t-att-value="project.kategorie"/>
+					</div>
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="expertise">Expertise</label>
+						<input type="text" name="expertise" class="form-control" t-att-value="project.expertise"/>
+					</div>
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="referenz_bild">Referenz Bild</label>
+						<input type="text" name="referenz_bild" class="form-control" t-att-value="project.referenz_bild"/>
+					</div>
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="referenz_kurzbeschreibung">Referenz Kurzbeschreibung</label>
+						<input type="text" name="referenz_kurzbeschreibung" class="form-control" t-att-value="project.referenz_kurzbeschreibung"/>
+					</div>
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="referenz_partner">Referenz Partner</label>
+						<input type="text" name="referenz_partner" class="form-control" t-att-value="project.referenz_partner"/>
+					</div>
+					<div class="col-md-7 col-sm-8">
+						<label class="control-label label-optional" for="video_url">Video URL</label>
+						<input type="text" name="video_url" class="form-control" t-att-value="project.video_url"/>
+					</div>
+					<div class="clearfix">
+						<a t-attf-href="/my/account" class="btn btn-primary">Back</a>
+						<button type="submit" class="btn btn-default btn-primary">Confirm</button>
+						<button type="submit" class="btn btn-default btn-primary">Preview</button>
+					</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </t>
     </template>
