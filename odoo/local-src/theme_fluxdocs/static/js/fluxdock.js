@@ -11,7 +11,10 @@ $(document).ready(function() {
 			});
 		
 		$('body #wrapwrap, body #wrapwrap #my_header').animate(
-			{left: "-260"},
+			{
+				left: "-260",
+				right: "260",
+			},
 			260);
 	}
 	
@@ -24,6 +27,7 @@ $(document).ready(function() {
 		
 		$('body #wrapwrap, body #wrapwrap #my_header').animate({
 			left: "0",
+			right: "0",
 		}, 260);
 	}
 	
