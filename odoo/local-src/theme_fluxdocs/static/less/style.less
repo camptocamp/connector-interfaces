@@ -1,7 +1,7 @@
 @darkColor: #2E112D;
 @brightColor: #968896;
 @maxWidth: 1000px;
-@minWidth: 440px;
+@minWidth: 320px;
 
 
 body #wrapwrap{ //Outside of wrapwrap is the backend
@@ -129,11 +129,15 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	// HEADER
 	#my_header{
 		position: fixed;
+		left: 0;
+		right: 0;
 		background-color: white;
-		width: 100%;
+//		width: 100%;
 		z-index: 100;
 		height: 110px;
-		
+		#top_menu{
+			display: none;
+		}
 		.fluxdock-topbar{
 			background-color: transparent;
 			border: none;
@@ -269,8 +273,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
    	 			max-width: 610px;
 				#logo-canvas{
 					display: block;
-					width: 400px;
-					height: 400px;
+					width: 300px;
+					height: 300px;
 					margin: 0 auto;
 				}
 //				img.fluxdock-logo{
@@ -539,7 +543,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.newsletter-form-wrap{
 			.newsletter-form{
 				input[type="text"]{
-					width: 455px;
+					max-width: 455px;
+					width: 100%;
 					margin-bottom: 30px;
 				}
 				button[type="submit"]{
@@ -664,9 +669,14 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 
 	}
 	
+	//MY ACCOUNT
+	.o_website_portal_details{
+		
+	}
+	
 	
 	//LOGIN
-	.oe_website_login_container{
+	.oe_website_login_container, .o_website_portal_details{
 		background-color: @darkColor;
 		background-image: url("/theme_fluxdocs/static/img/netz.png");
 		padding: 50px 20px;
@@ -922,16 +932,20 @@ ul.service-menu{
 //Memberslide Responsive 2 col
 @media only screen and (max-width : 700px) {
 	body #wrapwrap main section.content .members-wrap{
-		width: 332px;
+		width: 320px;
+		padding-left: 0;
+		padding-right: 0;
 		.members-container{
 			width: 292px;
 			margin: 0 auto;
 		}
 		.arrow-left{
-			left: -40px;
+			display: none;
+//			left: -40px;
 		}
 		.arrow-right{
-			right: -40px;
+			display: none;
+//			right: -40px;
 		}
 	}
 }
