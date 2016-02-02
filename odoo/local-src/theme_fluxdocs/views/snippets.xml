@@ -24,7 +24,7 @@
 		                </div>
 						<section class="animated-logo">
 			                <div class="logo">
-								<canvas width="400" height="400" id="logo-canvas" />
+								<canvas width="300" height="300" id="logo-canvas" />
 			                	<img class="fluxdock-title" src="/theme_fluxdocs/static/img/fluxdock_title.png" />
 			                </div>
 							<script type="text/JavaScript">

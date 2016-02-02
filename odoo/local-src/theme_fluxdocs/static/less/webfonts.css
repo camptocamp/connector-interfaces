@@ -23,41 +23,75 @@
  */
 
 @font-face {
-    font-family: 'noyhsemilight';
-    src: url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.eot');
-    src: url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.woff2') format('woff2'),
-         url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.woff') format('woff'),
-         url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.ttf') format('truetype'),
-         url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.svg#noyhsemilight') format('svg');
+    font-family: 'noyh_rsemilight';
+    src: url('/theme_fluxdocs/static/webfonts/noyhrounded_semilight_macroman/noyhr-semilight-webfont.eot');
+    src: url('/theme_fluxdocs/static/webfonts/noyhrounded_semilight_macroman/noyhr-semilight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_semilight_macroman/noyhr-semilight-webfont.woff2') format('woff2'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_semilight_macroman/noyhr-semilight-webfont.woff') format('woff'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_semilight_macroman/noyhr-semilight-webfont.ttf') format('truetype'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_semilight_macroman/noyhr-semilight-webfont.svg#noyh_rsemilight') format('svg');
     font-weight: normal;
     font-style: normal;
 
 }
+/* @font-face { */
+/*     font-family: 'noyhsemilight'; */
+/*     src: url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.eot'); */
+/*     src: url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.eot?#iefix') format('embedded-opentype'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.woff2') format('woff2'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.woff') format('woff'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.ttf') format('truetype'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_semilight_macroman/noyh-semilight-webfont.svg#noyhsemilight') format('svg'); */
+/*     font-weight: normal; */
+/*     font-style: normal; */
+/* } */
+
 
 @font-face {
-    font-family: 'noyhlight';
-    src: url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.eot');
-    src: url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.woff2') format('woff2'),
-         url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.woff') format('woff'),
-         url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.ttf') format('truetype'),
-         url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.svg#noyhlight') format('svg');
+    font-family: 'noyh_rlight';
+    src: url('/theme_fluxdocs/static/webfonts/noyhrounded_light_macroman/noyhr-light-webfont.eot');
+    src: url('/theme_fluxdocs/static/webfonts/noyhrounded_light_macroman/noyhr-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_light_macroman/noyhr-light-webfont.woff2') format('woff2'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_light_macroman/noyhr-light-webfont.woff') format('woff'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_light_macroman/noyhr-light-webfont.ttf') format('truetype'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_light_macroman/noyhr-light-webfont.svg#noyh_rlight') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
+/* @font-face { */
+/*     font-family: 'noyhlight'; */
+/*     src: url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.eot'); */
+/*     src: url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.eot?#iefix') format('embedded-opentype'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.woff2') format('woff2'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.woff') format('woff'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.ttf') format('truetype'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_light_macroman/noyh-light-webfont.svg#noyhlight') format('svg'); */
+/*     font-weight: normal; */
+/*     font-style: normal; */
+/* } */
+
 
 @font-face {
-    font-family: 'noyhmedium';
-    src: url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.eot');
-    src: url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.woff2') format('woff2'),
-         url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.woff') format('woff'),
-         url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.ttf') format('truetype'),
-         url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.svg#noyhmedium') format('svg');
+    font-family: 'noyh_rmedium';
+    src: url('/theme_fluxdocs/static/webfonts/noyhrounded_medium_macroman/noyhr-medium-webfont.eot');
+    src: url('/theme_fluxdocs/static/webfonts/noyhrounded_medium_macroman/noyhr-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_medium_macroman/noyhr-medium-webfont.woff2') format('woff2'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_medium_macroman/noyhr-medium-webfont.woff') format('woff'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_medium_macroman/noyhr-medium-webfont.ttf') format('truetype'),
+         url('/theme_fluxdocs/static/webfonts/noyhrounded_medium_macroman/noyhr-medium-webfont.svg#noyh_rmedium') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
+/* @font-face { */
+/*     font-family: 'noyhmedium'; */
+/*     src: url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.eot'); */
+/*     src: url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.eot?#iefix') format('embedded-opentype'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.woff2') format('woff2'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.woff') format('woff'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.ttf') format('truetype'), */
+/*          url('/theme_fluxdocs/static/webfonts/noyh_medium_macroman/noyh-medium-webfont.svg#noyhmedium') format('svg'); */
+/*     font-weight: normal; */
+/*     font-style: normal; */
+/* } */
+
 
