@@ -11,8 +11,6 @@ class ProjectProject(models.Model):
     referenz_titel = fields.Char('Referenzprojekt Titel', size=64)
     zeitpunkt_implementierung = fields.Date('Zeitpunkt der Implementierung')
     ort = fields.Char('Ort', size=64, help='Ort')
-    kategorie = fields.Char('Kategorie', size=64, help='Kategorie')
-    expertise = fields.Char('Expertise', size=64, help='Expertise')
     referenz_bild = fields.Char('Referenzprojekt Bild', size=64, help='Referenzprojekt Bild')
     referenz_kurzbeschreibung = fields.Char('Referenzprojekt Kurzbeschreibung', size=64, help='Referenzprojekt Kurzbeschreibung')
     video_url = fields.Char('Video URL', size=64, help='Video URL')
