@@ -41,6 +41,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	}
 	
 	input[type="text"],
+	input[type="email"],
 	input[type="password"],
 	button[type="submit"],
 	a.btn,
@@ -100,7 +101,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.label{
 			color: white;
 		}
-		input[type="text"], input[type="password"], button[type="submit"]{
+		input[type="text"], input[type="email"], input[type="password"], button[type="submit"]{
 			background-color: @darkColor;
 		}
 		.styled-select{
@@ -567,13 +568,13 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		
 		.newsletter-form-wrap{
 			.newsletter-form{
-				input[type="text"]{
-					max-width: 455px;
-					width: 100%;
+				input[type="text"], input[type="email"]{
+					width: 68%;
+					margin-right: 1%;
 					margin-bottom: 30px;
 				}
 				button[type="submit"]{
-					width: 150px;
+					width: 30%;
 				}
 			}
 		}
@@ -972,11 +973,9 @@ ul.service-menu{
 		}
 		.arrow-left{
 			display: none;
-//			left: -40px;
 		}
 		.arrow-right{
 			display: none;
-//			right: -40px;
 		}
 	}
 }
@@ -1008,5 +1007,15 @@ ul.service-menu{
 	body #wrapwrap main .search-panel .filter-row.row-2 .styled-select{
 		width: 100%;
 		margin-bottom: 20px;
+	}
+}
+
+//Newsletter fields
+@media only screen and (max-width : 480px) {
+	body #wrapwrap main .newsletter-form-wrap .newsletter-form{
+		input[type="text"], input[type="email"], button[type="submit"]{
+			width: 100%;
+			margin-righ: 0;
+		}
 	}
 }
