@@ -111,9 +111,9 @@
 		            <t t-call="website.language_selector"/>
 	                
 	                <div class="social-media">
-	                	<a class="facebook" href="https://www.facebook.com/groups/KitingThailand/"></a>
-	                	<a class="twitter" href="https://www.facebook.com/groups/KitingThailand/"></a>
-	                	<a class="mail" href="mailto:info@fluxdock.ch"></a>
+	                	<a class="facebook" href="https://www.facebook.com/fluxdock/" target="_blank"></a>
+	                	<a class="twitter" href="https://twitter.com/fluxdock" target="_blank"></a>
+	                	<a class="mail" href="mailto:info@fluxdock.io"></a>
 	                </div>
 	                
 				</nav>
