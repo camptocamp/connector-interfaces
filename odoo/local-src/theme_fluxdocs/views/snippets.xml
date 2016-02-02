@@ -61,6 +61,44 @@
 						</section>
 		            </div>
 		            
+	            	<!-- CONTENT TWO COL -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content-two-col.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Two Columns Content</span>
+		                </div>
+		                 <section class="content">
+			                <div class="content-wrap clearfix">
+			                	<h2>Lorem ipsum dolor</h2>
+			                	<div class="two-col two-col-left">
+									<p align="left">
+										Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+									</p>
+			                	</div>
+			                	<div class="two-col two-col-right">
+									<ul>
+										<li>
+											<div align="left">
+												Consetetur sadipscing elitr
+											</div>
+										</li>
+										<li>
+											<div align="left">
+												Sadipscing elitr, sed diam nonumy eirmod tempor.
+											</div>
+										</li>
+										<li>
+											<div align="left">
+												Sed diam nonumy eirmod tempor.
+											</div>
+										</li>
+									</ul>
+			                	</div>
+			                </div>
+							
+						</section>
+		            </div>
+		            
 		            
 	            	<!-- CONTENT WITH IMAGE -->
 		            <div>
@@ -78,9 +116,11 @@
 			                </div>
 			                
 			                <div class="image-wrap">
-			                	<a href="page/contactus">
-			                		<img src="/theme_fluxdocs/static/img/standort-wide.jpg" />
-			                	</a>
+			                	<img src="/theme_fluxdocs/static/img/standort-wide.jpg" />
+			                </div>
+
+			                <div class="content-wrap">
+			                	<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 			                </div>
 							
 						</section>
@@ -355,8 +395,9 @@
 			                	<p>Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole.</p>
 			                </div>
 			                <div class="content-wrap newsletter-form-wrap">
-				                <form class="newsletter-form">
-				                	<input type="text" placeholder="email"></input>
+			                	<!-- Campain Monitor form -->
+				                <form id="subForm" class="newsletter-form" action="http://fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
+				                	<input type="email" name="cm-hlykhj-hlykhj" placeholder="email" required="requierd"></input>
 				                	<button type="submit">Subscribe</button>
 				                </form>
 			                </div>							

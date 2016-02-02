@@ -220,6 +220,10 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						}
 					}
 				}
+				li#o_logout, li#myhome{
+					//Hide at the moment
+					display: none;
+				}
 				ul.js_language_selector{
 					display: inline-block;
 					>li{
@@ -336,6 +340,30 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					img{
 						width: 150px;
 						height: 100px;
+					}
+				}
+				.two-col{
+					float: left;
+					width: 50%;
+					font-size: 18px;
+					h3{
+						text-align: left;
+						text-transform: uppercase;
+						margin-bottom: 38px;
+					}
+					h4{
+						text-align: left;
+						font-family: "noyh_rmedium";
+						font-size: 22px;
+						margin-bottom: 4px;
+						margin-top: 20px;
+						a{
+							text-decoration: underline;
+						}
+					}
+					ul{
+						font-family: "noyh_rmedium";
+						list-style-type: circle;
 					}
 				}
 			}
@@ -598,26 +626,31 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	footer#my_footer{
 		margin-top: 60px;
 		#footer{
-			//Hide Odoo crap
 			.container{
 				width: 100%;
 			}
 			>section>.container>.row{
 				max-width: 920px;
-				padding-left: 250px;
+				padding-left: 150px;
+				padding-right: 150px;
 				box-sizing: border-box;
 				margin: 0 auto;
 				background-image: url("/theme_fluxdocs/static/img/fluxdock_logo_f.png");
 				background-repeat: no-repeat;
 				background-size: 144px 145px;
 				>.col-md-4{
-					width: 25%;
+					width: 33%;
+					padding-left: 50px;
+					padding-right: 0;
 					h4{
 						font-size: 24px;
 						text-transform: UPPERCASE;
 					}
 					p{
 						
+					}
+					&:nth-of-type(4){
+						display: none;
 					}
 				}
 			}
@@ -855,12 +888,13 @@ ul.service-menu{
 	body #wrapwrap footer#my_footer{
 		#footer{
 			>section>.container>.row{
-				background-position: center 20px;
-				padding-top: 220px;
+				background-position: center 0;
+				padding-top: 180px;
 				padding-left: 0;
+				padding-right: 0;
 				.col-md-4{
 					float: left;
-					width: 25%;
+//					width: 33%;
 				}
 			} 
 		} 
@@ -948,6 +982,12 @@ ul.service-menu{
 }
 
 //Numbers
+@media only screen and (max-width : 500px) {
+	body #wrapwrap main section.content .content-wrap .two-col{
+		float: none;
+		width: 100%;
+	}
+}
 @media only screen and (max-width : 700px) {
 	body #wrapwrap main .numbers-wrap{
 		padding-top: 55px;
