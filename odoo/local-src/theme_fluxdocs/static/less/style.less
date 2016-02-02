@@ -4,6 +4,13 @@
 @minWidth: 320px;
 
 
+body #wrapwrap main #wrap.o_editable{
+	// We are in edit mode
+	 .accordion .accordion-content{
+	 	display: block;
+	 }
+}
+
 body #wrapwrap{ //Outside of wrapwrap is the backend
 	font-size: 20px;
 	color: @darkColor;
@@ -407,6 +414,39 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					top: 13px;
     				vertical-align: top;
 				}
+			}
+		}
+		
+		//Accordion
+		.accordion{
+			border-bottom: 2px solid #a096a0;
+			text-align: left;
+			position: relative;
+			.accordion-trigger{
+				position: relative;
+				cursor: pointer;
+				h3{
+				}
+				&:after {
+					font-size: 26px;
+					font-family: FontAwesome;
+					content: "\f107";
+					position: absolute;
+					top: -8px;
+					right: 0;
+				}
+			}
+			.accordion-content{
+				display: none;
+				font-size: 22px;
+			}
+			&.open{
+				.accordion-trigger:after{
+					content: "\f106";
+				}
+			}
+			&:nth-of-type(1) {
+				border-top: 2px solid #a096a0;
 			}
 		}
 		

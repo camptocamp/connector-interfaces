@@ -194,6 +194,16 @@ $(document).ready(function() {
 	//Init Carousel with bxslider
 	$('.bxslider').bxSlider();
 	
-	
+	//Accordion
+	$('.accordion-trigger').on('click', function(event) {
+		var accordion = $(event.currentTarget).closest('.accordion');
+		accordion.toggleClass('open');
+		if(accordion.hasClass('open')){
+			accordion.find('.accordion-content').slideDown();
+		}else{
+			accordion.find('.accordion-content').slideUp();
+		}
+		
+	});
 	
 });

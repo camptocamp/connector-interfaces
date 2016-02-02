@@ -106,7 +106,7 @@
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content-image.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Content Image</span>
 		                </div>
-		                 <section class="content">
+		                <section class="content">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
@@ -124,6 +124,29 @@
 			                </div>
 							
 						</section>
+		            </div>
+		            
+	            	<!-- ACCORDION -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/accordion.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Accordion</span>
+		                </div>
+		                 
+						<section class="content">
+							<div class="content-wrap accordion-wrap">
+								<h2>Glossar</h2>
+								<section class="accordion">
+				                	<div class="accordion-trigger">
+					                	<h3>Titel. Klicke um auszuklappen.</h3>
+				                	</div>
+									<div class="accordion-content">
+					                	<p>Der Inhalt der ausgeklappt wird</p>
+									</div>
+								</section>
+							</div>
+		                </section>
+							
 		            </div>
 		            
 		            
