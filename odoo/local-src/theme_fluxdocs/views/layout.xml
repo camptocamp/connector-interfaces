@@ -132,6 +132,38 @@
 			
 		</template>
 		
+		<template id="layout_footer_copyright" inherit_id="website.layout" name="Footer Copyright">
+			
+		    <xpath expr="//div[contains(@id, 'footer')]/section/div[@class='container']" position="before">
+		        <div class="footer-logo">
+			    	<a href="/">
+				    	<img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"></img>
+			    	</a>
+		    	</div>
+		    </xpath>
+		    
+		    <xpath expr="//div[contains(@id, 'footer')]/section/div[@class='container']" position="after">
+		        <div class="sponsors">
+			    	<div class="sponsor sponsor-iart">
+						<a href="http://www.iart.ch">
+							<img src="/theme_fluxdocs/static/img/footer-logos/iart.png"></img>
+						</a>
+					</div>
+			    	<div class="sponsor sponsor-mengagement">
+						<a href="http://www.engagement-migros.ch">
+							<img src="/theme_fluxdocs/static/img/footer-logos/mengagement.png"></img>
+						</a>
+					</div>
+			    	<div class="sponsor sponsor-cms">
+						<a href="http://www.cms-basel.ch">
+							<img src="/theme_fluxdocs/static/img/footer-logos/cms.png"></img>
+						</a>
+					</div>
+		    	</div>
+		    </xpath>
+		    
+		</template>
+		
 		
 		<!-- Customize News List -->
 		<template id="fluxdock_news_list" inherit_id="website_blog.blog_post_short" name="Fluxdock News List">

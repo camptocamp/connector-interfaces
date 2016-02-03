@@ -675,28 +675,47 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			.container{
 				width: 100%;
 			}
-			>section>.container>.row{
-				max-width: 920px;
-				padding-left: 150px;
-				padding-right: 150px;
-				box-sizing: border-box;
-				margin: 0 auto;
-				background-image: url("/theme_fluxdocs/static/img/fluxdock_logo_f.png");
-				background-repeat: no-repeat;
-				background-size: 144px 145px;
-				>.col-md-4{
-					width: 33%;
-					padding-left: 50px;
-					padding-right: 0;
-					h4{
-						font-size: 24px;
-						text-transform: UPPERCASE;
+			>section{
+				position: relative;
+				>.footer-logo{
+					position: absolute;
+					top: -18px;
+					left: 30px;
+					img{
+						width: 144px;
+						height: 145px;
 					}
-					p{
-						
+				}
+				>.container{
+					max-width: 700px;
+					box-sizing: border-box;
+					margin: 0 auto;
+					.col-md-4{
+						width: 33%;
+						padding-left: 50px;
+						padding-right: 0;
+						h4{
+							font-size: 24px;
+							text-transform: UPPERCASE;
+						}
+						p{
+							
+						}
+						&:nth-of-type(4){
+							display: none;
+						}
 					}
-					&:nth-of-type(4){
-						display: none;
+				}
+				>.sponsors{
+					position: absolute;
+					top: 4px;
+					right: 30px;
+					.sponsor{
+						text-align: center;
+						margin-bottom: 16px;
+						a{
+							display: block;
+						}
 					}
 				}
 			}
@@ -941,27 +960,51 @@ ul.service-menu{
 @media only screen and (max-width : 1000px) {
 	body #wrapwrap footer#my_footer{
 		#footer{
-			>section>.container>.row{
-				background-position: center 0;
-				padding-top: 180px;
-				padding-left: 0;
-				padding-right: 0;
-				.col-md-4{
-					float: left;
-//					width: 33%;
+			>section{
+				.footer-logo{
+					left: 50%;
+					transform: translateX(-50%);
 				}
-			} 
+				>.container>.row{
+					background-position: center 0;
+					padding-top: 150px;
+					padding-bottom: 30px;
+					padding-left: 0;
+					padding-right: 0;
+					.col-md-4{
+						float: left;
+					}
+				}
+				.sponsors{
+					position: relative;
+					left: auto;
+					top: auto;
+					right: auto;
+					text-align: center;
+					.sponsor{
+						display: inline-block;
+						margin: 10px 16px;
+					}
+				}
+			}
 		} 
+	}
+}
+@media only screen and (max-width : 500px) {
+	body #wrapwrap footer#my_footer #footer > section > .sponsors .sponsor{
+		display: block;
 	}
 }
 @media only screen and (max-width : 640px) {
 	body #wrapwrap footer#my_footer{
 		#footer{
-			>section>.container>.row{
-				.col-md-4{
-					width: 50%;
+			>section{
+				>.container>.row{
+					.col-md-4{
+						width: 50%;
+					}
 				}
-			} 
+			}
 		} 
 	}
 }
