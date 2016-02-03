@@ -448,6 +448,44 @@
 						</section>
 		            </div>
 		            
+	            	<!-- 3d simulation -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/simulation.png"/>
+		                    <span class="oe_snippet_thumbnail_title">3d Simulation</span>
+		                </div>
+		                 <section class="content">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
+			                	</div>
+			                	<h2>Fluxdock 3d Simulation</h2>
+								<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                </div>
+			                
+			                <div class="content-wrap">
+			               		<div id="unityLoaderContainer">
+									<div class="downloadMessages">
+										<span>
+											Daten herunterladen
+										</span>
+										<span class="downloadProgress">0%</span>
+									</div>
+									<div class="loaderMessages" style="display: none;">
+										<span>
+											Simulation wird geladen
+										</span>
+										<span class="loaderProgress"></span>
+									</div>
+									<button type="submit" class="startButton" style="display: none;"
+										onclick="startApplication();">Start!</button>
+								</div>
+								<script type="text/JavaScript" src="/theme_fluxdocs/static/js/unity_simulation.js"></script>
+			                </div>
+							
+						</section>
+		            </div>
+		            
 		            
 	            	<!-- MEMBERS -->
 		            <div>
@@ -585,119 +623,23 @@
 	        </xpath>
 	        
 	        <xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="replace">
-	            Remove all Snippets
+	            <!-- Remove all Snippets  -->
 	            <div class="o_panel_body"></div>
 	        </xpath>
 	        
 	        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="replace">
-	            Remove all Snippets
+	            <!-- Remove all Snippets  -->
 	            <div class="o_panel_body"></div>
 	        </xpath>
 	        
 	        <xpath expr="//div[@id='snippet_effect']/div[@class='o_panel_body']" position="replace">
-	            Remove all Snippets
+	            <!-- Remove all Snippets  -->
 	            <div class="o_panel_body"></div>
 	        </xpath>
 	        
 	        
 	    </template>
 	    
-		<!-- CONTENT -->
-<!-- 		<template id="place_into_bar" name="Content" inherit_id="website.snippets"> -->
-<!-- 	        <xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="inside"> -->
-	            
-<!-- 	             <div> -->
-<!-- 	                <div class="oe_snippet_thumbnail"> -->
-<!-- 	                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content.png"/> -->
-<!-- 	                    <span class="oe_snippet_thumbnail_title">Content</span> -->
-<!-- 	                </div> -->
-<!-- 	                 <section class="content"> -->
-<!-- 		                <div class="content"> -->
-<!-- 		                	<h2>Lorem ipsum dolor</h2> -->
-<!-- 							<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p> -->
-<!-- 		                </div> -->
-						
-<!-- 					</section> -->
-<!-- 	            </div> -->
-<!-- 	        </xpath> -->
-<!-- 	    </template> -->
-	    
-	    
-<!-- 		<template id="place_into_bar" name="Testimonial snippet" inherit_id="website.snippets"> -->
-<!-- 	        <xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="inside"> -->
-<!-- 	            <div> -->
-<!-- 	                <div class="oe_snippet_thumbnail"> -->
-<!-- 	                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/block_column.png"/> -->
-<!-- 	                    <span class="oe_snippet_thumbnail_title">Testimonial Scroller</span> -->
-<!-- 	                </div> -->
-<!-- 	                <section class="snippet_testimonial"> -->
-<!-- 						<div class="container text-center"> -->
-<!-- 							<div class="row"> -->
-<!-- 								<div class="col-md-4"> -->
-<!-- 									<img alt="client" class="img-circle" -->
-<!-- 										src="/theme_fluxdocs/static/img/thumb.jpg" /> -->
-<!-- 									<h3>Client Name</h3> -->
-<!-- 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-<!-- 								</div> -->
-<!-- 								<div class="col-md-4"> -->
-<!-- 									<img alt="client" class="img-circle" -->
-<!-- 										src="/theme_fluxdocs/static/img/thumb.jpg" /> -->
-<!-- 									<h3>Client Name</h3> -->
-<!-- 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-<!-- 								</div> -->
-<!-- 								<div class="col-md-4"> -->
-<!-- 									<img alt="client" class="img-circle" -->
-<!-- 										src="/theme_fluxdocs/static/img/thumb.jpg" /> -->
-<!-- 									<h3>Client Name</h3> -->
-<!-- 									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</section> -->
-<!-- 	            </div> -->
-<!-- 	        </xpath> -->
-<!-- 	    </template> -->
-	    
-	    
-	    
-	    
-	    
-	    
-<!-- 		<template id="place_into_bar" inherit_id="website.snippets" -->
-<!-- 			name="Place into bar"> -->
-<!-- 			<xpath expr="//div[@id='snippet_structure']" position="inside"> -->
-<!-- 				<t t-snippet="theme_fluxdocs.snippet_testimonial" t-thumbnail="/theme_fluxdocs/static/img/block-column.jpg" /> -->
-<!-- 			</xpath> -->
-<!-- 		</template> -->
-
-<!-- 		<template id="snippet_testimonial" name="Testimonial snippet"> -->
-<!-- 			<section class="snippet_testimonial"> -->
-<!-- 				<div class="container text-center"> -->
-<!-- 					<div class="row"> -->
-<!-- 						<div class="col-md-4"> -->
-<!-- 							<img alt="client" class="img-circle" -->
-<!-- 								src="/theme_fluxdocs/static/img/thumb.jpg" /> -->
-<!-- 							<h3>Client Name</h3> -->
-<!-- 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-<!-- 						</div> -->
-<!-- 						<div class="col-md-4"> -->
-<!-- 							<img alt="client" class="img-circle" -->
-<!-- 								src="/theme_fluxdocs/static/img/thumb.jpg" /> -->
-<!-- 							<h3>Client Name</h3> -->
-<!-- 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-<!-- 						</div> -->
-<!-- 						<div class="col-md-4"> -->
-<!-- 							<img alt="client" class="img-circle" -->
-<!-- 								src="/theme_fluxdocs/static/img/thumb.jpg" /> -->
-<!-- 							<h3>Client Name</h3> -->
-<!-- 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</section> -->
-<!-- 		</template> -->
-
-		
 
 	</data>
 </openerp>

@@ -1,0 +1,101 @@
+new function(SimulationNamespace) {
+
+function resize()
+{
+	var ratio = /*window.devicePixelRatio ||*/ 1;
+	var canvas = document.querySelector('canvas.emscripten');
+	canvas.style.width = window.innerWidth + 'px';
+	canvas.style.height = window.innerHeight + 'px';
+	canvas.width = window.innerWidth * ratio;
+	canvas.height = window.innerHeight * ratio;
+}
+
+
+function show(element, show, type)
+{
+	if (typeof element === 'string')
+		element = document.querySelector(element);
+
+	element.style.display = show ? type ? type : 'initial' : 'none';
+}
+
+
+function startApplication()
+{
+	show('#wrapwrap', false);
+
+	var canvas = document.querySelector('canvas.emscripten');
+	show(canvas, true, 'block');
+
+	resize();
+	window.onresize = resize;
+	fullScreenApi.requestFullScreen(canvas);
+
+	window.onhashchange = stopApplication;
+	history.pushState({}, null, '#');
+}
+
+
+function stopApplication()
+{
+	fullScreenApi.cancelFullScreen();
+	window.onresize = undefined;
+	show('canvas.emscripten', false);
+	show('#wrapwrap', true, 'block');
+}
+
+
+function checkFullScreenState()
+{
+	if (!fullScreenApi.isFullScreen())
+		stopApplication();
+}
+
+
+function loadScript(url)
+{
+	var script = document.createElement('script');
+	script.src = url;
+	document.body.appendChild(script);
+}
+
+
+function initUI()
+{
+	var canvas = document.createElement('canvas');
+	canvas.id = 'canvas';
+	canvas.className = 'emscripten';
+	canvas.width = 960;
+	canvas.height = 600;
+	canvas.style.display = 'none';
+	canvas.oncontextmenu = function(event) { event.preventDefault(); };
+
+	document.body.appendChild(canvas);
+
+	canvas.addEventListener(fullScreenApi.fullScreenEventName,
+		checkFullScreenState, true);
+	document.addEventListener(fullScreenApi.fullScreenEventName,
+		checkFullScreenState, true);
+
+	loadScript('/theme_fluxdocs/static/js/simulation/Release/UnityLoader.js');
+}
+
+
+window.Module = {
+	TOTAL_MEMORY: 100663296,
+	errorhandler: function() { return false; },
+	compatibilitycheck: function() { return false; },
+	dataUrl: "/theme_fluxdocs/static/js/simulation/Release/WebGL.data",
+	codeUrl: "/theme_fluxdocs/static/js/simulation/Release/WebGL.js",
+	memUrl: "/theme_fluxdocs/static/js/simulation/Release/WebGL.mem",
+};
+
+window.showQuerySelector = show;
+window.startApplication = startApplication;
+
+loadScript('/theme_fluxdocs/static/js/simulation/js/UnityProgress.js');
+loadScript('/theme_fluxdocs/static/js/simulation/js/fullscreenapi.js'); //Can it be removed because JQuery can do it?
+
+window.onload = initUI;
+
+}; // SimulationNamespace

@@ -53,15 +53,15 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	button[type="submit"],
 	a.btn,
 	a.button{
-		color: white;
-		border: solid 1px white;
+		color: black;
+		border: solid 1px black;
 		border-radius: 0;
 		box-shadow: none;
 		height: 42px;
 		font-size: 20px;
 		padding-left: 10px;
 		padding-right: 10px;
-		background-color: @darkColor;
+		background-color: white;
 		&:hover{
 			text-decoration: none;
 		}
@@ -109,6 +109,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			color: white;
 		}
 		input[type="text"], input[type="email"], input[type="password"], button[type="submit"]{
+			color: white;
+			border-color: white;
 			background-color: @darkColor;
 		}
 		.styled-select{
@@ -445,6 +447,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			&:nth-of-type(1) {
 				border-top: 2px solid #a096a0;
 			}
+		}
+		
+		//Simulation
+		button.startButton{
+			min-width: 200px;
+			margin: 0 auto;
 		}
 		
 		//Latest News
