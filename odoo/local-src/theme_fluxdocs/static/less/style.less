@@ -228,7 +228,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						}
 					}
 				}
-				li#o_logout, li#myhome{
+				>li:nth-of-type(1), >li:nth-of-type(2){
 					//Hide at the moment
 					display: none;
 				}
@@ -276,14 +276,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
    	 			max-width: 610px;
 				#logo-canvas{
 					display: block;
-					width: 300px;
-					height: 300px;
+					max-width: 100%;
 					margin: 0 auto;
 				}
-//				img.fluxdock-logo{
-//					display: block;
-//					margin: 0 auto 40px;
-//				}
 				img.fluxdock-title{
 					display: block;
 					width: 286px;
