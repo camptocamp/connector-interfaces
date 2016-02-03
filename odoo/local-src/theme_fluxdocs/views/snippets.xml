@@ -24,8 +24,8 @@
 		                </div>
 						<section class="animated-logo">
 			                <div class="logo">
-								<canvas width="300" height="300" id="logo-canvas" />
-			                	<img class="fluxdock-title" src="/theme_fluxdocs/static/img/fluxdock_title.png" />
+								<canvas width="350" height="350" id="logo-canvas" />
+			                	<img class="fluxdock-title" src="/theme_fluxdocs/static/img/fluxdock_title_2.png" />
 			                </div>
 							<script type="text/JavaScript">
 								var THREE = {

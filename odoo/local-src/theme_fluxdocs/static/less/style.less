@@ -264,7 +264,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	
 	// MAIN
 	main{
-		padding-top: 100px;
+		padding-top: 80px;
 		
 		//Snippets
 		.animated-logo{
@@ -917,8 +917,15 @@ ul.service-menu{
 }
 
 
-@media only screen and (max-width : 1250px) {
-	.fluxdock-title{
+@media only screen and (max-width : 700px) {
+	body #wrapwrap main .animated-logo {
+		padding-top: 0;
+	}
+}
+
+// Header title
+@media only screen and (max-width : 1250px) and (min-width : 980px) {
+	body #wrapwrap #my_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title{
 		opacity: 0;
 		transition: opacity .25s ease-in-out;
 	   -moz-transition: opacity .25s ease-in-out;
@@ -927,8 +934,8 @@ ul.service-menu{
 }
 
 
+// Footer
 @media only screen and (max-width : 1000px) {
-	// FOOTER
 	body #wrapwrap footer#my_footer{
 		#footer{
 			>section>.container>.row{
@@ -944,9 +951,7 @@ ul.service-menu{
 		} 
 	}
 }
-
 @media only screen and (max-width : 640px) {
-	// FOOTER
 	body #wrapwrap footer#my_footer{
 		#footer{
 			>section>.container>.row{
