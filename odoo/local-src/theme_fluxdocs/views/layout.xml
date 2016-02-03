@@ -145,17 +145,17 @@
 		    <xpath expr="//div[contains(@id, 'footer')]/section/div[@class='container']" position="after">
 		        <div class="sponsors">
 			    	<div class="sponsor sponsor-iart">
-						<a href="http://www.iart.ch">
+						<a href="http://www.iart.ch" target="_blank">
 							<img src="/theme_fluxdocs/static/img/footer-logos/iart.png"></img>
 						</a>
 					</div>
 			    	<div class="sponsor sponsor-mengagement">
-						<a href="http://www.engagement-migros.ch">
+						<a href="http://www.engagement-migros.ch" target="_blank">
 							<img src="/theme_fluxdocs/static/img/footer-logos/mengagement.png"></img>
 						</a>
 					</div>
 			    	<div class="sponsor sponsor-cms">
-						<a href="http://www.cms-basel.ch">
+						<a href="http://www.cms-basel.ch" target="_blank">
 							<img src="/theme_fluxdocs/static/img/footer-logos/cms.png"></img>
 						</a>
 					</div>
