@@ -132,37 +132,37 @@
 			
 		</template>
 		
-		<template id="layout_footer_copyright" inherit_id="website.layout" name="Footer Copyright">
-			
-		    <xpath expr="//div[contains(@id, 'footer')]/section/div[@class='container']" position="before">
-		        <div class="footer-logo">
-			    	<a href="/">
-				    	<img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"></img>
-			    	</a>
-		    	</div>
-		    </xpath>
-		    
-		    <xpath expr="//div[contains(@id, 'footer')]/section/div[@class='container']" position="after">
-		        <div class="sponsors">
-			    	<div class="sponsor sponsor-iart">
-						<a href="http://www.iart.ch" target="_blank">
-							<img src="/theme_fluxdocs/static/img/footer-logos/iart.png"></img>
-						</a>
-					</div>
-			    	<div class="sponsor sponsor-mengagement">
-						<a href="http://www.engagement-migros.ch" target="_blank">
-							<img src="/theme_fluxdocs/static/img/footer-logos/mengagement.png"></img>
-						</a>
-					</div>
-			    	<div class="sponsor sponsor-cms">
-						<a href="http://www.cms-basel.ch" target="_blank">
-							<img src="/theme_fluxdocs/static/img/footer-logos/cms.png"></img>
-						</a>
-					</div>
-		    	</div>
-		    </xpath>
-		    
-		</template>
+		<!-- <template id="layout_footer_copyright" inherit_id="website.layout" name="Footer Copyright"> -->
+		<!-- 	 -->
+		<!--     <xpath expr="//div[contains(@id, 'footer')]/section/div[@class='container']" position="before"> -->
+		<!--         <div class="footer&#45;logo"> -->
+		<!-- 	    	<a href="/"> -->
+		<!-- 		    	<img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"></img> -->
+		<!-- 	    	</a> -->
+		<!--     	</div> -->
+		<!--     </xpath> -->
+		<!--      -->
+		<!--     <xpath expr="//div[contains(@id, 'footer')]/section/div[@class='container']" position="after"> -->
+		<!--         <div class="sponsors"> -->
+		<!-- 	    	<div class="sponsor sponsor&#45;iart"> -->
+		<!-- 				<a href="http://www.iart.ch" target="_blank"> -->
+		<!-- 					<img src="/theme_fluxdocs/static/img/footer&#45;logos/iart.png"></img> -->
+		<!-- 				</a> -->
+		<!-- 			</div> -->
+		<!-- 	    	<div class="sponsor sponsor&#45;mengagement"> -->
+		<!-- 				<a href="http://www.engagement&#45;migros.ch" target="_blank"> -->
+		<!-- 					<img src="/theme_fluxdocs/static/img/footer&#45;logos/mengagement.png"></img> -->
+		<!-- 				</a> -->
+		<!-- 			</div> -->
+		<!-- 	    	<div class="sponsor sponsor&#45;cms"> -->
+		<!-- 				<a href="http://www.cms&#45;basel.ch" target="_blank"> -->
+		<!-- 					<img src="/theme_fluxdocs/static/img/footer&#45;logos/cms.png"></img> -->
+		<!-- 				</a> -->
+		<!-- 			</div> -->
+		<!--     	</div> -->
+		<!--     </xpath> -->
+		<!--      -->
+		<!-- </template> -->
 		
 		
 		<!-- Customize News List -->
