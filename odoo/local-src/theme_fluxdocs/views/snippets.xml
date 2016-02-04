@@ -420,7 +420,8 @@
 			                <div class="content-wrap newsletter-form-wrap">
 			                	<!-- Campain Monitor form -->
 				                <form id="subForm" class="newsletter-form" action="http://fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
-				                	<input type="email" name="cm-hlykhj-hlykhj" placeholder="email" required="requierd"></input>
+				                	<input name="cm-name" placeholder="Name" class="form-control" type="text"></input>
+				                	<input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required"></input>
 				                	<button type="submit">Subscribe</button>
 				                </form>
 			                </div>							
