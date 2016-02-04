@@ -370,6 +370,13 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					ul{
 						font-family: "noyh_rmedium";
 						list-style-type: circle;
+						padding-left: 24px;
+					}
+					&.two-col-left {
+						padding-right: 12px;
+					}
+					&.two-col-right {
+						padding-left: 12px;
 					}
 				}
 			}
@@ -1080,6 +1087,12 @@ ul.service-menu{
 	body #wrapwrap main section.content .content-wrap .two-col{
 		float: none;
 		width: 100%;
+		&.two-col-right {
+			padding-left: 0;
+		}
+		&.two-col-left {
+			padding-right: 0;
+		}
 	}
 }
 @media only screen and (max-width : 700px) {
