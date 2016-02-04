@@ -77,7 +77,7 @@ function initUI()
 	document.addEventListener(fullScreenApi.fullScreenEventName,
 		checkFullScreenState, true);
 
-	loadScript('/theme_fluxdocs/static/js/simulation/Release/UnityLoader.js');
+	loadScript('/theme_fluxdocs/static/js/simulation2/Release/UnityLoader.js');
 }
 
 
@@ -85,16 +85,16 @@ window.Module = {
 	TOTAL_MEMORY: 100663296,
 	errorhandler: function() { return false; },
 	compatibilitycheck: function() { return false; },
-	dataUrl: "/theme_fluxdocs/static/js/simulation/Release/WebGL.data",
-	codeUrl: "/theme_fluxdocs/static/js/simulation/Release/WebGL.js",
-	memUrl: "/theme_fluxdocs/static/js/simulation/Release/WebGL.mem",
+	dataUrl: "/theme_fluxdocs/static/js/simulation2/Release/WebGL.data",
+	codeUrl: "/theme_fluxdocs/static/js/simulation2/Release/WebGL.js",
+	memUrl: "/theme_fluxdocs/static/js/simulation2/Release/WebGL.mem",
 };
 
 window.showQuerySelector = show;
 window.startApplication = startApplication;
 
-loadScript('/theme_fluxdocs/static/js/simulation/js/UnityProgress.js');
-loadScript('/theme_fluxdocs/static/js/simulation/js/fullscreenapi.js'); //Can it be removed because JQuery can do it?
+loadScript('/theme_fluxdocs/static/js/simulation2/js/UnityProgress.js');
+loadScript('/theme_fluxdocs/static/js/simulation2/js/fullscreenapi.js');
 
 window.onload = initUI;
 
