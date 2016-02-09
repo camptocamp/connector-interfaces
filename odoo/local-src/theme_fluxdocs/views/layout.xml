@@ -135,51 +135,53 @@
 		<template id="website.layout_footer_copyright" inherit_id="website.layout" name="Footer Copyright">
 
 		    <xpath expr="//footer" position="inside">
-		        <div class="pull-left footer-logo">
-			    	<a href="/">
-				    	<img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"></img>
-			    	</a>
+		    	<div class="footer-row clearfix">
+			        <div class="footer-logo">
+				    	<a href="/">
+					    	<img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"></img>
+				    	</a>
+			    	</div>
+				
+					<div class="footer-links clearfix">
+						<div class="footer-col">
+							<h4>Subtitle</h4>
+							<p>
+								<a href="/">Homepage</a>
+							</p>
+						</div>
+						<div class="footer-col">
+							<h4>Subtitle 2</h4>
+							<p>
+								...
+							</p>
+						</div>
+						<div class="footer-col">
+							<h4>Subtitle 3</h4>
+							<p>
+								...
+							</p>
+						</div>
+					</div>
+			        <div class="sponsors">
+				    	<div class="sponsor sponsor-iart">
+							<a href="http://www.iart.ch" target="_blank">
+								<img src="/theme_fluxdocs/static/img/footer-logos/iart.png"></img>
+							</a>
+						</div>
+				    	<div class="sponsor sponsor-mengagement">
+							<a href="http://www.engagement-migros.ch" target="_blank">
+								<img src="/theme_fluxdocs/static/img/footer-logos/mengagement.png"></img>
+							</a>
+						</div>
+				    	<div class="sponsor sponsor-cms">
+							<a href="http://www.cms-basel.ch" target="_blank">
+								<img src="/theme_fluxdocs/static/img/footer-logos/cms.png"></img>
+							</a>
+						</div>
+			    	</div>
 		    	</div>
-			<section>
-				<div class="container">
-				<div class="row">
-					<div class="col-md-4">
-					<h4 class="mt16">Subtitle</h4>
-					<p>
-						<a href="/">Homepage</a>
-					</p>
-					</div>
-					<div class="col-md-4">
-					<h4 class="mt16">Subtitle 2</h4>
-					<p>
-						...
-					</p>
-					</div>
-					<div class="col-md-4">
-					<h4 class="mt16">Subtitle 3</h4>
-					<p>
-						...
-					</p>
-					</div>
-				</div>
-				</div>
-			</section>
-		        <div class="pull-right sponsors">
-			    	<div class="sponsor sponsor-iart">
-						<a href="http://www.iart.ch" target="_blank">
-							<img src="/theme_fluxdocs/static/img/footer-logos/iart.png"></img>
-						</a>
-					</div>
-			    	<div class="sponsor sponsor-mengagement">
-						<a href="http://www.engagement-migros.ch" target="_blank">
-							<img src="/theme_fluxdocs/static/img/footer-logos/mengagement.png"></img>
-						</a>
-					</div>
-			    	<div class="sponsor sponsor-cms">
-						<a href="http://www.cms-basel.ch" target="_blank">
-							<img src="/theme_fluxdocs/static/img/footer-logos/cms.png"></img>
-						</a>
-					</div>
+		    	<div class="copyright">
+		    		copyright © 2016
 		    	</div>
 		    </xpath>
 		</template>
