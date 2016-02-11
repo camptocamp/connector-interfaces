@@ -15,7 +15,9 @@
 							<li data-select_class="opt_dark_bg">
 								<a>Dark Violet</a>
 							</li>
-							
+							<li data-select_class="opt_dark_grid_bg">
+								<a>Dark Violet Pattern</a>
+							</li>
 						</ul>
 					</li>
 				</div>
