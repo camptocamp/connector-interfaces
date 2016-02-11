@@ -449,6 +449,19 @@
 						</section>
 		            </div>
 		            
+	            	<!-- BUTTON -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/simulation.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Button Link</span>
+		                </div>
+		                <section class="mybutton">
+							<a class="btn" type="submit">
+								My Button
+							</a>
+		                </section>
+		            </div>
+		            
 	            	<!-- 3d simulation -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">

@@ -31,6 +31,13 @@
 				<!-- Naught -->
 			</xpath>
 			
+			<xpath expr="//div[@data-js='content']" position="after">
+				<div data-js='mybutton'
+			        data-selector='.mybutton'
+			        data-drop-in='.content-wrap'>
+			    </div>
+			</xpath>
+			
 		</template>
 		
 	</data>
