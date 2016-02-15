@@ -51,11 +51,18 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		color: @darkColor;
 	}
 	
+	.mybutton a{
+		display: inline-block;
+		vertical-align: middle;
+		padding: 6px 10px;
+	}
+	
 	input[type="text"],
 	input[type="email"],
 	input[type="password"],
 	button[type="submit"],
 	a.btn,
+	.mybutton a,
 	a.button{
 		color: black;
 		border: solid 1px black;
@@ -108,28 +115,33 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	.opt_dark_grid_bg {
 		background-color: @darkColor;
 		color: white;
-		a{
+		.mybutton a {
+			background-color: @darkColor;
+			border-color: white;
+		}
+		a {
 			color: white;
-			&.button{
+			&.button,
+			&.btn{
 				background-color: @darkColor;
 				border-color: white;
 			}
 		}
-		.label{
+		.label {
 			color: white;
 		}
-		input[type="text"], input[type="email"], input[type="password"], button[type="submit"]{
+		input[type="text"], input[type="email"], input[type="password"], button[type="submit"] {
 			color: white;
 			border-color: white;
 			background-color: @darkColor;
 		}
-		.styled-select{
+		.styled-select {
 			background-color: @darkColor;
-			select{
+			select {
 				background-color: transparent;
 			}
 		}
-		select{
+		select {
 			background-color: @darkColor;
 		}
 	}
@@ -753,6 +765,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	
 	//LOGIN
 	.oe_website_login_container, .o_website_portal_details{
+		color: white;
 		background-color: @darkColor;
 		background-image: url("/theme_fluxdocs/static/img/netz.png");
 		background-position: center center;
@@ -770,6 +783,11 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				border: none;
 				background-color: transparent;
 				width: 100%;
+			}
+			a.btn{
+				color: white;
+				border-color: white;
+				background-color: @darkColor;
 			}
 		}
 		.presignup{
