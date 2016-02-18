@@ -465,7 +465,7 @@
 	            	<!-- 3d simulation -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
-		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/simulation.png"/>
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/button.png"/>
 		                    <span class="oe_snippet_thumbnail_title">3d Simulation</span>
 		                </div>
 		                 <section class="content">
