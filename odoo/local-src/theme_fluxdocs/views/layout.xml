@@ -186,13 +186,13 @@
 		    </xpath>
 		</template>
 		
-		<template id="website.footer_custom" inherit_id="website.layout" name="Footer">
-
-			<xpath expr="//div[@id='footer']" position="replace">
-				<!-- <div class="oe_structure" id="footer"> -->
-				<!-- </div> -->
-			</xpath>
-		</template>
+		<!-- <template id="website.footer_custom" inherit_id="website.layout" name="Footer"> -->
+                <!--  -->
+		<!-- 	<xpath expr="//div[@id='footer']" position="replace"> -->
+		<!-- 		<div class="oe_structure" id="footer"> -->
+		<!-- 		</div> -->
+		<!-- 	</xpath> -->
+		<!-- </template> -->
 		
 		<!-- Customize News List -->
 		<template id="fluxdock_news_list" inherit_id="website_blog.blog_post_short" name="Fluxdock News List">
