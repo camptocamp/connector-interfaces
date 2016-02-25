@@ -73,14 +73,14 @@
 						<label class="control-label label-optional" for="ort">Ort</label>
 						<input type="text" name="ort" class="form-control" t-att-value="project.ort"/>
 					</div>
-					<div class="col-md-7 col-sm-8">
-						<label class="control-label label-optional" for="kategorie">Kategorie</label>
-						<input type="text" name="kategorie" class="form-control" t-att-value="project.kategorie"/>
-					</div>
-					<div class="col-md-7 col-sm-8">
-						<label class="control-label label-optional" for="expertise">Expertise</label>
-						<input type="text" name="expertise" class="form-control" t-att-value="project.expertise"/>
-					</div>
+					<!-- <div class="col&#45;md&#45;7 col&#45;sm&#45;8"> -->
+					<!-- 	<label class="control&#45;label label&#45;optional" for="kategorie">Kategorie</label> -->
+					<!-- 	<input type="text" name="kategorie" class="form&#45;control" t&#45;att&#45;value="project.kategorie"/> -->
+					<!-- </div> -->
+					<!-- <div class="col&#45;md&#45;7 col&#45;sm&#45;8"> -->
+					<!-- 	<label class="control&#45;label label&#45;optional" for="expertise">Expertise</label> -->
+					<!-- 	<input type="text" name="expertise" class="form&#45;control" t&#45;att&#45;value="project.expertise"/> -->
+					<!-- </div> -->
 					<div class="col-md-7 col-sm-8">
 						<label class="control-label label-optional" for="referenz_bild">Referenz Bild</label>
 						<input type="text" name="referenz_bild" class="form-control" t-att-value="project.referenz_bild"/>
