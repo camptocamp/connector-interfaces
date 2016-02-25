@@ -10,7 +10,7 @@
 			</p>
 			<p>
 				I represent a
-				<a t-attf-href="/web/signup" class="btn btn-primary">Firma</a>
+				<a t-attf-href="/web/signup" class="btn btn-primary">Company</a>
 				<a t-attf-href="/web/signup" class="btn btn-primary">Privatperson</a>
 			</p>
 			<p>
@@ -45,7 +45,16 @@
 		<xpath expr="//div[contains(@class,'field-name')]" position="after">
 			<div class="form-group field-country">
 				<label for="country" class="control-label">Country</label>
-				<input type="search" name="country" t-att-value="country" id="country" class="form-control" autofocus="autofocus" required="required"/>
+				<div class="styled-select">
+					<select name="country_id" class="form-control">
+						<option value="">Country...</option>
+						<t t-foreach="countries or []" t-as="country">
+							<option t-att-value="country.id">
+								<t t-esc="country.name" />
+							</option>
+						</t>
+					</select>
+				</div>
 			</div>
 		</xpath>
 		<xpath expr="//div[contains(@class,'field-confirm_password')]" position="after">

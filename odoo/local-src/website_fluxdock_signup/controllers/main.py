@@ -17,19 +17,6 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
 
     @http.route('/web/presignup', type='http', auth='public', website=True)
     def website_fluxdock_presignup(self, *args, **kw):
-        # qcontext = self.get_auth_signup_qcontext()
-        #
-        # if not qcontext.get('token') and not qcontext.get('signup_enabled'):
-        #     raise werkzeug.exceptions.NotFound()
-        #
-        # if 'error' not in qcontext and request.httprequest.method == 'POST':
-        #     try:
-        #         self.do_signup(qcontext)
-        #         return super(AuthSignupHome, self).web_login(*args, **kw)
-        #     except (SignupError, AssertionError), e:
-        #         qcontext['error'] = _(e.message)
-        #
-        # import ipdb; ipdb.set_trace()
         return request.render('website_fluxdock_signup.presignup', {})
 
     # TODO: Weiterleitung auf Profil vervollständigen
@@ -37,6 +24,10 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
     def web_auth_signup(self, *args, **kw):
         qcontext = self.get_auth_signup_qcontext()
         response = super(AuthSignupHome, self).web_auth_signup()
+        countries = request.env['res.country'].sudo().search([])
+        response.qcontext.update({
+            'countries': countries,
+        })
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
                 return request.render('website_fluxdock_signup.thanks_for_registration', {})
