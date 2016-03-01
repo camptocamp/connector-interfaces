@@ -12,15 +12,15 @@
                                       </div>
                                     </div>
                                     <div t-attf-class="form-group #{error.get('name') and 'has-error' or ''} col-lg-6">
-                                        <label class="control-label" for="contact_name">Your Name</label>
+                                        <label class="control-label" for="contact_name">Company name</label>
                                         <input type="text" name="name" class="form-control" t-att-value="name or partner.name" />
                                     </div>
-                                    <div t-attf-class="form-group #{error.get('street') and 'has-error' or ''} col-lg-6">
-                                        <label class="control-label label-optional" for="street">Company Name</label>
-                                        <input type="text" name="street" class="form-control" t-att-value="street or partner.street"/>
-                                    </div>
-                                    <div t-attf-class="form-group #{error.get('street') and 'has-error' or ''} col-lg-6">
-                                        <label class="control-label" for="street">Street</label>
+                                    <!-- <div t&#45;attf&#45;class="form&#45;group #{error.get('street') and 'has&#45;error' or ''} col&#45;lg&#45;6"> -->
+                                    <!--     <label class="control&#45;label" for="street">Street</label> -->
+                                    <!--     <input type="text" name="street" class="form&#45;control" t&#45;att&#45;value="street or partner.street" /> -->
+                                    <!-- </div> -->
+                                    <div t-attf-class="form-group #{error.get('street2') and 'has-error' or ''} col-lg-6">
+                                        <label class="control-label" for="street2">Street</label>
                                         <input type="text" name="street2" class="form-control" t-att-value="street2 or partner.street2" />
                                     </div>
                                     <div t-attf-class="form-group #{error.get('zip') and 'has-error' or ''} col-lg-6">
@@ -80,9 +80,9 @@
                                         </select>
                                     </div>
                                     <div t-attf-class="form-group #{error.get('area_ids') and 'has-error' or ''} col-lg-6">
-                                        <label class="control-label" for="area_ids">Area</label>
+                                        <label class="control-label" for="area_ids">Expertise</label>
                                         <select name="area_ids" class="form-control">
-                                            <option value="">Areas</option>
+                                            <option value="">Expertise</option>
                                             <t t-foreach="areas or []" t-as="area">
                                                 <option t-att-value="area.id" t-att-selected="area.id == partner.area_ids.id">
                                                     <t t-esc="area.name" />
@@ -90,16 +90,11 @@
                                             </t>
                                         </select>
                                     </div>
-                                    <div t-attf-class="form-group #{error.get('expertise') and 'has-error' or ''} col-lg-6">
-                                        <label class="control-label label-optional" for="expertise">URL</label>
-                                        <input type="text" name="expertise" class="form-control" t-att-value="partner.expertise"/>
-                                    </div>
                                     <div class="clearfix" />
                                     <div t-if="has_check_vat" t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} col-lg-6">
                                         <label class="control-label label-optional" for="vat">VAT Number</label>
                                         <input type="text" name="vat" class="form-control" t-att-value="vat or partner.vat" />
                                     </div>
-
                                     <div class="clearfix" />
                                     <div t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} col-lg-6">
                                         <label class="control-label label-optional" for="state_id">State / Province</label>
@@ -117,7 +112,7 @@
 				<div class="clearfix" />
 				<div>
 					<button type="submit" class="btn btn-default btn-primary pull-left mb32 ">Confirm</button>
-					<a t-attf-href="/my/projects/new" class="btn btn-primary pull-right mb32">Add project</a>
+					<a t-attf-href="/my/projects/new" class="btn btn-primary pull-right mb32">Next</a>
 				</div>
                             </div>
                         </div>
