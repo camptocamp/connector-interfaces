@@ -11,7 +11,7 @@
 			<p>
 				I represent a
 				<a t-attf-href="/web/signup" class="btn btn-primary">Company</a>
-				<a t-attf-href="/web/signup" class="btn btn-primary">Privatperson</a>
+				<a t-attf-href="/web/signup" class="btn btn-primary">Private individual</a>
 			</p>
 			<p>
 				Are you already registered? Log in <a t-attf-href="/web/login">here</a>
@@ -56,6 +56,12 @@
 					</select>
 				</div>
 			</div>
+		</xpath>
+		<xpath expr="//div[contains(@class,'field-name')]" position="replace">
+			<label for="name" class="control-label">Company Name</label>
+			<input type="text" name="name" t-att-value="name" id="name" class="form-control" placeholder="e.g. John Doe"
+				required="required" t-att-readonly="'readonly' if only_passwords else None"
+				t-att-autofocus="'autofocus' if login and not only_passwords else None" />
 		</xpath>
 		<xpath expr="//div[contains(@class,'field-confirm_password')]" position="after">
 			<div class="form-group field-agree_to_terms">
