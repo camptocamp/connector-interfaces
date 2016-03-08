@@ -1,0 +1,27 @@
+<openerp>
+    <data>
+
+	<!-- template for confirmarion email -->
+        <record id="account_confirmation_email" model="mail.template">
+            <field name="name">Account confirmation email</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="email_from"><![CDATA[noreply@fluxdock.io]]></field>
+            <field name="email_to">${object.email}</field>
+            <field name="subject">Fluxdock account confirmation</field>
+            <field name="body_html">
+                <![CDATA[
+		    <p>
+			Thank you for signing up to Fluxdock!
+		    </p>
+                    <p>
+                        Please verify Your Email Address by clicking the link bellow.
+                    </p>
+                    <ul>
+                        <li><a href="${object.signup_url}">Confirm my account</a></li>
+                    </ul>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</openerp>

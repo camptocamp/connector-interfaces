@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+        <template id="website_fluxdock_signup.account_confirmation" name="Account confirmation">
+
+            <t t-call="web.login_layout">
+		<div class="clearfix oe_login_buttons">
+			<p>
+				THANK YOU FOR validating your email address.
+			</p>
+			<p>
+				You can edit your profile in the Fluxdock members area. To login please use the choosen 
+			        password and user name.	
+		       	</p>
+			<p>
+				<a t-attf-href="/my/home" class="btn btn-primary">Login</a>
+			</p>
+		</div>
+            </t>
+        </template>
+
         <template id="website_fluxdock_signup.presignup" name="Pre Signup Form">
 
             <t t-call="web.login_layout">

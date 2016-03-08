@@ -18,6 +18,7 @@
     ],
     'data': [
         'views/templates.xml',
+        'fluxdock_signup_data.xml'
     ],
     'installable': True,
 }
