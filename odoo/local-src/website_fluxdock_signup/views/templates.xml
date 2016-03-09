@@ -28,9 +28,9 @@
 						THROUGH COLLABORATION TO INNOVATION
 					</h2>
 					<div class="presignup-buttons">
-						<div class="presignup-label">
+						<label class="presignup-label">
 							I represent a
-						</div>
+						</label>
 						<a t-attf-href="/web/signup" class="btn btn-primary">Company</a>
 						<a t-attf-href="/web/signup" class="btn btn-primary">Private individual</a>
 					</div>
