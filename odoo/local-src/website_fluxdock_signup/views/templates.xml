@@ -6,7 +6,7 @@
             <t t-call="web.login_layout">
 		<div class="clearfix oe_login_buttons">
 			<p>
-				THANK YOU FOR validating your email address.
+				THANK YOU FOR VALIDATING YOUR EMAIL ADDRESS.
 			</p>
 			<p>
 				You can edit your profile in the Fluxdock members area. To login please use the choosen 
@@ -55,6 +55,30 @@
 			<p>
 				<a t-attf-href="/my/account" class="btn btn-primary">Edit profile</a>
 			</p>
+		</div>
+            </t>
+        </template>
+
+        <template id="website_fluxdock_signup.privateperson" name="Private person">
+
+            <t t-call="web.login_layout">
+		<div class="input-group js_subscribe">
+			<h2>
+				SUBSCRIBE TO NEWSLETTER
+			</h2>
+			<p>
+				Please enter your email address in order to receive our newsletter.
+			</p>
+			<input
+				type="email"
+				name="email"
+				class="js_subscribe_email form-control"
+				placeholder="your email..."/>
+			<span class="input-group-btn">
+				<a href="#" class="btn btn-primary js_subscribe_btn">Subscribe</a>
+				<a href="#" class="btn btn-success js_subscribed_btn hidden" disabled="disabled">Thanks</a>
+			</span>
+			<div class="alert alert-success hidden">Thanks for your subscription!</div>
 		</div>
             </t>
         </template>

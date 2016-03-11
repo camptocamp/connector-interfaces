@@ -22,7 +22,6 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
     def website_fluxdock_presignup(self, *args, **kw):
         return request.render('website_fluxdock_signup.presignup', {})
 
-    # TODO: Weiterleitung auf Profil vervollständigen
     @http.route('/web/signup', type='http', auth='public', website=True)
     def web_auth_signup(self, *args, **kw):
         qcontext = self.get_auth_signup_qcontext()
@@ -33,8 +32,6 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
         })
         if 'error' not in qcontext and request.httprequest.method == 'POST':
             try:
-                # TODO: an richtigen user versenden
-                # TODO: Status auf nicht gesendet setzen
                 cr, uid, context = request.cr, request.uid, request.context
                 login = qcontext.get('login')
                 res_users = request.registry.get('res.users')
@@ -80,4 +77,8 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
             values['lang'] = request.lang
         self._signup_with_values(qcontext.get('token'), values)
         request.cr.commit()
+
+    @http.route('/web/privateperson', type='http', auth='public', website=True)
+    def website_fluxdock_privateperson(self, *args, **kw):
+        return request.render('website_fluxdock_signup.privateperson', {})
 

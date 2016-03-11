@@ -12,6 +12,7 @@
         'auth_signup',
         'partner_area',
         'website',
+        'website_mass_mailing',
         'website_portal',
         'website_portal_profile',
         'website_portal_project'
