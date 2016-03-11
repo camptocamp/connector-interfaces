@@ -22,23 +22,19 @@
         <template id="website_fluxdock_signup.presignup" name="Pre Signup Form">
 
             <t t-call="web.login_layout">
-		
-				<div class="clearfix oe_login_buttons presignup">
-					<h2>
-						THROUGH COLLABORATION TO INNOVATION
-					</h2>
-					<div class="presignup-buttons">
-						<label class="presignup-label">
-							I represent a
-						</label>
-						<a t-attf-href="/web/signup" class="btn btn-primary">Company</a>
-						<a t-attf-href="/web/signup" class="btn btn-primary">Private individual</a>
-					</div>
-					<p>
-						Are you already registered? Log in <a t-attf-href="/web/login">here</a>
-				       	</p>
-				</div>
-				
+		<div class="clearfix oe_login_buttons">
+			<p>
+				THROUGH COLLABORATION TO INNOVATION
+			</p>
+			<p>
+				I represent a
+				<a t-attf-href="/web/signup" class="btn btn-primary">Company</a>
+				<a t-attf-href="/web/privateperson" class="btn btn-primary">Private individual</a>
+			</p>
+			<p>
+				Are you already registered? Log in <a t-attf-href="/web/login">here</a>
+		       	</p>
+		</div>
             </t>
         </template>
 
