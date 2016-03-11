@@ -352,17 +352,17 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		section.content{
 			padding-top: 55px;
 			padding-bottom: 24px;
-			.content-wrap{
+			.content-wrap {
+				max-width: 646px;
+				text-align: center;
+				margin: 0 auto 40px;
+				padding: 0 20px;
 				h2{
 					max-width: 392px;
 					margin-left: auto;
 					margin-right: auto;
 					margin-bottom: 20px;
 				}
-				max-width: 646px;
-				text-align: center;
-				margin: 0 auto 40px;
-				padding: 0 20px;
 				.content-icon{
 					margin-bottom: 55px;
 					img{
@@ -763,37 +763,81 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	
 	
 	//LOGIN
-	.oe_website_login_container, .o_website_portal_details{
+	.oe_website_login_container, .o_website_portal_details {
 		color: white;
 		background-color: @darkColor;
 		background-image: url("/theme_fluxdocs/static/img/netz.png");
 		background-position: center center;
 		padding: 50px 20px;
-		label{
+		label {
 			color: white;
 		}
-		>form{
+		a {
+			color: white;
+		}
+		>form {
 			max-width: 600px;
 			margin: 0 auto;
 		}
-		.oe_login_buttons{
+		input[type="text"],
+		input[type="password"] {
+			color: white;
+			border-color: white;
+			background-color: @darkColor;
+		}
+		.oe_login_buttons {
 			text-align: center;
 			.btn-link{
 				border: none;
 				background-color: transparent;
 				width: 100%;
 			}
-			a.btn{
+			a.btn, button {
 				color: white;
 				border-color: white;
 				background-color: @darkColor;
 			}
+			a.btn{
+				padding-left: 40px;
+				padding-right: 40px;
+			}
 		}
-		.presignup{
+		.presignup {
 			margin-top: 100px;
 			margin-bottom: 100px;
+			max-width: 1000px;
+			text-align: center;
+			margin: 0 auto 40px;
+			padding: 0 20px;
+			h2{
+				max-width: 392px;
+				margin-left: auto;
+				margin-right: auto;
+				margin-bottom: 20px;
+			}
+			.presignup-buttons {
+				position: relative;
+				margin-top: 40px;
+				margin-bottom: 40px;
+				padding-left: 180px;
+    			padding-right: 180px;
+				.presignup-label {
+					position: absolute;
+					display: inline-block;
+					left: 0;
+					top: 5px;
+					text-align: right;
+    				width: 175px;
+				}
+				a.btn:first-of-type {
+					margin-right: 10px;
+				}
+				a.btn {
+					display: inline-block;
+					min-width: 290px;
+				}
+			}
 		}
-		
 	}
 	
 	
@@ -956,6 +1000,38 @@ ul.service-menu{
 }
 
 
+//Header
+@media only screen and (max-width : 980px) {
+	body #wrapwrap #my_header{
+		min-width: @minWidth;
+		.fluxdock-topbar{
+			#mobile-menu-trigger{
+				display: block;
+				position: absolute;
+				top: 11px;
+				right: 26px;
+				font-size: 32px;
+				padding: 10px;
+				cursor: pointer;
+			}
+			ul.main-menu{
+				display: none;
+			}
+			ul.service-menu{
+				display: none;
+			}
+			.fluxdock-logo{
+				display: none;
+			}
+			.fluxdock-title{
+				opacity: 1;
+				left: 0;
+			}
+		}
+	}
+}
+
+
 // Footer
 @media only screen and (max-width : 1000px) {
 	body #wrapwrap footer#my_footer{
@@ -1003,37 +1079,35 @@ ul.service-menu{
 	}
 }
 
-
-@media only screen and (max-width : 980px) {
-	body #wrapwrap #my_header{
-		min-width: @minWidth;
-		.fluxdock-topbar{
-			#mobile-menu-trigger{
+//Presignup
+@media only screen and (max-width : 1050px) {
+	body #wrapwrap .oe_website_login_container .presignup {
+		max-width: 646px;
+		.presignup-buttons {
+			padding-left: 0;
+			padding-right: 0;
+			.presignup-label {
+				width: auto;
+				position: static;
 				display: block;
-				position: absolute;
-				top: 11px;
-				right: 26px;
-				font-size: 32px;
-				padding: 10px;
-				cursor: pointer;
-			}
-			ul.main-menu{
-				display: none;
-			}
-			ul.service-menu{
-				display: none;
-			}
-			.fluxdock-logo{
-				display: none;
-			}
-			.fluxdock-title{
-				opacity: 1;
-				left: 0;
-			}
+				text-align: left;
+				padding-left: 5px;
+				padding-right: 5px;
+		 	}
 		}
 	}
-		
 }
+@media only screen and (max-width : 700px) {
+	body #wrapwrap .oe_website_login_container .presignup .presignup-buttons a.btn {
+		display: block;
+		margin-bottom: 10px;
+		min-width: auto;
+		&:first-of-type {
+			margin-right: 0;
+		}
+	}
+}
+
 
 //Projects boxes
 @media only screen and (max-width : 700px) {
