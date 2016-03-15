@@ -62,23 +62,24 @@
         <template id="website_fluxdock_signup.privateperson" name="Private person">
 
             <t t-call="web.login_layout">
-		<div class="input-group js_subscribe">
-			<h2>
-				SUBSCRIBE TO NEWSLETTER
-			</h2>
-			<p>
-				Please enter your email address in order to receive our newsletter.
-			</p>
-			<input
-				type="email"
-				name="email"
-				class="js_subscribe_email form-control"
-				placeholder="your email..."/>
-			<span class="input-group-btn">
-				<a href="#" class="btn btn-primary js_subscribe_btn">Subscribe</a>
-				<a href="#" class="btn btn-success js_subscribed_btn hidden" disabled="disabled">Thanks</a>
-			</span>
-			<div class="alert alert-success hidden">Thanks for your subscription!</div>
+		<div>
+		    <section class="content newsletter_subscribe opt_dark_bg">
+		            <div class="content-wrap">
+		            	<div class="content-icon">
+		            		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+		            	</div>
+		            	<h2>Newsletter</h2>
+		            	<p>Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole.</p>
+		            </div>
+		            <div class="content-wrap newsletter-form-wrap">
+		            	<!-- Campain Monitor form -->
+		                    <form id="subForm" class="newsletter-form" action="http://fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
+		                    	<input name="cm-name" placeholder="Name" class="form-control" type="text"></input>
+		                    	<input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required"></input>
+		                    	<button type="submit">Subscribe</button>
+		                    </form>
+		            </div>							
+		    </section>
 		</div>
             </t>
         </template>
@@ -106,9 +107,26 @@
 				t-att-autofocus="'autofocus' if login and not only_passwords else None" />
 		</xpath>
 		<xpath expr="//div[contains(@class,'field-confirm_password')]" position="after">
+			<!-- modal for agree to terms -->
+			<div class="modal fade agree_to_terms_modal" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							<h4 class="modal-title">Terms of use</h4>
+						</div>
+						<div class="modal-body">
+							<p>
+								These are our terms of use!
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- modal end -->
 			<div class="form-group field-agree_to_terms">
-				<label for="agree_to_terms" class="control-label">Agree to terms</label>
 				<input type="checkbox" name="agree_to_terms" t-att-value="agree_to_terms" id="agree_to_terms" class="window-new" required="required"/>
+				<button for="agree_to_terms" class="btn btn-link" data-toggle="modal" data-target=".agree_to_terms_modal">Agree to Fluxdock terms of use</button>
 			</div>
 		</xpath>
 	</template>
