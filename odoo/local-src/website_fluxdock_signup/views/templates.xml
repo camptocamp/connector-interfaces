@@ -2,7 +2,6 @@
 <odoo>
 
         <template id="website_fluxdock_signup.account_confirmation" name="Account confirmation">
-
             <t t-call="web.login_layout">
 		<div class="clearfix oe_login_buttons">
 			<p>
@@ -20,7 +19,6 @@
         </template>
 
         <template id="website_fluxdock_signup.presignup" name="Pre Signup Form">
-
             <t t-call="web.login_layout">
 				<div class="clearfix oe_login_buttons presignup">
 					<h2>
@@ -41,7 +39,6 @@
         </template>
 
         <template id="website_fluxdock_signup.thanks_for_registration" name="Thanks for registration">
-
             <t t-call="web.login_layout">
 		<div class="clearfix oe_login_buttons">
 			<p>
@@ -62,7 +59,6 @@
         </template>
 
         <template id="website_fluxdock_signup.privateperson" name="Private person">
-
             <t t-call="web.login_layout">
 		<div>
 		    <section class="content newsletter_subscribe opt_dark_bg">
@@ -86,7 +82,50 @@
             </t>
         </template>
 
+        <template id="auth_signup.login" inherit_id="web.login" name="Sign up - Reset Password">
+            <xpath expr="//button[@type='submit']" position="after">
+		<div>
+			<div t-if="signup_enabled">
+				Not registered yet? Create a free account <a t-attf-href="/web/signup?{{ keep_query() }}">here</a>
+			</div>
+			<div t-if="reset_password_enabled">
+				Forgot your password? Reset your password <a t-attf-href="/web/reset_password?{{ keep_query() }}">here</a>
+			</div>
+		</div>
+            </xpath>
+        </template>
+
+	<template id="website_fluxdock_signup.fluxdock_login" name="Fluxdock login" inherit_id="web.login">
+		<xpath expr="//div[contains(@class,'field-db')]" position="before">
+			<div class="clearfix presignup">
+				<h2>
+					THROUGH COLLABORATION TO INNOVATION
+				</h2>
+			</div>
+		</xpath>
+	</template>
+
+	<template id="website_fluxdock_signup.signup_buttons" name="Signup country" inherit_id="auth_signup.signup">
+		<xpath expr="//div[contains(@class,'oe_login_buttons')]" position="replace">
+                    <div class="clearfix oe_login_buttons">
+			<p>
+				<button type="submit" class="btn btn-primary">Sign up</button>
+			</p>
+			<p>
+				Are you already registered? Log in <a t-attf-href="/web/login?{{ keep_query() }}">here</a>
+			</p>
+                    </div>
+		</xpath>
+	</template>
+
 	<template id="website_fluxdock_signup.signup" name="Signup country" inherit_id="auth_signup.fields">
+		<xpath expr="//div[contains(@class,'field-login')]" position="before">
+			<div class="clearfix oe_login_buttons presignup">
+				<h2>
+					THROUGH COLLABORATION TO INNOVATION
+				</h2>
+			</div>
+		</xpath>
 		<xpath expr="//div[contains(@class,'field-name')]" position="after">
 			<div class="form-group field-country">
 				<label for="country" class="control-label">Country</label>
@@ -173,7 +212,6 @@
 			<div class="form-group field-agree_to_terms form-group-checkbox">
 				<input type="checkbox" name="agree_to_terms" t-att-value="agree_to_terms" id="agree_to_terms" class="window-new" required="required"/>
 				<label for="agree_to_terms">I agree to the <a data-toggle="modal" data-target=".agree_to_terms_modal" href="#">Terms of Use</a> and <a data-toggle="modal" data-target=".privacy_policy_modal" href="#">Privacy Policy</a></label>
-<!-- 				<button for="agree_to_terms" class="btn btn-link" data-toggle="modal" data-target=".agree_to_terms_modal">Agree to Fluxdock terms of use</button> -->
 			</div>
 		</xpath>
 	</template>

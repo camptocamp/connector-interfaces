@@ -11,6 +11,7 @@
     'depends': [
         'auth_signup',
         'partner_area',
+        'web',
         'website',
         'website_mass_mailing',
         'website_portal',
@@ -19,6 +20,7 @@
     ],
     'data': [
         'views/templates.xml',
+        'views/signup_views.xml',
         'fluxdock_signup_data.xml'
     ],
     'installable': True,
