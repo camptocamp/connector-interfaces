@@ -117,20 +117,36 @@
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-							<h4 class="modal-title">Terms of use</h4>
+							<h2 class="modal-title">Terms of use</h2>
 						</div>
 						<div class="modal-body">
 							<p>
-								These are our terms of use!
+								Nutzungsbedingungen Fluxdock.io
 							</p>
+							<p>
+								Stand 29. Februar 2016
+							</p>
+							<ol>
+								<li>
+									<p>Ihr Vertrag mit Fluxdock.</p>
+									<p>1.1 Ihr Vertrag besteht mit der FLUXDOCK AG, einem Schweizer Unternehmen. Dieser Vertrag untersteht den Gesetzen des Kantons Basel-Landschaft und den Gesetzen der Schweiz.</p>
+								</li>
+								<li>
+									<p>Ihr Inhalt.</p>
+									<p>2.1 Eigentümer: Sie behalten alle Rechte und das Eigentum an Ihren Daten und Inhalten. Fluxdock erhebt keinerlei Eigentumsrechte an Ihren Inhalten.</p>
+									<p>2.2 Lizenzen für Ihre Inhalte. Wenn Sie Inhalte auf unsere Dienste hochladen oder einreichen, gewähren Sie Fluxdock eine weltweite Lizenz sie zu kommunizieren, zu verbreiten, zu veröffentlichen, zu vervielfältigen, zu speichern und diese Inhalte zu nutzen. Die von Ihnen gewährte Lizenz dient dem Zweck des Betriebs von Fluxdock und der Bewerbung unserer Dienstleistungen.</p>
+									<p>2.3 2.3 Kündigung der Lizenz. Sie können durch das Entfernen Ihrer Inhalte aus den Diensten, diese Lizenz jederzeit kündigen. Allerdings erklären Sie sich bereit, dass Fluxdock Kopien Ihrer Inhalte für die Archivierung oder für Backup-Zwecke behalten und verwenden kann.</p>
+								</li>
+							</ol>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- modal end -->
-			<div class="form-group field-agree_to_terms">
+			<div class="form-group field-agree_to_terms form-group-checkbox">
 				<input type="checkbox" name="agree_to_terms" t-att-value="agree_to_terms" id="agree_to_terms" class="window-new" required="required"/>
-				<button for="agree_to_terms" class="btn btn-link" data-toggle="modal" data-target=".agree_to_terms_modal">Agree to Fluxdock terms of use</button>
+				<label for="agree_to_terms">I agree to the <a data-toggle="modal" data-target=".agree_to_terms_modal" href="#">Terms of Use</a></label>
+<!-- 				<button for="agree_to_terms" class="btn btn-link" data-toggle="modal" data-target=".agree_to_terms_modal">Agree to Fluxdock terms of use</button> -->
 			</div>
 		</xpath>
 	</template>
