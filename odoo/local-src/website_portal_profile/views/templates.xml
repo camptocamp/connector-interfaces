@@ -2,6 +2,19 @@
 <odoo>
 
 	<template id="website_portal_profile-details" name="Profile details" inherit_id="website_portal.details">
+		<xpath expr="//h1" position="replace">
+                    <h1>Member profile</h1>
+		</xpath>
+		<xpath expr="//div[@class='row']" position="replace">
+                  <div class="row hide">
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb mt8">
+                                <li><a href="/my/home">My Account</a></li>
+                                <li>Details</li>
+                            </ol>
+                        </div>
+                    </div>
+		</xpath>
 		<xpath expr="//div[@class='row o_website_portal_details']" position="replace">
                         <div class="row o_website_portal_details">
                             <div class="col-md-12">
@@ -131,7 +144,7 @@
                                 </div>
 				<div class="clearfix"/>
 				<div>
-					<button type="submit" class="btn btn-default btn-primary pull-left mb32 ">Confirm</button>
+					<button type="submit" class="btn btn-default btn-primary mb32 ">Confirm</button>
 					<!-- <a t&#45;attf&#45;href="/my/projects/new" class="btn btn&#45;primary pull&#45;right mb32">Next</a> -->
 				</div>
                             </div>
