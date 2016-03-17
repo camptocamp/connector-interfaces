@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <menuitem name="Terms of use" id="fluxdock_terms_of_use" sequence="20" parent="website.menu_website_configuration"/>
+    </data>
+</openerp>
