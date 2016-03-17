@@ -69,7 +69,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		color: @placeholderColor;
 	}
 	
-	input[type="text"],
+	input[type="text"], 
+	input[type="tel"],
 	input[type="email"],
 	input[type="password"],
 	button[type="submit"],
@@ -146,7 +147,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.label {
 			color: white;
 		}
-		input[type="text"], input[type="email"], input[type="password"], button[type="submit"] {
+		input[type="text"], input[type="tel"], input[type="email"], input[type="password"], button[type="submit"] {
 			color: white;
 			border-color: white;
 			background-color: @darkColor;
@@ -160,6 +161,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		select {
 			background-color: @darkColor;
 		}
+	}
+	.container {
+		width: 100%;
 	}
 	
 
@@ -774,7 +778,11 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	
 	//MY ACCOUNT
 	.o_website_portal_details{
-		
+		.col-sm-10{
+			width: 100%;
+			padding: 0;
+			float: none;
+		}
 	}
 	
 	
@@ -797,33 +805,33 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				font-size: 40px;
 			}
 		}
-		>form {
-			.form-group {
-				margin: 0 auto;
-				max-width: 1000px;
-				padding-left: 200px;
-				padding-right: 200px;
-				position: relative;
-				margin-bottom: 20px;
-				label {
-					position: absolute;
-					width: 188px;
-					left: 0;
-					top: 8px;
-					text-align: right;
-				}
+		.form-group {
+			margin: 0 auto;
+			max-width: 1000px;
+			padding-left: 200px;
+			padding-right: 200px;
+			position: relative;
+			margin-bottom: 20px;
+			label {
+				position: absolute;
+				width: 188px;
+				left: 0;
+				top: 8px;
+				text-align: right;
 			}
-			.form-group.form-group-checkbox{
-				input[type="checkbox"] {
-					margin-right: 20px;
-				}
-				label {
-					position: static;
-					width: auto;
-				}
+		}
+		.form-group.form-group-checkbox{
+			input[type="checkbox"] {
+				margin-right: 20px;
+			}
+			label {
+				position: static;
+				width: auto;
 			}
 		}
 		input[type="text"],
+		input[type="tel"],
+		input[type="email"],
 		input[type="password"] {
 			color: white;
 			border-color: white;
@@ -831,20 +839,20 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		.oe_login_buttons {
 			text-align: center;
-			.btn-link{
-				border: none;
-				background-color: transparent;
-				width: 100%;
-			}
-			a.btn, button {
-				color: white;
-				border-color: white;
-				background-color: @darkColor;
-			}
-			a.btn{
-				padding-left: 40px;
-				padding-right: 40px;
-			}
+		}
+		.btn-link{
+			border: none;
+			background-color: transparent;
+			width: 100%;
+		}
+		a.btn, button {
+			color: white;
+			border-color: white;
+			background-color: @darkColor;
+		}
+		a.btn{
+			padding-left: 40px;
+			padding-right: 40px;
 		}
 		.presignup {
 			margin-top: 100px;
@@ -1142,28 +1150,31 @@ ul.service-menu{
 	}
 	
 	//Forms
-	body #wrapwrap .oe_website_login_container > form {
-		
-		.form-group{
-			padding-left: 0;
-			padding-right: 0;
-			max-width: 600px;
-			label {
-				width: auto;
-				position: static;
-				display: block;
-				text-align: left;
-				padding-left: 5px;
-				padding-right: 5px;
-			}
-		}
-		.form-group.form-group-checkbox {
-			label {
-				display: inline;
+	body #wrapwrap{
+		.oe_website_login_container,
+		.o_website_portal_details {
+			
+			.form-group{
 				padding-left: 0;
 				padding-right: 0;
+				max-width: 600px;
+				label {
+					width: auto;
+					position: static;
+					display: block;
+					text-align: left;
+					padding-left: 5px;
+					padding-right: 5px;
+				}
 			}
-		}
+			.form-group.form-group-checkbox {
+				label {
+					display: inline;
+					padding-left: 0;
+					padding-right: 0;
+				}
+			}
+		} 
 	} 
 }
 @media only screen and (max-width : 700px) {
@@ -1250,7 +1261,7 @@ ul.service-menu{
 //Newsletter fields
 @media only screen and (max-width : 480px) {
 	body #wrapwrap main .newsletter-form-wrap .newsletter-form{
-		input[type="text"], input[type="email"], button[type="submit"]{
+		input[type="text"], input[type="tel"], input[type="email"], button[type="submit"]{
 			width: 100%;
 			margin-righ: 0;
 		}
