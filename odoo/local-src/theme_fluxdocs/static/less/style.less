@@ -797,8 +797,10 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		.modal {
 			color: black;
-			.modal-header .close {
+			.modal-header button.close {
 				font-size: 40px;
+				color: @darkColor;
+				background-color: transparent;
 			}
 		}
 		.login-notice-wrap{
@@ -853,6 +855,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			color: white;
 			border-color: white;
 			background-color: @darkColor;
+			min-width: 130px;
 		}
 		a.btn{
 			padding-left: 40px;
