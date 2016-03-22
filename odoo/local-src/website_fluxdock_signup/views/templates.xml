@@ -13,8 +13,10 @@
 					please use the choosen
 					password and user name.
 				</p>
-				<div class="button-wrap">
-					<a t-attf-href="/my/home" class="btn btn-primary">Login</a>
+				<div class="oe_login_buttons">
+					<div class="button-wrap">
+						<a t-attf-href="/my/home" class="btn btn-primary">Login</a>
+					</div>
 				</div>
 			</div>
 		</t>
@@ -56,8 +58,10 @@
 					please use the choosen
 					password and user name.
 				</p>
-				<div class="button-wrap">
-					<a t-attf-href="/my/account" class="btn btn-primary">Edit profile</a>
+				<div class="oe_login_buttons">
+					<div class="button-wrap">
+						<a t-attf-href="/my/account" class="btn btn-primary">Edit profile</a>
+					</div>
 				</div>
 			</div>
 		</t>
