@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <menuitem name="Terms of use" id="fluxdock_terms_of_use" sequence="20" parent="website.menu_website_configuration"/>
+
+	<record id="view_term_of_use_form" model="ir.ui.view">
+		<field name="name">terms.of.use.form</field>
+		<field name="model">terms.of.use</field>
+		<field name="type">form</field>
+		<field name="priority" eval="8"/>
+		<field name="arch" type="xml">
+		<form string="Terms of use">
+			<div>
+				<header>
+					<button string="Apply" type="object" name="execute" class="oe_highlight"/>
+					<button string="Cancel" type="object" name="cancel" class="oe_link"/>
+				</header>
+				<field name="website_id" on_change="on_change_website_id(website_id)"/>
+				<notebook colspan="4">
+					<page string="Terms of use">
+						<field name="terms_of_use" widget="html"/>
+					</page>
+					<page string="Privacy policy">
+						<field name="privacy_policy" widget="html"/>
+					</page>
+				</notebook>
+			</div>
+		</form>
+		</field>
+	</record>
+
+        <record id="action_fluxdock_terms_of_use" model="ir.actions.act_window">
+            <field name="name">Terms of use</field>
+            <field name="res_model">terms.of.use</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+	<menuitem name="Terms of use" id="fluxdock_terms_of_use" sequence="10" 
+		action="action_fluxdock_terms_of_use" parent="website.menu_website_configuration"/>
+
     </data>
 </openerp>
