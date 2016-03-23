@@ -7,7 +7,6 @@
 	    <field name="model">terms.of.use</field>
 	    <field name="arch" type="xml">
 		<tree string="Terms of use">
-		    <field name="name"/>
 		    <field name="website_id"/>
 		</tree>
 	    </field>
@@ -20,7 +19,6 @@
 		<form string="Terms of use">
 			<group colspan="4">
 					<field name="website_id"/>
-					<field name="name"/>
 			</group>
 			<notebook colspan="4">
 				<page string="Terms of use">
