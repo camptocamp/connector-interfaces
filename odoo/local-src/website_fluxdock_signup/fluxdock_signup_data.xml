@@ -10,15 +10,68 @@
             <field name="subject">Fluxdock account confirmation</field>
             <field name="body_html">
                 <![CDATA[
-		    <p>
-			Thank you for signing up to Fluxdock!
-		    </p>
-                    <p>
-                        Please verify Your Email Address by clicking the link bellow.
-                    </p>
-                    <ul>
-                        <li><a href="${object.signup_url}">Confirm my account</a></li>
-                    </ul>
+		<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+			
+			<tr>
+				<td align="center" style="padding-top: 20px; padding-bottom: 20px;">
+					<img src="http://fluxdock.io/theme_fluxdocs/static/email/images/logo-title.png" alt="Fluxdock Logo" width="440" height="105" style="display: block;" />
+				</td>
+			</tr>
+			
+			<tr bgcolor="#463246">
+				<td align="center" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;">Please do not reply! This email was generated automatically.</td>
+			</tr>
+			
+			<tr bgcolor="#2e112d">
+				<td align="center">
+					<table border="0" cellpadding="0" cellspacing="0" width="600">
+						<tr>
+							<td style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:50px; padding-bottom:100px; padding-left: 10px; padding-right: 10px;">
+								<p>Thank you for signing up to Fluxdock!</p>
+								<p>Please confirm Your Email Address by clicking the link bellow.</p>
+								
+								<table border="1" cellpadding="0" cellspacing="0">
+									<tr>
+										<td style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding: 10px 20px;">
+											<a style="color: #ffffff; text-decoration: none;" href="${object.signup_url}">Activate account</a>
+										</td>
+									</tr>
+								</table>
+								<p>Thank you.</p>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr bgcolor="#463246">
+				<td align="center">
+					<table border="0" cellpadding="0" cellspacing="0" width="600">
+						<tr>
+							<td width="33%" align="left" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-left: 10px;">
+								<a style="font-size:14px; color: #ffffff; text-decoration: none;" href="http://fluxdock.io/my/home">
+									<strong>Mein Konto</strong>
+								</a>
+							</td>
+							<td width="33%" align="center" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;">
+								<a style="color: #ffffff; text-decoration: none;" href="https://fluxdock.io/my/home">
+									<strong>fluxdock.io</strong>
+								</a>
+							</td>
+							<td width="33%" align="right" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-right:18px;">
+								<a style="font-size:14px; color: #ffffff; text-decoration: none;" href="https://fluxdock.io/page/facility">
+									<strong>Kontaktieren Sie uns</strong>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr bgcolor="#ffffff">
+				<td align="center" style="color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;">Copyright &copy; 2016 Fluxdock</td>
+			</tr>
+		</table>
                 ]]>
             </field>
         </record>

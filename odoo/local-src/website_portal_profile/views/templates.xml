@@ -4,7 +4,7 @@
 	<template id="website_portal_profile-details" name="Profile details"
 		inherit_id="website_portal.details">
 		<xpath expr="//h1" position="replace">
-<!-- 			<h1>Member profile</h1> -->
+			<h1 class="hide">Member profile</h1>
 		</xpath>
 		<xpath expr="//div[@class='row']" position="replace">
 			<div class="row hide">

@@ -33,7 +33,7 @@
 						I represent a
 					</label>
 					<a t-attf-href="/web/signup" class="btn btn-primary">Company</a>
-					<a t-attf-href="/web/signup" class="btn btn-primary">Private individual</a>
+					<a t-attf-href="/web/privateperson" class="btn btn-primary">Private individual</a>
 				</div>
 				<p>
 					Are you already registered? Log in
