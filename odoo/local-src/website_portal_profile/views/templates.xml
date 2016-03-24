@@ -72,7 +72,8 @@
 								</select>
 							</div>
 						</div>
-						<div t-attf-class="form-group row #{error.get('phone') and 'has-error' or ''} ">
+						
+						<div t-attf-class="form-group separate row #{error.get('phone') and 'has-error' or ''} ">
 							<label class="form-control-label col-sm-2" for="phone">Phone
 							</label>
 							<input type="tel" name="phone" class="form-control"
@@ -81,35 +82,36 @@
 						<div t-attf-class="form-group row #{error.get('email') and 'has-error' or ''} ">
 							<label class="form-control-label col-sm-2" for="contact_name">Email
 							</label>
-							<input type="email" name="email" class="form-control"
+							<input placeholder="name@domain.com" type="email" name="email" class="form-control"
 								t-att-value="email or partner.email" />
 						</div>
 						<div
 							t-attf-class="form-group row #{error.get('website') and 'has-error' or ''} ">
 							<label class="form-control-label label-optional col-sm-2"
 								for="website">URL</label>
-							<input type="text" name="website" class="form-control"
+							<input placeholder="http:///www.domain.com" type="text" name="website" class="form-control"
 								t-att-value="partner.website" />
 						</div>
+						
 						<div
-							t-attf-class="form-group row #{error.get('facebook') and 'has-error' or ''} ">
+							t-attf-class="form-group separate row #{error.get('facebook') and 'has-error' or ''} ">
 							<label class="form-control-label label-optional col-sm-2"
 								for="facebook">Facebook</label>
-							<input type="text" name="facebook" class="form-control"
+							<input placeholder="https://www.facebook.com/username" type="text" name="facebook" class="form-control"
 								t-att-value="partner.facebook" />
 						</div>
 						<div
 							t-attf-class="form-group row #{error.get('twitter') and 'has-error' or ''} ">
 							<label class="form-control-label label-optional col-sm-2"
 								for="twitter">Twitter</label>
-							<input type="text" name="twitter" class="form-control"
+							<input placeholder="https://twitter.com/username" type="text" name="twitter" class="form-control"
 								t-att-value="partner.twitter" />
 						</div>
 						<div
-							t-attf-class="form-group row #{error.get('werbeversprechen') and 'has-error' or ''} ">
+							t-attf-class="form-group separate row #{error.get('werbeversprechen') and 'has-error' or ''} ">
 							<label class="form-control-label label-optional col-sm-2"
-								for="werbeversprechen">Werbeversprechen</label>
-							<input type="text" name="werbeversprechen" class="form-control"
+								for="werbeversprechen">Claim</label>
+							<textarea name="werbeversprechen" class="form-control"
 								t-att-value="partner.werbeversprechen" />
 						</div>
 						<div
