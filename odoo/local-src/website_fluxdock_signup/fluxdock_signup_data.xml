@@ -1,7 +1,7 @@
 <openerp>
     <data>
 
-	<!-- template for confirmarion email -->
+	<!-- template for confirmation email -->
         <record id="account_confirmation_email" model="mail.template">
             <field name="name">Account confirmation email</field>
             <field name="model_id" ref="base.model_res_users"/>
@@ -10,11 +10,23 @@
             <field name="subject">Fluxdock account confirmation</field>
             <field name="body_html">
                 <![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Fluxdock</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+
+	<body style="margin: 0; padding: 0;">
 		<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
 			
 			<tr>
 				<td align="center" style="padding-top: 20px; padding-bottom: 20px;">
+					<!-- When live change to this
 					<img src="http://fluxdock.io/theme_fluxdocs/static/email/images/logo-title.png" alt="Fluxdock Logo" width="440" height="105" style="display: block;" />
+					 -->
+					<img src="http://54.93.88.93:8070/theme_fluxdocs/static/email/images/logo-title.png" alt="Fluxdock Logo" width="440" height="105" style="display: block;" />
 				</td>
 			</tr>
 			
@@ -33,11 +45,11 @@
 								<table border="1" cellpadding="0" cellspacing="0">
 									<tr>
 										<td style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding: 10px 20px;">
-											<a style="color: #ffffff; text-decoration: none;" href="${object.signup_url}">Activate account</a>
+											<a style="color: #ffffff; text-decoration: none;" href="http://www.fluxdock.io/web/confirmation">Activate account</a>
 										</td>
 									</tr>
 								</table>
-								<p>Thank you.</p>
+								<p>Thank you!</p>
 							</td>
 						</tr>
 					</table>
@@ -50,7 +62,7 @@
 						<tr>
 							<td width="33%" align="left" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-left: 10px;">
 								<a style="font-size:14px; color: #ffffff; text-decoration: none;" href="http://fluxdock.io/my/home">
-									<strong>Mein Konto</strong>
+									<strong>My Account</strong>
 								</a>
 							</td>
 							<td width="33%" align="center" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;">
@@ -60,7 +72,7 @@
 							</td>
 							<td width="33%" align="right" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-right:18px;">
 								<a style="font-size:14px; color: #ffffff; text-decoration: none;" href="https://fluxdock.io/page/facility">
-									<strong>Kontaktieren Sie uns</strong>
+									<strong>Contact us</strong>
 								</a>
 							</td>
 						</tr>
@@ -72,6 +84,9 @@
 				<td align="center" style="color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;">Copyright &copy; 2016 Fluxdock</td>
 			</tr>
 		</table>
+	</body>
+
+</html>
                 ]]>
             </field>
         </record>
