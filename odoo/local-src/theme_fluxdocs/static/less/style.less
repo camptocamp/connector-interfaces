@@ -91,6 +91,17 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 	}
 	
+	textarea {
+		color: black;
+		border: solid 1px black;
+		border-radius: 0;
+		box-shadow: none;
+		font-size: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
+		background-color: white;
+	}
+	
 	.styled-select{
 		overflow: hidden;
 		border: solid 1px white;
@@ -147,7 +158,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.label {
 			color: white;
 		}
-		input[type="text"], input[type="tel"], input[type="email"], input[type="password"], button[type="submit"] {
+		input[type="text"], input[type="tel"], input[type="email"], input[type="password"], button[type="submit"], textarea {
 			color: white;
 			border-color: white;
 			background-color: @darkColor;
@@ -813,6 +824,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			padding-right: 200px;
 			position: relative;
 			margin-bottom: 20px;
+			&.separate {
+				margin-top: 80px;
+			}
 			label {
 				position: absolute;
 				width: 188px;
@@ -833,10 +847,14 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		input[type="text"],
 		input[type="tel"],
 		input[type="email"],
-		input[type="password"] {
+		input[type="password"], 
+		textarea {
 			color: white;
 			border-color: white;
 			background-color: @darkColor;
+		}
+		textarea {
+			resize: none;
 		}
 		.form-button-wrap, 
 		.oe_login_buttons {
