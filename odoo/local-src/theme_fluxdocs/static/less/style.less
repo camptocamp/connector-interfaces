@@ -115,10 +115,15 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			background-color: transparent;
 			width: 110%;
 			font-size: 20px;
-			color: @placeholderColor;
+			color: white;
 			option{
 				height: 42px;
 				padding-top: 10px;
+			}
+		}
+		select[name="country_id"] {
+			option:first-of-type {
+				color: @placeholderColor;
 			}
 		}
 	}
@@ -284,7 +289,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					}
 				}
 				>li:nth-of-type(1), >li:nth-of-type(2){
-					display: none; //Hide service menu
+//					display: none; //Hide service menu
 				}
 				ul.js_language_selector{
 					//display: none; //Hide language menu
@@ -383,6 +388,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		section.content{
 			padding-top: 55px;
 			padding-bottom: 24px;
+			&.with-image{
+				padding-bottom: 0;
+			}
 			.content-wrap {
 				max-width: 646px;
 				text-align: center;
@@ -976,7 +984,7 @@ body #wrapwrap{
 			}
 		}
 		&.service-menu{
-			display: none; //Hide service menu
+//			display: none; //Hide service menu
 			li{
 				font-size: 16px;
 				margin-bottom: 6px;
