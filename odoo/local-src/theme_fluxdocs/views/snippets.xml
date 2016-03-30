@@ -106,7 +106,7 @@
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content-image.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Content Image</span>
 		                </div>
-		                <section class="content">
+		                <section class="content with-image">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
