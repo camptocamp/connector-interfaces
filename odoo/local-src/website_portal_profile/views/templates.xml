@@ -111,7 +111,7 @@
 							t-attf-class="form-group separate row #{error.get('werbeversprechen') and 'has-error' or ''} ">
 							<label class="form-control-label label-optional col-sm-2"
 								for="werbeversprechen">Claim</label>
-							<textarea name="werbeversprechen" class="form-control"
+							<textarea placeholder="200 characters left" name="werbeversprechen" class="form-control"
 								t-att-value="partner.werbeversprechen" />
 						</div>
 						<div
