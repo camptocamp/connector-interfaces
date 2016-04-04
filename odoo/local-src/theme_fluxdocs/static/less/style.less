@@ -12,6 +12,13 @@ body #wrapwrap main #wrap.o_editable{
 	 }
 }
 
+html[lang="de-DE"] a.js_change_lang[data-lang="en_US"] {
+	opacity: 0.5;
+}
+html[lang="en-US"] a.js_change_lang[data-lang="de_DE"] {
+	opacity: 0.5;
+}
+
 body #wrapwrap{ //Outside of wrapwrap is the backend
 	font-size: 20px;
 	color: @darkColor;
@@ -455,6 +462,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			padding-top: 46px;
 			p{
 				font-size: 26px;
+				margin-bottom: 0;
+			}
+			a.btn {
+				margin-left: 5px;
+				margin-right: 5px;
+				min-width: 140px;
 			}
 		}
 		
@@ -530,7 +543,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				text-align: left;
 				margin-top: 36px;
 				.news-teaser{
-					font-size: 14px; //because of inline-block
+					font-size: 18px; //because of inline-block
 					display: inline-block;
 					vertical-align: top;
 					width: 50%;
@@ -545,11 +558,13 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						font-size: 20px;
 						text-align: left;
 						margin-top: 0;
+						margin-bottom: 6px;
 					}
 					p{
 						margin-bottom: 0;
 					}
 					.read-more{
+						margin-top: 6px;
 						a{
 							color: @brightColor;
 						}
