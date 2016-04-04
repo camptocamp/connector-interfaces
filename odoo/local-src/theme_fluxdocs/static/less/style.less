@@ -65,6 +65,11 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		padding: 6px 10px;
 	}
 	
+	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+	    -webkit-box-shadow: 0 0 0px 1000px @darkColor inset!important;
+	    -webkit-text-fill-color: white !important;
+	}
+	
 	//Placeholder
 	input::input-placeholder {
 		color: @placeholderColor;
@@ -140,6 +145,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		height: 42px;
 		padding-left: 6px;
 		padding-right: 6px;
+		-webkit-appearance: none;
 		option{
 			height: 42px;
 			padding-top: 10px;
