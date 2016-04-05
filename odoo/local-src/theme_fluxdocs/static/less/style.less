@@ -12,11 +12,11 @@ body #wrapwrap main #wrap.o_editable{
 	 }
 }
 
-html[lang="de-DE"] a.js_change_lang[data-lang="en_US"] {
-	opacity: 0.5;
+html[lang="de-DE"] a.js_change_lang[data-lang="de_DE"] {
+	font-weight: bold;
 }
-html[lang="en-US"] a.js_change_lang[data-lang="de_DE"] {
-	opacity: 0.5;
+html[lang="en-US"] a.js_change_lang[data-lang="en_US"] {
+	font-weight: bold;
 }
 
 body #wrapwrap{ //Outside of wrapwrap is the backend
@@ -24,6 +24,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	color: @darkColor;
 	font-family: "noyh_rlight";
 	min-width: @minWidth;
+	
+	//Keine ligaturen
+	font-variant-ligatures: none;
 
 	// GENERAL ELEMENTS
 	h1, h2{
@@ -73,11 +76,16 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	//Placeholder
 	input::input-placeholder {
 		color: @placeholderColor;
+		opacity: 1;
 	}
+	
 	input::-webkit-input-placeholder {
+		opacity: 1;
 		color: @placeholderColor;
 	}
+	
 	input::-moz-placeholder {
+		opacity: 1;
 		color: @placeholderColor;
 	}
 	
@@ -456,6 +464,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				}
 			}
 			.image-wrap{
+				margin-top: 60px;
 				img{
 					max-width: 100%;
 					min-width: 100%;
@@ -472,8 +481,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				margin-bottom: 0;
 			}
 			a.btn {
-				margin-left: 5px;
-				margin-right: 5px;
+				margin: 5px;
 				min-width: 140px;
 			}
 		}
@@ -512,14 +520,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			.accordion-trigger{
 				position: relative;
 				cursor: pointer;
-				h3{
-				}
 				&:after {
-					font-size: 26px;
+					font-size: 20px;
 					font-family: FontAwesome;
 					content: "\f107";
 					position: absolute;
-					top: -8px;
+					top: -6px;
 					right: 0;
 				}
 			}
@@ -545,6 +551,10 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		
 		//Latest News
 		.content.latest_news{
+			.content-wrap {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
 			.latest-news-container{
 				font-size: 0; //because of inline-block
 				text-align: left;
@@ -805,10 +815,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		.copyright{
 			//COPYRIGHT
-			height: 84px;
+			min-height: 84px;
 			background-color: @darkColor;
-			padding-bottom: 12px;
+			padding-left: 5px;
+			padding-right: 5px;
 	    	padding-top: 25px;
+			padding-bottom: 12px;
 			text-align: center;
 			text-transform: uppercase;
 			color: white;
@@ -830,6 +842,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		background-image: url("/theme_fluxdocs/static/img/netz.png");
 		background-position: center center;
 		padding: 50px 20px;
+		min-height: 500px;
 		label {
 			color: white;
 		}
@@ -847,6 +860,14 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.login-notice-wrap{
 			margin-top: 30px;
 		}
+		.alert {
+			background-color: white;
+			border-radius: 0;
+			color: red;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 1000px;
+		}
 		.form-group {
 			margin: 0 auto;
 			max-width: 1000px;
@@ -854,6 +875,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			padding-right: 200px;
 			position: relative;
 			margin-bottom: 20px;
+			&.has-error label {
+				color: red;
+			}
 			&.separate {
 				margin-top: 80px;
 			}
@@ -905,15 +929,20 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			background-color: @darkColor;
 			min-width: 130px;
 		}
-		a.btn{
+		a.btn {
 			padding-left: 40px;
 			padding-right: 40px;
 		}
-		h2{
+		h2 {
 			max-width: 392px;
 			margin-left: auto;
 			margin-right: auto;
 			margin-bottom: 60px;
+		}
+		p {
+			max-width: 1000px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		.presignup {
 			margin-top: 100px;
@@ -954,7 +983,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	.footer-navigation,
 	.filter-row,
 	.clearfix { 
-		&:after{
+		&:after {
 		    content: ".";
 		    display: block;
 		    height: 0;
@@ -964,17 +993,17 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	}
 }
 
-body{
+body {
 	overflow-x: hidden;
 }
 
-body #wrapwrap{
+body #wrapwrap {
 	position: relative;
 	top: 0;
 	left: 0;
 }
 
-.mobile-menu{
+.mobile-menu {
 	position: fixed;
 	right: -260px;
 	top: 0;
@@ -983,60 +1012,60 @@ body #wrapwrap{
 	background-color: @darkColor;
 	font-family: "noyh_rlight";
 	padding-top: 50px;
-	ul{
+	ul {
 		list-style-type: none;
 		padding-left: 10px;
 		padding-right: 10px;
-		li{
+		li {
 			text-align: center;
 		}
-		&.main-menu{
+		&.main-menu {
 			margin-bottom: 40px;
-			li{
+			li {
 				margin-bottom: 6px;
-				a{
+				a {
 					color: white;
 				}
 			}
-			>li{
-				&:first-of-type{
+			>li {
+				&:first-of-type {
 					//Hide "Home"
 					display: none;
 				}
 			}
 		}
-		&.service-menu{
+		&.service-menu {
 //			display: none; //Hide service menu
-			li{
+			li {
 				font-size: 16px;
 				margin-bottom: 6px;
-				a{
+				a {
 					color: @brightColor;
 				}
 			}
 		}
-		&.js_language_selector{
+		&.js_language_selector {
 			//visibility: hidden; //hide language menu
 			text-align: center;
 			margin-left: 0;
 			margin-right: 0;
-			li{
+			li {
 				font-size: 16px;
 				display: inline-block;
-				a{
+				a {
 					color: @brightColor;
 					font-size: 0;
 					display: inline-block;
 					width: 20px;
-					&:hover{
+					&:hover {
 						text-decoration: none;
 					}
-					&:first-letter{
+					&:first-letter {
 						font-size: 16px;
 					}
 				}
-				&[groups="base.group_website_publisher"]{
-					a{
+				&[groups="base.group_website_publisher"] {
+					a {
 						font-size: 12px;
 						width: auto;
 					}
@@ -1044,10 +1073,10 @@ body #wrapwrap{
 			}
 		}
 	}
-	.social-media{
+	.social-media {
 		text-align: center;
 		margin-top: 64px;
-		a{
+		a {
 			display: inline-block;
 			height: 36px;
 			width: 45px;
@@ -1055,35 +1084,35 @@ body #wrapwrap{
 			background-position: center center;
 			margin-left: 4px;
 			margin-right: 4px;
-			&.facebook{
+			&.facebook {
 				background-image: url("/theme_fluxdocs/static/img/social-media/facebook.png");
 				background-size: 9px 18px;
 			}
-			&.twitter{
+			&.twitter {
 				background-image: url("/theme_fluxdocs/static/img/social-media/twitter.png");
 				background-size: 19px 15px;
 				
 			}
-			&.mail{
+			&.mail {
 				background-image: url("/theme_fluxdocs/static/img/social-media/mail.png");
 				background-size: 19px 15px;
 			}
 		}
 	}
 }
-ul.main-menu{
-	li{
+ul.main-menu {
+	li {
 		font-family: noyh_rsemilight;
 		text-transform: UPPERCASE;
 		font-size: 20px;
-		a:hover{
+		a:hover {
 			text-decoration: none;
 		}
 	}
 }
-ul.service-menu{
-	li{
-		a:hover{
+ul.service-menu {
+	li {
+		a:hover {
 			text-decoration: none;
 		}
 	}
@@ -1098,7 +1127,7 @@ ul.service-menu{
 
 // Header title
 @media only screen and (max-width : 1250px) and (min-width : 980px) {
-	body #wrapwrap #my_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title{
+	body #wrapwrap #my_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title {
 		opacity: 0;
 		transition: opacity .25s ease-in-out;
 	   -moz-transition: opacity .25s ease-in-out;
@@ -1109,10 +1138,10 @@ ul.service-menu{
 
 //Header
 @media only screen and (max-width : 980px) {
-	body #wrapwrap #my_header{
+	body #wrapwrap #my_header {
 		min-width: @minWidth;
-		.fluxdock-topbar{
-			#mobile-menu-trigger{
+		.fluxdock-topbar {
+			#mobile-menu-trigger {
 				display: block;
 				position: absolute;
 				top: 11px;
@@ -1121,16 +1150,16 @@ ul.service-menu{
 				padding: 10px;
 				cursor: pointer;
 			}
-			ul.main-menu{
+			ul.main-menu {
 				display: none;
 			}
-			ul.service-menu{
+			ul.service-menu {
 				display: none;
 			}
-			.fluxdock-logo{
+			.fluxdock-logo {
 				display: none;
 			}
-			.fluxdock-title{
+			.fluxdock-title {
 				opacity: 1;
 				left: 0;
 			}
@@ -1141,26 +1170,26 @@ ul.service-menu{
 
 // Footer
 @media only screen and (max-width : 1000px) {
-	body #wrapwrap footer#my_footer{
-		.footer-row{
+	body #wrapwrap footer#my_footer {
+		.footer-row {
 			padding-top: 150px;
 			padding-bottom: 30px;
 			padding-left: 0;
 			padding-right: 0;
-			.footer-logo{
+			.footer-logo {
 				left: 50%;
 				transform: translateX(-50%);
 				-webkit-transform: translateX(-50%);
 				-moz-transform: translateX(-50%);
 			}
-			.sponsors{
+			.sponsors {
 				position: relative;
 				left: auto;
 				top: auto;
 				right: auto;
 				text-align: center;
 				margin-top: 20px;
-				.sponsor{
+				.sponsor {
 					display: inline-block;
 					margin: 10px 16px;
 				}
@@ -1169,10 +1198,10 @@ ul.service-menu{
 	}
 }
 @media only screen and (max-width : 640px) {
-	body #wrapwrap footer#my_footer{
-		.footer-row{
-			.footer-links{
-				.footer-col{
+	body #wrapwrap footer#my_footer {
+		.footer-row {
+			.footer-links {
+				.footer-col {
 					width: 50%;
 				}
 			}
@@ -1180,7 +1209,7 @@ ul.service-menu{
 	}
 }
 @media only screen and (max-width : 500px) {
-	body #wrapwrap footer#my_footer .footer-row .sponsors .sponsor{
+	body #wrapwrap footer#my_footer .footer-row .sponsors .sponsor {
 		display: block;
 		text-align: center;
 	}
@@ -1205,11 +1234,11 @@ ul.service-menu{
 	}
 	
 	//Forms
-	body #wrapwrap{
+	body #wrapwrap {
 		.oe_website_login_container,
 		.o_website_portal_details {
 			
-			.form-group{
+			.form-group {
 				padding-left: 0;
 				padding-right: 0;
 				max-width: 600px;
@@ -1221,7 +1250,7 @@ ul.service-menu{
 					padding-left: 5px;
 					padding-right: 5px;
 				}
-				.styled-select{
+				.styled-select {
 					width: 100%;
 				}
 			}
@@ -1250,28 +1279,28 @@ ul.service-menu{
 //Projects boxes
 @media only screen and (max-width : 700px) {
 	body #wrapwrap main section.projects .projects-container{
-		.project-box{
+		.project-box {
 			position: relative;
 			float: none;
 			width: 100%;
 		}
 	}
-	.projects-teaser-container{
+	.projects-teaser-container {
 //		display: none;
 	}
 }
 
 //Memberslide Responsive 2 col
 @media only screen and (max-width : 700px) {
-	body #wrapwrap main section.content .members-wrap{
+	body #wrapwrap main section.content .members-wrap {
 		width: 320px;
 		padding-left: 0;
 		padding-right: 0;
-		.members-container{
+		.members-container {
 			width: 292px;
 			margin: 0 auto;
 		}
-		.arrow-left{
+		.arrow-left {
 			display: none;
 		}
 		.arrow-right{
@@ -1294,14 +1323,14 @@ ul.service-menu{
 	}
 }
 @media only screen and (max-width : 700px) {
-	body #wrapwrap main .numbers-wrap{
+	body #wrapwrap main .numbers-wrap {
 		padding-top: 55px;
 		height: 150px;
-		.number-entry{
-			.number-value{
+		.number-entry {
+			.number-value {
 				font-size: 40px;
 			}
-			.number-label{
+			.number-label {
 				font-size: 20px;
 			}
 		}
@@ -1310,7 +1339,7 @@ ul.service-menu{
 
 //Search fields
 @media only screen and (max-width : 600px) {
-	body #wrapwrap main .search-panel .filter-row.row-2 .styled-select{
+	body #wrapwrap main .search-panel .filter-row.row-2 .styled-select {
 		width: 100%;
 		margin-bottom: 20px;
 	}
@@ -1318,19 +1347,30 @@ ul.service-menu{
 
 //Newsletter fields
 @media only screen and (max-width : 480px) {
-	body #wrapwrap main .newsletter-form-wrap .newsletter-form{
-		input[type="text"], input[type="tel"], input[type="email"], button[type="submit"]{
+	body #wrapwrap main .newsletter-form-wrap .newsletter-form {
+		input[type="text"], input[type="tel"], input[type="email"], button[type="submit"] {
 			width: 100%;
 			margin-righ: 0;
 		}
 	}
 }
+//News
+@media only screen and (max-width : 500px) {
+	body #wrapwrap main .content.latest_news .latest-news-container .news-teaser {
+		display: block;
+		width: 100%;
+		h2 {
+			max-width: none;
+		}
+	}
+}
+
 @media only screen and (max-width : 1000px) {
-	body #wrapwrap main section.content .image-wrap{
+	body #wrapwrap main section.content .image-wrap {
 		position: relative;
 		overflow: hidden;
 		height: 400px;
-		img{
+		img {
 			height: 400px;
 			width: auto;
 			max-width: none;
