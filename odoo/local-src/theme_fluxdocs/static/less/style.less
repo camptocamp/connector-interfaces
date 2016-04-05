@@ -512,14 +512,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			.accordion-trigger{
 				position: relative;
 				cursor: pointer;
-				h3{
-				}
 				&:after {
-					font-size: 26px;
+					font-size: 20px;
 					font-family: FontAwesome;
 					content: "\f107";
 					position: absolute;
-					top: -8px;
+					top: -6px;
 					right: 0;
 				}
 			}
@@ -545,6 +543,10 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		
 		//Latest News
 		.content.latest_news{
+			.content-wrap {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
 			.latest-news-container{
 				font-size: 0; //because of inline-block
 				text-align: left;
@@ -1322,6 +1324,16 @@ ul.service-menu{
 		input[type="text"], input[type="tel"], input[type="email"], button[type="submit"]{
 			width: 100%;
 			margin-righ: 0;
+		}
+	}
+}
+//News
+@media only screen and (max-width : 500px) {
+	body #wrapwrap main .content.latest_news .latest-news-container .news-teaser {
+		display: block;
+		width: 100%;
+		h2 {
+			max-width: none;
 		}
 	}
 }
