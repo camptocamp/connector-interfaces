@@ -12,5 +12,6 @@ class ResPartner(models.Model):
     werbeversprechen = fields.Char(string='Werbeversprechen')
     facebook = fields.Char(string='Facebook')
     twitter = fields.Char(string='Twitter')
+    skype = fields.Char(string='Skype')
     expertise = fields.Char(string='Expertise')
     agree_to_terms = fields.Boolean('Agree to unity terms', help='Agree to terms')
