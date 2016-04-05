@@ -15,7 +15,7 @@
 				</p>
 				<div class="oe_login_buttons">
 					<div class="button-wrap">
-						<a t-attf-href="/my/home" class="btn btn-primary">Login</a>
+						<a t-attf-href="/my/account" class="btn btn-primary">Login</a>
 					</div>
 				</div>
 			</div>
@@ -213,7 +213,7 @@
 			<div class="form-group field-company">
 				<label for="name" class="control-label">Company Name</label>
 				<input type="text" name="name" t-att-value="name" id="name"
-					class="form-control" placeholder="e.g. John Doe" required="required"
+					class="form-control" required="required"
 					t-att-readonly="'readonly' if only_passwords else None"
 					t-att-autofocus="'autofocus' if login and not only_passwords else None" />
 			</div>
