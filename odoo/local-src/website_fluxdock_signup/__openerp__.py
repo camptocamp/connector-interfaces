@@ -17,7 +17,7 @@
         'website_terms_of_use',
         'website_portal',
         'website_portal_profile',
-        'website_portal_project'
+        # 'website_portal_project'
     ],
     'data': [
         'views/templates.xml',

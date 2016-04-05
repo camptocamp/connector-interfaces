@@ -83,4 +83,3 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
     @http.route('/web/privateperson', type='http', auth='public', website=True)
     def website_fluxdock_privateperson(self, *args, **kw):
         return request.render('website_fluxdock_signup.privateperson', {})
-

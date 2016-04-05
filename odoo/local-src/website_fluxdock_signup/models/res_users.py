@@ -53,3 +53,6 @@ class res_users(osv.Model):
                 raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
             self.pool.get('mail.template').send_mail(cr, uid, template.id, user.id, force_send=True, raise_exception=True, context=context)
 
+    _sql_constraints = [
+        ('login', 'UNIQUE (login)',  'A user with this login already exists !')
+    ]
