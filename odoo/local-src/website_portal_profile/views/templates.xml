@@ -112,13 +112,13 @@
 							<input placeholder="Skype-ID" type="text" name="skype" class="form-control"
 								t-att-value="partner.skype" />
 						</div>
-						<div
-							t-attf-class="form-group separate row #{error.get('werbeversprechen') and 'has-error' or ''} ">
-							<label class="form-control-label label-optional col-sm-2"
-								for="werbeversprechen">Claim</label>
-							<textarea placeholder="200 characters left" name="werbeversprechen" class="form-control"
-								t-att-value="partner.werbeversprechen" />
-						</div>
+						<!-- <div -->
+						<!-- 	t&#45;attf&#45;class="form&#45;group separate row #{error.get('werbeversprechen') and 'has&#45;error' or ''} "> -->
+						<!-- 	<label class="form&#45;control&#45;label label&#45;optional col&#45;sm&#45;2" -->
+						<!-- 		for="werbeversprechen">Claim</label> -->
+						<!-- 	<textarea placeholder="200 characters left" name="werbeversprechen" class="form&#45;control" -->
+						<!-- 		t&#45;att&#45;value="partner.werbeversprechen" /> -->
+						<!-- </div> -->
 						<!-- <div -->
 						<!-- 	t&#45;attf&#45;class="form&#45;group row #{error.get('category_id') and 'has&#45;error' or ''} "> -->
 						<!-- 	<label class="form&#45;control&#45;label col&#45;sm&#45;2" for="category_id">Category -->
@@ -185,6 +185,28 @@
 				</div>
 			</div>
 		</xpath>
+	</template>
+
+	<template id="website_portal_profile.profile_success"
+		name="Profile Success">
+		<t t-call="website.layout">
+			<div class="o_website_portal_details">
+				<h2>
+					REGISTRATION COMPLETED
+				</h2>
+				<p>
+					Your company is now registered with Fluxdock. 
+					Soon we will publish the profiles of registered companies. 
+					Previously, we will inform you and give you the opportunity 
+					to complete your profile and to create reference projects.
+				</p>
+				<div class="oe_login_buttons">
+					<div class="button-wrap">
+						<a t-attf-href="/my/account" class="btn btn-primary">Back to account</a>
+					</div>
+				</div>
+			</div>
+		</t>
 	</template>
 
 </odoo>
