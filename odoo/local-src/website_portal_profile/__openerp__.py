@@ -3,7 +3,7 @@
     'author': 'Goran Sunjka',
     'category': 'Website',
     'summary': '',
-    'version': '1.0',
+    'version': '1.1',
     'description': """
     Enhanced Portal Profile
         """,

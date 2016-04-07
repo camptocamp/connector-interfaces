@@ -15,7 +15,7 @@
 				</p>
 				<div class="oe_login_buttons">
 					<div class="button-wrap">
-						<a t-attf-href="/my/home" class="btn btn-primary">Login</a>
+						<a t-attf-href="/my/account" class="btn btn-primary">Login</a>
 					</div>
 				</div>
 			</div>
@@ -36,8 +36,8 @@
 					<a t-attf-href="/web/privateperson" class="btn btn-primary">Private individual</a>
 				</div>
 				<p>
-					Are you already registered? Log in
-					<a t-attf-href="/web/login">here</a>
+					Are you already registered? 
+					<a t-attf-href="/web/login">Log in here</a>
 				</p>
 			</div>
 		</t>
@@ -149,12 +149,12 @@
 		<xpath expr="//button[@type='submit']" position="after">
 			<div class="login-notice-wrap">
 				<div t-if="signup_enabled">
-					Not registered yet? Create a free account
-					<a t-attf-href="/web/presignup?{{ keep_query() }}">here</a>
+					Not registered yet? 
+					<a t-attf-href="/web/presignup?{{ keep_query() }}">Create a free account here</a>
 				</div>
 				<div t-if="reset_password_enabled">
-					Forgot your password? Reset your password
-					<a t-attf-href="/web/reset_password?{{ keep_query() }}">here</a>
+					Forgot your password? 
+					<a t-attf-href="/web/reset_password?{{ keep_query() }}">Reset your password here</a>
 				</div>
 			</div>
 		</xpath>
@@ -178,8 +178,8 @@
 					<button type="submit" class="btn btn-primary">Sign up</button>
 				</div>
 				<p>
-					Are you already registered? Log in
-					<a t-attf-href="/web/login?{{ keep_query() }}">here</a>
+					Are you already registered? 
+					<a t-attf-href="/web/login?{{ keep_query() }}">Log in here</a>
 				</p>
 			</div>
 		</xpath>
@@ -213,7 +213,7 @@
 			<div class="form-group field-company">
 				<label for="name" class="control-label">Company Name</label>
 				<input type="text" name="name" t-att-value="name" id="name"
-					class="form-control" placeholder="e.g. John Doe" required="required"
+					class="form-control" required="required"
 					t-att-readonly="'readonly' if only_passwords else None"
 					t-att-autofocus="'autofocus' if login and not only_passwords else None" />
 			</div>
@@ -309,6 +309,7 @@
 					and
 					<a data-toggle="modal" data-target=".privacy_policy_modal" href="#">Privacy
 						Policy</a>
+					.
 				</label>
 			</div>
 		</xpath>

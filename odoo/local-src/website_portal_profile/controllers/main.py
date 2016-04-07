@@ -12,7 +12,7 @@ class website_account(website_account):
         if redirect:
             redirect = redirect
         else:
-            redirect = ('/my/account')
+            redirect = ('/my/profile_success')
         response = super(website_account, self).details(redirect, **post)
         # categories = request.env['res.partner.category'].sudo().search([])
         # areas = request.env['res.partner.area'].sudo().search([])
@@ -27,6 +27,10 @@ class website_account(website_account):
             del response.qcontext['website']
         # return request.redirect('/my/account')
         return response
+
+    @http.route('/my/profile_success', type='http', auth='user', website=True)
+    def profile_success(self, *args, **kw):
+        return request.render('website_portal_profile.profile_success', {})
 
     @http.route('/my/attachment/add', type='http', auth='user', methods=['POST'])
     def attach(self, func, upload=None, url=None, disable_optimization=None, **kwargs):
