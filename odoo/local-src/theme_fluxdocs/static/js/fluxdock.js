@@ -147,7 +147,7 @@ $(document).ready(function() {
 	
 	
 	//Project search
-	$('form.search-panel').submit(function(event) {
+	$('form.projects-search-panel').submit(function(event) {
 		event.preventDefault();
 		filter();
 	});
