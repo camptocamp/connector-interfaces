@@ -12,6 +12,7 @@
         'partner_area',
         'website',
         'website_portal',
+        'website_partner',
         'website_crm_partner_assign'
     ],
     'data': [

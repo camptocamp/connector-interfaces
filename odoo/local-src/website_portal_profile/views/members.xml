@@ -108,5 +108,61 @@
     </t>
 </template>
 
+<template id="website_crm_partner_assign.partner" name="Partner Detail">
+    <t t-call="website_crm_partner_assign.layout">
+        <t t-set="ref_content">
+            <div class="hide col-md-5">
+                <ol t-if="not edit_page" class="breadcrumb">
+                    <li><a t-attf-href="/partners#{current_grade and '/grade/%s' % slug(current_grade)}#{current_country and '/country/%s' % slug(current_country)}">Our Partners</a></li>
+                    <li class="active"><span t-field="partner.display_name"/></li>
+                </ol>
+            </div>
+            <t t-call="website_partner.partner_detail">
+                <t t-set="right_column">
+                    <div id="right_column" class="hide mb16"><t t-call="website_crm_partner_assign.references_block"/></div>
+                </t>
+            </t>
+        </t>
+    </t>
+</template>
+
+<template id="website_partner.partner_detail" name="Partner Details">
+    <t t-call="website.publish_management">
+        <t t-set="object" t-value="partner"/>
+        <t t-set="publish_edit" t-value="True"/>
+    </t>
+    <h1 class="col-md-12 text-center" id="partner_name" t-field="partner.display_name"/>
+    <div class="col-md-4">
+        <div t-field="partner.image" t-field-options='{"widget": "image", "class": "center-block mb16"}'/>
+        <address class="hide well">
+             <div t-field="partner.self" t-field-options='{
+                 "widget": "contact",
+                 "fields": ["address", "website", "phone", "fax", "email"]
+             }'/>
+        </address>
+        <t t-raw="left_column or ''"/>
+    </div>
+    <div class="col-md-8 mt32">
+        <t t-if="partner">
+            <div t-field="partner.website_description"/>
+            <t groups="base.group_website_publisher">
+                <h2 class="css_non_editable_mode_hidden">Short Description for List View</h2>
+                <div class="css_non_editable_mode_hidden" t-field="partner.website_short_description"/>
+            </t>
+	<div>
+		<label for="category_id">Category:
+		</label>
+		<t t-esc="partner.category_id"/>
+	</div>
+	<div>
+		<label for="category_id">Expertise:
+		</label>
+		<t t-esc="partner.expertise"/>
+	</div>
+        </t>
+        <t t-raw="right_column or ''"/>
+    </div>
+</template>
+
 </data>	
 </odoo>
