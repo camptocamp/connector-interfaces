@@ -244,7 +244,7 @@
 		                    <span class="oe_snippet_thumbnail_title">Projects List</span>
 		                </div>
 		                
-		                 <section class="content projects projects-list opt_dark_bg">
+		                <section class="content projects projects-list opt_dark_bg">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
