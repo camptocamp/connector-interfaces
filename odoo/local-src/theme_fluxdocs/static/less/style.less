@@ -200,10 +200,23 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			background-color: @darkColor;
 		}
 	}
+	
 	.container {
 		width: 100%;
 	}
 	
+	//Read more link. Used in News and Member list
+	.read-more{
+		color: @brightColor;
+		white-space: nowrap;
+		&:hover {
+			text-decoration: none;
+		}
+		i.fa{
+			font-size: 14px;
+			padding-left: 6px;
+		}
+	}
 
 	
 	
@@ -650,7 +663,54 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		
 		
-		//Members
+		
+		//Members List Item
+		section.content .content-wrap .member-list-item {
+			position: relative;
+			border-bottom: 1px solid @darkColor;
+			padding-top: 30px;
+			padding-bottom: 20px;
+			&:first-of-type {
+				border-top: 1px solid @darkColor;
+			}
+			.member-logo {
+				display: block;
+				position: absolute;
+				img {
+					width: 130px;
+				}
+			}
+			.member-details {
+				padding-left: 150px;
+				text-align: left;
+				h2 {
+					font-size: 23px;
+					font-weight: bold;
+					max-width: none;
+					text-align: left;
+					text-transform: none;
+					margin-top: 0;
+					margin-bottom: 12px;
+				}
+				.member-description {
+					margin-bottom: 28px;
+				}
+				.member-tags {
+					position: relative;
+					min-height: 29px;
+					label {
+						position: absolute;
+						font-weight: bold;
+						width: 120px;
+					}
+					.tag-value {
+						padding-left: 140px;
+					}
+				}
+			}
+		}
+		
+		//Members Slider
 		.members-wrap{
 			position: relative;
 			.arrow-left, .arrow-right{
@@ -752,12 +812,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 						}
 						h4.blog-subtitle{
 							margin-bottom: 0;
-						}
-						.read-more{
-							color: @brightColor;
-							i.fa{
-								font-size: 14px;
-							}
 						}
 					}
 				}

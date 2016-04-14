@@ -3,109 +3,132 @@
 <data>
 
 <template id="website_crm_partner_assign.index" name="Find Resellers">
-    <t t-call="website_crm_partner_assign.layout">
-        <t t-set="ref_content">
-            <div class="hide col-md-12">
-                <h1 class="text-center">
-                    Looking For a Local Store?
-                </h1><h2 class="text-center text-muted">
-                    Contact a reseller
-                </h2>
-            </div>
+	<t t-call="website_crm_partner_assign.layout">
+		<t t-set="ref_content">
+			<div class="hide col-md-12">
+				<h1 class="text-center">
+					Looking For a Local Store?
+				</h1>
+				<h2 class="text-center text-muted">
+					Contact a reseller
+				</h2>
+			</div>
 
-            <div class="hide col-md-3 mb32" id="partner_left">
+			<div class="hide col-md-3 mb32" id="partner_left">
 
-                <ul id="reseller_grades" class="nav nav-pills nav-stacked mt16">
-                    <li class="nav-header"><h3>Filter by Level</h3></li>
-                    <t t-foreach="grades" t-as="grade">
-                        <li t-att-class="grade['active'] and 'active' or ''">
-                            <a t-attf-href="/partners#{ grade['grade_id'][0] and '/grade/%s' % grade['grade_id'][0] or '' }#{ current_country and '/country/%s' % slug(current_country) or '' }#{ '?' + (search_path or '') }">
-                                <span class="badge pull-right" t-esc="grade['grade_id_count'] or ''"/>
-                                <t t-esc="grade['grade_id'][1]"/>
-                            </a>
-                        </li>
-                    </t>
-                </ul>
+				<ul id="reseller_grades" class="nav nav-pills nav-stacked mt16">
+					<li class="nav-header">
+						<h3>Filter by Level</h3>
+					</li>
+					<t t-foreach="grades" t-as="grade">
+						<li t-att-class="grade['active'] and 'active' or ''">
+							<a
+								t-attf-href="/partners#{ grade['grade_id'][0] and '/grade/%s' % grade['grade_id'][0] or '' }#{ current_country and '/country/%s' % slug(current_country) or '' }#{ '?' + (search_path or '') }">
+								<span class="badge pull-right" t-esc="grade['grade_id_count'] or ''" />
+								<t t-esc="grade['grade_id'][1]" />
+							</a>
+						</li>
+					</t>
+				</ul>
 
-                <ul id="reseller_countries" class="nav nav-pills nav-stacked mt16">
-                    <li class="nav-header"><h3>Filter by Country</h3></li>
-                    <t t-foreach="countries" t-as="country">
-                        <li t-if="country['country_id']" t-att-class="country['active'] and 'active' or ''">
-                            <a t-attf-href="/partners#{ current_grade and '/grade/%s' % slug(current_grade) or ''}#{country['country_id'][0] and '/country/%s' % country['country_id'][0] or '' }#{ '?' + (search_path or '') + (country['country_id'][0] == 0 and '&amp;country_all=True' or '')}">
-                                <span class="badge pull-right" t-esc="country['country_id_count'] or ''"/>
-                                <t t-esc="country['country_id'][1]"/>
-                            </a>
-                        </li>
-                    </t>
-                </ul>
+				<ul id="reseller_countries" class="nav nav-pills nav-stacked mt16">
+					<li class="nav-header">
+						<h3>Filter by Country</h3>
+					</li>
+					<t t-foreach="countries" t-as="country">
+						<li t-if="country['country_id']" t-att-class="country['active'] and 'active' or ''">
+							<a
+								t-attf-href="/partners#{ current_grade and '/grade/%s' % slug(current_grade) or ''}#{country['country_id'][0] and '/country/%s' % country['country_id'][0] or '' }#{ '?' + (search_path or '') + (country['country_id'][0] == 0 and '&amp;country_all=True' or '')}">
+								<span class="badge pull-right" t-esc="country['country_id_count'] or ''" />
+								<t t-esc="country['country_id'][1]" />
+							</a>
+						</li>
+					</t>
+				</ul>
 
-            </div>
+			</div>
 
-            <div class="col-md-8 col-md-offset-1" id="ref_content">
-                <div class='navbar'>
-                    <div>
-                        <t t-call="website.pager"/>
-                        <form action="" method="get" class="navbar-search pull-right pagination form-inline">
-                            <div class="form-group pull-right">
-                                <input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="searches.get('search', '')"/>
-				<button type="submit" class="btn btn-default btn-primary mb32 ">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div>
-                    <p t-if="not partners">No result found</p>
-                    <t t-foreach="partners" t-as="partner">
-                        <!-- <t t&#45;if="last_grade != partner.grade_id.id"> -->
-                        <!--     <h3 class="text&#45;center"> -->
-                        <!--         <span t&#45;field="partner.grade_id"/> Partners -->
-                        <!--         <t t&#45;call="website.publish_management"> -->
-                        <!--             <t t&#45;set="object" t&#45;value="partner.grade_id"/> -->
-                        <!--             <t t&#45;set="publish_edit" t&#45;value="True"/> -->
-                        <!--         </t> -->
-                        <!--     </h3> -->
-                        <!--     <t t&#45;set="last_grade" t&#45;value="partner.grade_id.id"/> -->
-                        <!-- </t> -->
-                        <div class="media">
-                            <a class="pull-left" t-attf-href="/partners/#{slug(partner)}?#{current_grade and 'grade_id=%s&amp;' % current_grade.id}#{current_country and 'country_id=%s' % current_country.id}"
-                               t-field="partner.image"
-                               t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'
-                            ></a>
-                            <div class="media-body o_partner_body" style="min-height: 64px;">
-                                <a class="media-heading" t-attf-href="/partners/#{slug(partner)}?#{current_grade and 'grade_id=%s&amp;' % current_grade.id}#{current_country and 'country_id=%s' % current_country.id}">
-                                    <span t-field="partner.display_name"/>
-                                </a>
-                                <div t-field="partner.website_short_description"/>
-                                <!-- <t t&#45;if="any([p.website_published for p in partner.implemented_partner_ids])"> -->
-                                <!--     <small><a t&#45;attf&#45;href="/partners/#{slug(partner)}#right_column"> -->
-                                <!--         <t t&#45;raw="len([p for p in partner.implemented_partner_ids if p.website_published])"/> reference(s) -->
-                                <!--     </a></small> -->
-                                <!-- </t> -->
-				<small><a t-attf-href="/partners/#{slug(partner)}">
-					Read more ->
-				</a></small>
-				<div>
-					<label for="category_id">Category:
-					</label>
-					<t t-esc="partner.category_id"/>
+
+			<section class="content members-list opt_dark_bg">
+				<div class="content-wrap">
+					<div class="content-icon">
+			        	<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			        </div>
+			        <h2>Members</h2>
+			        <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+					<t t-call="website.pager" />
+					<form action="" method="get" class="search-panel members-search-panel">
+						<div class="filter-row row-1">
+							<input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="searches.get('search', '')" />
+							<button type="submit" class="btn btn-default btn-primary mb32 ">Search</button>
+						</div>
+					</form>
 				</div>
-				<div>
-					<label for="category_id">Expertise:
-					</label>
-					<t t-esc="partner.expertise"/>
+			</section>
+			<section class="content">
+				<div class="content-wrap">
+					<p t-if="not partners">No result found</p>
+					<t t-foreach="partners" t-as="partner">
+						<!-- <t t&#45;if="last_grade != partner.grade_id.id"> -->
+						<!-- <h3 class="text&#45;center"> -->
+						<!-- <span t&#45;field="partner.grade_id"/> Partners -->
+						<!-- <t t&#45;call="website.publish_management"> -->
+						<!-- <t t&#45;set="object" t&#45;value="partner.grade_id"/> -->
+						<!-- <t t&#45;set="publish_edit" t&#45;value="True"/> -->
+						<!-- </t> -->
+						<!-- </h3> -->
+						<!-- <t t&#45;set="last_grade" t&#45;value="partner.grade_id.id"/> -->
+						<!-- </t> -->
+						<div class="member-list-item">
+							
+							<a class="member-logo"
+								t-attf-href="/partners/#{slug(partner)}?#{current_grade and 'grade_id=%s&amp;' % current_grade.id}#{current_country and 'country_id=%s' % current_country.id}"
+								t-field="partner.image"
+								t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'>
+							</a>
+							
+							<div class="member-details">
+								<a class="member-title" t-attf-href="/partners/#{slug(partner)}?#{current_grade and 'grade_id=%s&amp;' % current_grade.id}#{current_country and 'country_id=%s' % current_country.id}">
+									<h2 t-field="partner.display_name" />
+								</a>
+								<div class="member-description">
+									<span t-field="partner.website_short_description" />
+									<a class="read-more" t-attf-href="/partners/#{slug(partner)}">
+										Read More<i class="fa fa-long-arrow-right"></i>
+									</a>
+								</div>
+								
+								<!-- <t t&#45;if="any([p.website_published for p in partner.implemented_partner_ids])"> -->
+								<!-- <small><a t&#45;attf&#45;href="/partners/#{slug(partner)}#right_column"> -->
+								<!-- <t t&#45;raw="len([p for p in partner.implemented_partner_ids 
+									if p.website_published])"/> reference(s) -->
+								<!-- </a></small> -->
+								<!-- </t> -->
+								
+								<div class="member-tags">
+									<label for="category">Category:</label>
+									<div class="tag-value" id="category">
+										<t t-esc="partner.category_id" />
+									</div>
+								</div>
+								<div class="member-tags">
+									<label for="expertise">Expertise:</label>
+									<div class="tag-value" id="expertise">
+										<t t-esc="partner.expertise" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</t>
 				</div>
-                            </div>
-                        </div>
-                    </t>
-                </div>
-                <div class='navbar'>
-                    <t t-call="website.pager">
-                       <t t-set="classname">pull-left</t>
-                    </t>
-                </div>
-            </div>
-        </t>
-    </t>
+				<div class='navbar'>
+					<t t-call="website.pager">
+						<t t-set="classname">pull-left</t>
+					</t>
+				</div>
+			</section>
+		</t>
+	</t>
 </template>
 
 <template id="website_crm_partner_assign.partner" name="Partner Detail">
