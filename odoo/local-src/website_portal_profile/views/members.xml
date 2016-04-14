@@ -65,7 +65,7 @@
 					</form>
 				</div>
 			</section>
-			<section class="content">
+			<section class="content members-list">
 				<div class="content-wrap">
 					<p t-if="not partners">No result found</p>
 					<t t-foreach="partners" t-as="partner">
@@ -150,60 +150,121 @@
 </template>
 
 <template id="website_partner.partner_detail" name="Partner Details">
-    <t t-call="website.publish_management">
-        <t t-set="object" t-value="partner"/>
-        <t t-set="publish_edit" t-value="True"/>
-    </t>
-    <h1 class="col-md-12 text-center" id="partner_name" t-field="partner.display_name"/>
-    <div class="col-md-4">
-        <div t-field="partner.image" t-field-options='{"widget": "image", "class": "center-block mb16"}'/>
-        <address class="hide well">
-             <div t-field="partner.self" t-field-options='{
-                 "widget": "contact",
-                 "fields": ["address", "website", "phone", "fax", "email"]
-             }'/>
-        </address>
-        <t t-raw="left_column or ''"/>
-    </div>
-    <div class="col-md-8 mt32">
-        <t t-if="partner">
-            <div t-field="partner.website_description"/>
-            <t groups="base.group_website_publisher">
-                <h2 class="css_non_editable_mode_hidden">Short Description for List View</h2>
-                <div class="css_non_editable_mode_hidden" t-field="partner.website_short_description"/>
-            </t>
-	<div>
-		<label for="category_id">Category:
-		</label>
-		<t t-esc="partner.category_id"/>
-	</div>
-	<div>
-		<label for="category_id">Expertise:
-		</label>
-		<t t-esc="partner.expertise"/>
-	</div>
-	<div class="col-md-8">
-		<!-- <div t&#45;field="partner.image" t&#45;field&#45;options='{"widget": "image", "class": "center&#45;block mb16"}'/> -->
-		<h1 class="text-center">Contact</h1>
-		<div class="text-center">
-			<p><t t-esc="partner.street"/></p>
-			<p><t t-esc="partner.country_id.name"/>-<t t-esc="partner.zip"/><t t-esc="partner.city"/></p>
-			<p><t t-esc="partner.phone"/></p>
-			<p><t t-esc="partner.fax"/></p>
-			<p><t t-esc="partner.email"/></p>
-			<p><t t-esc="partner.website"/></p>
+	<t t-call="website.publish_management">
+		<t t-set="object" t-value="partner" />
+		<t t-set="publish_edit" t-value="True" />
+	</t>
+	<section class="top-spacer opt_dark_grid_bg">
+
+	</section>
+
+	<section class="content member-detail-view">
+		<div class="content-wrap">
+			
+			<!--  Rich snippet -->
+			<address class="hide well">
+				<div t-field="partner.self" t-field-options='{
+								                 "widget": "contact",
+								                 "fields": ["address", "website", "phone", "fax", "email"]
+								             }' />
+			</address>
+			
+			
+			
+			<div class="member-logo" t-field="partner.image" t-field-options='{"widget": "image", "class": ""}' />
+			
+			<div class="member-details">
+
+				<h2 class="member-title" id="partner_name" t-field="partner.display_name" />
+			
+				<t t-if="partner">
+					<div class="member-description" t-field="partner.website_description" />
+					
+					<div class="member-tags">
+						<label for="category">Category:</label>
+						<div class="tag-value" id="category">
+							<t t-esc="partner.category_id" />
+						</div>
+					</div>
+					<div class="member-tags">
+						<label for="expertise">Expertise:</label>
+						<div class="tag-value" id="expertise">
+							<t t-esc="partner.expertise" />
+						</div>
+					</div>
+				</t>
+			</div>
 		</div>
-		<div>
-			<p>
-				<t t-esc="partner.facebook"/>
-				<t t-esc="partner.twitter"/>
-				<t t-esc="partner.skype"/>
-			</p>
-		</div>
-	</div>
-        </t>
-        <t t-raw="right_column or ''"/>
-    </div>
+	</section>
+	
+	<section class="content member-address opt_dark_bg">
+		<t t-if="partner">
+			<div class="content-wrap">
+			
+				<h2>Contact</h2>
+				
+				<div class="member-fields">
+					<t t-esc="partner.street" />
+					<br/>
+					
+					<t t-esc="partner.country_id.name" />
+					-
+					<t t-esc="partner.zip" />
+					<t t-esc="partner.city" />
+					<br/>
+					
+					<t t-if="partner.phone">
+						t <t t-esc="partner.phone" />
+						<br/>
+					</t>
+					
+					<t t-if="partner.fax">
+						f <t t-esc="partner.fax" />
+						<br/>
+					</t>
+					
+					<t t-if="partner.email">
+						<t t-esc="partner.email" />
+						<br/>
+					</t>
+					
+					<t t-if="partner.email">
+						<!-- Wie geht das?
+						<a t-attf-href="partner.website">
+						-->
+							<t t-esc="partner.website" />
+						<!-- Wie geht das?
+						</a>
+						-->
+					</t>
+				</div>
+				<div class="member-social-media">
+				
+					<!-- TODO Hier url's ersetzen mit werten vom member -->
+					<a target="_blank" href="https://www.facebook.com/" class="social-media facebook">
+						<i class="fa fa-facebook" aria-hidden="true"></i>
+					</a>
+					
+					<a target="_blank" href="https://www.twitter.com/" class="social-media twitter">
+						<i class="fa fa-twitter" aria-hidden="true"></i>
+					</a>
+					
+					<a target="_blank" href="https://www.skype.com/" class="social-media skype">
+						<i class="fa fa-skype" aria-hidden="true"></i>
+					</a>
+					
+					<!-- TODO Diese dann entfernen -->
+					<t t-esc="partner.facebook" />
+					<t t-esc="partner.twitter" />
+					<t t-esc="partner.skype" />
+					
+				</div>
+			</div>
+		</t>
+	</section>
+	
+	
+	<t t-raw="right_column or ''" />
 </template>
 
 </data>	
