@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+<data>
 
 	<template id="website_portal_profile-details" name="Profile details"
 		inherit_id="website_portal.details">
@@ -112,44 +113,44 @@
 							<input placeholder="Skype-ID" type="text" name="skype" class="form-control"
 								t-att-value="partner.skype" />
 						</div>
-						<!-- <div -->
-						<!-- 	t&#45;attf&#45;class="form&#45;group separate row #{error.get('werbeversprechen') and 'has&#45;error' or ''} "> -->
-						<!-- 	<label class="form&#45;control&#45;label label&#45;optional col&#45;sm&#45;2" -->
-						<!-- 		for="werbeversprechen">Claim</label> -->
-						<!-- 	<textarea placeholder="200 characters left" name="werbeversprechen" class="form&#45;control" -->
-						<!-- 		t&#45;att&#45;value="partner.werbeversprechen" /> -->
-						<!-- </div> -->
-						<!-- <div -->
-						<!-- 	t&#45;attf&#45;class="form&#45;group row #{error.get('category_id') and 'has&#45;error' or ''} "> -->
-						<!-- 	<label class="form&#45;control&#45;label col&#45;sm&#45;2" for="category_id">Category -->
-						<!-- 	</label> -->
-						<!-- 	<div class="styled&#45;select"> -->
-						<!-- 		<select name="category_id" class="form&#45;control"> -->
-						<!-- 			<option value="">Category</option> -->
-						<!-- 			<t t&#45;foreach="categories or []" t&#45;as="category"> -->
-						<!-- 				<option t&#45;att&#45;value="category.id" -->
-						<!-- 					t&#45;att&#45;selected="category.id == partner.category_id.id"> -->
-						<!-- 					<t t&#45;esc="category.name" /> -->
-						<!-- 				</option> -->
-						<!-- 			</t> -->
-						<!-- 		</select> -->
-						<!-- 	</div> -->
-						<!-- </div> -->
-						<!-- <div -->
-						<!-- 	t&#45;attf&#45;class="form&#45;group row #{error.get('area_ids') and 'has&#45;error' or ''} "> -->
-						<!-- 	<label class="form&#45;control&#45;label col&#45;sm&#45;2" for="area_ids">Expertise -->
-						<!-- 	</label> -->
-						<!-- 	<div class="styled&#45;select"> -->
-						<!-- 		<select name="area_ids" class="form&#45;control"> -->
-						<!-- 			<option value="">Expertise</option> -->
-						<!-- 			<t t&#45;foreach="areas or []" t&#45;as="area"> -->
-						<!-- 				<option t&#45;att&#45;value="area.id" t&#45;att&#45;selected="area.id == partner.area_ids.id"> -->
-						<!-- 					<t t&#45;esc="area.name" /> -->
-						<!-- 				</option> -->
-						<!-- 			</t> -->
-						<!-- 		</select> -->
-						<!-- 	</div> -->
-						<!-- </div> -->
+						<div
+							t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">
+							<label class="form-control-label label-optional col-sm-2"
+								for="website_short_description">Claim</label>
+							<textarea placeholder="200 characters left" name="website_short_description" class="form-control"
+								t-att-value="partner.website_short_description" />
+						</div>
+						<div
+							t-attf-class="form-group row #{error.get('category_id') and 'has-error' or ''} ">
+							<label class="form-control-label col-sm-2" for="category_id">Category
+							</label>
+							<div class="styled-select">
+								<select name="category_id" class="form-control">
+									<option value="">Category</option>
+									<t t-foreach="categories or []" t-as="category">
+										<option t-att-value="category.id"
+											t-att-selected="category.id == partner.category_id.id">
+											<t t-esc="category.name" />
+										</option>
+									</t>
+								</select>
+							</div>
+						</div>
+						<div
+							t-attf-class="form-group row #{error.get('area_ids') and 'has-error' or ''} ">
+							<label class="form-control-label col-sm-2" for="area_ids">Expertise
+							</label>
+							<div class="styled-select">
+								<select name="area_ids" class="form-control">
+									<option value="">Expertise</option>
+									<t t-foreach="areas or []" t-as="area">
+										<option t-att-value="area.id" t-att-selected="area.id == partner.area_ids.id">
+											<t t-esc="area.name" />
+										</option>
+									</t>
+								</select>
+							</div>
+						</div>
 						<div class="clearfix" />
 						<div t-if="has_check_vat"
 							t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} ">
@@ -208,5 +209,5 @@
 			</div>
 		</t>
 	</template>
-
+</data>
 </odoo>

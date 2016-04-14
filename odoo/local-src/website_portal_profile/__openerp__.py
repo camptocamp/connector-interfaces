@@ -11,10 +11,12 @@
     'depends': [
         'partner_area',
         'website',
-        'website_portal'
+        'website_portal',
+        'website_crm_partner_assign'
     ],
     'data': [
         'views/templates.xml',
+        'views/members.xml',
     ],
     'installable': True,
 }
