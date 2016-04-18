@@ -634,6 +634,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		
 		.search-panel{
+			margin-top: 40px;
 			.filter-row{
 				margin-bottom: 20px;
 				&.row-1{
@@ -934,7 +935,16 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	
 	//MY ACCOUNT
 	.o_website_portal_details{
-		
+		//Logo upload
+		.media {
+			position: absolute;
+			right: 0;
+			top: 0;
+			margin-top: 0;
+			img {
+				max-width: 170px;
+			}
+		}
 	}
 	
 	
@@ -970,6 +980,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			margin-left: auto;
 			margin-right: auto;
 			max-width: 1000px;
+			text-align: center;
 		}
 		.form-group {
 			margin: 0 auto;
@@ -1340,7 +1351,15 @@ ul.service-menu {
 	body #wrapwrap {
 		.oe_website_login_container,
 		.o_website_portal_details {
-			
+			.media {
+				position: static;
+				a.media-link {
+					margin: 0 auto;
+					img {
+						margin: 0 auto;
+					}
+				}
+			}
 			.form-group {
 				padding-left: 0;
 				padding-right: 0;
@@ -1500,6 +1519,20 @@ ul.service-menu {
 			transform: translateX(-50%)!important;
 			-webkit-transform: translateX(-50%)!important;
 			-moz-transform: translateX(-50%)!important;
+		}
+	}
+}
+
+@media only screen and (max-width : 480px) {
+	body #wrapwrap main .search-panel .filter-row.row-1 {
+		input[type="text"] {
+			margin-bottom: 10px;
+		}
+		input[type="text"], 
+		button[type="submit"] {
+		    float: none;
+		    margin-right: 0;
+		    width: 100%;
 		}
 	}
 }

@@ -33,10 +33,10 @@
 								</t>
 							</div>
 						</div>
-						<div class="media">
-							<a class="" t-attf-href="/my/account" t-field="partner.image" t-field-options='{"widget": "image", "class": "media-object", "max_width": 256}'></a>
-						</div>
 						<div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
+							<div class="media">
+								<a class="media-link" t-attf-href="/my/account" t-field="partner.image" t-field-options='{"widget": "image", "class": "media-object", "max_width": 256}'></a>
+							</div>
 							<label class="form-control-label col-sm-2" for="contact_name">Company name
 							</label>
 							<input type="text" name="name" class="form-control"
