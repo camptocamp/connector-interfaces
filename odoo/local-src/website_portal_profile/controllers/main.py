@@ -20,12 +20,11 @@ class website_account(website_account):
         #     'categories': categories,
         #     'areas': areas,
         # })
-        # FIXME: Workaround for problem with saving of field website. If required
+        # FIXME: Workaround for problem with saving of fields website. If required
         # fields are not set, website will be taken out of response dictionary
         # in order to avoid server errors
         if 'website' in response.qcontext:
             del response.qcontext['website']
-        # return request.redirect('/my/account')
         return response
 
     @http.route('/my/profile_success', type='http', auth='user', website=True)
