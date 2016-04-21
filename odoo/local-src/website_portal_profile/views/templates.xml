@@ -35,8 +35,15 @@
 						</div>
 						<div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
 							<div class="media">
-								<a class="media-link" t-attf-href="/my/account" t-field="partner.image" t-field-options='{"widget": "image", "class": "media-object", "max_width": 256}'></a>
+								<a class="media-link" t-attf-href="/my/account" t-field="partner.image_medium" t-field-options='{"widget": "image", "class": "media-object", "max_width": 256}'></a>
 							</div>
+							<!-- <form t&#45;attf&#45;action="/my/partner_image" method="post" class="media" enctype="multipart/form&#45;data" data&#45;model_name="res.partner" data&#45;success_page="/my/account" t&#45;att&#45;data&#45;form_field_partner_id="partner or partner.id"> -->
+							<!-- 	<span class="btn btn&#45;primary btn&#45;file mt16"> -->
+							<!-- 		Upload picture -->
+							<!-- 		<input type="file" name="image_medium"/> -->
+							<!-- 	</span> -->
+							<!-- 	<button class="btn btn&#45;primary btn&#45;lg o_website_form_send">Submit</button> -->
+							<!-- </form> -->
 							<label class="form-control-label col-sm-2" for="contact_name">Company name
 							</label>
 							<input type="text" name="name" class="form-control"
