@@ -14,12 +14,12 @@ class website_account(website_account):
         else:
             redirect = ('/my/profile_success')
         response = super(website_account, self).details(redirect, **post)
-        # categories = request.env['res.partner.category'].sudo().search([])
-        # areas = request.env['res.partner.area'].sudo().search([])
-        # response.qcontext.update({
-        #     'categories': categories,
-        #     'areas': areas,
-        # })
+        categories = request.env['res.partner.category'].sudo().search([])
+        areas = request.env['res.partner.area'].sudo().search([])
+        response.qcontext.update({
+            'categories': categories,
+            'areas': areas,
+        })
         # FIXME: Workaround for problem with saving of fields website. If required
         # fields are not set, website will be taken out of response dictionary
         # in order to avoid server errors
