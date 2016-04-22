@@ -249,23 +249,19 @@
 				<div class="member-social-media">
 				
 					<!-- TODO Hier url's ersetzen mit werten vom member -->
-					<a target="_blank" href="https://www.facebook.com/" class="social-media facebook">
+					<a target="_blank" t-attf-href="partner.facebook" t-esc="partner.facebook" class="social-media facebook">
 						<i class="fa fa-facebook" aria-hidden="true"></i>
 					</a>
 					
 					<a target="_blank" href="https://www.twitter.com/" class="social-media twitter">
 						<i class="fa fa-twitter" aria-hidden="true"></i>
+						<t t-esc="partner.twitter" />
 					</a>
 					
 					<a target="_blank" href="https://www.skype.com/" class="social-media skype">
 						<i class="fa fa-skype" aria-hidden="true"></i>
+						<t t-esc="partner.skype" />
 					</a>
-					
-					<!-- TODO Diese dann entfernen -->
-					<t t-esc="partner.facebook" />
-					<t t-esc="partner.twitter" />
-					<t t-esc="partner.skype" />
-					
 				</div>
 			</div>
 		</t>
@@ -274,6 +270,23 @@
 	
 	<t t-raw="right_column or ''" />
 </template>
+
+        <record id="view_fluxdock_member_fields_form" model="ir.ui.view">
+            <field name="name">res.partner.fluxdock.member.fields</field>
+            <field name="model">res.partner</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                    <field name="email" position="after">
+                        <field name="skype" />
+                        <field name="facebook" />
+                        <field name="twitter" />
+                    </field>
+		    <field name="website" position="after">
+			    <field name="website_short_description" string="Claim"/>
+		    </field>
+            </field>
+        </record>
 
 </data>	
 </odoo>
