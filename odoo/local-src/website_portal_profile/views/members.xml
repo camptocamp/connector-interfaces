@@ -187,13 +187,17 @@
 					<div class="member-tags">
 						<label for="category">Category:</label>
 						<div class="tag-value" id="category">
-							<t t-esc="partner.category_id" />
+							<t t-foreach="partner.category_id" t-as="one_tag">
+								<t t-esc="one_tag.name" />
+							</t>
 						</div>
 					</div>
 					<div class="member-tags">
 						<label for="expertise">Expertise:</label>
 						<div class="tag-value" id="expertise">
-							<t t-esc="partner.expertise" />
+							<t t-foreach="partner.expertise" t-as="one_tag">
+								<t t-esc="one_tag.name" />
+							</t>
 						</div>
 					</div>
 				</t>
