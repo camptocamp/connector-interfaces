@@ -116,7 +116,7 @@
 								<div class="member-tags">
 									<label for="expertise">Expertise:</label>
 									<div class="tag-value" id="expertise">
-										<t t-foreach="partner.expertise" t-as="one_tag">
+										<t t-foreach="partner.area_ids" t-as="one_tag">
 											<t t-esc="one_tag.name" />
 										</t>
 									</div>
@@ -195,7 +195,7 @@
 					<div class="member-tags">
 						<label for="expertise">Expertise:</label>
 						<div class="tag-value" id="expertise">
-							<t t-foreach="partner.expertise" t-as="one_tag">
+							<t t-foreach="partner.area_ids" t-as="one_tag">
 								<t t-esc="one_tag.name" />
 							</t>
 						</div>
@@ -278,7 +278,7 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                     <field name="email" position="after">
-                        <field name="skype" />
+			<field name="skype" />
                         <field name="facebook" />
                         <field name="twitter" />
                     </field>
