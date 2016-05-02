@@ -17,6 +17,6 @@ This module adds projects inside your account's page on website.
         'views/project_project_templates.xml',
     ],
     'installable': True,
-    'auto_install': True,
+    'auto_install': False,
     'category': 'Hidden',
 }

@@ -249,18 +249,19 @@
 				<div class="member-social-media">
 				
 					<!-- TODO Hier url's ersetzen mit werten vom member -->
-					<a target="_blank" t-attf-href="partner.facebook" t-esc="partner.facebook" class="social-media facebook">
+					<a target="_blank" t-attf-href="partner.facebook" class="social-media facebook">
 						<i class="fa fa-facebook" aria-hidden="true"></i>
+						<!-- <t t&#45;esc="partner.facebook" /> -->
 					</a>
 					
-					<a target="_blank" href="https://www.twitter.com/" class="social-media twitter">
+					<a target="_blank" href="partner.twitter" class="social-media twitter">
 						<i class="fa fa-twitter" aria-hidden="true"></i>
-						<t t-esc="partner.twitter" />
+						<!-- <t t&#45;esc="partner.twitter" /> -->
 					</a>
 					
-					<a target="_blank" href="https://www.skype.com/" class="social-media skype">
+					<a target="_blank" href="partner.skype" class="social-media skype">
 						<i class="fa fa-skype" aria-hidden="true"></i>
-						<t t-esc="partner.skype" />
+						<!-- <t t&#45;esc="partner.skype" /> -->
 					</a>
 				</div>
 			</div>
