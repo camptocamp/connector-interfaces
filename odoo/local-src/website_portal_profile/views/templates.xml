@@ -139,13 +139,13 @@
 							t-attf-class="form-group row #{error.get('category_id') and 'has-error' or ''} ">
 							<label class="form-control-label col-sm-2" for="category_id">Category
 							</label>
-							<input name="post_categories" placeholder="Category" class="form-control js_select2" t-attf-data-init-value="#{categories}" />
+							<input name="post_categories" placeholder="Category" class="form-control js_select2_categories" t-attf-data-init-value="#{categories}" />
 						</div>
 						<div
 							t-attf-class="form-group row #{error.get('area_ids') and 'has-error' or ''} ">
 							<label class="form-control-label col-sm-2" for="area_ids">Expertise
 							</label>
-							<input name="post_areas" placeholder="Expertise" class="form-control js_select2" t-attf-data-init-value="#{areas}" />
+							<input name="post_areas" placeholder="Expertise" class="form-control js_select2_areas" t-attf-data-init-value="#{areas}" />
 						</div>
 						<div class="clearfix" />
 						<div t-if="has_check_vat"

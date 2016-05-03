@@ -14,7 +14,7 @@ var lastsearch;
 //     return $.Deferred().reject("DOM doesn't contain '.portal_profile'");
 // }
 
-    $('input.js_select2').select2({
+    $('input.js_select2_categories').select2({
         tags: true,
         tokenSeparators: [",", " ", "_"],
         // maximumInputLength: 35,
@@ -40,6 +40,58 @@ var lastsearch;
         },
         ajax: {
             url: '/my/get_categories',
+            dataType: 'json',
+            data: function(term) {
+                return {
+                    q: term,
+                    l: 50
+                };
+            },
+            results: function(data) {
+                var ret = [];
+                _.each(data, function(x) {
+                    ret.push({ id: x.id, text: x.name, isNew: false });
+                });
+                lastsearch = ret;
+                return { results: ret };
+            }
+        },
+        // Default tags from the input value
+        initSelection: function (element, callback) {
+            var data = [];
+            _.each(element.data('init-value'), function(x) {
+                data.push({ id: x.id, text: x.name, isNew: false });
+            });
+            element.val('');
+            callback(data);
+        },
+    });
+    $('input.js_select2_areas').select2({
+        tags: true,
+        tokenSeparators: [",", " ", "_"],
+        // maximumInputLength: 35,
+        // minimumInputLength: 2,
+        // maximumSelectionSize: 5,
+        lastsearch: [],
+        createSearchChoice: function (term) {
+            if ($(lastsearch).filter(function () { return this.text.localeCompare(term) === 0;}).length === 0) {
+		return {
+			id: "_" + $.trim(term),
+			text: $.trim(term) + ' *',
+			isNew: true,
+		};
+            }
+        },
+        formatResult: function(term) {
+            if (term.isNew) {
+                return '<span class="label label-primary">New</span> ' + _.escape(term.text);
+            }
+            else {
+                return _.escape(term.text);
+            }
+        },
+        ajax: {
+            url: '/my/get_areas',
             dataType: 'json',
             data: function(term) {
                 return {
