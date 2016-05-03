@@ -17,9 +17,6 @@ var lastsearch;
     $('input.js_select2_categories').select2({
         tags: true,
         tokenSeparators: [",", " ", "_"],
-        // maximumInputLength: 35,
-        // minimumInputLength: 2,
-        // maximumSelectionSize: 5,
         lastsearch: [],
         createSearchChoice: function (term) {
             if ($(lastsearch).filter(function () { return this.text.localeCompare(term) === 0;}).length === 0) {
@@ -56,7 +53,7 @@ var lastsearch;
                 return { results: ret };
             }
         },
-        // Default tags from the input value
+        // Default elements from the input value
         initSelection: function (element, callback) {
             var data = [];
             _.each(element.data('init-value'), function(x) {
@@ -69,9 +66,6 @@ var lastsearch;
     $('input.js_select2_areas').select2({
         tags: true,
         tokenSeparators: [",", " ", "_"],
-        // maximumInputLength: 35,
-        // minimumInputLength: 2,
-        // maximumSelectionSize: 5,
         lastsearch: [],
         createSearchChoice: function (term) {
             if ($(lastsearch).filter(function () { return this.text.localeCompare(term) === 0;}).length === 0) {

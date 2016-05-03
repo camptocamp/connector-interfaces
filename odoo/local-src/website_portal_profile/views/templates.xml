@@ -139,13 +139,13 @@
 							t-attf-class="form-group row #{error.get('category_id') and 'has-error' or ''} ">
 							<label class="form-control-label col-sm-2" for="category_id">Category
 							</label>
-							<input name="post_categories" placeholder="Category" class="form-control js_select2_categories" t-attf-data-init-value="#{categories}" />
+							<input name="post_categories" placeholder="Category" class="form-control js_select2_categories" t-attf-data-init-value="#{categories}" value="Category" />
 						</div>
 						<div
 							t-attf-class="form-group row #{error.get('area_ids') and 'has-error' or ''} ">
 							<label class="form-control-label col-sm-2" for="area_ids">Expertise
 							</label>
-							<input name="post_areas" placeholder="Expertise" class="form-control js_select2_areas" t-attf-data-init-value="#{areas}" />
+							<input name="post_areas" placeholder="Expertise" class="form-control js_select2_areas" t-attf-data-init-value="#{areas}" value="Expertise" />
 						</div>
 						<div class="clearfix" />
 						<div t-if="has_check_vat"
@@ -156,19 +156,19 @@
 								t-att-value="vat or partner.vat" />
 						</div>
 						<div class="clearfix" />
-						<div t-attf-class="form-group #{error.get('state_id') and 'has-error' or ''} ">
-							<label class="control-label label-optional" for="state_id">State /
-								Province</label>
-							<select name="state_id" class="form-control">
-								<option value="">select...</option>
-								<t t-foreach="states or []" t-as="state">
-									<option t-att-value="state.id" style="display:none;"
-										t-att-data-country_id="state.country_id.id" t-att-selected="state.id == partner.state_id.id">
-										<t t-esc="state.name" />
-									</option>
-								</t>
-							</select>
-						</div>
+						<!-- <div t&#45;attf&#45;class="form&#45;group #{error.get('state_id') and 'has&#45;error' or ''} "> -->
+						<!-- 	<label class="control&#45;label label&#45;optional" for="state_id">State / -->
+						<!-- 		Province</label> -->
+						<!-- 	<select name="state_id" class="form&#45;control"> -->
+						<!-- 		<option value="">select...</option> -->
+						<!-- 		<t t&#45;foreach="states or []" t&#45;as="state"> -->
+						<!-- 			<option t&#45;att&#45;value="state.id" style="display:none;" -->
+						<!-- 				t&#45;att&#45;data&#45;country_id="state.country_id.id" t&#45;att&#45;selected="state.id == partner.state_id.id"> -->
+						<!-- 				<t t&#45;esc="state.name" /> -->
+						<!-- 			</option> -->
+						<!-- 		</t> -->
+						<!-- 	</select> -->
+						<!-- </div> -->
 						<input type="hidden" name="redirect" t-att-value="redirect" />
 					</div>
 					<div class="clearfix" />

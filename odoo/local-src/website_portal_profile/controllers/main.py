@@ -11,17 +11,18 @@ from openerp.addons.website_portal.controllers.main import website_account
 class website_account(website_account):
     @http.route(['/my/account'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
+        partner = request.env['res.users'].browse(request.uid).partner_id
         if redirect:
             redirect = redirect
         else:
             redirect = ('/my/profile_success')
         response = super(website_account, self).details(redirect, **post)
-        categories = request.env['res.partner.category'].sudo().search([])
-        areas = request.env['res.partner.area'].sudo().search([])
-        category_test = [dict(id=category.id, name=category.name) for category in categories]
-        category_test = json.dumps(category_test)
+        categories = [dict(id=category.id, name=category.name) for category in partner.category_id]
+        categories = json.dumps(categories)
+        areas = [dict(id=category.id, name=category.name) for category in partner.area_ids]
+        areas = json.dumps(areas)
         response.qcontext.update({
-            'categories': category_test,
+            'categories': categories,
             'areas': areas,
         })
         # FIXME: Workaround for problem with saving of fields website. If required
@@ -33,7 +34,6 @@ class website_account(website_account):
         #     partner = request.env['res.users'].browse(request.uid).partner_id
         #     partner.sudo().write({'partner.image_medium':post['partner.image_medium']})
         if post:
-            partner = request.env['res.users'].browse(request.uid).partner_id
             if post['post_categories']:
                 categ_ids = post['post_categories'].split(',')
                 partner.sudo().write({'category_id':[(4, int(category_id)) for category_id in categ_ids]})
