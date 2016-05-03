@@ -139,34 +139,13 @@
 							t-attf-class="form-group row #{error.get('category_id') and 'has-error' or ''} ">
 							<label class="form-control-label col-sm-2" for="category_id">Category
 							</label>
-							<!-- <div class="styled&#45;select"> -->
-							<!-- 	<select name="category_id" class="form&#45;control"> -->
-							<!-- 		<option value="">Category</option> -->
-							<!-- 		<t t&#45;foreach="categories or []" t&#45;as="category"> -->
-							<!-- 			<option t&#45;att&#45;value="category.id" -->
-							<!-- 				t&#45;att&#45;selected="category.id == partner.category_id.id"> -->
-							<!-- 				<t t&#45;esc="category.name" /> -->
-							<!-- 			</option> -->
-							<!-- 		</t> -->
-							<!-- 	</select> -->
-							<!-- </div> -->
-							<input name="post_categories" placeholder="Category" class="form-control js_select2"/>
+							<input name="post_categories" placeholder="Category" class="form-control js_select2" t-attf-data-init-value="#{categories}" />
 						</div>
 						<div
 							t-attf-class="form-group row #{error.get('area_ids') and 'has-error' or ''} ">
 							<label class="form-control-label col-sm-2" for="area_ids">Expertise
 							</label>
-							<!-- <div class="styled&#45;select"> -->
-							<!-- 	<select name="area_ids" class="form&#45;control"> -->
-							<!-- 		<option value="">Expertise</option> -->
-							<!-- 		<t t&#45;foreach="areas or []" t&#45;as="area"> -->
-							<!-- 			<option t&#45;att&#45;value="area.id" t&#45;att&#45;selected="area.id == partner.area_ids.id"> -->
-							<!-- 				<t t&#45;esc="area.name" /> -->
-							<!-- 			</option> -->
-							<!-- 		</t> -->
-							<!-- 	</select> -->
-							<!-- </div> -->
-							<input name="post_areas" placeholder="Expertise" class="form-control js_select2"/>
+							<input name="post_areas" placeholder="Expertise" class="form-control js_select2" t-attf-data-init-value="#{areas}" />
 						</div>
 						<div class="clearfix" />
 						<div t-if="has_check_vat"

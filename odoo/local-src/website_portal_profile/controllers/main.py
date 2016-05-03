@@ -2,6 +2,7 @@
 import json
 from openerp import http
 from openerp.http import request
+from openerp import SUPERUSER_ID
 from openerp import tools
 from openerp.tools.translate import _
 
@@ -15,12 +16,14 @@ class website_account(website_account):
         else:
             redirect = ('/my/profile_success')
         response = super(website_account, self).details(redirect, **post)
-        # categories = request.env['res.partner.category'].sudo().search([])
-        # areas = request.env['res.partner.area'].sudo().search([])
-        # response.qcontext.update({
-        #     'categories': categories,
-        #     'areas': areas,
-        # })
+        categories = request.env['res.partner.category'].sudo().search([])
+        areas = request.env['res.partner.area'].sudo().search([])
+        category_test = [dict(id=category.id, name=category.name) for category in categories]
+        category_test = json.dumps(category_test)
+        response.qcontext.update({
+            'categories': category_test,
+            'areas': areas,
+        })
         # FIXME: Workaround for problem with saving of fields website. If required
         # fields are not set, website will be taken out of response dictionary
         # in order to avoid server errors
@@ -29,12 +32,14 @@ class website_account(website_account):
         # if 'image_medium' in post:
         #     partner = request.env['res.users'].browse(request.uid).partner_id
         #     partner.sudo().write({'partner.image_medium':post['partner.image_medium']})
-        # if post:
-        #     if 'post_categories' in post:
-        #         partner = request.env['res.users'].browse(request.uid).partner_id
-        #         category_ids = request.env['res.partner.category'].browse()
-        #         partner.sudo().write({'category_id':[(4, category_id) for category_id in category_ids]})
-        #         partner.category_id.id
+        if post:
+            partner = request.env['res.users'].browse(request.uid).partner_id
+            if post['post_categories']:
+                categ_ids = post['post_categories'].split(',')
+                partner.sudo().write({'category_id':[(4, int(category_id)) for category_id in categ_ids]})
+            if post['post_areas']:
+                area_ids = post['post_areas'].split(',')
+                partner.sudo().write({'area_ids':[(4, int(area_id)) for area_id in area_ids]})
         return response
 
     @http.route('/my/get_areas', type='http', auth="user", methods=['GET'], website=True)
