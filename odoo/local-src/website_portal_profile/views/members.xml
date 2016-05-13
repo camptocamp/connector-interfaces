@@ -106,7 +106,7 @@
 								<!-- </t> -->
 								
 								<div class="member-tags">
-									<label for="category">Category:</label>
+									<label for="category">Industry:</label>
 									<div class="tag-value" id="category">
 										<t t-foreach="partner.category_id" t-as="one_tag">
 											<t t-esc="one_tag.name" />
@@ -185,7 +185,7 @@
 					<div class="member-description" t-field="partner.website_description" />
 					
 					<div class="member-tags">
-						<label for="category">Category:</label>
+						<label for="category">Industry:</label>
 						<div class="tag-value" id="category">
 							<t t-foreach="partner.category_id" t-as="one_tag">
 								<t t-esc="one_tag.name" />

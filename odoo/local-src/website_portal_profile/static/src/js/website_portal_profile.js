@@ -9,7 +9,6 @@ var _t = core._t;
 
 var lastsearch;
 
-
 // if(!$('.portal_profile').length) {
 //     return $.Deferred().reject("DOM doesn't contain '.portal_profile'");
 // }

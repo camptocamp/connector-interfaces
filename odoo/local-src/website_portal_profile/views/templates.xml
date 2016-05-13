@@ -2,7 +2,8 @@
 <odoo>
 <data>
 
-	<template id="assets_frontend" inherit_id="website.assets_frontend" name="Fluxdock Profile">
+	<template id="assets_frontend" inherit_id="website.assets_frontend" 
+		name="Fluxdock Profile">
 		<xpath expr="." position="inside">
 			<script type="text/javascript" src="/website_portal_profile/static/src/js/website_portal_profile.js"></script>
 		</xpath>
@@ -137,9 +138,9 @@
 						</div>
 						<div
 							t-attf-class="form-group row #{error.get('category_id') and 'has-error' or ''} ">
-							<label class="form-control-label col-sm-2" for="category_id">Category
+							<label class="form-control-label col-sm-2" for="category_id">Industry
 							</label>
-							<input name="post_categories" placeholder="Category" class="form-control js_select2_categories" t-attf-data-init-value="#{categories}" value="Category" />
+							<input name="post_categories" placeholder="Industry" class="form-control js_select2_categories" t-attf-data-init-value="#{categories}" value="Industry" />
 						</div>
 						<div
 							t-attf-class="form-group row #{error.get('area_ids') and 'has-error' or ''} ">
