@@ -135,7 +135,7 @@
 						<input type="text" name="ort" class="form-control" t-att-value="project.ort"/>
 					</div>
 					<div class="col-md-7 col-sm-8">
-						<label class="control-label label-optional" for="project_tag_ids">Category</label>
+						<label class="control-label label-optional" for="project_tag_ids">Industry</label>
 						<input type="search" name="project_tag_ids" class="form-control" t-att-value="project.project_tag_ids"/>
 					</div>
 					<div class="col-md-7 col-sm-8">

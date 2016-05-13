@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from openerp import http
+from openerp import SUPERUSER_ID
 from openerp.addons.website_portal.controllers.main import website_account
 from openerp.http import request
 
@@ -24,3 +25,13 @@ class WebsitePortalProject(http.Controller):
     def projects_new(self, project_id=None):
         project = request.env['project.project'].browse(project_id)
         return request.website.render("website_portal_project.projects_new", {'project': project})
+
+class WebsiteProjectProposal(http.Controller):
+    @http.route(['/market'], type='http', auth="public", website=True)
+    def proposals(self):
+        proposal_obj = request.registry['project.proposal']
+        proposals = proposal_obj.browse(request.cr, SUPERUSER_ID, request.context)
+        values = {
+            'proposals': proposals
+        }
+        return request.website.render("website_portal_project.market", values)

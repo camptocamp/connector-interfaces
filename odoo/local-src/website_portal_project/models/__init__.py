@@ -2,3 +2,5 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import project_project
+import project_proposal
+import project_references
