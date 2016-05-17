@@ -5,11 +5,11 @@
 ##############################################################################
 from openerp import models, fields
 
+class PartnerProjectExpertise(models.Model):
 
-class project_expertise(models.Model):
+    _name = 'partner_project_expertise.expertise'
+    _description = 'Partner and project expertise'
 
-    _name = 'project_expertise.project_expertise'
-    _description = 'project_expertise'
-
-    name = fields.Char(string='Name', required=True, size=64)
+    name = fields.Char('Name', required=True, translate=True)
+    partner_id = fields.Many2one('res.partner', 'Partner', help='Enter Partner Name')
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

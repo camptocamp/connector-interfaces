@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2015  ADHOC SA  (http://www.adhoc.com.ar)
+#    Copyright (C) 2016  Goran Sunjka  (http://www.sunjka.de)
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,16 +19,16 @@
 #
 ##############################################################################
 {
-    'name': 'Project Expertise',
+    'name': 'Partner Project Expertise',
     'version': '9.0.1.0.0',
     'category': 'Projects & Services',
     'sequence': 14,
     'summary': '',
     'description': """
-Project Tags
+Project Expertise
 ============
     """,
-    'author':  'Goran Sunjka, ADHOC SA',
+    'author':  'Goran Sunjka',
     'website': 'www.sunjka.de',
     'license': 'AGPL-3',
     'images': [
@@ -37,9 +37,10 @@ Project Tags
         'project',
     ],
     'data': [
-        'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
         'view/project_view.xml',
-        'view/project_expertise_view.xml',
+        'view/partner_view.xml',
+        'view/expertise_view.xml',
     ],
     'demo': [
     ],

@@ -9,7 +9,7 @@
             <field name="inherit_id" ref="project.view_project_project_filter"/>
             <field name="arch" type="xml">
                 <field name="name" position="after">
-                    <field name="project_expertise_ids"/>
+                    <field name="partner_project_expertise_ids"/>
                 </field>
             </field>
         </record>
@@ -21,7 +21,7 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
-                    <field name="project_expertise_ids" widget="many2many_tags"/>
+                    <field name="partner_project_expertise_ids" widget="many2many_tags"/>
                 </field>
             </field>
         </record>
@@ -33,11 +33,11 @@
             <field name="inherit_id" ref="project.view_project_kanban"/>
             <field name="arch" type="xml">
                 <field name="doc_count" position="after">
-                    <field name="project_expertise_ids"/>
+                    <field name="partner_project_expertise_ids"/>
                 </field>
                 <div class="o_kanban_primary_left" position="after">
                     <div class="oe_kanban_footer_left" style="margin-top:5px;">
-                        <field name="project_expertise_ids"/>
+                        <field name="partner_project_expertise_ids"/>
                     </div>
                 </div>
             </field>
