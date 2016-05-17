@@ -53,11 +53,29 @@
         </record>
 
         <menuitem
-            name="Project Expertise"
+            name="Partner Project Expertise"
             id="menu_expertise"
             sequence="15"
             action="action_partner_project_expertise_expertise"
             parent="project.menu_project_config"
+            />
+
+        <record id="action_partner_project_expertise_expertise_partner" model="ir.actions.act_window">
+            <field name="name">Partner Project Expertise Sale</field>
+            <field name="res_model">partner_project_expertise.expertise</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_partner_project_expertise_expertise_tree"/>
+            <field name="search_view_id" ref="view_partner_project_expertise_expertise_filter"/>
+            <field name="domain">[]</field>
+        </record>
+
+        <menuitem
+            name="Partner Project Expertise"
+            id="menu_expertise_sale"
+            sequence="15"
+            action="action_partner_project_expertise_expertise_partner"
+            parent="base.menu_sale_config"
             />
     </data>
 </openerp>

@@ -25,8 +25,9 @@
     'sequence': 14,
     'summary': '',
     'description': """
-Project Expertise
+Partner Project Expertise
 ============
+    Add expertise to partner and project.
     """,
     'author':  'Goran Sunjka',
     'website': 'www.sunjka.de',
@@ -37,7 +38,7 @@ Project Expertise
         'project',
     ],
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         'view/project_view.xml',
         'view/partner_view.xml',
         'view/expertise_view.xml',
