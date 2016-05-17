@@ -10,7 +10,6 @@
     'version': '1.0',
     'depends': [
         'auth_signup',
-        'partner_area',
         'web',
         'website',
         'website_mass_mailing',
