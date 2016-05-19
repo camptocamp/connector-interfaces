@@ -21,7 +21,7 @@
             <field name="inherit_id" ref="project.edit_project"/>
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
-                    <field name="partner_project_expertise_ids" widget="many2many_tags"/>
+                    <field name="expertise_ids" widget="many2many_tags"/>
                 </field>
             </field>
         </record>
