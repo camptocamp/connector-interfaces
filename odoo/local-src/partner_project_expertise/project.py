@@ -9,7 +9,7 @@ from openerp import models, fields
 class project(models.Model):
     _inherit = 'project.project'
 
-    partner_project_expertise_ids = fields.Many2many(
+    expertise_ids = fields.Many2many(
         'partner_project_expertise.expertise',
         'partner_project_expertise_expertise_ids_rel',
         'project_id',

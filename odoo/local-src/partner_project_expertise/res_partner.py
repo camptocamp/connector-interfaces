@@ -9,7 +9,7 @@ from openerp.osv import fields, osv
 class res_partner(osv.osv):
     _inherit = 'res.partner'
     _columns = {
-        'partner_project_expertise_ids': fields.many2many(
+        'expertise_ids': fields.many2many(
             'partner_project_expertise.expertise',
             'res_partner_rel',
             'partner_id',

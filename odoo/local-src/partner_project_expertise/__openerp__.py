@@ -44,6 +44,7 @@ Partner Project Expertise
         'view/expertise_view.xml',
     ],
     'demo': [
+        'data/demo.xml',
     ],
     'test': [
     ],

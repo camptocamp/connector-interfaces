@@ -9,7 +9,7 @@
             <field name="inherit_id" ref="project.view_project_project_filter"/>
             <field name="arch" type="xml">
                 <field name="name" position="after">
-                    <field name="partner_project_expertise_ids"/>
+                    <field name="expertise_ids"/>
                 </field>
             </field>
         </record>
