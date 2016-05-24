@@ -26,7 +26,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	min-width: @minWidth;
 	
 	//Keine ligaturen
-	font-variant-ligatures: none;
+	font-variant-ligatures: no-common-ligatures;
 
 	// GENERAL ELEMENTS
 	h1, h2{
@@ -976,11 +976,16 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.alert {
 			background-color: white;
 			border-radius: 0;
-			color: red;
 			margin-left: auto;
 			margin-right: auto;
 			max-width: 1000px;
 			text-align: center;
+			&.alert-danger{
+				color: red;
+			}
+			&.alert-success{
+				color: green;
+			}
 		}
 		.form-group {
 			margin: 0 auto;
