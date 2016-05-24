@@ -166,7 +166,7 @@
 		<div class="content-wrap">
 			
 			<!--  Rich snippet -->
-			<address class="hide well">
+			<address class="well">
 				<div t-field="partner.self" t-field-options='{
 								                 "widget": "contact",
 								                 "fields": ["address", "website", "phone", "fax", "email"]
@@ -183,23 +183,6 @@
 			
 				<t t-if="partner">
 					<div class="member-description" t-field="partner.website_description" />
-					
-					<div class="member-tags">
-						<label for="category">Industry:</label>
-						<div class="tag-value" id="category">
-							<t t-foreach="partner.category_id" t-as="one_tag">
-								<t t-esc="one_tag.name" />
-							</t>
-						</div>
-					</div>
-					<div class="member-tags">
-						<label for="expertise">Expertise:</label>
-						<div class="tag-value" id="expertise">
-							<t t-foreach="partner.area_ids" t-as="one_tag">
-								<t t-esc="one_tag.name" />
-							</t>
-						</div>
-					</div>
 				</t>
 			</div>
 		</div>
@@ -272,22 +255,6 @@
 	<t t-raw="right_column or ''" />
 </template>
 
-        <record id="view_fluxdock_member_fields_form" model="ir.ui.view">
-            <field name="name">res.partner.fluxdock.member.fields</field>
-            <field name="model">res.partner</field>
-            <field name="priority">2</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
-            <field name="arch" type="xml">
-                    <field name="email" position="after">
-			<field name="skype" />
-                        <field name="facebook" />
-                        <field name="twitter" />
-                    </field>
-		    <field name="website" position="after">
-			    <field name="website_short_description" string="Claim"/>
-		    </field>
-            </field>
-        </record>
 
 </data>	
 </odoo>
