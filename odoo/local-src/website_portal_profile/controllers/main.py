@@ -63,3 +63,26 @@ class website_account(website_account):
     @http.route('/my/profile_success', type='http', auth='user', website=True)
     def profile_success(self, *args, **kw):
         return request.render('website_portal_profile.profile_success', {})
+
+    @http.route('/my/upload', type='http', auth="public", website=True)
+    def image_handle(self, **post):
+        post_file = []  # List of file to add to ir_attachment once we have the ID
+        post_description = []  # Info to add after the message
+        values = {}
+
+        for field_name, field_value in post.items():
+            if hasattr(field_value, 'filename'):
+                post_file.append(field_value)
+
+                partner = request.registry['res.partner']
+                for field_value in post_file:
+                    attachment_value = {
+                        'name': field_value.filename,
+                        'res_name': field_value.filename,
+                        'res_model': 'res.partner',
+                        'res_id': partner.id,
+                        'datas': base64.encodestring(field_value.read()),
+                        'datas_fname': field_value.filename,
+                    }
+                    request.registry['ir.attachment'].create(request.cr, SUPERUSER_ID, attachment_value, context=request.context)
+        return request.render('website_portal_profile.fluxdock_upload')
