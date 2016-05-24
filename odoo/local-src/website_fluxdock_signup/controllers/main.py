@@ -36,7 +36,7 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
                 login = qcontext.get('login')
                 res_users = request.registry.get('res.users')
                 res_partner = request.env['res.users'].sudo().browse(uid).partner_id
-                res_partner.sudo().write({'country_id':qcontext['country_id'],'is_company':True})
+                res_partner.sudo().write({'country_id':qcontext['country_id'],'is_company':True,'free_member':'true'})
                 res_users.send_account_confirmation_email(cr, SUPERUSER_ID, login)
                 return request.render('website_fluxdock_signup.thanks_for_registration', {})
             except (SignupError, AssertionError), e:
