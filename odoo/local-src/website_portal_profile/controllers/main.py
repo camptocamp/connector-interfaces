@@ -19,11 +19,11 @@ class website_account(website_account):
         response = super(website_account, self).details(redirect, **post)
         categories = [dict(id=category.id, name=category.name) for category in partner.category_id]
         categories = json.dumps(categories)
-        areas = [dict(id=category.id, name=category.name) for category in partner.area_ids]
-        areas = json.dumps(areas)
+        expertise = [dict(id=expertise.id, name=expertise.name) for expertise in partner.expertise_ids]
+        expertises = json.dumps(expertise)
         response.qcontext.update({
             'categories': categories,
-            'areas': areas,
+            'expertises': expertises,
         })
         # FIXME: Workaround for problem with saving of fields website. If required
         # fields are not set, website will be taken out of response dictionary
@@ -37,14 +37,14 @@ class website_account(website_account):
             if post['post_categories']:
                 categ_ids = post['post_categories'].split(',')
                 partner.sudo().write({'category_id':[(4, int(category_id)) for category_id in categ_ids]})
-            if post['post_areas']:
-                area_ids = post['post_areas'].split(',')
-                partner.sudo().write({'area_ids':[(4, int(area_id)) for area_id in area_ids]})
+            if post['post_expertises']:
+                expertise_ids = post['post_expertises'].split(',')
+                partner.sudo().write({'expertise_ids':[(4, int(expertise_id)) for expertise_id in expertise_ids]})
         return response
 
-    @http.route('/my/get_areas', type='http', auth="user", methods=['GET'], website=True)
-    def area_read(self, q='', l=25, **post):
-        data = request.env['res.partner.area'].search_read(
+    @http.route('/my/get_expertises', type='http', auth="user", methods=['GET'], website=True)
+    def expertise_read(self, q='', l=25, **post):
+        data = request.env['partner_project_expertise.expertise'].search_read(
             domain=[('name', '=ilike', (q or '') + "%")],
             fields=['id', 'name'],
             limit=int(l),

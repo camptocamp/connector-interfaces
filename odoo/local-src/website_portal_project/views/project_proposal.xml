@@ -52,7 +52,7 @@
 								<!-- <div class="member&#45;tags"> -->
 								<!-- 	<label for="expertise">Expertise:</label> -->
 								<!-- 	<div class="tag&#45;value" id="expertise"> -->
-								<!-- 		<t t&#45;foreach="proposal.area_ids" t&#45;as="one_tag"> -->
+								<!-- 		<t t&#45;foreach="proposal.expertise_ids" t&#45;as="one_tag"> -->
 								<!-- 			<t t&#45;esc="one_tag.name" /> -->
 								<!-- 		</t> -->
 								<!-- 	</div> -->

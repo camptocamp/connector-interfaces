@@ -143,10 +143,10 @@
 							<input name="post_categories" placeholder="Industry" class="form-control js_select2_categories" t-attf-data-init-value="#{categories}" value="Industry" />
 						</div>
 						<div
-							t-attf-class="form-group row #{error.get('area_ids') and 'has-error' or ''} ">
-							<label class="form-control-label col-sm-2" for="area_ids">Expertise
+							t-attf-class="form-group row #{error.get('expertise_ids') and 'has-error' or ''} ">
+							<label class="form-control-label col-sm-2" for="expertise_ids">Expertise
 							</label>
-							<input name="post_areas" placeholder="Expertise" class="form-control js_select2_areas" t-attf-data-init-value="#{areas}" value="Expertise" />
+							<input name="post_expertises" placeholder="Expertise" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertises}" value="Expertise" />
 						</div>
 						<div class="clearfix" />
 						<div t-if="has_check_vat"

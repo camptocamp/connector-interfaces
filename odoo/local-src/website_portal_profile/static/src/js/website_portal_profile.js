@@ -62,7 +62,7 @@ var lastsearch;
             callback(data);
         },
     });
-    $('input.js_select2_areas').select2({
+    $('input.js_select2_expertises').select2({
         tags: true,
         tokenSeparators: [",", " ", "_"],
         lastsearch: [],
@@ -84,7 +84,7 @@ var lastsearch;
             }
         },
         ajax: {
-            url: '/my/get_areas',
+            url: '/my/get_expertises',
             dataType: 'json',
             data: function(term) {
                 return {

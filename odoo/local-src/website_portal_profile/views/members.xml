@@ -116,7 +116,7 @@
 								<div class="member-tags">
 									<label for="expertise">Expertise:</label>
 									<div class="tag-value" id="expertise">
-										<t t-foreach="partner.area_ids" t-as="one_tag">
+										<t t-foreach="partner.expertise_ids" t-as="one_tag">
 											<t t-esc="one_tag.name" />
 										</t>
 									</div>
