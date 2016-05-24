@@ -14,13 +14,12 @@
         'website_portal',
         'website_partner',
         'website_membership',
-        'website_crm_partner_assign'
     ],
     'data': [
         'views/templates.xml',
         # 'views/members.xml',
         'views/members2.xml',
-        'views/upload.xml',
+        # 'views/upload.xml',
         'security/ir.model.access.csv',
     ],
     'installable': True,
