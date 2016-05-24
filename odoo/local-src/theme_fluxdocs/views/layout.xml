@@ -20,8 +20,9 @@
 
 
                         <ul id="top_menu">
-							<!-- Needed for other modules to put their stuff in it -->
-		            	</ul>
+                            <li></li>
+                            <!-- Needed for other modules to put their stuff in it -->
+                        </ul>
 		            	
                         <ul class="main-menu">
 		                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
