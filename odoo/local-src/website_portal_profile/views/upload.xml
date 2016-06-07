@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+	<template id="fluxdock_upload" name="Fluxdock Upload">
+        <form t-attf-action="/my/upload" method="post" role="form" enctype="multipart/form-data"> 
+			<span class="btn btn-primary btn-file mt16">
+				    Upload picture 
+				<input type="file" name="picture"/>
+			</span>
+            <button type="submit" class="btn btn-default btn-primary mb32">Send</button>
+		</form>
+	</template>
+</data>
+</odoo>

@@ -20,7 +20,8 @@
 
 
                         <ul id="top_menu">
-                            <li></li>
+                            <li>
+                            </li>
                             <!-- Needed for other modules to put their stuff in it -->
                         </ul>
 		            	
@@ -39,11 +40,11 @@
 		                    		<!-- <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>  -->
 		                    	</a>
 		                    </li>
-		                    <li id="myhome">
-		                    	<a t-attf-href="/my/account" role="menuitem">
-		                    		My Account
-		                    	</a>
-		                    </li>
+		                    <!-- <li id="myhome"> -->
+		                    <!-- 	<a t&#45;attf&#45;href="/my/account" role="menuitem"> -->
+		                    <!-- 		My Account -->
+		                    <!-- 	</a> -->
+		                    <!-- </li> -->
 		                    <li>
 			            		<t t-call="website.language_selector"/>
 		                    </li>
