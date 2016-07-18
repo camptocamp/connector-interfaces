@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <template id="website_membership_payment" inherit_id="website_portal_profile.website_portal_profile-details">
+      <xpath expr="//form[@action='/my/account']" position="after">
+        <div class="clearfix">
+          membership status : <t t-esc="partner.membership_state"/>
+          <button type="submit" class="btn btn-default btn-primary mb32">
+            Get Associate Membership
+          </button>
+        </div>
+      </xpath>
+  </template>
+
+  <record model="ir.ui.view" id="view_partner_form_c2c">
+    <field name="name">res.partner.form.c2c</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//field[@name='website']" position="after">
+        <span>Membership</span>
+          <button string="Get Advanced Membership" type="object" name="buttonBuyMembership"/>
+      </xpath>
+
+    </field>
+  </record>
+
+
+</odoo>
