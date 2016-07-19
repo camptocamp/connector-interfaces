@@ -7,6 +7,13 @@
   <field name="arch" type="xml">
     <form string="Proposals">
       <sheet>
+        <div class="oe_button_box" name="button_box">
+            <button name="toggle_published" type="object"
+                    class="oe_stat_button" icon="fa-star">
+                <field name="published" widget="boolean_button"
+                    options='{"terminology": "active"}'/>
+            </button>
+        </div>
         <div class="oe_title">
           <div class="oe_edit_only">
               <label for="name"/>
@@ -18,33 +25,33 @@
           <h2>
             <field name="owner_id"/>
           </h2>
-          <notebook>
-            <page string="Project Details">
-              <group>
-                <group>
-                  <field name="start_date" string="Starting on"/>
-                  <field name="stop_date" string="Ending on"/>
-
-                  <label for="duration"/>
-                  <div>
-                      <field name="duration" class="oe_inline"/>
-                      <span> days</span>
-                  </div>
-                  <group>
-                    <field name="industry_ids" widget="many2many_tags" />
-                    <field name="expertise_ids" widget="many2many_tags" />
-                    <field name="location" />
-                  </group>
-
-                </group>
-              </group>
-              <label for="teaser_text"/>
-              <field name="teaser_text"/>
-              <label for="description"/>
-              <field name="description"/>
-            </page>
-          </notebook>
         </div>
+        <notebook>
+          <page string="Project Details">
+            <group>
+              <group>
+                <field name="start_date" string="Starting on"/>
+                <field name="stop_date" string="Ending on"/>
+
+                <label for="duration"/>
+                <div>
+                    <field name="duration" class="oe_inline"/>
+                    <span> days</span>
+                </div>
+                <group>
+                  <field name="industry_ids" widget="many2many_tags" />
+                  <field name="expertise_ids" widget="many2many_tags" />
+                  <field name="location" />
+                </group>
+
+              </group>
+            </group>
+            <label for="teaser_text"/>
+            <field name="teaser_text"/>
+            <label for="description"/>
+            <field name="description"/>
+          </page>
+        </notebook>
       </sheet>
       <div class="oe_chatter">
         <field name="message_follower_ids" widget="mail_followers"/>

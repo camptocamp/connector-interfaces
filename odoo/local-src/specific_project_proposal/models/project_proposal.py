@@ -19,7 +19,7 @@ class ProjectProposal(models.Model):
         required=True
     )
     owner_id = fields.Many2one(
-        comodel_name='res.partner',
+        comodel_name='res.users',
         string="Project Owner",
         required=True,
     )
@@ -27,6 +27,9 @@ class ProjectProposal(models.Model):
         compute='_get_color_owner_id',
         string="Color index of owner",
         store=False)  # Color of owner
+    published = fields.Boolean(
+        default=True,
+        help="If this is unchecked, this proposal won't be visible by others.")
     location = fields.Char()
     teaser_text = fields.Char(string="Teaser text")
     description = fields.Text()
@@ -46,6 +49,14 @@ class ProjectProposal(models.Model):
     def _get_color_owner_id(self):
         for rec in self:
             rec.color_owner_id = rec.owner_id.id
+
+    @api.multi
+    def toggle_published(self):
+        """ Inverse the value of the field ``published`` on the records in
+        ``self``.
+        """
+        for record in self:
+            record.published = not record.published
 
     @api.onchange('start_date', 'stop_date')
     def onchange_dates(self):

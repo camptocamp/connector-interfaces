@@ -1,0 +1,13 @@
+<odoo>
+
+<record model="ir.rule" id="unpublished_proposal_seen_by_owner_only">
+  <field name="name">Unpublished proposals are only seen by the owner</field>
+  <field name="model_id" ref="model_project_proposal"/>
+  <field name="perm_read" eval="True"/>
+  <field name="perm_write" eval="True"/>
+  <field name="perm_create" eval="True"/>
+  <field name="perm_unlink" eval="True"/>
+  <field name="domain_force">['|', ('published', '=', True), '&amp;', ('owner_id','=',user.id), ('published', '=', False)]</field>
+</record>
+
+</odoo>
