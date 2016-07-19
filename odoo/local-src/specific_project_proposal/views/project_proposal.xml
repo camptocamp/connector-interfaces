@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+<record model="ir.ui.view" id="view_project_proposal_form">
+  <field name="name">project.proposal.form</field>
+  <field name="model">project.proposal</field>
+  <field name="arch" type="xml">
+    <form string="Proposals">
+      <sheet>
+        <div class="oe_title">
+          <div class="oe_edit_only">
+              <label for="name"/>
+          </div>
+          <h1>
+              <field name="name" placeholder="e.g. My great project"/>
+          </h1>
+          <label for="owner_id" string="Owner" class="oe_edit_only"/>
+          <h2>
+            <field name="owner_id"/>
+          </h2>
+          <notebook>
+            <page string="Project Details">
+              <group>
+                <group>
+                  <field name="start_date" string="Starting on"/>
+                  <field name="stop_date" string="Ending on"/>
+
+                  <label for="duration"/>
+                  <div>
+                      <field name="duration" class="oe_inline"/>
+                      <span> days</span>
+                  </div>
+                  <group>
+                    <field name="industry_ids" widget="many2many_tags" />
+                    <field name="expertise_ids" widget="many2many_tags" />
+                    <field name="location" />
+                  </group>
+
+                </group>
+              </group>
+              <label for="teaser_text"/>
+              <field name="teaser_text"/>
+              <label for="description"/>
+              <field name="description"/>
+            </page>
+          </notebook>
+        </div>
+      </sheet>
+      <div class="oe_chatter">
+        <field name="message_follower_ids" widget="mail_followers"/>
+        <field name="message_ids" widget="mail_thread" />
+      </div>
+    </form>
+  </field>
+</record>
+
+<!-- Project Proposal Tree View  -->
+
+<record model="ir.ui.view" id="view_project_proposal_tree">
+  <field name="name">Proposals - Tree</field>
+  <field name="model">project.proposal</field>
+  <field name="arch" type="xml">
+    <tree string="Proposals" decoration-bf="message_needaction==True">
+      <field name="name" string="Project name"/>
+      <field name="start_date" string="Start Date"/>
+      <field name="stop_date" string="End Date"/>
+      <field name="owner_id"/>
+      <field name="location"/>
+      <field name="duration"/>
+      <field name="message_needaction" invisible="1"/>
+    </tree>
+  </field>
+</record>
+
+<!-- Project Proposal Calendar -->
+<record model="ir.ui.view" id="view_project_proposal_calendar">
+  <field name="name">Proposal</field>
+  <field name="model">project.proposal</field>
+  <field name="arch" type="xml">
+    <calendar string="Proposals" date_start="start_date" date_stop="stop_date" date_delay="duration"
+      display="[name]" color="color_owner_id" mode="month">
+      <field name="name"/>
+      <field name="owner_id"/>
+      <field name="color_owner_id"/>
+    </calendar>
+  </field>
+</record>
+
+<!-- Project Proposal Search View  -->
+<record id="view_project_proposal_search" model="ir.ui.view">
+  <field name="name">Proposal Search</field>
+  <field name="model">project.proposal</field>
+  <field name="arch" type="xml">
+    <search string="Search Proposals">
+      <field name="name" string="Proposal" filter_domain="[('name','ilike',self)]"/>
+      <field name="industry_ids"/>
+      <field name="expertise_ids"/>
+      <field name="owner_id"/>
+      <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>
+      <separator/>
+      <group expand="0" string="Group By">
+        <filter string="Owner" domain="[]" context="{'group_by':'owner_id'}"/>
+      </group>
+    </search>
+  </field>
+</record>
+
+<record id="action_project_proposal" model="ir.actions.act_window">
+  <field name="name">Proposals</field>
+  <field name="res_model">project.proposal</field>
+  <field name="view_mode">tree,form,calendar</field>
+  <field name="view_id" ref="view_project_proposal_tree"/>
+  <field name="search_view_id" ref="view_project_proposal_search"/>
+  <field name="help" type="html">
+    <p class="oe_view_nocontent_create">
+      Click to add a proposal.
+      </p><p>
+      The proposal will shared with parners depending on industries and expertises.
+    </p>
+  </field>
+</record>
+
+<menuitem name="Proposals" id="menu_project_proposal_open" parent="menu_project_proposal" sequence="2" action="action_project_proposal" web_icon="calendar,static/description/icon.png" groups="base.group_user"/>
+
+</odoo>
