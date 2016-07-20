@@ -7,7 +7,7 @@
  'author': 'Camptocamp',
  'maintainer': 'Camptocamp',
  'website': 'http://www.camptocamp.com/',
- 'depends': ['base', 'mail', 'partner_project_expertise'],
+ 'depends': ['project', 'partner_project_expertise'],
  'data': [
      'security/ir.model.access.csv',
      'security/record_rules.xml',
