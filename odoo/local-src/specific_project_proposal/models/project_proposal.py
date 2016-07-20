@@ -37,11 +37,11 @@ class ProjectProposal(models.Model):
     stop_date = fields.Date(string="End date")
     duration = fields.Integer()
     industry_ids = fields.Many2many(
-        comodel_name="project.industry",
+        comodel_name="res.partner.category",
         string="Industries",
     )
     expertise_ids = fields.Many2many(
-        comodel_name="project.expertise",
+        comodel_name="partner_project_expertise.expertise",
         string="Expertises",
     )
 
