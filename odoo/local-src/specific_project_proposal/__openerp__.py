@@ -7,12 +7,17 @@
  'author': 'Camptocamp',
  'maintainer': 'Camptocamp',
  'website': 'http://www.camptocamp.com/',
- 'depends': ['project', 'partner_project_expertise'],
+ 'depends': [
+     'project',
+     'partner_project_expertise',
+     'website_portal_profile',
+ ],
  'data': [
      'security/ir.model.access.csv',
      'security/record_rules.xml',
      'views/menu.xml',
      'views/project_proposal.xml',
+     'views/templates.xml',
  ],
  'test': [],
  'installable': True,
