@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <!-- <data noupdate="1"> -->
+    <data>
+
+        <record id="menu_project_proposal" model="website.menu">
+            <field name="name">Market</field>
+            <field name="url">/market</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+        </record>
+
+    </data>
+</openerp>
