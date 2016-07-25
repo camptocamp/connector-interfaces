@@ -4,3 +4,7 @@
 [submodule "odoo/external-src/server-tools"]
 	path = odoo/external-src/server-tools
 	url = git@github.com:OCA/server-tools.git
+[submodule "odoo/external-src/vertical-association"]
+	path = odoo/external-src/vertical-association
+	url = git@github.com:camptocamp/vertical-association.git
+	branch = pending-merge-1823-master
