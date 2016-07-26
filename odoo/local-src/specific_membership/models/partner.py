@@ -7,10 +7,9 @@ from openerp import api, models, fields
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-
     flux_membership = fields.Selection([
         ('free', 'Free Membership'),
-        ('asso', 'Associate Membership')],default='free')
+        ('asso', 'Associate Membership')], default='free', required=True)
 
     @api.multi
     def create_membership_invoice(self, product_id=None, datas=None):
@@ -36,5 +35,9 @@ class ResPartner(models.Model):
         return inv
 
     @api.multi
-    def buttonBuyMembership(self):
+    def button_buy_membership(self):
         self.create_membership_invoice()
+
+    @api.onchange('free_member')
+    def change_flux_membership(self):
+        self.flux_membership = 'free' if self.free_member else 'asso'
