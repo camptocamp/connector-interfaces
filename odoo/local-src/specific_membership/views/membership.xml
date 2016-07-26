@@ -4,14 +4,15 @@
   <template id="website_membership_payment" inherit_id="website_portal_profile.website_portal_profile-details">
       <xpath expr="//form[@action='/my/account']" position="after">
         <div class="clearfix">
-          membership status : <t t-esc="partner.membership_state"/>
-          <button type="submit" class="btn btn-default btn-primary mb32">
+          membership status : <t t-esc="partner.flux_membership"/>
+          <button type="object" class="btn btn-default btn-primary mb32" name="buttonBuyMembership" onclick="window.location.href='/my/membership'">
             Get Associate Membership
           </button>
         </div>
       </xpath>
   </template>
 
+  <!-- Backend Button for demo purpose -->
   <record model="ir.ui.view" id="view_partner_form_c2c">
     <field name="name">res.partner.form.c2c</field>
     <field name="model">res.partner</field>
@@ -21,10 +22,34 @@
       <xpath expr="//field[@name='website']" position="after">
         <span>Membership</span>
           <button string="Get Advanced Membership" type="object" name="buttonBuyMembership"/>
+        <field name="flux_membership"/>
       </xpath>
 
     </field>
   </record>
 
+  <!-- view for confirmation address-->
+  <template id="membership_payment_address" name="membership_payment_address">
+    <t t-call="website.layout">
+      <div id="wrap">
+        <div class="container">
+          <div class="oe_structure">
+            <div class="row o_website_portal_details text-center">
+              <h1>Billing Address</h1>
+              Name: <span t-esc="partner.name"/><br/>
+              Street: <span t-esc="partner.street2"/><br/>
+              NPA: <span t-esc="partner.zip"/><br/>
+              City: <span t-esc="partner.city"/><br/>
+              Payment type: ????<br/>
+              Price: <span t-esc="product.list_price"/><br/>
+              Taxes: <span t-esc="product.taxes_id.amount"/><br/>
+              <button>Edit</button>
+              <button type="object" name="buttonBuyMembership" onclick="window.location.href='/my/membership/buy'">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
 
 </odoo>
