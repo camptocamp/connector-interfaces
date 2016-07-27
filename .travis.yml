@@ -43,3 +43,5 @@ script:
   - if [ "$TESTS" == "1" ] ; then docker-compose -f docker-compose.yml run --rm -e DEMO=True -e TRAVIS=True odoo runtests ; fi
     # run the scenario
   - if [ "$TESTS" == "1" ] ; then docker-compose -f docker-compose.yml run --rm -e MARABUNTA_MODE=demo -e MARABUNTA_ALLOW_SERIE=True odoo odoo.py --stop-after-init ; fi
+after_success:
+  - if [ "$TESTS" == "1" ] ; then ./travis/publish.sh ; fi
