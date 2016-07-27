@@ -1,4 +1,4 @@
-TODO Build status badge
+[![Build Status](https://travis-ci.com/camptocamp/fluxdock_odoo.svg?token=Lpp9PcS5on9AGbp76WKB&branch=master)](https://travis-ci.com/camptocamp/fluxdock_odoo)
 
 # Fluxdock Odoo Project (Coaching)
 
