@@ -4,6 +4,3 @@
 [submodule "odoo/external-src/server-tools"]
 	path = odoo/external-src/server-tools
 	url = git@github.com:OCA/server-tools.git
-[submodule "odoo/local-src"]
-	path = odoo/local-src
-	url = git@github.com:camptocamp/fluxdock_odoo-addons.git
