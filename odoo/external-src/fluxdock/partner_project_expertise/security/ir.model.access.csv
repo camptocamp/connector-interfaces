@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-project_expertise_leader,partner_project_expertise.expertise,model_partner_project_expertise_expertise,project.group_project_manager,1,1,1,1
-project_expertise_leader,partner_project_expertise.expertise,model_partner_project_expertise_expertise,base.group_sale_manager,1,1,1,1
-project_expertise_user,partner_project_expertise.expertise,model_partner_project_expertise_expertise,,1,0,0,0
