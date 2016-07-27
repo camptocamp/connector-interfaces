@@ -56,31 +56,31 @@
                                         	<!-- 	<input type="file" name="image"/> -->
                                         	<!-- </span> -->
                                         <!-- </form> -->
-                                        <label class="form-control-label col-sm-2" for="contact_name">Company name
+                                        <label class="form-control-label col-sm-2" for="contact_name">Company name (*)
                                         </label>
                                         <input type="text" name="name" class="form-control"
                                             t-att-value="name or partner.name" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('street2') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="street2">Street / No.
+                                        <label class="form-control-label col-sm-2" for="street2">Street / No. (*)
                                         </label>
                                         <input type="text" name="street2" class="form-control"
                                             t-att-value="street2 or partner.street2" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('zip') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="zipcode">Zip / Postal
+                                        <label class="form-control-label col-sm-2" for="zipcode">Zip / Postal (*)
                                             Code</label>
                                         <input type="text" name="zipcode" class="form-control"
                                             t-att-value="zipcode or partner.zip" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('city') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="city">City</label>
+                                        <label class="form-control-label col-sm-2" for="city">City (*)</label>
                                         <input type="text" name="city" class="form-control"
                                             t-att-value="city or partner.city" />
                                     </div>
                                     <div
                                         t-attf-class="form-group row #{error.get('country_id') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="country_id">Country
+                                        <label class="form-control-label col-sm-2" for="country_id">Country (*)
                                         </label>
                                         <div class="styled-select">
                                             <select name="country_id" class="form-control">
@@ -102,7 +102,7 @@
                                             t-att-value="phone or partner.phone" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('email') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="contact_name">Email
+                                        <label class="form-control-label col-sm-2" for="contact_name">Email (*)
                                         </label>
                                         <input placeholder="name@domain.com" type="email" name="email" class="form-control"
                                             t-att-value="email or partner.email" />
