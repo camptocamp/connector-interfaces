@@ -2,6 +2,7 @@
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, models, fields
+from openerp.exceptions import except_orm, Warning, RedirectWarning
 
 
 class ResPartner(models.Model):
@@ -13,19 +14,22 @@ class ResPartner(models.Model):
 
     @api.multi
     def create_membership_invoice(self, product_id=None, datas=None):
-        # memb_line_obj = self.env['membership.line']
-        product_id = product_id or self.env['product.product'].search([
-            ('default_code', '=', 'associate')])
-
+        prod_obj = self.env['product.product']
         acc_inv_obj = self.env['account.invoice']
 
-        datas = {'membership_product_id': product_id.id, 'amount': 100}
+        # try:
+        # product_id = product_id or datas.get('membership_product_id')
+        try:
+            product = prod_obj.browse(product_id) or prod_obj.search([('default_code', '=', 'associate')])
+        except ValueError:(_('There is no associate default product'),('toto'))
+
+        datas = {'membership_product_id': product.id, 'amount': product.list_price}
 
         if self.free_member is True:
             self.free_member = False
 
         inv = super(ResPartner, self).create_membership_invoice(
-            product_id=product_id,
+            product_id=product,
             datas=datas)
 
         acc_inv_id = acc_inv_obj.browse(inv)

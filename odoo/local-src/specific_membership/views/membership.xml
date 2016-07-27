@@ -5,7 +5,7 @@
       <xpath expr="//form[@action='/my/account']" position="after">
         <div class="clearfix">
           membership status : <t t-esc="partner.flux_membership"/>
-          <button type="object" class="btn btn-default btn-primary mb32" name="buttonBuyMembership" onclick="window.location.href='/my/membership'">
+          <button type="object" class="btn btn-default btn-primary mb32" name="button_buy_membership" onclick="window.location.href='/my/membership'">
             Get Associate Membership
           </button>
         </div>
@@ -21,7 +21,21 @@
 
       <xpath expr="//field[@name='website']" position="after">
         <span>Membership</span>
-          <button string="Get Advanced Membership" type="object" name="buttonBuyMembership"/>
+          <button string="Get Advanced Membership" type="object" name="button_buy_membership"/>
+        <field name="flux_membership"/>
+      </xpath>
+
+    </field>
+  </record>
+
+  <record model="ir.ui.view" id="view_partner_form_hide">
+    <field name="name">res.partner.form.hide</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="membership.view_partner_form"/>
+    <field name="arch" type="xml">
+
+      <xpath expr="//group/field[@name='associate_member']" position="replace">
+        <field name="associate_member" attrs="{'invisible': 'True'}"/>
         <field name="flux_membership"/>
       </xpath>
 
@@ -41,10 +55,28 @@
               NPA: <span t-esc="partner.zip"/><br/>
               City: <span t-esc="partner.city"/><br/>
               Payment type: Wire Transer<br/>
+              <h1>Associate Membership</h1>
               Price: <span t-esc="product.list_price"/><br/>
               Taxes: <span t-esc="product.taxes_id.amount"/><br/>
-              <button>Edit</button>
-              <button type="object" name="buttonBuyMembership" onclick="window.location.href='/my/membership/buy'">Confirm</button>
+              <button type="object" onclick="window.location.href='/my/account'">Edit informations</button>
+              <button type="object" name="button_buy_membership" onclick="window.location.href='/my/membership/buy'">Confirm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+
+  <template id="membership_payment_confirmation" name="membership_payment_confirmation">
+    <t t-call="website.layout">
+      <div id="wrap">
+        <div class="container">
+          <div class="oe_structure">
+            <div class="row o_website_portal_details text-center">
+              <h1>Confirmation</h1>
+              <p>Your command is being processed. You should receive a confirmation email soon.</p>
+              <button type="object" onclick="window.location.href='/my/market'">Market</button>
+              <button type="object" name="button_buy_membership" onclick="window.location.href='/my/account'">My Account</button>
             </div>
           </div>
         </div>

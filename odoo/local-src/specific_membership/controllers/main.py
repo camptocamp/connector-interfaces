@@ -26,7 +26,7 @@ class website_account(http.Controller):
     @http.route(['/my/membership/buy'], type='http', auth="user", website=True)
     def confirm_asso_member(self, redirect=None, **post):
         partner = request.env['res.users'].browse(request.uid).partner_id
-        partner.sudo().buttonBuyMembership()
+        partner.sudo().button_buy_membership()
 
         values = {
             'error': {},
@@ -42,4 +42,4 @@ class website_account(http.Controller):
         })
 
         return request.website.render(
-            "specific_membership.membership_payment_address", values)
+            "specific_membership.membership_payment_confirmation", values)
