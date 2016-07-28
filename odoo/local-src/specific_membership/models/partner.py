@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, models, fields, exceptions
-from openerp.tools.translate import _
+from openerp import api, models, fields, exceptions, _
 
 
 class ResPartner(models.Model):
