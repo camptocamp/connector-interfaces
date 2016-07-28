@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import api, models, fields
-from openerp.exceptions import except_orm, Warning, RedirectWarning
+from openerp import api, models, fields, exceptions
+from openerp.tools.translate import _
 
 
 class ResPartner(models.Model):
@@ -17,13 +17,15 @@ class ResPartner(models.Model):
         prod_obj = self.env['product.product']
         acc_inv_obj = self.env['account.invoice']
 
-        # try:
         # product_id = product_id or datas.get('membership_product_id')
-        try:
-            product = prod_obj.browse(product_id) or prod_obj.search([('default_code', '=', 'associate')])
-        except ValueError:(_('There is no associate default product'),('toto'))
+        product = prod_obj.browse(product_id) or prod_obj.search(
+                [('default_code', '=', 'associate')])
+        if not product:
+            raise exceptions.Warning(
+                _('There is no associate default product'))
 
-        datas = {'membership_product_id': product.id, 'amount': product.list_price}
+        datas = {'membership_product_id': product.id,
+                 'amount': product.list_price}
 
         if self.free_member is True:
             self.free_member = False

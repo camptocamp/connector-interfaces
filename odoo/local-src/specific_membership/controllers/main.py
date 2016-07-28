@@ -4,6 +4,7 @@
 from openerp import http
 from openerp.http import request
 
+
 class website_account(http.Controller):
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
