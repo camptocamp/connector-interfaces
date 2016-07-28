@@ -2,7 +2,7 @@
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, models, fields, exceptions, _
-from datetime import date
+
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -52,12 +52,16 @@ class ResPartner(models.Model):
         partners = self.search(
             [('membership_state', '=', 'invoiced')])
         acc_inv_obj = self.env['account.invoice']
-        today = date.today().strftime('%Y-%m-%d')
+        today = fields.Date.today()
+
+        part_to_update = self.env['res.partner']
 
         for partner in partners:
-            acc_inv = acc_inv_obj.search(
+            acc_inv = acc_inv_obj.search_count(
                 [('partner_id', '=', partner.id),
                  ('date_due', '<', today),
                  ('state', '=', 'open')])
             if acc_inv:
-                partner.flux_membership = 'free'
+                part_to_update |= partner
+
+        part_to_update.write({'flux_membership': 'free'})
