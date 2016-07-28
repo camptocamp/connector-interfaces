@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+	
+		<!-- FLUXDOCS SNIPPETS -->
+		<template id="place_into_bar" name="Fluxdocs Snippets" inherit_id="website.snippets">
+	        
+	        <!-- 
+	        <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="inside">
+	            
+	        </xpath>
+	         -->
+	        
+	        <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="replace">
+	            
+	            <div class="o_panel_body">
+		             
+		             
+		            <!-- LOGO -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/logo.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Fluxdock Logo</span>
+		                </div>
+						<section class="animated-logo">
+			                <div class="logo">
+								<canvas width="350" height="350" id="logo-canvas" />
+			                	<img class="fluxdock-title" src="/theme_fluxdocs/static/img/fluxdock_title_2.png" />
+			                </div>
+							<script type="text/JavaScript">
+								var THREE = {
+									Math: {
+										degToRad: function(degrees)
+											{ return degrees * Math.PI / 180; }
+									}
+								};
+							</script>
+							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Matrix4.js"></script>
+							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Vector3.js"></script>
+							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/line_cube.js"></script>
+							
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- CONTENT -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Content</span>
+		                </div>
+		                 <section class="content">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
+			                	</div>
+			                	<h2>Lorem ipsum dolor</h2>
+								<p align="left">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                </div>
+							
+						</section>
+		            </div>
+		            
+	            	<!-- CONTENT TWO COL -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content-two-col.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Two Columns Content</span>
+		                </div>
+		                 <section class="content">
+			                <div class="content-wrap clearfix">
+			                	<h2>Lorem ipsum dolor</h2>
+			                	<div class="two-col two-col-left">
+									<p align="left">
+										Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+									</p>
+			                	</div>
+			                	<div class="two-col two-col-right">
+									<ul>
+										<li>
+											<div align="left">
+												Consetetur sadipscing elitr
+											</div>
+										</li>
+										<li>
+											<div align="left">
+												Sadipscing elitr, sed diam nonumy eirmod tempor.
+											</div>
+										</li>
+										<li>
+											<div align="left">
+												Sed diam nonumy eirmod tempor.
+											</div>
+										</li>
+									</ul>
+			                	</div>
+			                </div>
+							
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- CONTENT WITH IMAGE -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/content-image.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Content Image</span>
+		                </div>
+		                <section class="content with-image">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
+			                	</div>
+			                	<h2>Lorem ipsum dolor</h2>
+								<p align="left">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                </div>
+			                
+			                <div class="image-wrap">
+			                	<img src="/theme_fluxdocs/static/img/standort-wide.jpg" />
+			                </div>
+
+			                <div class="content-wrap">
+			                	<p align="left">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                </div>
+							
+						</section>
+		            </div>
+		            
+	            	<!-- ACCORDION -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/accordion.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Accordion</span>
+		                </div>
+		                 
+						<section class="content">
+							<div class="content-wrap accordion-wrap">
+								<h2>Glossar</h2>
+								<section class="accordion">
+				                	<div class="accordion-trigger">
+					                	<h3>Titel. Klicke um auszuklappen.</h3>
+				                	</div>
+									<div class="accordion-content">
+					                	<p>Der Inhalt der ausgeklappt wird</p>
+									</div>
+								</section>
+							</div>
+		                </section>
+							
+		            </div>
+		            
+		            
+	            	<!-- SIGNUP LOGIN -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/signup_login.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Signup / Login</span>
+		                </div>
+		                 <section class="content signup_login opt_dark_bg">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Lorem ipsum dolor</h2>
+			                	<p>Collaborative. Effective. Innovative. Fluxdock is a project management platform for startups and agile developers &amp; designers who want a simple, beautiful tool that makes work truly enjoyable.</p>
+			                </div>
+			                <div class="content-wrap">
+			                	<a class="btn" href="/web/presignup">Sign up</a>
+			                	<a class="btn" href="/web/login">Login</a>
+			                </div>
+							
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- LATEST NEWS -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/latest-news.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Latest news</span>
+		                </div>
+		                
+		                 <section class="content latest_news">
+			                <div class="content-wrap">
+			                	<h2>News</h2>
+			                	<div class="latest-news-container">
+			                		
+			                		<div class="news-teaser">
+			                			<div class="news-teaser-date">28 Aug 2015</div>
+			                			<h2>Webplattform Fluxdock erfolgreich gestartet</h2>
+			                			<p>Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region.</p>
+			                			<div class="read-more">
+			                				<a href="#">Read More</a>
+			                			</div>
+			                		</div>
+			                		<div class="news-teaser">
+			                			<div class="news-teaser-date">27 Aug 2015</div>
+			                			<h2>Durch geeignete Regeln, Methoden und Tools zum Erfolg.</h2>
+			                			<p>Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region.</p>
+			                			<div class="read-more">
+			                				<a href="#">Read More</a>
+			                			</div>
+			                		</div>
+			                		<div class="news-teaser">
+			                			<div class="news-teaser-date">27 Aug 2015</div>
+			                			<h2>Durch geeignete Regeln, Methoden und Tools zum Erfolg.</h2>
+			                			<p>Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region.</p>
+			                			<div class="read-more">
+			                				<a href="#">Read More</a>
+			                			</div>
+			                		</div>
+			                		<div class="news-teaser">
+			                			<div class="news-teaser-date">26 Aug 2015</div>
+			                			<h2>Webplattform Fluxdock erfolgreich gestartet</h2>
+			                			<p>Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region.</p>
+			                			<div class="read-more">
+			                				<a href="#">Read More</a>
+			                			</div>
+			                		</div>
+			                		
+<!-- 			                		<div t-foreach="blog_posts" t-as="blog_post" class="blog-list"> -->
+					                	
+<!-- 					                    <h2 t-field="blog_post.name" class="blog-name"> -->
+<!-- 					                    	<t t-if="not blog_post.name">Untitled Post</t> -->
+<!-- 					                    </h2> -->
+					                    
+<!-- 					                </div> -->
+			                		
+			                	</div>
+			                	<div class="news-list-link">
+			                		<a href="/blog/news-1">
+			                			Alle News...
+			                		</a>
+			                	</div>
+			                </div>
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- PROJECTS LIST -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/projects-list.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Projects List</span>
+		                </div>
+		                
+		                <section class="content projects projects-list opt_dark_bg">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Projects</h2>
+			                	<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                	<form class="search-panel projects-search-panel">
+			                		<div class="filter-row row-1">
+			                			<input class="filter" type="text" placeholder="firma suchen" data-type="project" data-facet="title"></input>
+			                			<button type="submit">suchen</button>
+			                		</div>
+			                		<div class="filter-row row-2">
+		                				<div class="styled-select">
+		                					<select class="filter category" data-type="project" data-facet="category">
+				                				<option value="all">alle Kategorien</option>
+				                				<option value="design">Design</option>
+				                				<option value="web">Web</option>
+				                			</select>
+		                				</div>
+		                				<div class="styled-select">
+				                			<select class="filter expertise" data-type="project" data-facet="expertise">
+				                				<option value="all">alle Expertisen</option>
+				                				<option value="design">Desktop publishing</option>
+				                				<option value="webdevelopment">Webentwicklung</option>
+				                				<option value="pingpong">Pingpong</option>
+				                			</select>
+		                				</div>
+		                				<div class="styled-select">
+				                			<select class="filter country" data-type="project" data-facet="country">
+				                				<option value="all">alle Länder</option>
+				                				<option value="ch">Schweiz</option>
+				                				<option value="de">Deutschland</option>
+				                				<option value="fr">Frankreich</option>
+				                			</select>
+		                				</div>
+			                		</div>
+			                	</form>
+			                </div>
+		                	<div class="projects-container projects-list-container">
+		                		
+		                		<div class="project-box filterable" data-type="project" data-facet-category="design" data-facet-expertise="design" data-facet-country="ch">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
+			                			<h2 class="title">Cern</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box filterable" data-type="project" data-facet-category="web" data-facet-expertise="webdevelopment" data-facet-country="ch">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/shanghai.jpg"></img>
+			                			<h2 class="title">Expo Shanghai</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box filterable" data-type="project" data-facet-category="design" data-facet-expertise="design" data-facet-country="ch">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
+			                			<h2 class="title">Kraftwerk Basel</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box filterable" data-type="project" data-facet-category="design" data-facet-expertise="design" data-facet-country="de">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/museum.jpg"></img>
+			                			<h2 class="title">Archäologisches Museum</h2>
+			                		</a>
+		                		</div>
+	                		
+		                	</div>
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- PROJECTS TEASER -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/projects-teaser.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Projects teaser</span>
+		                </div>
+		                
+		                 <section class="content projects projects-teaser">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Projects</h2>
+			                	<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                </div>
+		                	<div class="projects-container projects-teaser-container">
+		                		
+		                		<div class="project-box">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
+			                			<h2>Cern</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/shanghai.jpg"></img>
+			                			<h2>Expo Shanghai</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
+			                			<h2>Kraftwerk Basel</h2>
+			                		</a>
+		                		</div>
+		                		<div class="project-box">
+		                			<a href="#project-detail">
+			                			<img src="/theme_fluxdocs/static/img/projects/museum.jpg"></img>
+			                			<h2>Archäologisches Museum</h2>
+			                		</a>
+		                		</div>
+	                		
+		                	</div>
+		                	<div class="content-wrap">
+		                		<p>
+			                		<a href="/page/projects">
+			                			More...
+			                		</a>
+		                		</p>
+			                </div>
+						</section>
+		            </div>
+		            
+	            	
+	            	<!-- COMMUNITY NUMBERS -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/numbers.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Community Members</span>
+		                </div>
+		                 <section class="content numbers opt_dark_bg">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Lorem ipsum dolor</h2>
+			                	<p>fluxdock bieten Firmen die Plattform um sich zu präsentieren, vernetzen und den offenen, interdisziplinären Austausch und die gleichberechtigte Kollaboration zu pflegen. Durch geeignete Regeln, Methoden und Tools befähigt fluxdock dabei seine Mitglieder zu mehr Innovation.</p>
+			                </div>
+			                <div class="numbers-wrap">
+				                <div class="content-wrap">
+				                	<div class="number-entry">
+				                		<span class="number-value">52</span> <!--  TODO Get dymamically -->
+				                		<span class="number-label">Members</span> 
+				                	</div>
+				                	<div class="number-entry">
+				                		<span class="number-value">86</span> <!--  TODO Get dymamically -->
+				                		<span class="number-label">Users</span> 
+				                	</div>
+				                	<div class="number-entry">
+				                		<span class="number-value">17</span> <!--  TODO Get dymamically -->
+				                		<span class="number-label">Projects</span> 
+				                	</div>
+			                	</div>
+			                </div>							
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- NEWSLETTER SUBSCRIBE -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/newsletter.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Newsletter</span>
+		                </div>
+		                 <section class="content newsletter_subscribe opt_dark_bg">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+			                	</div>
+			                	<h2>Newsletter</h2>
+			                	<p>Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole.</p>
+			                </div>
+			                <div class="content-wrap newsletter-form-wrap">
+			                	<!-- Campain Monitor form -->
+				                <form id="subForm" class="newsletter-form" action="http://fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
+				                	<input name="cm-name" placeholder="Name" type="text"></input>
+				                	<input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required"></input>
+				                	<button type="submit">Subscribe</button>
+				                </form>
+			                </div>							
+						</section>
+		            </div>
+		            
+	            	<!-- CAROUSEL -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/carousel.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Image Carousel</span>
+		                </div>
+		                <section class="carousel">
+							<ul class="bxslider">
+				        		<li class="carousel-item">
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-1-1600.jpg" />
+				        	    </li>
+				        	    <li class="carousel-item">
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-2-1600.jpg" />
+				        		</li>
+				            	<li class="carousel-item">
+			                		<img src="/theme_fluxdocs/static/img/carousel/slide-3-1600.jpg" />
+				            	</li>
+							</ul>
+						</section>
+		            </div>
+		            
+	            	<!-- BUTTON -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/button.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Button Link</span>
+		                </div>
+		                <section class="mybutton">
+							<a class="btn" type="submit">
+								My Button
+							</a>
+		                </section>
+		            </div>
+		            
+	            	<!-- 3d simulation -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/simulation.png"/>
+		                    <span class="oe_snippet_thumbnail_title">3d Simulation</span>
+		                </div>
+		                 <section class="content">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
+			                	</div>
+			                	<h2>Fluxdock 3d Simulation</h2>
+								<p align="left">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+			                </div>
+			                
+			                <div class="content-wrap">
+			               		<div id="unityLoaderContainer">
+									<div class="downloadMessages">
+										<span>
+											Daten herunterladen
+										</span>
+										<span class="downloadProgress">0%</span>
+									</div>
+									<div class="loaderMessages" style="display: none;">
+										<span>
+											Simulation wird geladen
+										</span>
+										<span class="loaderProgress"></span>
+									</div>
+									<button type="submit" class="startButton" style="display: none;"
+										onclick="startApplication();">Start!</button>
+								</div>
+								<script type="text/JavaScript" src="/theme_fluxdocs/static/js/unity_simulation.js"></script>
+			                </div>
+							
+						</section>
+		            </div>
+		            
+		            
+	            	<!-- MEMBERS -->
+		            <div>
+		                <div class="oe_snippet_thumbnail">
+		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/members.png"/>
+		                    <span class="oe_snippet_thumbnail_title">Members</span>
+		                </div>
+		                <section class="content members">
+			                <div class="content-wrap">
+			                	<div class="content-icon">
+			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
+			                	</div>
+			                	<h2>Members</h2>
+								<p>Hier sehen Sie wer im Netzwerk steckt.</p>
+								<p>Werden Sie Teil vom Netzwerk - zeigen Sie was ihre Firma kann werden Sie kollaborativ</p>
+			                </div>
+			                <div class="content-wrap members-wrap">
+			                	<div class="arrow-left"></div>
+			                	<div class="members-container">
+			                		<div class="members-slide">
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
+					                		</a>
+					                	</div>
+					                	<div class="members-box">
+					                		<a href="#">
+					                			<img src="/theme_fluxdocs/static/img/members/bauart.png" />
+					                		</a>
+					                	</div>
+			                		</div>
+			                	</div>
+			                	
+			                	<p>
+			                		<a href="/pages/members">More...</a>
+			                	</p>
+			                	
+			                	<div class="arrow-right"></div>
+			                </div>
+						</section>
+		            </div>
+		            
+		            
+	            </div>
+	        </xpath>
+	        
+	        <xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="replace">
+	            <!-- Remove all Snippets  -->
+	            <div class="o_panel_body"></div>
+	        </xpath>
+	        
+	        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="replace">
+	            <!-- Remove all Snippets  -->
+	            <div class="o_panel_body"></div>
+	        </xpath>
+	        
+	        <xpath expr="//div[@id='snippet_effect']/div[@class='o_panel_body']" position="replace">
+	            <!-- Remove all Snippets  -->
+	            <div class="o_panel_body"></div>
+	        </xpath>
+	        
+	        
+	    </template>
+	    
+
+	</data>
+</openerp>

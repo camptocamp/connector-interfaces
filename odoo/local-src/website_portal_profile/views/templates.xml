@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+	<template id="assets_frontend" inherit_id="website.assets_frontend" 
+		name="Fluxdock Profile">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/website_portal_profile/static/src/js/website_portal_profile.js"></script>
+			<script type="text/javascript" src="/website_portal_profile/static/src/js/widgets.js"></script>
+			<script type="text/javascript" src="/website_portal_profile/static/src/js/image_upload.js"></script>
+		</xpath>
+	</template>
+
+	<template id="website_portal_profile-details" name="Profile details"
+		inherit_id="website_portal.details">
+		<xpath expr="//h1" position="replace">
+			<h1 class="hide">Member profile</h1>
+		</xpath>
+		<xpath expr="//div[@class='row']" position="replace">
+			<div class="row">
+				<div class="col-sm-6">
+					<ol class="breadcrumb mt8">
+						<li>
+							<a href="/my/home">My Account</a>
+						</li>
+						<li>Details</li>
+					</ol>
+				</div>
+			</div>
+		</xpath>
+        <xpath expr="//form[@action='/my/account']" position="replace">
+            <form action="/my/account" method="post" role="form" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row o_website_portal_details">
+                            <h2>Member Profile</h2>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="">
+                                        <div t-if="error_message" class="alert alert-danger">
+                                            <t t-foreach="error_message" t-as="err">
+                                                <t t-esc="err" />
+                                                <br />
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
+                                        <div class="media">
+                                            <a class="media-link" t-attf-href="/my/account" t-field="partner.image" t-field-options='{"widget": "image", "class": "media-object", "max_width": 256}'></a>
+                                            <a class="btn btn-primary oe_image_js_upload" title="Upload image">
+                                                <i class="fa fa-cloud-upload"></i> Upload
+                                            </a>
+                                        </div>
+                                        <!-- <form t&#45;attf&#45;action="/my/partner_image" method="post" class="media" enctype="multipart/form&#45;data" data&#45;model_name="res.partner" data&#45;success_page="/my/account" t&#45;att&#45;data&#45;form_field_partner_id="partner or partner.id"> -->
+                                        	<!-- <span class="btn btn&#45;primary btn&#45;file mt16"> -->
+                                        	<!-- 	Upload picture -->
+                                        	<!-- 	<input type="file" name="image"/> -->
+                                        	<!-- </span> -->
+                                        <!-- </form> -->
+                                        <label class="form-control-label col-sm-2" for="contact_name">Company name (*)
+                                        </label>
+                                        <input type="text" name="name" class="form-control"
+                                            t-att-value="name or partner.name" />
+                                    </div>
+                                    <div t-attf-class="form-group row #{error.get('street2') and 'has-error' or ''} ">
+                                        <label class="form-control-label col-sm-2" for="street2">Street / No. (*)
+                                        </label>
+                                        <input type="text" name="street2" class="form-control"
+                                            t-att-value="street2 or partner.street2" />
+                                    </div>
+                                    <div t-attf-class="form-group row #{error.get('zip') and 'has-error' or ''} ">
+                                        <label class="form-control-label col-sm-2" for="zipcode">Zip / Postal (*)
+                                            Code</label>
+                                        <input type="text" name="zipcode" class="form-control"
+                                            t-att-value="zipcode or partner.zip" />
+                                    </div>
+                                    <div t-attf-class="form-group row #{error.get('city') and 'has-error' or ''} ">
+                                        <label class="form-control-label col-sm-2" for="city">City (*)</label>
+                                        <input type="text" name="city" class="form-control"
+                                            t-att-value="city or partner.city" />
+                                    </div>
+                                    <div
+                                        t-attf-class="form-group row #{error.get('country_id') and 'has-error' or ''} ">
+                                        <label class="form-control-label col-sm-2" for="country_id">Country (*)
+                                        </label>
+                                        <div class="styled-select">
+                                            <select name="country_id" class="form-control">
+                                                <option value="">Country...</option>
+                                                <t t-foreach="countries or []" t-as="country">
+                                                    <option t-att-value="country.id"
+                                                        t-att-selected="country.id == partner.country_id.id">
+                                                        <t t-esc="country.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div t-attf-class="form-group separate row #{error.get('phone') and 'has-error' or ''} ">
+                                        <label class="form-control-label col-sm-2" for="phone">Phone
+                                        </label>
+                                        <input type="tel" name="phone" class="form-control"
+                                            t-att-value="phone or partner.phone" />
+                                    </div>
+                                    <div t-attf-class="form-group row #{error.get('email') and 'has-error' or ''} ">
+                                        <label class="form-control-label col-sm-2" for="contact_name">Email (*)
+                                        </label>
+                                        <input placeholder="name@domain.com" type="email" name="email" class="form-control"
+                                            t-att-value="email or partner.email" />
+                                    </div>
+                                    <div
+                                        t-attf-class="form-group row #{error.get('website') and 'has-error' or ''} ">
+                                        <label class="form-control-label label-optional col-sm-2"
+                                            for="website">Website</label>
+                                        <input placeholder="http:///www.domain.com" type="text" name="website" class="form-control"
+                                            t-att-value="partner.website" />
+                                    </div>
+                                    <div
+                                        t-attf-class="form-group separate row #{error.get('facebook') and 'has-error' or ''} ">
+                                        <label class="form-control-label label-optional col-sm-2"
+                                            for="facebook">Facebook</label>
+                                        <input placeholder="https://www.facebook.com/username" type="text" name="facebook" class="form-control"
+                                            t-att-value="partner.facebook" />
+                                    </div>
+                                    <div
+                                        t-attf-class="form-group row #{error.get('twitter') and 'has-error' or ''} ">
+                                        <label class="form-control-label label-optional col-sm-2"
+                                            for="twitter">Twitter</label>
+                                        <input placeholder="https://twitter.com/username" type="text" name="twitter" class="form-control"
+                                            t-att-value="partner.twitter" />
+                                    </div>
+                                    <div
+                                        t-attf-class="form-group row #{error.get('skype') and 'has-error' or ''} ">
+                                        <label class="form-control-label label-optional col-sm-2"
+                                            for="skype">Skype</label>
+                                        <input placeholder="Skype-ID" type="text" name="skype" class="form-control"
+                                            t-att-value="partner.skype" />
+                                    </div>
+                                    <div
+                                        t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">
+                                        <label class="form-control-label label-optional col-sm-2"
+                                            for="website_short_description">Claim</label>
+                                        <textarea placeholder="200 characters left" name="website_short_description" class="form-control"><t t-esc="partner.website_short_description"/></textarea>
+                                    </div>
+                                    <div
+                                        t-attf-class="form-group row #{error.get('category_id') and 'has-error' or ''} ">
+                                        <label class="form-control-label col-sm-2" for="category_id">Industry
+                                        </label>
+                                        <input name="post_categories" placeholder="Industry" class="form-control js_select2_categories" t-attf-data-init-value="#{categories}" value="Industry" />
+                                    </div>
+                                    <div
+                                        t-attf-class="form-group row #{error.get('expertise_ids') and 'has-error' or ''} ">
+                                        <label class="form-control-label col-sm-2" for="expertise_ids">Expertise
+                                        </label>
+                                        <input name="post_expertises" placeholder="Expertise" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertises}" value="Expertise" />
+                                    </div>
+                                    <div class="clearfix" />
+                                    <div t-if="has_check_vat"
+                                        t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} ">
+                                        <label class="control-label label-optional" for="vat">VAT Number
+                                        </label>
+                                        <input type="text" name="vat" class="form-control"
+                                            t-att-value="vat or partner.vat" />
+                                    </div>
+                                    <div class="clearfix" />
+                                    <!-- <div t&#45;attf&#45;class="form&#45;group #{error.get('state_id') and 'has&#45;error' or ''} "> -->
+                                    <!-- 	<label class="control&#45;label label&#45;optional" for="state_id">State / -->
+                                    <!-- 		Province</label> -->
+                                    <!-- 	<select name="state_id" class="form&#45;control"> -->
+                                    <!-- 		<option value="">select...</option> -->
+                                    <!-- 		<t t&#45;foreach="states or []" t&#45;as="state"> -->
+                                    <!-- 			<option t&#45;att&#45;value="state.id" style="display:none;" -->
+                                    <!-- 				t&#45;att&#45;data&#45;country_id="state.country_id.id" t&#45;att&#45;selected="state.id == partner.state_id.id"> -->
+                                    <!-- 				<t t&#45;esc="state.name" /> -->
+                                    <!-- 			</option> -->
+                                    <!-- 		</t> -->
+                                    <!-- 	</select> -->
+                                    <!-- </div> -->
+                                    <input type="hidden" name="redirect" t-att-value="redirect" />
+                                </div>
+                                <div class="clearfix" />
+                                <div class="oe_login_buttons">
+                                    <div class="button-wrap">
+                                        <button type="submit" class="btn btn-default btn-primary mb32 ">Confirm</button>
+                                        <!-- <a t&#45;attf&#45;href="/my/projects/new" class="btn btn&#45;primary 
+                                            pull&#45;right mb32">Next</a> -->
+                                    </div>
+                                    <a class="btn btn-primary" t-attf-href="/shop">Buy extended membership</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+        </xpath>
+	</template>
+
+	<template id="website_portal_profile.profile_success"
+		name="Profile Success">
+		<t t-call="website.layout">
+			<div class="o_website_portal_details">
+				<h2>
+					REGISTRATION COMPLETED
+				</h2>
+				<p>
+					Your company is now registered with Fluxdock. 
+					Soon we will publish the profiles of registered companies. 
+					Previously, we will inform you and give you the opportunity 
+					to complete your profile and to create reference projects.
+				</p>
+				<div class="oe_login_buttons">
+					<div class="button-wrap">
+						<a t-attf-href="/my/account" class="btn btn-primary">Back to account</a>
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+</data>
+</odoo>
