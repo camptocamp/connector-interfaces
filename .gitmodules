@@ -8,3 +8,6 @@
 	path = odoo/external-src/vertical-association
 	url = git@github.com:camptocamp/vertical-association.git
 	branch = pending-merge-1823-master
+[submodule "odoo/oerpscenario"]
+	path = odoo/oerpscenario
+	url = https://github.com/camptocamp/oerpscenario.git
