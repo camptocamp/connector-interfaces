@@ -14,9 +14,13 @@
     'website_fluxdock_signup',
     'website',
     'website_portal',
+    'website_portal_profile',
      ],
  'data': [
+    # views
     'views/membership.xml',
+    # datas
+    'data/membership_data.xml',
  ],
  'test': [],
  'installable': True,

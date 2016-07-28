@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+
+        <record model="ir.cron" id="cron_membership_check_payment">
+            <field name="name">Check membership invoice payment</field>
+            <field name="interval_number">1</field>
+            <field name="priority">10</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model" eval="'res.partner'"/>
+            <field name="function" eval="'check_membership_payment'"/>
+            <field name="args" eval="'()'"/>
+        </record>
+
+</odoo>
