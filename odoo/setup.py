@@ -10,9 +10,9 @@ setup(
     version=version,
     description="project description",
     license='GNU Affero General Public License v3 or later (AGPLv3+)',
-    author="Author...",
-    author_email="email...",
-    url="url...",
+    author="Camptocamp",
+    author_email="info@camptocamp.com",
+    url="www.camptocamp.com",
     packages=['songs'] + ['songs.%s' % p for p in find_packages('./songs')],
     include_package_data=True,
     classifiers=[
