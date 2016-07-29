@@ -13,4 +13,15 @@
         <field name="args" eval="'()'"/>
     </record>
 
+    <record id="membership_variable_year" model="product.product">
+        <field name="membership">True</field>
+        <field name="name">Advanced Membership</field>
+        <field name="membership_type">variable</field>
+        <field name="membership_inverval_qty">years</field>
+        <field name="default_code">associate</field>
+        <field name="categ_id" ref="product.product_category_1"/>
+        <field name="list_price">100</field>
+        <field name="type">service</field>
+    </record>
+
 </odoo>
