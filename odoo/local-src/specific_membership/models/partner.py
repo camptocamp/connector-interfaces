@@ -16,7 +16,7 @@ class ResPartner(models.Model):
         prod_obj = self.env['product.product']
         acc_inv_obj = self.env['account.invoice']
 
-        # product_id = product_id or datas.get('membership_product_id')
+        product_id = product_id or datas.get('membership_product_id')
         product = prod_obj.browse(product_id) or prod_obj.search(
                 [('default_code', '=', 'associate')])
         if not product:
@@ -46,3 +46,22 @@ class ResPartner(models.Model):
     @api.onchange('free_member')
     def change_flux_membership(self):
         self.flux_membership = 'free' if self.free_member else 'asso'
+
+    @api.model
+    def check_membership_payment(self):
+        partners = self.search(
+            [('membership_state', '=', 'invoiced')])
+        acc_inv_obj = self.env['account.invoice']
+        today = fields.Date.today()
+
+        part_to_update = self.env['res.partner']
+
+        for partner in partners:
+            acc_inv = acc_inv_obj.search_count(
+                [('partner_id', '=', partner.id),
+                 ('date_due', '<', today),
+                 ('state', '=', 'open')])
+            if acc_inv:
+                part_to_update |= partner
+
+        part_to_update.write({'flux_membership': 'free'})
