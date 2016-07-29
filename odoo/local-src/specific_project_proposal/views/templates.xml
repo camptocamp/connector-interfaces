@@ -104,7 +104,7 @@
         <div class="row">
           <div class="col-sm-5">
             <ol class="breadcrumb mb0">
-              <li><a href="/my/proposals">Proposals </a></li>
+              <li><a href="/proposals">Proposals </a></li>
               <li class="active"><span t-field="proposal.name"></span></li>
             </ol>
             </div><div class="col-sm-7">
