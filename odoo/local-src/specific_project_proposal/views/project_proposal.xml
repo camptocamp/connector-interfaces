@@ -10,7 +10,7 @@
         <div class="oe_button_box" name="button_box">
             <button name="toggle_published" type="object"
                     class="oe_stat_button" icon="fa-star">
-                <field name="published" widget="boolean_button"
+                <field name="website_published" widget="boolean_button"
                     options='{"terminology": "active"}'/>
             </button>
         </div>

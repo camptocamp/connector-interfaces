@@ -8,22 +8,22 @@
       <div class="col-md-12" id="proposal_grid">
         <ul class="media-list">
           <li t-foreach="proposals" t-as="proposal" class="media">
-            <div class="media-body" t-att-data-publish="proposal.published and 'on' or 'off'">
+            <div class="media-body" t-att-data-publish="proposal.website_published and 'on' or 'off'">
               <h3 class="media-heading">
-                <a t-attf-href="/proposal/detail/#{ slug(proposal) }">
+                <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }">
                   <span t-field="proposal.name"/>
                 </a>
               </h3>
 
               <span t-field="proposal.location"/>
-              <span t-if="not proposal.published" class="label label-danger">not published</span>
+              <span t-if="not proposal.website_published" class="label label-danger">not published</span>
               <div class="text-muted">
                 <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
               </div>
             </div>
           </li>
           <li t-if="len(proposals)&lt;4">
-            <a class="btn btn-primary btn-add-proposal" title="Add a project proposal">
+            <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a project proposal">
                 <i class="fa fa-plus"></i> Add a project proposal
             </a>
           </li>
@@ -31,6 +31,115 @@
       </div>
     </div>
   </xpath>
+</template>
+
+<template id="proposal_index" name="Proposals">
+  <t t-call="website.layout">
+    <div id="wrap">
+      <div class="oe_structure">
+        <section class="mb16">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center mb16">
+                <h2>Project proposals</h2>
+              </div>
+              <div class="col-md-12">
+                <p>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="container oe_website_proposals">
+        <div class="row">
+          <div class="hidden" id="proposals_grid_left">
+
+          </div>
+          <div class="col-md-12" id="proposals_grid">
+            <div t-if="not proposals">
+              <div class="text-center text-muted">
+                <h4 class="css_editable_display">No project proposal found</h4>
+                <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
+                <t groups="base.group_website_publisher">
+                  <t  groups="base.group_hr_manager">
+                    <p>Click on "Content" to define a new proposal offer or "Help" for more informations.</p>
+                    <img src="/website/static/src/img/content_here.png"/>
+                  </t>
+                </t>
+              </div>
+            </div>
+            <ul class="media-list" t-if="proposals">
+              <li t-foreach="proposals" t-as="proposal" class="media">
+                <div class="media-body" t-att-data-publish="proposal.website_published and 'on' or 'off'">
+                  <h3 class="media-heading">
+                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
+                      <span t-field="proposal.name"/>
+                    </a>
+                  </h3>
+                  <span t-field="proposal.location"/>
+                  <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+                  <div class="text-muted">
+                    <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </t>
+</template>
+
+<template id="proposal_detail" name="Proposal Detail">
+  <t t-call="website.layout">
+    <t t-set="additional_title">Proposal Detail</t>
+    <div id="wrap" class="js_proposal">
+      <div class="oe_structure"/>
+
+      <section class="container mt8">
+        <div class="row">
+          <div class="col-sm-5">
+            <ol class="breadcrumb mb0">
+              <li><a href="/my/proposals">Proposals </a></li>
+              <li class="active"><span t-field="proposal.name"></span></li>
+            </ol>
+            </div><div class="col-sm-7">
+            <t t-call="website.publish_management">
+              <t t-set="object" t-value="proposal"/>
+              <t t-set="publish_edit" t-value="True"/>
+            </t>
+          </div>
+        </div>
+      </section>
+
+      <div class="oe_structure" style="clear:both;">
+        <h1 class="text-center" t-field="proposal.name"/>
+        <h5 class="text-center" t-field="proposal.location"/>
+        <h5 class="text-center text-muted">
+          <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
+        </h5>
+        <div class="text-center" t-field="proposal.teaser_text"/>
+        <div class="text-center" t-field="proposal.description"/>
+        <div class="text-center">
+          Industries:
+          <t t-foreach="proposal.industry_ids" t-as="industry">
+            <span t-field="industry.name"/>
+          </t>
+        </div>
+        <div class="text-center">
+          Expertises:
+          <t t-foreach="proposal.expertise_ids" t-as="expertise">
+            <span t-field="expertise.name"/>
+          </t>
+        </div>
+      </div>
+
+    </div>
+  </t>
 </template>
 
 </odoo>

@@ -27,7 +27,7 @@ class ProjectProposal(models.Model):
         compute='_get_color_owner_id',
         string="Color index of owner",
         store=False)  # Color of owner
-    published = fields.Boolean(
+    website_published = fields.Boolean(
         default=True,
         help="If this is unchecked, this proposal won't be visible by others.")
     location = fields.Char()
@@ -56,7 +56,7 @@ class ProjectProposal(models.Model):
         ``self``.
         """
         for record in self:
-            record.published = not record.published
+            record.website_published = not record.website_published
 
     @api.onchange('start_date', 'stop_date')
     def onchange_dates(self):
