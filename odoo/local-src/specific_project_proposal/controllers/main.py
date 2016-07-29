@@ -13,10 +13,12 @@ class WebsiteAccountProposal(website_account):
 
     @http.route(['/my/account'], type='http', auth='user', website=True)
     def details(self, redirect=None, **post):
-        user = request.env['res.users'].browse(request.uid)
         response = super(website_account, self).details(redirect, **post)
+        proposal_overview = request.env['project.proposal'].search(
+            [('owner_id', '=', request.uid)],
+            order='published DESC, start_date DESC'
+        )
         response.qcontext.update({
-            # XXX limit number of proposals to have max 4 proposals
-            'proposals': user.proposal_ids,
+            'proposals': proposal_overview,
         })
         return response
