@@ -3,7 +3,7 @@
 set -e
 
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-  docker login reg.fluxdock.io --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD"
+  docker login --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD" reg.fluxdock.io:5000
 
   if [ "$TRAVIS_BRANCH" == "master" ]; then
     echo "Deploying image to docker hub for master (latest)"
