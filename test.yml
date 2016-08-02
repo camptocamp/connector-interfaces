@@ -1,0 +1,34 @@
+# Composition for test instance
+
+odoo:
+  tty: true
+  stdin_open: true
+  image: reg.fluxdock.io:5000/odoo/odoo:latest
+  command: ""
+  links:
+    - db:db
+  volumes:
+    - fluxdock-latest-dataodoo:/data/odoo
+  environment:
+    - DB_USER=odoo
+    - DB_PASS=odoo
+    - DB_NAME=odoodb
+    - ADMIN_PASSWD=ELK4usa542
+    - RUNNING_ENV=dev
+    - MARABUNTA_MODE=demo
+
+db:
+  image: postgres:9.5
+  environment:
+    - POSTGRES_USER=odoo
+    - POSTGRES_PASSWORD=odoo
+  volumes:
+    - "fluxdock-latest-datadb:/var/lib/postgresql"
+
+# can be useful for dev when longpolling is required
+nginx:
+  image: camptocamp/odoo-nginx:9.0
+  ports:
+    - 80:80
+  links:
+    - odoo:odoo
