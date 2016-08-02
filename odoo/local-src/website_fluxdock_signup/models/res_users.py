@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from datetime import datetime, timedelta
-import random
-from urlparse import urljoin
-import werkzeug
 
-from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
-from openerp.osv import osv, fields
-from openerp.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT, ustr
-from ast import literal_eval
+from openerp.osv import osv
+from openerp.tools.misc import DEFAULT_SERVER_DATETIME_FORMAT
 from openerp.tools.translate import _
 from openerp.exceptions import UserError
 
