@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp import models, fields, api
+# from openerp import models, fields, api
 
 # class website_terms_of_use(models.Model):
 #     _name = 'website_terms_of_use.website_terms_of_use'

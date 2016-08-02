@@ -2,12 +2,14 @@
 {
     'name': "website_terms_of_use",
     'summary': """
-        Adds two fields for terms of use and privacy policy to Website Admin menu""",
+        Adds two fields for terms of use and privacy policy to
+        Website Admin menu""",
 
     'description': """
-        Adds two fields for terms of use and privacy policy to Website Admin menu.
-        You can add terms of use and privacy policy per website and these fields are
-        displayed during the signup process.
+        Adds two fields for terms of use and privacy policy to
+        Website Admin menu. You can add terms of use and privacy
+        policy per website and these fields are displayed during
+        the signup process.
     """,
     'author': "Goran Sunjka",
     'website': "http://www.sunjka.de",

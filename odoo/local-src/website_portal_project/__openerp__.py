@@ -12,7 +12,10 @@
 This module adds projects inside your account's page on website.
 ==================================================================================================
     """,
-    'depends': ['project','partner_project_expertise', 'website', 'website_portal',
+    'depends': ['project',
+                'partner_project_expertise',
+                'website',
+                'website_portal',
                 'website_membership',
                 'website_crm_partner_assign'],
     'data': [

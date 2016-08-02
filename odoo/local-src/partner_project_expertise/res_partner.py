@@ -5,7 +5,7 @@
 ##############################################################################
 from openerp.osv import fields, osv
 
-# 'partner_project_expertise_expertise_ids_rel',
+
 class res_partner(osv.osv):
     _inherit = 'res.partner'
     _columns = {
