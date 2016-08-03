@@ -61,6 +61,9 @@
             <div t-if="not proposals">
               <div class="text-center text-muted">
                 <h4 class="css_editable_display">No project proposal found</h4>
+                <t t-if="view_type == 'suggestions'">
+                  <h4 class="css_editable_display">Please, verify you have set your expertises and industry on your profile.</h4>
+                </t>
                 <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
                 <t groups="base.group_website_publisher">
                   <t  groups="base.group_hr_manager">
@@ -77,11 +80,32 @@
                     <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
                       <span t-field="proposal.name"/>
                     </a>
+                    <t t-set="forum" t-value="proposals"/>
+                    <a class="btn btn-default btn-hide-proposal pull-right" t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide" title="Don't show again this project proposal">
+                        <i class="fa fa-eye-slash"></i>
+                    </a>
                   </h3>
                   <span t-field="proposal.location"/>
                   <span t-if="not proposal.website_published" class="label label-danger">not published</span>
                   <div class="text-muted">
                     <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
+                  </div>
+                  <div class="pull-right">
+                    Expertises:
+                    <t t-foreach="proposal.expertise_ids" t-as="expertise">
+                      <a t-attf-href="/proposals/expertise/#{slug(expertise)}">
+                        <span t-attf-class="pull-right label #{expertise_tag and expertise_tag.name == expertise.name and 'label-primary' or 'label-default'}" t-field="expertise.name"
+                          style="margin-right: 4px;"/>
+                      </a>
+                    </t>
+                    <br />
+                    Industries:
+                    <t t-foreach="proposal.industry_ids" t-as="industry">
+                      <a t-attf-href="/proposals/industry/#{slug(industry)}">
+                        <span t-attf-class="pull-right label #{industry_tag and industry_tag.name == industry.name and 'label-primary' or 'label-default'}" t-field="industry.name"
+                          style="margin-right: 4px;"/>
+                      </a>
+                    </t>
                   </div>
                 </div>
               </li>

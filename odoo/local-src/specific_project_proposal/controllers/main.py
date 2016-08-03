@@ -15,6 +15,8 @@ class WebsiteAccountProposal(website_account):
 
     @http.route('/my/account', type='http', auth='user', website=True)
     def details(self, redirect=None, **post):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
         response = super(website_account, self).details(redirect, **post)
         proposal_overview = request.env['project.proposal'].search(
             [('owner_id', '=', request.uid)],
@@ -29,16 +31,25 @@ class WebsiteAccountProposal(website_account):
     @http.route([
         '/proposals',
         '/proposals/<model("res.users"):user>',
-    ], type='http', auth="public", website=True)
-    def proposals(self, user=None, **kwargs):
+        '/proposals/expertise/'
+        '<model("partner_project_expertise.expertise"):expertise>',
+        '/proposals/industry/<model("res.partner.category"):industry>',
+        ], type='http', auth="public", website=True)
+    def proposals(self, user=None, expertise=None, industry=None,
+                  **kwargs):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
         env = request.env
 
         Proposal = env['project.proposal']
 
         # List of proposals available to current UID
         domain = []
-        if user:
-            domain = [('owner_id', '=', user.id)]
+        domain = [('id', 'in', env.user.suggested_proposal_ids.ids)]
+        if expertise:
+            domain.append(('expertise_ids', 'in', expertise.id))
+        elif industry:
+            domain.append(('industry_ids', 'in', industry.id))
         proposals = Proposal.search(
             domain, order='website_published DESC, start_date DESC',
         )
@@ -46,12 +57,38 @@ class WebsiteAccountProposal(website_account):
         # Render page
         return request.website.render(
             "specific_project_proposal.proposal_index",
-            {'proposals': proposals})
+            {'proposals': proposals,
+             'view_type': 'suggestions',
+             'expertise_tag': expertise,
+             'industry_tag': industry})
 
     @http.route('/my/proposals', type='http', auth="public", website=True)
     def my_proposals(self, **kwargs):
-        return request.redirect('/proposals/%s'
-                                % slug(request.env.user))
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        env = request.env
+
+        domain = [('owner_id', '=', env.user.id)]
+
+        Proposal = env['project.proposal']
+
+        proposals = Proposal.search(
+            domain, order='website_published DESC, start_date DESC',
+        )
+        return request.website.render(
+            "specific_project_proposal.proposal_index",
+            {'proposals': proposals,
+             'view_type': 'my',
+             })
+
+    @http.route(
+        '/proposals/proposal/<model("project.proposal"):proposal>/hide',
+        type='json', auth="public", website=True)
+    def hide(self, proposal, **kwargs):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        proposal.blacklist()
+        return {}
 
     @http.route(['/proposals/detail/<model("project.proposal"):proposal>',
                  '/my/proposals/detail/<model("project.proposal"):proposal>'],
