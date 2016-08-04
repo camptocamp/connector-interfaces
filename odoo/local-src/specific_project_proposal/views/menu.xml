@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <menuitem name="Proposals" id="menu_base_project_proposal" groups="base.group_user"/>
+  <menuitem name="Proposals" id="menu_project_proposal" parent="menu_base_project_proposal" groups="base.group_user"/>
+  <menuitem name="Settings" id="menu_project_proposal_settings" parent="menu_base_project_proposal" sequence="3" groups="base.group_no_one"/>
+</odoo>
