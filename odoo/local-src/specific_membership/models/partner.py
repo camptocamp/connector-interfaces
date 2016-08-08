@@ -16,6 +16,9 @@ class ResPartner(models.Model):
         prod_obj = self.env['product.product']
         acc_inv_obj = self.env['account.invoice']
 
+        if datas is None:
+            datas = {}
+
         product_id = product_id or datas.get('membership_product_id')
         product = prod_obj.browse(product_id) or prod_obj.search(
                 [('default_code', '=', 'associate')])
