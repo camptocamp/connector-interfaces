@@ -30,6 +30,7 @@ class ProjectProposal(models.Model):
         string="Color index of owner",
         store=False)  # Color of owner
     location = fields.Char()
+    country_id = fields.Many2one(comodel_name='res.country', string="Country")
     teaser_text = fields.Char(string="Teaser text")
     description = fields.Text()
     start_date = fields.Date(string="Start date")
