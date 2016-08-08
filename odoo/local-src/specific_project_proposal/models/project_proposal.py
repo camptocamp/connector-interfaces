@@ -4,6 +4,7 @@
 from datetime import timedelta
 
 from openerp import _, api, exceptions, fields, models
+from openerp.addons.website.models.website import slug
 
 
 class ProjectProposal(models.Model):
@@ -12,8 +13,9 @@ class ProjectProposal(models.Model):
 
     _name = 'project.proposal'
     _description = "Project proposal"
-    _inherit = ["mail.thread", "ir.needaction_mixin"]
-
+    _inherit = [
+        'mail.thread', 'ir.needaction_mixin',
+        'website.published.mixin']
     name = fields.Char(
         string="Project Name",
         required=True
@@ -27,9 +29,6 @@ class ProjectProposal(models.Model):
         compute='_get_color_owner_id',
         string="Color index of owner",
         store=False)  # Color of owner
-    website_published = fields.Boolean(
-        default=True,
-        help="If this is unchecked, this proposal won't be visible by others.")
     location = fields.Char()
     teaser_text = fields.Char(string="Teaser text")
     description = fields.Text()
@@ -57,6 +56,13 @@ class ProjectProposal(models.Model):
         """
         for record in self:
             record.website_published = not record.website_published
+
+    @api.multi
+    @api.depends('name')
+    def _website_url(self, name, arg):
+        res = super(ProjectProposal, self)._website_url(name, arg)
+        res.update({(p.id, '/proposals/detail/%s' % slug(p)) for p in self})
+        return res
 
     @api.onchange('start_date', 'stop_date')
     def onchange_dates(self):
