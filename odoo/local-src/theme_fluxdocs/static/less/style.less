@@ -1541,3 +1541,19 @@ ul.service-menu {
 		}
 	}
 }
+
+/* ---- PUBLISH ---- */
+.css_published .btn-danger, .css_published .css_publish {
+  display: none;
+}
+
+.css_unpublished .btn-success, .css_unpublished .css_unpublish {
+  display: none;
+}
+
+[data-publish='off'] > *:not(.css_options) {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+}
+
+/* ---- END of PUBLISH ---- */
