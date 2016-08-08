@@ -94,51 +94,61 @@
   </t>
 </template>
 
-<template id="proposal_detail" name="Proposal Detail">
+<template id="layout">
   <t t-call="website.layout">
     <t t-set="additional_title">Proposal Detail</t>
-    <div id="wrap" class="js_proposal">
+    <div id="wrap" class="js_proposal o_website_proposal">
       <div class="oe_structure"/>
 
-      <section class="container mt8">
+      <div class="container mt8">
         <div class="row">
-          <div class="col-sm-5">
+          <div class="col-sm-7" id="proposal_menu">
             <ol class="breadcrumb mb0">
               <li><a href="/proposals">Proposals </a></li>
               <li class="active"><span t-field="proposal.name"></span></li>
             </ol>
-            </div><div class="col-sm-7">
-            <t t-call="website.publish_management">
-              <t t-set="object" t-value="proposal"/>
-              <t t-set="publish_edit" t-value="True"/>
-            </t>
           </div>
-        </div>
-      </section>
-
-      <div class="oe_structure" style="clear:both;">
-        <h1 class="text-center" t-field="proposal.name"/>
-        <h5 class="text-center" t-field="proposal.location"/>
-        <h5 class="text-center text-muted">
-          <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
-        </h5>
-        <div class="text-center" t-field="proposal.teaser_text"/>
-        <div class="text-center" t-field="proposal.description"/>
-        <div class="text-center">
-          Industries:
-          <t t-foreach="proposal.industry_ids" t-as="industry">
-            <span t-field="industry.name"/>
-          </t>
-        </div>
-        <div class="text-center">
-          Expertises:
-          <t t-foreach="proposal.expertise_ids" t-as="expertise">
-            <span t-field="expertise.name"/>
+          <t t-if="proposal.owner_id.id == uid">
+            <div class="col-sm-5">
+              <t t-call="website.publish_management">
+                <t t-set="object" t-value="proposal"/>
+                <t t-set="publish_edit" t-value="True"/>
+              </t>
+            </div>
           </t>
         </div>
       </div>
-
+      <t t-raw="0"/>
+      <div class="oe_structure"/>
     </div>
+  </t>
+</template>
+
+<template id="proposal_detail" name="Proposal Detail">
+  <t t-call="specific_project_proposal.layout">
+
+    <div class="oe_structure" style="clear:both;">
+      <h1 class="text-center" t-field="proposal.name"/>
+      <h5 class="text-center" t-field="proposal.location"/>
+      <h5 class="text-center text-muted">
+        <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
+      </h5>
+      <div class="text-center" t-field="proposal.teaser_text"/>
+      <div class="text-center" t-field="proposal.description"/>
+      <div class="text-center">
+        Industries:
+        <t t-foreach="proposal.industry_ids" t-as="industry">
+          <span t-field="industry.name"/>
+        </t>
+      </div>
+      <div class="text-center">
+        Expertises:
+        <t t-foreach="proposal.expertise_ids" t-as="expertise">
+          <span t-field="expertise.name"/>
+        </t>
+      </div>
+    </div>
+
   </t>
 </template>
 
