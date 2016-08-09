@@ -166,22 +166,35 @@
   <t t-call="specific_project_proposal.layout">
 
     <div class="oe_structure" style="clear:both;">
+      <div class="text-center text-muted">
+        <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
+      </div>
+      <address class="text-center">
+           <b t-field="proposal.owner_id.partner_id.parent_id"/>
+           <div t-field="proposal.owner_id.partner_id" t-field-options='{
+               "widget": "contact",
+               "fields": ["address", "phone", "fax", "email"]
+           }'/>
+      </address>
+
       <h1 class="text-center" t-field="proposal.name"/>
-      <h5 class="text-center" t-field="proposal.location"/>
-      <h5 class="text-center" t-field="proposal.country_id"/>
-      <h5 class="text-center text-muted">
-        <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
-      </h5>
-      <div class="text-center" t-field="proposal.teaser_text"/>
-      <div class="text-center" t-field="proposal.description"/>
+
+      <p class="text-center"><b t-field="proposal.teaser_text"/></p>
+
+      <p class="text-center" t-field="proposal.description"/>
+
       <div class="text-center">
-        Industries:
+        <b>Duration:</b>
+        <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
+      </div>
+      <div class="text-center">
+        <b>Industries:</b>
         <t t-foreach="proposal.industry_ids" t-as="industry">
           <span t-field="industry.name"/>
         </t>
       </div>
       <div class="text-center">
-        Expertises:
+        <b>Expertises:</b>
         <t t-foreach="proposal.expertise_ids" t-as="expertise">
           <span t-field="expertise.name"/>
         </t>
