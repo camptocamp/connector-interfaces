@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+<template id="assets_frontend" inherit_id="website.assets_frontend" name="Forum Assets">
+  <xpath expr="." position="inside">
+    <script type="text/javascript" src="/specific_project_proposal/static/src/js/project_proposal.js"/>
+  </xpath>
+</template>
+
 <template id="profile_proposals" inherit_id="website_portal_profile.website_portal_profile-details">
   <xpath expr="//div[@class='row o_website_portal_details']" position="after">
     <div class="row o_website_profile_proposal">
@@ -75,15 +81,15 @@
             </div>
             <ul class="media-list" t-if="proposals">
               <li t-foreach="proposals" t-as="proposal" class="media">
-                <div class="media-body" t-att-data-publish="proposal.website_published and 'on' or 'off'">
+                <div class="media-body proposal_item" t-att-data-publish="proposal.website_published and 'on' or 'off'">
                   <h3 class="media-heading">
                     <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
                       <span t-field="proposal.name"/>
                     </a>
                     <t t-set="forum" t-value="proposals"/>
-                    <a class="btn btn-default btn-hide-proposal pull-right" t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide" title="Don't show again this project proposal">
-                        <i class="fa fa-eye-slash"></i>
-                    </a>
+                    <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
+                      t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide"
+                      title="Don't show again this project proposal"/>
                   </h3>
                   <span t-field="proposal.location"/>
                   <span t-if="not proposal.website_published" class="label label-danger">not published</span>
