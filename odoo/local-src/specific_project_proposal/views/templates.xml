@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="assets_frontend" inherit_id="website.assets_frontend" name="Forum Assets">
+<template id="assets_frontend" inherit_id="website.assets_frontend" name="Proposal Assets">
   <xpath expr="." position="inside">
     <script type="text/javascript" src="/specific_project_proposal/static/src/js/project_proposal.js"/>
   </xpath>
@@ -82,21 +82,27 @@
             <ul class="media-list" t-if="proposals">
               <li t-foreach="proposals" t-as="proposal" class="media">
                 <div class="media-body proposal_item" t-att-data-publish="proposal.website_published and 'on' or 'off'">
-                  <h3 class="media-heading">
-                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
-                      <span t-field="proposal.name"/>
-                    </a>
-                    <t t-set="forum" t-value="proposals"/>
-                    <t t-if="proposal.owner_id.id != uid">
-                      <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
-                        t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide"
-                        title="Don't show again this project proposal"/>
-                    </t>
-                  </h3>
-                  <span t-field="proposal.location"/>
-                  <span t-if="not proposal.website_published" class="label label-danger">not published</span>
                   <div class="text-muted">
-                    <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
+                    <span t-field="proposal.create_date" t-field-options='{"format": "d MMMM y"}'/>
+                  </div>
+                  <h3 class="media-heading">
+                    <span t-field="proposal.name"/>
+                  </h3>
+                  <t t-if="proposal.owner_id.id != uid">
+                    <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
+                      t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide"
+                      title="Don't show again this project proposal"/>
+                  </t>
+                  <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+                  <p t-field="proposal.teaser_text"/>
+                  <div>
+                    <b>Industries:</b>
+                    <t t-foreach="proposal.industry_ids" t-as="industry">
+                      <span t-field="industry.name"/>
+                    </t>
+                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
+                      Read More <i class="fa fa-arrow-right"/>
+                    </a>
                   </div>
                   <div class="pull-right">
                     Expertises:
