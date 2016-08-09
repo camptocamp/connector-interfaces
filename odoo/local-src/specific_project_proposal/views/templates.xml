@@ -87,9 +87,11 @@
                       <span t-field="proposal.name"/>
                     </a>
                     <t t-set="forum" t-value="proposals"/>
-                    <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
-                      t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide"
-                      title="Don't show again this project proposal"/>
+                    <t t-if="proposal.owner_id.id != uid">
+                      <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
+                        t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide"
+                        title="Don't show again this project proposal"/>
+                    </t>
                   </h3>
                   <span t-field="proposal.location"/>
                   <span t-if="not proposal.website_published" class="label label-danger">not published</span>
