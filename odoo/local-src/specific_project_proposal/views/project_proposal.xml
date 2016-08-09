@@ -42,6 +42,7 @@
                   <field name="industry_ids" widget="many2many_tags" />
                   <field name="expertise_ids" widget="many2many_tags" />
                   <field name="location" />
+                  <field name="country_id" />
                 </group>
 
               </group>
@@ -73,6 +74,7 @@
       <field name="stop_date" string="End Date"/>
       <field name="owner_id"/>
       <field name="location"/>
+      <field name="country_id"/>
       <field name="duration"/>
       <field name="message_needaction" invisible="1"/>
     </tree>
@@ -102,11 +104,13 @@
       <field name="name" string="Proposal" filter_domain="[('name','ilike',self)]"/>
       <field name="industry_ids"/>
       <field name="expertise_ids"/>
+      <field name="country_id"/>
       <field name="owner_id"/>
       <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>
       <separator/>
       <group expand="0" string="Group By">
         <filter string="Owner" domain="[]" context="{'group_by':'owner_id'}"/>
+        <filter string="Country" domain="[]" context="{'group_by':'country_id'}"/>
       </group>
     </search>
   </field>
