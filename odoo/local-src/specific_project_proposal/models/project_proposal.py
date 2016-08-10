@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 from openerp import _, api, exceptions, fields, models
 from openerp.addons.website.models.website import slug
@@ -31,8 +31,8 @@ class ProjectProposal(models.Model):
         store=False)  # Color of owner
     location = fields.Char()
     country_id = fields.Many2one(comodel_name='res.country', string="Country")
-    teaser_text = fields.Char(string="Teaser text")
-    description = fields.Text()
+    website_short_description = fields.Char(string="Teaser text")
+    website_description = fields.Text()
     start_date = fields.Date(string="Start date")
     stop_date = fields.Date(string="End date")
     duration = fields.Integer()
@@ -43,6 +43,10 @@ class ProjectProposal(models.Model):
     expertise_ids = fields.Many2many(
         comodel_name="partner_project_expertise.expertise",
         string="Expertises",
+    )
+
+    is_new = fields.Boolean(
+        compute='_is_new'
     )
 
     @api.depends('owner_id')
@@ -64,6 +68,12 @@ class ProjectProposal(models.Model):
         res = super(ProjectProposal, self)._website_url(name, arg)
         res.update({(p.id, '/proposals/detail/%s' % slug(p)) for p in self})
         return res
+
+    @api.multi
+    def _is_new(self):
+        for rec in self:
+            create_date = fields.Datetime.from_string(rec.create_date)
+            rec.is_new = (datetime.now() - create_date).days < 15
 
     @api.multi
     def blacklist(self):

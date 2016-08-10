@@ -9,8 +9,53 @@
 
 <template id="account" name="Account" inherit_id="website_portal.account">
   <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
+    <t t-call="specific_project_proposal.matches_overview" />
     <t t-call="specific_project_proposal.proposals_overview" />
   </xpath>
+</template>
+
+<template id="matches_overview" name="Proposals">
+  <h3 class="page-header">Matches</h3>
+  <t t-if="not matches">
+    <p>No matches</p>
+    <p>Please, verify you have set your expertises and industry on your profile.</p>
+  </t>
+  <t t-if="matches">
+    <table class="table table-hover o_my_status_table">
+      <thead>
+      </thead>
+      <t t-foreach="matches" t-as="proposal">
+        <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
+          <td>
+            <t t-if="proposal.is_new">
+              &lt;b&gt;NEW!
+            </t>
+            <span t-field="proposal.name"/>
+            <t t-if="proposal.is_new">
+              &lt;/b&gt;
+            </t>
+          </td>
+          <td>
+            <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+          </td>
+          <td>
+            <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
+          </td>
+          <td>
+            <a t-attf-href="/proposals/detail/#{ slug(proposal) }" class="text-muted">
+              Read More
+            </a>
+          </td>
+        </tr>
+      </t>
+      <tr t-att-class="'hidden' if len(proposals) &lt; 4 else ''">
+        <td colspan="4"><a href="" class="o_my_show_more btn btn-xs btn-default"><span>Show more</span><span class="hidden">Show less</span></a></td>
+      </tr>
+    </table>
+    <a class="btn btn-primary btn-show-proposal" t-attf-href="/market" title="Market">
+        Market
+    </a>
+  </t>
 </template>
 
 <template id="proposals_overview" name="Proposals">
@@ -34,7 +79,7 @@
             <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
           </td>
           <td>
-            <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }" class="text-muted">
+            <a t-attf-href="/my/proposals/edit/#{ slug(proposal) }" class="text-muted">
               Edit
             </a>
           </td>
@@ -81,9 +126,6 @@
             <div t-if="not proposals">
               <div class="text-center text-muted">
                 <h4 class="css_editable_display">No project proposal found</h4>
-                <t t-if="view_type == 'suggestions'">
-                  <h4 class="css_editable_display">Please, verify you have set your expertises and industry on your profile.</h4>
-                </t>
                 <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
                 <t groups="base.group_website_publisher">
                   <t  groups="base.group_hr_manager">
@@ -108,7 +150,7 @@
                       title="Don't show again this project proposal"/>
                   </t>
                   <span t-if="not proposal.website_published" class="label label-danger">not published</span>
-                  <p t-field="proposal.teaser_text"/>
+                  <p t-field="proposal.website_short_description"/>
                   <div>
                     <b>Industries:</b>
                     <t t-foreach="proposal.industry_ids" t-as="industry">
@@ -197,7 +239,7 @@
 
           <h1 t-field="proposal.name"/>
 
-          <p><b t-field="proposal.teaser_text"/></p>
+          <p><b t-field="proposal.website_short_description"/></p>
 
           <p t-field="proposal.description"/>
 
@@ -219,6 +261,90 @@
           </div>
         </div>
       </section>
+    </div>
+  </t>
+</template>
+
+<template id="proposal_edit" name="Proposal Edit">
+  <t t-call="specific_project_proposal.layout">
+    <div class="oe_structure" style="clear:both;">
+      <form t-attf-action="/my/proposals/edit/#{ slug(proposal) }" method="post" enctype="multipart/form-data" t-attf-data-success_page="/my">
+        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+        <div class="row o_website_portal_details">
+          <h2>Proposal</h2>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="">
+                <div t-if="error_message" class="alert alert-danger">
+                  <t t-foreach="error_message" t-as="err">
+                    <t t-esc="err" />
+                    <br />
+                  </t>
+                </div>
+              </div>
+              <div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
+                <label class="form-control-label col-sm-2" for="name">Proposal name (*)
+                </label>
+                <input type="text" name="name" class="form-control"
+                  t-att-value="name or proposal.name" />
+              </div>
+              <div t-attf-class="form-group row #{error.get('street2') and 'has-error' or ''} ">
+                <label class="form-control-label col-sm-2" for="location">Location (*)
+                </label>
+                <input type="text" name="street2" class="form-control"
+                  t-att-value="location or proposal.location" />
+              </div>
+              <div
+                t-attf-class="form-group row #{error.get('country_id') and 'has-error' or ''} ">
+                <label class="form-control-label col-sm-2" for="country_id">Country (*)
+                </label>
+                <div class="styled-select">
+                  <select name="country_id" class="form-control">
+                    <option value="">Country...</option>
+                    <t t-foreach="countries or []" t-as="country">
+                      <option t-att-value="country.id"
+                        t-att-selected="country.id == proposal.country_id.id">
+                        <t t-esc="country.name" />
+                      </option>
+                    </t>
+                  </select>
+                </div>
+              </div>
+
+              <div
+                t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">
+                <label class="form-control-label label-optional col-sm-2"
+                  for="website_short_description">Teaser text</label>
+                <textarea placeholder="200 characters left" name="website_short_description" class="form-control"><t t-esc="proposal.website_short_description"/></textarea>
+              </div>
+              <div
+                t-attf-class="form-group separate row #{error.get('website_description') and 'has-error' or ''} ">
+                <label class="form-control-label label-optional col-sm-2"
+                  for="website_description">Description</label>
+                <textarea name="website_description" class="form-control"><t t-esc="proposal.website_description"/></textarea>
+              </div>
+
+              <div
+                t-attf-class="form-group row #{error.get('industry_ids') and 'has-error' or ''} ">
+                <label class="form-control-label col-sm-2" for="industry_ids">Industry
+                </label>
+                <input name="post_industries" placeholder="Industry" class="form-control js_select2_categories" t-attf-data-init-value="#{industries}" value="Industry" />
+              </div>
+              <div
+                t-attf-class="form-group row #{error.get('expertise_ids') and 'has-error' or ''} ">
+                <label class="form-control-label col-sm-2" for="expertise_ids">Expertise
+                </label>
+                <input name="post_expertises" placeholder="Expertise" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertises}" value="Expertise" />
+              </div>
+            </div>
+            <div class="button-wrap">
+              <button type="submit" class="btn btn-default btn-primary mb32 ">Confirm</button>
+              <a class="btn btn-default btn-primary mb32 ">Publish</a>
+              <a class="btn btn-default btn-primary mb32 ">Delete</a>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
 
   </t>

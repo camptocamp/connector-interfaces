@@ -17,8 +17,8 @@ class ResUsers(models.Model):
         string="Blacklisted proposals",
     )
 
-    suggested_proposal_ids = fields.Many2many(
-        compute='_get_suggested_proposals',
+    proposal_match_ids = fields.Many2many(
+        compute='_get_proposal_matches',
         comodel_name='project.proposal',
         string="Suggested proposals",
         help="Proposals that match with user expertises and industries."
@@ -27,17 +27,19 @@ class ResUsers(models.Model):
 
     @api.depends('partner_id.category_id', 'partner_id.expertise_ids',
                  'proposal_blacklist_ids')
-    def _get_suggested_proposals(self):
-        """ Get list of suggestion of proposals
+    def _get_proposal_matches(self):
+        """ Get list of matches of proposals
 
         Matching proposals based on expertises and industries.
         It doesn't includ self proposals and proposals marked as blacklisted
         by the user.
         """
-        self.suggested_proposal_ids = self.env['project.proposal'].search(
-            ['|', ('expertise_ids', 'in', self.partner_id.expertise_ids.ids),
-                  ('industry_ids', 'in', self.partner_id.category_id.ids),
-             ('id', 'not in', self.proposal_blacklist_ids.ids),
-             ('owner_id', '!=', self.id),
-             ]
-        )
+        for rec in self:
+            partner = rec.partner_id
+            rec.proposal_match_ids = self.env['project.proposal'].search(
+                ['|', ('expertise_ids', 'in', partner.expertise_ids.ids),
+                      ('industry_ids', 'in', partner.category_id.ids),
+                 ('id', 'not in', rec.proposal_blacklist_ids.ids),
+                 ('owner_id', '!=', rec.id),
+                 ]
+            )
