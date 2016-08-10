@@ -4,20 +4,20 @@
 from openerp import _, http
 from openerp.http import request
 
-from openerp.addons.website_portal_profile.controllers.main import (
-    website_account
+from openerp.addons.specific_membership.controllers.main import (
+    WebsiteAccount
 )
 
 from openerp.addons.website.models.website import slug
 
 
-class WebsiteAccountProposal(website_account):
+class WebsiteAccountProposal(WebsiteAccount):
 
     @http.route(['/my', '/my/home'], type='http', auth="public", website=True)
     def account(self, **kw):
         if not request.session.uid:
             return {'error': 'anonymous_user'}
-        response = super(website_account, self).account(**kw)
+        response = super(WebsiteAccountProposal, self).account(**kw)
         proposal_overview = request.env['project.proposal'].search(
             [('owner_id', '=', request.uid)],
             order='website_published DESC, start_date DESC',
@@ -27,6 +27,9 @@ class WebsiteAccountProposal(website_account):
             'proposals': proposal_overview,
         })
         return response
+
+
+class WebsiteProposal(http.Controller):
 
     @http.route([
         '/proposals',
