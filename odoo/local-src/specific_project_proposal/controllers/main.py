@@ -13,15 +13,15 @@ from openerp.addons.website.models.website import slug
 
 class WebsiteAccountProposal(website_account):
 
-    @http.route('/my/account', type='http', auth='user', website=True)
-    def details(self, redirect=None, **post):
+    @http.route(['/my', '/my/home'], type='http', auth="public", website=True)
+    def account(self, **kw):
         if not request.session.uid:
             return {'error': 'anonymous_user'}
-        response = super(website_account, self).details(redirect, **post)
+        response = super(website_account, self).account(**kw)
         proposal_overview = request.env['project.proposal'].search(
             [('owner_id', '=', request.uid)],
             order='website_published DESC, start_date DESC',
-            limit=4,
+            limit=6,
         )
         response.qcontext.update({
             'proposals': proposal_overview,

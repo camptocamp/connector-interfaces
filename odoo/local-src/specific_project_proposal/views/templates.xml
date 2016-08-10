@@ -7,34 +7,50 @@
   </xpath>
 </template>
 
-<template id="profile_proposals" inherit_id="website_portal_profile.website_portal_profile-details">
-  <xpath expr="//div[@class='row o_website_portal_details']" position="after">
-    <div class="row o_website_profile_proposal">
-      <h2>Proposals</h2>
-      <div class="col-md-12" id="proposal_grid">
-        <ul class="media-list">
-          <li t-foreach="proposals" t-as="proposal" class="media">
-            <div class="media-body" t-att-data-publish="proposal.website_published and 'on' or 'off'">
-              <b t-field="proposal.name"/>
-
-              <span t-field="proposal.location"/>
-              <span t-if="not proposal.website_published" class="label label-danger">not published</span>
-              <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
-              <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }" class="text-muted">
-                Edit
-              </a>
-            </div>
-          </li>
-          <a class="btn btn-primary btn-show-proposal" t-attf-href="/my/proposals" title="Show all proposals">
-              Show all proposals
-          </a>
-          <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a proposal">
-              Add a proposal
-          </a>
-        </ul>
-      </div>
-    </div>
+<template id="account" name="Account" inherit_id="website_portal.account">
+  <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
+    <t t-call="specific_project_proposal.proposals_overview" />
   </xpath>
+</template>
+
+<template id="proposals_overview" name="Proposals">
+  <h3 class="page-header">Proposals</h3>
+  <t t-if="not proposals">
+    <p>You have currently registred no proposals on your account.</p>
+  </t>
+  <t t-if="proposals">
+    <table class="table table-hover o_my_status_table">
+      <thead>
+      </thead>
+      <t t-foreach="proposals" t-as="proposal">
+        <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
+          <td>
+            <b t-field="proposal.name"/>
+          </td>
+          <td>
+            <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+          </td>
+          <td>
+            <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
+          </td>
+          <td>
+            <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }" class="text-muted">
+              Edit
+            </a>
+          </td>
+        </tr>
+      </t>
+      <tr t-att-class="'hidden' if len(proposals) &lt; 4 else ''">
+        <td colspan="4"><a href="" class="o_my_show_more btn btn-xs btn-default"><span>Show more</span><span class="hidden">Show less</span></a></td>
+      </tr>
+    </table>
+    <a class="btn btn-primary btn-show-proposal" t-attf-href="/my/proposals" title="Show all proposals">
+        Show all proposals
+    </a>
+    <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a proposal">
+        Add a proposal
+    </a>
+  </t>
 </template>
 
 <template id="proposal_index" name="Proposals">
