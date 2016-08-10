@@ -10,6 +10,7 @@
  'depends': [
      'project',
      'partner_project_expertise',
+     'specific_membership',
      'website_portal_profile',
  ],
  'data': [
