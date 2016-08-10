@@ -15,17 +15,14 @@
         <ul class="media-list">
           <li t-foreach="proposals" t-as="proposal" class="media">
             <div class="media-body" t-att-data-publish="proposal.website_published and 'on' or 'off'">
-              <h3 class="media-heading">
-                <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }">
-                  <span t-field="proposal.name"/>
-                </a>
-              </h3>
+              <b t-field="proposal.name"/>
 
               <span t-field="proposal.location"/>
               <span t-if="not proposal.website_published" class="label label-danger">not published</span>
-              <div class="text-muted">
-                <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
-              </div>
+              <span class="text-muted" t-field="proposal.create_date"/>
+              <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }" class="text-muted">
+                Edit
+              </a>
             </div>
           </li>
           <li t-if="len(proposals)&lt;4">
