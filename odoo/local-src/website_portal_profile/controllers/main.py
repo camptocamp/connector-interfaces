@@ -54,6 +54,48 @@ class website_account(website_account):
                         for expertise_id in expertise_ids]})
         return response
 
+    def details_form_validate(self, data):
+        error = dict()
+        error_message = []
+
+        mandatory_billing_fields = [
+            "name",
+            "phone",
+            "email",
+            "street2",
+            "city",
+            "country_id"]
+        optional_billing_fields = ["zipcode", "state_id", "vat", "street"]
+        additional_fields = [
+            'website',
+            'twitter',
+            'facebook',
+            'skype',
+            'website_short_description',
+            'post_expertises',
+            'post_categories']
+
+        error, error_message = super(
+            website_account, self).details_form_validate(data)
+
+        # clear previous unknown field error
+        if 'common' in error:
+            error.pop('common')
+        for item in error_message:
+            if 'Unknown field' in item:
+                error_message.remove(item)
+
+        unknown = [
+            k for k in data.iterkeys() if k not in
+            mandatory_billing_fields
+            + optional_billing_fields
+            + additional_fields]
+        if unknown:
+            error['common'] = 'Unknown field'
+            error_message.append("Unknown field '%s'" % ','.join(unknown))
+
+        return error, error_message
+
     @http.route(
         ['/my/get_expertises'],
         type='http',
