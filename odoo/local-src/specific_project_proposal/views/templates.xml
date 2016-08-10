@@ -25,11 +25,12 @@
               </a>
             </div>
           </li>
-          <li t-if="len(proposals)&lt;4">
-            <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a project proposal">
-                <i class="fa fa-plus"></i> Add a project proposal
-            </a>
-          </li>
+          <a class="btn btn-primary btn-show-proposal" t-attf-href="/my/proposals" title="Show all proposals">
+              Show all proposals
+          </a>
+          <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a proposal">
+              Add a proposal
+          </a>
         </ul>
       </div>
     </div>
