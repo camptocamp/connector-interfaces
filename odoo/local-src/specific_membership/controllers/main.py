@@ -4,8 +4,23 @@
 from openerp import http
 from openerp.http import request
 
+from openerp.addons.website_portal_profile.controllers.main import (
+    website_account
+)
 
-class website_account(http.Controller):
+class WebsiteAccount(website_account):
+
+    @http.route(['/my', '/my/home'], type='http', auth="public", website=True)
+    def account(self, **kw):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        response = super(website_account, self).account(**kw)
+        partner = request.env['res.users'].browse(request.uid).partner_id
+        response.qcontext.update({
+            'partner': partner,
+        })
+        return response
+
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
         partner = request.env['res.users'].browse(request.uid).partner_id

@@ -2,16 +2,21 @@
 <odoo>
 
 
-  <template id="website_membership_payment" inherit_id="website_portal_profile.website_portal_profile-details">
-      <xpath expr="//form[@action='/my/account']" position="after">
-        <div class="clearfix">
-          membership status : <t t-esc="partner.flux_membership"/>
-          <button type="object" class="btn btn-default btn-primary mb32" name="button_buy_membership" onclick="window.location.href='/my/membership'">
-            Get Associate Membership
-          </button>
-        </div>
-      </xpath>
-  </template>
+<template id="account" name="Account" inherit_id="website_portal.account">
+  <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
+    <t t-call="specific_membership.website_membership_payment" />
+  </xpath>
+</template>
+
+<template id="website_membership_payment">
+  <h3 class="page-header">Membership status</h3>
+  <p>
+    <b t-esc="partner.flux_membership"/>
+  </p>
+  <button type="object" class="btn btn-default btn-primary mb32" name="button_buy_membership" onclick="window.location.href='/my/membership'">
+    Membership Upgrade
+  </button>
+</template>
 
   <record model="ir.ui.view" id="view_partner_form_hide">
     <field name="name">res.partner.form.hide</field>
