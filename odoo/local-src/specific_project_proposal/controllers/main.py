@@ -48,7 +48,6 @@ class WebsiteProposal(http.Controller):
 
         # List of proposals available to current UID
         domain = []
-        domain = [('id', 'in', env.user.suggested_proposal_ids.ids)]
         if expertise:
             domain.append(('expertise_ids', 'in', expertise.id))
         elif industry:
@@ -61,7 +60,6 @@ class WebsiteProposal(http.Controller):
         return request.website.render(
             "specific_project_proposal.proposal_index",
             {'proposals': proposals,
-             'view_type': 'suggestions',
              'expertise_tag': expertise,
              'industry_tag': industry})
 
@@ -81,7 +79,6 @@ class WebsiteProposal(http.Controller):
         return request.website.render(
             "specific_project_proposal.proposal_index",
             {'proposals': proposals,
-             'view_type': 'my',
              })
 
     @http.route(

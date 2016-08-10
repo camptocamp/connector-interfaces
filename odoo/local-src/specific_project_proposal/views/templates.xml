@@ -81,9 +81,6 @@
             <div t-if="not proposals">
               <div class="text-center text-muted">
                 <h4 class="css_editable_display">No project proposal found</h4>
-                <t t-if="view_type == 'suggestions'">
-                  <h4 class="css_editable_display">Please, verify you have set your expertises and industry on your profile.</h4>
-                </t>
                 <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
                 <t groups="base.group_website_publisher">
                   <t  groups="base.group_hr_manager">
