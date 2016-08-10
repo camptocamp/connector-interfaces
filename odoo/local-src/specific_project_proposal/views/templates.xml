@@ -1,42 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="assets_frontend" inherit_id="website.assets_frontend" name="Forum Assets">
+<template id="assets_frontend" inherit_id="website.assets_frontend" name="Proposal Assets">
   <xpath expr="." position="inside">
     <script type="text/javascript" src="/specific_project_proposal/static/src/js/project_proposal.js"/>
   </xpath>
 </template>
 
-<template id="profile_proposals" inherit_id="website_portal_profile.website_portal_profile-details">
-  <xpath expr="//div[@class='row o_website_portal_details']" position="after">
-    <div class="row o_website_profile_proposal">
-      <h2>Proposals</h2>
-      <div class="col-md-12" id="proposal_grid">
-        <ul class="media-list">
-          <li t-foreach="proposals" t-as="proposal" class="media">
-            <div class="media-body" t-att-data-publish="proposal.website_published and 'on' or 'off'">
-              <h3 class="media-heading">
-                <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }">
-                  <span t-field="proposal.name"/>
-                </a>
-              </h3>
-
-              <span t-field="proposal.location"/>
-              <span t-if="not proposal.website_published" class="label label-danger">not published</span>
-              <div class="text-muted">
-                <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
-              </div>
-            </div>
-          </li>
-          <li t-if="len(proposals)&lt;4">
-            <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a project proposal">
-                <i class="fa fa-plus"></i> Add a project proposal
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+<template id="account" name="Account" inherit_id="website_portal.account">
+  <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
+    <t t-call="specific_project_proposal.proposals_overview" />
   </xpath>
+</template>
+
+<template id="proposals_overview" name="Proposals">
+  <h3 class="page-header">Proposals</h3>
+  <t t-if="not proposals">
+    <p>You have currently registred no proposals on your account.</p>
+  </t>
+  <t t-if="proposals">
+    <table class="table table-hover o_my_status_table">
+      <thead>
+      </thead>
+      <t t-foreach="proposals" t-as="proposal">
+        <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
+          <td>
+            <b t-field="proposal.name"/>
+          </td>
+          <td>
+            <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+          </td>
+          <td>
+            <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
+          </td>
+          <td>
+            <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }" class="text-muted">
+              Edit
+            </a>
+          </td>
+        </tr>
+      </t>
+      <tr t-att-class="'hidden' if len(proposals) &lt; 4 else ''">
+        <td colspan="4"><a href="" class="o_my_show_more btn btn-xs btn-default"><span>Show more</span><span class="hidden">Show less</span></a></td>
+      </tr>
+    </table>
+    <a class="btn btn-primary btn-show-proposal" t-attf-href="/my/proposals" title="Show all proposals">
+        Show all proposals
+    </a>
+    <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a proposal">
+        Add a proposal
+    </a>
+  </t>
 </template>
 
 <template id="proposal_index" name="Proposals">
@@ -82,21 +96,27 @@
             <ul class="media-list" t-if="proposals">
               <li t-foreach="proposals" t-as="proposal" class="media">
                 <div class="media-body proposal_item" t-att-data-publish="proposal.website_published and 'on' or 'off'">
-                  <h3 class="media-heading">
-                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
-                      <span t-field="proposal.name"/>
-                    </a>
-                    <t t-set="forum" t-value="proposals"/>
-                    <t t-if="proposal.owner_id.id != uid">
-                      <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
-                        t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide"
-                        title="Don't show again this project proposal"/>
-                    </t>
-                  </h3>
-                  <span t-field="proposal.location"/>
-                  <span t-if="not proposal.website_published" class="label label-danger">not published</span>
                   <div class="text-muted">
-                    <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
+                    <span t-field="proposal.create_date" t-field-options='{"format": "d MMMM y"}'/>
+                  </div>
+                  <h3 class="media-heading">
+                    <span t-field="proposal.name"/>
+                  </h3>
+                  <t t-if="proposal.owner_id.id != uid">
+                    <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
+                      t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide"
+                      title="Don't show again this project proposal"/>
+                  </t>
+                  <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+                  <p t-field="proposal.teaser_text"/>
+                  <div>
+                    <b>Industries:</b>
+                    <t t-foreach="proposal.industry_ids" t-as="industry">
+                      <span t-field="industry.name"/>
+                    </t>
+                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
+                      Read More <i class="fa fa-arrow-right"/>
+                    </a>
                   </div>
                   <div class="pull-right">
                     Expertises:
@@ -160,26 +180,45 @@
   <t t-call="specific_project_proposal.layout">
 
     <div class="oe_structure" style="clear:both;">
-      <h1 class="text-center" t-field="proposal.name"/>
-      <h5 class="text-center" t-field="proposal.location"/>
-      <h5 class="text-center" t-field="proposal.country_id"/>
-      <h5 class="text-center text-muted">
-        <i class="fa fa-clock-o"/> <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
-      </h5>
-      <div class="text-center" t-field="proposal.teaser_text"/>
-      <div class="text-center" t-field="proposal.description"/>
-      <div class="text-center">
-        Industries:
-        <t t-foreach="proposal.industry_ids" t-as="industry">
-          <span t-field="industry.name"/>
-        </t>
-      </div>
-      <div class="text-center">
-        Expertises:
-        <t t-foreach="proposal.expertise_ids" t-as="expertise">
-          <span t-field="expertise.name"/>
-        </t>
-      </div>
+      <section class="content members-list opt_dark_bg">
+      </section>
+      <section class="content members-list">
+        <div class="content-wrap">
+          <div class="text-muted">
+            <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
+          </div>
+          <address>
+               <b t-field="proposal.owner_id.partner_id.parent_id"/>
+               <div t-field="proposal.owner_id.partner_id" t-field-options='{
+                   "widget": "contact",
+                   "fields": ["address", "phone", "fax", "email"]
+               }'/>
+          </address>
+
+          <h1 t-field="proposal.name"/>
+
+          <p><b t-field="proposal.teaser_text"/></p>
+
+          <p t-field="proposal.description"/>
+
+          <div>
+            <b>Duration:</b>
+            <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
+          </div>
+          <div>
+            <b>Industries:</b>
+            <t t-foreach="proposal.industry_ids" t-as="industry">
+              <span t-field="industry.name"/>
+            </t>
+          </div>
+          <div>
+            <b>Expertises:</b>
+            <t t-foreach="proposal.expertise_ids" t-as="expertise">
+              <span t-field="expertise.name"/>
+            </t>
+          </div>
+        </div>
+      </section>
     </div>
 
   </t>
