@@ -17,13 +17,22 @@ class WebsiteAccountProposal(WebsiteAccount):
     def account(self, **kw):
         if not request.session.uid:
             return {'error': 'anonymous_user'}
+        env = request.env
+
+        Proposal = env['project.proposal']
+
         response = super(WebsiteAccountProposal, self).account(**kw)
-        proposal_overview = request.env['project.proposal'].search(
+        proposal_overview = Proposal.search(
             [('owner_id', '=', request.uid)],
             order='website_published DESC, start_date DESC',
             limit=6,
         )
+        domain = [('id', 'in', env.user.proposal_match_ids.ids)]
+        proposal_matches = Proposal.search(
+            domain, order='website_published DESC, start_date DESC',
+        )
         response.qcontext.update({
+            'matches': proposal_matches,
             'proposals': proposal_overview,
         })
         return response
@@ -32,6 +41,7 @@ class WebsiteAccountProposal(WebsiteAccount):
 class WebsiteProposal(http.Controller):
 
     @http.route([
+        '/market',
         '/proposals',
         '/proposals/<model("res.users"):user>',
         '/proposals/expertise/'
