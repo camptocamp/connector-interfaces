@@ -19,7 +19,7 @@
 
               <span t-field="proposal.location"/>
               <span t-if="not proposal.website_published" class="label label-danger">not published</span>
-              <span class="text-muted" t-field="proposal.create_date"/>
+              <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
               <a t-attf-href="/my/proposals/detail/#{ slug(proposal) }" class="text-muted">
                 Edit
               </a>
