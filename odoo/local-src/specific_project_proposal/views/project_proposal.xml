@@ -47,10 +47,10 @@
 
               </group>
             </group>
-            <label for="teaser_text"/>
-            <field name="teaser_text"/>
-            <label for="description"/>
-            <field name="description"/>
+            <label for="website_short_description"/>
+            <field name="website_short_description"/>
+            <label for="website_description"/>
+            <field name="website_description"/>
           </page>
         </notebook>
       </sheet>

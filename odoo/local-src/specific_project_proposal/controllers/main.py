@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
+import json
+
 from openerp import _, http
 from openerp.http import request
 
@@ -100,8 +102,7 @@ class WebsiteProposal(http.Controller):
         proposal.blacklist()
         return {}
 
-    @http.route(['/proposals/detail/<model("project.proposal"):proposal>',
-                 '/my/proposals/detail/<model("project.proposal"):proposal>'],
+    @http.route(['/proposals/detail/<model("project.proposal"):proposal>'],
                 type='http', auth="public", website=True)
     def proposals_detail(self, proposal, **kwargs):
         return request.render("specific_project_proposal.proposal_detail", {
@@ -109,11 +110,65 @@ class WebsiteProposal(http.Controller):
             'main_object': proposal,
         })
 
+    @http.route(['/my/proposals/edit/<model("project.proposal"):proposal>'],
+                type='http', auth="public", website=True)
+    def my_proposals_detail(self, proposal, redirect=None, **post):
+        values = {
+            'error': {},
+            'error_message': []
+        }
+
+        error = None
+        error_message = None
+
+        if post:
+            values.update({'error': error, 'error_message': error_message})
+            values.update(post)
+            if not error:
+                if post.get('post_industries'):
+                    industry_ids = post['post_industries'].split(',')
+                    post['industrie_ids'] = [
+                        (4, int(industry_id)) for industry_id
+                        in industry_ids
+                    ]
+                if post.get('post_expertises'):
+                    expertise_ids = post['post_expertises'].split(',')
+                    post['expertise_ids'] = [
+                        (4, int(expertise_id)) for expertise_id
+                        in expertise_ids
+                    ]
+                proposal.sudo().write(post)
+                if redirect:
+                    return request.redirect(redirect)
+                return request.redirect('/my/home')
+
+        industries = [
+            dict(id=industry.id, name=industry.name)
+            for industry in proposal.industry_ids]
+        industries = json.dumps(industries)
+
+        expertise = [
+            dict(id=expertise.id, name=expertise.name)
+            for expertise in proposal.expertise_ids]
+        expertises = json.dumps(expertise)
+        countries = request.env['res.country'].sudo().search([])
+
+        values.update({
+            'proposal': proposal,
+            'industries': industries,
+            'expertises': expertises,
+            'countries': countries,
+            'redirect': redirect,
+        })
+
+        return request.render("specific_project_proposal.proposal_edit",
+                              values)
+
     @http.route('/my/proposals/add', type='http', auth="user", website=True)
     def proposals_add(self, **kwargs):
-        proposal = request.env['project.proposal'].create({
+        proposal = request.env['project.proposal'].sudo().create({
             'name': _('New Proposal'),
             'owner_id': request.uid,
         })
-        return request.redirect("/my/proposals/detail/%s"
+        return request.redirect("/my/proposals/edit/%s"
                                 % slug(proposal))
