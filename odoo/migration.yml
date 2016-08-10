@@ -7,13 +7,14 @@ migration:
     # the 'without demo' mode
     install_args: --without-demo=all
   versions:
-    - version: 9.1.0
+    - version: 9.0.1
       operations:
         pre:
           - "sh -c 'PGPASSWORD=$DB_PASSWORD psql -h db -U $DB_USER -c \"CREATE EXTENSION IF NOT EXISTS pg_trgm;\" $DB_NAME'"
       addons:
         upgrade:
           - specific_membership
+          - specific_project_proposal
           - theme_fluxdocs
           - website_fluxdock_signup
           - website_portal_profile
