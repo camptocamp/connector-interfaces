@@ -65,6 +65,14 @@ class ProjectProposal(models.Model):
         res.update({(p.id, '/proposals/detail/%s' % slug(p)) for p in self})
         return res
 
+    @api.multi
+    def blacklist(self):
+        self.env.user.proposal_blacklist_ids |= self
+
+    @api.multi
+    def unblacklist(self):
+        self.env.user.proposal_blacklist_ids -= self
+
     @api.onchange('start_date', 'stop_date')
     def onchange_dates(self):
         if not self.start_date or not self.stop_date:
