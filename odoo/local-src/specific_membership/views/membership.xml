@@ -13,9 +13,11 @@
   <p>
     <b t-esc="dict(partner.fields_get(allfields=['flux_membership'])['flux_membership']['selection'])[partner.flux_membership]"/>
   </p>
-  <button type="object" class="btn btn-default btn-primary mb32" name="button_buy_membership" onclick="window.location.href='/my/membership'">
-    Membership Upgrade
-  </button>
+  <t t-if="partner.flux_membership == 'free'">
+    <button type="object" class="btn btn-default btn-primary mb32" name="button_buy_membership" onclick="window.location.href='/my/membership'">
+      Membership Upgrade
+    </button>
+  </t>
 </template>
 
   <record model="ir.ui.view" id="view_partner_form_hide">

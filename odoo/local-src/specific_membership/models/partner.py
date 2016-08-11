@@ -15,7 +15,6 @@ class ResPartner(models.Model):
     def create_membership_invoice(self, product_id=None, datas=None):
         prod_obj = self.env['product.product']
         acc_inv_obj = self.env['account.invoice']
-
         if datas is None:
             datas = {}
 
