@@ -230,8 +230,8 @@
             <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
           </div>
           <address>
-               <b t-field="proposal.owner_id.partner_id.parent_id"/>
-               <div t-field="proposal.owner_id.partner_id" t-field-options='{
+               <b t-field="proposal.sudo().owner_id.partner_id.parent_id"/>
+               <div t-field="proposal.sudo().owner_id.partner_id" t-field-options='{
                    "widget": "contact",
                    "fields": ["address", "phone", "fax", "email"]
                }'/>
