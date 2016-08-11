@@ -16,10 +16,19 @@
 Release History
 ---------------
 
+**Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
 latest (unreleased)
 +++++++++++++++++++
 
-**Features and Improvements**
+9.0.2 (2016-08-11)
+++++++++++++++++++
 
 **Bugfixes**
 
@@ -28,10 +37,6 @@ latest (unreleased)
 * Fix portal user access right to proposal details to the address in it.
 * Fix an issue of view of /my/account due to the move to /my/home of membership status
 * Fix button "Show More" not hidden for matches overview when less than 4 matches are displayed
-
-**Build**
-
-**Documentation**
 
 9.0.1 (2016-08-10)
 ++++++++++++++++++
