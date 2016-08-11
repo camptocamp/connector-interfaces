@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import json
+import base64
 from openerp import http
 from openerp.http import request
 
@@ -10,6 +11,7 @@ class website_account(website_account):
 
     @http.route(['/my/account'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
+        vals = {}
         partner = request.env['res.users'].browse(request.uid).partner_id
         if redirect:
             redirect = redirect
@@ -35,23 +37,27 @@ class website_account(website_account):
         # FIXME: Workaround for problem with saving of fields website.
         # If required fields are not set, website will be taken out of
         # response dictionary in order to avoid server errors.
-
         if 'website' in response.qcontext:
             del response.qcontext['website']
 
         if post:
             if post['post_categories']:
                 categ_ids = post['post_categories'].split(',')
-                partner.sudo().write(
+                vals.update(
                     {'category_id': [
                         (4, int(category_id)) for category_id in categ_ids]})
             if post['post_expertises']:
                 expertise_ids = post[
                     'post_expertises'].split(',')
-                partner.sudo().write(
+                vals.update(
                     {'expertise_ids': [
                         (4, int(expertise_id))
                         for expertise_id in expertise_ids]})
+            if post['uimage']:
+                vals.update(
+                    {'image': base64.encodestring(post['uimage'].read())})
+            partner.sudo().write(vals)
+
         return response
 
     def details_form_validate(self, data):
@@ -67,6 +73,7 @@ class website_account(website_account):
             "country_id"]
         optional_billing_fields = ["zipcode", "state_id", "vat", "street"]
         additional_fields = [
+            'uimage',
             'website',
             'twitter',
             'facebook',
