@@ -4,11 +4,11 @@
 
 <template id="account" name="Account" inherit_id="website_portal.account">
   <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
-    <t t-call="specific_membership.website_membership_payment" />
+    <t t-call="specific_membership.website_membership_status" />
   </xpath>
 </template>
 
-<template id="website_membership_payment">
+<template id="website_membership_status">
   <h3 class="page-header">Membership status</h3>
   <p>
     <b t-esc="partner.flux_membership"/>
