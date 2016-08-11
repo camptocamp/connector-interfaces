@@ -27,6 +27,14 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+9.0.3 (2016-08-11)
+++++++++++++++++++
+
+**Bugfixes**
+
+* Fix membership status
+* Fix Proposals button visibility ('show all' & 'Add)
+
 9.0.2 (2016-08-11)
 ++++++++++++++++++
 
