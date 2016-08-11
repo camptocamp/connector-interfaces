@@ -27,7 +27,6 @@ class WebsiteAccountProposal(WebsiteAccount):
         proposal_overview = Proposal.search(
             [('owner_id', '=', request.uid)],
             order='website_published DESC, start_date DESC',
-            limit=6,
         )
         domain = [('id', 'in', env.user.proposal_match_ids.ids)]
         proposal_matches = Proposal.search(
