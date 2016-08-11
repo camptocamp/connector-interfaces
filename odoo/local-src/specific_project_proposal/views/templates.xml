@@ -89,13 +89,13 @@
         <td colspan="4"><a href="" class="o_my_show_more btn btn-xs btn-default"><span>Show more</span><span class="hidden">Show less</span></a></td>
       </tr>
     </table>
-    <a class="btn btn-primary btn-show-proposal" t-attf-href="/my/proposals" title="Show all proposals">
-        Show all proposals
-    </a>
-    <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a proposal">
-        Add a proposal
-    </a>
   </t>
+  <a class="btn btn-primary btn-show-proposal" t-attf-href="/my/proposals" title="Show all proposals">
+    Show all proposals
+  </a>
+  <a class="btn btn-primary btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a proposal">
+      Add a proposal
+  </a>
 </template>
 
 <template id="proposal_index" name="Proposals">
