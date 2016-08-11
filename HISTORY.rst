@@ -23,6 +23,12 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Fix issue of description field on proposal detail view which was making the view failing.
+* Fix issue of limit of 6 own proposals displayed in overview
+* Fix portal user access right to proposal details to the address in it.
+* Fix an issue of view of /my/account due to the move to /my/home of membership status
+* Fix button "Show More" not hidden for matches overview when less than 4 matches are displayed
+
 **Build**
 
 **Documentation**
