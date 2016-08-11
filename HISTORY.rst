@@ -27,6 +27,17 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+9.0.3 (2016-08-11)
+++++++++++++++++++
+
+**Features and Improvements**
+* Hide button upgrade account if already advanced member
+
+**Bugfixes**
+
+* Fix membership status visibility. Shows now value and not technical key
+* Fix Proposals button visibility ('show all' & 'Add)
+
 9.0.2 (2016-08-11)
 ++++++++++++++++++
 
