@@ -39,8 +39,9 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
 
                 res_partner.sudo().write(
                     {'country_id': qcontext['country_id'],
-                        'is_company': True, 'free_member':
-                        'true'})
+                        'is_company': True,
+                        'website_published': True,
+                        'free_member': 'true'})
 
                 res_users.send_account_confirmation_email(
                     cr,
