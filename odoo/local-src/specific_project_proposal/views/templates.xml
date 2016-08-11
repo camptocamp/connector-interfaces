@@ -241,7 +241,7 @@
 
           <p><b t-field="proposal.website_short_description"/></p>
 
-          <p t-field="proposal.description"/>
+          <p t-field="proposal.website_description"/>
 
           <div>
             <b>Duration:</b>
