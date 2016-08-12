@@ -11,6 +11,7 @@
  'depends': [
     'base',
     'membership',
+    'membership_variable_period',
     'website_fluxdock_signup',
     'website',
     'website_portal',
