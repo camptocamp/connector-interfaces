@@ -45,9 +45,12 @@ class ResPartner(models.Model):
     def button_buy_membership(self):
         self.create_membership_invoice()
 
-    @api.onchange('free_member')
+    @api.onchange('free_member', 'membership_state')
     def change_flux_membership(self):
-        self.flux_membership = 'free' if self.free_member else 'asso'
+        if (self.free_member or self.membership_state in ['old', 'none', 'free']):
+            self.flux_membership = 'free'
+        else:
+            self.flux_membership = 'asso'
 
     @api.model
     def check_membership_payment(self):
