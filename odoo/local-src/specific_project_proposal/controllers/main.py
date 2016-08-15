@@ -154,7 +154,7 @@ class WebsiteProposal(http.Controller):
             if not error:
                 if post.get('post_industries'):
                     industry_ids = post['post_industries'].split(',')
-                    post['industrie_ids'] = [
+                    post['industry_ids'] = [
                         (4, int(industry_id)) for industry_id
                         in industry_ids
                     ]
