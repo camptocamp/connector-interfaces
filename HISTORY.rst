@@ -16,6 +16,9 @@
 Release History
 ---------------
 
+latest (unreleased)
++++++++++++++++++++
+
 **Features and Improvements**
 
 **Bugfixes**
@@ -23,9 +26,6 @@ Release History
 **Build**
 
 **Documentation**
-
-latest (unreleased)
-+++++++++++++++++++
 
 9.0.3 (2016-08-11)
 ++++++++++++++++++
