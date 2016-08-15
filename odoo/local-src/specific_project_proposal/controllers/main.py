@@ -28,12 +28,8 @@ class WebsiteAccountProposal(WebsiteAccount):
             [('owner_id', '=', request.uid)],
             order='website_published DESC, start_date DESC',
         )
-        domain = [('id', 'in', env.user.proposal_match_ids.ids)]
-        proposal_matches = Proposal.search(
-            domain, order='website_published DESC, start_date DESC',
-        )
         response.qcontext.update({
-            'matches': proposal_matches,
+            'matches': env.user.proposal_match_ids,
             'proposals': proposal_overview,
         })
         return response

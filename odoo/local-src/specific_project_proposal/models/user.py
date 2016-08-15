@@ -41,5 +41,6 @@ class ResUsers(models.Model):
                       ('industry_ids', 'in', partner.category_id.ids),
                  ('id', 'not in', rec.proposal_blacklist_ids.ids),
                  ('owner_id', '!=', rec.id),
-                 ]
+                 ],
+                order='website_published DESC, start_date DESC',
             )
