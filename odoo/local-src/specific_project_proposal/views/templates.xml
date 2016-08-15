@@ -165,15 +165,6 @@
                           style="margin-right: 4px;"/>
                       </a>
                     </t>
-                  </div>
-                  <div>
-                    <b>Expertises:</b>
-                    <t t-foreach="proposal.expertise_ids" t-as="expertise">
-                      <a t-attf-href="/proposals/expertise/#{slug(expertise)}">
-                        <span t-attf-class="label #{expertise_tag and expertise_tag.name == expertise.name and 'label-primary' or 'label-default'}" t-field="expertise.name"
-                          style="margin-right: 4px;"/>
-                      </a>
-                    </t>
                     <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
                       Read More <i class="fa fa-arrow-right"/>
                     </a>
