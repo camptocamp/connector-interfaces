@@ -160,28 +160,23 @@
                   <div>
                     <b>Industries:</b>
                     <t t-foreach="proposal.industry_ids" t-as="industry">
-                      <span t-field="industry.name"/>
+                      <a t-attf-href="/proposals/industry/#{slug(industry)}">
+                        <span t-attf-class="label #{industry_tag and industry_tag.name == industry.name and 'label-primary' or 'label-default'}" t-field="industry.name"
+                          style="margin-right: 4px;"/>
+                      </a>
+                    </t>
+                  </div>
+                  <div>
+                    <b>Expertises:</b>
+                    <t t-foreach="proposal.expertise_ids" t-as="expertise">
+                      <a t-attf-href="/proposals/expertise/#{slug(expertise)}">
+                        <span t-attf-class="label #{expertise_tag and expertise_tag.name == expertise.name and 'label-primary' or 'label-default'}" t-field="expertise.name"
+                          style="margin-right: 4px;"/>
+                      </a>
                     </t>
                     <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
                       Read More <i class="fa fa-arrow-right"/>
                     </a>
-                  </div>
-                  <div class="pull-right">
-                    Expertises:
-                    <t t-foreach="proposal.expertise_ids" t-as="expertise">
-                      <a t-attf-href="/proposals/expertise/#{slug(expertise)}">
-                        <span t-attf-class="pull-right label #{expertise_tag and expertise_tag.name == expertise.name and 'label-primary' or 'label-default'}" t-field="expertise.name"
-                          style="margin-right: 4px;"/>
-                      </a>
-                    </t>
-                    <br />
-                    Industries:
-                    <t t-foreach="proposal.industry_ids" t-as="industry">
-                      <a t-attf-href="/proposals/industry/#{slug(industry)}">
-                        <span t-attf-class="pull-right label #{industry_tag and industry_tag.name == industry.name and 'label-primary' or 'label-default'}" t-field="industry.name"
-                          style="margin-right: 4px;"/>
-                      </a>
-                    </t>
                   </div>
                 </div>
               </li>
