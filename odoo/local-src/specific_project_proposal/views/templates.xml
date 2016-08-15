@@ -152,7 +152,7 @@
                     <span t-field="proposal.create_date" t-field-options='{"format": "d MMMM y"}'/>
                   </div>
                   <h3 class="media-heading">
-                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
+                    <a t-attf-href="#{detail_url}/proposals/detail/#{ slug(proposal) }">
                       <span t-field="proposal.name"/>
                     </a>
                   </h3>
@@ -171,7 +171,7 @@
                           style="margin-right: 4px;"/>
                       </a>
                     </t>
-                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
+                    <a t-attf-href="#{detail_url}/proposals/detail/#{ slug(proposal) }">
                       Read More <i class="fa fa-arrow-right"/>
                     </a>
                   </div>

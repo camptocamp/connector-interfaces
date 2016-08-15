@@ -77,6 +77,7 @@ class WebsiteProposal(http.Controller):
             'proposals': proposals,
             'base_url': base_url,
             'my': base_url == '/my',
+            'detail_url': '/my' if base_url == '/my' else '',
             'pager': pager,
             'expertise_tag': expertise,
             'industry_tag': industry
@@ -169,7 +170,8 @@ class WebsiteProposal(http.Controller):
         proposal.unlink()
         return request.redirect('/my/home')
 
-    @http.route(['/proposals/detail/<model("project.proposal"):proposal>'],
+    @http.route(['/proposals/detail/<model("project.proposal"):proposal>',
+                 '/my/proposals/detail/<model("project.proposal"):proposal>'],
                 type='http', auth="public", website=True)
     def proposals_detail(self, proposal, **kwargs):
         return request.render("specific_project_proposal.proposal_detail", {
