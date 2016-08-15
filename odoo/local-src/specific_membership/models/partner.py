@@ -48,6 +48,7 @@ class ResPartner(models.Model):
     @api.one
     @api.depends('membership_state')
     def compute_flux_membership(self):
+        if (self.membership_state in ['paid', 'invoiced']):
             self.flux_membership = 'asso'
         else:
             self.flux_membership = 'free'
