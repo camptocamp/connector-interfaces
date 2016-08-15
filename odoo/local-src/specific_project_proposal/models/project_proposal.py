@@ -102,7 +102,7 @@ class ProjectProposal(models.Model):
     @api.constrains('start_date', 'stop_date')
     def _check_date_order(self):
         for rec in self:
-            if (rec.start_date and rec.start_date and
+            if (rec.start_date and rec.stop_date and
                     rec.stop_date < rec.start_date):
                 raise exceptions.UserError(
                     _('End Date cannot be set before Start Date.'))

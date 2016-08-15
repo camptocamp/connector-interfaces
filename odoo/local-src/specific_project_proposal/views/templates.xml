@@ -342,6 +342,25 @@
               </div>
 
               <div
+                t-attf-class="form-group input-group date #{error.get('start_date') and 'has-error' or ''}">
+                <label class="form-control-label label-optional col-sm-2"
+                  for="start_date">Start date</label>
+                <input type="text" class="form-control" data-date-format="YYYY-MM-DD" name="start_date" placeholder="YYYY-MM-DD"
+                  t-att-value="start_date or proposal.start_date"
+                  />
+                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+              </div>
+
+              <div
+                t-attf-class="form-group input-group date #{error.get('stop_date') and 'has-error' or ''}">
+                <label class="form-control-label label-optional col-sm-2"
+                  for="stop_date">Stop date</label>
+                <input type="text" class="form-control" data-date-format="YYYY-MM-DD" name="stop_date" placeholder="YYYY-MM-DD"
+                  t-att-value="stop_date or proposal.stop_date"/>
+                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+              </div>
+
+              <div
                 t-attf-class="form-group row #{error.get('industry_ids') and 'has-error' or ''} ">
                 <label class="form-control-label col-sm-2" for="industry_ids">Industry
                 </label>

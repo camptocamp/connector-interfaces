@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 import json
 
-from openerp import _, http
+from openerp import _, fields, http
 from openerp.http import request
 
 from openerp.addons.specific_membership.controllers.main import (
@@ -148,6 +148,7 @@ class WebsiteProposal(http.Controller):
         error_message = None
 
         if post:
+            error, error_message = self.details_form_validate(post)
             values.update({'error': error, 'error_message': error_message})
             values.update(post)
             if not error:
@@ -163,6 +164,10 @@ class WebsiteProposal(http.Controller):
                         (4, int(expertise_id)) for expertise_id
                         in expertise_ids
                     ]
+                if not values.get('start_date'):
+                    post['start_date'] = False
+                if not values.get('stop_date'):
+                    post['stop_date'] = False
                 proposal.sudo().write(post)
                 if redirect:
                     return request.redirect(redirect)
@@ -189,6 +194,39 @@ class WebsiteProposal(http.Controller):
 
         return request.render("specific_project_proposal.proposal_edit",
                               values)
+
+    def details_form_validate(self, data):
+        error = dict()
+        error_message = []
+
+        mandatory_fields = ['name']
+        optional_fields = [
+            'location', 'country_id', 'website_short_description',
+            'website_description', 'start_date', 'stop_date',
+            'post_industries', 'post_expertises']
+
+        # Validation
+        for field_name in mandatory_fields:
+            if not data.get(field_name):
+                error[field_name] = 'missing'
+
+        # date validation
+        if data.get('start_date') and data.get('stop_date'):
+            start = fields.Date.from_string(data['start_date'])
+            stop = fields.Date.from_string(data['stop_date'])
+            if (stop - start).days < 0:
+                error['start_date'] = 'error'
+                error['stop_date'] = 'error'
+                error_message.append(
+                    _("End Date cannot be set before Start Date."))
+
+        unknown = [k for k in data.iterkeys()
+                   if k not in mandatory_fields + optional_fields]
+        if unknown:
+            error['common'] = 'Unknown field'
+            error_message.append("Unknown field '%s'" % ','.join(unknown))
+
+        return error, error_message
 
     @http.route('/my/proposals/add', type='http', auth="user", website=True)
     def proposals_add(self, **kwargs):
