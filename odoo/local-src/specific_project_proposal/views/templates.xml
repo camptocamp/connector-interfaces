@@ -27,13 +27,15 @@
       <t t-foreach="matches" t-as="proposal">
         <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
           <td>
-            <t t-if="proposal.is_new">
-              &lt;b&gt;NEW!
-            </t>
-            <span t-field="proposal.name"/>
-            <t t-if="proposal.is_new">
-              &lt;/b&gt;
-            </t>
+            <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
+              <t t-if="proposal.is_new">
+                &lt;b&gt;NEW!
+              </t>
+              <span t-field="proposal.name"/>
+              <t t-if="proposal.is_new">
+                &lt;/b&gt;
+              </t>
+            </a>
           </td>
           <td>
             <span t-if="not proposal.website_published" class="label label-danger">not published</span>
@@ -70,7 +72,9 @@
       <t t-foreach="proposals" t-as="proposal">
         <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
           <td>
-            <b t-field="proposal.name"/>
+            <a t-attf-href="/my/proposals/edit/#{ slug(proposal) }">
+              <b t-field="proposal.name"/>
+            </a>
           </td>
           <td>
             <span t-if="not proposal.website_published" class="label label-danger">not published</span>
@@ -142,11 +146,13 @@
                     <span t-field="proposal.create_date" t-field-options='{"format": "d MMMM y"}'/>
                   </div>
                   <h3 class="media-heading">
-                    <span t-field="proposal.name"/>
+                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
+                      <span t-field="proposal.name"/>
+                    </a>
                   </h3>
                   <t t-if="proposal.owner_id.id != uid">
                     <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
-                      t-attf-data-href="/proposals/proposal/#{slug(proposal)}/hide"
+                      t-attf-data-href="/proposals/proposal/#{ slug(proposal)}/hide"
                       title="Don't show again this project proposal"/>
                   </t>
                   <span t-if="not proposal.website_published" class="label label-danger">not published</span>
