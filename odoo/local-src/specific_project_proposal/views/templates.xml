@@ -305,10 +305,10 @@
                 <input type="text" name="name" class="form-control"
                   t-att-value="name or proposal.name" />
               </div>
-              <div t-attf-class="form-group row #{error.get('street2') and 'has-error' or ''} ">
+              <div t-attf-class="form-group row #{error.get('location') and 'has-error' or ''} ">
                 <label class="form-control-label col-sm-2" for="location">Location (*)
                 </label>
-                <input type="text" name="street2" class="form-control"
+                <input type="text" name="location" class="form-control"
                   t-att-value="location or proposal.location" />
               </div>
               <div
