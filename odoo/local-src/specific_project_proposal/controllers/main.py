@@ -97,6 +97,37 @@ class WebsiteProposal(http.Controller):
         proposal.blacklist()
         return {}
 
+    @http.route(
+        '/proposals/proposal/<model("project.proposal"):proposal>/publish',
+        type='json', auth="public", website=True)
+    def toggle_publish(self, proposal, **kwargs):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        proposal.website_published = not proposal.website_published
+        return {}
+
+    @http.route(
+        '/proposals/proposal/<model("project.proposal"):proposal>/'
+        'delete_confirm',
+        type='http', auth="public", website=True)
+    def delete_confirm(self, proposal, **kwargs):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        return request.render(
+            "specific_project_proposal.proposal_delete_confirm", {
+                'proposal': proposal,
+                'main_object': proposal,
+            })
+
+    @http.route(
+        '/proposals/proposal/<model("project.proposal"):proposal>/delete',
+        type='http', auth="public", website=True)
+    def delete(self, proposal, **kwargs):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        proposal.unlink()
+        return request.redirect('/my/home')
+
     @http.route(['/proposals/detail/<model("project.proposal"):proposal>'],
                 type='http', auth="public", website=True)
     def proposals_detail(self, proposal, **kwargs):

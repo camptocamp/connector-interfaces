@@ -284,7 +284,7 @@
 
 <template id="proposal_edit" name="Proposal Edit">
   <t t-call="specific_project_proposal.layout">
-    <div class="oe_structure" style="clear:both;">
+    <div class="oe_structure oe_website_proposals" style="clear:both;">
       <form t-attf-action="/my/proposals/edit/#{ slug(proposal) }" method="post" enctype="multipart/form-data" t-attf-data-success_page="/my">
         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
         <div class="row o_website_portal_details">
@@ -356,14 +356,39 @@
             </div>
             <div class="button-wrap">
               <button type="submit" class="btn btn-default btn-primary mb32 ">Confirm</button>
-              <a class="btn btn-default btn-primary mb32 ">Publish</a>
-              <a class="btn btn-default btn-primary mb32 ">Delete</a>
+              <a class="btn btn-default btn-primary mb32 publish_proposal" t-attf-data-href="/proposals/proposal/#{ slug(proposal)}/publish">
+                <span t-att-class="'hidden' if proposal.website_published else ''">
+                  Publish
+                </span>
+                <span t-att-class="'hidden' if not proposal.website_published else ''">
+                  Unpublish
+                </span>
+              </a>
+              <a class="btn btn-default btn-primary mb32 delete_proposal" t-attf-href="/proposals/proposal/#{slug(proposal)}/delete_confirm">Delete</a>
             </div>
           </div>
         </div>
       </form>
     </div>
+  </t>
+</template>
 
+<template id="proposal_delete_confirm" name="Proposal Detail">
+  <t t-call="specific_project_proposal.layout">
+
+    <div class="oe_structure" style="clear:both;">
+      <section class="content members-list opt_dark_bg">
+        <h3>Are you sure you want to remove this proposal?</h3>
+        <a class="btn btn-primary btn-show-proposal" title="Confirm"
+          t-attf-href="/proposals/proposal/#{slug(proposal)}/delete">
+          Confirm
+        </a>
+        <a class="btn btn-primary btn-show-proposal" title="Cancel"
+          t-attf-href="/my/proposals/edit/#{slug(proposal)}">
+          Cancel
+        </a>
+      </section>
+    </div>
   </t>
 </template>
 

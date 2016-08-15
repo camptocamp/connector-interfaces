@@ -19,4 +19,15 @@ if(!$('.oe_website_proposals').length) {
         });
     });
 
+    $('.publish_proposal').on('click', function (ev) {
+        ev.preventDefault();
+        var $link = $(ev.currentTarget);
+        ajax.jsonRpc($link.data('href'), 'call', {}).then(function() {
+            var to_show = $link.find('.hidden');
+            var to_hide = $link.find('span').not('.hidden');
+            to_show.removeClass('hidden');
+            to_hide.addClass('hidden');
+        });
+    });
+
 });
