@@ -36,41 +36,90 @@ class WebsiteAccountProposal(WebsiteAccount):
 
 
 class WebsiteProposal(http.Controller):
+    _proposal_per_page = 10
 
-    @http.route([
-        '/market',
-        '/proposals',
-        '/proposals/<model("res.users"):user>',
-        '/proposals/expertise/'
-        '<model("partner_project_expertise.expertise"):expertise>',
-        '/proposals/industry/<model("res.partner.category"):industry>',
-        ], type='http', auth="public", website=True)
-    def proposals(self, user=None, expertise=None, industry=None,
-                  **kwargs):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
+    def proposal_index(self, domain, base_url, page=1,
+                       expertise=None, industry=None, **kwargs):
+        """ Generic index for proposals and own proposals
+
+        """
         env = request.env
-
         Proposal = env['project.proposal']
 
-        # List of proposals available to current UID
-        domain = []
         if expertise:
             domain.append(('expertise_ids', 'in', expertise.id))
         elif industry:
             domain.append(('industry_ids', 'in', industry.id))
-        proposals = Proposal.search(
-            domain, order='website_published DESC, start_date DESC',
-        )
 
+        proposal_count = Proposal.search_count(domain)
+
+        url = base_url
+        if expertise:
+            url += '/expertise/%s' % slug(expertise)
+        elif industry:
+            url += '/industry/%s' % slug(industry)
+
+        sorting = 'website_published DESC, start_date DESC'
+        url_args = {
+            'sorting': sorting
+        }
+
+        pager = request.website.pager(url=url, total=proposal_count, page=page,
+                                      step=self._proposal_per_page,
+                                      scope=self._proposal_per_page,
+                                      url_args=url_args)
+
+        proposals = Proposal.search(
+            domain, limit=self._proposal_per_page, offset=pager['offset'],
+            order=sorting
+        )
+        values = {
+            'proposals': proposals,
+            'base_url': base_url,
+            'my': base_url == '/my',
+            'pager': pager,
+            'expertise_tag': expertise,
+            'industry_tag': industry
+        }
         # Render page
         return request.website.render(
-            "specific_project_proposal.proposal_index",
-            {'proposals': proposals,
-             'expertise_tag': expertise,
-             'industry_tag': industry})
+            "specific_project_proposal.proposal_index", values)
 
-    @http.route('/my/proposals', type='http', auth="public", website=True)
+    @http.route([
+        '/market',
+        '/market/page/<int:page>',
+        ('/market/expertise/'
+         '<model("partner_project_expertise.expertise"):expertise>'),
+        ('/market/expertise/'
+         '<model("partner_project_expertise.expertise"):expertise>'
+         '/page/<int:page>'),
+        '/market/industry/<model("res.partner.category"):industry>',
+        ('/market/industry/<model("res.partner.category"):industry>'
+         '/page/<int:page>'),
+        ], type='http', auth="public", website=True)
+    def proposals(self, **kwargs):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        env = request.env
+        Proposal = env['project.proposal']
+
+        # List of proposals available to current UID
+        domain = []
+
+        return self.proposal_index(domain, base_url='/market', **kwargs)
+
+    @http.route([
+        '/my/proposals',
+        '/my/proposals/page/<int:page>',
+        ('/my/proposals/expertise/'
+         '<model("partner_project_expertise.expertise"):expertise>'),
+        ('/my/proposals/expertise/'
+         '<model("partner_project_expertise.expertise"):expertise>'
+         '/page/<int:page>'),
+        '/my/proposals/industry/<model("res.partner.category"):industry>',
+        ('/my/proposals/industry/<model("res.partner.category"):industry>'
+         '/page/<int:page>'),
+        ], type='http', auth="public", website=True)
     def my_proposals(self, **kwargs):
         if not request.session.uid:
             return {'error': 'anonymous_user'}
@@ -78,15 +127,7 @@ class WebsiteProposal(http.Controller):
 
         domain = [('owner_id', '=', env.user.id)]
 
-        Proposal = env['project.proposal']
-
-        proposals = Proposal.search(
-            domain, order='website_published DESC, start_date DESC',
-        )
-        return request.website.render(
-            "specific_project_proposal.proposal_index",
-            {'proposals': proposals,
-             })
+        return self.proposal_index(domain, base_url='/my', **kwargs)
 
     @http.route(
         '/proposals/proposal/<model("project.proposal"):proposal>/hide',

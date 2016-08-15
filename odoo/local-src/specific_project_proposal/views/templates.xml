@@ -110,7 +110,14 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12 text-center mb16">
-                <h2>Project proposals</h2>
+                <h2>
+                  <t t-if="my">
+                    My Project proposals
+                  </t>
+                  <t t-if="not my">
+                    Project proposals
+                  </t>
+                </h2>
               </div>
               <div class="col-md-12">
                 <p>
@@ -130,12 +137,11 @@
             <div t-if="not proposals">
               <div class="text-center text-muted">
                 <h4 class="css_editable_display">No project proposal found</h4>
-                <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
-                <t groups="base.group_website_publisher">
-                  <t  groups="base.group_hr_manager">
-                    <p>Click on "Content" to define a new proposal offer or "Help" for more informations.</p>
-                    <img src="/website/static/src/img/content_here.png"/>
-                  </t>
+                <t t-if="not my">
+                  <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
+                </t>
+                <t t-if="my">
+                  <h4 class="css_editable_hidden">Go in <a href="/my">your account</a> to create your proposals.</h4>
                 </t>
               </div>
             </div>
@@ -152,7 +158,7 @@
                   </h3>
                   <t t-if="proposal.owner_id.id != uid">
                     <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
-                      t-attf-data-href="/proposals/proposal/#{ slug(proposal)}/hide"
+                      t-attf-data-href="#{base_url}/proposal/#{ slug(proposal)}/hide"
                       title="Don't show again this project proposal"/>
                   </t>
                   <span t-if="not proposal.website_published" class="label label-danger">not published</span>
@@ -160,7 +166,7 @@
                   <div>
                     <b>Industries:</b>
                     <t t-foreach="proposal.industry_ids" t-as="industry">
-                      <a t-attf-href="/proposals/industry/#{slug(industry)}">
+                      <a t-attf-href="#{base_url}/industry/#{slug(industry)}">
                         <span t-attf-class="label #{industry_tag and industry_tag.name == industry.name and 'label-primary' or 'label-default'}" t-field="industry.name"
                           style="margin-right: 4px;"/>
                       </a>
@@ -177,6 +183,7 @@
         </div>
       </div>
     </div>
+    <t t-call="website.pager"/>
   </t>
 </template>
 
