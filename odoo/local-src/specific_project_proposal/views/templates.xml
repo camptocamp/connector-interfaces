@@ -272,6 +272,11 @@
           </div>
         </div>
       </section>
+      <section>
+        <a class="btn btn-primary btn-show-proposal" t-attf-href="/market" title="Market">
+            Return to list
+        </a>
+      </section>
     </div>
   </t>
 </template>
