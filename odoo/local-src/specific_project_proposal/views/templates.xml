@@ -246,6 +246,15 @@
           <p t-field="proposal.website_description"/>
 
           <div>
+            <b>Country:</b>
+            <span t-field="proposal.country_id"/>
+          </div>
+          <div>
+            <b>Location:</b>
+            <span t-field="proposal.location"/>
+          </div>
+
+          <div>
             <b>Duration:</b>
             <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
           </div>
