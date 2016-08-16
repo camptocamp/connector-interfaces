@@ -67,8 +67,8 @@
             <div class="row o_website_portal_details text-center">
               <h1>Confirmation</h1>
               <p>Your command is being processed. You should receive a confirmation email soon.</p>
-              <button type="object" onclick="window.location.href='/my/market'">Market</button>
-              <button type="object" name="button_buy_membership" onclick="window.location.href='/my/account'">My Account</button>
+              <button type="object" onclick="window.location.href='/market'">Market</button>
+              <button type="object" name="button_buy_membership" onclick="window.location.href='/my/home'">My Account</button>
             </div>
           </div>
         </div>

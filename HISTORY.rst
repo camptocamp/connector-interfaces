@@ -20,8 +20,11 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+* Computation of membership status instead of onchange
+* Change button's links on confirmation window
 
 **Bugfixes**
+* Fix Invoice status open with workflow
 
 **Build**
 

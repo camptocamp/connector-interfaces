@@ -9,7 +9,8 @@ class ResPartner(models.Model):
 
     flux_membership = fields.Selection([
         ('free', 'Free Membership'),
-        ('asso', 'Associate Membership')], default='free', required=True)
+        ('asso', 'Associate Membership')], default='free',
+        compute='compute_flux_membership', required=True)
 
     @api.multi
     def create_membership_invoice(self, product_id=None, datas=None):
@@ -34,9 +35,8 @@ class ResPartner(models.Model):
         inv = super(ResPartner, self).create_membership_invoice(
             product_id=product,
             datas=datas)
-
         acc_inv_id = acc_inv_obj.browse(inv)
-        acc_inv_id.invoice_validate()
+        acc_inv_id.signal_workflow('invoice_open')
 
         self.flux_membership = 'asso'
         return inv
@@ -45,9 +45,13 @@ class ResPartner(models.Model):
     def button_buy_membership(self):
         self.create_membership_invoice()
 
-    @api.onchange('free_member')
-    def change_flux_membership(self):
-        self.flux_membership = 'free' if self.free_member else 'asso'
+    @api.one
+    @api.depends('membership_state')
+    def compute_flux_membership(self):
+        if (self.membership_state in ['paid', 'invoiced']):
+            self.flux_membership = 'asso'
+        else:
+            self.flux_membership = 'free'
 
     @api.model
     def check_membership_payment(self):
