@@ -20,9 +20,20 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+9.0.4 (2016-08-16)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * Computation of membership status instead of onchange
 * Change button's links on confirmation window
-
 * Proposal details:
     * Add country and location on proposal detail
     * Add button to return to list depending on the context
@@ -38,8 +49,8 @@ latest (unreleased)
 * Add pager on list pages /market and /my/proposals
 
 **Bugfixes**
-* Fix Invoice status open with workflow
 
+* Fix Invoice status open with workflow
 * Proposal details:
   * Fix display of company name
   * Fix location field which was not saved
@@ -47,14 +58,11 @@ latest (unreleased)
 * Remove duplicate Industries on proposal list
 * Give access to public on /market
 
-**Build**
-
-**Documentation**
-
 9.0.3 (2016-08-11)
 ++++++++++++++++++
 
 **Features and Improvements**
+
 * Hide button upgrade account if already advanced member
 
 **Bugfixes**
