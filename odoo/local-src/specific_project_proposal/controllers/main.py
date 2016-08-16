@@ -38,13 +38,28 @@ class WebsiteAccountProposal(WebsiteAccount):
 class WebsiteProposal(http.Controller):
     _proposal_per_page = 10
 
-    def proposal_index(self, domain, base_url, page=1,
+    def _get_domain(self, filters='all'):
+        domain = []
+        if filters == 'my':
+            domain = [('owner_id', '=', request.env.user.id)]
+        elif filters == 'matches':
+            domain = [('id', 'in', request.env.user.proposal_match_ids.ids)]
+        return domain
+
+    def proposal_index(self, filters='all', page=1,
                        expertise=None, industry=None, **kwargs):
         """ Generic index for proposals and own proposals
 
         """
         env = request.env
         Proposal = env['project.proposal']
+
+        domain = self._get_domain(filters)
+
+        if filters == 'all':
+            base_url = '/market'
+        elif filters == 'my':
+            base_url = '/my'
 
         if expertise:
             domain.append(('expertise_ids', 'in', expertise.id))
@@ -76,11 +91,11 @@ class WebsiteProposal(http.Controller):
         values = {
             'proposals': proposals,
             'base_url': base_url,
-            'my': base_url == '/my',
-            'detail_url': '/my' if base_url == '/my' else '',
+            'my': filters == 'my',
             'pager': pager,
             'expertise_tag': expertise,
-            'industry_tag': industry
+            'industry_tag': industry,
+            'filters': filters,
         }
         # Render page
         return request.website.render(
@@ -101,13 +116,8 @@ class WebsiteProposal(http.Controller):
     def proposals(self, **kwargs):
         if not request.session.uid:
             return {'error': 'anonymous_user'}
-        env = request.env
-        Proposal = env['project.proposal']
-
         # List of proposals available to current UID
-        domain = []
-
-        return self.proposal_index(domain, base_url='/market', **kwargs)
+        return self.proposal_index(filters='all', **kwargs)
 
     @http.route([
         '/my/proposals',
@@ -124,11 +134,8 @@ class WebsiteProposal(http.Controller):
     def my_proposals(self, **kwargs):
         if not request.session.uid:
             return {'error': 'anonymous_user'}
-        env = request.env
 
-        domain = [('owner_id', '=', env.user.id)]
-
-        return self.proposal_index(domain, base_url='/my', **kwargs)
+        return self.proposal_index(filters='my', **kwargs)
 
     @http.route(
         '/proposals/proposal/<model("project.proposal"):proposal>/hide',
@@ -170,14 +177,58 @@ class WebsiteProposal(http.Controller):
         proposal.unlink()
         return request.redirect('/my/home')
 
-    @http.route(['/proposals/detail/<model("project.proposal"):proposal>',
-                 '/my/proposals/detail/<model("project.proposal"):proposal>'],
+    @http.route('/proposals/detail/<model("project.proposal"):proposal>',
                 type='http', auth="public", website=True)
-    def proposals_detail(self, proposal, **kwargs):
+    def proposals_detail(self, proposal, filters='all', **kwargs):
+        if filters == 'match':
+            return_link = '/my'
+        elif filters == 'my':
+            return_link = '/my/proposals'
+        else:
+            return_link = '/market'
         return request.render("specific_project_proposal.proposal_detail", {
             'proposal': proposal,
             'main_object': proposal,
+            'filters': filters,
+            'return_link': return_link,
         })
+
+    @http.route(['/proposals/<model("project.proposal"):proposal>/previous'],
+                type='http', auth="public", website=True)
+    def proposal_previous(self, proposal, filters='all', **kwargs):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        domain = self._get_domain(filters)
+        Proposal = request.env['project.proposal']
+        proposals = Proposal.search(
+            domain, order='website_published DESC, start_date DESC',
+        )
+        index = proposals.ids.index(proposal.id)
+        previous_proposal = proposals[index - 1]
+        params = ''
+        if filters != 'all':
+            params = '?filters=%s' % filters
+        return request.redirect("/proposals/detail/%s%s"
+                                % (slug(previous_proposal), params))
+
+    @http.route(['/proposals/<model("project.proposal"):proposal>/next'],
+                type='http', auth="public", website=True)
+    def proposal_next(self, proposal, filters='all', **kwargs):
+        if not request.session.uid:
+            return {'error': 'anonymous_user'}
+        domain = self._get_domain(filters)
+        Proposal = request.env['project.proposal']
+        proposals = Proposal.search(
+            domain, order='website_published DESC, start_date DESC',
+        )
+        index = proposals.ids.index(proposal.id)
+        next_proposal = proposals[(index + 1) % len(proposals)]
+        params = ''
+        if filters != 'all':
+            params = '?filters=%s' % filters
+
+        return request.redirect("/proposals/detail/%s%s"
+                                % (slug(next_proposal), params))
 
     @http.route(['/my/proposals/edit/<model("project.proposal"):proposal>'],
                 type='http', auth="public", website=True)

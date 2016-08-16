@@ -27,7 +27,7 @@
       <t t-foreach="matches" t-as="proposal">
         <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
           <td>
-            <a t-attf-href="/proposals/detail/#{ slug(proposal) }">
+            <a t-attf-href="/proposals/detail/#{ slug(proposal) }?filters=match">
               <t t-if="proposal.is_new">
                 &lt;b&gt;NEW!
               </t>
@@ -44,7 +44,7 @@
             <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
           </td>
           <td>
-            <a t-attf-href="/proposals/detail/#{ slug(proposal) }" class="text-muted">
+            <a t-attf-href="/proposals/detail/#{ slug(proposal) }?filters=match" class="text-muted">
               Read More
             </a>
           </td>
@@ -147,18 +147,19 @@
             </div>
             <ul class="media-list" t-if="proposals">
               <li t-foreach="proposals" t-as="proposal" class="media">
+                <t t-set="detail_url" t-value="'/proposals/detail/%s%s' % (slug(proposal), '?filters=' + filters if filters else '')"/>
                 <div class="media-body proposal_item" t-att-data-publish="proposal.website_published and 'on' or 'off'">
                   <div class="text-muted">
                     <span t-field="proposal.create_date" t-field-options='{"format": "d MMMM y"}'/>
                   </div>
                   <h3 class="media-heading">
-                    <a t-attf-href="#{detail_url}/proposals/detail/#{ slug(proposal) }">
+                    <a t-attf-href="#{detail_url}">
                       <span t-field="proposal.name"/>
                     </a>
                   </h3>
                   <t t-if="proposal.owner_id.id != uid">
                     <a class="hide_proposal fa fa-eye-slash no-decoration pull-right"
-                      t-attf-data-href="#{base_url}/proposal/#{ slug(proposal)}/hide"
+                      t-attf-data-href="/proposals/proposal/#{ slug(proposal)}/hide"
                       title="Don't show again this project proposal"/>
                   </t>
                   <span t-if="not proposal.website_published" class="label label-danger">not published</span>
@@ -171,7 +172,7 @@
                           style="margin-right: 4px;"/>
                       </a>
                     </t>
-                    <a t-attf-href="#{detail_url}/proposals/detail/#{ slug(proposal) }">
+                    <a t-attf-href="#{detail_url}">
                       Read More <i class="fa fa-arrow-right"/>
                     </a>
                   </div>
@@ -197,7 +198,19 @@
         <div class="row">
           <div class="col-sm-7" id="proposal_menu">
             <ol class="breadcrumb mb0">
-              <li><a href="/proposals">Proposals </a></li>
+              <li>
+                <a t-attf-href="#{return_link}">
+                  <t t-if="filters == 'my'">
+                    My proposals
+                  </t>
+                  <t t-if="filters == 'match'">
+                    My account
+                  </t>
+                  <t t-if="filters not in ['my', 'match']">
+                    Proposals
+                  </t>
+                </a>
+              </li>
               <li class="active"><span t-field="proposal.name"></span></li>
             </ol>
           </div>
@@ -222,6 +235,12 @@
 
     <div class="oe_structure" style="clear:both;">
       <section class="content members-list opt_dark_bg">
+        <a class="btn btn-primary btn-show-proposal" t-att-href="'/proposals/%s/previous%s' % (slug(proposal), '?filters=' + filters if filters else '')" title="Previous Proposal">
+            Previous
+        </a>
+        <a class="btn btn-primary btn-show-proposal" t-att-href="'/proposals/%s/next%s' % (slug(proposal), '?filters=' + filters if filters else '')" title="Next Proposal">
+            Next
+        </a>
       </section>
       <section class="content members-list">
         <div class="content-wrap">
@@ -272,8 +291,13 @@
         </div>
       </section>
       <section>
-        <a class="btn btn-primary btn-show-proposal" t-attf-href="/market" title="Market">
-            Return to list
+        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{return_link}">
+          <t t-if="filters == 'match'">
+              Return to my account
+          </t>
+          <t t-if="filters != 'match'">
+              Return to list
+          </t>
         </a>
       </section>
     </div>
