@@ -17,8 +17,6 @@ class WebsiteAccountProposal(WebsiteAccount):
 
     @http.route(['/my', '/my/home'], type='http', auth="public", website=True)
     def account(self, **kw):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
         env = request.env
 
         Proposal = env['project.proposal']
@@ -114,8 +112,6 @@ class WebsiteProposal(http.Controller):
          '/page/<int:page>'),
         ], type='http', auth="public", website=True)
     def proposals(self, **kwargs):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
         # List of proposals available to current UID
         return self.proposal_index(filters='all', **kwargs)
 
@@ -130,11 +126,8 @@ class WebsiteProposal(http.Controller):
         '/my/proposals/industry/<model("res.partner.category"):industry>',
         ('/my/proposals/industry/<model("res.partner.category"):industry>'
          '/page/<int:page>'),
-        ], type='http', auth="public", website=True)
+        ], type='http', auth="user", website=True)
     def my_proposals(self, **kwargs):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
-
         return self.proposal_index(filters='my', **kwargs)
 
     @http.route(
@@ -158,10 +151,8 @@ class WebsiteProposal(http.Controller):
     @http.route(
         '/proposals/proposal/<model("project.proposal"):proposal>/'
         'delete_confirm',
-        type='http', auth="public", website=True)
+        type='http', auth="user", website=True)
     def delete_confirm(self, proposal, **kwargs):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
         return request.render(
             "specific_project_proposal.proposal_delete_confirm", {
                 'proposal': proposal,
@@ -170,10 +161,8 @@ class WebsiteProposal(http.Controller):
 
     @http.route(
         '/proposals/proposal/<model("project.proposal"):proposal>/delete',
-        type='http', auth="public", website=True)
+        type='http', auth="user", website=True)
     def delete(self, proposal, **kwargs):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
         proposal.unlink()
         return request.redirect('/my/home')
 
@@ -196,8 +185,6 @@ class WebsiteProposal(http.Controller):
     @http.route(['/proposals/<model("project.proposal"):proposal>/previous'],
                 type='http', auth="public", website=True)
     def proposal_previous(self, proposal, filters='all', **kwargs):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
         domain = self._get_domain(filters)
         Proposal = request.env['project.proposal']
         proposals = Proposal.search(
@@ -214,8 +201,6 @@ class WebsiteProposal(http.Controller):
     @http.route(['/proposals/<model("project.proposal"):proposal>/next'],
                 type='http', auth="public", website=True)
     def proposal_next(self, proposal, filters='all', **kwargs):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
         domain = self._get_domain(filters)
         Proposal = request.env['project.proposal']
         proposals = Proposal.search(
@@ -231,7 +216,7 @@ class WebsiteProposal(http.Controller):
                                 % (slug(next_proposal), params))
 
     @http.route(['/my/proposals/edit/<model("project.proposal"):proposal>'],
-                type='http', auth="public", website=True)
+                type='http', auth="user", website=True)
     def my_proposals_detail(self, proposal, redirect=None, **post):
         values = {
             'error': {},
