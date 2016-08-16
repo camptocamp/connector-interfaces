@@ -23,8 +23,29 @@ latest (unreleased)
 * Computation of membership status instead of onchange
 * Change button's links on confirmation window
 
+* Proposal details:
+    * Add country and location on proposal detail
+    * Add button to return to list depending on the context
+      * In all proposal, return to /market
+      * In my proposal, return to /my/proposals
+      * In matching proposal, return to /my
+    * Implement Publish button
+    * Implement Delete buttons adding a new page for confirmation
+    * Add start and end dates with check on start < stop
+    * Add previous and next buttons looping on elements on the previous list
+* Refactor list of matches computation and add tests
+* Make proposal titles in list clickable
+* Add pager on list pages /market and /my/proposals
+
 **Bugfixes**
 * Fix Invoice status open with workflow
+
+* Proposal details:
+  * Fix display of company name
+  * Fix location field which was not saved
+  * Fix addition of industry in industries field which weren't saved
+* Remove duplicate Industries on proposal list
+* Give access to public on /market
 
 **Build**
 
