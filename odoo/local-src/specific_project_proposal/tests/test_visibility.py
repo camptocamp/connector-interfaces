@@ -37,11 +37,11 @@ class TestVisibility(test_common.TransactionCase):
         super(TestVisibility, self).setUp()
         self.user1 = self.env['res.users'].create({
             'name': 'User1',
-            'login': 'usr1',
+            'login': 'user_test_visibility_1',
         })
         self.user2 = self.env['res.users'].create({
             'name': 'User2',
-            'login': 'usr2',
+            'login': 'user_test_visibility_2',
         })
 
         self.Proposal = self.env['project.proposal']
