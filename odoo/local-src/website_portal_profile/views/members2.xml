@@ -7,18 +7,29 @@
         <div id="wrap">
           <div class="oe_structure">
             <section class="content members-list opt_dark_bg">
-              <div class="container">
-                <div class="row">
+              <div class="container content-wrap">
+                <div class="content-icon">
+                    <img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+                </div>
+                <h2>Members</h2>
+                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                <t t-call="website.pager" />
+                <form action="" method="get" class="search-panel members-search-panel">
+                    <div class="filter-row row-1">
+                        <input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="post.get('search', '')" />
+                        <button type="submit" class="btn btn-default btn-primary mb32 ">Search</button>
+                    </div>
+                </form>
+                <div class="row hide">
                   <div class="col-md-12">
                     <h1 class="hide text-center">Our Members Directory</h1>
                     <h3 class="hide text-muted text-center">Find a business partner</h3>
-                    <h2>Members</h2>
                   </div>
                 </div>
               </div>
             </section>
           </div>
-          <div class="container">
+          <div class="container row-centered">
             <div class="row">
               <div class="hide col-md-3 mb32" id="left_column">
                 <ul class="nav nav-pills nav-stacked mt16">
@@ -38,17 +49,19 @@
                 </ul>
               </div>
               <div class="col-md-8" id="ref_content">
-                <div class='navbar'>
+                <div class='navbar hide'>
                   <t t-call="website.pager">
                     <t t-set="classname">pull-left</t>
                   </t>
-                  <form action="" method="get" class="search-query">
-                    <t t-call="website.website_search_box">
-                      <t t-set="search" t-value="post.get('search', '')" />
-                    </t>
+                  <form action="" method="get" class="search-query search-panel members-search-panel">
+                    <div class="filter-row row-1">
+                        <t t-call="website.website_search_box">
+                            <t t-set="search" t-value="post.get('search', '')" />
+                        </t>
+                    </div>
                   </form>
                 </div>
-                <div>
+                <div class="content members-list">
                   <t t-if="not memberships_partner_ids">
                     <p>No result found.</p>
                   </t>
@@ -59,10 +72,14 @@
                       </h3>
                       <t t-foreach="memberships_partner_ids[membership_data['id']]" t-as="partner_id">
                         <t t-set="partner" t-value="partners[partner_id]" />
-                        <div class="media">
-                          <a class="pull-left" t-attf-href="/members/#{slug(partner)}" t-field="partner.image_small" t-field-options='{"widget": "image", "class": "media-object"}'></a>
-                          <div class="media-body" style="min-height: 64px;">
-                            <a class="media-heading" t-attf-href="/members/#{slug(partner)}">
+                        <div class="media member-list-item">
+                            <a class="pull-left member-logo" 
+                                t-attf-href="/members/#{slug(partner)}" 
+                                t-field="partner.image_small" 
+                                t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'>
+                            </a>
+                          <div class="media-body member-details" style="min-height: 64px;">
+                            <a class="media-heading member-title" t-attf-href="/members/#{slug(partner)}">
                               <span t-field="partner.display_name" />
                             </a>
                             <!-- <div t&#45;field="partner.website_short_description"/> -->
