@@ -61,6 +61,10 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	.label{
 		color: @darkColor;
 	}
+
+	.breadcrumb {
+		display: none;
+	}
 	
 	.mybutton a{
 		display: inline-block;
@@ -360,6 +364,79 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	// MAIN
 	main{
 		padding-top: 80px;
+
+		// my/home
+		.o_my_documents h3 {
+			text-transform: uppercase;
+			text-align: center;
+			border-bottom: 1px solid @darkColor;
+		} 
+		.o_my_documents tr {
+			border-top: 2px solid white;
+		}
+		.o_my_documents th, td {
+			padding: 0px;
+		}
+		.o_my_documents td>span.label-danger {
+			display: none;
+		}
+		.o_my_documents .btn {
+			background-color: @darkColor;
+			color: white;
+		}
+
+
+		
+		// Proposal List and Detail
+		.proposal_item {
+			// background-color: red;
+			position: relative;
+			// border-bottom: 1px solid @darkColor;
+			padding-top: 30px;
+			padding-bottom: 20px;
+			&:first-of-type {
+				border-top: 1px solid @darkColor;
+			}
+			.media-heading {
+				font-weight: bold;
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			p {
+				padding-bottom: 20px;
+			}
+		}
+		.o_website_proposal {
+			.content-wrap {
+				border-bottom: 1px solid @darkColor;
+			}
+			.text-muted {
+				text-align: left;
+				padding-bottom: 20px;
+			}
+			address {
+				text-align: left;
+				padding-bottom: 10px;
+			}
+			h1 {
+				text-align: left;
+				font-weight: bold;
+			}
+			p {
+				text-align: left;
+				padding-bottom: 10px;
+			}
+			div {
+				text-align: left;
+				padding-bottom: 5px;
+			}
+			.btn {
+				background-color: @darkColor;
+				color: white;
+			}
+		}
+
+
 		
 		//Snippets
 		.animated-logo{
@@ -666,8 +743,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				}
 			}
 		}
-		
-		
+
+
 		
 		//Members List and Detail
 		section.content.member-detail-view{
