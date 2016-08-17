@@ -106,7 +106,7 @@
   <t t-call="website.layout">
     <div id="wrap">
       <div class="oe_structure">
-        <section class="mb16">
+        <section class="content members-list opt_dark_bg">
           <div class="container">
             <div class="row">
               <div class="col-md-12 text-center mb16">
@@ -115,16 +115,44 @@
                     My Project proposals
                   </t>
                   <t t-if="not my">
-                    Project proposals
+                    Market
                   </t>
                 </h2>
               </div>
-              <div class="col-md-12">
-                <p>
-                </p>
-              </div>
             </div>
           </div>
+          <form class="navbar-form" role="search" t-attf-action="#{url}" method="get">
+            <div class="input-group">
+              <div class="oe_search">
+                <input type="text" name="search_name" class="search-query form-control oe_search_box" placeholder="Search project..." t-att-value="search_name" />
+              </div>
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default oe_search_button"><i class="fa fa-search"/> Search</button>
+              </span>
+            </div>
+            <div>
+              <div class="oe_search">
+                <input name="search_industries" class="search-query form-control oe_search_box js_select2_categories" placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/>
+                <input name="search_expertises" class="search-query form-control oe_search_box js_select2_expertises" placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/>
+              </div>
+            </div>
+            <div>
+              <div class="oe_search">
+                <div class="styled-select">
+                  <select name="search_country" class="form-control">
+                    <option value="">Country...</option>
+                    <t t-foreach="countries or []" t-as="country">
+                      <option t-att-value="country.id"
+                        t-att-selected="country.id == selected_country_id">
+                        <t t-esc="country.name" />
+                      </option>
+                    </t>
+                  </select>
+                </div>
+                <input type="text" name="search_location" class="search-query form-control oe_search_box" placeholder="Location" t-att-value="search_location" />
+              </div>
+            </div>
+          </form>
         </section>
       </div>
 
@@ -147,13 +175,12 @@
             </div>
             <ul class="media-list" t-if="proposals">
               <li t-foreach="proposals" t-as="proposal" class="media">
-                <t t-set="detail_url" t-value="'/proposals/detail/%s%s' % (slug(proposal), '?filters=' + filters if filters else '')"/>
                 <div class="media-body proposal_item" t-att-data-publish="proposal.website_published and 'on' or 'off'">
                   <div class="text-muted">
                     <span t-field="proposal.create_date" t-field-options='{"format": "d MMMM y"}'/>
                   </div>
                   <h3 class="media-heading">
-                    <a t-attf-href="#{detail_url}">
+                    <a t-att-href="detail_url % slug(proposal)">
                       <span t-field="proposal.name"/>
                     </a>
                   </h3>
@@ -167,12 +194,10 @@
                   <div>
                     <b>Industries:</b>
                     <t t-foreach="proposal.industry_ids" t-as="industry">
-                      <a t-attf-href="#{base_url}/industry/#{slug(industry)}">
-                        <span t-attf-class="label #{industry_tag and industry_tag.name == industry.name and 'label-primary' or 'label-default'}" t-field="industry.name"
-                          style="margin-right: 4px;"/>
-                      </a>
+                      <span t-attf-class="label #{industry_ids and industry.id in industry_ids and 'label-primary' or 'label-default'}" t-field="industry.name"
+                        style="margin-right: 4px;"/>
                     </t>
-                    <a t-attf-href="#{detail_url}">
+                    <a t-att-href="detail_url % slug(proposal)">
                       Read More <i class="fa fa-arrow-right"/>
                     </a>
                   </div>
@@ -235,10 +260,10 @@
 
     <div class="oe_structure" style="clear:both;">
       <section class="content members-list opt_dark_bg">
-        <a class="btn btn-primary btn-show-proposal" t-att-href="'/proposals/%s/previous%s' % (slug(proposal), '?filters=' + filters if filters else '')" title="Previous Proposal">
+        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{previous_link}" title="Previous Proposal">
             Previous
         </a>
-        <a class="btn btn-primary btn-show-proposal" t-att-href="'/proposals/%s/next%s' % (slug(proposal), '?filters=' + filters if filters else '')" title="Next Proposal">
+        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{next_link}" title="Next Proposal">
             Next
         </a>
       </section>
