@@ -15,7 +15,7 @@
             <b t-esc="dict(partner.fields_get(allfields=['flux_membership'])['flux_membership']['selection'])[partner.flux_membership]"/>
         </p>
         <t t-if="partner.flux_membership == 'free'">
-            <button type="object" class="btn btn-default btn-primary mb32" name="button_buy_membership" onclick="window.location.href='/my/membership'">
+            <button type="object" class="btn btn-default btn-primary mb32 center-block" name="button_buy_membership" onclick="window.location.href='/my/membership'">
             Membership Upgrade
             </button>
         </t>
