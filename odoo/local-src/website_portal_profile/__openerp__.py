@@ -12,6 +12,7 @@
         'partner_project_expertise',
         'website',
         'website_portal',
+        'website_portal_sale',
         'website_partner',
         'website_membership',
     ],
