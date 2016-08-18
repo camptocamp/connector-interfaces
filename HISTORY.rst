@@ -24,6 +24,7 @@ latest (unreleased)
 **Bugfixes**
 
 * Fix search by country on proposal list
+* Fix previous, next buttons on proposals matches stick to proposal matches
 
 **Build**
 
