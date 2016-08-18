@@ -294,7 +294,7 @@
             <section class="content members-list opt_dark_bg">
               <div class="container content-wrap">
                 <div class="content-icon">
-                    <img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+                    <img src="/website_portal_profile/static/src/img/members-white.png"></img>
                 </div>
                 <h2>Members</h2>
                 <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
