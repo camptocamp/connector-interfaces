@@ -165,68 +165,72 @@
         <div id="partner_table" class="col-md-6">
             <h3 class="page-header">Member profil</h3>
             <t t-if="partner">
-                <table class="table table-hover o_my_status_table">
-                    <tr>
-                        <td>
-                            <div class="media">
-                                <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', None if product_image_big else '128x128')"/>
-                            </div>
-                        </td>
-                        <td><t t-esc="partner.name" /></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><t t-esc="partner.street" /></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><t t-esc="partner.zip"/> <t t-esc="partner.city"/></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><t t-esc="partner.country_id.name"/></td>
-                    </tr>
-                </table>
-                <table class="table table-hover o_my_status_table">
-                    <tr>
-                        <td>Phone:</td>
-                        <td><t t-esc="partner.phone" /></td>
-                    </tr>
-                    <tr>
-                        <td>Email:</td>
-                        <td><t t-esc="partner.email" /></td>
-                    </tr>
-                    <tr>
-                        <td>Website:</td>
-                        <td><t t-esc="partner.website"/></td>
-                    </tr>
-                    <tr>
-                        <td>Facebook:</td>
-                        <td><t t-esc="partner.facebook"/></td>
-                    </tr>
-                    <tr>
-                        <td>Twitter:</td>
-                        <td><t t-esc="partner.twitter"/></td>
-                    </tr>
-                    <tr>
-                        <td>Skype:</td>
-                        <td><t t-esc="partner.skype"/></td>
-                    </tr>
-                    <tr>
-                        <td>Claim:</td>
-                        <td><t t-esc="partner.website_short_description"/></td>
-                    </tr>
-                    <tr>
-                        <td>Industry:</td>
-                        <td></td>
-                        <!-- <td><t t&#45;esc="partner.expertise_ids"/></td> -->
-                    </tr>
-                    <tr>
-                        <td>Expertise:</td>
-                        <td></td>
-                        <!-- <td><t t&#45;esc="partner.expertise_ids"/></td> -->
-                    </tr>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-condensed picture-table">
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', None if product_image_big else '128x128')"/>
+                                </div>
+                            </td>
+                            <td><t t-esc="partner.name" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><t t-esc="partner.street" /></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><t t-esc="partner.zip"/> <t t-esc="partner.city"/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><t t-esc="partner.country_id.name"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-condensed member-profile-table">
+                        <tr>
+                            <td>Phone:</td>
+                            <td><t t-esc="partner.phone" /></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><t t-esc="partner.email" /></td>
+                        </tr>
+                        <tr>
+                            <td>Website:</td>
+                            <td><t t-esc="partner.website"/></td>
+                        </tr>
+                        <tr>
+                            <td>Facebook:</td>
+                            <td><t t-esc="partner.facebook"/></td>
+                        </tr>
+                        <tr>
+                            <td>Twitter:</td>
+                            <td><t t-esc="partner.twitter"/></td>
+                        </tr>
+                        <tr>
+                            <td>Skype:</td>
+                            <td><t t-esc="partner.skype"/></td>
+                        </tr>
+                        <tr>
+                            <td>Claim:</td>
+                            <td><t t-esc="partner.website_short_description"/></td>
+                        </tr>
+                        <tr>
+                            <td>Industry:</td>
+                            <td></td>
+                            <!-- <td><t t&#45;esc="partner.expertise_ids"/></td> -->
+                        </tr>
+                        <tr>
+                            <td>Expertise:</td>
+                            <td></td>
+                            <!-- <td><t t&#45;esc="partner.expertise_ids"/></td> -->
+                        </tr>
+                    </table>
+                </div>
             </t>
             <a class="btn btn-primary center-block" t-attf-href="/my/account" title="Edit profile">
                 Edit profile
@@ -329,7 +333,7 @@
                   </t>
                 </ul>
               </div>
-              <div class="col-md-8" id="ref_content">
+              <div class="col-md-12" id="ref_content">
                 <div class='navbar hide'>
                   <t t-call="website.pager">
                     <t t-set="classname">pull-left</t>
@@ -342,7 +346,7 @@
                     </div>
                   </form>
                 </div>
-                <div class="content members-list">
+                <div class="content members-list col-md-4 col-md-offset-4">
                   <t t-if="not memberships_partner_ids">
                     <p>No result found.</p>
                   </t>
