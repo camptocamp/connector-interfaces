@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="contact_name">Company name (*)
+                                        <label class="form-control-label col-sm-2" for="contact_name">Company name *
                                         </label>
                                         <input type="text" name="name" class="form-control"
                                             t-att-value="name or partner.name" />
@@ -54,25 +54,25 @@
                                         <input class="input-file profileChooser" id="fileInput" type="file" name="uimage" onchange="validateProfileImg();"/>
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('street2') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="street2">Street / No. (*)
+                                        <label class="form-control-label col-sm-2" for="street2">Street / No. *
                                         </label>
                                         <input type="text" name="street2" class="form-control"
                                             t-att-value="street2 or partner.street2" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('zip') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="zipcode">Zip / Postal (*)
+                                        <label class="form-control-label col-sm-2" for="zipcode">Zip / Postal *
                                             Code</label>
                                         <input type="text" name="zipcode" class="form-control"
                                             t-att-value="zipcode or partner.zip" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('city') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="city">City (*)</label>
+                                        <label class="form-control-label col-sm-2" for="city">City *</label>
                                         <input type="text" name="city" class="form-control"
                                             t-att-value="city or partner.city" />
                                     </div>
                                     <div
                                         t-attf-class="form-group row #{error.get('country_id') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="country_id">Country (*)
+                                        <label class="form-control-label col-sm-2" for="country_id">Country *
                                         </label>
                                         <div class="styled-select">
                                             <select name="country_id" class="form-control">
@@ -88,13 +88,13 @@
                                     </div>
 
                                     <div t-attf-class="form-group separate row #{error.get('phone') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="phone">Phone
+                                        <label class="form-control-label col-sm-2" for="phone">Phone *
                                         </label>
                                         <input type="tel" name="phone" class="form-control"
                                             t-att-value="phone or partner.phone" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('email') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="contact_name">Email (*)
+                                        <label class="form-control-label col-sm-2" for="contact_name">Email *
                                         </label>
                                         <input placeholder="name@domain.com" type="email" name="email" class="form-control"
                                             t-att-value="email or partner.email" />
@@ -154,29 +154,13 @@
                                             t-att-value="vat or partner.vat" />
                                     </div>
                                     <div class="clearfix" />
-                                    <!-- <div t&#45;attf&#45;class="form&#45;group #{error.get('state_id') and 'has&#45;error' or ''} "> -->
-                                    <!-- 	<label class="control&#45;label label&#45;optional" for="state_id">State / -->
-                                    <!-- 		Province</label> -->
-                                    <!-- 	<select name="state_id" class="form&#45;control"> -->
-                                    <!-- 		<option value="">select...</option> -->
-                                    <!-- 		<t t&#45;foreach="states or []" t&#45;as="state"> -->
-                                    <!-- 			<option t&#45;att&#45;value="state.id" style="display:none;" -->
-                                    <!-- 				t&#45;att&#45;data&#45;country_id="state.country_id.id" t&#45;att&#45;selected="state.id == partner.state_id.id"> -->
-                                    <!-- 				<t t&#45;esc="state.name" /> -->
-                                    <!-- 			</option> -->
-                                    <!-- 		</t> -->
-                                    <!-- 	</select> -->
-                                    <!-- </div> -->
                                     <input type="hidden" name="redirect" t-att-value="redirect" />
                                 </div>
                                 <div class="clearfix" />
                                 <div class="oe_login_buttons">
                                     <div class="button-wrap">
                                         <button type="submit" class="btn btn-default btn-primary mb32 ">Confirm</button>
-                                        <!-- <a t&#45;attf&#45;href="/my/projects/new" class="btn btn&#45;primary 
-                                            pull&#45;right mb32">Next</a> -->
                                     </div>
-                                    <a class="btn btn-primary" t-attf-href="/shop">Buy extended membership</a>
                                 </div>
                             </div>
                         </div>
