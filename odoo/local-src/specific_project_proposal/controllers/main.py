@@ -44,7 +44,7 @@ class WebsiteProposal(http.Controller):
         industry_ids = None
         if filters == 'my':
             domain = [('owner_id', '=', request.env.user.id)]
-        elif filters == 'matches':
+        elif filters == 'match':
             domain = [('id', 'in', request.env.user.proposal_match_ids.ids)]
         if search_name:
             domain.append(('name', 'ilike', search_name))
@@ -66,8 +66,8 @@ class WebsiteProposal(http.Controller):
             'search_country', 'search_location']
         url_args = {k: v for (k, v) in kwargs.iteritems()
                     if k in search_fields and v}
-        if filters == 'my':
-            url_args['filters'] = "my"
+        if filters != 'all':
+            url_args['filters'] = filters
         return url_args
 
     def _url_with_args(self, url, filters, **kwargs):
