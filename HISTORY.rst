@@ -23,6 +23,8 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Fix search by country on proposal list
+
 **Build**
 
 **Documentation**
