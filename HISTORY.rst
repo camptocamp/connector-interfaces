@@ -27,7 +27,7 @@ latest (unreleased)
 
 **Documentation**
 
-9.0.4 (2016-08-16)
+9.0.4 (2016-08-18)
 ++++++++++++++++++
 
 **Features and Improvements**
@@ -47,6 +47,8 @@ latest (unreleased)
 * Refactor list of matches computation and add tests
 * Make proposal titles in list clickable
 * Add pager on list pages /market and /my/proposals
+* Implemantation of search on proposals by name, expertise, industry, country and location.
+* Multiple layout improvements
 
 **Bugfixes**
 
