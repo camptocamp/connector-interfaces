@@ -54,8 +54,8 @@ class WebsiteProposal(http.Controller):
         if search_expertises:
             expertise_ids = search_expertises.split(',')
             domain.append(('expertise_ids', 'in', expertise_ids))
-        if search_country:
-            domain.append(('country_id', '=', search_country))
+        if search_country and search_country.isdigit():
+            domain.append(('country_id', '=', int(search_country)))
         if search_location:
             domain.append(('location', 'ilike', search_location))
         return domain
@@ -124,7 +124,7 @@ class WebsiteProposal(http.Controller):
             expertises = json.dumps(expertises)
         countries = request.env['res.country'].sudo().search([])
         selected_country_id = kwargs.get('search_country')
-        if selected_country_id:
+        if selected_country_id and selected_country_id.isdigit():
             selected_country_id = int(selected_country_id)
         values = {
             'proposals': proposals,
