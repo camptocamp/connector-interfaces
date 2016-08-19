@@ -10,7 +10,7 @@ class res_partner(osv.osv):
     _inherit = 'res.partner'
     _columns = {
         'expertise_ids': fields.many2many(
-            'partner_project_expertise.expertise',
+            'expertise',
             'res_partner_rel',
             'partner_id',
             'partner_project_expertise_id',
