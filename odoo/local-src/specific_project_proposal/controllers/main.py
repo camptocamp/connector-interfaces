@@ -87,7 +87,7 @@ class WebsiteProposal(http.Controller):
         domain = self._get_domain(filters, **kwargs)
         proposal_count = Proposal.search_count(domain)
 
-        sorting = 'website_published DESC, start_date DESC'
+        sorting = 'website_published DESC, create_date DESC'
 
         if filters == 'all':
             url = '/market'
