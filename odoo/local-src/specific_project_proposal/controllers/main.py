@@ -25,7 +25,7 @@ class WebsiteAccountProposal(WebsiteAccount):
         response = super(WebsiteAccountProposal, self).account(**kw)
         proposal_overview = Proposal.search(
             [('owner_id', '=', request.uid)],
-            order='website_published DESC, start_date DESC',
+            order='website_published DESC, create_date DESC',
         )
         response.qcontext.update({
             'matches': env.user.proposal_match_ids,
@@ -222,7 +222,7 @@ class WebsiteProposal(http.Controller):
         domain = self._get_domain(filters, **kwargs)
         Proposal = request.env['project.proposal']
         proposals = Proposal.search(
-            domain, order='website_published DESC, start_date DESC',
+            domain, order='website_published DESC, create_date DESC',
         )
         index = proposals.ids.index(proposal.id)
         previous_proposal = proposals[index - 1]
@@ -235,7 +235,7 @@ class WebsiteProposal(http.Controller):
         domain = self._get_domain(filters, **kwargs)
         Proposal = request.env['project.proposal']
         proposals = Proposal.search(
-            domain, order='website_published DESC, start_date DESC',
+            domain, order='website_published DESC, create_date DESC',
         )
         index = proposals.ids.index(proposal.id)
         next_proposal = proposals[(index + 1) % len(proposals)]
