@@ -112,7 +112,10 @@
       <div class="oe_structure">
         <section class="content members-list opt_dark_bg">
           <div class="container">
-            <div class="row">
+            <div class="row content-wrap">
+                <div class="content-icon">
+                    <img src="/specific_project_proposal/static/src/img/market.png"></img>
+                </div>
               <div class="col-md-12 text-center mb16">
                 <h2>
                   <t t-if="my">
