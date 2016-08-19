@@ -305,7 +305,8 @@ class WebsiteProposal(http.Controller):
         error = dict()
         error_message = []
 
-        mandatory_fields = ['name', 'website_short_description',
+        mandatory_fields = [
+            'name', 'website_short_description',
             'website_description', 'post_industries', 'post_expertises']
         optional_fields = [
             'location', 'country_id',
