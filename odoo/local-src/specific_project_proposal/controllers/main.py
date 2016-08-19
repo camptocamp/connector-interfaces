@@ -305,11 +305,11 @@ class WebsiteProposal(http.Controller):
         error = dict()
         error_message = []
 
-        mandatory_fields = ['name']
+        mandatory_fields = ['name', 'website_short_description',
+            'website_description', 'post_industries', 'post_expertises']
         optional_fields = [
-            'location', 'country_id', 'website_short_description',
-            'website_description', 'start_date', 'stop_date',
-            'post_industries', 'post_expertises']
+            'location', 'country_id',
+            'start_date', 'stop_date']
 
         # Validation
         for field_name in mandatory_fields:
