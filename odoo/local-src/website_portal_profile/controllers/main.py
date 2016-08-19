@@ -110,7 +110,7 @@ class website_account(website_account):
         methods=['GET'],
         website=True)
     def expertise_read(self, q='', l=25, **post):
-        data = request.env['partner_project_expertise.expertise'].search_read(
+        data = request.env['expertise'].search_read(
             domain=[('name', '=ilike', (q or '') + "%")],
             fields=['id', 'name'],
             limit=int(l),
