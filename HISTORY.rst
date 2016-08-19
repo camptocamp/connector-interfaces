@@ -6,7 +6,7 @@
 .. ++++++++++++++++++
 
 .. **Features and Improvements**
-
+* Project proposal change order date to create_date
 .. **Bugfixes**
 
 .. **Build**
