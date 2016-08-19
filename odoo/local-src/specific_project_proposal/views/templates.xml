@@ -112,7 +112,7 @@
       <div class="oe_structure">
         <section class="content members-list opt_dark_bg">
           <div class="container">
-            <div class="row content-wrap">
+           <div class="row content-wrap">
                 <div class="content-icon">
                     <img src="/specific_project_proposal/static/src/img/market.png"></img>
                 </div>
