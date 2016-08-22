@@ -108,7 +108,7 @@ class WebsiteProposal(http.Controller):
             order=sorting
         )
         Industry = request.env['res.partner.category']
-        Expertise = request.env['partner_project_expertise.expertise']
+        Expertise = request.env['expertise']
         industries = None
         industry_ids = None
         expertises = None
