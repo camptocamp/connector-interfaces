@@ -11,7 +11,7 @@
                     	<a href="/" class="navbar-brand">
 							<!-- Needed for other modules to put their stuff in it -->
                     	</a>
-                    	
+
                     	<a href="/" class="fluxdock-header-logo">
 				        	<div class="fluxdock-logo"></div>
 				        	<div class="fluxdock-title"></div>
@@ -24,7 +24,7 @@
                             </li>
                             <!-- Needed for other modules to put their stuff in it -->
                         </ul>
-		            	
+
                         <ul class="main-menu">
 		                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
 		                		<t t-call="website.submenu"/>
@@ -53,7 +53,7 @@
 						<!-- Anonymous -->
 		                <ul class="service-menu" t-ignore="true" t-if="not website.user_id != user_id">
 							<li>
-		                    	<a href="/web/login?redirect=/">Login</a>
+		                    	<a href="/web/login?redirect=/my/home">Login</a>
 		                    </li>
 		                    <li>
 		                    	<a href="/web/presignup">Sign Up</a>
@@ -72,12 +72,12 @@
 			</xpath>
 
 		</template>
-		
-		
-		
+
+
+
 		<!-- Add mobile menu -->
 		<template id="mobile-menu" inherit_id="website.layout" name="Fluxdock Mobile Menu">
-			
+
 			<!-- ADD ID -->
 			<xpath expr="//div[@id='wrapwrap']" position="before">
 				<nav class="mobile-menu">
@@ -87,8 +87,8 @@
 	                	</t>
 	            	</ul>
 
-           	
-           	
+
+
 					<!-- Logged in -->
 	                <ul class="service-menu" t-ignore="true" t-if="website.user_id != user_id">
 	                    <li id="o_logout">
@@ -98,42 +98,42 @@
 	                    	</a>
 	                    </li>
 	                </ul>
-               
+
 					<!-- Anonymous -->
 	                <ul class="service-menu" t-ignore="true" t-if="not website.user_id != user_id">
 						<li>
-	                    	<a href="/web/login?redirect=/">Login</a>
+	                    	<a href="/web/login?redirect=/my/home">Login</a>
 	                    </li>
 	                    <li>
 	                    	<a href="/web/presignup">Sign Up</a>
 	                    </li>
 	            	</ul>
-	            	
-	            	
+
+
 		            <t t-call="website.language_selector"/>
-	                
+
 	                <div class="social-media">
 	                	<a class="facebook" href="https://www.facebook.com/fluxdock/" target="_blank"></a>
 	                	<a class="twitter" href="https://twitter.com/fluxdock" target="_blank"></a>
 	                	<a class="mail" href="mailto:info@fluxdock.io"></a>
 	                </div>
-	                
+
 				</nav>
 			</xpath>
-			
+
 		</template>
-		
-		
+
+
 		<!-- Customize footer -->
 		<template id="fluxdock_footer" inherit_id="website.layout" name="Fluxdock Footer">
-			
+
 			<!-- ADD ID -->
 			<xpath expr="//div[@id='wrapwrap']/footer" position="attributes">
 				<attribute name="id">my_footer</attribute>
 			</xpath>
-			
+
 		</template>
-		
+
 		<template id="website.layout_footer_copyright" inherit_id="website.layout" name="Footer Copyright">
 
 		    <xpath expr="//footer" position="inside">
@@ -143,7 +143,7 @@
 					    	<img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"></img>
 				    	</a>
 			    	</div>
-				
+
 					<div class="footer-links clearfix">
 						<div class="footer-col">
 							<h4>Subtitle</h4>
@@ -187,7 +187,7 @@
 		    	</div>
 		    </xpath>
 		</template>
-		
+
 		<!-- <template id="website.footer_custom" inherit_id="website.layout" name="Footer"> -->
                 <!--  -->
 		<!-- 	<xpath expr="//div[@id='footer']" position="replace"> -->
@@ -195,11 +195,11 @@
 		<!-- 		</div> -->
 		<!-- 	</xpath> -->
 		<!-- </template> -->
-		
+
 		<!-- Customize News List -->
 		<template id="fluxdock_news_list" inherit_id="website_blog.blog_post_short" name="Fluxdock News List">
-			
-			
+
+
 			<xpath expr="//div[@id='main_column']" position="replace">
 				<div t-ignore="True" id="main_column">
 
@@ -220,9 +220,9 @@
                     <div class="text-muted">
                         <h4 t-field="blog_post.subtitle" class="blog-subtitle"></h4>
                         <div name='blog_post_data' class='mb0'>
-                        	
+
                         	<!-- Filled by other template -->
-                        	
+
                         	<span t-if="not blog_post.website_published" class="label label-danger">not published</span>
                         </div>
                     </div>
@@ -232,9 +232,9 @@
                 </div>
               </div>
 			</xpath>
-			
+
 		</template>
-		
-		
+
+
 	</data>
 </openerp>
