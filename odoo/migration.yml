@@ -19,12 +19,9 @@ migration:
           - website_fluxdock_signup
           - website_portal_profile
           - website_portal_project
-  versions:
     - version: 9.0.2
       # nothing to do, all has been installed in 9.0.1
-  versions:
     - version: 9.0.3
       # nothing to do, all has been installed in 9.0.1
-  versions:
     - version: 9.0.4
       # nothing to do, all has been installed in 9.0.1
