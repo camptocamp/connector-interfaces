@@ -364,14 +364,14 @@
                   t-att-value="name or proposal.name" />
               </div>
               <div t-attf-class="form-group row #{error.get('location') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="location">Location (*)
+                <label class="form-control-label col-sm-2" for="location">Location
                 </label>
                 <input type="text" name="location" class="form-control"
                   t-att-value="location or proposal.location" />
               </div>
               <div
                 t-attf-class="form-group row #{error.get('country_id') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="country_id">Country (*)
+                <label class="form-control-label col-sm-2" for="country_id">Country
                 </label>
                 <div class="styled-select">
                   <select name="country_id" class="form-control">
@@ -389,13 +389,13 @@
               <div
                 t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">
                 <label class="form-control-label label-optional col-sm-2"
-                  for="website_short_description">Teaser text</label>
+                  for="website_short_description">Teaser text (*)</label>
                 <textarea placeholder="200 characters left" name="website_short_description" class="form-control"><t t-esc="proposal.website_short_description"/></textarea>
               </div>
               <div
                 t-attf-class="form-group separate row #{error.get('website_description') and 'has-error' or ''} ">
                 <label class="form-control-label label-optional col-sm-2"
-                  for="website_description">Description</label>
+                  for="website_description">Description (*)</label>
                 <textarea name="website_description" class="form-control"><t t-esc="proposal.website_description"/></textarea>
               </div>
 
@@ -420,13 +420,13 @@
 
               <div
                 t-attf-class="form-group row #{error.get('industry_ids') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="industry_ids">Industry
+                <label class="form-control-label col-sm-2" for="industry_ids">Industry (*)
                 </label>
                 <input name="post_industries" placeholder="Industry" class="form-control js_select2_categories" t-attf-data-init-value="#{industries}" value="Industry" />
               </div>
               <div
                 t-attf-class="form-group row #{error.get('expertise_ids') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="expertise_ids">Expertise
+                <label class="form-control-label col-sm-2" for="expertise_ids">Expertise (*)
                 </label>
                 <input name="post_expertises" placeholder="Expertise" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertises}" value="Expertise" />
               </div>
