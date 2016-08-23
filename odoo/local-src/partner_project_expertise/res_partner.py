@@ -8,12 +8,13 @@ from openerp.osv import fields, osv
 
 class res_partner(osv.osv):
     _inherit = 'res.partner'
+
     _columns = {
         'expertise_ids': fields.many2many(
             'expertise',
             'res_partner_rel',
             'partner_id',
-            'partner_project_expertise_id',
+            'expertise_id',
             'Expertise', help='Expertise'),
     }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

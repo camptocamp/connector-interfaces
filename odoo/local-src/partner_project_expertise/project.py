@@ -11,7 +11,7 @@ class project(models.Model):
 
     expertise_ids = fields.Many2many(
         'expertise',
-        'partner_project_expertise_expertise_ids_rel',
+        'project_project_ids_rel',
         'project_id',
         'partner_project_expertise_id',
         string='Expertise')
