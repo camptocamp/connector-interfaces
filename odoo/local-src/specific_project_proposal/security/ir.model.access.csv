@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_project_proposal_all,project.proposal all,model_project_proposal,,1,0,0,0
+access_project_proposal_portal,project.proposal portal,model_project_proposal,base.group_portal,1,1,1,1
 access_project_proposal_user,project.proposal user,model_project_proposal,base.group_user,1,1,1,1
