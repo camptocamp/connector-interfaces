@@ -177,7 +177,7 @@
                         </tr>
                         <tr>
                             <td></td>
-                            <td><t t-esc="partner.street" /></td>
+                            <td><t t-esc="partner.street2" /></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -221,13 +221,19 @@
                         </tr>
                         <tr>
                             <td>Industry:</td>
-                            <!-- <td></td> -->
-                            <td><t t-esc="partner.categories"/></td>
+                            <td>
+                                <t t-foreach="partner.category_id" t-as="one_tag">
+                                  <t t-esc="one_tag.name" />
+                                </t>
+                            </td>
                         </tr>
                         <tr>
                             <td>Expertise:</td>
-                            <!-- <td></td> -->
-                            <td><t t-esc="partner.expertise_ids"/></td>
+                            <td>
+                                <t t-foreach="partner.expertise_ids" t-as="one_tag">
+                                  <t t-esc="one_tag.name" />
+                                </t>
+                            </td>
                         </tr>
                     </table>
                 </div>

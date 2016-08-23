@@ -16,7 +16,7 @@ class website_account(website_account):
         if redirect:
             redirect = redirect
         else:
-            redirect = ('/my/profile_success')
+            redirect = ('/my/home')
         response = super(website_account, self).details(redirect, **post)
 
         categories = [
