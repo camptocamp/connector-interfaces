@@ -221,13 +221,13 @@
                         </tr>
                         <tr>
                             <td>Industry:</td>
-                            <td></td>
-                            <!-- <td><t t&#45;esc="partner.expertise_ids"/></td> -->
+                            <!-- <td></td> -->
+                            <td><t t-esc="partner.categories"/></td>
                         </tr>
                         <tr>
                             <td>Expertise:</td>
-                            <td></td>
-                            <!-- <td><t t&#45;esc="partner.expertise_ids"/></td> -->
+                            <!-- <td></td> -->
+                            <td><t t-esc="partner.expertise_ids"/></td>
                         </tr>
                     </table>
                 </div>
