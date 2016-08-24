@@ -8,7 +8,7 @@ from openerp import models, fields
 
 class PartnerProjectExpertise(models.Model):
 
-    _name = 'expertise'
+    _name = 'partner.project.expertise'
     _description = 'Partner and project expertise'
 
     name = fields.Char('Name', required=True, translate=True)

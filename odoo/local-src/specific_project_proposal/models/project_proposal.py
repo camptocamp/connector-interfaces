@@ -41,7 +41,7 @@ class ProjectProposal(models.Model):
         string="Industries",
     )
     expertise_ids = fields.Many2many(
-        comodel_name="expertise",
+        comodel_name="partner.project.expertise",
         string="Expertises",
     )
 

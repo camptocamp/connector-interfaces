@@ -53,7 +53,7 @@ class TestMatches(test_common.TransactionCase):
         self.cat1 = self.env.ref('base.res_partner_category_4')
         self.cat2 = self.env.ref('base.res_partner_category_5')
         self.cat3 = self.env.ref('base.res_partner_category_6')
-        Expertise = self.env['expertise']
+        Expertise = self.env['partner.project.expertise']
         self.exp1 = Expertise.create({'name': 'Origami'})
         self.exp2 = Expertise.create({'name': 'Dart throwing'})
         self.exp3 = Expertise.create({'name': 'Caps stacking up'})

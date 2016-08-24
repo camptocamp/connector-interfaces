@@ -10,7 +10,7 @@ class project(models.Model):
     _inherit = 'project.project'
 
     expertise_ids = fields.Many2many(
-        'expertise',
+        'partner.project.expertise',
         'project_project_ids_rel',
         'project_id',
         'partner_project_expertise_id',
