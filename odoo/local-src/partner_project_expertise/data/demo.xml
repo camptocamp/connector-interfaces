@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
 	<data noupdate="1">
-		<record id="expertise_demo" model="expertise">
+		<record id="expertise_demo" model="partner.project.expertise">
 			<field name="name">Construction</field>
 		</record>
 
-		<record id="expertise_web" model="expertise">
+		<record id="expertise_web" model="partner.project.expertise">
 		    <field name="name">Web Design</field>
 		</record>
 		
-		<record id="expertise_project" model="expertise">
+		<record id="expertise_project" model="partner.project.expertise">
 		    <field name="name">Project Management</field>
 		</record>
 	</data>

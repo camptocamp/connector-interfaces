@@ -5,7 +5,7 @@
         <!-- SEARCH VIEW -->
         <record id="view_partner_project_expertise_expertise_filter" model="ir.ui.view">
             <field name="name">partner_project_expertise.expertise.select</field>
-            <field name="model">expertise</field>
+            <field name="model">partner.project.expertise</field>
             <field name="arch" type="xml">
                 <search string="Expertise">
                     <field name="name" string="Name"/>
@@ -16,7 +16,7 @@
         <!-- FORMVIEW -->
         <record id="view_partner_project_expertise_expertise_form" model="ir.ui.view">
             <field name="name">partner_project_expertise.expertise.form</field>
-            <field name="model">expertise</field>
+            <field name="model">partner.project.expertise</field>
             <field name="arch" type="xml">
                 <form string="expertise">
                     <header>
@@ -34,7 +34,7 @@
 
         <record id="view_partner_project_expertise_expertise_tree" model="ir.ui.view">
             <field name="name">partner_project_expertise.expertise.tree</field>
-            <field name="model">expertise</field>
+            <field name="model">partner.project.expertise</field>
             <field name="arch" type="xml">
                 <tree string="Expertise">
                     <field name="name"/>
@@ -44,7 +44,7 @@
 
         <record id="action_partner_project_expertise_expertise" model="ir.actions.act_window">
             <field name="name">Partner Project Expertise</field>
-            <field name="res_model">expertise</field>
+            <field name="res_model">partner.project.expertise</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_partner_project_expertise_expertise_tree"/>
@@ -62,7 +62,7 @@
 
         <record id="action_partner_project_expertise_expertise_partner" model="ir.actions.act_window">
             <field name="name">Partner Project Expertise Sale</field>
-            <field name="res_model">expertise</field>
+            <field name="res_model">partner.project.expertise</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="view_partner_project_expertise_expertise_tree"/>
