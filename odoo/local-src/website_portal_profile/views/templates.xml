@@ -50,7 +50,6 @@
                                     <div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
 
                                         <div class="media">
-                                            <!-- <input class="input&#45;file profileChooser" id="fileInput" type="file" name="uimage" onchange="validateProfileImg();"/> -->
                                             <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', None if product_image_big else '256x256')"/>
                                             <div class="imgupload">
                                                 <div class="file-tab">
@@ -59,7 +58,6 @@
                                                             <span>Browse</span>
                                                             <input type="file" name="uimage"></input>
                                                         </label>
-                                                        <!-- <button type="button" class="btn btn&#45;default">Remove</button> -->
                                                     </div>
                                                 </div>
                                             </div>
