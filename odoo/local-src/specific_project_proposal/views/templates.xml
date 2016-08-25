@@ -410,19 +410,16 @@
                 </div>
               </div>
 
-              <div
-                t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">
-                <label class="form-control-label label-optional col-sm-2"
-                  for="website_short_description">Teaser text (*)</label>
-                <textarea placeholder="200 characters left" name="website_short_description" class="form-control"><t t-esc="proposal.website_short_description"/></textarea>
+              <div t-attf-class="form-group row #{error.get('location') and 'has-error' or ''} ">
+                <label class="form-control-label col-sm-2" for="website_short_description">Teaser text (*)
+                </label>
+                <textarea type="text" name="website_short_description" class="form-control"><t t-esc="website_short_description or proposal.website_short_description"/></textarea>
               </div>
-              <div
-                t-attf-class="form-group separate row #{error.get('website_description') and 'has-error' or ''} ">
-                <label class="form-control-label label-optional col-sm-2"
-                  for="website_description">Description (*)</label>
-                <textarea name="website_description" class="form-control"><t t-esc="proposal.website_description"/></textarea>
+              <div t-attf-class="form-group row #{error.get('location') and 'has-error' or ''} ">
+                <label class="form-control-label col-sm-2" for="website_description">website description (*)
+                </label>
+                <textarea type="text" name="website_description" class="form-control"><t t-esc="website_description or proposal.website_description"/></textarea>
               </div>
-
               <div
                 t-attf-class="form-group input-group date #{error.get('start_date') and 'has-error' or ''}">
                 <label class="form-control-label label-optional col-sm-2"
