@@ -1,0 +1,26 @@
+{
+    "name": "egonolieux/bootstrap-imgupload",
+    "description": "Bootstrap/jQuery image uploader.",
+    "keywords": [
+        "bootstrap",
+        "jquery",
+        "plugin",
+        "upload",
+        "image",
+        "thumbnail",
+        "preview",
+        "file",
+        "url"
+    ],
+    "homepage": "https://github.com/egonolieux/bootstrap-imgupload",
+    "authors": [
+        {
+            "name": "Egon Olieux",
+            "email": "egon.olieux@outlook.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/egonolieux/bootstrap-imgupload/issues"
+    },
+    "license": "MIT"
+}

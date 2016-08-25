@@ -8,6 +8,10 @@
 			<script type="text/javascript" src="/website_portal_profile/static/src/js/website_portal_profile.js"></script>
 			<script type="text/javascript" src="/website_portal_profile/static/src/js/widgets.js"></script>
 			<script type="text/javascript" src="/website_portal_profile/static/src/js/image_upload.js"></script>
+
+            <script type="text/javascript" src="/website_portal_profile/static/lib/bootstrap-imgupload/js/bootstrap-imgupload.js"></script>
+
+            <link rel="stylesheet" href="/website_portal_profile/static/lib/bootstrap-imgupload/css/bootstrap-imgupload.css"/>
 		</xpath>
 	</template>
 
@@ -44,35 +48,59 @@
                                         </div>
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="contact_name">Company name *
+
+                                        <div class="media">
+                                            <!-- <input class="input&#45;file profileChooser" id="fileInput" type="file" name="uimage" onchange="validateProfileImg();"/> -->
+                                            <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', None if product_image_big else '256x256')"/>
+                                            <div class="imgupload">
+                                                <div class="file-tab">
+                                                    <div>
+                                                        <label class="btn bnt-default btn-file">
+                                                            <span>Browse</span>
+                                                            <input type="file" name="uimage"></input>
+                                                        </label>
+                                                        <!-- <button type="button" class="btn btn&#45;default">Remove</button> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <label class="form-control-label col-sm-2" for="contact_name">Company name*
+
                                         </label>
                                         <input type="text" name="name" class="form-control"
                                             t-att-value="name or partner.name" />
                                     </div>
-                                    <div class="media">
-                                        <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', None if product_image_big else '256x256')"/>
-                                        <input class="input-file profileChooser" id="fileInput" type="file" name="uimage" onchange="validateProfileImg();"/>
-                                    </div>
+
+
                                     <div t-attf-class="form-group row #{error.get('street2') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="street2">Street / No. *
+
+                                        <label class="form-control-label col-sm-2" for="street2">Street / No.*
+
                                         </label>
                                         <input type="text" name="street2" class="form-control"
                                             t-att-value="street2 or partner.street2" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('zip') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="zipcode">Zip / Postal *
-                                            Code</label>
+
+                                        <label class="form-control-label col-sm-2" for="zipcode">Zip / Postal
+                                            Code*</label>
+
                                         <input type="text" name="zipcode" class="form-control"
                                             t-att-value="zipcode or partner.zip" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('city') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="city">City *</label>
+
+                                        <label class="form-control-label col-sm-2" for="city">City*</label>
+
                                         <input type="text" name="city" class="form-control"
                                             t-att-value="city or partner.city" />
                                     </div>
                                     <div
                                         t-attf-class="form-group row #{error.get('country_id') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="country_id">Country *
+
+                                        <label class="form-control-label col-sm-2" for="country_id">Country*
+
                                         </label>
                                         <div class="styled-select">
                                             <select name="country_id" class="form-control">
@@ -88,13 +116,17 @@
                                     </div>
 
                                     <div t-attf-class="form-group separate row #{error.get('phone') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="phone">Phone *
+
+                                        <label class="form-control-label col-sm-2" for="phone">Phone*
+
                                         </label>
                                         <input type="tel" name="phone" class="form-control"
                                             t-att-value="phone or partner.phone" />
                                     </div>
                                     <div t-attf-class="form-group row #{error.get('email') and 'has-error' or ''} ">
-                                        <label class="form-control-label col-sm-2" for="contact_name">Email *
+
+                                        <label class="form-control-label col-sm-2" for="contact_name">Email*
+
                                         </label>
                                         <input placeholder="name@domain.com" type="email" name="email" class="form-control"
                                             t-att-value="email or partner.email" />
@@ -155,6 +187,7 @@
                                     </div>
                                     <div class="clearfix" />
                                     <input type="hidden" name="redirect" t-att-value="redirect" />
+                                    <div class="form-group"><p>* Required fields</p></div>
                                 </div>
                                 <div class="clearfix" />
                                 <div class="oe_login_buttons">

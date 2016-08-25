@@ -17,6 +17,8 @@ var lastsearch;
         tags: true,
         tokenSeparators: [",", " ", "_"],
         lastsearch: [],
+	dropdownCssClass: "specific-select2-dropdown",
+	containerCssClass: "specific-select2-container",
         createSearchChoice: function (term) {
             if ($(lastsearch).filter(function () { return this.text.localeCompare(term) === 0;}).length === 0) {
 		return {
@@ -28,7 +30,7 @@ var lastsearch;
         },
         formatResult: function(term) {
             if (term.isNew) {
-                return '<span class="label label-primary">New</span> ' + _.escape(term.text);
+                return '<span class="label label-primary specific-select2-results">New</span> ' + _.escape(term.text);
             }
             else {
                 return _.escape(term.text);
