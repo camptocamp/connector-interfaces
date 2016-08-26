@@ -272,6 +272,7 @@ class WebsiteProposal(http.Controller):
             error, error_message = self.details_form_validate(post)
             values.update({'error': error, 'error_message': error_message})
             values.update(post)
+            values.update({'country_id': int(post['country_id'])})
             if not error:
                 if post.get('post_industries'):
                     industry_ids = post['post_industries'].split(',')
@@ -312,7 +313,6 @@ class WebsiteProposal(http.Controller):
             'countries': countries,
             'redirect': redirect,
         })
-
         return request.render("specific_project_proposal.proposal_edit",
                               values)
 
