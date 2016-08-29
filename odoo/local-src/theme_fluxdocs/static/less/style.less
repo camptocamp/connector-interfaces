@@ -1178,26 +1178,28 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			right: 0;
 			top: 0;
 			margin-top: 0;
-			img {
-				max-width: 170px;
-				width: 170px;
-			}
+			border: 1px solid #fff;
+			background-color: @darkColor;
 			label {
 				position: absolute;
-				color: @darkColor;
+				color: #fff;
 				top: 0;
 				right: 0;
 				margin-top: 0;
 			}
-		}
-		.thumbnail {
-			position: absolute;
-			right: 0;
-			top: 0;
-			margin-top: 0;
-			img {
+			.img {
 				max-width: 170px;
 				width: 170px;
+				opacity: 0;
+			}
+			.thumbnail {
+				position: absolute;
+				right: 0;
+				top: 0;
+				margin-top: 0;
+				max-width: 170px;
+				width: 170px;
+				opacity: 1;
 			}
 		}
 	}
