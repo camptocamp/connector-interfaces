@@ -20,6 +20,7 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+
 * Add membership end date on account view
 * Project proposal change order date to create_date
 
