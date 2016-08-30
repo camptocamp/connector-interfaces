@@ -1139,7 +1139,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			background-color: @darkColor;
 			padding-left: 5px;
 			padding-right: 5px;
-	    	padding-top: 25px;
+			padding-top: 25px;
 			padding-bottom: 12px;
 			text-align: center;
 			text-transform: uppercase;
@@ -1157,26 +1157,53 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			right: 0;
 			top: 0;
 			margin-top: 0;
-			img {
-				max-width: 170px;
-				width: 170px;
-			}
+			border: 1px solid #fff;
+			background-color: @darkColor;
+			max-width: 170px;
+			width: 170px;
+			height: 170px;
+			padding: 0;
 			label {
 				position: absolute;
-				color: @darkColor;
+				color: #fff;
 				top: 0;
 				right: 0;
 				margin-top: 0;
+				font-size: 20px;
+				float: left;
+				text-align: left;
+				padding-left: 10px;
+				padding-top: 0;
+				display: block;
+				span {
+					text-align: left;
+					color: #fff;
+					float: left;
+					margin-top: 0;
+					padding-top: 0;
+				}
+				p {
+					color: #999999;
+					text-align: left;
+					float: left;
+					display: list-item;
+					padding-bottom: 0;
+					margin-top: 5px;
+				}
 			}
-		}
-		.thumbnail {
-			position: absolute;
-			right: 0;
-			top: 0;
-			margin-top: 0;
-			img {
+			.img {
 				max-width: 170px;
 				width: 170px;
+				opacity: 0;
+			}
+			.thumbnail {
+				position: absolute;
+				right: 0;
+				top: 0;
+				margin-top: 0;
+				max-width: 170px;
+				width: 170px;
+				opacity: 1;
 			}
 		}
 	}
@@ -1220,6 +1247,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			&.alert-success{
 				color: green;
 			}
+		}
+		.form-control-label {
+			white-space: nowrap;
 		}
 		.form-group {
 			margin: 0 auto;
@@ -1591,28 +1621,56 @@ ul.service-menu {
 		.oe_website_login_container,
 		.o_website_portal_details {
 			.media {
-				position: static;
-				a.media-link {
-					margin: 0 auto;
-					img {
-						margin: 0 auto;
-					}
+				position: relative;
+				.imgupload {
+					position: absolute;
+					top: 0px;
+					left: 0px;
 				}
 				label {
 					position: absolute;
-					color: @darkColor;
+					color: #fff;
+					top: 0px;
+					left: 0px;
+					margin-top: 0;
+					font-size: 20px;
+					float: left;
+					text-align: left;
+					padding-left: 10px;
+					padding-top: 0;
+					max-width: 170px;
+					height: 170px;
+					width: 170px;
+					z-index: 1;
+					span {
+						position: static;
+						text-align: left;
+						color: #fff;
+						float: left;
+						margin-top: 0;
+						padding-top: 0;
+					}
+					p {
+						position: static;
+						color: #999999;
+						text-align: left;
+						float: left;
+						display: list-item;
+						padding-bottom: 0;
+						margin-top: 5px;
+					}
+				}
+				.img {
+					opacity: 0;
+				}
+				.thumbnail {
+					position: absolute;
 					top: 0;
 					left: 0;
 					margin-top: 0;
-				}
-			}
-			.thumbnail {
-				position: absolute;
-				top: 0;
-				left: 0;
-				margin-top: 0;
-				img {
-					margin: 0 auto;
+					img {
+						margin: 0 auto;
+					}
 				}
 			}
 			.form-group {
