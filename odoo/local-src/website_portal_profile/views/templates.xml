@@ -55,7 +55,9 @@
                                                 <div class="file-tab">
                                                     <div>
                                                         <label class="btn bnt-default btn-file">
-                                                            <span>Browse</span>
+                                                            <span>Upload image</span>
+                                                            <p>Add logo here</p>
+                                                            <p>Format:<br/>JPG/PNG</p>
                                                             <input type="file" name="uimage"></input>
                                                         </label>
                                                     </div>
