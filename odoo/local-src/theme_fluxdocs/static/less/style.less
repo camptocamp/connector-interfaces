@@ -1639,28 +1639,56 @@ ul.service-menu {
 		.oe_website_login_container,
 		.o_website_portal_details {
 			.media {
-				position: static;
-				a.media-link {
-					margin: 0 auto;
-					img {
-						margin: 0 auto;
-					}
+				position: relative;
+				.imgupload {
+					position: absolute;
+					top: 0px;
+					left: 0px;
 				}
 				label {
 					position: absolute;
-					color: @darkColor;
+					color: #fff;
+					top: 0px;
+					left: 0px;
+					margin-top: 0;
+					font-size: 20px;
+					float: left;
+					text-align: left;
+					padding-left: 10px;
+					padding-top: 0;
+					max-width: 170px;
+					height: 170px;
+					width: 170px;
+					z-index: 1;
+					span {
+						position: static;
+						text-align: left;
+						color: #fff;
+						float: left;
+						margin-top: 0;
+						padding-top: 0;
+					}
+					p {
+						position: static;
+						color: #999999;
+						text-align: left;
+						float: left;
+						display: list-item;
+						padding-bottom: 0;
+						margin-top: 5px;
+					}
+				}
+				.img {
+					opacity: 0;
+				}
+				.thumbnail {
+					position: absolute;
 					top: 0;
 					left: 0;
 					margin-top: 0;
-				}
-			}
-			.thumbnail {
-				position: absolute;
-				top: 0;
-				left: 0;
-				margin-top: 0;
-				img {
-					margin: 0 auto;
+					img {
+						margin: 0 auto;
+					}
 				}
 			}
 			.form-group {
