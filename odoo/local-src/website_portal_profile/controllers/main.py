@@ -106,7 +106,7 @@ class website_account(website_account):
     @http.route(
         ['/my/get_expertises'],
         type='http',
-        auth="user",
+        auth="public",
         methods=['GET'],
         website=True)
     def expertise_read(self, q='', l=25, **post):
@@ -120,7 +120,7 @@ class website_account(website_account):
     @http.route(
         ['/my/get_categories'],
         type='http',
-        auth="user",
+        auth="public",
         methods=['GET'],
         website=True)
     def categories_read(self, q='', l=25, **post):
