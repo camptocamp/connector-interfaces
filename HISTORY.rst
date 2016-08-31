@@ -27,6 +27,7 @@ latest (unreleased)
 **Bugfixes**
 
 * Fix search by country on proposal list
+* Fix search by expertise and industry on proposal list for visitors
 * Fix previous, next buttons on proposals matches stick to proposal matches
 
 **Build**
