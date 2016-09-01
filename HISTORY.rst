@@ -38,6 +38,7 @@ latest (unreleased)
 * Proposal details access rights:
   * Adds buttons to sign up, login or subscribe to become an associate
   * Hide fields for non associate members
+* Add 403 on edit proposals if you're not the owner
 
 **Bugfixes**
 
