@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.0.5 (2016-09-01)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * Add membership end date on account view
 * Project proposal change order date to create_date
 * Proposal details access rights:
@@ -32,10 +44,12 @@ latest (unreleased)
 * Fix search by country on proposal list
 * Fix search by expertise and industry on proposal list for visitors
 * Fix previous, next buttons on proposals matches stick to proposal matches
+* Fix installation of demo data
 
 **Build**
 
-**Documentation**
+* Activation of oerpscenario
+
 
 9.0.4 (2016-08-18)
 ++++++++++++++++++
