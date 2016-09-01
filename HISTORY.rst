@@ -23,6 +23,9 @@ latest (unreleased)
 
 * Add membership end date on account view
 * Project proposal change order date to create_date
+* Proposal details access rights:
+  * Adds buttons to sign up, login or subscribe to become an associate
+  * Hide fields for non associate members
 
 **Bugfixes**
 

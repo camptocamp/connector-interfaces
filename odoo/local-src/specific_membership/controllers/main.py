@@ -13,8 +13,6 @@ class WebsiteAccount(website_account):
 
     @http.route(['/my', '/my/home'], type='http', auth="public", website=True)
     def account(self, **kw):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
         response = super(WebsiteAccount, self).account(**kw)
         partner = request.env['res.users'].browse(request.uid).partner_id
         response.qcontext.update({

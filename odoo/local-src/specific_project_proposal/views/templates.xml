@@ -283,11 +283,12 @@
           <div class="text-muted">
             <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
           </div>
+
           <address>
             <t t-set="partner" t-value="proposal.sudo().owner_id.partner_id"/>
             <t t-set="partner" t-value="partner.parent_id if partner.parent_id else partner"/>
             <b t-field="partner.name"/>
-            <div t-field="partner.self" t-field-options='{
+            <div t-if="is_associate" t-field="partner.self" t-field-options='{
               "widget": "contact",
               "fields": ["address", "phone", "fax", "email"]
             }'/>
@@ -297,13 +298,15 @@
 
           <p><b t-field="proposal.website_short_description"/></p>
 
-          <p t-field="proposal.website_description"/>
+          <t t-if="is_associate">
+            <p t-field="proposal.website_description"/>
+          </t>
 
-          <div>
+          <div t-if="is_associate">
             <b>Country:</b>
             <span t-field="proposal.country_id"/>
           </div>
-          <div>
+          <div t-if="is_associate">
             <b>Location:</b>
             <span t-field="proposal.location"/>
           </div>
@@ -318,7 +321,7 @@
               <span t-field="industry.name"/>
             </t>
           </div>
-          <div>
+          <div t-if="is_associate">
             <b>Expertises:</b>
             <t t-foreach="proposal.expertise_ids" t-as="expertise">
               <span t-field="expertise.name"/>
@@ -326,6 +329,25 @@
           </div>
         </div>
       </section>
+      <t t-if="is_public_user">
+        <section class="content opt_dark_bg">
+          <h1>Membership</h1>
+          <a class="btn btn-primary" t-att-href="'/web/presignup?redirect=' + detail_url">
+            Sign Up
+          </a>
+          <a class="btn btn-primary" t-att-href="'/web/login?redirect=' + detail_url">
+            Login
+          </a>
+        </section>
+      </t>
+      <t t-if="is_free_member">
+        <section class="content opt_dark_bg">
+          <h1>Membership</h1>
+          <a class="btn btn-primary" t-att-href="'/my/membership?redirect=' + detail_url">
+            Become an associate member
+          </a>
+        </section>
+      </t>
       <section>
         <a class="btn btn-primary btn-show-proposal" t-attf-href="#{return_link}">
           <t t-if="filters == 'match'">
