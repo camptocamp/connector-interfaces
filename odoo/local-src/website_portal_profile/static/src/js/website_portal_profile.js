@@ -3,13 +3,9 @@ odoo.define('website_portal_profile.portal_profile', function (require) {
 
 var ajax = require('web.ajax');
 var core = require('web.core');
-var Widget = require('web.Widget');
 var base = require('web_editor.base');
-var website = require('website.website');
 
-var qweb = core.qweb;
 var _t = core._t;
-var page_widgets = {};
 
 var lastsearch;
 
