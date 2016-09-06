@@ -203,11 +203,11 @@ class WebsiteProposal(http.Controller):
             return_link = '/my/proposals'
         else:
             return_link = '/market'
-        base_link = '/proposals/%s/%%s' % slug(proposal)
+        base_link = '/proposals/%s/{0}' % slug(proposal)
         base_link = self._url_with_args(base_link, filters, **kwargs)
-        previous_link = base_link % "previous"
-        next_link = base_link % "next"
-        detail_url = "/proposals/detail/%s" % slug(proposal)
+        previous_link = base_link.format("previous")
+        next_link = base_link.format("next")
+        detail_url = "/proposals/detail/{0}".format(slug(proposal))
         detail_url = self._url_with_args(detail_url, filters, **kwargs)
         is_associate = (request.env.user != request.website.user_id and
                         request.env.user.flux_membership == 'asso')
@@ -238,7 +238,7 @@ class WebsiteProposal(http.Controller):
         )
         index = proposals.ids.index(proposal.id)
         previous_proposal = proposals[index - 1]
-        url = "/proposals/detail/%s" % (slug(previous_proposal))
+        url = "/proposals/detail/{0}".format(slug(previous_proposal))
         return request.redirect(self._url_with_args(url, filters, **kwargs))
 
     @http.route(['/proposals/<model("project.proposal"):proposal>/next'],
@@ -251,7 +251,7 @@ class WebsiteProposal(http.Controller):
         )
         index = proposals.ids.index(proposal.id)
         next_proposal = proposals[(index + 1) % len(proposals)]
-        url = "/proposals/detail/%s" % (slug(next_proposal))
+        url = "/proposals/detail/{0}".format(slug(next_proposal))
         return request.redirect(self._url_with_args(url, filters, **kwargs))
 
     @http.route(['/my/proposals/edit/<model("project.proposal"):proposal>'],
