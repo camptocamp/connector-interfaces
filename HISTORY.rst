@@ -31,6 +31,7 @@ latest (unreleased)
 * Fix value disapearing when reloading form of proposal edition when an error is raised the following
   fields value were lost: country, teaser, description, industry and expertise
 * Probosal publish button now validate fields and save them
+* Fix unpublished proposal shown in matches overview
 
 **Build**
 
