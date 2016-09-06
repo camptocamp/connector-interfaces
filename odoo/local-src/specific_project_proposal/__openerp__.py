@@ -20,6 +20,9 @@
      'views/project_proposal.xml',
      'views/templates.xml',
  ],
+ 'demo': [
+     'demo/project_proposal.xml'
+ ],
  'test': [],
  'installable': True,
  'auto_install': False,

@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add demo data for proposals
+
 **Bugfixes**
 
 **Build**
