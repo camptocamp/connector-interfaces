@@ -190,7 +190,7 @@
                     <span t-field="proposal.create_date" t-field-options='{"format": "d MMMM y"}'/>
                   </div>
                   <h3 class="media-heading">
-                    <a t-att-href="detail_url % slug(proposal)">
+                    <a t-att-href="detail_url.format(slug(proposal))">
                       <span t-field="proposal.name"/>
                     </a>
                   </h3>
@@ -207,7 +207,7 @@
                       <span t-attf-class="label #{industry_ids and industry.id in industry_ids and 'label-primary' or 'label-default'}" t-field="industry.name"
                         style="margin-right: 4px;"/>
                     </t>
-                    <a t-att-href="detail_url % slug(proposal)">
+                    <a t-att-href="detail_url.format(slug(proposal))">
                       Read More <i class="fa fa-arrow-right"/>
                     </a>
                   </div>

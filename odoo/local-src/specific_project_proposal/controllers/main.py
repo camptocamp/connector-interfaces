@@ -100,7 +100,7 @@ class WebsiteProposal(http.Controller):
                                       scope=self._proposal_per_page,
                                       url_args=url_args)
 
-        detail_url = "/proposals/detail/%s"
+        detail_url = "/proposals/detail/{0}"
         detail_url = "%s?%s" % (detail_url, werkzeug.url_encode(url_args))
 
         proposals = Proposal.search(
