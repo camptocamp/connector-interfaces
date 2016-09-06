@@ -265,6 +265,9 @@ class WebsiteProposal(http.Controller):
         error = None
         error_message = None
 
+        if proposal.owner_id != request.env.user:
+            return request.website.render("website.403")
+
         if post:
             error, error_message = self.details_form_validate(post)
             values.update({'error': error, 'error_message': error_message})
@@ -286,7 +289,7 @@ class WebsiteProposal(http.Controller):
                     post['start_date'] = False
                 if not values.get('stop_date'):
                     post['stop_date'] = False
-                proposal.sudo().write(post)
+                proposal.write(post)
                 if redirect:
                     return request.redirect(redirect)
                 return request.redirect('/my/home')

@@ -20,6 +20,8 @@ latest (unreleased)
 +++++++++++++++++++
 
 **Features and Improvements**
+* Add tests to specific_membership
+* Add 403 on edit proposals if you're not the owner
 
 **Bugfixes**
 

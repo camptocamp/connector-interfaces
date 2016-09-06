@@ -22,6 +22,7 @@ class WebsiteAccount(website_account):
 
 
 class WebsiteMembership(http.Controller):
+    # _members_per_page = 10
 
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
@@ -33,9 +34,14 @@ class WebsiteMembership(http.Controller):
         product = request.env['product.product'].sudo().search([
             ('default_code', '=', 'associate')])
 
+        # For tiles view
+        partners = request.env['res.users'].sudo().search([
+            ('flux_membership', '=', 'asso')])
+
         values.update({
             'partner': partner,
             'product': product,
+            'partners': partners,
             # 'redirect': redirect,
         })
         return request.website.render(
@@ -61,3 +67,28 @@ class WebsiteMembership(http.Controller):
 
         return request.website.render(
             "specific_membership.membership_payment_confirmation", values)
+
+    @http.route(['/my/tiles'], type='http', auth="user", website=True)
+    def tiles_member(self, redirect=None, **post):
+        partner = request.env['res.users'].browse(request.uid).partner_id
+        values = {
+            'error': {},
+            'error_message': []
+        }
+        product = request.env['product.product'].sudo().search([
+            ('default_code', '=', 'associate')])
+
+        values.update({
+            'partner': partner,
+            'product': product,
+            # 'redirect': redirect,
+        })
+        return request.website.render(
+            "specific_membership.member_tile", values)
+
+    # TODO Faire liste des routes nécessaires
+
+    # /home                     => members aggreagation
+    # /members                  => members_list_view
+    # /members/companyname      => meber_detail_view
+    #

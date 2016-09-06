@@ -287,11 +287,13 @@
           <address>
             <t t-set="partner" t-value="proposal.sudo().owner_id.partner_id"/>
             <t t-set="partner" t-value="partner.parent_id if partner.parent_id else partner"/>
-            <b t-field="partner.name"/>
-            <div t-if="is_associate" t-field="partner.self" t-field-options='{
-              "widget": "contact",
-              "fields": ["address", "phone", "fax", "email"]
-            }'/>
+            <t t-if="is_associate">
+              <b t-field="partner.name"/>
+              <div t-field="partner.self" t-field-options='{
+                "widget": "contact",
+                "fields": ["address", "phone", "fax", "email"]
+              }'/>
+            </t>
           </address>
 
           <h1 t-field="proposal.name"/>
