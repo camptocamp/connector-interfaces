@@ -268,23 +268,32 @@ class WebsiteProposal(http.Controller):
         if proposal.owner_id != request.env.user:
             return request.website.render("website.403")
 
+        industry_ids = []
+        expertise_ids = []
+
         if post:
             error, error_message = self.details_form_validate(post)
             values.update({'error': error, 'error_message': error_message})
             values.update(post)
+            country_id = post['country_id']
+            if country_id and country_id.isdigit():
+                values.update({'country_id': int(country_id)})
+            if post.get('post_industries'):
+                industry_ids = post['post_industries'].split(',')
+                industry_ids = [int(industry_id) for industry_id
+                                in industry_ids]
+
+            if post.get('post_expertises'):
+                expertise_ids = post['post_expertises'].split(',')
+                expertise_ids = [int(expertise_id) for expertise_id
+                                 in expertise_ids]
             if not error:
-                if post.get('post_industries'):
-                    industry_ids = post['post_industries'].split(',')
-                    post['industry_ids'] = [
-                        (4, int(industry_id)) for industry_id
-                        in industry_ids
-                    ]
-                if post.get('post_expertises'):
-                    expertise_ids = post['post_expertises'].split(',')
-                    post['expertise_ids'] = [
-                        (4, int(expertise_id)) for expertise_id
-                        in expertise_ids
-                    ]
+                if industry_ids:
+                    post['industry_ids'] = [(4, industry_id) for industry_id
+                                            in industry_ids]
+                if expertise_ids:
+                    post['expertise_ids'] = [(4, expertise_id) for expertise_id
+                                             in expertise_ids]
                 if not values.get('start_date'):
                     post['start_date'] = False
                 if not values.get('stop_date'):
@@ -294,15 +303,18 @@ class WebsiteProposal(http.Controller):
                     return request.redirect(redirect)
                 return request.redirect('/my/home')
 
-        industries = [
-            dict(id=industry.id, name=industry.name)
-            for industry in proposal.industry_ids]
-        industries = json.dumps(industries)
+        industries = proposal.industry_ids
+        if industry_ids:
+            Industry = request.env['res.partner.category']
+            industries |= Industry.browse(industry_ids)
+        industries = json.dumps(industries.read(['id', 'name']))
 
-        expertises = [
-            dict(id=expertise.id, name=expertise.name)
-            for expertise in proposal.expertise_ids]
-        expertises = json.dumps(expertises)
+        expertises = proposal.expertise_ids
+        if expertise_ids:
+            Expertise = request.env['partner.project.expertise']
+            expertises |= Expertise.browse(expertise_ids)
+        expertises = json.dumps(expertises.read(['id', 'name']))
+
         countries = request.env['res.country'].sudo().search([])
 
         values.update({
@@ -312,7 +324,6 @@ class WebsiteProposal(http.Controller):
             'countries': countries,
             'redirect': redirect,
         })
-
         return request.render("specific_project_proposal.proposal_edit",
                               values)
 
