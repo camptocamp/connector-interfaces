@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
 
       <!-- hide "your details" in account view -->
     <!-- <template id="fluxdock_hide_your_details" name="Fluxdock hide your details" inherit_id="website_portal.account"> -->
@@ -258,38 +257,15 @@
         </xpath>
     </template>
 
-      <!-- Set o_my_documents to different class -->
-    <!-- <template id="fluxdock_o_my_documents" name="Fluxdock o_my_documents" inherit_id="website_portal.account"> -->
-    <!--     <xpath expr="//div[contains(@class,'o_my_documents')]" position="replace"> -->
-    <!--         <div class="col&#45;md&#45;12 o_my_documents"> -->
-    <!--             <div class="oe_structure"/> -->
-    <!--         </div> -->
-    <!--     </xpath> -->
-    <!-- </template> -->
-
-
+    <!-- Add classes -->
       <!-- Replace website_portal.account in order to set multiple classes-->
-    <template id="website_portal.account" name="Account">
-        <t t-call="website.layout">
-            <div id="wrap">
-                <div class="container mb64">
-                    <div class="col-md-4 col-md-offset-4 o_my_documents">
-                        <div class="oe_structure"/>
-                    </div>
-                    <div t-if="sales_rep" class="col-md-3">
-                      <t t-call="website_portal.contact" />
-                      <div class="oe_structure"/>
-                    </div>
-                    <div id="o_my_sidebar" class="hide col-md-3 col-md-offset-1 o_my_sidebar">
-                        <div class="o_my_details">
-                            <h3 class="page-header">Your Details <a href="/my/account" class="btn btn-default btn-xs">Change</a></h3>
-                            <div t-field="user.partner_id" t-field-options='{"widget": "contact", "fields": ["email", "phone", "address", "name"]}'/>
-                        </div>
-                    </div>
-                    <div class="col-md-12 oe_structure"/>
-                </div>
-            </div>
-        </t>
+    <template id="account_classes" name="Account" inherit_id="website_portal.account">-->
+      <xpath expr="//div[contains(@class, 'o_my_documents')]" position="attributes">
+        <attribute name="class">col-md-4 col-md-offset-4 o_my_documents</attribute>
+      </xpath>
+      <xpath expr="//div[contains(@class, 'o_my_sidebar')]" position="attributes">
+        <attribute name="class">hide col-md-3 col-md-offset-1 o_my_sidebar</attribute>
+      </xpath>
     </template>
 
 
@@ -539,5 +515,4 @@
       </field>
     </record>
 
-  </data>
 </odoo>
