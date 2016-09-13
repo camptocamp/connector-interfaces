@@ -468,6 +468,7 @@
               </button>
               <a class="btn btn-default btn-primary mb32 delete_proposal" t-attf-href="/proposals/proposal/#{slug(proposal)}/delete_confirm">Delete</a>
             </div>
+              <a class="btn btn-default btn-primary mb32" t-attf-href="/my">Back</a>
           </div>
         </div>
       </form>
