@@ -24,6 +24,7 @@ latest (unreleased)
 * Add 403 on edit proposals if you're not the owner
 * Proposal publish button redirects to /my/home
 * Add errore message in addition to highlight when a required field is not filled
+* Add button to go back to home in proposal edit form
 
 **Bugfixes**
 
