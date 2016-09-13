@@ -26,6 +26,8 @@ latest (unreleased)
 **Bugfixes**
 
 * Fix search with special characters transformed in url with % characters that led to a server error
+* Fix value disapearing when reloading form of proposal edition when an error is raised the following
+  fields value were lost: country, teaser, description, industry and expertise
 
 **Build**
 
