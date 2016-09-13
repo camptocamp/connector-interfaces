@@ -272,7 +272,9 @@ class WebsiteProposal(http.Controller):
             error, error_message = self.details_form_validate(post)
             values.update({'error': error, 'error_message': error_message})
             values.update(post)
-            values.update({'country_id': int(post['country_id'])})
+            country_id = post['country_id']
+            if country_id and country_id.isdigit():
+                values.update({'country_id': int(country_id)})
             if not error:
                 if post.get('post_industries'):
                     industry_ids = post['post_industries'].split(',')
