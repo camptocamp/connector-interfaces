@@ -168,15 +168,6 @@ class WebsiteProposal(http.Controller):
         return {}
 
     @http.route(
-        '/proposals/proposal/<model("project.proposal"):proposal>/publish',
-        type='json', auth="public", website=True)
-    def toggle_publish(self, proposal, **kwargs):
-        if not request.session.uid:
-            return {'error': 'anonymous_user'}
-        proposal.website_published = not proposal.website_published
-        return {}
-
-    @http.route(
         '/proposals/proposal/<model("project.proposal"):proposal>/'
         'delete_confirm',
         type='http', auth="user", website=True)
@@ -272,6 +263,12 @@ class WebsiteProposal(http.Controller):
         expertise_ids = []
 
         if post:
+            if 'publish' in post:
+                del post['publish']
+                post['website_published'] = not proposal.website_published
+            else:
+                del post['confirm']
+
             error, error_message = self.details_form_validate(post)
             values.update({'error': error, 'error_message': error_message})
             values.update(post)
@@ -336,12 +333,19 @@ class WebsiteProposal(http.Controller):
             'website_description', 'post_industries', 'post_expertises']
         optional_fields = [
             'location', 'country_id',
-            'start_date', 'stop_date']
+            'start_date', 'stop_date',
+            'website_published']
 
+        missing = False
         # Validation
         for field_name in mandatory_fields:
             if not data.get(field_name):
                 error[field_name] = 'missing'
+                missing = True
+
+        # error message for empty required fields
+        if missing:
+            error_message.append(_('Some required fields are empty.'))
 
         # date validation
         if data.get('start_date') and data.get('stop_date'):

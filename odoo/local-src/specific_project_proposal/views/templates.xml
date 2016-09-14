@@ -457,15 +457,15 @@
               </div>
             </div>
             <div class="button-wrap">
-              <button type="submit" class="btn btn-default btn-primary mb32 ">Confirm</button>
-              <a class="btn btn-default btn-primary mb32 publish_proposal" t-attf-data-href="/proposals/proposal/#{ slug(proposal)}/publish">
+              <button type="submit" name="confirm" value="Confirm" class="btn btn-default btn-primary mb32 ">Confirm</button>
+              <button type="submit" name="publish" t-att-value="'Unpublish' if proposal.website_published else 'Publish'" class="btn btn-default btn-primary mb32">
                 <span t-att-class="'hidden' if proposal.website_published else ''">
                   Publish
                 </span>
                 <span t-att-class="'hidden' if not proposal.website_published else ''">
                   Unpublish
                 </span>
-              </a>
+              </button>
               <a class="btn btn-default btn-primary mb32 delete_proposal" t-attf-href="/proposals/proposal/#{slug(proposal)}/delete_confirm">Delete</a>
             </div>
           </div>
