@@ -21,6 +21,17 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+9.0.6 (2016-09-14)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * Add tests to specific_membership
 * Add 403 on edit proposals if you're not the owner
 * Proposal publish button redirects to /my/home
@@ -38,10 +49,6 @@ latest (unreleased)
 * Fix unpublished proposal shown in matches overview
 * Separate enterprise and industry tags by commas in /members, /members/<company> and on profile in /my/home
 * Display pager on member list and set limit to 10
-
-**Build**
-
-**Documentation**
 
 
 9.0.5 (2016-09-01)
