@@ -338,10 +338,16 @@ class WebsiteProposal(http.Controller):
             'location', 'country_id',
             'start_date', 'stop_date']
 
+        missing = False
         # Validation
         for field_name in mandatory_fields:
             if not data.get(field_name):
                 error[field_name] = 'missing'
+                missing = True
+
+        # error message for empty required fields
+        if missing:
+            error_message.append(_('Some required fields are empty.'))
 
         # date validation
         if data.get('start_date') and data.get('stop_date'):
