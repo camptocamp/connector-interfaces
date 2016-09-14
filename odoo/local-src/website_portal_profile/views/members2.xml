@@ -381,7 +381,9 @@
           </div>
           <div class="oe_structure" />
         </div>
-        <t t-call="website.pager"/>
+        <div class="text-center mb32">
+          <t t-call="website.pager"/>
+        </div>
       </xpath>
     </template>
 
