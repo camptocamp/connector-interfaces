@@ -222,7 +222,7 @@
                             <td>Industry:</td>
                             <td>
                                 <t t-foreach="partner.category_id" t-as="one_tag">
-                                  <t t-esc="one_tag.name" />
+                                  <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                                 </t>
                             </td>
                         </tr>
@@ -230,7 +230,7 @@
                             <td>Expertise:</td>
                             <td>
                                 <t t-foreach="partner.expertise_ids" t-as="one_tag">
-                                  <t t-esc="one_tag.name" />
+                                  <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                                 </t>
                             </td>
                         </tr>
@@ -358,7 +358,7 @@
                               <label for="category">Industry:</label>
                               <div class="tag-value" id="category">
                                 <t t-foreach="partner.category_id" t-as="one_tag">
-                                  <t t-esc="one_tag.name" />
+                                  <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                                 </t>
                               </div>
                             </div>
@@ -366,7 +366,7 @@
                               <label for="expertise">Expertise:</label>
                               <div class="tag-value" id="expertise">
                                 <t t-foreach="partner.expertise_ids" t-as="one_tag">
-                                  <t t-esc="one_tag.name" />
+                                  <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                                 </t>
                               </div>
                             </div>
@@ -421,7 +421,7 @@
                   <label for="category">Industry:</label>
                   <div class="tag-value" id="category">
                     <t t-foreach="partner.category_id" t-as="one_tag">
-                      <t t-esc="one_tag.name" />
+                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                     </t>
                   </div>
                 </div>
@@ -429,7 +429,7 @@
                   <label for="expertise">Expertise:</label>
                   <div class="tag-value" id="expertise">
                     <t t-foreach="partner.expertise_ids" t-as="one_tag">
-                      <t t-esc="one_tag.name" />
+                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                     </t>
                   </div>
                 </div>
