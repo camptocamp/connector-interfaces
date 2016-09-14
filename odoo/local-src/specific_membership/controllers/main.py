@@ -7,6 +7,9 @@ from openerp.http import request
 from openerp.addons.website_portal_profile.controllers.main import (
     website_account
 )
+from openerp.addons.website_membership.controllers.main import (
+    WebsiteMembership as WebsiteMembershipController
+)
 
 
 class WebsiteAccount(website_account):
@@ -21,8 +24,8 @@ class WebsiteAccount(website_account):
         return response
 
 
-class WebsiteMembership(http.Controller):
-    # _members_per_page = 10
+class WebsiteMembership(WebsiteMembershipController):
+    _references_per_page = 10
 
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):

@@ -27,6 +27,7 @@ latest (unreleased)
 * Add errore message in addition to highlight when a required field is not filled
 * Add button to go back to home in proposal edit form
 * Add demo data for proposals
+* Define minimal style for pager
 
 **Bugfixes**
 
@@ -35,6 +36,8 @@ latest (unreleased)
   fields value were lost: country, teaser, description, industry and expertise
 * Probosal publish button now validate fields and save them
 * Fix unpublished proposal shown in matches overview
+* Separate enterprise and industry tags by commas in /members, /members/<company> and on profile in /my/home
+* Display pager on member list and set limit to 10
 
 **Build**
 
