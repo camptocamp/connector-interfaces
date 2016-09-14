@@ -26,6 +26,8 @@ latest (unreleased)
 * Add errore message in addition to highlight when a required field is not filled
 * Add button to go back to home in proposal edit form
 
+* Add demo data for proposals
+
 **Bugfixes**
 
 * Fix search with special characters transformed in url with % characters that led to a server error

@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-	<data noupdate="1">
-		<record id="expertise_demo" model="partner.project.expertise">
-			<field name="name">Construction</field>
-		</record>
+<odoo>
+<record model="partner.project.expertise" id="expertise_branding">
+  <field name="name">Branding</field>
+</record>
 
-		<record id="expertise_web" model="partner.project.expertise">
-		    <field name="name">Web Design</field>
-		</record>
-		
-		<record id="expertise_project" model="partner.project.expertise">
-		    <field name="name">Project Management</field>
-		</record>
-	</data>
-</openerp>
+<record model="partner.project.expertise" id="expertise_business_planning">
+  <field name="name">Business Planning</field>
+</record>
+
+<record model="partner.project.expertise" id="expertise_construction">
+  <field name="name">Construction</field>
+</record>
+
+<record model="partner.project.expertise" id="expertise_innovation_design">
+  <field name="name">Innovation Design</field>
+</record>
+
+<record model="partner.project.expertise" id="expertise_product_dev">
+  <field name="name">Project Developement</field>
+</record>
+
+<record model="partner.project.expertise" id="expertise_project_mgmt">
+  <field name="name">Project Management</field>
+</record>
+
+<record model="partner.project.expertise" id="expertise_web_design">
+  <field name="name">Web Design</field>
+</record>
+
+</odoo>
