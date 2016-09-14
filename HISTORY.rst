@@ -22,12 +22,15 @@ latest (unreleased)
 **Features and Improvements**
 * Add tests to specific_membership
 * Add 403 on edit proposals if you're not the owner
+* Proposal publish button redirects to /my/home
+* Add errore message in addition to highlight when a required field is not filled
 
 **Bugfixes**
 
 * Fix search with special characters transformed in url with % characters that led to a server error
 * Fix value disapearing when reloading form of proposal edition when an error is raised the following
   fields value were lost: country, teaser, description, industry and expertise
+* Probosal publish button now validate fields and save them
 
 **Build**
 
