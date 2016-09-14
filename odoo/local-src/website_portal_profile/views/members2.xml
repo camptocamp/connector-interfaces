@@ -280,7 +280,6 @@
                 </div>
                 <h2>Members</h2>
                 <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                <t t-call="website.pager" />
                 <form action="" method="get" class="search-panel members-search-panel">
                     <div class="filter-row row-1">
                         <input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="post.get('search', '')" />
@@ -382,6 +381,7 @@
           </div>
           <div class="oe_structure" />
         </div>
+        <t t-call="website.pager"/>
       </xpath>
     </template>
 
