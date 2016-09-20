@@ -21,7 +21,7 @@
      'views/templates.xml',
  ],
  'demo': [
-     'demo/project_proposal.xml'
+     # 'demo/project_proposal.xml'
  ],
  'test': [],
  'installable': True,
