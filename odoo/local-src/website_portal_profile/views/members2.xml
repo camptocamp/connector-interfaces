@@ -327,7 +327,7 @@
                     </div>
                   </form>
                 </div>
-                <div class="content members-list col-md-6 col-md-offset-3">
+                <div class="content members-list container content-wrap" style="width: 646px;">
                   <t t-if="not memberships_partner_ids">
                     <p>No result found.</p>
                   </t>
@@ -339,13 +339,13 @@
                       <t t-foreach="memberships_partner_ids[membership_data['id']]" t-as="partner_id">
                         <t t-set="partner" t-value="partners[partner_id]" />
                         <div class="media member-list-item">
-                            <a class="pull-left member-logo" 
-                                t-attf-href="/members/#{slug(partner)}" 
-                                t-field="partner.image_small" 
+                            <a class="pull-left member-logo"
+                                t-attf-href="/members/#{slug(partner)}"
+                                t-field="partner.image"
                                 t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'>
                             </a>
                           <div class="media-body member-details" style="min-height: 64px;">
-                            <a class="media-heading member-title" t-attf-href="/members/#{slug(partner)}">
+                            <a class="media-heading member-title" t-attf-href="/members/#{slug(partner)}" style="font-weight: bold;">
                               <span t-field="partner.display_name" />
                             </a>
                             <!-- <div t&#45;field="partner.website_short_description"/> -->
