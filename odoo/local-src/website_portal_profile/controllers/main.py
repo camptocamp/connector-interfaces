@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import base64
-from openerp import http
+from openerp import _, http, tools
 from openerp.http import request
 
 from openerp.addons.website_portal.controllers.main import website_account
@@ -59,41 +59,53 @@ class website_account(website_account):
         return response
 
     def details_form_validate(self, data):
+        """ Overwrite checks """
         error = dict()
         error_message = []
 
-        mandatory_billing_fields = [
-            "name",
-            "phone",
-            "email",
-            "street2",
-            "city",
-            "country_id"]
-        optional_billing_fields = ["zipcode", "state_id", "vat", "street"]
-        additional_fields = [
-            'uimage',
-            'website',
-            'twitter',
-            'facebook',
-            'skype',
-            'website_short_description',
-            'post_expertises',
-            'post_categories']
+        mandatory_fields = ["name", "street2", "zipcode", "city", "country_id",
+                            "phone", "email"]
+        optional_fields = ["state_id", "vat", "street"]
+        additional_fields = ['uimage', 'website', 'twitter', 'facebook',
+                             'skype', 'website_short_description',
+                             'post_expertises', 'post_categories']
 
-        error, error_message = super(
-            website_account, self).details_form_validate(data)
+        missing = False
+        # Validation
+        for field_name in mandatory_fields:
+            if not data.get(field_name):
+                error[field_name] = 'missing'
+                missing = True
 
-        # clear previous unknown field error
-        if 'common' in error:
-            error.pop('common')
-        for item in error_message:
-            if 'Unknown field' in item:
-                error_message.remove(item)
+        # error message for empty required fields
+        if missing:
+            error_message.append(_('Some required fields are empty.'))
+
+        # email validation
+        if data.get('email') and not tools.single_email_re.match(
+                data.get('email')):
+            error["email"] = 'error'
+            error_message.append(
+                _('Invalid Email! Please enter a valid email address.'))
+
+        # vat validation
+        if data.get("vat") and hasattr(request.env["res.partner"],
+                                       "check_vat"):
+            if request.website.company_id.vat_check_vies:
+                # force full VIES online check
+                check_func = request.env["res.partner"].vies_vat_check
+            else:
+                # quick and partial off-line checksum validation
+                check_func = request.env["res.partner"].simple_vat_check
+            vat_country, vat_number = request.env["res.partner"]._split_vat(
+                data.get("vat"))
+            if not check_func(vat_country, vat_number):  # simple_vat_check
+                error["vat"] = 'error'
 
         unknown = [
             k for k in data.iterkeys() if k not in
-            mandatory_billing_fields
-            + optional_billing_fields
+            mandatory_fields
+            + optional_fields
             + additional_fields]
         if unknown:
             error['common'] = 'Unknown field'

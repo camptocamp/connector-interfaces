@@ -81,7 +81,7 @@
                                         <input type="text" name="street2" class="form-control"
                                             t-att-value="street2 or partner.street2" />
                                     </div>
-                                    <div t-attf-class="form-group row #{error.get('zip') and 'has-error' or ''} ">
+                                    <div t-attf-class="form-group row #{error.get('zipcode') and 'has-error' or ''} ">
 
                                         <label class="form-control-label col-sm-2" for="zipcode">Zip / Postal
                                             Code*</label>
