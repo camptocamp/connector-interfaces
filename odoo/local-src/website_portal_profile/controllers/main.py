@@ -19,18 +19,16 @@ class website_account(website_account):
             redirect = ('/my/home')
         response = super(website_account, self).details(redirect, **post)
 
-        categories = [
-            dict(id=category.id, name=category.name)
+        industries = [
+            dict(id=category.id, name=category.display_name)
             for category in partner.category_id]
-        categories = json.dumps(categories)
+        industries = json.dumps(industries)
 
-        expertise = [
-            dict(id=expertise.id, name=expertise.name)
-            for expertise in partner.expertise_ids]
-        expertises = json.dumps(expertise)
+        expertises = partner.expertise_ids.read(['name'])
+        expertises = json.dumps(expertises)
 
         response.qcontext.update({
-            'categories': categories,
+            'categories': industries,
             'expertises': expertises,
         })
 
@@ -126,7 +124,7 @@ class website_account(website_account):
     def categories_read(self, q='', l=25, **post):
         data = request.env['res.partner.category'].search_read(
             domain=[('name', '=ilike', (q or '') + "%")],
-            fields=['id', 'name'],
+            fields=['id', 'display_name'],
             limit=int(l),
         )
         return json.dumps(data)

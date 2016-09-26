@@ -115,7 +115,9 @@ class WebsiteProposal(http.Controller):
         if kwargs.get('search_industries'):
             industry_ids = kwargs['search_industries'].split(',')
             industry_ids = [int(i) for i in industry_ids]
-            industries = Industry.browse(industry_ids).read(['name'])
+            industries = [
+                dict(id=category.id, name=category.display_name)
+                for category in Industry.browse(industry_ids)]
             industries = json.dumps(industries)
         if kwargs.get('search_expertises'):
             expertise_ids = kwargs['search_expertises'].split(',')
@@ -304,13 +306,15 @@ class WebsiteProposal(http.Controller):
         if industry_ids:
             Industry = request.env['res.partner.category']
             industries |= Industry.browse(industry_ids)
-        industries = json.dumps(industries.read(['id', 'name']))
+        industries = [dict(id=category.id, name=category.display_name)
+                      for category in industries]
+        industries = json.dumps(industries)
 
         expertises = proposal.expertise_ids
         if expertise_ids:
             Expertise = request.env['partner.project.expertise']
             expertises |= Expertise.browse(expertise_ids)
-        expertises = json.dumps(expertises.read(['id', 'name']))
+        expertises = json.dumps(expertises.read(['name']))
 
         countries = request.env['res.country'].sudo().search([])
 
