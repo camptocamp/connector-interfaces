@@ -135,7 +135,7 @@
                                         t-attf-class="form-group row #{error.get('website') and 'has-error' or ''} ">
                                         <label class="form-control-label label-optional col-sm-2"
                                             for="website">Website</label>
-                                        <input placeholder="http:///www.domain.com" type="text" name="website" class="form-control"
+                                        <input placeholder="http://www.domain.com" type="text" name="website" class="form-control"
                                             t-att-value="partner.website" />
                                     </div>
                                     <div
