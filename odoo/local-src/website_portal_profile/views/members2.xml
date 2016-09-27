@@ -251,7 +251,7 @@
             <section class="content members-list opt_dark_bg">
               <div class="container content-wrap">
                 <div class="content-icon">
-                    <img src="/theme_fluxdocs/static/img/content-icons/member.png"></img>
+                  <img src="/website_portal_profile/static/src/img/member-white.png"></img>
                 </div>
                 <h2>My Account</h2>
               </div>
