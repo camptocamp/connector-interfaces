@@ -107,7 +107,7 @@
                                                 <option value="">Country...</option>
                                                 <t t-foreach="countries or []" t-as="country">
                                                     <option t-att-value="country.id"
-                                                        t-att-selected="country.id == partner.country_id.id">
+                                                        t-att-selected="country.id == (country_id or partner.country_id.id)">
                                                         <t t-esc="country.name" />
                                                     </option>
                                                 </t>
@@ -132,11 +132,11 @@
                                             t-att-value="email or partner.email" />
                                     </div>
                                     <div
-                                        t-attf-class="form-group row #{error.get('website') and 'has-error' or ''} ">
+                                        t-attf-class="form-group row #{error.get('website_url') and 'has-error' or ''} ">
                                         <label class="form-control-label label-optional col-sm-2"
-                                            for="website">Website</label>
-                                        <input placeholder="http://www.domain.com" type="text" name="website" class="form-control"
-                                            t-att-value="partner.website" />
+                                            for="website_url">Website</label>
+                                        <input placeholder="http://www.domain.com" type="text" name="website_url" class="form-control"
+                                            t-att-value="website_url or partner.website" />
                                     </div>
                                     <div
                                         t-attf-class="form-group separate row #{error.get('facebook') and 'has-error' or ''} ">
@@ -150,14 +150,14 @@
                                         <label class="form-control-label label-optional col-sm-2"
                                             for="twitter">Twitter</label>
                                         <input placeholder="https://twitter.com/username" type="text" name="twitter" class="form-control"
-                                            t-att-value="partner.twitter" />
+                                            t-att-value="twitter or partner.twitter" />
                                     </div>
                                     <div
                                         t-attf-class="form-group row #{error.get('skype') and 'has-error' or ''} ">
                                         <label class="form-control-label label-optional col-sm-2"
                                             for="skype">Skype</label>
                                         <input placeholder="Skype-ID" type="text" name="skype" class="form-control"
-                                            t-att-value="partner.skype" />
+                                            t-att-value="skype or partner.skype" />
                                     </div>
                                     <div
                                         t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">

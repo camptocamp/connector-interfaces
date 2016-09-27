@@ -19,43 +19,52 @@ class website_account(website_account):
             redirect = ('/my/home')
         response = super(website_account, self).details(redirect, **post)
 
-        industries = [
-            dict(id=category.id, name=category.display_name)
-            for category in partner.category_id]
-        industries = json.dumps(industries)
-
-        expertises = partner.expertise_ids.read(['name'])
-        expertises = json.dumps(expertises)
-
-        response.qcontext.update({
-            'categories': industries,
-            'expertises': expertises,
-        })
-
         # FIXME: Workaround for problem with saving of fields website.
         # If required fields are not set, website will be taken out of
         # response dictionary in order to avoid server errors.
         if 'website' in response.qcontext:
             del response.qcontext['website']
 
+        industry_ids = []
+        expertise_ids = []
+
         if post:
+            country_id = post['country_id']
+            if country_id and country_id.isdigit():
+                vals.update({'country_id': int(country_id)})
             if post['post_categories']:
-                categ_ids = post['post_categories'].split(',')
-                vals.update(
-                    {'category_id': [
-                        (4, int(category_id)) for category_id in categ_ids]})
+                industry_ids = post['post_categories'].split(',')
+                industry_ids = [int(rec_id) for rec_id in industry_ids]
+                vals.update({'category_id': [(6, None, industry_ids)]})
             if post['post_expertises']:
-                expertise_ids = post[
-                    'post_expertises'].split(',')
-                vals.update(
-                    {'expertise_ids': [
-                        (4, int(expertise_id))
-                        for expertise_id in expertise_ids]})
+                expertise_ids = post['post_expertises'].split(',')
+                expertise_ids = [int(rec_id) for rec_id in expertise_ids]
+                vals.update({'expertise_ids': [(6, None, expertise_ids)]})
             if post['uimage']:
                 vals.update(
                     {'image': base64.encodestring(post['uimage'].read())})
-            partner.sudo().write(vals)
+            response.qcontext.update(vals)
+            if 'error' not in response.qcontext:
+                vals['website'] = post['website_url']
+                partner.sudo().write(vals)
 
+        if industry_ids:
+            Industry = request.env['res.partner.category']
+            industries = Industry.browse(industry_ids)
+        else:
+            industries = partner.category_id
+        industries = [dict(id=category.id, name=category.display_name)
+                      for category in industries]
+        industries = json.dumps(industries)
+
+        if expertise_ids:
+            Expertise = request.env['partner.project.expertise']
+            expertises = Expertise.browse(expertise_ids)
+        else:
+            expertises = partner.expertise_ids
+        expertises = json.dumps(expertises.read(['name']))
+
+        response.qcontext.update(categories=industries, expertises=expertises)
         return response
 
     def details_form_validate(self, data):
@@ -66,7 +75,7 @@ class website_account(website_account):
         mandatory_fields = ["name", "street2", "zipcode", "city", "country_id",
                             "phone", "email"]
         optional_fields = ["state_id", "vat", "street"]
-        additional_fields = ['uimage', 'website', 'twitter', 'facebook',
+        additional_fields = ['uimage', 'website_url', 'twitter', 'facebook',
                              'skype', 'website_short_description',
                              'post_expertises', 'post_categories']
 
