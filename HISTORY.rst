@@ -33,6 +33,7 @@ latest (unreleased)
 * Allow to remove industries and expertises on /my/account
 * Allow to remove industries and expertises on my proposal details
 * Show existing image on profile
+* Remove agreement and country from reset password page
 
 **Build**
 
