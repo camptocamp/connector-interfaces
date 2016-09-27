@@ -24,6 +24,8 @@ latest (unreleased)
 * Display parent of industries and change order of industries ordered by parent / name in dropdown list
 * Add a cancel button to cancel edition in /my/account
 
+* Enlarge column of member profile in /my/home
+* Center button "Edit profile" on /my/home
 
 **Bugfixes**
 
