@@ -237,9 +237,11 @@
                     </table>
                 </div>
             </t>
-            <a class="btn btn-primary center-block" t-attf-href="/my/account" title="Edit profile">
-                Edit profile
-            </a>
+            <div class="text-center">
+              <a class="btn btn-primary" t-attf-href="/my/account" title="Edit profile">
+                  Edit profile
+              </a>
+            </div>
         </div>
     </template>
 
