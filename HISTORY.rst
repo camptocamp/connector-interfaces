@@ -21,7 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Display parent of industries and change order of industries ordered by parent / name in dropdown list
+* Add a cancel button to cancel edition in /my/account
+
+
 **Bugfixes**
+
+* Fix placeholder in /my/account for url with http:/// instead of http://
+* Set zip field as mandatory in /my/account
+* Fix emptied fields in /my/account on error
+* Allow to remove industries and expertises on /my/account
+* Allow to remove industries and expertises on my proposal details
+* Show existing image on profile
 
 **Build**
 
