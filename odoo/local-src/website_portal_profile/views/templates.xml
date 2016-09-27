@@ -50,7 +50,7 @@
                                     <div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
 
                                         <div class="media">
-                                            <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', None if product_image_big else '256x256')"/>
+                                            <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', '170x170')"/>
                                             <div class="imgupload">
                                                 <div class="file-tab">
                                                     <div>
