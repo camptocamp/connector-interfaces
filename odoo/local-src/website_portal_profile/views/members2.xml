@@ -263,7 +263,7 @@
       <!-- Replace website_portal.account in order to set multiple classes-->
     <template id="account_classes" name="Account" inherit_id="website_portal.account">-->
       <xpath expr="//div[contains(@class, 'o_my_documents')]" position="attributes">
-        <attribute name="class">col-md-4 col-md-offset-4 o_my_documents</attribute>
+        <attribute name="class">col-md-6 col-md-offset-3 o_my_documents</attribute>
       </xpath>
       <xpath expr="//div[contains(@class, 'o_my_sidebar')]" position="attributes">
         <attribute name="class">hide col-md-3 col-md-offset-1 o_my_sidebar</attribute>
