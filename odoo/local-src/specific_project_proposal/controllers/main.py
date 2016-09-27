@@ -279,20 +279,16 @@ class WebsiteProposal(http.Controller):
                 values.update({'country_id': int(country_id)})
             if post.get('post_industries'):
                 industry_ids = post['post_industries'].split(',')
-                industry_ids = [int(industry_id) for industry_id
-                                in industry_ids]
+                industry_ids = [int(rec_id) for rec_id in industry_ids]
 
             if post.get('post_expertises'):
                 expertise_ids = post['post_expertises'].split(',')
-                expertise_ids = [int(expertise_id) for expertise_id
-                                 in expertise_ids]
+                expertise_ids = [int(rec_id) for rec_id in expertise_ids]
             if not error:
                 if industry_ids:
-                    post['industry_ids'] = [(4, industry_id) for industry_id
-                                            in industry_ids]
+                    post['industry_ids'] = [(6, None, industry_ids)]
                 if expertise_ids:
-                    post['expertise_ids'] = [(4, expertise_id) for expertise_id
-                                             in expertise_ids]
+                    post['expertise_ids'] = [(6, None, expertise_ids)]
                 if not values.get('start_date'):
                     post['start_date'] = False
                 if not values.get('stop_date'):
