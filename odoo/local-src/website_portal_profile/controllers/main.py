@@ -35,14 +35,13 @@ class website_account(website_account):
             if post['post_categories']:
                 industry_ids = post['post_categories'].split(',')
                 industry_ids = [int(rec_id) for rec_id in industry_ids]
-                vals.update({'category_id': [(6, None, industry_ids)]})
+                vals['category_id'] = [(6, None, industry_ids)]
             if post['post_expertises']:
                 expertise_ids = post['post_expertises'].split(',')
                 expertise_ids = [int(rec_id) for rec_id in expertise_ids]
-                vals.update({'expertise_ids': [(6, None, expertise_ids)]})
+                vals['expertise_ids'] = [(6, None, expertise_ids)]
             if post['uimage']:
-                vals.update(
-                    {'image': base64.encodestring(post['uimage'].read())})
+                vals['image'] = base64.encodestring(post['uimage'].read())
             response.qcontext.update(vals)
             if 'error' not in response.qcontext:
                 vals['website'] = post['website_url']
