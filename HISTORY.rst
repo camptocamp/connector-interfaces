@@ -36,6 +36,7 @@ latest (unreleased)
 * Allow to remove industries and expertises on my proposal details
 * Show existing image on profile
 * Remove agreement and country from reset password page
+* Change /my/home icon to a 300x200 px icon
 
 **Build**
 
