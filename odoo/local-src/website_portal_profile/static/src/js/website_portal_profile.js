@@ -1,6 +1,7 @@
 odoo.define('website_portal_profile.portal_profile', function (require) {
 'use strict';
 
+var Model = require('web.Model');
 var ajax = require('web.ajax');
 var core = require('web.core');
 var base = require('web_editor.base');
@@ -34,24 +35,22 @@ if(!$('.js_select2_categories').length) {
                 return _.escape(term.text);
             }
         },
-	query: function (query) {
-		ajax.jsonRpc("/web/dataset/call_kw", 'call', {
-			model: 'res.partner.category',
-			method: 'search_read',
-			args: [],
-			kwargs: {
-				fields: ['name'],
-				context: base.get_context()
-			}
-		}).then(function (data) {
-			var tags = { results: [] };
-			_.each(data, function(x) {
-			    tags.results.push({ id: x.id, text: x.name, isNew: false });
-			});
-			lastsearch = tags;
-			query.callback(tags);
-	        });
-	},
+        query: function (query) {
+            return new Model('res.partner.category').call('search_read', [[]], {
+                fields: ['display_name'],
+                context: base.get_context()
+            }).then(function (data) {
+                var tags = { results: [] };
+                data.sort(function(a, b) {
+                    return a.display_name.localeCompare(b.display_name);
+                });
+                _.each(data, function(x) {
+                    tags.results.push({ id: x.id, text: x.display_name, isNew: false });
+                });
+                lastsearch = tags;
+                query.callback(tags);
+            });
+        },
         // Default tags from the input value
         initSelection: function (element, callback) {
             var data = [];

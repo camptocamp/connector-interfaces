@@ -204,7 +204,7 @@
                   <div>
                     <b>Industries:</b>
                     <t t-foreach="proposal.industry_ids" t-as="industry">
-                      <span t-attf-class="label #{industry_ids and industry.id in industry_ids and 'label-primary' or 'label-default'}" t-field="industry.name"
+                      <span t-attf-class="label #{industry_ids and industry.id in industry_ids and 'label-primary' or 'label-default'}" t-field="industry.display_name"
                         style="margin-right: 4px;"/>
                     </t>
                     <a t-att-href="detail_url.format(slug(proposal))">
@@ -322,7 +322,7 @@
           <div>
             <b>Industries:</b>
             <t t-foreach="proposal.industry_ids" t-as="industry">
-              <span t-field="industry.name"/>
+              <span t-field="industry.display_name"/>
             </t>
           </div>
           <div t-if="is_associate">
