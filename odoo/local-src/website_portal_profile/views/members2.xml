@@ -165,31 +165,20 @@
             <h3 class="page-header">Member profil</h3>
             <t t-if="partner">
                 <div class="table-responsive">
-                    <table class="table table-condensed picture-table">
+                    <table class="table table-condensed member-profile-table">
                         <tr>
                             <td>
                                 <div class="media">
                                     <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', None if product_image_big else '128x128')"/>
                                 </div>
                             </td>
-                            <td><t t-esc="partner.name" /></td>
+                            <td>
+                              <b><t t-esc="partner.name" /></b><br/>
+                              <b><t t-esc="partner.street2" /></b><br/>
+                              <b><t t-esc="partner.zip"/> <t t-esc="partner.city"/></b><br/>
+                              <b><t t-esc="partner.country_id.name"/></b>
+                            </td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td><t t-esc="partner.street2" /></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><t t-esc="partner.zip"/> <t t-esc="partner.city"/></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td><t t-esc="partner.country_id.name"/></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-condensed member-profile-table">
                         <tr>
                             <td>Phone:</td>
                             <td><t t-esc="partner.phone" /></td>
