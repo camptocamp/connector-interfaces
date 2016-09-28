@@ -24,3 +24,5 @@ migration:
       # nothing to do, all has been installed in 9.0.1
     - version: 9.0.6
       # nothing to do, all has been installed in 9.0.1
+    - version: 9.0.7
+      # nothing to do, all has been installed in 9.0.1

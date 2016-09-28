@@ -21,6 +21,18 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.0.7 (2016-09-28)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Display parent of industries and change order of industries ordered by parent / name in dropdown list
 * Add a cancel button to cancel edition in /my/account
 
@@ -38,9 +50,6 @@ latest (unreleased)
 * Remove agreement and country from reset password page
 * Change /my/home icon to a 300x200 px icon
 
-**Build**
-
-**Documentation**
 
 9.0.6 (2016-09-14)
 ++++++++++++++++++
