@@ -143,7 +143,7 @@
                                         <label class="form-control-label label-optional col-sm-2"
                                             for="facebook">Facebook</label>
                                         <input placeholder="https://www.facebook.com/username" type="text" name="facebook" class="form-control"
-                                            t-att-value="partner.facebook" />
+                                            t-att-value="facebook or partner.facebook" />
                                     </div>
                                     <div
                                         t-attf-class="form-group row #{error.get('twitter') and 'has-error' or ''} ">
