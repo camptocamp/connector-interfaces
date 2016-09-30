@@ -164,7 +164,7 @@
         <div id="partner_table" class="col-md-12">
             <h3 class="page-header">Member profile</h3>
             <t t-if="partner">
-                <div class="table-responsive">
+                <div class="table-responsive center-block">
                     <table class="table table-condensed member-profile-table">
                         <tr>
                             <td>
