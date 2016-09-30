@@ -23,6 +23,10 @@ latest (unreleased)
 
 **Bugfixes**
 
+* Revert column enlargement on /my/home
+* Change display of /my/home
+* Fix an error on member details on field website
+
 **Build**
 
 **Documentation**
