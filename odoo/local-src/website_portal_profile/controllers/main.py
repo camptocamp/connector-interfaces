@@ -164,6 +164,7 @@ class website_account(website_account):
     def profile_success(self, *args, **kw):
         return request.render('website_portal_profile.profile_success', {})
 
+
 class WebsiteMembership(WebsiteMembershipController):
 
     def _get_domain(self, search_industries='', search_expertises='',
@@ -181,7 +182,7 @@ class WebsiteMembership(WebsiteMembershipController):
 
     @http.route([], type='http', auth="public", website=True)
     def members(self, membership_id=None, country_name=None, country_id=0,
-            page=1, **post):
+                page=1, **post):
         """ Overwrite completely the method as we have no hook in it
         Here we define the search on expertise and industries
         """
@@ -220,7 +221,7 @@ class WebsiteMembership(WebsiteMembershipController):
             country_domain = [('membership_state', '=', 'free')]
         if post_name:
             country_domain += ['|', ('name', 'ilike', post_name),
-                                  ('website_description', 'ilike', post_name)]
+                               ('website_description', 'ilike', post_name)]
         countries = partner_obj.read_group(
             cr, SUPERUSER_ID, country_domain + [("website_published", "=", True)], ["id", "country_id"],  # noqa
             groupby="country_id", orderby="country_id", context=request.context)  # noqa
@@ -235,7 +236,7 @@ class WebsiteMembership(WebsiteMembershipController):
                     'country_id_count': 0,
                     'country_id': (country_id, current_country["name"])
                 })
-                countries = filter(lambda d:d['country_id'], countries)
+                countries = filter(lambda d: d['country_id'], countries)
                 countries.sort(key=lambda d: d['country_id'][1])
 
         countries.insert(0, {
@@ -266,7 +267,9 @@ class WebsiteMembership(WebsiteMembershipController):
 
         google_map_partner_ids = []
         if request.env.ref('website_membership.opt_index_google_map').customize_show:  # noqa
-            membership_lines_ids = membership_line_obj.search(cr, uid, line_domain, context=context)  # noqa
+            # ----- FIX ----
+            membership_line_ids = membership_line_obj.search(cr, uid, line_domain, context=context)  # noqa
+            # ----- END of FIX ----
             google_map_partner_ids = membership_line_obj.get_published_companies(cr, uid, membership_line_ids, limit=2000, context=context)  # noqa
 
         search_domain = [('membership_state', '=', 'free'), ('website_published', '=', True)]  # noqa
@@ -323,7 +326,7 @@ class WebsiteMembership(WebsiteMembershipController):
 
         google_map_partner_ids = ",".join(map(str, google_map_partner_ids))
 
-        partners = { p.id: p for p in partner_obj.browse(request.cr, SUPERUSER_ID, list(page_partner_ids), request.context)}  # noqa
+        partners = {p.id: p for p in partner_obj.browse(request.cr, SUPERUSER_ID, list(page_partner_ids), request.context)}  # noqa
 
         base_url = '/members%s%s' % ('/association/%s' % membership_id if membership_id else '',  # noqa
                                      '/country/%s' % country_id if country_id else '')  # noqa
