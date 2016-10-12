@@ -163,7 +163,7 @@
                                         t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">
                                         <label class="form-control-label label-optional col-sm-2"
                                             for="website_short_description">Claim</label>
-                                        <textarea placeholder="200 characters left" name="website_short_description" class="form-control"><t t-esc="partner.website_short_description"/></textarea>
+                                        <textarea placeholder="200 characters left" name="website_short_description" class="form-control"><t t-esc="partner.website_short_description or website_short_description"/></textarea>
                                     </div>
                                     <div
                                         t-attf-class="form-group row #{error.get('category_id') and 'has-error' or ''} ">
