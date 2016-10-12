@@ -276,6 +276,23 @@
                         <input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="post.get('search', '')" />
                         <button type="submit" class="btn btn-default btn-primary mb32 ">Search</button>
                     </div>
+                    <div class="filter-row row-2">
+                      <div class="oe_search">
+                        <input name="search_industries" class="search-query form-control oe_search_box js_select2_categories" placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/>
+                        <input name="search_expertises" class="search-query form-control oe_search_box js_select2_expertises" placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/>
+                        <div class="styled-select">
+                          <select name="search_country" class="form-control">
+                            <option value="">Country...</option>
+                            <t t-foreach="countries or []" t-as="country">
+                              <option t-att-value="country['country_id'][0]"
+                                t-att-selected="country['country_id'][0] == selected_country_id">
+                                <t t-esc="country['country_id'][1]" />
+                              </option>
+                            </t>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                 </form>
                 <div class="row hide">
                   <div class="col-md-12">

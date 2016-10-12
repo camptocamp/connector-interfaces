@@ -21,6 +21,8 @@ latest (unreleased)
 
 **Features and Improvements**
 
+* Add search field Industries, Expertises and Country in /members
+
 **Bugfixes**
 
 * Revert column enlargement on /my/home
