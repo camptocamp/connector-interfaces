@@ -10,7 +10,7 @@ Be sure to [install Docker and docker-compose](prerequisites.md) before going an
 
         git clone git@github.com:camptocamp/fluxdock_odoo.git fluxdock
 
-2. Clone the submodules
+2a. Clone the submodules from scratch
 
 ```bash
 git submodule init
@@ -23,6 +23,18 @@ the remote:
 
 ```bash
 git submodule sync
+```
+
+2b. Use existing cloned submodules
+
+The Odoo repo `odoo/src` will take quite some time if pulled from scratch.
+If you already have a local checkout of one or more submodules
+you can save a lot of time avoiding to download the whole repos, by doing this:
+
+```
+cp -r path/to/odoo odoo/src
+cp -r path/to/server-tools odoo/external-src/
+git submodule update --init --recursive
 ```
 
 ## Docker
@@ -111,7 +123,7 @@ interactions such as `pdb`.
 
 **docker exec** (or `docker-compose exec` in the last versions of docker-compose)
 allows to *enter* in a already running container, which can be handy to inspect
-files, check something, ... 
+files, check something, ...
 
 ```bash
 # open the database (the container name is found using 'docker ps')
@@ -178,4 +190,3 @@ Note: if you get the following error when you do `docker-compose up`:
     If it's at a non-standard location, specify the URL with the DOCKER_HOST environment variable.
 
 Know that it has been reported: https://github.com/docker/compose/issues/3106
-
