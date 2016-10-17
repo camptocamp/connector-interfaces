@@ -270,11 +270,28 @@
                     <img src="/website_portal_profile/static/src/img/members-white.png"></img>
                 </div>
                 <h2>Members</h2>
-                <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-                <form action="" method="get" class="search-panel members-search-panel">
+                <p align="left">Fluxdock is based on its members. They form all together the interdisciplinary and collaborative network that enables the members mutually to innovation. See here are all members of Fluxdock, their industries and special expertises.</p>
+                <form action="/members" method="get" class="search-panel members-search-panel">
                     <div class="filter-row row-1">
                         <input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="post.get('search', '')" />
                         <button type="submit" class="btn btn-default btn-primary mb32 ">Search</button>
+                    </div>
+                    <div class="filter-row row-2">
+                      <div class="oe_search">
+                        <input name="search_industries" class="search-query form-control oe_search_box js_select2_categories" placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/>
+                        <input name="search_expertises" class="search-query form-control oe_search_box js_select2_expertises" placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/>
+                        <div class="styled-select">
+                          <select name="search_country" class="form-control">
+                            <option value="">Country...</option>
+                            <t t-foreach="countries or []" t-as="country">
+                              <option t-att-value="country['country_id'][0]"
+                                t-att-selected="country['country_id'][0] == selected_country_id">
+                                <t t-esc="country['country_id'][1]" />
+                              </option>
+                            </t>
+                          </select>
+                        </div>
+                      </div>
                     </div>
                 </form>
                 <div class="row hide">

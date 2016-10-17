@@ -841,17 +841,20 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					}
 				}
 				&.row-2{
-					.styled-select{
-						width: 32%;
+					.search-query{
+						display: block;
+						width: 31%;
 						margin-right: 2%;
 						float: left;
-						&:nth-of-type(3n){
-							margin-right: 0;
-						}
-						select{
-							display: block;
-							width: 120%;
-						}
+                                                .styled-select{
+                                                        &:nth-of-type(3n){
+                                                                margin-right: 0;
+                                                        }
+                                                        select{
+                                                                display: block;
+                                                                width: 120%;
+                                                        }
+                                                }
 					}
 				}
 			}
