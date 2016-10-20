@@ -13,11 +13,14 @@ class WebsiteAccount(website_account):
     @http.route(['/my', '/my/home'], type='http', auth="public", website=True)
     def account(self, **kw):
         response = super(WebsiteAccount, self).account(**kw)
-        partner = request.env['res.users'].browse(request.uid).partner_id
-        response.qcontext.update({
-            'partner': partner,
-        })
+        response.qcontext.update(self._account_extra_qcontext())
         return response
+
+    def _account_extra_qcontext(self):
+        partner = request.env['res.users'].browse(request.uid).partner_id
+        return {
+            'partner': partner,
+        }
 
     @http.route(['/my/account'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):

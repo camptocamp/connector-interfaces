@@ -2,18 +2,19 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from openerp import http
 from openerp import SUPERUSER_ID
-from openerp.addons.website_portal.controllers.main import website_account
+from openerp.addons.specific_membership.controllers.account\
+    import WebsiteAccount as WebsiteAccountController
 from openerp.http import request
 
 
-class WebsiteAccount(website_account):
+class WebsiteAccount(WebsiteAccountController):
 
-    @http.route(['/my', '/my/home'], type='http', auth="user", website=True)
-    def account(self):
-        response = super(WebsiteAccount, self).account()
+    def _account_extra_qcontext(self):
+        _super = super(WebsiteAccountController, self)
+        res = _super._account_extra_qcontext()
         projects = request.env['project.project'].search([])
-        response.qcontext.update({'projects': projects})
-        return response
+        res.update({'projects': projects})
+        return res
 
 
 class WebsitePortalProject(http.Controller):
