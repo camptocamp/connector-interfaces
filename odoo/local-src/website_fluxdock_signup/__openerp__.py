@@ -9,18 +9,9 @@
     'category': 'Website',
     'version': '1.0',
     'depends': [
-        'auth_signup',
-        'web',
-        'website',
-        'website_mass_mailing',
-        'website_terms_of_use',
-        'website_portal',
-        'website_portal_profile',
-        # 'website_portal_project'
+        'base',
     ],
     'data': [
-        'views/templates.xml',
-        'fluxdock_signup_data.xml'
     ],
     'installable': True,
 }

@@ -8,7 +8,7 @@ from openerp.tools.translate import _
 from openerp.exceptions import UserError
 
 
-class res_users(osv.Model):
+class ResUsers(osv.Model):
     _inherit = 'res.users'
 
     def _now(self, **kwargs):
@@ -62,7 +62,7 @@ class res_users(osv.Model):
             template = self.pool.get('ir.model.data').get_object(
                 cr,
                 uid,
-                'website_fluxdock_signup',
+                'specific_membership',
                 'account_confirmation_email')
         assert template._name == 'mail.template'
 

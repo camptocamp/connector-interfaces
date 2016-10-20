@@ -17,7 +17,7 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
 
     @http.route('/web/presignup', type='http', auth='public', website=True)
     def website_fluxdock_presignup(self, *args, **kw):
-        return request.render('website_fluxdock_signup.presignup', {})
+        return request.render('specific_membership.presignup', {})
 
     @http.route('/web/signup', type='http', auth='public', website=True)
     def web_auth_signup(self, *args, **kw):
@@ -49,7 +49,7 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
                     login)
 
                 return request.render(
-                    'website_fluxdock_signup.thanks_for_registration',
+                    'specific_membership.thanks_for_registration',
                     {})
             except (SignupError, AssertionError) as e:
                 qcontext['error'] = _(e.message)
@@ -87,7 +87,7 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
             except Exception as e:
                 qcontext['error'] = _(e.message)
         return request.render(
-            'website_fluxdock_signup.account_confirmation',
+            'specific_membership.account_confirmation',
             qcontext)
 
     def do_confirmation(self, qcontext):
@@ -114,4 +114,4 @@ class AuthSignupHome(openerp.addons.web.controllers.main.Home):
 
     @http.route('/web/privateperson', type='http', auth='public', website=True)
     def website_fluxdock_privateperson(self, *args, **kw):
-        return request.render('website_fluxdock_signup.privateperson', {})
+        return request.render('specific_membership.privateperson', {})

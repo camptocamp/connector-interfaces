@@ -7,7 +7,7 @@ import werkzeug.urls
 from openerp import _, fields, http
 from openerp.http import request
 
-from openerp.addons.specific_membership.controllers.main import (
+from openerp.addons.specific_membership.controllers.membership import (
     WebsiteAccount
 )
 
