@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="assets_frontend" inherit_id="website.assets_frontend"
+			  name="Fluxdock frontend assets">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/specific_membership/static/src/js/specific_membership.js"></script>
+			<script type="text/javascript" src="/specific_membership/static/src/js/widgets.js"></script>
+			<script type="text/javascript" src="/specific_membership/static/src/js/image_upload.js"></script>
+
+            <script type="text/javascript" src="/specific_membership/static/lib/bootstrap-imgupload/js/bootstrap-imgupload.js"></script>
+
+            <link rel="stylesheet" href="/specific_membership/static/lib/bootstrap-imgupload/css/bootstrap-imgupload.css"/>
+		</xpath>
+	</template>
+
+</odoo>

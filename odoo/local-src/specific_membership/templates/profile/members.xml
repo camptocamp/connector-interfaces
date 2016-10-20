@@ -155,12 +155,12 @@
     <!-- load member profile table -->
     <template id="account" name="Account" inherit_id="website_portal.account">
         <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
-            <t t-call="website_portal_profile.partner_table" />
+            <t t-call="specific_membership.partner_table" />
         </xpath>
     </template>
 
     <!-- Partner profile table -->
-    <template id="website_portal_profile.partner_table" name="Partner table">
+    <template id="specific_membership.partner_table" name="Partner table">
         <div id="partner_table" class="col-md-12">
             <h3 class="page-header">Member profile</h3>
             <t t-if="partner">
@@ -240,7 +240,7 @@
             <section class="content members-list opt_dark_bg">
               <div class="container content-wrap">
                 <div class="content-icon">
-                  <img src="/website_portal_profile/static/src/img/member-white.png"></img>
+                  <img src="/specific_membership/static/src/img/member-white.png"></img>
                 </div>
                 <h2>My Account</h2>
               </div>
@@ -267,7 +267,7 @@
             <section class="content members-list opt_dark_bg">
               <div class="container content-wrap">
                 <div class="content-icon">
-                    <img src="/website_portal_profile/static/src/img/members-white.png"></img>
+                    <img src="/specific_membership/static/src/img/members-white.png"></img>
                 </div>
                 <h2>Members</h2>
                 <p align="left">Fluxdock is based on its members. They form all together the interdisciplinary and collaborative network that enables the members mutually to innovation. See here are all members of Fluxdock, their industries and special expertises.</p>
@@ -498,22 +498,5 @@
         </div>
       </xpath>
     </template>
-
-    <record id="view_fluxdock_member_fields_form" model="ir.ui.view">
-      <field name="name">res.partner.fluxdock.member.fields</field>
-      <field name="model">res.partner</field>
-      <field name="priority">2</field>
-      <field name="inherit_id" ref="base.view_partner_form" />
-      <field name="arch" type="xml">
-        <field name="email" position="after">
-          <field name="skype" />
-          <field name="facebook" />
-          <field name="twitter" />
-        </field>
-        <field name="website" position="after">
-          <field name="website_short_description" string="Claim" />
-        </field>
-      </field>
-    </record>
 
 </odoo>

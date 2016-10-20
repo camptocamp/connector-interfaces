@@ -16,16 +16,25 @@
         'auth_signup',
         'website',
         'website_portal',
-        'website_portal_profile',
         'website_mass_mailing',
         'website_terms_of_use',
+        'website_portal_sale',
+        'website_partner',
+        'website_membership',
+        'partner_project_expertise',
     ],
     'data': [
+        'security/ir.model.access.csv',
         # views
-        'views/membership_views.xml',
+        'views/partner_view.xml',
         # templates
+        'templates/assets.xml',
         'templates/membership.xml',
         'templates/signup.xml',
+        # TODO: go trough these templates and check for stuff to move/merge
+        'templates/profile/templates.xml',
+        'templates/profile/members.xml',
+        'templates/profile/upload.xml',
         # datas
         'data/membership_data.xml',
         'data/signup_data.xml',

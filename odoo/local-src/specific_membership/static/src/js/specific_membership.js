@@ -1,4 +1,4 @@
-odoo.define('website_portal_profile.portal_profile', function (require) {
+odoo.define('specific_membership.portal_profile', function (require) {
 'use strict';
 
 var Model = require('web.Model');

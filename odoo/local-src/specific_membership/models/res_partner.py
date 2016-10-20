@@ -7,10 +7,32 @@ from openerp import api, models, fields, exceptions, _
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    flux_membership = fields.Selection([
-        ('free', 'Free Membership'),
-        ('asso', 'Associate Membership')], default='free',
-        compute='compute_flux_membership', required=True)
+    flux_membership = fields.Selection(
+        string='Flux membership',
+        selection=[
+            ('free', 'Free Membership'),
+            ('asso', 'Associate Membership')
+        ],
+        default='free',
+        compute='_compute_flux_membership',
+        required=True
+    )
+    facebook = fields.Char(string='Facebook')
+    twitter = fields.Char(string='Twitter')
+    skype = fields.Char(string='Skype')
+    expertise = fields.Char(string='Expertise')
+    agree_to_terms = fields.Boolean(
+        'Agree to unity terms',
+        help='Agree to terms'
+    )
+
+    @api.one
+    @api.depends('membership_state')
+    def _compute_flux_membership(self):
+        if (self.membership_state in ['paid', 'invoiced']):
+            self.flux_membership = 'asso'
+        else:
+            self.flux_membership = 'free'
 
     @api.multi
     def create_membership_invoice(self, product_id=None, datas=None):
@@ -21,7 +43,7 @@ class ResPartner(models.Model):
 
         product_id = product_id or datas.get('membership_product_id')
         product = prod_obj.browse(product_id) or prod_obj.search(
-                [('default_code', '=', 'associate')])
+            [('default_code', '=', 'associate')])
         if not product:
             raise exceptions.Warning(
                 _('There is no associate default product'))
@@ -44,14 +66,6 @@ class ResPartner(models.Model):
     @api.multi
     def button_buy_membership(self):
         self.create_membership_invoice()
-
-    @api.one
-    @api.depends('membership_state')
-    def compute_flux_membership(self):
-        if (self.membership_state in ['paid', 'invoiced']):
-            self.flux_membership = 'asso'
-        else:
-            self.flux_membership = 'free'
 
     @api.model
     def check_membership_payment(self):
