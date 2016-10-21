@@ -2,12 +2,15 @@
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import http
+from openerp import http, _
+from openerp.tools.misc import DEFAULT_SERVER_DATE_FORMAT
 from openerp.http import request
-
 from openerp.addons.website_membership.controllers.main import (
     WebsiteMembership as WebsiteMembershipController
 )
+import time
+import json
+import werkzeug
 
 # TODO Faire liste des routes nécessaires
 

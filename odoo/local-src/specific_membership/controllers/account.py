@@ -2,10 +2,12 @@
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import http
+from openerp import http, tools, _
 from openerp.http import request
-
 from openerp.addons.website_portal.controllers.main import website_account
+
+import json
+import base64
 
 
 class WebsiteAccount(website_account):
@@ -125,9 +127,8 @@ class WebsiteAccount(website_account):
 
         unknown = [
             k for k in data.iterkeys() if k not in
-            mandatory_fields
-            + optional_fields
-            + additional_fields]
+            mandatory_fields + optional_fields + additional_fields
+        ]
         if unknown:
             error['common'] = 'Unknown field'
             error_message.append("Unknown field '%s'" % ','.join(unknown))
