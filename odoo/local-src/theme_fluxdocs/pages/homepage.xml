@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+
+<template id="homepage" inherit_id="website.homepage" name="Fluxdock homepage">
+	<div id="wrap" position="replace">
+	    <div id="wrap" class="oe_structure oe_empty">
+	      <section class="animated-logo">
+	        <div class="logo">
+	          <canvas width="350" height="350" id="logo-canvas"/>
+	          <img class="fluxdock-title" src="/theme_fluxdocs/static/img/fluxdock_title_2.png"/>
+	        </div>
+	        <script type="text/JavaScript" class="o_default_snippet_text">
+	                                var THREE = {
+	            						Math: {
+											degToRad: function(degrees)
+												{ return degrees * Math.PI / 180; }
+										}
+									};
+								</script>
+	        <script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Matrix4.js"/>
+	        <script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Vector3.js"/>
+	        <script type="text/JavaScript" src="/theme_fluxdocs/static/js/line_cube.js"/>
+	      </section>
+	      <section class="content signup_login opt_dark_grid_bg">
+	        <div class="content-wrap">
+	          <h2 class="o_default_snippet_text"/>
+	          <p/>
+	          <p/>
+	          <h2>Collaboration creates Innovation</h2>
+	          <p/>
+	          <div class="content-wrap">
+	            <a class="btn o_default_snippet_text" href="/web/login">Login</a>
+	            <a class="btn o_default_snippet_text" href="/web/presignup">Sign up</a>
+	          </div>
+	          <p>People. Methods. Collaboration.</p>
+	          <p>Fluxdock enables firms to innovate.</p>
+	          <p>Join Fluxdock now.</p>
+	        </div>
+	      </section>
+	      <section class="content latest_news">
+	        <div class="content-wrap">
+	          <h2>News </h2>
+	          <div class="latest-news-container">
+	            <div class="news-teaser">
+	              <div class="news-teaser-date o_default_snippet_text">5 Apr 2016 </div>
+	              <h2 class="o_default_snippet_text">
+	                <a href="/web/presignup">SIGN UP NOW </a>
+	              </h2>
+	              <p>Fluxdock is now open for registration. Firms can sign up before the network is launched mid april. </p>
+	              <div class="read-more">
+	                <a href="/web/presignup">Register here </a>
+	              </div>
+	            </div>
+	            <div class="news-teaser">
+	              <div class="news-teaser-date o_default_snippet_text">1 Apr 2016 </div>
+	              <h2 class="o_default_snippet_text">
+	                <a href="/page/simulation">FLUXDOCK 3D MODEL: </a>
+	              </h2>
+	              <h2 class="o_default_snippet_text">
+	                <a href="/page/simulation">ONLINE NOW </a>
+	              </h2>
+	              <p>Step into Fluxdock and see the current planning status of the facility in the Transitlager at the Dreispitz. </p>
+	              <div class="read-more">
+	                <a href="/page/simulation" class="o_default_snippet_text">Start Simulation </a>
+	              </div>
+	            </div>
+	            <div class="news-teaser">
+	              <div class="news-teaser-date o_default_snippet_text">4 Feb 2016 </div>
+	              <h2 class="o_default_snippet_text">
+	                <a href="http://52.57.98.170:8101/slides/slide/stellenausschrieb-k02-1">FLUXDOCK IS RECRUTING </a>
+	              </h2>
+	              <p class="o_default_snippet_text">
+	                <a href="http://52.57.98.170:8101/slides/slide/stellenausschrieb-k02-1">We are currently looking for a software developer who drives the development of our platform for collaborative innovation jointly with us. </a>
+	              </p>
+	            </div>
+	          </div>
+	        </div>
+	      </section>
+	      <section class="content opt_dark_bg">
+	        <div class="content-wrap">
+	          <div class="content-icon">
+	            <img src="/theme_fluxdocs/static/img/content-icons/collaborative.png" style=""/>
+	          </div>
+	          <h2 class="o_default_snippet_text"/>
+	          <h2 style="color: rgb(255, 255, 255);">
+	            <span style="line-height: 1.3">The platform for collaborative innovation</span>
+	          </h2>
+	          <p align="left">Fluxdock is the network of collaborative companies. Their employees work effectively together in projects with shared principles, methods and tools. Through mutual exchanges they empower themselves to innovate. Fluxdock provides the network, suitable methods, tools and excellent infrastructure for collaborative innovation - on the platform and in the Transitlager in Basel.</p>
+	          <br/>
+	        </div>
+	      </section>
+	      <section class="content">
+	        <div class="content-wrap">
+	          <div class="content-icon">
+	            <img src="/theme_fluxdocs/static/img/content-icons/methods.png" style=""/>
+	          </div>
+	          <h2>Methods</h2>
+	          <p align="left">We believe that agile methods and methods of design thinking are best suited to promote collaboration and thereby innovation. An iterative approach, transparency, flexibility and trust are essential and can be lived by agile methods. Scrum provides a suitable framework for successful collaboration and innovation between companies. Fluxdock will therefore provide regular information, events, and offers on these methods in order to promote collaboration and innovation.</p>
+	          <p align="left">
+	            <span style="text-align: center"/>
+	          </p>
+	          <p align="left">
+	            <br/>
+	          </p>
+	          <p/>
+	          <p>
+	            <a href="/methods">More...</a>
+	          </p>
+	        </div>
+	      </section>
+	      <section class="content opt_dark_bg">
+	        <div class="content-wrap">
+	          <div class="content-icon">
+	            <img src="/theme_fluxdocs/static/img/content-icons/platform.png" style=""/>
+	          </div>
+	          <h2>Platform</h2>
+	          <p/>
+	          <p style="text-align: left; "/>
+	          <p/>
+	          <p align="left">Fluxdock is the platform for successful collaboration between companies. To promote and simplify collaboration Fluxdock develops an integrated digital platform with business directory, project market, project management and business management. Thus, cross-company cooperation becomes easier and more professional.</p>
+	          <p style="text-align: left; ">
+	            <br/>
+	          </p>
+	          <p/>
+	          <p>
+	            <a href="/page/platform">More...</a>
+	          </p>
+	        </div>
+	      </section>
+	      <section class="content with-image">
+	        <div class="content-wrap">
+	          <div class="content-icon">
+	            <img src="/theme_fluxdocs/static/img/content-icons/members.png"/>
+	          </div>
+	          <h2>Facility</h2>
+	          <p align="left">Successful collaboration requires physical interaction. In the Transitlager on the Dreispitz in Basel Fluxdock operates a place for companies to work and collaborate permanently or temporarily. The site provides up to 90 permanent workplaces and workplaces, meeting and event rooms as well as workshops and a studio that can be rented temporarily. The entire infrastructure is flexible, adaptable and designed to support agile ways of working and collaboration optimally.</p>
+	          <p align="left">
+	            <br/>
+	          </p>
+	          <p align="center">
+	            <a href="/page/facility">More...</a>
+	            <br/>
+	          </p>
+	        </div>
+	        <div class="image-wrap">
+	          <img style="animation: 0s ease 0s normal none 1 running none;"
+				   src="/theme_fluxdocs/static/img/content-icons/map.png"/>
+	        </div>
+	      </section>
+	      <section class="content newsletter_subscribe opt_dark_bg">
+	        <div class="content-wrap">
+	          <h2 class="o_default_snippet_text">Newsletter</h2>
+	          <p class="o_default_snippet_text">Sign up for our newsletter and stay up to date:</p>
+	        </div>
+	        <div class="content-wrap newsletter-form-wrap">
+	          <form id="subForm" class="newsletter-form" action="http://fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
+	            <input name="cm-name" placeholder="Name" class="form-control" type="text"/>
+	            <input name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required" type="email"/>
+	            <button type="submit" class="o_default_snippet_text">Subscribe</button>
+	          </form>
+	        </div>
+	      </section>
+	    </div>
+	</div>
+</template>
+
+	</data>
+</openerp>
