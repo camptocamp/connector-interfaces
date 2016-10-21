@@ -10,7 +10,7 @@ from openerp.http import request
 class WebsiteAccount(WebsiteAccountController):
 
     def _account_extra_qcontext(self):
-        _super = super(WebsiteAccountController, self)
+        _super = super(WebsiteAccount, self)
         res = _super._account_extra_qcontext()
         projects = request.env['project.project'].search([])
         res.update({'projects': projects})
