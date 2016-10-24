@@ -76,7 +76,7 @@ class ResUsers(osv.Model):
                 uid,
                 template.id,
                 user.id,
-                force_send=True,
+                force_send=False,
                 raise_exception=True,
                 context=context)
 
