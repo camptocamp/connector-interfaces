@@ -95,7 +95,7 @@
 
 	<template id="reset_password" inherit_id="auth_signup.reset_password"
 		      name="Fluxdock Reset password">
-		<xpath expr="//t[@t-call='web.login_layout']">
+		<xpath expr="//t[@t-call='web.login_layout']" position="replace">
 			<t t-call="web.login_layout">
 				<h2>
 					Reset Password
