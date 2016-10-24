@@ -45,7 +45,8 @@ class AuthSignupHome(SignupVerifyEmail):
         # normally the lang is computed when you finalize the signup
         # here we need to force it since at this point the user will be created
         # and `auth_signup_verify_email` does not handle this
-        # since it does not use `do_signup`
+        # since it does not use `do_signup`.
+        # See https://github.com/OCA/server-tools/issues/585
         values['lang'] = self._get_user_lang()
         response = super(AuthSignupHome, self).passwordless_signup(values)
         qcontext = response.qcontext
