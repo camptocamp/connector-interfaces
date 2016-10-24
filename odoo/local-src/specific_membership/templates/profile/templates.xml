@@ -166,6 +166,9 @@
                                         </label>
                                         <input name="post_expertises" placeholder="Expertise" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertises}" value="Expertise" />
                                     </div>
+									<div class="form-group row add-expertise">
+										<p><small>Don't find your industry or expertise? Write us an email at <a href="mailto:expertise@fluxdock.io">expertise@fluxdock.io</a></small></p>
+									</div>
                                     <div class="clearfix" />
                                     <div t-if="has_check_vat"
                                         t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} ">
