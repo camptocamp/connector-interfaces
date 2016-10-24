@@ -32,7 +32,7 @@ class WebsiteAccount(website_account):
             redirect = redirect
         else:
             redirect = ('/my/home')
-        response = super(website_account, self).details(redirect, **post)
+        response = super(WebsiteAccount, self).details(redirect, **post)
 
         # FIXME: Workaround for problem with saving of fields website.
         # If required fields are not set, website will be taken out of
