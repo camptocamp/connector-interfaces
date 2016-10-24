@@ -29,8 +29,24 @@ class AuthSignupHome(SignupVerifyEmail):
             })
         return response
 
+    def _get_user_lang(self):
+        """Retrieve user language."""
+        langs = request.env['res.lang'].search_read([], ['code'])
+        supported_langs = [
+            lang['code'] for lang in langs
+        ]
+        lang = 'en_US'
+        if request.lang in supported_langs:
+            lang = request.lang
+        return lang
+
     def passwordless_signup(self, values):
         """Override to handle country and other values on partner."""
+        # normally the lang is computed when you finalize the signup
+        # here we need to force it since at this point the user will be created
+        # and `auth_signup_verify_email` does not handle this
+        # since it does not use `do_signup`
+        values['lang'] = self._get_user_lang()
         response = super(AuthSignupHome, self).passwordless_signup(values)
         qcontext = response.qcontext
         if 'error' not in qcontext and request.httprequest.method == 'POST':
