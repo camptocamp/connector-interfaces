@@ -4,6 +4,7 @@
 
 from openerp import http, _
 from openerp.http import request
+from openerp import SUPERUSER_ID
 from openerp.addons.website_portal.controllers.main import website_account
 
 import json
@@ -39,6 +40,12 @@ class WebsiteAccount(website_account):
             redirect = redirect
         else:
             redirect = ('/my/home')
+
+        # handle this here since the call to super klass
+        # saves the new email already
+        if post and post.get('email'):
+            vals['email_updated'] = self._handle_email_update(user, post)
+
         response = super(WebsiteAccount, self).details(redirect, **post)
 
         # FIXME: Workaround for problem with saving of fields website.
@@ -64,10 +71,6 @@ class WebsiteAccount(website_account):
                 vals['expertise_ids'] = [(6, None, expertise_ids)]
             if post['uimage']:
                 vals['image'] = base64.encodestring(post['uimage'].read())
-
-            vals['email_updated'] = self._handle_email_update(user, post)
-            # TODO: show a message to the user
-            # saying that the login has changed
             response.qcontext.update(vals)
 
             if 'error' not in response.qcontext:
@@ -76,6 +79,10 @@ class WebsiteAccount(website_account):
                 if not partner.website_published:
                     vals['website_published'] = True
                 partner.sudo().write(vals)
+
+            if request.website:
+                msg = _('Profile details updated.')
+                request.website.add_status_message(msg)
 
         if industry_ids:
             Industry = request.env['res.partner.category']
@@ -101,9 +108,14 @@ class WebsiteAccount(website_account):
         if user.email != post.get('email'):
             email = post['email']
             valid = validate_email(email)
-            if email and valid:
+            if email and valid and user.id != SUPERUSER_ID:
                 # update login on user
                 user.sudo().write({'login': email})
+                if request.website:
+                    msg = _('Your login username has changed to: %s') % email
+                    # NOTE: this is defined into `theme_fluxdocs` ATM
+                    request.website.add_status_message(
+                        msg, mtype='warning', mtitle='Important')
                 return True
         return False
 
