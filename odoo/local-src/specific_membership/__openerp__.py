@@ -9,6 +9,11 @@
     'category': 'Reports',
     'website': 'http://www.camptocamp.com',
     'images': [],
+    "external_dependencies": {
+        "python": [
+            "validate_email",
+        ],
+    },
     'depends': [
         'base',
         'membership',
