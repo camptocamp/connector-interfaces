@@ -112,10 +112,11 @@ class WebsiteAccount(website_account):
                 # update login on user
                 user.sudo().write({'login': email})
                 if request.website:
+                    title = _('Important')
                     msg = _('Your login username has changed to: %s') % email
                     # NOTE: this is defined into `theme_fluxdocs` ATM
                     request.website.add_status_message(
-                        msg, mtype='warning', mtitle='Important')
+                        msg, mtype='warning', mtitle=title)
                 return True
         return False
 
