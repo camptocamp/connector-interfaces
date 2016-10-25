@@ -12,5 +12,5 @@
     'depends': ['website',
                 'website_blog',
                 'website_portal',
-                'website_fluxdock_signup'],
+                ],
 }

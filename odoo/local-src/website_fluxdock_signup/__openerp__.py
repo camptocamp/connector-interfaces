@@ -9,18 +9,14 @@
     'category': 'Website',
     'version': '1.0',
     'depends': [
-        'auth_signup',
-        'web',
-        'website',
-        'website_mass_mailing',
-        'website_terms_of_use',
-        'website_portal',
-        'website_portal_profile',
-        # 'website_portal_project'
+        # TODO 2016-10-21: dep needed to make the upgrade work.
+        # Without this all the fields previously defined by this module
+        # are not found and all related inherited views are broken.
+        # Remove it (or the whole module)
+        # after the 1st upgrade of `specific_membership`
+        'specific_membership',
     ],
     'data': [
-        'views/templates.xml',
-        'fluxdock_signup_data.xml'
     ],
     'installable': True,
 }

@@ -1,5 +1,5 @@
 /*global $, _, PDFJS */
-odoo.define('website_portal_profile.widgets', function (require) {
+odoo.define('specific_membership.widgets', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');

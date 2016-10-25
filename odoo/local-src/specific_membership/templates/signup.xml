@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="account_confirmation" name="Account confirmation">
+		<t t-call="web.login_layout">
+			<div class="clearfix oe_login_buttons">
+				<h2>
+					THANK YOU FOR VALIDATING YOUR EMAIL ADDRESS.
+				</h2>
+				<p>
+					You can edit your profile in the Fluxdock members area. To login
+					please use the choosen
+					password and user name.
+				</p>
+				<div class="oe_login_buttons">
+					<div class="button-wrap">
+						<a t-attf-href="/my/account" class="btn btn-primary">Login</a>
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+
+	<template id="presignup" name="Pre Signup Form">
+		<t t-call="web.login_layout">
+			<div class="clearfix oe_login_buttons presignup">
+				<h2>
+					THROUGH COLLABORATION TO INNOVATION
+				</h2>
+				<div class="presignup-buttons">
+					<label class="presignup-label">
+						I represent a
+					</label>
+					<a t-attf-href="/web/signup" class="btn btn-primary">Company</a>
+					<a t-attf-href="/web/privateperson" class="btn btn-primary">Private individual</a>
+				</div>
+				<p>
+					Are you already registered?
+					<a t-attf-href="/web/login">Log in here</a>
+				</p>
+			</div>
+		</t>
+	</template>
+
+	<template id="thanks_for_registration" name="Thanks for registration">
+		<t t-call="web.login_layout">
+			<div class="clearfix oe_login_buttons">
+				<h2>
+					THANK YOU FOR YOUR REGISTRATION.
+				</h2>
+				<p>
+					Please confirm your email address:
+				</p>
+				<p>
+					You can edit your profile in the Fluxdock members area. To login
+					please use the choosen
+					password and user name.
+				</p>
+				<div class="oe_login_buttons">
+					<div class="button-wrap">
+						<a t-attf-href="/my/account" class="btn btn-primary">Edit profile</a>
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+
+	<template id="privateperson" name="Private person">
+		<t t-call="web.login_layout">
+			<div>
+				<section class="content newsletter_subscribe opt_dark_bg">
+					<div class="content-wrap">
+						<div class="content-icon">
+							<img src="/theme_fluxdocs/static/img/content-icons/members-white.png"></img>
+						</div>
+						<h2>Newsletter</h2>
+						<p>Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia
+							quam ex eium Et maximos ut mole.</p>
+					</div>
+					<div class="content-wrap newsletter-form-wrap">
+						<!-- Campain Monitor form -->
+						<form id="subForm" class="newsletter-form"
+							action="http://fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
+							<input name="cm-name" placeholder="Name" class="form-control"
+								type="text"></input>
+							<input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com"
+								required="required"></input>
+							<button type="submit">Subscribe</button>
+						</form>
+					</div>
+				</section>
+			</div>
+		</t>
+	</template>
+
+	<template id="reset_password" inherit_id="auth_signup.reset_password"
+		      name="Fluxdock Reset password">
+		<xpath expr="//t[@t-call='web.login_layout']" position="replace">
+			<t t-call="web.login_layout">
+				<h2>
+					Reset Password
+				</h2>
+				<div t-if="message">
+					<p class="alert alert-success" t-if="message">
+						<t t-esc="message" />
+					</p>
+					<a href="/web/login" class="btn btn-link pull-right">Back to Login</a>
+				</div>
+				<form class="oe_reset_password_form" role="form" method="post"
+					t-if="not message">
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+
+					<t t-if="token">
+						<t t-call="auth_signup.fields">
+							<t t-set="only_passwords" t-value="1" />
+						</t>
+					</t>
+
+					<t t-if="not token">
+						<div class="form-group field-login">
+							<label for="login" class="control-label">Your Email</label>
+							<input type="text" name="login" t-att-value="login" id="login"
+								class="form-control" autofocus="autofocus" required="required" />
+						</div>
+					</t>
+
+					<p class="alert alert-danger" t-if="error">
+						<t t-esc="error" />
+					</p>
+					<input type="hidden" name="redirect" t-att-value="redirect" />
+					<input type="hidden" name="token" t-att-value="token" />
+					<div class="clearfix oe_login_buttons">
+						<button type="submit" class="btn btn-primary">Confirm</button>
+						<div class="login-notice-wrap">
+							<a t-attf-href="/web/login?{{ keep_query() }}">Back to Login</a>
+						</div>
+					</div>
+
+				</form>
+			</t>
+		</xpath>
+	</template>
+
+	<template id="login" inherit_id="web.login" name="Sign up - Reset Password">
+		<xpath expr="//button[@type='submit']" position="after">
+			<div class="login-notice-wrap">
+				<div t-if="signup_enabled">
+					Not registered yet?
+					<a t-attf-href="/web/presignup?{{ keep_query() }}">Create a free account here</a>
+				</div>
+				<div t-if="reset_password_enabled">
+					Forgot your password?
+					<a t-attf-href="/web/reset_password?{{ keep_query() }}">Reset your password here</a>
+				</div>
+			</div>
+		</xpath>
+	</template>
+
+	<template id="fluxdock_login" name="Fluxdock login" inherit_id="web.login">
+		<xpath expr="//div[contains(@class,'field-db')]" position="before">
+			<h2>
+				THROUGH COLLABORATION TO INNOVATION
+			</h2>
+		</xpath>
+	</template>
+
+	<template id="signup_buttons" name="Signup country" inherit_id="auth_signup.signup">
+		<xpath expr="//div[contains(@class,'oe_login_buttons')]"
+			position="replace">
+			<div class="clearfix oe_login_buttons">
+				<div class="button-wrap">
+					<button type="submit" class="btn btn-primary">Sign up</button>
+				</div>
+				<p>
+					Are you already registered?
+					<a t-attf-href="/web/login?{{ keep_query() }}">Log in here</a>
+				</p>
+			</div>
+		</xpath>
+	</template>
+
+	<template name="Fluxdock signup fields" id="auth_signup.fields">
+		<!-- we are doing too much stuff here, let's override the whole template-->
+		<!-- NOTE: redefine `auth_signup.fields` is really bad
+		because we are altering the content of the original view,
+		and if we uninstall this module you'll have to upgrade `auth_signup`
+		to restore the original template content. -->
+		<h2>
+			THROUGH COLLABORATION TO INNOVATION
+		</h2>
+
+        <div class="form-group field-login">
+            <label for="login" class="control-label">Your Email</label>
+            <input type="text" name="login" t-att-value="login" id="login" class="form-control" autofocus="autofocus"
+                autocapitalize="off" required="required" t-att-readonly="'readonly' if only_passwords else None"/>
+        </div>
+
+		<div class="form-group field-company">
+			<label for="name" class="control-label">Company Name</label>
+			<input type="text" name="name" t-att-value="name" id="name"
+				class="form-control" required="required"
+				t-att-readonly="'readonly' if only_passwords else None"
+				t-att-autofocus="'autofocus' if login and not only_passwords else None" />
+		</div>
+
+		<t t-if="not only_passwords">
+		  <div class="form-group field-country">
+			<label for="country" class="control-label">Country</label>
+			<div class="styled-select">
+			  <select name="country_id" class="form-control" t-att-readonly="'readonly if only_passwords else None'">
+				<option value="">Country...</option>
+				<t t-foreach="countries or []" t-as="country">
+				  <option t-att-value="country.id">
+					<t t-esc="country.name" />
+				  </option>
+				</t>
+			  </select>
+			</div>
+		  </div>
+		</t>
+
+        <div class="form-group field-password">
+            <label for="password" class="control-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control"
+                required="required" t-att-autofocus="'autofocus' if only_passwords else None"/>
+        </div>
+
+        <div class="form-group field-confirm_password">
+            <label for="confirm_password" class="control-label">Confirm Password</label>
+            <input type="password" name="confirm_password" id="confirm_password" class="form-control" required="required"/>
+        </div>
+
+		<t t-if="not token">
+		  <t t-call="specific_membership.signup_modals" />
+		  <div class="form-group field-agree_to_terms form-group-checkbox">
+			<input type="checkbox" name="agree_to_terms" t-att-value="agree_to_terms"
+			  id="agree_to_terms" class="window-new" required="required" />
+			<label for="agree_to_terms">
+			  I agree to the
+			  <a data-toggle="modal" data-target=".agree_to_terms_modal" href="#">Terms
+				of Use</a>
+			  and
+			  <a data-toggle="modal" data-target=".privacy_policy_modal" href="#">Privacy
+				Policy</a>
+			  .
+			</label>
+		  </div>
+		</t>
+	</template>
+
+	<template id="signup_modals" name="Sign up modals">
+		<!-- modal for agree to terms -->
+		<div class="modal fade agree_to_terms_modal" tabindex="-1" role="dialog"
+		  aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+				  aria-hidden="true">×</button>
+				<h2 class="modal-title">Terms of use</h2>
+			  </div>
+			  <div class="modal-body">
+				<p>
+				  Nutzungsbedingungen Fluxdock.io
+				</p>
+				<p>
+				  Stand 29. Februar 2016
+				</p>
+				<ol>
+				  <li>
+					<p>Ihr Vertrag mit Fluxdock.</p>
+					<p>1.1 Ihr Vertrag besteht mit der FLUXDOCK AG, einem Schweizer
+					  Unternehmen. Dieser Vertrag untersteht den Gesetzen des
+					  Kantons Basel-Landschaft und den Gesetzen der Schweiz.</p>
+				  </li>
+				  <li>
+					<p>Ihr Inhalt.</p>
+					<p>2.1 Eigentümer: Sie behalten alle Rechte und das Eigentum an
+					  Ihren Daten und Inhalten. Fluxdock erhebt keinerlei
+					  Eigentumsrechte an Ihren Inhalten.</p>
+					<p>2.2 Lizenzen für Ihre Inhalte. Wenn Sie Inhalte auf unsere
+					  Dienste hochladen oder einreichen, gewähren Sie Fluxdock eine
+					  weltweite Lizenz sie zu kommunizieren, zu verbreiten, zu
+					  veröffentlichen, zu vervielfältigen, zu speichern und diese
+					  Inhalte zu nutzen. Die von Ihnen gewährte Lizenz dient dem
+					  Zweck des Betriebs von Fluxdock und der Bewerbung unserer
+					  Dienstleistungen.</p>
+					<p>2.3 2.3 Kündigung der Lizenz. Sie können durch das Entfernen
+					  Ihrer Inhalte aus den Diensten, diese Lizenz jederzeit
+					  kündigen. Allerdings erklären Sie sich bereit, dass Fluxdock
+					  Kopien Ihrer Inhalte für die Archivierung oder für
+					  Backup-Zwecke behalten und verwenden kann.</p>
+				  </li>
+				</ol>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!-- modal end -->
+		<!-- modal for privacy policy -->
+		<div class="modal fade privacy_policy_modal" tabindex="-1" role="dialog"
+		  aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+				  aria-hidden="true">×</button>
+				<h2 class="modal-title">Privacy Policy</h2>
+			  </div>
+			  <div class="modal-body">
+				<p>
+				  Datenschutzbedingungen Fluxdock.io
+				</p>
+				<ol>
+				  <li>
+					<p>Lorem Ipsum</p>
+					<p>1.1 Lorem ipsum untersteht den Gesetzen des Kantons
+					  Basel-Landschaft und den Gesetzen der Schweiz.</p>
+				  </li>
+				  <li>
+					<p>At vero domine.</p>
+					<p>2.1 Lorem ipsum wenn Sie Inhalte auf unsere Dienste hochlade
+					</p>
+				  </li>
+				</ol>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!-- modal end -->
+	</template>
+
+</odoo>

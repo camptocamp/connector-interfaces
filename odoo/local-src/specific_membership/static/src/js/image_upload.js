@@ -1,4 +1,4 @@
-odoo.define('website_portal_profile.image_upload', function (require) {
+odoo.define('specific_membership.image_upload', function (require) {
 "use strict";
 
 var core = require('web.core');
