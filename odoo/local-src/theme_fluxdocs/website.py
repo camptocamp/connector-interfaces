@@ -5,12 +5,23 @@ from openerp import models, api
 from openerp.http import request
 from openerp import _
 
-# TODO: this concept has been borrowed from website_cms
-# we should refactor this in the separate module!
+
+def smart_truncate(text, length=100, suffix='...'):
+    """Smart truncate text."""
+    # http://stackoverflow.com/questions/250357/
+    # truncate-a-string-without-ending-in-the-middle-of-a-word
+    text = text or ''
+    if len(text) <= length:
+        return text
+    else:
+        return ' '.join(text[:length + 1].split(' ')[0:-1]) + suffix
 
 
 class Website(models.Model):
     _inherit = 'website'
+
+    # TODO: the status_message concept has been borrowed from website_cms
+    # we should refactor this in the separate module!
 
     @api.model
     def add_status_message(self, msg, mtitle='', mtype='info'):
@@ -30,3 +41,8 @@ class Website(models.Model):
         if request.session:
             return request.session.pop('status_message', {})
         return {}
+
+    @api.model
+    def truncate_text(self, text, length=100, suffix='...'):
+        """Truncate text."""
+        return smart_truncate(text, length=length, suffix=suffix)
