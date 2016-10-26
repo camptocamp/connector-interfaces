@@ -32,8 +32,9 @@ latest (unreleased)
 +++++++++++++++++++
 
 This release concerns `1b - Members II`. It is actually missing:
+
 * Replace confirmation email template must override set_password email
-* Update translations /all the translations where done TTW and where linked to old modules `website_fluxdock_signup` and `website_portal_profile` -> we must dump all of them and update references to specific_membership
+* Update translations: all the translations where done TTW and where linked to old modules `website_fluxdock_signup` and `website_portal_profile` -> we must dump all of them and update references to specific_membership
 
 **Features and Improvements**
 
