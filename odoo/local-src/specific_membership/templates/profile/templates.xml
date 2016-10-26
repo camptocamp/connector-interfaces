@@ -116,6 +116,12 @@
                                         </label>
                                         <input placeholder="name@domain.com" type="email" name="email" class="form-control"
                                             t-att-value="email or partner.email" />
+										<t t-if="not email_updated">
+											<div class="alert alert-info mt8" role="alert">
+												<strong>Important:</strong>
+												<span>if you modify your email, your login will be updated as well.</span>
+											</div>
+										</t>
                                     </div>
                                     <div
                                         t-attf-class="form-group row #{error.get('website_url') and 'has-error' or ''} ">
@@ -149,7 +155,9 @@
                                         t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">
                                         <label class="form-control-label label-optional col-sm-2"
                                             for="website_short_description">Claim</label>
-                                        <textarea placeholder="200 characters left" name="website_short_description" class="form-control"><t t-esc="partner.website_short_description or website_short_description"/></textarea>
+                                        <textarea name="website_short_description"
+												  class="form-control"
+												  ><t t-esc="partner.website_short_description or website_short_description"/></textarea>
                                     </div>
                                     <div
                                         t-attf-class="form-group row #{error.get('category_id') and 'has-error' or ''} ">
@@ -163,6 +171,9 @@
                                         </label>
                                         <input name="post_expertises" placeholder="Expertise" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertises}" value="Expertise" />
                                     </div>
+									<div class="form-group row add-expertise">
+										<p><small>Don't find your industry or expertise? Write us an email at <a href="mailto:expertise@fluxdock.io">expertise@fluxdock.io</a></small></p>
+									</div>
                                     <div class="clearfix" />
                                     <div t-if="has_check_vat"
                                         t-attf-class="form-group #{error.get('vat') and 'has-error' or ''} ">
@@ -180,6 +191,8 @@
                                     <div class="button-wrap">
                                         <button type="submit" class="btn btn-default btn-primary mb32 ">Confirm</button>
                                         <a class="btn btn-default btn-primary mb32" t-attf-href="/my">Cancel</a>
+                                        <a class="btn btn-default mb32 ml32"
+										   t-attf-href="/web/reset_password?login=#{request.env.user.login}">Change password</a>
                                     </div>
                                 </div>
                             </div>

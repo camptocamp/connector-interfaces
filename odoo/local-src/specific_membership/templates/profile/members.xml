@@ -356,9 +356,8 @@
                             <a class="media-heading member-title" t-attf-href="/members/#{slug(partner)}" style="font-weight: bold;">
                               <span t-field="partner.display_name" />
                             </a>
-                            <!-- <div t&#45;field="partner.website_short_description"/> -->
                             <div class="member-description">
-                              <span t-field="partner.website_short_description" />
+                              <span t-esc="website.truncate_text(partner.website_short_description, length=200)" />
                               <a class="read-more" t-attf-href="/members/#{slug(partner)}">Read More
                               <i class="fa fa-long-arrow-right"></i></a>
                             </div>

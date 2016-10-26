@@ -43,26 +43,21 @@
 	</template>
 
 	<template id="thanks_for_registration" name="Thanks for registration">
-		<t t-call="web.login_layout">
-			<div class="clearfix oe_login_buttons">
-				<h2>
-					THANK YOU FOR YOUR REGISTRATION.
-				</h2>
-				<p>
-					Please confirm your email address:
-				</p>
-				<p>
-					You can edit your profile in the Fluxdock members area. To login
-					please use the choosen
-					password and user name.
-				</p>
-				<div class="oe_login_buttons">
-					<div class="button-wrap">
-						<a t-attf-href="/my/account" class="btn btn-primary">Edit profile</a>
-					</div>
-				</div>
-			</div>
-		</t>
+		<div class="clearfix oe_login_buttons">
+			<h2>
+				THANK YOU FOR YOUR REGISTRATION.
+			</h2>
+			<p>
+				An email has been sent to your address.
+				Click on its link to activate your account
+				and set your credentials.
+			</p>
+			<p>
+				You can edit your profile in the Fluxdock members area. To login
+				please use the choosen
+				password and user name.
+			</p>
+		</div>
 	</template>
 
 	<template id="privateperson" name="Private person">
@@ -100,12 +95,15 @@
 				<h2>
 					Reset Password
 				</h2>
-				<div t-if="message">
+				<div t-if="message and not show_thanks">
 					<p class="alert alert-success" t-if="message">
 						<t t-esc="message" />
 					</p>
 					<a href="/web/login" class="btn btn-link pull-right">Back to Login</a>
 				</div>
+				<t t-if="show_thanks">
+					<t t-call="specific_membership.thanks_for_registration" />
+				</t>
 				<form class="oe_reset_password_form" role="form" method="post"
 					t-if="not message">
 					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
@@ -119,6 +117,7 @@
 					<t t-if="not token">
 						<div class="form-group field-login">
 							<label for="login" class="control-label">Your Email</label>
+							<t t-set="login" t-value="login or request.params.get('login')" />
 							<input type="text" name="login" t-att-value="login" id="login"
 								class="form-control" autofocus="autofocus" required="required" />
 						</div>

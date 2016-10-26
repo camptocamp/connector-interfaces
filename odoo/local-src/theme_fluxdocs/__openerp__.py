@@ -8,6 +8,7 @@
         'views/snippets.xml',
         'views/options.xml',
         'views/assets.xml',
+        'views/status_message.xml',
         'pages/homepage.xml',
     ],
     'category': 'Theme/Creative',

@@ -69,6 +69,7 @@
 		        		</div>
 	                </div>
                 </header>
+				<t t-call="theme_fluxdocs.status_message" />
 			</xpath>
 
 		</template>
