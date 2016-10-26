@@ -22,6 +22,19 @@ latest (unreleased)
 **Features and Improvements**
 
 * Add search field Industries, Expertises and Country in /members
+* Merged `website_portal_profile` into `specific_membership`
+* Merged `website_fluxdock_signup` into `specific_membership`
+* Made account controller pluggable
+* Records to module
+* fixed claim size RM#15854
+* UPDATE: no fixed claim size but crop only in listing view RM#15854
+* propose industry/expertise via email RM#15668
+* refactor signup (confirmation was completely broken)
+* update login if email is validated and publish partner RM#15638
+* publish partner only after 1st editing of profile RM#13670
+* change password button -> reset_password RM#15191
+* show status message when login is update (related to RM#15638 but it's a must-have and will be useful for displaying any message to the users)
+* don't remove everything if there are wrong entries or missing mandatory fields RM##15644
 
 **Bugfixes**
 
@@ -30,6 +43,8 @@ latest (unreleased)
 * Fix an error on member details on field website
 
 **Build**
+
+* Now it is hosted on Camptocamp's docker hub
 
 **Documentation**
 
