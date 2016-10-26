@@ -21,6 +21,22 @@ latest (unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.0.8 (2016-09-26)
++++++++++++++++++++
+
+This release concerns `1b - Members II`. It is actually missing:
+* Replace confirmation email template must override set_password email
+* Update translations /all the translations where done TTW and where linked to old modules `website_fluxdock_signup` and `website_portal_profile` -> we must dump all of them and update references to specific_membership
+
+**Features and Improvements**
+
 * Add search field Industries, Expertises and Country in /members
 * Merged `website_portal_profile` into `specific_membership`
 * Merged `website_fluxdock_signup` into `specific_membership`
