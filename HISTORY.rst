@@ -25,16 +25,16 @@ latest (unreleased)
 * Merged `website_portal_profile` into `specific_membership`
 * Merged `website_fluxdock_signup` into `specific_membership`
 * Made account controller pluggable
-* Records to module
-* fixed claim size RM#15854
-* UPDATE: no fixed claim size but crop only in listing view RM#15854
-* propose industry/expertise via email RM#15668
-* refactor signup (confirmation was completely broken)
-* update login if email is validated and publish partner RM#15638
-* publish partner only after 1st editing of profile RM#13670
-* change password button -> reset_password RM#15191
-* show status message when login is update (related to RM#15638 but it's a must-have and will be useful for displaying any message to the users)
-* don't remove everything if there are wrong entries or missing mandatory fields RM##15644
+* Port homepage to module
+* Crop claim to 200 chars in members listing RM#15854
+* Propose industry/expertise via email RM#15668
+* Refactor signup (confirmation was completely broken)
+* Update login if email is validated and publish partner RM#15638
+* Publish partner only after 1st editing of profile RM#13670
+* Change password button RM#15191
+* Show status message when profile is updated (related to RM#15638)
+* Show warning status message when login is updated
+* Don't remove everything if there are wrong entries or missing mandatory fields RM##15644
 
 **Bugfixes**
 
