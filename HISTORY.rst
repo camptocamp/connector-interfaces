@@ -58,6 +58,8 @@ This release concerns `1b - Members II`. It is actually missing:
 * Revert column enlargement on /my/home
 * Change display of /my/home
 * Fix an error on member details on field website
+* Add subject to mailto link
+* Change text for signup
 
 **Build**
 
