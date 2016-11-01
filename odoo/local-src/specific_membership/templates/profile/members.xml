@@ -161,11 +161,12 @@
 
     <!-- Partner profile table -->
     <template id="specific_membership.partner_table" name="Partner table">
-        <div id="partner_table" class="col-md-12" style="width: 646px;">
+        <!--<div id="partner_table" class="col-md-12">-->
+        <div id="partner_table" class="container content-wrap" style="width: 646px;">
             <h3 class="page-header">Member profile</h3>
             <t t-if="partner">
-                <!-- <div class="table-responsive center-block"> -->
-                 <div class="container content-wrap" style="width: 646px;">
+                <!--<div class="table-responsive center-block">-->
+                <div class="container content-wrap" style="width: 646px;">
                     <table class="table table-condensed member-profile-table">
                         <tr>
                             <td>
