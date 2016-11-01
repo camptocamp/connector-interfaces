@@ -87,15 +87,22 @@
 		      name="Fluxdock Reset password">
 		<xpath expr="//t[@t-call='web.login_layout']" position="replace">
 			<t t-call="web.login_layout">
-				<h2>
-					SET / CONFIRM PASSWORD
-				</h2>
-				<p>
-					Please enter your password.
-				</p>
-				<p>
-					After the confirmation you cant edit your company profile. The company profile will be published automatically when it is updated.
-				</p>
+				<t t-if="token">
+					<h2>
+						SET / CONFIRM PASSWORD
+					</h2>
+					<p>
+						Please enter your password.
+					</p>
+					<p>
+						After the confirmation you cant edit your company profile. The company profile will be published automatically when it is updated.
+					</p>
+				</t>
+				<t t-if="not token">
+					<h2>
+						Reset Password
+					</h2>
+				</t>
 				<div t-if="message and not show_thanks">
 					<p class="alert alert-success" t-if="message">
 						<t t-esc="message" />
