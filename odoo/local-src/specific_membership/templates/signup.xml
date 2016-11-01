@@ -88,8 +88,14 @@
 		<xpath expr="//t[@t-call='web.login_layout']" position="replace">
 			<t t-call="web.login_layout">
 				<h2>
-					Reset Password
+					SET / CONFIRM PASSWORD
 				</h2>
+				<p>
+					Please enter your password.
+				</p>
+				<p>
+					After the confirmation you cant edit your company profile. The company profile will be published automatically when it is updated.
+				</p>
 				<div t-if="message and not show_thanks">
 					<p class="alert alert-success" t-if="message">
 						<t t-esc="message" />
@@ -125,9 +131,9 @@
 					<input type="hidden" name="token" t-att-value="token" />
 					<div class="clearfix oe_login_buttons">
 						<button type="submit" class="btn btn-primary">Confirm</button>
-						<div class="login-notice-wrap">
+<!-- 						<div class="login-notice-wrap">
 							<a t-attf-href="/web/login?{{ keep_query() }}">Back to Login</a>
-						</div>
+						</div> -->
 					</div>
 
 				</form>
