@@ -58,7 +58,6 @@ class AuthSignupHome(SignupVerifyEmail):
                 if user:
                     partner = user.partner_id
                     partner.write({
-                        'country_id': qcontext['country_id'],
                         'is_company': True,
                         # publish member only after confirm!
                         'website_published': False,

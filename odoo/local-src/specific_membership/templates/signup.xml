@@ -203,22 +203,6 @@
 				t-att-autofocus="'autofocus' if login and not only_passwords else None" />
 		</div>
 
-		<t t-if="not only_passwords">
-		  <div class="form-group field-country">
-			<label for="country" class="control-label">Country</label>
-			<div class="styled-select">
-			  <select name="country_id" class="form-control" t-att-readonly="'readonly if only_passwords else None'">
-				<option value="">Country...</option>
-				<t t-foreach="countries or []" t-as="country">
-				  <option t-att-value="country.id">
-					<t t-esc="country.name" />
-				  </option>
-				</t>
-			  </select>
-			</div>
-		  </div>
-		</t>
-
         <div class="form-group field-password">
             <label for="password" class="control-label">Password</label>
             <input type="password" name="password" id="password" class="form-control"
