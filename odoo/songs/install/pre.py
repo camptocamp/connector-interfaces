@@ -17,8 +17,16 @@ def setup_language(ctx):
         'date_format': '%d/%m/%Y',
     })
 
+@anthem.log
+def setup_website_signup(ctx):
+    """ Setting up system parameters to allow signup """
+    ctx.env['ir.config_parameter'].set_param(
+        'auth_signup.reset_password', True)
+    ctx.env['ir.config_parameter'].set_param(
+        'auth_signup.allow_uninvited', True)
 
 @anthem.log
 def main(ctx):
     """ Main: creating demo data """
     setup_language(ctx)
+    setup_website_signup(ctx)
