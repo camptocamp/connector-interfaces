@@ -32,6 +32,8 @@ migration:
       operations:
         pre:
           - anthem songs.install.pre::main
+        post:
+          - anthem songs.install.post::main
       addons:
         upgrade:
           - specific_server_environment_files

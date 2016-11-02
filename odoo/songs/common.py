@@ -5,4 +5,4 @@
 from pkg_resources import Requirement
 
 
-req = Requirement.parse('gygax-odoo')
+req = Requirement.parse('fluxdock')
