@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
 import werkzeug
+import json
 
 from openerp import http
 from openerp.http import request
@@ -38,9 +39,6 @@ class AuthSignupHome(SignupVerifyEmail):
         Disallow access to backend home if user has no rights for it.
         """
         ensure_db()
-        ## ---> Set BreakPoint
-        import pdb;
-        pdb.set_trace()
         if not request.session.uid:
             return werkzeug.utils.redirect('/web/login', 303)
         if kw.get('redirect'):
@@ -61,8 +59,11 @@ class AuthSignupHome(SignupVerifyEmail):
                                        query=request.params,
                                        keep_hash=True)
 
+        menu_data = request.registry['ir.ui.menu'].load_menus(
+            request.cr, request.uid, request.debug, context=request.context)
         return request.render('web.webclient_bootstrap',
-                              qcontext={'db_info': json.dumps(db_info())})
+                              qcontext={'menu_data': menu_data,
+                                        'db_info': json.dumps(db_info())})
 
     def _get_user_lang(self):
         """Retrieve user language."""
