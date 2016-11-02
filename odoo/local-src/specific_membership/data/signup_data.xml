@@ -1,13 +1,18 @@
-<openerp>
-    <data>
+<odoo>
 
+	<!--
+		WARNING
+		This template is in DB. You'll find the code. A post upgrade step
+		allows you to update
+	-->
 	<!-- template for confirmation email -->
-        <record id="account_confirmation_email" model="mail.template">
-            <field name="name">Account confirmation email</field>
+        <record id="auth_signup.set_password_email" model="mail.template">
+            <field name="name">Odoo Enterprise Connection</field>
             <field name="model_id" ref="base.model_res_users"/>
             <field name="email_from"><![CDATA[noreply@fluxdock.io]]></field>
             <field name="email_to">${object.email}</field>
             <field name="subject">Fluxdock account confirmation</field>
+<!-- 			<xpath expr="//field[@name='body_html']" position="replace"> -->
             <field name="body_html">
                 <![CDATA[
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -91,7 +96,7 @@
 </html>
                 ]]>
             </field>
+<!--         </xpath> -->
         </record>
 
-    </data>
-</openerp>
+</odoo>
