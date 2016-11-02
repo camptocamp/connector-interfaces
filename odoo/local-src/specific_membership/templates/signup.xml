@@ -98,7 +98,7 @@
 						After the confirmation you cant edit your company profile. The company profile will be published automatically when it is updated.
 					</p>
 				</t>
-				<t t-if="not token">
+				<t t-if="not token and not show_thanks">
 					<h2>
 						Reset Password
 					</h2>
