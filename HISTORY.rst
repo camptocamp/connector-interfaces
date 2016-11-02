@@ -19,9 +19,26 @@ Release History
 latest (unreleased)
 +++++++++++++++++++
 
+Added, but still in WIP: configuration for development with mailtrap
+
 **Features and Improvements**
 
+* Adapt website to new registration process
+* Access to backend only for right groups
+* Replace confirmation email template
+* Update translations
+* Add subject to expertise proposal
+* Modify email/login update process
+* Adapt status messages colors
+* /my/home: adjust column width
+* Hide things & temporary styling
+* Added lang German in songs
+* added l10n_ch (for accounting) in base installation
+* Added system parameters for website signup
+
 **Bugfixes**
+
+* Hide menus that are not needed
 
 **Build**
 
