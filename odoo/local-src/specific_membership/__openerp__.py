@@ -41,9 +41,10 @@
         'templates/profile/templates.xml',
         'templates/profile/members.xml',
         'templates/profile/upload.xml',
-        # datas
+        # data
         'data/membership_data.xml',
         'data/signup_data.xml',
+        'data/group_data.xml',
     ],
     'test': [],
     'installable': True,
