@@ -13,15 +13,21 @@ class JSHelpers(http.Controller):
 
     @http.route(['/members/json'], type='http', auth="public", website=True)
     def member_aggr(self, *arg, **post):
-        """Return JSON data for members aggregation."""
+        """Return JSON data for members aggregation.
+
+        Members are loaded randomly as requested here:
+        https://redmine.iart.ch/issues/15336
+        """
 
         env = request.env
         # http://stackoverflow.com/questions/8674718/
         # best-way-to-select-random-rows-postgresql/14450321#14450321
         query = (
-            'select * from '
-            '(select distinct id from res_partner) members '
-            'ORDER BY random() '
+            "select * from ("
+            "select distinct id from res_partner "
+            "where membership_state in ('invoiced','paid','free')"
+            ") members "
+            "ORDER BY random()"
         )
         env.cr.execute(query)
         ids = [x[0] for x in env.cr.fetchall()]
