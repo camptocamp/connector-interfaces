@@ -15,7 +15,7 @@
 </template>
 
 <template id="matches_overview" name="Proposals">
-    <div id="matches_overview" class="col-md-6">
+    <div id="matches_overview" class="col-md-6" groups="base.group_tester">
         <h3 class="page-header">Matches</h3>
         <t t-if="not matches">
             <p>No matches</p>

@@ -43,7 +43,6 @@
         'templates/profile/upload.xml',
         # data
         'data/membership_data.xml',
-        'data/signup_data.xml',
         'data/group_data.xml',
     ],
     'test': [],
