@@ -52,11 +52,6 @@
 				Click on its link to activate your account
 				and set your credentials.
 			</p>
-			<p>
-				You can edit your profile in the Fluxdock members area. To login
-				please use the choosen
-				password and user name.
-			</p>
 		</div>
 	</template>
 
@@ -92,9 +87,22 @@
 		      name="Fluxdock Reset password">
 		<xpath expr="//t[@t-call='web.login_layout']" position="replace">
 			<t t-call="web.login_layout">
-				<h2>
-					Reset Password
-				</h2>
+				<t t-if="token">
+					<h2>
+						SET / CONFIRM PASSWORD
+					</h2>
+					<p>
+						Please enter your password.
+					</p>
+					<p>
+						After the confirmation you cant edit your company profile. The company profile will be published automatically when it is updated.
+					</p>
+				</t>
+				<t t-if="not token and not show_thanks">
+					<h2>
+						Reset Password
+					</h2>
+				</t>
 				<div t-if="message and not show_thanks">
 					<p class="alert alert-success" t-if="message">
 						<t t-esc="message" />
@@ -130,9 +138,6 @@
 					<input type="hidden" name="token" t-att-value="token" />
 					<div class="clearfix oe_login_buttons">
 						<button type="submit" class="btn btn-primary">Confirm</button>
-						<div class="login-notice-wrap">
-							<a t-attf-href="/web/login?{{ keep_query() }}">Back to Login</a>
-						</div>
 					</div>
 
 				</form>
@@ -201,22 +206,6 @@
 				t-att-readonly="'readonly' if only_passwords else None"
 				t-att-autofocus="'autofocus' if login and not only_passwords else None" />
 		</div>
-
-		<t t-if="not only_passwords">
-		  <div class="form-group field-country">
-			<label for="country" class="control-label">Country</label>
-			<div class="styled-select">
-			  <select name="country_id" class="form-control" t-att-readonly="'readonly if only_passwords else None'">
-				<option value="">Country...</option>
-				<t t-foreach="countries or []" t-as="country">
-				  <option t-att-value="country.id">
-					<t t-esc="country.name" />
-				  </option>
-				</t>
-			  </select>
-			</div>
-		  </div>
-		</t>
 
         <div class="form-group field-password">
             <label for="password" class="control-label">Password</label>

@@ -80,9 +80,9 @@ class WebsiteAccount(website_account):
                     vals['website_published'] = True
                 partner.sudo().write(vals)
 
-            if request.website:
-                msg = _('Profile details updated.')
-                request.website.add_status_message(msg)
+                if request.website:
+                    msg = _('Profile details updated.')
+                    request.website.add_status_message(msg)
 
         if industry_ids:
             Industry = request.env['res.partner.category']

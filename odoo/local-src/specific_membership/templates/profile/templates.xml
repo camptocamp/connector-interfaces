@@ -117,7 +117,7 @@
                                         <input placeholder="name@domain.com" type="email" name="email" class="form-control"
                                             t-att-value="email or partner.email" />
 										<t t-if="not email_updated">
-											<div class="alert alert-info mt8" role="alert">
+											<div class="alert alert-danger mt8" role="alert">
 												<strong>Important:</strong>
 												<span>if you modify your email, your login will be updated as well.</span>
 											</div>

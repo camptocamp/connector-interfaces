@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import logging
-# import werkzeug
+import werkzeug
+import json
 
 from openerp import http
 from openerp.http import request
@@ -8,6 +9,8 @@ from openerp.tools.translate import _
 from openerp.addons.auth_signup_verify_email.controllers.main\
     import SignupVerifyEmail
 from openerp.addons.auth_signup.res_users import SignupError
+from openerp.addons.web.controllers.main import ensure_db
+from openerp.addons.web.controllers.main import db_info
 
 _logger = logging.getLogger(__name__)
 
@@ -28,6 +31,39 @@ class AuthSignupHome(SignupVerifyEmail):
                 'countries': countries,
             })
         return response
+
+    @http.route('/web', type='http', auth="none")
+    def web_client(self, s_action=None, **kw):
+        """Protect backend home.
+
+        Disallow access to backend home if user has no rights for it.
+        """
+        ensure_db()
+        if not request.session.uid:
+            return werkzeug.utils.redirect('/web/login', 303)
+        if kw.get('redirect'):
+            return werkzeug.utils.redirect(kw.get('redirect'), 303)
+
+        request.uid = request.session.uid
+
+        # check backend permissions
+        has_backend_permissions = False
+        for xmlid in ('base.group_website_designer',):
+            if request.env.user.has_group(xmlid):
+                has_backend_permissions = True
+                break
+
+        if not has_backend_permissions:
+            # redirect to public homepage
+            return http.local_redirect('/my/home',
+                                       query=request.params,
+                                       keep_hash=True)
+
+        menu_data = request.registry['ir.ui.menu'].load_menus(
+            request.cr, request.uid, request.debug, context=request.context)
+        return request.render('web.webclient_bootstrap',
+                              qcontext={'menu_data': menu_data,
+                                        'db_info': json.dumps(db_info())})
 
     def _get_user_lang(self):
         """Retrieve user language."""
@@ -58,7 +94,6 @@ class AuthSignupHome(SignupVerifyEmail):
                 if user:
                     partner = user.partner_id
                     partner.write({
-                        'country_id': qcontext['country_id'],
                         'is_company': True,
                         # publish member only after confirm!
                         'website_published': False,

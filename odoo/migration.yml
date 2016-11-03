@@ -8,6 +8,8 @@ migration:
           - "sh -c 'PGPASSWORD=$DB_PASSWORD psql -h db -U $DB_USER -c \"CREATE EXTENSION IF NOT EXISTS pg_trgm;\" $DB_NAME'"
       addons:
         upgrade:
+          - base_technical_features
+          - l10n_ch
           - specific_membership
           - specific_project_proposal
           - theme_fluxdocs
@@ -26,3 +28,12 @@ migration:
       # nothing to do, all has been installed in 9.0.1
     - version: 9.0.7
       # nothing to do, all has been installed in 9.0.1
+    - version: 9.0.8
+      operations:
+        pre:
+          - anthem songs.install.pre::main
+        post:
+          - anthem songs.install.post::main
+      addons:
+        upgrade:
+          - specific_server_environment_files
