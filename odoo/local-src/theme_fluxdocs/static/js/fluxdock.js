@@ -162,6 +162,8 @@ $(document).ready(function() {
 					html += template(this);
 				})
 				slider.html(html);
+				// is hidden by default
+				membersWrap.hide().toggleClass('hidden').fadeIn('slow');
 				// init the slider
 				setup_members_slider(membersWrap);
 			}
