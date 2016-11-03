@@ -516,7 +516,8 @@
 								<p>Hier sehen Sie wer im Netzwerk steckt.</p>
 								<p>Werden Sie Teil vom Netzwerk - zeigen Sie was ihre Firma kann werden Sie kollaborativ</p>
 			                </div>
-			                <div class="content-wrap members-wrap">
+							<!-- keep it hidden and show it after members are loaded -->
+			                <div class="content-wrap members-wrap hidden">
 			                	<div class="arrow-left"></div>
 			                	<div class="members-container">
 			                		<div class="members-slide">
