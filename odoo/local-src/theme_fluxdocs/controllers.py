@@ -33,9 +33,8 @@ class JSHelpers(http.Controller):
                     avatar_url = request.website.image_url(
                         item, 'image', '128x36')
                 else:
-                    # generate fake avatar
-                    avatar_url =\
-                        'http://www.avatarpro.biz/avatar/' + slug(item)
+                    # use default avatar
+                    avatar_url = '/base/static/src/img/avatar.png'
                 res.append({
                     'id': item.id,
                     'name': item.name,
