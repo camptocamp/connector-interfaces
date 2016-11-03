@@ -29,6 +29,8 @@ migration:
     - version: 9.0.7
       # nothing to do, all has been installed in 9.0.1
     - version: 9.0.8
+      # nothing to do, all has been installed in 9.0.1
+    - version: 9.0.9
       operations:
         pre:
           - anthem songs.install.pre::main
