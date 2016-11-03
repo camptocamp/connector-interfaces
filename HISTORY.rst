@@ -23,6 +23,20 @@ Added, but still in WIP: configuration for development with mailtrap
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.0.9 (2016-11-03)
++++++++++++++++++++
+
+Added, but still in WIP: configuration for development with mailtrap
+
+**Features and Improvements**
+
 * Adapt website to new registration process
 * Access to backend only for right groups
 * Replace confirmation email template
@@ -35,6 +49,7 @@ Added, but still in WIP: configuration for development with mailtrap
 * Added lang German in songs
 * added l10n_ch (for accounting) in base installation
 * Added system parameters for website signup
+* members aggregation
 
 **Bugfixes**
 
