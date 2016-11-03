@@ -63,6 +63,7 @@ $(document).ready(function() {
 	}
 
 	// FIXME: since the slider is a snippet we should move this to snippet JS
+	var boxWidth = 157;
 	var setup_members_slider = function set_members_slide(membersWrap){
 		var membersSlide = membersWrap.find('.members-slide');
 		var membersContainer = membersWrap.find('.members-container');
@@ -143,9 +144,8 @@ $(document).ready(function() {
 	}
 
 	//Members slider
-	var boxWidth = 157;
 	var member_template = `<div class="members-box">
-		<a href="<%- url %>">
+		<a href="<%- url %>" title="<%- name %>">
 			<img src="<%- avatar_url %>" />
 		</a>
 	</div>`;
@@ -153,14 +153,16 @@ $(document).ready(function() {
 		var template = _.template(member_template)
 		var membersWrap = $(this);
 		var slider = membersWrap.find('.members-slide');
+		// collect members from backend
 		$.getJSON('/members/json').done(function(response) {
 		    if(response.ok){
-				slider.empty().hide();
+				// prepare and inject final html
 				var html = '';
 				$.each(response.members, function(){
 					html += template(this);
 				})
-				slider.html(html).show();
+				slider.html(html);
+				// init the slider
 				setup_members_slider(membersWrap);
 			}
 		});

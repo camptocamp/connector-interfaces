@@ -16,20 +16,32 @@ class JSHelpers(http.Controller):
         """Return JSON data for members aggregation."""
 
         env = request.env
-
-        # FIXME
-        domain = []
-
-        members = env['res.partner'].sudo().search(domain, limit=24)
+        # http://stackoverflow.com/questions/8674718/
+        # best-way-to-select-random-rows-postgresql/14450321#14450321
+        query = (
+            'select * from '
+            '(select distinct id from res_partner) members '
+            'ORDER BY random() '
+        )
+        env.cr.execute(query)
+        ids = [x[0] for x in env.cr.fetchall()]
         res = []
-        for item in members:
-            res.append({
-                'id': item.id,
-                'name': item.name,
-                'url': '/members/{}'.format(slug(item)),
-                'avatar_url': request.website.image_url(
-                    item, 'image', '128x36')
-            })
+        if ids:
+            members = env['res.partner'].sudo().browse(ids)
+            for item in members:
+                if item.image:
+                    avatar_url = request.website.image_url(
+                        item, 'image', '128x36')
+                else:
+                    # generate fake avatar
+                    avatar_url =\
+                        'http://www.avatarpro.biz/avatar/' + slug(item)
+                res.append({
+                    'id': item.id,
+                    'name': item.name,
+                    'url': '/members/{}'.format(slug(item)),
+                    'avatar_url': avatar_url
+                })
         return json.dumps({
             'ok': True,
             'members': res,
