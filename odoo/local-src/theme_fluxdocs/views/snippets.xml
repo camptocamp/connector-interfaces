@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 	<data>
-	
+
 		<!-- FLUXDOCS SNIPPETS -->
 		<template id="place_into_bar" name="Fluxdocs Snippets" inherit_id="website.snippets">
-	        
-	        <!-- 
+
+	        <!--
 	        <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="inside">
-	            
+
 	        </xpath>
 	         -->
-	        
+
 	        <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="replace">
-	            
+
 	            <div class="o_panel_body">
-		             
-		             
+
+
 		            <!-- LOGO -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -38,11 +38,11 @@
 							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Matrix4.js"></script>
 							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Vector3.js"></script>
 							<script type="text/JavaScript" src="/theme_fluxdocs/static/js/line_cube.js"></script>
-							
+
 						</section>
 		            </div>
-		            
-		            
+
+
 	            	<!-- CONTENT -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -57,10 +57,10 @@
 			                	<h2>Lorem ipsum dolor</h2>
 								<p align="left">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 			                </div>
-							
+
 						</section>
 		            </div>
-		            
+
 	            	<!-- CONTENT TWO COL -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -95,11 +95,11 @@
 									</ul>
 			                	</div>
 			                </div>
-							
+
 						</section>
 		            </div>
-		            
-		            
+
+
 	            	<!-- CONTENT WITH IMAGE -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -114,7 +114,7 @@
 			                	<h2>Lorem ipsum dolor</h2>
 								<p align="left">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 			                </div>
-			                
+
 			                <div class="image-wrap">
 			                	<img src="/theme_fluxdocs/static/img/standort-wide.jpg" />
 			                </div>
@@ -122,17 +122,17 @@
 			                <div class="content-wrap">
 			                	<p align="left">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 			                </div>
-							
+
 						</section>
 		            </div>
-		            
+
 	            	<!-- ACCORDION -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/accordion.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Accordion</span>
 		                </div>
-		                 
+
 						<section class="content">
 							<div class="content-wrap accordion-wrap">
 								<h2>Glossar</h2>
@@ -146,10 +146,10 @@
 								</section>
 							</div>
 		                </section>
-							
+
 		            </div>
-		            
-		            
+
+
 	            	<!-- SIGNUP LOGIN -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -168,23 +168,23 @@
 			                	<a class="btn" href="/web/presignup">Sign up</a>
 			                	<a class="btn" href="/web/login">Login</a>
 			                </div>
-							
+
 						</section>
 		            </div>
-		            
-		            
+
+
 	            	<!-- LATEST NEWS -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/latest-news.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Latest news</span>
 		                </div>
-		                
+
 		                 <section class="content latest_news">
 			                <div class="content-wrap">
 			                	<h2>News</h2>
 			                	<div class="latest-news-container">
-			                		
+
 			                		<div class="news-teaser">
 			                			<div class="news-teaser-date">28 Aug 2015</div>
 			                			<h2>Webplattform Fluxdock erfolgreich gestartet</h2>
@@ -217,15 +217,15 @@
 			                				<a href="#">Read More</a>
 			                			</div>
 			                		</div>
-			                		
+
 <!-- 			                		<div t-foreach="blog_posts" t-as="blog_post" class="blog-list"> -->
-					                	
+
 <!-- 					                    <h2 t-field="blog_post.name" class="blog-name"> -->
 <!-- 					                    	<t t-if="not blog_post.name">Untitled Post</t> -->
 <!-- 					                    </h2> -->
-					                    
+
 <!-- 					                </div> -->
-			                		
+
 			                	</div>
 			                	<div class="news-list-link">
 			                		<a href="/blog/news-1">
@@ -235,15 +235,15 @@
 			                </div>
 						</section>
 		            </div>
-		            
-		            
+
+
 	            	<!-- PROJECTS LIST -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/projects-list.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Projects List</span>
 		                </div>
-		                
+
 		                <section class="content projects projects-list opt_dark_bg">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
@@ -284,7 +284,7 @@
 			                	</form>
 			                </div>
 		                	<div class="projects-container projects-list-container">
-		                		
+
 		                		<div class="project-box filterable" data-type="project" data-facet-category="design" data-facet-expertise="design" data-facet-country="ch">
 		                			<a href="#project-detail">
 			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
@@ -309,19 +309,19 @@
 			                			<h2 class="title">Archäologisches Museum</h2>
 			                		</a>
 		                		</div>
-	                		
+
 		                	</div>
 						</section>
 		            </div>
-		            
-		            
+
+
 	            	<!-- PROJECTS TEASER -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
 		                    <img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/projects-teaser.png"/>
 		                    <span class="oe_snippet_thumbnail_title">Projects teaser</span>
 		                </div>
-		                
+
 		                 <section class="content projects projects-teaser">
 			                <div class="content-wrap">
 			                	<div class="content-icon">
@@ -331,7 +331,7 @@
 			                	<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 			                </div>
 		                	<div class="projects-container projects-teaser-container">
-		                		
+
 		                		<div class="project-box">
 		                			<a href="#project-detail">
 			                			<img src="/theme_fluxdocs/static/img/projects/cern.jpg"></img>
@@ -356,7 +356,7 @@
 			                			<h2>Archäologisches Museum</h2>
 			                		</a>
 		                		</div>
-	                		
+
 		                	</div>
 		                	<div class="content-wrap">
 		                		<p>
@@ -367,8 +367,8 @@
 			                </div>
 						</section>
 		            </div>
-		            
-	            	
+
+
 	            	<!-- COMMUNITY NUMBERS -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -387,22 +387,22 @@
 				                <div class="content-wrap">
 				                	<div class="number-entry">
 				                		<span class="number-value">52</span> <!--  TODO Get dymamically -->
-				                		<span class="number-label">Members</span> 
+				                		<span class="number-label">Members</span>
 				                	</div>
 				                	<div class="number-entry">
 				                		<span class="number-value">86</span> <!--  TODO Get dymamically -->
-				                		<span class="number-label">Users</span> 
+				                		<span class="number-label">Users</span>
 				                	</div>
 				                	<div class="number-entry">
 				                		<span class="number-value">17</span> <!--  TODO Get dymamically -->
-				                		<span class="number-label">Projects</span> 
+				                		<span class="number-label">Projects</span>
 				                	</div>
 			                	</div>
-			                </div>							
+			                </div>
 						</section>
 		            </div>
-		            
-		            
+
+
 	            	<!-- NEWSLETTER SUBSCRIBE -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -424,10 +424,10 @@
 				                	<input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required"></input>
 				                	<button type="submit">Subscribe</button>
 				                </form>
-			                </div>							
+			                </div>
 						</section>
 		            </div>
-		            
+
 	            	<!-- CAROUSEL -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -448,7 +448,7 @@
 							</ul>
 						</section>
 		            </div>
-		            
+
 	            	<!-- BUTTON -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -461,7 +461,7 @@
 							</a>
 		                </section>
 		            </div>
-		            
+
 	            	<!-- 3d simulation -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -476,7 +476,7 @@
 			                	<h2>Fluxdock 3d Simulation</h2>
 								<p align="left">Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 			                </div>
-			                
+
 			                <div class="content-wrap">
 			               		<div id="unityLoaderContainer">
 									<div class="downloadMessages">
@@ -496,11 +496,11 @@
 								</div>
 								<script type="text/JavaScript" src="/theme_fluxdocs/static/js/unity_simulation.js"></script>
 			                </div>
-							
+
 						</section>
 		            </div>
-		            
-		            
+
+
 	            	<!-- MEMBERS -->
 		            <div>
 		                <div class="oe_snippet_thumbnail">
@@ -516,10 +516,12 @@
 								<p>Hier sehen Sie wer im Netzwerk steckt.</p>
 								<p>Werden Sie Teil vom Netzwerk - zeigen Sie was ihre Firma kann werden Sie kollaborativ</p>
 			                </div>
-			                <div class="content-wrap members-wrap">
+							<!-- keep it hidden and show it after members are loaded -->
+			                <div class="content-wrap members-wrap hidden">
 			                	<div class="arrow-left"></div>
 			                	<div class="members-container">
 			                		<div class="members-slide">
+										<!-- the content here is replaced via JS after 1st page load -->
 					                	<div class="members-box">
 					                		<a href="#">
 					                			<img src="/theme_fluxdocs/static/img/members/eth-rat.png" />
@@ -622,38 +624,38 @@
 					                	</div>
 			                		</div>
 			                	</div>
-			                	
+
 			                	<p>
-			                		<a href="/pages/members">More...</a>
+			                		<a href="/members">More...</a>
 			                	</p>
-			                	
+
 			                	<div class="arrow-right"></div>
 			                </div>
 						</section>
 		            </div>
-		            
-		            
+
+
 	            </div>
 	        </xpath>
-	        
+
 	        <xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="replace">
 	            <!-- Remove all Snippets  -->
 	            <div class="o_panel_body"></div>
 	        </xpath>
-	        
+
 	        <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="replace">
 	            <!-- Remove all Snippets  -->
 	            <div class="o_panel_body"></div>
 	        </xpath>
-	        
+
 	        <xpath expr="//div[@id='snippet_effect']/div[@class='o_panel_body']" position="replace">
 	            <!-- Remove all Snippets  -->
 	            <div class="o_panel_body"></div>
 	        </xpath>
-	        
-	        
+
+
 	    </template>
-	    
+
 
 	</data>
 </openerp>
