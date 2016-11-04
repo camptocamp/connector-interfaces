@@ -22,7 +22,7 @@ def change_signup_email(ctx):
         'subject': 'Fluxdock account confirmation',
         'body_html': content,
         'email_from': 'noreply@fluxdock.io',
-        'model_id': 'res.users',
+        'model_id': 92,
         'email_to': '${object.email|safe}',
     }
     create_or_update(
