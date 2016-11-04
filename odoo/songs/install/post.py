@@ -14,7 +14,7 @@ from ..common import req
 def change_signup_email(ctx):
     """ Updating signup email """
     # The goal of this method is to override the signup email wich has a
-    # noupdate. Original template is as sample in  
+    # noupdate. Original template is as sample in
     # 'specific_membership/data/signup_data.xml'
     content = resource_stream(req, 'data/mail_signup.html').read()
     values = {
@@ -22,12 +22,11 @@ def change_signup_email(ctx):
         'subject': 'Fluxdock account confirmation',
         'body_html': content,
         'email_from': 'noreply@fluxdock.io',
+        'model_id': 'res.users',
+        'email_to': '${object.email|safe}',
     }
     create_or_update(
         ctx, 'mail.template', 'auth_signup.set_password_email', values)
-
-
-
 
 
 @anthem.log
