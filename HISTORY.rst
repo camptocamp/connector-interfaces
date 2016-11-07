@@ -26,7 +26,7 @@ Added, but still in WIP: configuration for development with mailtrap
 **Bugfixes**
 
 * hide "Proposals" too in my home RM#15915
-* members slider appeareance (do not use "hidden") RM#15336
+* fix members slider appeareance RM#15336
 * make sure you can drop content into <main /> element when page is new (addresses RM#15336)
 * fix subject for expertise proposal RM#15668
 

@@ -37,7 +37,7 @@ class JSHelpers(http.Controller):
             for item in members:
                 if item.image:
                     avatar_url = request.website.image_url(
-                        item, 'image', '128x36')
+                        item, 'image', '135x135')
                 else:
                     # use default avatar
                     avatar_url = '/base/static/src/img/avatar.png'
