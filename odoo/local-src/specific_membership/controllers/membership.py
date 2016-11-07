@@ -276,3 +276,11 @@ class WebsiteMembership(WebsiteMembershipController):
             'search': "?%s" % werkzeug.url_encode(post),
         }
         return request.website.render("website_membership.index", values)
+
+    @http.route()
+    def partners_detail(self, partner_id, **post):
+        """Allow access to member profile only for associated users."""
+        if request.env.user.is_associated:
+            return super(WebsiteMembership, self).partners_detail(
+                partner_id, **post)
+        return request.not_found()

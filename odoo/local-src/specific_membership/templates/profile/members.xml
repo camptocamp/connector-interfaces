@@ -351,19 +351,31 @@
                       <t t-foreach="memberships_partner_ids[membership_data['id']]" t-as="partner_id">
                         <t t-set="partner" t-value="partners[partner_id]" />
                         <div class="media member-list-item" style="width: 646px;">
+                            <t t-set="is_associated" t-value="request.env.user.is_associated" />
+                            <t t-set="detail_href" t-value="is_associated and '/members/' + slug(partner) or '#'" />
                             <a class="pull-left member-logo"
-                                t-attf-href="/members/#{slug(partner)}"
+                                t-att-href="detail_href"
                                 t-field="partner.image"
-                                t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'>
+                                t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'
+                                t-att-data-toggle="not is_associated and 'modal'"
+                                t-att-data-target="not is_associated and '#no_asso_modal'">
                             </a>
                           <div class="media-body member-details" style="min-height: 64px;">
-                            <a class="media-heading member-title" t-attf-href="/members/#{slug(partner)}" style="font-weight: bold;">
+                            <a class="media-heading member-title"
+                               t-att-href="detail_href"
+                               t-att-data-toggle="not is_associated and 'modal'"
+                               t-att-data-target="not is_associated and '#no_asso_modal'"
+                               style="font-weight: bold;">
                               <span t-field="partner.display_name" />
                             </a>
                             <div class="member-description">
                               <span t-esc="website.truncate_text(partner.website_short_description, length=200)" />
-                              <a class="read-more" t-attf-href="/members/#{slug(partner)}">Read More
-                              <i class="fa fa-long-arrow-right"></i></a>
+                              <a class="read-more"
+                                 t-att-data-toggle="not is_associated and 'modal'"
+                                 t-att-data-target="not is_associated and '#no_asso_modal'"
+                                 t-att-href="detail_href">Read More
+                                  <i class="fa fa-long-arrow-right"></i>
+                              </a>
                             </div>
                             <div class="member-tags">
                               <label for="category">Industry:</label>
@@ -395,7 +407,33 @@
         <div class="text-center mb32">
           <t t-call="website.pager"/>
         </div>
+        <t t-call="specific_membership.not_associated_modal" />
       </xpath>
+    </template>
+
+    <template id="not_associated_modal" name="Fluxdock Not associated modal">
+        <!-- Modal -->
+        <div class="modal fade" id="no_asso_modal"
+             tabindex="-1" role="dialog" aria-labelledby="no_asso_modal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&amp;times;</span>
+                </button>
+                <h4 class="modal-title">Upgrade membership</h4>
+              </div>
+              <div class="modal-body">
+                Lorem ipsum put here the final text for asking membership upgrade, thanks.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"
+                        onclick="window.location.href='/my/membership/buy'">Upgrade</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </template>
 
     <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">

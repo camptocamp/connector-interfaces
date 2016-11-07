@@ -23,6 +23,9 @@ Added, but still in WIP: configuration for development with mailtrap
 
 **Features and Improvements**
 
+* Protect member detail if current user is not associated member RM#15405
+
+
 **Bugfixes**
 
 * hide "Proposals" too in my home RM#15915
