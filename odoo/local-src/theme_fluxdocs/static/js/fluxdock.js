@@ -163,7 +163,7 @@ $(document).ready(function() {
 				})
 				slider.html(html);
 				// is hidden by default
-				membersWrap.hide().toggleClass('hidden').fadeIn('slow');
+				membersWrap.fadeIn('slow');
 				// init the slider
 				setup_members_slider(membersWrap);
 			}

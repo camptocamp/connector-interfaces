@@ -402,14 +402,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 	}
 
-	body.editor_enable{
-		#my_header{
-			// make sure the <main /> tag is positioned correctly on edit
-			position: static;
-		}
-	}
-
-
 	// MAIN
 	main{
 		padding-top: 80px;
@@ -974,6 +966,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		//Members Slider
 		.members-wrap{
 			position: relative;
+			display: none;
 			.arrow-left, .arrow-right{
 				position: absolute;
 				top: 100px;
@@ -1905,4 +1898,15 @@ body #wrapwrap main .pagination > li:last-child > a:after {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+
+body.editor_enable{
+	#my_header{
+		// make sure the <main /> tag is positioned correctly on edit
+		position: static;
+	}
+	.members-wrap{
+		// show it only when editing at 1st
+		display: block;
+	}
 }
