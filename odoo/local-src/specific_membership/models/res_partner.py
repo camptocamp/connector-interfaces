@@ -17,6 +17,11 @@ class ResPartner(models.Model):
         compute='_compute_flux_membership',
         required=True
     )
+    is_associated = fields.Boolean(
+        string='Is associated',
+        compute='_compute_is_associated',
+        readonly=True,
+    )
     facebook = fields.Char(string='Facebook')
     twitter = fields.Char(string='Twitter')
     skype = fields.Char(string='Skype')
@@ -26,13 +31,20 @@ class ResPartner(models.Model):
         help='Agree to terms'
     )
 
-    @api.one
+    @api.multi
     @api.depends('membership_state')
     def _compute_flux_membership(self):
-        if (self.membership_state in ['paid', 'invoiced']):
-            self.flux_membership = 'asso'
-        else:
-            self.flux_membership = 'free'
+        for item in self:
+            if (item.membership_state in ['paid', 'invoiced']):
+                item.flux_membership = 'asso'
+            else:
+                item.flux_membership = 'free'
+
+    @api.multi
+    @api.depends('flux_membership')
+    def _compute_is_associated(self):
+        for item in self:
+            item.is_associated = item.flux_membership == 'asso'
 
     @api.multi
     def create_membership_invoice(self, product_id=None, datas=None):
