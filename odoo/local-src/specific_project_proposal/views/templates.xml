@@ -14,7 +14,7 @@
   </xpath>
 </template>
 
-<template id="matches_overview" name="Proposals">
+<template id="matches_overview" name="My Matches">
     <div id="matches_overview" class="col-md-6" groups="base.group_tester">
         <h3 class="page-header">Matches</h3>
         <t t-if="not matches">
@@ -62,8 +62,8 @@
     </div>
 </template>
 
-<template id="proposals_overview" name="Proposals">
-    <div id="proposals_overview" class="col-md-6">
+<template id="proposals_overview" name="My Proposals">
+    <div id="proposals_overview" class="col-md-6" groups="base.group_tester">
         <h3 class="page-header">Proposals</h3>
         <t t-if="not proposals">
             <p>You have currently registred no proposals on your account.</p>
