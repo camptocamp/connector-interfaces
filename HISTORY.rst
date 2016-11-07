@@ -16,7 +16,7 @@
 Release History
 ---------------
 
-latest (unreleased)
+9.0.10 (unreleased)
 +++++++++++++++++++
 
 Added, but still in WIP: configuration for development with mailtrap
@@ -24,6 +24,12 @@ Added, but still in WIP: configuration for development with mailtrap
 **Features and Improvements**
 
 **Bugfixes**
+
+* hide "Proposals" too in my home RM#15915
+* members slider appeareance (do not use "hidden") RM#15336
+* make sure you can drop content into <main /> element when page is new (addresses RM#15336)
+* fix subject for expertise proposal RM#15668
+
 
 **Build**
 
