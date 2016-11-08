@@ -80,7 +80,7 @@
                     </a>
                 </td>
                 <td>
-                    <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+                    <small t-if="not proposal.website_published" class="text-muted">not published</small>
                 </td>
                 <td>
                     <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
