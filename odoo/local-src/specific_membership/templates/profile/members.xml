@@ -351,28 +351,28 @@
                       <t t-foreach="memberships_partner_ids[membership_data['id']]" t-as="partner_id">
                         <t t-set="partner" t-value="partners[partner_id]" />
                         <div class="media member-list-item" style="width: 646px;">
-                            <t t-set="is_associated" t-value="request.env.user.is_associated" />
-                            <t t-set="detail_href" t-value="is_associated and '/members/' + slug(partner) or '#'" />
+                            <t t-set="is_associate" t-value="request.env.user.is_associate" />
+                            <t t-set="detail_href" t-value="is_associate and '/members/' + slug(partner) or '#'" />
                             <a class="pull-left member-logo"
                                 t-att-href="detail_href"
                                 t-field="partner.image"
                                 t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'
-                                t-att-data-toggle="not is_associated and 'modal'"
-                                t-att-data-target="not is_associated and '#no_asso_modal'">
+                                t-att-data-toggle="not is_associate and 'modal'"
+                                t-att-data-target="not is_associate and '#no_asso_modal'">
                             </a>
                           <div class="media-body member-details" style="min-height: 64px;">
                             <a class="media-heading member-title"
                                t-att-href="detail_href"
-                               t-att-data-toggle="not is_associated and 'modal'"
-                               t-att-data-target="not is_associated and '#no_asso_modal'"
+                               t-att-data-toggle="not is_associate and 'modal'"
+                               t-att-data-target="not is_associate and '#no_asso_modal'"
                                style="font-weight: bold;">
                               <span t-field="partner.display_name" />
                             </a>
                             <div class="member-description">
                               <span t-esc="website.truncate_text(partner.website_short_description, length=200)" />
                               <a class="read-more"
-                                 t-att-data-toggle="not is_associated and 'modal'"
-                                 t-att-data-target="not is_associated and '#no_asso_modal'"
+                                 t-att-data-toggle="not is_associate and 'modal'"
+                                 t-att-data-target="not is_associate and '#no_asso_modal'"
                                  t-att-href="detail_href">Read More
                                   <i class="fa fa-long-arrow-right"></i>
                               </a>

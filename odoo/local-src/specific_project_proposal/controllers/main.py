@@ -202,12 +202,6 @@ class WebsiteProposal(http.Controller):
         next_link = base_link.format("next")
         detail_url = "/proposals/detail/{0}".format(slug(proposal))
         detail_url = self._url_with_args(detail_url, filters, **kwargs)
-        is_associate = (request.env.user != request.website.user_id and
-                        request.env.user.flux_membership == 'asso')
-        is_free_member = (request.env.user != request.website.user_id and
-                          request.env.user.flux_membership == 'free')
-        is_public_user = request.env.user == request.website.user_id
-
         return request.render("specific_project_proposal.proposal_detail", {
             'proposal': proposal,
             'main_object': proposal,
@@ -216,9 +210,6 @@ class WebsiteProposal(http.Controller):
             'next_link': next_link,
             'return_link': self._url_with_args(return_link, None, **kwargs),
             'detail_url': detail_url,
-            'is_associate': is_associate,
-            'is_free_member': is_free_member,
-            'is_public_user': is_public_user,
         })
 
     @http.route(['/proposals/<model("project.proposal"):proposal>/previous'],

@@ -17,9 +17,14 @@ class ResPartner(models.Model):
         compute='_compute_flux_membership',
         required=True
     )
-    is_associated = fields.Boolean(
-        string='Is associated',
-        compute='_compute_is_associated',
+    is_associate = fields.Boolean(
+        string='Is associate member',
+        compute='_compute_is_associate',
+        readonly=True,
+    )
+    is_free = fields.Boolean(
+        string='Is free member',
+        compute='_compute_is_free',
         readonly=True,
     )
     facebook = fields.Char(string='Facebook')
@@ -42,9 +47,15 @@ class ResPartner(models.Model):
 
     @api.multi
     @api.depends('flux_membership')
-    def _compute_is_associated(self):
+    def _compute_is_associate(self):
         for item in self:
-            item.is_associated = item.flux_membership == 'asso'
+            item.is_associate = item.flux_membership == 'asso'
+
+    @api.multi
+    @api.depends('flux_membership')
+    def _compute_is_free(self):
+        for item in self:
+            item.is_free = item.flux_membership == 'free'
 
     @api.multi
     def create_membership_invoice(self, product_id=None, datas=None):

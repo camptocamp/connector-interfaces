@@ -9,9 +9,14 @@ from openerp import _
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    is_associated = fields.Boolean(
-        string='Is associated',
-        related='partner_id.is_associated',
+    is_associate = fields.Boolean(
+        string='Is associate member',
+        related='partner_id.is_associate',
+        readonly=True,
+    )
+    is_free = fields.Boolean(
+        string='Is free member',
+        related='partner_id.is_free',
         readonly=True,
     )
 
