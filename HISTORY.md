@@ -22,7 +22,9 @@ Added, but still in WIP: configuration for development with mailtrap
 
 **Features and Improvements**
 
-* Protect member detail if current user is not associated member RM#15405
+* Protect member detail if current user is not associated member [RM#15405](https://redmine.iart.ch/issues/15405)
+* Remove logo placeholder if logo missing [RM#16042](https://redmine.iart.ch/issues/16042)
+* Insert new placeholder for logos in member aggregation [RM#16040](https://redmine.iart.ch/issues/16040)
 
 
 **Bugfixes**
@@ -32,12 +34,6 @@ Added, but still in WIP: configuration for development with mailtrap
 * Make sure you can drop content into <main /> element when page is new (addresses RM#15336)
 * Fix subject for expertise proposal [RM#15668](https://redmine.iart.ch/issues/15668)
 * Fix member detail padding [RM#16043](https://redmine.iart.ch/issues/16043)
-* Remove logo placeholder if logo missing [RM#16042](https://redmine.iart.ch/issues/16042)
-
-
-**Build**
-
-**Documentation**
 
 
 ## 9.0.9 (2016-11-03)
