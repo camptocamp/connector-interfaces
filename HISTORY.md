@@ -32,6 +32,7 @@ Added, but still in WIP: configuration for development with mailtrap
 * Make sure you can drop content into <main /> element when page is new (addresses RM#15336)
 * Fix subject for expertise proposal [RM#15668](https://redmine.iart.ch/issues/15668)
 * Fix member detail padding [RM#16043](https://redmine.iart.ch/issues/16043)
+* Remove logo placeholder if logo missing [RM#16042](https://redmine.iart.ch/issues/16042)
 
 
 **Build**

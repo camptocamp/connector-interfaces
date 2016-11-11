@@ -451,7 +451,9 @@
         <section class="content member-detail-view">
           <div class="content-wrap">
             <!--  Rich snippet -->
-            <div class="member-logo" t-field="partner.image" t-field-options='{"widget": "image", "class": ""}' />
+            <t t-if="partner.image">
+                <div class="member-logo" t-field="partner.image" t-field-options='{"widget": "image", "class": ""}' />
+            </t>
             <address class="hide well">
               <div t-field="partner.self" t-field-options='{ "widget": "contact", "fields": ["address", "website", "phone", "fax", "email"] }' />
             </address>
