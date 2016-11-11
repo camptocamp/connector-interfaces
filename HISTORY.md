@@ -1,23 +1,22 @@
 .. :changelog:
 
-.. Template:
+<!--
+Template:
 
-.. 0.0.1 (2016-05-09)
-.. ++++++++++++++++++
+## 9.0.1 (2016-05-09)
 
-.. **Features and Improvements**
+**Features and Improvements**
 
-.. **Bugfixes**
+**Bugfixes**
 
-.. **Build**
+**Build**
 
-.. **Documentation**
+**Documentation**
+-->
 
-Release History
----------------
+# Release History
 
-9.0.10 (unreleased)
-+++++++++++++++++++
+## 9.0.10 (unreleased)
 
 Added, but still in WIP: configuration for development with mailtrap
 
@@ -40,8 +39,7 @@ Added, but still in WIP: configuration for development with mailtrap
 **Documentation**
 
 
-9.0.9 (2016-11-03)
-+++++++++++++++++++
+## 9.0.9 (2016-11-03)
 
 Added, but still in WIP: configuration for development with mailtrap
 
@@ -70,8 +68,7 @@ Added, but still in WIP: configuration for development with mailtrap
 **Documentation**
 
 
-9.0.8 (2016-09-26)
-+++++++++++++++++++
+## 9.0.8 (2016-09-26)
 
 This release concerns `1b - Members II`. It is actually missing:
 
@@ -110,8 +107,7 @@ This release concerns `1b - Members II`. It is actually missing:
 **Documentation**
 
 
-9.0.7 (2016-09-28)
-+++++++++++++++++++
+## 9.0.7 (2016-09-28)
 
 **Features and Improvements**
 
@@ -133,8 +129,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Change /my/home icon to a 300x200 px icon
 
 
-9.0.6 (2016-09-14)
-++++++++++++++++++
+## 9.0.6 (2016-09-14)
 
 **Features and Improvements**
 
@@ -157,8 +152,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Display pager on member list and set limit to 10
 
 
-9.0.5 (2016-09-01)
-++++++++++++++++++
+## 9.0.5 (2016-09-01)
 
 **Features and Improvements**
 
@@ -180,8 +174,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Activation of oerpscenario
 
 
-9.0.4 (2016-08-18)
-++++++++++++++++++
+## 9.0.4 (2016-08-18)
 
 **Features and Improvements**
 
@@ -213,8 +206,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Remove duplicate Industries on proposal list
 * Give access to public on /market
 
-9.0.3 (2016-08-11)
-++++++++++++++++++
+## 9.0.3 (2016-08-11)
 
 **Features and Improvements**
 
@@ -226,7 +218,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Fix Proposals button visibility ('show all' & 'Add)
 
 9.0.2 (2016-08-11)
-++++++++++++++++++
+------------------
 
 **Bugfixes**
 
@@ -236,8 +228,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Fix an issue of view of /my/account due to the move to /my/home of membership status
 * Fix button "Show More" not hidden for matches overview when less than 4 matches are displayed
 
-9.0.1 (2016-08-10)
-++++++++++++++++++
+## 9.0.1 (2016-08-10)
 
 **Features and Improvements**
 
