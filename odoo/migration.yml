@@ -39,3 +39,9 @@ migration:
       addons:
         upgrade:
           - specific_server_environment_files
+    - version: 9.0.10
+      addons:
+        upgrade:
+          - specific_membership
+          - specific_project_proposal
+          - theme_fluxdocs

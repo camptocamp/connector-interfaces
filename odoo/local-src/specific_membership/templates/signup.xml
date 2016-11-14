@@ -145,22 +145,7 @@
 		</xpath>
 	</template>
 
-	<template id="login" inherit_id="web.login" name="Sign up - Reset Password">
-		<xpath expr="//button[@type='submit']" position="after">
-			<div class="login-notice-wrap">
-				<div t-if="signup_enabled">
-					Not registered yet?
-					<a t-attf-href="/web/presignup?{{ keep_query() }}">Create a free account here</a>
-				</div>
-				<div t-if="reset_password_enabled">
-					Forgot your password?
-					<a t-attf-href="/web/reset_password?{{ keep_query() }}">Reset your password here</a>
-				</div>
-			</div>
-		</xpath>
-	</template>
-
-	<template id="fluxdock_login" name="Fluxdock login" inherit_id="web.login">
+	<template id="login" inherit_id="web.login" name="Fluxdock login">
 		<xpath expr="//div[contains(@class,'field-db')]" position="before">
 			<h2>
 				THROUGH COLLABORATION TO INNOVATION
@@ -168,7 +153,8 @@
 		</xpath>
 	</template>
 
-	<template id="signup_buttons" name="Signup country" inherit_id="auth_signup.signup">
+
+	<template id="signup_buttons" name="Fluxdock sign up buttons" inherit_id="auth_signup.signup">
 		<xpath expr="//div[contains(@class,'oe_login_buttons')]"
 			position="replace">
 			<div class="clearfix oe_login_buttons">

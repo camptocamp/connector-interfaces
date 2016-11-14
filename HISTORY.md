@@ -22,18 +22,20 @@ Added, but still in WIP: configuration for development with mailtrap
 
 **Features and Improvements**
 
-* Protect member detail if current user is not associated member [RM#15405](https://redmine.iart.ch/issues/15405)
-* Remove logo placeholder if logo missing [RM#16042](https://redmine.iart.ch/issues/16042)
-* Insert new placeholder for logos in member aggregation [RM#16040](https://redmine.iart.ch/issues/16040)
-
+* [RM#15405](https://redmine.iart.ch/issues/15405) Protect member detail if current user is not associated member
+* [RM#16042](https://redmine.iart.ch/issues/16042) Remove logo placeholder if logo missing
+* [RM#16040](https://redmine.iart.ch/issues/16040) Insert new placeholder for logos in member aggregation
 
 **Bugfixes**
 
-* Hide "Proposals" too in my home [RM#15915](https://redmine.iart.ch/issues/15915)
-* Members slider appeareance (do not use "hidden") [RM#15336](https://redmine.iart.ch/issues/15336)
+* [RM#15915](https://redmine.iart.ch/issues/15915) Hide "Proposals" too in my home
+* [RM#15336](https://redmine.iart.ch/issues/15336) Members slider appeareance (do not use "hidden")
 * Make sure you can drop content into <main /> element when page is new (addresses RM#15336)
-* Fix subject for expertise proposal [RM#15668](https://redmine.iart.ch/issues/15668)
-* Fix member detail padding [RM#16043](https://redmine.iart.ch/issues/16043)
+* [RM#15668](https://redmine.iart.ch/issues/15668) Fix subject for expertise proposal
+* [RM#16043](https://redmine.iart.ch/issues/16043) Fix member detail padding
+* [RM#16021](https://redmine.iart.ch/issues/16021) /login: Same Text is displayed twice
+
+    NOTE: from views management delete `specific_membership.fluxdock_login` and `specific_membership.login` before upgrading, to be sure that no override has been done TTW
 
 
 ## 9.0.9 (2016-11-03)
