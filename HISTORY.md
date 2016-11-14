@@ -35,8 +35,13 @@ Added, but still in WIP: configuration for development with mailtrap
 * [RM#16043](https://redmine.iart.ch/issues/16043) Fix member detail padding
 * [RM#16021](https://redmine.iart.ch/issues/16021) /login: Same Text is displayed twice
 
-    NOTE: from views management delete `specific_membership.fluxdock_login` and `specific_membership.login` before upgrading, to be sure that no override has been done TTW
+    NOTE: before upgrading - to be sure that no override has been done TTW - go to views management and delete:
 
+    * `specific_membership.fluxdock_login`
+    * `specific_membership.login`
+
+
+* [RM#16020](https://redmine.iart.ch/issues/16020) member filters: reduce vertical spacing
 
 ## 9.0.9 (2016-11-03)
 

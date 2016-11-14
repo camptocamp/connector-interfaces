@@ -278,7 +278,7 @@
                 <form action="/members" method="get" class="search-panel members-search-panel">
                     <div class="filter-row row-1">
                         <input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="post.get('search', '')" />
-                        <button type="submit" class="btn btn-default btn-primary mb32 ">Search</button>
+                        <button type="submit" class="btn btn-default btn-primary ">Search</button>
                     </div>
                     <div class="filter-row row-2">
                       <div class="oe_search">
