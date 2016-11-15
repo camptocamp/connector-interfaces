@@ -24,12 +24,37 @@ def change_signup_email(ctx):
         'email_from': 'noreply@fluxdock.io',
         'model_id': ctx.env.ref('base.model_res_users').id,
         'email_to': '${object.email|safe}',
+        'lang': '${object.partner_id.lang}',
     }
     create_or_update(
         ctx, 'mail.template', 'auth_signup.set_password_email', values)
 
 
 @anthem.log
+def add_membership_upgrade_email(ctx):
+    """ Add membership upgrade email """
+    content = resource_stream(req, 'data/mail_membership_upgrade.html').read()
+    values = {
+        'name': 'Fluxdock membership upgrade',
+        'subject': 'Fluxdock membership upgrade confirmed',
+        'body_html': content,
+        'email_from': 'noreply@fluxdock.io',
+        'model_id': ctx.env.ref('account.model_account_invoice').id,
+        'partner_to': '${object.partner_id.id}',
+        'lang': '${object.partner_id.lang}',
+        'report_template': ctx.env.ref('account.account_invoices').id,
+        'report_name': (
+            "Invoice_${(object.number or '')"
+            ".replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
+        ),
+    }
+    create_or_update(
+        ctx, 'mail.template',
+        'specific_membership.mail_membership_upgrade', values)
+
+
+@anthem.log
 def main(ctx):
     """ Main: creating demo data """
     change_signup_email(ctx)
+    add_membership_upgrade_email(ctx)

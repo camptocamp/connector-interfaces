@@ -29,6 +29,9 @@ Added, but still in WIP: configuration for development with mailtrap
 
     NOTE: after upgrade go to translations and "synchronize terms" to update current translations.
 
+* [RM#15403](https://redmine.iart.ch/issues/15403) Send email after confirmation of membership upgrade (invoice attached)
+
+
 **Bugfixes**
 
 * [RM#15915](https://redmine.iart.ch/issues/15915) Hide "Proposals" too in my home

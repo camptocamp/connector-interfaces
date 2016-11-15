@@ -3,6 +3,10 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, models, fields, exceptions, _
 
+import logging
+
+_logger = logging.getLogger(__file__)
+
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -58,32 +62,43 @@ class ResPartner(models.Model):
             item.is_free = item.flux_membership == 'free'
 
     @api.multi
-    def create_membership_invoice(self, product_id=None, datas=None):
+    def create_membership_invoice(self, product_id=None, data=None):
+        self.ensure_one()
         prod_obj = self.env['product.product']
         acc_inv_obj = self.env['account.invoice']
-        if datas is None:
-            datas = {}
+        if data is None:
+            data = {}
 
-        product_id = product_id or datas.get('membership_product_id')
+        product_id = product_id or data.get('membership_product_id')
         product = prod_obj.browse(product_id) or prod_obj.search(
             [('default_code', '=', 'associate')])
         if not product:
             raise exceptions.Warning(
                 _('There is no associate default product'))
 
-        datas = {'membership_product_id': product.id,
-                 'amount': product.list_price}
+        data = {'membership_product_id': product.id,
+                'amount': product.list_price}
 
         if self.free_member is True:
             self.free_member = False
 
         inv = super(ResPartner, self).create_membership_invoice(
             product_id=product,
-            datas=datas)
-        acc_inv_id = acc_inv_obj.browse(inv)
-        acc_inv_id.signal_workflow('invoice_open')
+            datas=data)
+        inv = acc_inv_obj.browse(inv)
+        inv.signal_workflow('invoice_open')
 
         self.flux_membership = 'asso'
+
+        template = self.env.ref('specific_membership.mail_membership_upgrade')
+
+        if template:
+            template.send_mail(inv.id)
+        else:
+            _logger.warning(
+                "No email template found for "
+                "`specific_membership.mail_membership_upgrade`")
+
         return inv
 
     @api.multi
