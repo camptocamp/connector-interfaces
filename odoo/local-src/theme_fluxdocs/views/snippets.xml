@@ -513,8 +513,8 @@
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
 			                	</div>
 			                	<h2>Members</h2>
-								<p>Hier sehen Sie wer im Netzwerk steckt.</p>
-								<p>Werden Sie Teil vom Netzwerk - zeigen Sie was ihre Firma kann werden Sie kollaborativ</p>
+								<p>The members constitute Fluxdock.</p>
+								<p>They form together the interdisciplinary and collaborative network that comprises a multiplicity of competencies and enables the members mutually to innovation.</p>
 			                </div>
 							<!-- keep it hidden and show it after members are loaded -->
 			                <div class="content-wrap members-wrap" style="display:none">

@@ -25,6 +25,9 @@ Added, but still in WIP: configuration for development with mailtrap
 * [RM#15405](https://redmine.iart.ch/issues/15405) Protect member detail if current user is not associated member
 * [RM#16042](https://redmine.iart.ch/issues/16042) Remove logo placeholder if logo missing
 * [RM#16040](https://redmine.iart.ch/issues/16040) Insert new placeholder for logos in member aggregation
+* [RM#16023](https://redmine.iart.ch/issues/16023) Update members aggregation snippet text
+
+    NOTE: after upgrade go to translations and "synchronize terms" to update current translations.
 
 **Bugfixes**
 
