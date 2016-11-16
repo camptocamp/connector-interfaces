@@ -419,7 +419,7 @@
 			                </div>
 			                <div class="content-wrap newsletter-form-wrap">
 			                	<!-- Campain Monitor form -->
-				                <form id="subForm" class="newsletter-form" action="http://fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
+				                <form id="subForm" class="newsletter-form" action="//fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
 				                	<input name="cm-name" placeholder="Name" type="text"></input>
 				                	<input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required"></input>
 				                	<button type="submit">Subscribe</button>
@@ -513,8 +513,8 @@
 			                		<img src="/theme_fluxdocs/static/img/content-icons/members.png"></img>
 			                	</div>
 			                	<h2>Members</h2>
-								<p>Hier sehen Sie wer im Netzwerk steckt.</p>
-								<p>Werden Sie Teil vom Netzwerk - zeigen Sie was ihre Firma kann werden Sie kollaborativ</p>
+								<p>The members constitute Fluxdock.</p>
+								<p>They form together the interdisciplinary and collaborative network that comprises a multiplicity of competencies and enables the members mutually to innovation.</p>
 			                </div>
 							<!-- keep it hidden and show it after members are loaded -->
 			                <div class="content-wrap members-wrap" style="display:none">

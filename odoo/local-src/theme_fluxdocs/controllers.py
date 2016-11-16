@@ -7,6 +7,8 @@ from openerp.addons.web import http
 from openerp.addons.web.http import request
 from openerp.addons.website.models.website import slug
 
+IMG_FOLDER_PATH = '/theme_fluxdocs/static/img/'
+
 
 class JSHelpers(http.Controller):
     """Controller for some JS stuff."""
@@ -40,7 +42,8 @@ class JSHelpers(http.Controller):
                         item, 'image', '135x135')
                 else:
                     # use default avatar
-                    avatar_url = '/base/static/src/img/avatar.png'
+                    avatar_url = IMG_FOLDER_PATH \
+                        + 'content-icons/member-placeholder.png'
                 res.append({
                     'id': item.id,
                     'name': item.name,

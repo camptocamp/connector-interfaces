@@ -22,7 +22,7 @@
 </template>
 
   <!-- view for confirmation address-->
-<template id="membership_payment_address" name="membership_payment_address">
+<template id="membership_payment_address" name="Fluxdock Membership Payment Address">
 	<t t-call="website.layout">
 	  <div id="wrap">
 	    <div class="container">
@@ -37,16 +37,12 @@
 	          <h1>Associate Membership</h1>
 	          Price: <span t-esc="product.list_price"/><br/>
 	          Taxes: <span t-esc="product.taxes_id.amount"/><br/>
-
-	          <t t-foreach="partners" t-as="part">
-	            <div class="well">
-	              <span t-field="part.name"/>
-	              <span t-field="part.image"/>
-	            </div>
-	          </t>
-
-	          <button type="object" onclick="window.location.href='/my/account'">Edit informations</button>
-	          <button type="object" name="button_buy_membership" onclick="window.location.href='/my/membership/buy'">Confirm</button>
+              <section class="content">
+                <div class="content-wrap">
+                    <a class="btn btn-primary" href="/my/account">Edit informations</a>
+                    <a class="btn btn-primary" href="/my/membership/buy">Confirm</a>
+                </div>
+              </section>
 	        </div>
 	      </div>
 	    </div>
@@ -62,8 +58,12 @@
 	        <div class="row o_website_portal_details text-center">
 	          <h1>Confirmation</h1>
 	          <p>Your command is being processed. You should receive a confirmation email soon.</p>
-	          <button type="object" onclick="window.location.href='/market'">Market</button>
-	          <button type="object" name="button_buy_membership" onclick="window.location.href='/my/home'">My Account</button>
+              <section class="content">
+                <div class="content-wrap">
+                    <a class="btn btn-primary" href="/market">Market</a>
+                    <a class="btn btn-primary" href="/my/home">My Account</a>
+                </div>
+              </section>
 	        </div>
 	      </div>
 	    </div>

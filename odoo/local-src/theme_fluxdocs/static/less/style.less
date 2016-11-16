@@ -187,6 +187,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			option{
 				height: 42px;
 				padding-top: 10px;
+				color: @darkColor;
 			}
 		}
 		select[name="country_id"] {
@@ -862,7 +863,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 
 		//Members List and Detail
 		section.content.member-detail-view{
-			padding-top: 65px;
+			padding-top: 3em;
+			padding-bottom: 2em;
 			.content-wrap h2 {
 				font-size: 26px;
 			}
@@ -1908,5 +1910,14 @@ body.editor_enable{
 	.members-wrap{
 		// show it only when editing at 1st
 		display: block;
+	}
+}
+
+.no-border{
+	border: none !important;
+}
+.table.no-border{
+	td,th {
+		.no-border
 	}
 }

@@ -169,7 +169,7 @@
                 <!-- Temporary hiding / change. Waiting for final design -->
                 <!--<div class="table-responsive center-block">-->
                 <div class="container content-wrap" style="width: 646px;">
-                    <table class="table table-condensed member-profile-table">
+                    <table class="table table-condensed member-profile-table no-border">
                         <tr>
                             <td>
                                 <div class="media">
@@ -278,15 +278,20 @@
                 <form action="/members" method="get" class="search-panel members-search-panel">
                     <div class="filter-row row-1">
                         <input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="post.get('search', '')" />
-                        <button type="submit" class="btn btn-default btn-primary mb32 ">Search</button>
+                        <button type="submit" class="btn btn-default btn-primary ">Search</button>
                     </div>
                     <div class="filter-row row-2">
                       <div class="oe_search">
-                        <input name="search_industries" class="search-query form-control oe_search_box js_select2_categories" placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/>
-                        <input name="search_expertises" class="search-query form-control oe_search_box js_select2_expertises" placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/>
+                        <input name="search_industries"
+                              class="search-query form-control oe_search_box js_select2_categories"
+                              placeholder="Industries"
+                              t-attf-data-init-value="#{industries}" value="Industry"/>
+                        <input name="search_expertises"
+                              class="search-query form-control oe_search_box js_select2_expertises"
+                              placeholder="Expertises"
+                              t-attf-data-init-value="#{expertises}" value="Expertise"/>
                         <div class="styled-select">
                           <select name="search_country" class="form-control">
-                            <option value="">Country...</option>
                             <t t-foreach="countries or []" t-as="country">
                               <option t-att-value="country['country_id'][0]"
                                 t-att-selected="country['country_id'][0] == selected_country_id">
@@ -309,23 +314,6 @@
           </div>
           <div class="container row-centered">
             <div class="row">
-              <div class="hide col-md-3 mb32" id="left_column">
-                <ul class="nav nav-pills nav-stacked mt16">
-                  <li class="nav-header">
-                    <h3>Associations</h3>
-                  </li>
-                  <li t-att-class="'' if membership_id else 'active'">
-                    <a href="/members">All</a>
-                  </li>
-                  <t t-foreach="memberships_data" t-as="membership_data">
-                    <li t-att-class="membership_id and membership_data['id'] == membership_id and 'active' or ''">
-                      <a t-attf-href="/members/association/#{ membership_data['id'] }#{current_country and '/country/%s' % slug(current_country) or ''}#{ search }">
-                        <t t-esc="membership_data['name']" />
-                      </a>
-                    </li>
-                  </t>
-                </ul>
-              </div>
               <div class="col-md-12" id="ref_content">
                 <div class='navbar hide'>
                   <t t-call="website.pager">
@@ -340,51 +328,48 @@
                   </form>
                 </div>
                 <div class="content members-list container content-wrap" style="width: 646px;">
-                  <t t-if="not memberships_partner_ids">
+                  <t t-if="not memberships_partners">
                     <p>No result found.</p>
                   </t>
-                  <t t-foreach="memberships_data" t-as="membership_data">
-                    <t t-if="memberships_partner_ids.get(membership_data['id'])">
-                      <h3 class="hide text-center">
-                        <span t-esc="membership_data['name']" />
-                      </h3>
-                      <t t-foreach="memberships_partner_ids[membership_data['id']]" t-as="partner_id">
-                        <t t-set="partner" t-value="partners[partner_id]" />
-                        <div class="media member-list-item" style="width: 646px;">
-                            <a class="pull-left member-logo"
-                                t-attf-href="/members/#{slug(partner)}"
-                                t-field="partner.image"
-                                t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'>
-                            </a>
-                          <div class="media-body member-details" style="min-height: 64px;">
-                            <a class="media-heading member-title" t-attf-href="/members/#{slug(partner)}" style="font-weight: bold;">
-                              <span t-field="partner.display_name" />
-                            </a>
-                            <div class="member-description">
-                              <span t-esc="website.truncate_text(partner.website_short_description, length=200)" />
-                              <a class="read-more" t-attf-href="/members/#{slug(partner)}">Read More
-                              <i class="fa fa-long-arrow-right"></i></a>
-                            </div>
-                            <div class="member-tags">
-                              <label for="category">Industry:</label>
-                              <div class="tag-value" id="category">
-                                <t t-foreach="partner.category_id" t-as="one_tag">
-                                  <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                                </t>
-                              </div>
-                            </div>
-                            <div class="member-tags">
-                              <label for="expertise">Expertise:</label>
-                              <div class="tag-value" id="expertise">
-                                <t t-foreach="partner.expertise_ids" t-as="one_tag">
-                                  <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                                </t>
-                              </div>
-                            </div>
+                  <t t-foreach="memberships_partners" t-as="partner">
+                    <div class="media member-list-item" style="width: 646px;">
+                        <t t-set="detail_href" t-value="'/members/' + slug(partner)" />
+                        <a class="pull-left member-logo"
+                            t-att-href="detail_href"
+                            t-field="partner.image"
+                            t-field-options='{"widget": "image", "class": "media-object", "max_width": 128}'>
+                        </a>
+                      <div class="media-body member-details" style="min-height: 64px;">
+                        <a class="media-heading member-title"
+                           t-att-href="detail_href"
+                           style="font-weight: bold;">
+                          <span t-field="partner.display_name" />
+                        </a>
+                        <div class="member-description">
+                          <span t-esc="website.truncate_text(partner.website_short_description, length=200)" />
+                          <a class="read-more"
+                             t-att-href="detail_href">Read More
+                              <i class="fa fa-long-arrow-right"></i>
+                          </a>
+                        </div>
+                        <div class="member-tags">
+                          <label for="category">Industry:</label>
+                          <div class="tag-value" id="category">
+                            <t t-foreach="partner.category_id" t-as="one_tag">
+                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                            </t>
                           </div>
                         </div>
-                      </t>
-                    </t>
+                        <div class="member-tags">
+                          <label for="expertise">Expertise:</label>
+                          <div class="tag-value" id="expertise">
+                            <t t-foreach="partner.expertise_ids" t-as="one_tag">
+                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                            </t>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </t>
                 </div>
               </div>
@@ -395,7 +380,33 @@
         <div class="text-center mb32">
           <t t-call="website.pager"/>
         </div>
+        <t t-call="specific_membership.not_associated_modal" />
       </xpath>
+    </template>
+
+    <template id="not_associated_modal" name="Fluxdock Not associated modal">
+        <!-- Modal -->
+        <div class="modal fade" id="no_asso_modal"
+             tabindex="-1" role="dialog" aria-labelledby="no_asso_modal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&amp;times;</span>
+                </button>
+                <h4 class="modal-title">Upgrade membership</h4>
+              </div>
+              <div class="modal-body">
+                Lorem ipsum put here the final text for asking membership upgrade, thanks.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"
+                        onclick="window.location.href='/my/membership/buy'">Upgrade</button>
+              </div>
+            </div>
+          </div>
+        </div>
     </template>
 
     <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">
@@ -420,7 +431,9 @@
         <section class="content member-detail-view">
           <div class="content-wrap">
             <!--  Rich snippet -->
-            <div class="member-logo" t-field="partner.image" t-field-options='{"widget": "image", "class": ""}' />
+            <t t-if="partner.image">
+                <div class="member-logo" t-field="partner.image" t-field-options='{"widget": "image", "class": ""}' />
+            </t>
             <address class="hide well">
               <div t-field="partner.self" t-field-options='{ "widget": "contact", "fields": ["address", "website", "phone", "fax", "email"] }' />
             </address>

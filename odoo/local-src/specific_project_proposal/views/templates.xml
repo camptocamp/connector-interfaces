@@ -80,7 +80,7 @@
                     </a>
                 </td>
                 <td>
-                    <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+                    <small t-if="not proposal.website_published" class="text-muted">not published</small>
                 </td>
                 <td>
                     <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
@@ -271,21 +271,28 @@
 <template id="proposal_detail" name="Proposal Detail">
   <t t-call="specific_project_proposal.layout">
 
+    <t t-set="is_anon" t-value="not request.session.uid" />
+    <!-- important to check for `is_anon` too because when you are anonymous user
+    you are "Public User" indeed, so you could have a membership state (default to `free`)-->
+    <t t-set="is_associate" t-value="not is_anon and request.env.user.is_associate" />
+    <t t-set="is_free_member" t-value="not is_anon and request.env.user.is_free" />
+
     <div class="oe_structure" style="clear:both;">
       <section class="content members-list opt_dark_bg">
-        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{previous_link}" title="Previous Proposal">
-            Previous
-        </a>
-        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{next_link}" title="Next Proposal">
-            Next
-        </a>
+        <div class="content-wrap">
+            <a class="btn btn-primary btn-show-proposal" t-attf-href="#{previous_link}" title="Previous Proposal">
+                Previous
+            </a>
+            <a class="btn btn-primary btn-show-proposal" t-attf-href="#{next_link}" title="Next Proposal">
+                Next
+            </a>
+        </div>
       </section>
       <section class="content members-list">
         <div class="content-wrap">
           <div class="text-muted">
             <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
           </div>
-
           <address>
             <t t-set="partner" t-value="proposal.sudo().owner_id.partner_id"/>
             <t t-set="partner" t-value="partner.parent_id if partner.parent_id else partner"/>
@@ -333,34 +340,41 @@
           </div>
         </div>
       </section>
-      <t t-if="is_public_user">
+      <t t-if="is_anon">
+        <!-- anonymous -->
         <section class="content opt_dark_bg">
-          <h1>Membership</h1>
-          <a class="btn btn-primary" t-att-href="'/web/presignup?redirect=' + detail_url">
-            Sign Up
-          </a>
-          <a class="btn btn-primary" t-att-href="'/web/login?redirect=' + detail_url">
-            Login
-          </a>
+            <div class="content-wrap">
+              <h1>Membership</h1>
+              <a class="btn btn-primary" t-att-href="'/web/presignup?redirect=' + detail_url">
+                Sign Up
+              </a>
+              <a class="btn btn-primary" t-att-href="'/web/login?redirect=' + detail_url">
+                Login
+              </a>
+            </div>
         </section>
       </t>
       <t t-if="is_free_member">
         <section class="content opt_dark_bg">
-          <h1>Membership</h1>
-          <a class="btn btn-primary" t-att-href="'/my/membership?redirect=' + detail_url">
-            Become an associate member
-          </a>
+          <div class="content-wrap">
+              <h1>Membership</h1>
+              <a class="btn btn-primary" t-att-href="'/my/membership?redirect=' + detail_url">
+                Become an associate member
+              </a>
+          </div>
         </section>
       </t>
-      <section>
-        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{return_link}">
-          <t t-if="filters == 'match'">
-              Return to my account
-          </t>
-          <t t-if="filters != 'match'">
-              Return to list
-          </t>
-        </a>
+      <section class="content">
+        <div class="content-wrap no-border">
+            <a class="btn btn-primary btn-show-proposal" t-attf-href="#{return_link}">
+              <t t-if="filters == 'match'">
+                  Return to my account
+              </t>
+              <t t-if="filters != 'match'">
+                  Return to list
+              </t>
+            </a>
+        </div>
       </section>
     </div>
   </t>

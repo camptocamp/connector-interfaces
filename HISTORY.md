@@ -1,43 +1,59 @@
 .. :changelog:
 
-.. Template:
+<!--
+Template:
 
-.. 0.0.1 (2016-05-09)
-.. ++++++++++++++++++
-
-.. **Features and Improvements**
-
-.. **Bugfixes**
-
-.. **Build**
-
-.. **Documentation**
-
-Release History
----------------
-
-9.0.10 (unreleased)
-+++++++++++++++++++
-
-Added, but still in WIP: configuration for development with mailtrap
+## 9.0.1 (2016-05-09)
 
 **Features and Improvements**
 
 **Bugfixes**
 
-* hide "Proposals" too in my home RM#15915
-* fix members slider appeareance RM#15336
-* make sure you can drop content into <main /> element when page is new (addresses RM#15336)
-* fix subject for expertise proposal RM#15668
-
-
 **Build**
 
 **Documentation**
+-->
+
+# Release History
+
+## 9.0.10 (unreleased)
+
+Added, but still in WIP: configuration for development with mailtrap
+
+**Features and Improvements**
+
+* [RM#15405](https://redmine.iart.ch/issues/15405) Protect member detail if current user is not associated member
+* [RM#16042](https://redmine.iart.ch/issues/16042) Remove logo placeholder if logo missing
+* [RM#16040](https://redmine.iart.ch/issues/16040) Insert new placeholder for logos in member aggregation
+* [RM#16023](https://redmine.iart.ch/issues/16023) Update members aggregation snippet text
+
+    NOTE: after upgrade go to translations and "synchronize terms" to update current translations.
+
+* [RM#15403](https://redmine.iart.ch/issues/15403) Send email after confirmation of membership upgrade (invoice attached)
 
 
-9.0.9 (2016-11-03)
-+++++++++++++++++++
+**Bugfixes**
+
+* [RM#15915](https://redmine.iart.ch/issues/15915) Hide "Proposals" too in my home
+* [RM#15336](https://redmine.iart.ch/issues/15336) Members slider appeareance (do not use "hidden")
+* Make sure you can drop content into <main /> element when page is new (addresses RM#15336)
+* [RM#15668](https://redmine.iart.ch/issues/15668) Fix subject for expertise proposal
+* [RM#16043](https://redmine.iart.ch/issues/16043) Fix member detail padding
+* [RM#16021](https://redmine.iart.ch/issues/16021) /login: Same Text is displayed twice
+
+    NOTE: before upgrading - to be sure that no override has been done TTW - go to views management and delete:
+
+    * `specific_membership.fluxdock_login`
+    * `specific_membership.login`
+
+* [RM#16020](https://redmine.iart.ch/issues/16020) member filters: reduce vertical spacing
+* [RM#16105](https://redmine.iart.ch/issues/16105) member filters: css select issue
+* [RM#16105](https://redmine.iart.ch/issues/16105) member filters: broken filter for anonymous users
+* [RM#16027](https://redmine.iart.ch/issues/16027) Newsletter Snippet: remove "http:" in form action
+* [RM#15732](https://redmine.iart.ch/issues/15732) /my/home: remove grey lines
+
+
+## 9.0.9 (2016-11-03)
 
 Added, but still in WIP: configuration for development with mailtrap
 
@@ -66,8 +82,7 @@ Added, but still in WIP: configuration for development with mailtrap
 **Documentation**
 
 
-9.0.8 (2016-09-26)
-+++++++++++++++++++
+## 9.0.8 (2016-09-26)
 
 This release concerns `1b - Members II`. It is actually missing:
 
@@ -106,8 +121,7 @@ This release concerns `1b - Members II`. It is actually missing:
 **Documentation**
 
 
-9.0.7 (2016-09-28)
-+++++++++++++++++++
+## 9.0.7 (2016-09-28)
 
 **Features and Improvements**
 
@@ -129,8 +143,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Change /my/home icon to a 300x200 px icon
 
 
-9.0.6 (2016-09-14)
-++++++++++++++++++
+## 9.0.6 (2016-09-14)
 
 **Features and Improvements**
 
@@ -153,8 +166,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Display pager on member list and set limit to 10
 
 
-9.0.5 (2016-09-01)
-++++++++++++++++++
+## 9.0.5 (2016-09-01)
 
 **Features and Improvements**
 
@@ -176,8 +188,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Activation of oerpscenario
 
 
-9.0.4 (2016-08-18)
-++++++++++++++++++
+## 9.0.4 (2016-08-18)
 
 **Features and Improvements**
 
@@ -209,8 +220,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Remove duplicate Industries on proposal list
 * Give access to public on /market
 
-9.0.3 (2016-08-11)
-++++++++++++++++++
+## 9.0.3 (2016-08-11)
 
 **Features and Improvements**
 
@@ -222,7 +232,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Fix Proposals button visibility ('show all' & 'Add)
 
 9.0.2 (2016-08-11)
-++++++++++++++++++
+------------------
 
 **Bugfixes**
 
@@ -232,8 +242,7 @@ This release concerns `1b - Members II`. It is actually missing:
 * Fix an issue of view of /my/account due to the move to /my/home of membership status
 * Fix button "Show More" not hidden for matches overview when less than 4 matches are displayed
 
-9.0.1 (2016-08-10)
-++++++++++++++++++
+## 9.0.1 (2016-08-10)
 
 **Features and Improvements**
 
