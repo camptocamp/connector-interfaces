@@ -50,6 +50,7 @@ Added, but still in WIP: configuration for development with mailtrap
 * [RM#16020](https://redmine.iart.ch/issues/16020) member filters: reduce vertical spacing
 * [RM#16105](https://redmine.iart.ch/issues/16105) member filters: css select issue
 * [RM#16105](https://redmine.iart.ch/issues/16105) member filters: broken filter for anonymous users
+* [RM#16027](https://redmine.iart.ch/issues/16027) Newsletter Snippet: remove "http:" in form action
 
 
 ## 9.0.9 (2016-11-03)

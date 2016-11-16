@@ -154,7 +154,7 @@
 	          <p class="o_default_snippet_text">Sign up for our newsletter and stay up to date:</p>
 	        </div>
 	        <div class="content-wrap newsletter-form-wrap">
-	          <form id="subForm" class="newsletter-form" action="http://fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
+	          <form id="subForm" class="newsletter-form" action="//fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
 	            <input name="cm-name" placeholder="Name" class="form-control" type="text"/>
 	            <input name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required" type="email"/>
 	            <button type="submit" class="o_default_snippet_text">Subscribe</button>
