@@ -14,7 +14,7 @@ if(!$('.js_select2_categories').length) {
     return $.Deferred().reject("DOM doesn't contain '.js_select2_categories'");
 }
 
-    $('input.js_select2_categories').select2({
+$('input.js_select2_categories').select2({
 	tags: true,
         tokenSeparators: [",", " ", "_"],
         lastsearch: [],
@@ -36,10 +36,15 @@ if(!$('.js_select2_categories').length) {
             }
         },
         query: function (query) {
-            return new Model('res.partner.category').call('search_read', [[]], {
-                fields: ['display_name'],
-                context: base.get_context()
-            }).then(function (data) {
+            ajax.jsonRpc("/web/dataset/call_kw_pub", 'call', {
+    			model: 'res.partner.category',
+    			method: 'search_read',
+    			args: [],
+    			kwargs: {
+    				fields: ['display_name'],
+    				context: base.get_context()
+    			}
+    		}).then(function (data) {
                 var tags = { results: [] };
                 data.sort(function(a, b) {
                     return a.display_name.localeCompare(b.display_name);
@@ -84,7 +89,7 @@ if(!$('.js_select2_categories').length) {
             }
         },
 	query: function (query) {
-		ajax.jsonRpc("/web/dataset/call_kw", 'call', {
+		ajax.jsonRpc("/web/dataset/call_kw_pub", 'call', {
 			model: 'partner.project.expertise',
 			method: 'search_read',
 			args: [],
@@ -101,15 +106,15 @@ if(!$('.js_select2_categories').length) {
 			query.callback(tags);
 	        });
 	},
-        // Default tags from the input value
-        initSelection: function (element, callback) {
-            var data = [];
-            _.each(element.data('init-value'), function(x) {
-                data.push({ id: x.id, text: x.name, isNew: false });
-            });
-            element.val('');
-            callback(data);
-        },
-    });
+    // Default tags from the input value
+    initSelection: function (element, callback) {
+        var data = [];
+        _.each(element.data('init-value'), function(x) {
+            data.push({ id: x.id, text: x.name, isNew: false });
+        });
+        element.val('');
+        callback(data);
+    },
+});
 
 });

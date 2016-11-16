@@ -282,8 +282,14 @@
                     </div>
                     <div class="filter-row row-2">
                       <div class="oe_search">
-                        <input name="search_industries" class="search-query form-control oe_search_box js_select2_categories" placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/>
-                        <input name="search_expertises" class="search-query form-control oe_search_box js_select2_expertises" placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/>
+                        <input name="search_industries"
+                              class="search-query form-control oe_search_box js_select2_categories"
+                              placeholder="Industries"
+                              t-attf-data-init-value="#{industries}" value="Industry"/>
+                        <input name="search_expertises"
+                              class="search-query form-control oe_search_box js_select2_expertises"
+                              placeholder="Expertises"
+                              t-attf-data-init-value="#{expertises}" value="Expertise"/>
                         <div class="styled-select">
                           <select name="search_country" class="form-control">
                             <t t-foreach="countries or []" t-as="country">
