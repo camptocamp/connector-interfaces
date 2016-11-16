@@ -18,6 +18,8 @@ env:
     - COMPOSE_PROJECT_NAME=fluxdock
 
 before_install:
+  # travis issue workaround as suggest by dcrier
+  - sudo sh -c "echo '54.230.142.136 apt.dockerproject.org' > /etc/hosts"
   - sudo apt-get update
   - sudo DEBIAN_FRONTEND=noninteractive apt-get install -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" docker-engine --yes --force-yes
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
