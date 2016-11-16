@@ -62,7 +62,8 @@ class ResPartner(models.Model):
             item.is_free = item.flux_membership == 'free'
 
     @api.multi
-    def create_membership_invoice(self, product_id=None, data=None):
+    def create_membership_invoice(
+            self, product_id=None, data=None, email=True):
         self.ensure_one()
         prod_obj = self.env['product.product']
         acc_inv_obj = self.env['account.invoice']
@@ -90,14 +91,17 @@ class ResPartner(models.Model):
 
         self.flux_membership = 'asso'
 
-        template = self.env.ref('specific_membership.mail_membership_upgrade')
+        if email:
+            # handy flag for disable this (tests i.e.)
+            template = self.env.ref(
+                'specific_membership.mail_membership_upgrade')
 
-        if template:
-            template.send_mail(inv.id)
-        else:
-            _logger.warning(
-                "No email template found for "
-                "`specific_membership.mail_membership_upgrade`")
+            if template:
+                template.send_mail(inv.id)
+            else:
+                _logger.warning(
+                    "No email template found for "
+                    "`specific_membership.mail_membership_upgrade`")
 
         return inv
 
