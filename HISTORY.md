@@ -51,6 +51,7 @@ Added, but still in WIP: configuration for development with mailtrap
 * [RM#16105](https://redmine.iart.ch/issues/16105) member filters: css select issue
 * [RM#16105](https://redmine.iart.ch/issues/16105) member filters: broken filter for anonymous users
 * [RM#16027](https://redmine.iart.ch/issues/16027) Newsletter Snippet: remove "http:" in form action
+* [RM#15732](https://redmine.iart.ch/issues/15732) /my/home: remove grey lines
 
 
 ## 9.0.9 (2016-11-03)

@@ -169,7 +169,7 @@
                 <!-- Temporary hiding / change. Waiting for final design -->
                 <!--<div class="table-responsive center-block">-->
                 <div class="container content-wrap" style="width: 646px;">
-                    <table class="table table-condensed member-profile-table">
+                    <table class="table table-condensed member-profile-table no-border">
                         <tr>
                             <td>
                                 <div class="media">
