@@ -25,6 +25,7 @@ def change_signup_email(ctx):
         'model_id': ctx.env.ref('base.model_res_users').id,
         'email_to': '${object.email|safe}',
         'lang': '${object.partner_id.lang}',
+        'auto_delete': False,
     }
     create_or_update(
         ctx, 'mail.template', 'auth_signup.set_password_email', values)
@@ -47,10 +48,11 @@ def add_membership_upgrade_email(ctx):
             "Invoice_${(object.number or '')"
             ".replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
         ),
+        'auto_delete': False,
     }
     create_or_update(
         ctx, 'mail.template',
-        'specific_membership.mail_membership_upgrade', values)
+        'scenario.mail_membership_upgrade', values)
 
 
 @anthem.log

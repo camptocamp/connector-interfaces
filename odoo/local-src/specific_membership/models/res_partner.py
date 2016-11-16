@@ -90,7 +90,7 @@ class ResPartner(models.Model):
 
         self.flux_membership = 'asso'
 
-        template = self.env.ref('specific_membership.mail_membership_upgrade')
+        template = self.env.ref('scenario.mail_membership_upgrade')
 
         if template:
             template.send_mail(inv.id)
