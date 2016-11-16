@@ -98,8 +98,9 @@ class WebsiteMembership(WebsiteMembershipController):
         Here we define the search on expertise and industries
         """
         env = request.env
-        membership_line_obj = env['membership.membership_line']
-        partner_obj = env['res.partner']
+        # TODO: we should have proper permissions here instead of useing sudo!
+        membership_line_obj = env['membership.membership_line'].sudo()
+        partner_obj = env['res.partner'].sudo()
         post_name = post.get('search') or post.get('name', '')
         today = fields.Date.today()
 
@@ -117,9 +118,9 @@ class WebsiteMembership(WebsiteMembershipController):
             ]
 
         # group by country, based on all customers (base domain)
-        membership_line_ids = membership_line_obj.search(base_line_domain)
+        membership_lines = membership_line_obj.search(base_line_domain)
         country_domain = [
-            '|', ('member_lines', 'in', membership_line_ids),
+            '|', ('member_lines', 'in', membership_lines.ids),
             ('membership_state', 'in', ('free', 'asso')),
         ]
 
@@ -154,8 +155,9 @@ class WebsiteMembership(WebsiteMembershipController):
         # add search by industries and expertises
         domain = self._get_domain(**post)
         search_domain += domain
-        Industry = env['res.partner.category']
-        Expertise = env['partner.project.expertise']
+        # TODO: we should have proper permissions here instead of useing sudo!
+        Industry = env['res.partner.category'].sudo()
+        Expertise = env['partner.project.expertise'].sudo()
         industries = None
         industry_ids = None
         expertises = None
