@@ -45,6 +45,7 @@
         # data
         'data/membership_data.xml',
         'data/group_data.xml',
+        'data/email_data.xml',
     ],
     'test': [],
     'installable': True,

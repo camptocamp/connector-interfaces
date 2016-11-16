@@ -52,7 +52,7 @@ def add_membership_upgrade_email(ctx):
     }
     create_or_update(
         ctx, 'mail.template',
-        'scenario.mail_membership_upgrade', values)
+        'specific_membership.mail_membership_upgrade', values)
 
 
 @anthem.log

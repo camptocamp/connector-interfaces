@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo noupdate="1">
+
+    <!-- Email template for membership upgrade
+    We register it here since it belongs to this module,
+    but we populate the html via anthem song to keep better control
+    and to be able to use html file for it.
+    See `songs/install/post:add_membership_upgrade_email`
+    -->
+    <record id="mail_membership_upgrade" model="mail.template">
+        <field name="name">Fluxdock membership upgrade</field>
+        <field name="model_id" ref="base.model_res_users"/>
+        <field name="email_from">noreply@fluxdock.io</field>
+        <field name="email_to">${object.email|safe}</field>
+        <field name="subject">membership upgrade</field>
+        <field name="body_html"></field>
+    </record>
+
+</odoo>
