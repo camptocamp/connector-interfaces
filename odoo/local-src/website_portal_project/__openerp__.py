@@ -6,7 +6,6 @@
     'author': 'Goran Sunjka',
     'website': 'http://www.sunjka.de',
     'version': '0.1',
-    'category': 'Tools',
     'complexity': 'easy',
     'description': """
 This module adds projects inside your account's page on website.
