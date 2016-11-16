@@ -268,8 +268,10 @@
       <xpath expr="//div[@id='wrap']" position="replace">
         <div id="wrap">
           <div class="oe_structure">
-            <!--  make membership module inheritance happy! -->
-            <div id="left_column" style="display:none!important" />
+            <!--  make membership module inheritance happy also in demo mode! -->
+            <div id="left_column" style="display:none!important">
+				<ul class="nav nav-pills nav-stacked mt16"><li></li></ul>
+            </div>
 
             <section class="content members-list opt_dark_bg">
               <div class="container content-wrap">
