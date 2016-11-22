@@ -39,6 +39,20 @@ class ResPartner(models.Model):
         'Agree to unity terms',
         help='Agree to terms'
     )
+    profile_state = fields.Selection(
+        string='Profile state',
+        selection='_select_profile_state',
+        required=True,
+        default='step-1',
+    )
+
+    def _select_profile_state(self):
+        options = [
+            ('step-1', 'Signup'),
+            ('step-2', 'Update details'),
+            ('step-3', 'Add references'),
+        ]
+        return options
 
     @api.multi
     @api.depends('membership_state')

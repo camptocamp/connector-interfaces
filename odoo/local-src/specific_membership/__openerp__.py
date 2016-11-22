@@ -38,6 +38,7 @@
         'templates/membership.xml',
         'templates/signup.xml',
         'templates/profile/reset.xml',
+        'templates/profile/profile-progress.xml',
         # TODO: go trough these templates and check for stuff to move/merge
         'templates/profile/profile-details.xml',
         'templates/profile/my-account.xml',

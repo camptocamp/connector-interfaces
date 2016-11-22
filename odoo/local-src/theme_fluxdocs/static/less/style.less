@@ -1921,3 +1921,33 @@ body.editor_enable{
 		.no-border
 	}
 }
+
+.profile-progress-bar{
+	width: 40%;
+	margin: 2em auto 1em auto;
+	overflow: hidden;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	&.step-1{
+		background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-1.png");
+	}
+	&.step-2{
+		background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-2.png");
+	}
+	&.step-3{
+		background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-3.png");
+	}
+	.spacer{
+		height: 3.5em;
+	}
+	.step{
+		float:left;
+		width: 33.33%;
+		padding: 0 4%;
+		text-align: center;
+		display: table-cell;
+		vertical-align: bottom;
+		&.done .text{ font-weight: bold}
+	}
+}
