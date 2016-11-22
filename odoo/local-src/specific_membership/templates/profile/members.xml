@@ -297,6 +297,7 @@
                               t-attf-data-init-value="#{expertises}" value="Expertise"/>
                         <div class="styled-select">
                           <select name="search_country" class="form-control">
+                            <option value="">All countries</option>
                             <t t-foreach="countries or []" t-as="country">
                               <option t-att-value="country['country_id'][0]"
                                 t-att-selected="country['country_id'][0] == selected_country_id">

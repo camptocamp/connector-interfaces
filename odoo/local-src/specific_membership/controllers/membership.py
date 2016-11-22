@@ -86,8 +86,11 @@ class WebsiteMembership(WebsiteMembershipController):
         if search_expertises:
             expertise_ids = search_expertises.split(',')
             domain.append(('expertise_ids', 'in', expertise_ids))
-        if search_country and search_country.isdigit():
+        try:
             domain.append(('country_id', '=', int(search_country)))
+        except ValueError:
+            # country here
+            pass
         return domain
 
     # FIXME: this method is waaaaay too long! Split it!
@@ -133,10 +136,6 @@ class WebsiteMembership(WebsiteMembershipController):
             country_domain + [("website_published", "=", True)],
             ["id", "country_id"],  # noqa
             groupby="country_id", orderby="country_id")
-
-        countries.insert(0, {
-            'country_id': (0, _("All Countries"))
-        })
 
         limit = self._references_per_page
         offset = limit * (page - 1)
@@ -193,7 +192,6 @@ class WebsiteMembership(WebsiteMembershipController):
         pager = request.website.pager(
             url=base_url, total=total_members, page=page,
             step=limit, scope=7, url_args=post)
-
         values = {
             'partners': partners,
             'membership': membership,
@@ -207,6 +205,6 @@ class WebsiteMembership(WebsiteMembershipController):
             'industries': industries,
             'industry_ids': industry_ids,
             'expertises': expertises,
-            'selected_country_id': int(post.get('search_country', 0)),
+            'selected_country_id': int(post.get('search_country') or 0),
         }
         return request.website.render("website_membership.index", values)
