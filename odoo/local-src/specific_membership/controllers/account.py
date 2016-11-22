@@ -6,7 +6,7 @@ from openerp import http, _
 from openerp.http import request
 from openerp import SUPERUSER_ID
 from openerp.addons.website_portal.controllers.main import website_account
-
+from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
 import json
 import base64
 import logging
@@ -110,14 +110,30 @@ class WebsiteAccount(website_account):
             email = post['email']
             valid = validate_email(email)
             if email and valid and user.id != SUPERUSER_ID:
-                # update login on user
-                user.sudo().write({'login': email})
-                if request.website:
+                try:
+                    # send reset password link to verify email
+                    user.sudo().reset_password(email)
+                    can_change = True
+                except MailDeliveryException:
+                    # do not update email / login if we cannot send email
+                    can_change = False
+                if can_change:
+                    # update login on user
+                    user.sudo().write({'login': email})
+                if can_change and request.website:
                     title = _('Important')
                     msg = _('Your login username has changed to: %s') % email
-                    # NOTE: this is defined into `theme_fluxdocs` ATM
+                    # NOTE: `add_status_message`
+                    # is defined into `theme_fluxdocs` ATM
                     request.website.add_status_message(
                         msg, mtype='warning', mtitle=title)
+                    msg = _(
+                        'An email has been sent to verify it. '
+                        'You will be asked to reset your password too.'
+                    )
+                    request.website.add_status_message(
+                        msg, mtype='warning', mtitle=title)
+
                 return True
         return False
 
