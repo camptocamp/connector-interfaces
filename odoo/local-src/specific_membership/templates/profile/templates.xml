@@ -189,7 +189,7 @@
                                 <div class="clearfix" />
                                 <div class="oe_login_buttons">
                                     <div class="button-wrap">
-                                        <button type="submit" class="btn btn-default btn-primary mb32 ">Confirm</button>
+                                        <button type="submit" name="confirm" class="btn btn-default btn-primary mb32 ">Confirm</button>
                                         <a class="btn btn-default btn-primary mb32" t-attf-href="/my">Cancel</a>
                                         <a class="btn btn-default mb32 ml32"
 										   t-attf-href="/web/reset_password?login=#{request.env.user.login}">Change password</a>

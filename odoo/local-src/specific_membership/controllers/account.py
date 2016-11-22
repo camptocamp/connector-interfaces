@@ -57,7 +57,8 @@ class WebsiteAccount(website_account):
         industry_ids = []
         expertise_ids = []
 
-        if post:
+        if 'confirm' in post:
+            # form really submitted by user
             country_id = post['country_id']
             if country_id and country_id.isdigit():
                 vals.update({'country_id': int(country_id)})
@@ -122,8 +123,13 @@ class WebsiteAccount(website_account):
 
     def details_form_validate(self, data):
         """ Overwrite checks """
-        error = dict()
+        error = {}
         error_message = []
+
+        if 'confirm' not in data:
+            # no form submission
+            # prevent stupid fail when appending only '?debug' to URL
+            return error, error_message
 
         mandatory_fields = ["name", "street2", "zipcode", "city", "country_id",
                             "phone", "email"]
