@@ -18,7 +18,11 @@
      'security/record_rules.xml',
      'views/menu.xml',
      'views/project_proposal.xml',
-     'views/templates.xml',
+     'templates/assets.xml',
+     'templates/layout.xml',
+     'templates/proposal.xml',
+     'templates/proposal_listing.xml',
+     'templates/my_home.xml',
  ],
  'demo': [
      # 'demo/project_proposal.xml'

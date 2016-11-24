@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- override personal account view -->
+    <template id="account" name="Account" inherit_id="website_portal.account">
+        <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
+            <t t-call="specific_membership.my_home_content" />
+        </xpath>
+        <!-- reset classes -->
+        <xpath expr="//div[contains(@class,'o_my_documents')]" position="attributes">
+            <attribute name="class">o_my_documents my_home</attribute>
+        </xpath>
+    </template>
+
+    <template id="my_home_content" name="My account content">
+        <div class="container my_home_content">
+            <div class="row">
+                <div id="col-1" class="col col-md-6">
+                    <t t-call="specific_membership.partner_table" />
+                </div>
+                <div id="col-2" class="col col-md-6">
+                    <t t-call="specific_membership.website_membership_status" />
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Add header in my account -->
+    <template id="fluxdock_my_account_header" name="Fluxdock my account header" inherit_id="website_portal.account">
+        <xpath expr="//div[contains(@id,'wrap')]" position="before">
+            <section class="content members-list opt_dark_bg">
+              <div class="container content-wrap">
+                <div class="content-icon">
+                  <img src="/specific_membership/static/src/img/member-white.png"></img>
+                </div>
+                <h2>My Account</h2>
+              </div>
+            </section>
+            <t t-call="specific_membership.profile_progress_bar" />
+        </xpath>
+    </template>
+
+    <!-- Add classes -->
+    <!-- Replace website_portal.account in order to set multiple classes-->
+    <template id="account_classes" name="Account" inherit_id="website_portal.account">
+      <xpath expr="//div[contains(@class, 'o_my_sidebar')]" position="attributes">
+        <attribute name="class">hide col-md-3 col-md-offset-1 o_my_sidebar</attribute>
+      </xpath>
+    </template>
+
+    <!-- Partner profile table -->
+    <template id="partner_table" name="Partner table">
+        <!-- Temporary hiding / change. Waiting for final design -->
+        <!--<div id="partner_table" class="col-md-12">-->
+        <div id="partner_table" class="home_box">
+            <h3 class="page-header">Member profile</h3>
+            <t t-if="partner">
+                <table class="table table-condensed member-profile-table no-border">
+                    <tr>
+                        <td>
+                            <div class="media">
+                                <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', None if product_image_big else '128x128')"/>
+                            </div>
+                        </td>
+                        <td>
+                          <b><t t-esc="partner.name" /></b><br/>
+                          <b><t t-esc="partner.street2" /></b><br/>
+                          <b><t t-esc="partner.zip"/> <t t-esc="partner.city"/></b><br/>
+                          <b><t t-esc="partner.country_id.name"/></b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td><t t-esc="partner.phone" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><t t-esc="partner.email" /></td>
+                    </tr>
+                    <tr>
+                        <td>Website:</td>
+                        <td><t t-esc="partner.website"/></td>
+                    </tr>
+                    <tr>
+                        <td>Facebook:</td>
+                        <td><t t-esc="partner.facebook"/></td>
+                    </tr>
+                    <tr>
+                        <td>Twitter:</td>
+                        <td><t t-esc="partner.twitter"/></td>
+                    </tr>
+                    <tr>
+                        <td>Skype:</td>
+                        <td><t t-esc="partner.skype"/></td>
+                    </tr>
+                    <tr>
+                        <td>Claim:</td>
+                        <td><t t-esc="partner.website_short_description"/></td>
+                    </tr>
+                    <tr>
+                        <td>Industry:</td>
+                        <td>
+                            <t t-foreach="partner.category_id" t-as="one_tag">
+                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                            </t>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Expertise:</td>
+                        <td>
+                            <t t-foreach="partner.expertise_ids" t-as="one_tag">
+                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                            </t>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+            <div class="actions">
+              <a class="btn btn-dark" t-attf-href="/my/account" title="Edit profile">
+                  Edit profile
+              </a>
+            </div>
+        </div>
+    </template>
+
+    <template id="website_membership_status">
+        <div id="website_membership_status" class="home_box">
+            <h3 class="page-header">Membership status</h3>
+            <p>
+                <b t-esc="dict(partner.fields_get(allfields=['flux_membership'])['flux_membership']['selection'])[partner.flux_membership]" />
+                <t t-if="partner.flux_membership == 'asso'">
+                    <b>Expiration: <span t-esc="partner.membership_stop"/></b>
+                </t>
+            </p>
+            <t t-if="partner.flux_membership == 'free'">
+                <div class="actions">
+                    <button class="btn btn-default btn-dark mb32 center-block"
+                            name="button_buy_membership"
+                            onclick="window.location.href='/my/membership'">
+                        Membership Upgrade
+                    </button>
+                </div>
+            </t>
+        </div>
+    </template>
+
+</odoo>

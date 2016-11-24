@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">
+      <xpath expr="//h1[@id='partner_name']" position="replace">
+        <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
+      </xpath>
+      <xpath expr="//h1[@id='partner_name']" position="after">
+        <section class="top-spacer opt_dark_grid_bg"></section>
+      </xpath>
+      <xpath expr="//div[@class='col-md-4']" position="replace">
+        <section class="content member-detail-view">
+          <div class="content-wrap">
+            <!--  Rich snippet -->
+            <t t-if="partner.image">
+                <div class="member-logo" t-field="partner.image" t-field-options='{"widget": "image", "class": ""}' />
+            </t>
+            <address class="hide well">
+              <div t-field="partner.self" t-field-options='{ "widget": "contact", "fields": ["address", "website", "phone", "fax", "email"] }' />
+            </address>
+            <div class="member-details">
+              <h2 class="member-title" id="partner_name" t-field="partner.display_name" />
+              <t t-if="partner">
+                <div class="member-description" t-field="partner.website_short_description" />
+                <div class="member-tags">
+                  <label for="category">Industry:</label>
+                  <div class="tag-value" id="category">
+                    <t t-foreach="partner.category_id" t-as="one_tag">
+                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                    </t>
+                  </div>
+                </div>
+                <div class="member-tags">
+                  <label for="expertise">Expertise:</label>
+                  <div class="tag-value" id="expertise">
+                    <t t-foreach="partner.expertise_ids" t-as="one_tag">
+                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                    </t>
+                  </div>
+                </div>
+              </t>
+            </div>
+          </div>
+        </section>
+        <section class="content member-address opt_dark_bg">
+          <t t-if="partner">
+            <div class="content-wrap">
+              <h2>Contact</h2>
+              <div class="member-fields">
+              <t t-esc="partner.street" />
+              <br />
+              <t t-esc="partner.country_id.name" />-
+              <t t-esc="partner.zip" />
+              <t t-esc="partner.city" />
+              <br />
+              <t t-if="partner.phone">t
+              <t t-esc="partner.phone" />
+              <br /></t>
+              <t t-if="partner.fax">f
+              <t t-esc="partner.fax" />
+              <br /></t>
+              <t t-if="partner.email">
+                <a t-attf-href="mailto:{{ partner.email }}"><t t-esc="partner.email"/></a>
+                <br />
+              </t>
+              <t t-if="partner.website">
+                <a t-att-href="partner.website"><t t-esc="partner.website"/></a>
+              </t>
+              </div>
+              <div class="member-social-media">
+                <a target="_blank" t-att-href="partner.facebook" t-if="partner.facebook" class="social-media facebook">
+                  <i class="fa fa-facebook" aria-hidden="true"/>
+                </a>
+                <a target="_blank" t-att-href="partner.twitter" t-if="partner.twitter" class="social-media twitter">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a target="_blank" t-att-href="partner.skype" t-if="partner.skype" class="social-media skype">
+                  <i class="fa fa-skype" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </t>
+        </section>
+      </xpath>
+      <xpath expr="//div[@class='col-md-8 mt32']" position="replace">
+        <div class="col-md-8 mt32 hide">
+          <t t-if="partner">
+            <div t-field="partner.website_description" />
+            <t groups="base.group_website_publisher">
+              <h2 class="css_non_editable_mode_hidden">Short Description for List View</h2>
+              <div class="css_non_editable_mode_hidden" t-field="partner.website_short_description" />
+            </t>
+          </t>
+          <t t-raw="right_column or ''" />
+        </div>
+      </xpath>
+    </template>
+
+</odoo>

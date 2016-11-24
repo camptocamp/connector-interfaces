@@ -1,105 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-<template id="account" name="Account" inherit_id="website_portal.account">
-  <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
-    <t t-call="specific_membership.website_membership_status" />
-  </xpath>
-</template>
-
-<template id="website_membership_status">
-    <div id="website_membership_status" class="col-md-12">
-        <h3 class="page-header">Membership status</h3>
-        <p>
-            <b t-esc="dict(partner.fields_get(allfields=['flux_membership'])['flux_membership']['selection'])[partner.flux_membership]"/> <t t-if="partner.flux_membership == 'asso'"><b>Expiration: <span t-esc="partner.membership_stop"/></b></t>
-        </p>
-        <t t-if="partner.flux_membership == 'free'">
-            <button type="object" class="btn btn-default btn-primary mb32 center-block" name="button_buy_membership" onclick="window.location.href='/my/membership'">
-            Membership Upgrade
-            </button>
-        </t>
-    </div>
-</template>
-
-  <!-- view for confirmation address-->
-<template id="membership_payment_address" name="Fluxdock Membership Payment Address">
-	<t t-call="website.layout">
-	  <div id="wrap">
-	    <div class="container">
-	      <div class="oe_structure">
-	        <div class="row o_website_portal_details text-center">
-	          <h1>Billing Address</h1>
-	          Name: <span t-esc="partner.name"/><br/>
-	          Street: <span t-esc="partner.street2"/><br/>
-	          NPA: <span t-esc="partner.zip"/><br/>
-	          City: <span t-esc="partner.city"/><br/>
-	          Payment type: Wire Transer<br/>
-	          <h1>Associate Membership</h1>
-	          Price: <span t-esc="product.list_price"/><br/>
-	          Taxes: <span t-esc="product.taxes_id.amount"/><br/>
-              <section class="content">
-                <div class="content-wrap">
-                    <a class="btn btn-primary" href="/my/account">Edit informations</a>
-                    <form name="membership_buy" action="/my/membership/buy" method="POST"
-                          class="inline ml16">
-                        <input type="hidden" name="csrf_token"
-                               t-att-value="request.csrf_token()"/>
-                        <button
-                            type="submit"
-                            class="btn btn-primary">Confirm</button>
-                    </form>
+    <!-- # TODO: is this needed at all? -->
+    <template id="member_tile" name="member_tile">
+        <t t-call="website.layout">
+          <div id="wrap">
+            <div class="container">
+              <div class="oe_structure">
+                <div class="row o_website_portal_details text-center">
+                  <h1>Billing Address</h1>
+                  Name: <span t-esc="partner.name"/><br/>
+                  Street: <span t-esc="partner.street2"/><br/>
+                  NPA: <span t-esc="partner.zip"/><br/>
+                  City: <span t-esc="partner.city"/><br/>
+                  Payment type: Wire Transer<br/>
+                  <h1>Associate Membership</h1>
+                  Price: <span t-esc="product.list_price"/><br/>
+                  Taxes: <span t-esc="product.taxes_id.amount"/><br/>
+                  <button type="object" onclick="window.location.href='/my/account'">Edit informations</button>
+                  <button type="object" name="button_buy_membership" onclick="window.location.href='/my/membership/buy'">Confirm</button>
                 </div>
-              </section>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</t>
-</template>
-
-<template id="membership_payment_confirmation" name="membership_payment_confirmation">
-	<t t-call="website.layout">
-	  <div id="wrap">
-	    <div class="container">
-	      <div class="oe_structure">
-	        <div class="row o_website_portal_details text-center">
-	          <h1>Confirmation</h1>
-	          <p>Your command is being processed. You should receive a confirmation email soon.</p>
-              <section class="content">
-                <div class="content-wrap">
-                    <a class="btn btn-primary" href="/market">Market</a>
-                    <a class="btn btn-primary" href="/my/home">My Account</a>
-                </div>
-              </section>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</t>
-</template>
-
-<template id="member_tile " name="member_tile">
-    <t t-call="website.layout">
-      <div id="wrap">
-        <div class="container">
-          <div class="oe_structure">
-            <div class="row o_website_portal_details text-center">
-              <h1>Billing Address</h1>
-              Name: <span t-esc="partner.name"/><br/>
-              Street: <span t-esc="partner.street2"/><br/>
-              NPA: <span t-esc="partner.zip"/><br/>
-              City: <span t-esc="partner.city"/><br/>
-              Payment type: Wire Transer<br/>
-              <h1>Associate Membership</h1>
-              Price: <span t-esc="product.list_price"/><br/>
-              Taxes: <span t-esc="product.taxes_id.amount"/><br/>
-              <button type="object" onclick="window.location.href='/my/account'">Edit informations</button>
-              <button type="object" name="button_buy_membership" onclick="window.location.href='/my/membership/buy'">Confirm</button>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </t>
-  </template>
+        </t>
+    </template>
 
 </odoo>
