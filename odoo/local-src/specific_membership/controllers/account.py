@@ -57,7 +57,7 @@ class WebsiteAccount(website_account):
         industry_ids = []
         expertise_ids = []
 
-        if 'confirm' in post:
+        if request.httprequest.method == 'POST':
             # form really submitted by user
             country_id = post['country_id']
             if country_id and country_id.isdigit():
@@ -144,10 +144,8 @@ class WebsiteAccount(website_account):
         error = {}
         error_message = []
 
-        if 'confirm' not in data:
-            # no form submission
-            # prevent stupid fail when appending only '?debug' to URL
-            return error, error_message
+        # prevent stupid fail when appending only '?debug' to URL
+        data.pop('debug', None)
 
         mandatory_fields = ["name", "street2", "zipcode", "city", "country_id",
                             "phone", "email"]
@@ -187,9 +185,10 @@ class WebsiteAccount(website_account):
             if not check_func(vat_country, vat_number):  # simple_vat_check
                 error["vat"] = 'error'
 
+        valid_fields = mandatory_fields + optional_fields + additional_fields
         unknown = [
-            k for k in data.iterkeys() if k not in
-            mandatory_fields + optional_fields + additional_fields
+            k for k in data.iterkeys()
+            if k not in valid_fields
         ]
         if unknown:
             error['common'] = 'Unknown field'
