@@ -16,7 +16,7 @@
 		background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-3.png");
 	}
 	.spacer{
-		height: 3.5em;
+		height: 80px;
 	}
 	.step{
 		float:left;
@@ -26,5 +26,17 @@
 		display: table-cell;
 		vertical-align: bottom;
 		&.done .text{ font-weight: bold}
+	}
+}
+@media only screen and (max-width : 640px) {
+	.profile-progress-bar{
+		width: 90%;
+		.spacer{
+			height: 50px;
+		}
+		.step{
+			font-size: 90%;
+			line-height: 95%;
+		}
 	}
 }
