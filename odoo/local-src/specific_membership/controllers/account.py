@@ -111,15 +111,17 @@ class WebsiteAccount(website_account):
             valid = validate_email(email)
             if email and valid and user.id != SUPERUSER_ID:
                 try:
+                    # update login on user
+                    # this MUST happen BEFORE `reset_password` call
+                    # otherwise it will not find the user to reset!
+                    user.sudo().write({'login': email})
                     # send reset password link to verify email
                     user.sudo().reset_password(email)
                     can_change = True
                 except MailDeliveryException:
-                    # do not update email / login if we cannot send email
+                    # do not update email / login
+                    # if for any reason we cannot send email
                     can_change = False
-                if can_change:
-                    # update login on user
-                    user.sudo().write({'login': email})
                 if can_change and request.website:
                     title = _('Important')
                     msg = _('Your login username has changed to: %s') % email
@@ -129,7 +131,7 @@ class WebsiteAccount(website_account):
                         msg, mtype='warning', mtitle=title)
                     msg = _(
                         'An email has been sent to verify it. '
-                        'You will be asked to reset your password too.'
+                        'You will be asked to reset your password.'
                     )
                     request.website.add_status_message(
                         msg, mtype='warning', mtitle=title)
