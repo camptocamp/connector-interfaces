@@ -40,7 +40,14 @@
               <section class="content">
                 <div class="content-wrap">
                     <a class="btn btn-primary" href="/my/account">Edit informations</a>
-                    <a class="btn btn-primary" href="/my/membership/buy">Confirm</a>
+                    <form name="membership_buy" action="/my/membership/buy" method="POST"
+                          class="inline ml16">
+                        <input type="hidden" name="csrf_token"
+                               t-att-value="request.csrf_token()"/>
+                        <button
+                            type="submit"
+                            class="btn btn-primary">Confirm</button>
+                    </form>
                 </div>
               </section>
 	        </div>
