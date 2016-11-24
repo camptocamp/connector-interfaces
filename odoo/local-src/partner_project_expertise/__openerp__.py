@@ -29,7 +29,7 @@ Partner Project Expertise
 ============
     Add expertise to partner and project.
     """,
-    'author':  'Goran Sunjka',
+    'author': 'Goran Sunjka',
     'website': 'www.sunjka.de',
     'license': 'AGPL-3',
     'images': [
