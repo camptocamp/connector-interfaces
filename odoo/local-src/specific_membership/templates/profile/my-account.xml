@@ -236,7 +236,6 @@
         <div class="text-center mb32">
           <t t-call="website.pager"/>
         </div>
-        <t t-call="specific_membership.not_associated_modal" />
       </xpath>
     </template>
 
