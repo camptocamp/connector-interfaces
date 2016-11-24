@@ -114,7 +114,9 @@ class WebsiteAccount(website_account):
                     # update login on user
                     # this MUST happen BEFORE `reset_password` call
                     # otherwise it will not find the user to reset!
-                    user.sudo().write({'login': email})
+                    user.sudo().write(
+                        {'login': email, 'email': email, }
+                    )
                     # send reset password link to verify email
                     user.sudo().reset_password(email)
                     can_change = True
@@ -124,18 +126,15 @@ class WebsiteAccount(website_account):
                     can_change = False
                 if can_change and request.website:
                     title = _('Important')
-                    msg = _('Your login username has changed to: %s') % email
+                    msg = _(
+                        'Your login username has changed to: `%s`. '
+                        'An email has been sent to verify it. '
+                        'You will be asked to reset your password.'
+                    ) % email
                     # NOTE: `add_status_message`
                     # is defined into `theme_fluxdocs` ATM
                     request.website.add_status_message(
                         msg, mtype='warning', mtitle=title)
-                    msg = _(
-                        'An email has been sent to verify it. '
-                        'You will be asked to reset your password.'
-                    )
-                    request.website.add_status_message(
-                        msg, mtype='warning', mtitle=title)
-
                 return True
         return False
 
