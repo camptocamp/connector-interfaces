@@ -1,108 +1,99 @@
-// btns >>
 #wrapwrap {
+	// btns >>
 	.btn.btn-dark {
 		background-color: @darkColor;
 		color: white;
 	}
-}
-// >> btns
+	// >> btns
 
-// select2 >>
-.js_select2_categories {
-	background-color: @darkColor;
-}
-
-.select2-container.select2-container-multi.form-control {
-	display: block;
-	border: none;
-	border-radius: 0;
-	background-color: @darkColor;
-}
-
-.form-control .select2-choice {
-	border: 0;
-	border-radius: 0;
-	background-color: @darkColor;
-}
-
-.form-control.select2-container.select2-dropdown-open {
-	border-radius: 0;
-}
-
-.form-control .select2-container.select2-dropdown-open .select2-choices {
-	border-radius: 0;
-}
-
-.form-control.select2-container .select2-choices {
-	border: 0 !important;
-	border-radius: 0;
-}
-.select2-choices {
-	background-color: @darkColor;
-}
-
-.select2-search-field {
-	background-color: @darkColor;
-	dropdown-bg: @darkColor;
-}
-
-.select2-container.select2-container-multi.form-control {
-	background-color: @darkColor;
-	border: 1px solid #fff
-}
-.select2-input {
-	background-color: @darkColor;
-	border: none;
-	font-family: inherit;
-}
-// >> select2
-
-// profile progress bar styles >>
-.profile-progress-bar{
-	width: 40%;
-	margin: 2em auto 1em auto;
-	overflow: hidden;
-	background-position: center top;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	&.step-1{
-		background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-1.png");
+	// select2 >>
+	.js_select2_categories {
+		background-color: @darkColor;
 	}
-	&.step-2{
-		background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-2.png");
+	.select2-container.select2-container-multi.form-control {
+		display: block;
+		border: none;
+		border-radius: 0;
+		background-color: @darkColor;
 	}
-	&.step-3{
-		background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-3.png");
+	.form-control .select2-choice {
+		border: 0;
+		border-radius: 0;
+		background-color: @darkColor;
 	}
-	.spacer{
-		height: 80px;
+	.form-control.select2-container.select2-dropdown-open {
+		border-radius: 0;
 	}
-	.step{
-		float:left;
-		width: 33.33%;
-		padding: 0 4%;
-		text-align: center;
-		display: table-cell;
-		vertical-align: bottom;
-		&.done .text{ font-weight: bold}
+	.form-control .select2-container.select2-dropdown-open .select2-choices {
+		border-radius: 0;
 	}
-}
-@media only screen and (max-width : 640px) {
+	.form-control.select2-container .select2-choices {
+		border: 0 !important;
+		border-radius: 0;
+	}
+	.select2-choices {
+		background-color: @darkColor;
+	}
+	.select2-search-field {
+		background-color: @darkColor;
+		dropdown-bg: @darkColor;
+	}
+	.select2-container.select2-container-multi.form-control {
+		background-color: @darkColor;
+		border: 1px solid #fff
+	}
+	.select2-input {
+		background-color: @darkColor;
+		border: none !important;
+		font-family: inherit;
+	}
+	// >> select2
+
+	// profile progress bar styles >>
 	.profile-progress-bar{
-		width: 90%;
+		width: 40%;
+		margin: 2em auto 1em auto;
+		overflow: hidden;
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		&.step-1{
+			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-1.png");
+		}
+		&.step-2{
+			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-2.png");
+		}
+		&.step-3{
+			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-3.png");
+		}
 		.spacer{
-			height: 50px;
+			height: 80px;
 		}
 		.step{
-			font-size: 90%;
-			line-height: 95%;
+			float:left;
+			width: 33.33%;
+			padding: 0 4%;
+			text-align: center;
+			display: table-cell;
+			vertical-align: bottom;
+			&.done .text{ font-weight: bold}
 		}
 	}
-}
-// >> profile progress bar styles
+	@media only screen and (max-width : 640px) {
+		.profile-progress-bar{
+			width: 90%;
+			.spacer{
+				height: 50px;
+			}
+			.step{
+				font-size: 90%;
+				line-height: 95%;
+			}
+		}
+	}
+	// >> profile progress bar styles
 
-// my home boxes >>
-#wrapwrap {
+	// my home boxes >>
 	.my_home{
 		.col {
 			> div{
@@ -143,5 +134,6 @@
 			display: none
 		}
 	}
-}
-// >> my home boxes
+	// >> my home boxes
+
+} // #wrapwrap wrapping end
