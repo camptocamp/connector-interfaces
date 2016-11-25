@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="view_project_reference_form">
+    <field name="name">project.reference.form</field>
+    <field name="model">project.reference</field>
+    <field name="arch" type="xml">
+      <form string="References">
+        <sheet>
+          <div class="oe_button_box" name="button_box">
+              <field name="website_url" invisible="1"/>
+              <button class="oe_stat_button" name="website_publish_button"
+                  type="object" icon="fa-globe">
+                  <field name="website_published" widget="website_button"/>
+              </button>
+          </div>
+          <div class="oe_title">
+            <div class="oe_edit_only">
+                <label for="name"/>
+            </div>
+            <h1>
+                <field name="name" placeholder="e.g. My great project"/>
+            </h1>
+            <label for="owner_id" string="Owner" class="oe_edit_only"/>
+            <h2>
+              <field name="owner_id"/>
+            </h2>
+          </div>
+          <notebook>
+            <page string="Project Details">
+              <group>
+                <group>
+                  <field name="name" string="Project name"/>
+                  <field name="implementation_date"/>
+                  <field name="location"/>
+                  <field name="industry_ids"/>
+                  <field name="expertise_ids"/>
+                  <field name="image"/>
+                  <field name="description"/>
+                  <field name="video_url"/>
+                  <field name="owner_id"/>
+                  <field name='linked_partner_ids'/>
+                </group>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="message_ids" widget="mail_thread" />
+        </div>
+      </form>
+    </field>
+  </record>
+
+  <!-- Project Proposal Tree View  -->
+
+  <record model="ir.ui.view" id="view_project_reference_tree">
+    <field name="name">References - Tree</field>
+    <field name="model">project.reference</field>
+    <field name="arch" type="xml">
+      <tree string="References">
+        <field name="name" string="Project name"/>
+        <field name="implementation_date"/>
+        <field name="industry_ids"/>
+        <field name="image"/>
+        <field name="description"/>
+        <field name="video_url"/>
+        <field name='linked_partner_ids'/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_project_reference" model="ir.actions.act_window">
+    <field name="name">References</field>
+    <field name="res_model">project.reference</field>
+    <field name="view_mode">tree,form</field>
+    <field name="view_id" ref="view_project_reference_tree"/>
+  </record>
+
+  <menuitem name="References" id="menu_project_reference" parent="specific_project_proposal.menu_project_proposal" action="action_project_reference" sequence="3" groups="base.group_user"/>
+
+</odoo>

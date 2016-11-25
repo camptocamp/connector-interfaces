@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-# © 2016 Yannick Vaucher (Camptocamp SA)
+# © 2016 Denis Leemann (Camptocamp SA)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-{'name': 'Project proposals',
+{'name': 'Fluxdock project specific development',
  'version': '9.0.1.0.0',
  'category': '',
  'author': 'Camptocamp',
@@ -11,20 +11,15 @@
      'project',
      'partner_project_expertise',
      'specific_membership',
+     'specific_project_proposal',
  ],
  'data': [
-     'security/ir.model.access.csv',
-     'security/record_rules.xml',
-     'views/menu.xml',
-     'views/project_proposal.xml',
-     'templates/assets.xml',
-     'templates/layout.xml',
-     'templates/proposal.xml',
-     'templates/proposal_listing.xml',
+     # 'security/ir.model.access.csv',
+     # 'security/record_rules.xml',
+     'views/project_reference.xml',
+     'templates/reference.xml',
+     'templates/reference_form.xml',
      'templates/my_home.xml',
- ],
- 'demo': [
-     # 'demo/project_proposal.xml'
  ],
  'test': [],
  'installable': True,

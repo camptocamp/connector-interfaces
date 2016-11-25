@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="reference_form" name="Reference form">
+        <t t-call="website.layout">
+            <!--  TODO: define a new class and styles set for this
+        we are using "profile_details" because styles have been applied only to profile edit form-->
+            <div id="wrap" class="profile_details">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>References</h2>
+                            <form action="" method="post" role="form" enctype="multipart/form-data">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <div t-attf-class="form-group row #{errors.get('name') and 'has-error' or ''} ">
+                                    <label class="form-control-label col-sm-2" for="contact_name">Reference title*</label>
+                                    <input type="text" name="name" class="form-control"
+                                           t-att-value="name" />
+                                </div>
+                                <div t-attf-class="form-group input-group row date #{errors.get('implementation_date') and 'has-error' or ''}">
+                                  <label class="form-control-label col-sm-2" for="implementation_date">Date of implementation</label>
+                                  <input type="text" class="form-control" data-date-format="YYYY-MM-DD" name="implementation_date" placeholder="YYYY-MM-DD" t-att-value="implementation_date"/>
+                                  <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                </div>
+                                <div t-attf-class="form-group row #{errors.get('location') and 'has-error' or ''} ">
+                                    <label class="form-control-label col-sm-2" for="contact_name">Location</label>
+                                    <input type="text" name="location" class="form-control"
+                                           t-att-value="location" />
+                                </div>
+
+                                <div t-attf-class="form-group row #{errors.get('industry_ids') and 'has-error' or ''} ">
+                                  <label class="form-control-label col-sm-2" for="industry_ids">Industry</label>
+                                  <input type="text" name="industry_ids" class="form-control js_select2_categories"
+                                         t-attf-data-init-value="#{industry_ids}" value="industries"/>
+                                </div>
+                                <div t-attf-class="form-group row #{errors.get('expertise_ids') and 'has-error' or ''} ">
+                                  <label class="form-control-label col-sm-2" for="industry_ids">Expertise</label>
+                                  <input type="text" name="expertise_ids" class="form-control js_select2_expertises"
+                                         t-attf-data-init-value="#{expertise_ids}" value="expertises"/>
+                                  <p><small>Don't find your industry or expertise? Write us an email at <a href="mailto:expertise@fluxdock.io?subject=new%20industry%20/%20expertise">expertise@fluxdock.io</a></small></p>
+                                </div>
+                                <div t-attf-class="form-group row #{errors.get('description') and 'has-error' or ''} ">
+                                    <label class="form-control-label col-sm-2" for="contact_name">Description*</label>
+                                    <textarea
+                                      class="form-control"
+                                      name="description"
+                                      t-esc="description"></textarea>
+                                </div>
+                                <div class="form-group form-field mt8 field-image">
+                                  <label class="col-md-3 col-sm-4 control-label" for="image">Image</label>
+                                  <input
+                                      type="file"
+                                      capture="camera"
+                                      accept="image/*"
+                                      id="image"
+                                      name="image"
+                                      class="form-control"
+                                      />
+                                  <t t-if="has_image">
+                                    <t t-if="reference">
+                                        <div class="preview image-preview mt8">
+                                            <img t-att-src="website.image_url(reference, 'image', '256x256')" />
+                                        </div>
+                                    </t>
+                                    <t t-set="prefix" t-value="'image'" />
+                                    <div t-attf-id="#{prefix}_keepbox" class="row keepbox">
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <input
+                                                      type="radio"
+                                                      t-attf-id="#{prefix}_keepcheck_yes"
+                                                      t-attf-name="#{prefix}_keepcheck"
+                                                      checked="1"
+                                                      value="yes"
+                                                      />
+                                                  <label
+                                                      t-attf-for="#{prefix}_keepcheck_yes">
+                                                      keep submitted
+                                                  </label>
+                                              </div>
+                                              <div class="form-group">
+                                                  <input
+                                                      type="radio"
+                                                      t-attf-id="#{prefix}_keepcheck_no"
+                                                      t-attf-name="#{prefix}_keepcheck"
+                                                      value="no"
+                                                      />
+                                                  <label
+                                                      t-attf-for="#{prefix}_keepcheck_no">
+                                                      replace submitted
+                                                  </label>
+                                              </div>
+                                          </div>
+                                    </div>
+                                  </t>
+                                </div>
+                                <div t-attf-class="form-group row #{errors.get('video_url') and 'has-error' or ''} ">
+                                    <label class="form-control-label col-sm-2" for="video_url">Video_URL</label>
+                                    <input type="text" name="video_url" class="form-control"
+                                           t-att-value="video_url" />
+                                </div>
+                                <div t-attf-class="form-group row #{errors.get('linked_partner_ids') and 'has-error' or ''} ">
+                                    <label class="form-control-label col-sm-2" for="linked_partner_ids">Reference partner TODO</label>
+                                    <input type="text" name="linked_partner_ids" class="form-control"
+                                           t-att-value="linked_partner_ids" />
+                                </div>
+                                <div class="form-group row">
+                                  <p><small>Don't find your partner? Write us an email with the partner company name and email address at <a href="mailto:newpartner@fluxdock.io?subject=new%20partner">newpartner@fluxdock.io</a> for inviting him</small></p>
+                                  <p>* Required fields</p>
+                                </div>
+                                <div class="form-group mt32 controls">
+                                  <div class="pull-right">
+                                    <a class="btn btn-default" t-att-href="request.httprequest.referrer">Back</a>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                  </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    </odoo>

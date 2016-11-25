@@ -7,9 +7,6 @@ var website = require('website.website');
 
 var _t = core._t;
 
-if(!$('.oe_website_proposals').length) {
-    return $.Deferred().reject("DOM doesn't contain '.oe_website_proposals'");
-}
 
     $('.hide_listing_item').on('click', function (ev) {
         ev.preventDefault();

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="reference_detail" name="Reference">
+  <t t-call="website.layout">
+    <div id="wrap">
+      <div class="oe_structure">
+        <section class="content col-md-12 opt_dark_bg">
+          <div class="container">
+            <div class="row content-wrap">
+              <t t-if="reference.image">
+                  <div><img itemtype="image" class="img img-responsive" t-att-src="website.image_url(reference,'image')"/></div>
+              </t>
+              <div>
+                <h1><t t-esc="reference.name"/></h1>
+                <p><t t-esc="reference.description"/></p>
+                <t t-if="reference.linked_partner_ids">
+                  <table class="table table-hover no-border o_my_proposal_table">
+                    <thead>
+                        <th>Related Members</th>
+                    </thead>
+                    <t t-foreach="reference.linked_partner_ids" t-as="linked_partner">
+                      <tr>
+                        <td><span t-esc="linked_partner.name"/></td>
+                      </tr>
+                    </t>
+                  </table>
+                </t>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </t>
+</template>
+</odoo>
