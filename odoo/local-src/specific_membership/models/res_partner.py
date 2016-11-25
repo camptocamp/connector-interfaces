@@ -77,29 +77,38 @@ class ResPartner(models.Model):
 
     @api.multi
     def create_membership_invoice(
-            self, product_id=None, data=None, email=True):
+            self, product_id=None, datas=None, email=True):
+        """Override to update add fluxdock  goodies.
+
+        Goodies:
+        * update fluxdock status
+        * generate invoice
+        * send notifcation to partner w/ invoice attached
+        """
+        # `datas` is so wrong, yes,
+        # but it's the original method's signature from membership module
         self.ensure_one()
         prod_obj = self.env['product.product']
         acc_inv_obj = self.env['account.invoice']
-        if data is None:
-            data = {}
+        if datas is None:
+            datas = {}
 
-        product_id = product_id or data.get('membership_product_id')
+        product_id = product_id or datas.get('membership_product_id')
         product = prod_obj.browse(product_id) or prod_obj.search(
             [('default_code', '=', 'associate')])
         if not product:
             raise exceptions.Warning(
                 _('There is no associate default product'))
 
-        data = {'membership_product_id': product.id,
-                'amount': product.list_price}
+        datas = {'membership_product_id': product.id,
+                 'amount': product.list_price}
 
         if self.free_member is True:
             self.free_member = False
 
         inv = super(ResPartner, self).create_membership_invoice(
             product_id=product,
-            datas=data)
+            datas=datas)
         inv = acc_inv_obj.browse(inv)
         inv.signal_workflow('invoice_open')
 
