@@ -17,7 +17,8 @@
         <field name="membership">True</field>
         <field name="name">Advanced Membership</field>
         <field name="membership_type">variable</field>
-        <field name="membership_inverval_qty">years</field>
+        <field name="membership_interval_qty">1</field>
+        <field name="membership_interval_unit">years</field>
         <field name="default_code">associate</field>
         <field name="categ_id" ref="product.product_category_1"/>
         <field name="list_price">100</field>
