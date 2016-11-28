@@ -51,8 +51,8 @@
 
 	// profile progress bar styles >>
 	.profile-progress-bar{
-		width: 40%;
-		margin: 2em auto 1em auto;
+		width: 60%;
+		margin: 2em auto 2em auto;
 		overflow: hidden;
 		background-position: center top;
 		background-repeat: no-repeat;
@@ -67,7 +67,7 @@
 			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-3.png");
 		}
 		.spacer{
-			height: 80px;
+			height: 90px;
 		}
 		.step{
 			float:left;
@@ -98,7 +98,6 @@
 		.col {
 			> div{
 				margin-bottom: 3em;
-				padding: 0 2em;
 			}
 			.actions{
 				padding: 1em 0;
@@ -135,5 +134,38 @@
 		}
 	}
 	// >> my home boxes
+
+	// search panel >>
+	.search-panel{
+		margin-top: 40px;
+		.filter-row{
+			margin-bottom: 20px;
+			&.row-1{
+				input[type="text"]{
+					display: block;
+					width: 75%;
+					margin-right: 5%;
+					float: left;
+				}
+				button[type="submit"]{
+					display: block;
+					width: 20%;
+					float: left;
+				}
+			}
+			.styled-select{
+					&:nth-of-type(3n){
+							margin-right: 0;
+					}
+					select{
+							display: block;
+							width: 120%;
+					}
+			}
+		}
+	}
+
+
+	// >> search panel
 
 } // #wrapwrap wrapping end
