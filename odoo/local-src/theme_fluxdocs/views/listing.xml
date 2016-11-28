@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="listing" name="Fluxdock listing">
+        <div class='navbar hide'>
+            <t t-call="website.pager">
+                <t t-set="classname">pull-left</t>
+            </t>
+            <t t-if="post">
+                <form action="" method="get" class="search-query search-panel">
+                    <div class="filter-row row-1">
+                        <t t-call="website.website_search_box">
+                            <t t-set="search" t-value="post.get('search', '')"/>
+                        </t>
+                    </div>
+                </form>
+            </t>
+        </div>
+        <div class="listing">
+            <t t-if="not listing_items">
+                <t t-if="not no_results_template">
+                    <div class="row no-results">
+                        <p>No result found.</p>
+                    </div>
+                </t>
+                <t t-if="not no_results_template">
+                    <t t-call="#{ no_results_template }" />
+                </t>
+            </t>
+            <t t-foreach="listing_items" t-as="item">
+                <div class="row list-item"
+                     t-att-data-publish="handle_publish and (item.website_published and 'on' or 'off') or None">
+                    <t t-set="detail_href" t-value="detail_url.format(slug(item))"/>
+                    <t t-if="show_preview">
+                        <div class="col-md-3">
+                            <a class="item-preview" t-att-href="detail_href" t-field="item.image"
+                               t-field-options='{"widget": "image", "class": "media-object center-block", "max_width": 128}'/>
+                        </div>
+                    </t>
+                    <div t-att-class="show_preview and 'col-md-9' or 'col-md-12'">
+                        <div class="item-details">
+                            <t t-if="show_create_date">
+                                <div class="text-muted">
+                                  <span t-field="item.create_date" t-field-options='{"format": "d MMMM y"}'/>
+                                </div>
+                            </t>
+                            <t t-if="hide_item_url and item.owner_id.id != uid">
+                                <a class="clickable hide_listing_item fa fa-eye-slash no-decoration pull-right"
+                                   t-att-data-href="hide_item_url.format(slug(item))"
+                                   title="Don't show again item"/>
+                            </t>
+                            <t t-if="show_published">
+                                <span t-if="not item.website_published" class="label label-danger">not published</span>
+                            </t>
+                            <a class="item-heading" t-att-href="detail_href">
+                                <strong t-field="item.display_name"/>
+                            </a>
+                            <div class="item-description">
+                                <span t-esc="website.truncate_text(item.website_short_description, length=200)"/>
+                                <a class="read-more" t-att-href="detail_href">Read More
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <t t-if="item_tags_template">
+                                <t t-call="#{ item_tags_template }" />
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </div>
+
+    </template>
+
+</odoo>

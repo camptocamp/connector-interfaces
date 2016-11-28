@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <template id="member_listing_tags" name="Fluxdock member tags template">
+        <div class="item-tags">
+            <strong>Industry:</strong>
+            <span class="tag-value">
+                <t t-foreach="item.category_id" t-as="one_tag">
+                    <t t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
+                </t>
+            </span>
+        </div>
+        <div class="item-tags">
+            <strong>Expertise:</strong>
+            <span class="tag-value">
+                <t t-foreach="item.expertise_ids" t-as="one_tag">
+                    <t t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
+                </t>
+            </span>
+        </div>
+    </template>
+
+
     <template id="fluxdock_membership" name="Fluxdock membership" inherit_id="website_membership.index">
       <xpath expr="//div[@id='wrap']" position="replace">
-        <div id="wrap">
+        <div id="wrap" class="members-listing">
           <div class="oe_structure">
             <!--  make membership module inheritance happy also in demo mode! -->
             <div id="left_column" style="display:none!important">
@@ -63,67 +83,12 @@
           </div>
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
-                <div class='navbar hide'>
-                  <t t-call="website.pager">
-                    <t t-set="classname">pull-left</t>
-                  </t>
-                  <form action="" method="get" class="search-query search-panel members-search-panel">
-                    <div class="filter-row row-1">
-                        <t t-call="website.website_search_box">
-                            <t t-set="search" t-value="post.get('search', '')" />
-                        </t>
-                    </div>
-                  </form>
-                </div>
-                <div class="listing members-listing">
-                  <t t-if="not memberships_partners">
-                      <div class="row no-results">
-                          <p>No result found.</p>
-                      </div>
-                  </t>
-                  <t t-foreach="memberships_partners" t-as="partner">
-                    <div class="row list-item">
-                        <t t-set="detail_href" t-value="'/members/' + slug(partner)" />
-                        <div class="col-md-3">
-                            <a class="item-preview"
-                               t-att-href="detail_href"
-                               t-field="partner.image"
-                               t-field-options='{"widget": "image", "class": "media-object center-block", "max_width": 128}'
-                               />
-                        </div>
-                        <div class="col-md-9">
-                            <div class="item-details">
-                                <a class="item-heading" t-att-href="detail_href">
-                                  <strong t-field="partner.display_name" />
-                                </a>
-                                <div class="item-description">
-                                  <span t-esc="website.truncate_text(partner.website_short_description, length=200)" />
-                                  <a class="read-more"
-                                     t-att-href="detail_href">Read More
-                                      <i class="fa fa-long-arrow-right"></i>
-                                  </a>
-                                </div>
-                                <div class="item-tags">
-                                    <strong>Industry:</strong>
-                                    <span class="tag-value">
-                                        <t t-foreach="partner.category_id" t-as="one_tag">
-                                          <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                                        </t>
-                                    </span>
-                                </div>
-                                <div class="item-tags">
-                                    <strong>Expertise:</strong>
-                                    <span class="tag-value">
-                                        <t t-foreach="partner.expertise_ids" t-as="one_tag">
-                                          <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                                        </t>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </t>
-                </div>
+                <t t-call="theme_fluxdocs.listing">
+                    <t t-set="detail_url" t-value="'/members/{}'" />
+                    <t t-set="show_preview" t-value="1" />
+                    <t t-set="listing_items" t-value="memberships_partners" />
+                    <t t-set="item_tags_template" t-value="'specific_memberhip.member_listing_tags'" />
+                </t>
             </div>
           </div>
           <div class="oe_structure" />
