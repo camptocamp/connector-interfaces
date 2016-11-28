@@ -35,6 +35,7 @@ We'll probably include stuff that has already been done and referenced on Redmin
 
 * [RM#16131](https://redmine.iart.ch/issues/16131) [fix] expertise/industries search + fix css for s2 input field
 * [fix] regression that brakes membership wizard (addresses [RM#15409](https://redmine.iart.ch/issues/15409))
+* [fix] show all active membership states in /members (addresses [RM#15409](https://redmine.iart.ch/issues/15409))
 * [fix] control of real form submission (account+membership) + protect membership buy controller w/ POST + CSRF
 * Cleanup, improve and fix all my/home templates and reorganize them, flake8
 * [RM#16132](https://redmine.iart.ch/issues/16132) [fix] country select visibility

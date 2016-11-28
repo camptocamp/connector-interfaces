@@ -18,6 +18,9 @@ import werkzeug
 # /members/companyname      => meber_detail_view
 
 
+MEMBERSHIP_STATES = ('free', 'paid', 'invoiced')
+
+
 class WebsiteMembership(WebsiteMembershipController):
     _references_per_page = 10
 
@@ -126,7 +129,7 @@ class WebsiteMembership(WebsiteMembershipController):
         membership_lines = membership_line_obj.search(base_line_domain)
         country_domain = [
             '|', ('member_lines', 'in', membership_lines.ids),
-            ('membership_state', 'in', ('free', 'asso')),
+            ('membership_state', 'in', MEMBERSHIP_STATES),
         ]
 
         if post_name:
@@ -143,7 +146,7 @@ class WebsiteMembership(WebsiteMembershipController):
         offset = limit * (page - 1)
 
         search_domain = [
-            ('membership_state', 'in', ('free', 'asso')),
+            ('membership_state', 'in', MEMBERSHIP_STATES),
             ('website_published', '=', True)
         ]
         if post_name:
