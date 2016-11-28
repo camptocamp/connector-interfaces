@@ -87,7 +87,7 @@
                     <t t-set="detail_url" t-value="'/members/{}'" />
                     <t t-set="show_preview" t-value="1" />
                     <t t-set="listing_items" t-value="memberships_partners" />
-                    <t t-set="item_tags_template" t-value="'specific_memberhip.member_listing_tags'" />
+                    <t t-set="item_tags_template" t-value="'specific_membership.member_listing_tags'" />
                 </t>
             </div>
           </div>
