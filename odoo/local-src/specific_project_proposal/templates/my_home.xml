@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="account" name="Account" inherit_id="specific_membership.my_home_content">
+  <xpath expr="//div[@id='col-2']/t[@t-call][last()]" position="after">
+    <t groups="base.group_tester">
+        <t t-call="specific_project_proposal.matches_overview" />
+        <t t-call="specific_project_proposal.proposals_overview" />
+    </t>
+  </xpath>
+</template>
+
+<template id="matches_overview" name="My Matches">
+    <div id="matches_overview" class="home_box">
+        <h3 class="page-header">Matches</h3>
+        <t t-if="not matches">
+            <p>No matches</p>
+            <p>Please, verify you have set your expertises and industry on your profile.</p>
+        </t>
+        <t t-if="matches">
+            <table class="table table-hover no-border o_my_matches_table">
+            <thead>
+            </thead>
+            <t t-foreach="matches" t-as="proposal">
+                <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
+                <td>
+                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }?filters=match">
+                    <t t-if="proposal.is_new">
+                        &lt;b&gt;NEW!
+                    </t>
+                    <span t-field="proposal.name"/>
+                    <t t-if="proposal.is_new">
+                        &lt;/b&gt;
+                    </t>
+                    </a>
+                </td>
+                <td>
+                    <span t-if="not proposal.website_published" class="label label-danger">not published</span>
+                </td>
+                <td>
+                    <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
+                </td>
+                <td>
+                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }?filters=match" class="text-muted">
+                    Read More
+                    </a>
+                </td>
+                </tr>
+            </t>
+            <tr t-att-class="'hidden' if len(matches) &lt; 4 else ''">
+                <td colspan="4"><a href="" class="o_my_show_more btn btn-xs btn-default"><span>Show more</span><span class="hidden">Show less</span></a></td>
+            </tr>
+            </table>
+            <div class="actions">
+                <a class="btn btn-dark btn-show-proposal" t-attf-href="/market" title="Market">
+                    Market
+                </a>
+            </div>
+        </t>
+    </div>
+</template>
+
+<template id="proposals_overview" name="My Proposals">
+    <div id="proposals_overview" class="home_box">
+        <h3 class="page-header">Proposals</h3>
+        <t t-if="not proposals">
+            <p>You have currently registred no proposals on your account.</p>
+        </t>
+        <t t-if="proposals">
+            <table class="table table-hover no-border o_my_proposal_table">
+            <thead>
+            </thead>
+            <t t-foreach="proposals" t-as="proposal">
+                <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
+                <td>
+                    <a t-attf-href="/my/proposals/edit/#{ slug(proposal) }">
+                    <b t-field="proposal.name"/>
+                    </a>
+                </td>
+                <td>
+                    <small t-if="not proposal.website_published" class="text-muted">not published</small>
+                </td>
+                <td>
+                    <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
+                </td>
+                <td>
+                    <a t-attf-href="/my/proposals/edit/#{ slug(proposal) }" class="text-muted">
+                    Edit
+                    </a>
+                </td>
+                </tr>
+            </t>
+            <tr t-att-class="'hidden' if len(proposals) &lt; 4 else ''">
+                <td colspan="4"><a href="" class="o_my_show_more btn btn-xs btn-default"><span>Show more</span><span class="hidden">Show less</span></a></td>
+            </tr>
+            </table>
+        </t>
+        <div class="actions">
+            <a class="btn btn-dark btn-show-proposal" t-attf-href="/my/proposals" title="Show all proposals">
+                Show all proposals
+            </a>
+            <a class="btn btn-dark btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a proposal">
+                Add a proposal
+            </a>
+        </div>
+    </div>
+</template>
+
+</odoo>

@@ -202,7 +202,7 @@
 	</template>
 
 	<template id="specific_membership.profile_success"
-		name="Profile Success">
+		      name="Profile Success">
 		<t t-call="website.layout">
 			<div class="o_website_portal_details">
 				<h2>

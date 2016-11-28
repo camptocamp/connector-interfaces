@@ -148,7 +148,7 @@ class WebsiteProposal(http.Controller):
     @http.route([
         '/market',
         '/market/page/<int:page>',
-        ], type='http', auth="public", website=True)
+    ], type='http', auth="public", website=True)
     def proposals(self, **kwargs):
         # List of proposals available to current UID
         return self.proposal_index(filters='all', **kwargs)
@@ -156,7 +156,7 @@ class WebsiteProposal(http.Controller):
     @http.route([
         '/my/proposals',
         '/my/proposals/page/<int:page>',
-        ], type='http', auth="user", website=True)
+    ], type='http', auth="user", website=True)
     def my_proposals(self, **kwargs):
         return self.proposal_index(filters='my', **kwargs)
 

@@ -38,10 +38,13 @@
         'templates/membership.xml',
         'templates/signup.xml',
         'templates/profile/reset.xml',
-        # TODO: go trough these templates and check for stuff to move/merge
-        'templates/profile/templates.xml',
-        'templates/profile/members.xml',
+        'templates/profile/profile-progress.xml',
+        'templates/profile/profile-details.xml',
+        'templates/profile/my_home.xml',
         'templates/profile/upload.xml',
+        'templates/membership/members_listing.xml',
+        'templates/membership/member_detail.xml',
+        'templates/membership/payment.xml',
         # data
         'data/membership_data.xml',
         'data/group_data.xml',

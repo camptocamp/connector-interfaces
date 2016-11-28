@@ -11,6 +11,9 @@ from openerp.addons.web.controllers.main import DataSet as DataSetBase
 # we cannot use it because we have no session.
 # Model's access rights seems well handled by ACLs
 # but to stay secure I'm just enabling this only for some models.
+# An OCA module is going to avoid this problem,
+# will come from this PR https://github.com/OCA/web/pull/402
+
 
 class DataSet(DataSetBase):
     @http.route([

@@ -2,7 +2,7 @@
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import http, _
+from openerp import http
 from openerp import fields
 from openerp.http import request
 from openerp.addons.website_membership.controllers.main import (
@@ -38,7 +38,8 @@ class WebsiteMembership(WebsiteMembershipController):
         return request.website.render(
             "specific_membership.membership_payment_address", values)
 
-    @http.route(['/my/membership/buy'], type='http', auth="user", website=True)
+    @http.route(['/my/membership/buy'],
+                type='http', auth="user", website=True, methods=['POST'])
     def confirm_asso_member(self, redirect=None, **post):
         partner = request.env['res.users'].browse(request.uid).partner_id
         partner.sudo().button_buy_membership()
@@ -59,6 +60,7 @@ class WebsiteMembership(WebsiteMembershipController):
         return request.website.render(
             "specific_membership.membership_payment_confirmation", values)
 
+    # TODO: is this needed at all?
     @http.route(['/my/tiles'], type='http', auth="user", website=True)
     def tiles_member(self, redirect=None, **post):
         partner = request.env['res.users'].browse(request.uid).partner_id
@@ -86,8 +88,11 @@ class WebsiteMembership(WebsiteMembershipController):
         if search_expertises:
             expertise_ids = search_expertises.split(',')
             domain.append(('expertise_ids', 'in', expertise_ids))
-        if search_country and search_country.isdigit():
+        try:
             domain.append(('country_id', '=', int(search_country)))
+        except ValueError:
+            # country here
+            pass
         return domain
 
     # FIXME: this method is waaaaay too long! Split it!
@@ -133,10 +138,6 @@ class WebsiteMembership(WebsiteMembershipController):
             country_domain + [("website_published", "=", True)],
             ["id", "country_id"],  # noqa
             groupby="country_id", orderby="country_id")
-
-        countries.insert(0, {
-            'country_id': (0, _("All Countries"))
-        })
 
         limit = self._references_per_page
         offset = limit * (page - 1)
@@ -193,7 +194,6 @@ class WebsiteMembership(WebsiteMembershipController):
         pager = request.website.pager(
             url=base_url, total=total_members, page=page,
             step=limit, scope=7, url_args=post)
-
         values = {
             'partners': partners,
             'membership': membership,
@@ -207,6 +207,6 @@ class WebsiteMembership(WebsiteMembershipController):
             'industries': industries,
             'industry_ids': industry_ids,
             'expertises': expertises,
-            'selected_country_id': int(post.get('search_country', 0)),
+            'selected_country_id': int(post.get('search_country') or 0),
         }
         return request.website.render("website_membership.index", values)

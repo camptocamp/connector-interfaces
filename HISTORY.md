@@ -16,9 +16,30 @@ Template:
 
 # Release History
 
-## 9.0.10 (unreleased)
+## 9.1.0 (Unreleased)
 
-Added, but still in WIP: configuration for development with mailtrap
+WIP including fixes for 0.10 and new stuff for 1.0.
+We'll probably include stuff that has already been done and referenced on Redmine as 1.1.0.
+
+**Features and Improvements**
+
+<!-- * [RM#](https://redmine.iart.ch/issues/) -->
+
+* [RM#16095](https://redmine.iart.ch/issues/16095) [add] profile progress bar
+* [RM#16142](https://redmine.iart.ch/issues/16142) [imp] update email/login send reset pwd email to verify
+* [imp] start splitting less files by meaningful utilities and components
+
+
+**Bugfixes**
+
+* [RM#16131](https://redmine.iart.ch/issues/16131) [fix] expertise/industries search + fix css for s2 input field
+* [fix] regression that brakes membership wizard (addresses [RM#15409](https://redmine.iart.ch/issues/15409))
+* [fix] control of real form submission (account+membership) + protect membership buy controller w/ POST + CSRF
+* Cleanup, improve and fix all my/home templates and reorganize them, flake8
+* [RM#16132](https://redmine.iart.ch/issues/16132) [fix] country select visibility
+* [fix] search by country
+
+## 9.0.10 (2016-11-17)
 
 **Features and Improvements**
 

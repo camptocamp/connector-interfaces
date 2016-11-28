@@ -6,7 +6,7 @@ from openerp import http, _
 from openerp.http import request
 from openerp import SUPERUSER_ID
 from openerp.addons.website_portal.controllers.main import website_account
-
+from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
 import json
 import base64
 import logging
@@ -57,7 +57,8 @@ class WebsiteAccount(website_account):
         industry_ids = []
         expertise_ids = []
 
-        if post:
+        if request.httprequest.method == 'POST':
+            # form really submitted by user
             country_id = post['country_id']
             if country_id and country_id.isdigit():
                 vals.update({'country_id': int(country_id)})
@@ -109,12 +110,29 @@ class WebsiteAccount(website_account):
             email = post['email']
             valid = validate_email(email)
             if email and valid and user.id != SUPERUSER_ID:
-                # update login on user
-                user.sudo().write({'login': email})
-                if request.website:
+                try:
+                    # update login on user
+                    # this MUST happen BEFORE `reset_password` call
+                    # otherwise it will not find the user to reset!
+                    user.sudo().write(
+                        {'login': email, 'email': email, }
+                    )
+                    # send reset password link to verify email
+                    user.sudo().reset_password(email)
+                    can_change = True
+                except MailDeliveryException:
+                    # do not update email / login
+                    # if for any reason we cannot send email
+                    can_change = False
+                if can_change and request.website:
                     title = _('Important')
-                    msg = _('Your login username has changed to: %s') % email
-                    # NOTE: this is defined into `theme_fluxdocs` ATM
+                    msg = _(
+                        'Your login username has changed to: `%s`. '
+                        'An email has been sent to verify it. '
+                        'You will be asked to reset your password.'
+                    ) % email
+                    # NOTE: `add_status_message`
+                    # is defined into `theme_fluxdocs` ATM
                     request.website.add_status_message(
                         msg, mtype='warning', mtitle=title)
                 return True
@@ -122,8 +140,11 @@ class WebsiteAccount(website_account):
 
     def details_form_validate(self, data):
         """ Overwrite checks """
-        error = dict()
+        error = {}
         error_message = []
+
+        # prevent stupid fail when appending only '?debug' to URL
+        data.pop('debug', None)
 
         mandatory_fields = ["name", "street2", "zipcode", "city", "country_id",
                             "phone", "email"]
@@ -163,9 +184,10 @@ class WebsiteAccount(website_account):
             if not check_func(vat_country, vat_number):  # simple_vat_check
                 error["vat"] = 'error'
 
+        valid_fields = mandatory_fields + optional_fields + additional_fields
         unknown = [
-            k for k in data.iterkeys() if k not in
-            mandatory_fields + optional_fields + additional_fields
+            k for k in data.iterkeys()
+            if k not in valid_fields
         ]
         if unknown:
             error['common'] = 'Unknown field'
