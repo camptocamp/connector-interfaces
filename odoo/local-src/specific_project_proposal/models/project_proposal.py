@@ -20,6 +20,11 @@ class ProjectProposal(models.Model):
         string="Project Name",
         required=True
     )
+    display_name = fields.Char(
+        string="Display name",
+        readonly=True,
+        related='name'
+    )
     owner_id = fields.Many2one(
         comodel_name='res.users',
         string="Project Owner",

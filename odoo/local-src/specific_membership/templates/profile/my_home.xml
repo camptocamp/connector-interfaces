@@ -13,7 +13,7 @@
     </template>
 
     <template id="my_home_content" name="My account content">
-        <div class="container my_home_content">
+        <div class="my_home_content">
             <div class="row">
                 <div id="col-1" class="col col-md-6">
                     <t t-call="specific_membership.partner_table" />
@@ -30,7 +30,7 @@
     <template id="fluxdock_my_account_header" name="Fluxdock my account header" inherit_id="website_portal.account">
         <xpath expr="//div[contains(@id,'wrap')]" position="before">
             <section class="content members-list opt_dark_bg">
-              <div class="container content-wrap">
+              <div class="content-wrap">
                 <div class="content-icon">
                   <img src="/specific_membership/static/src/img/member-white.png"></img>
                 </div>

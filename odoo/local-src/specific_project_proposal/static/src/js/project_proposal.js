@@ -11,11 +11,11 @@ if(!$('.oe_website_proposals').length) {
     return $.Deferred().reject("DOM doesn't contain '.oe_website_proposals'");
 }
 
-    $('.hide_proposal').on('click', function (ev) {
+    $('.hide_listing_item').on('click', function (ev) {
         ev.preventDefault();
         var $link = $(ev.currentTarget);
         ajax.jsonRpc($link.data('href'), 'call', {}).then(function () {
-            $link.parents('.proposal_item').first().remove();
+            $link.parents('.list-item').first().remove();
         });
     });
 

@@ -84,6 +84,8 @@ class WebsiteProposal(http.Controller):
         search_country, search_location
         """
         Proposal = request.env['project.proposal']
+        # make debug feasible!
+        kwargs.pop('debug', None)
         domain = self._get_domain(filters, **kwargs)
         proposal_count = Proposal.search_count(domain)
 

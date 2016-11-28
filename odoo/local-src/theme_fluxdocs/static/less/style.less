@@ -244,10 +244,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 	}
 
-	.container {
-		width: 100%;
-	}
-
 	//Read more link. Used in News and Member list
 	.read-more{
 		color: @brightColor;
@@ -401,25 +397,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	// MAIN
 	main{
 		padding-top: 80px;
-		// Proposal List and Detail
-		.proposal_item {
-			// background-color: red;
-			position: relative;
-			// border-bottom: 1px solid @darkColor;
-			padding-top: 30px;
-			padding-bottom: 20px;
-			&:first-of-type {
-				border-top: 1px solid @darkColor;
-			}
-			.media-heading {
-				font-weight: bold;
-				padding-top: 10px;
-				padding-bottom: 10px;
-			}
-			p {
-				padding-bottom: 20px;
-			}
-		}
 		.o_website_proposal {
 			.content-wrap {
 				border-bottom: 1px solid @darkColor;
@@ -722,45 +699,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 		}
 
-		.search-panel{
-			margin-top: 40px;
-			.filter-row{
-				margin-bottom: 20px;
-				&.row-1{
-					input[type="text"]{
-						display: block;
-						width: 78%;
-						margin-right: 2%;
-						float: left;
-					}
-					button[type="submit"]{
-						display: block;
-						width: 20%;
-						float: left;
-					}
-				}
-				&.row-2{
-					.search-query{
-						display: block;
-						width: 31%;
-						margin-right: 2%;
-						float: left;
-                                                .styled-select{
-                                                        &:nth-of-type(3n){
-                                                                margin-right: 0;
-                                                        }
-                                                        select{
-                                                                display: block;
-                                                                width: 120%;
-                                                        }
-                                                }
-					}
-				}
-			}
-		}
-
-
-
 		//Members List and Detail
 		section.content.member-detail-view{
 			padding-top: 3em;
@@ -769,8 +707,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				font-size: 26px;
 			}
 		}
-		section.content.member-detail-view,
-		section.content.members-list {
+		section.content.member-detail-view {
 			.content-wrap h2 {
 				max-width: none;
 			}
@@ -788,63 +725,15 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				max-width: 900px;
 			}
 		}
-		section.content .content-wrap .member-list-item {
-			position: relative;
-			border-bottom: 1px solid @darkColor;
-			padding-top: 30px;
-			padding-bottom: 20px;
-			&:first-of-type {
-				border-top: 1px solid @darkColor;
-			}
-		}
+
 		.row-centered {
 			text-align: center;
-		}
-		.member-list-item {
-			position: relative;
-			border-bottom: 1px solid @darkColor;
-			padding-top: 30px;
-			padding-bottom: 20px;
-			&:first-of-type {
-				border-top: 1px solid @darkColor;
-			}
 		}
 		.member-logo {
 			display: block;
 			position: absolute;
 			img {
 				max-width: 130px;
-			}
-		}
-		.member-details {
-			padding-left: 150px;
-			text-align: left;
-			h2 {
-				font-size: 23px;
-				font-weight: bold;
-				max-width: none;
-				text-align: left;
-				text-transform: none;
-				margin-top: 0;
-				margin-bottom: 12px;
-			}
-			h3 {
-				display: none;
-			}
-			.member-description {
-				margin-bottom: 28px;
-			}
-			.member-tags {
-				position: relative;
-				min-height: 29px;
-				label {
-					position: absolute;
-					font-weight: bold;
-					width: 120px;
-				}
-				.tag-value {
-					padding-left: 140px;
-				}
 			}
 		}
 		.member-social-media {

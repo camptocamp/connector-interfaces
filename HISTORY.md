@@ -28,6 +28,7 @@ We'll probably include stuff that has already been done and referenced on Redmin
 * [RM#16095](https://redmine.iart.ch/issues/16095) [add] profile progress bar
 * [RM#16142](https://redmine.iart.ch/issues/16142) [imp] update email/login send reset pwd email to verify
 * [imp] start splitting less files by meaningful utilities and components
+* [RM#16166](https://redmine.iart.ch/issues/16166) [imp] unify markup for main content wrappers + results listing
 
 
 **Bugfixes**
@@ -38,6 +39,8 @@ We'll probably include stuff that has already been done and referenced on Redmin
 * Cleanup, improve and fix all my/home templates and reorganize them, flake8
 * [RM#16132](https://redmine.iart.ch/issues/16132) [fix] country select visibility
 * [fix] search by country
+* [fix] make market view debuggable
+
 
 ## 9.0.10 (2016-11-17)
 

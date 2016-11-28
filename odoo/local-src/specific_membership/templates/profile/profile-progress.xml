@@ -2,18 +2,20 @@
 <odoo>
 
     <template id="profile_progress_bar" name="Fluxdock profile progress bar">
-        <div t-attf-class="profile-progress-bar #{partner.profile_state}">
-            <div t-attf-class="step step-1 #{partner.profile_state in ('step-1','step-2','step-3') and 'done' or ''}">
-                <div class="spacer"></div>
-                <span class="text">Sign-up</span>
-            </div>
-            <div t-attf-class="step step-2 #{partner.profile_state in ('step-2','step-3') and 'done' or ''}">
-                <div class="spacer"></div>
-                <span class="text">Member profile published</span>
-            </div>
-            <div t-attf-class="step step-3 #{partner.profile_state == 'step-3' and 'done' or ''}">
-                <div class="spacer"></div>
-                <span class="text">Upload references</span>
+        <div class="container">
+            <div t-attf-class="profile-progress-bar #{partner.profile_state}">
+                <div t-attf-class="step step-1 #{partner.profile_state in ('step-1','step-2','step-3') and 'done' or ''}">
+                    <div class="spacer"></div>
+                    <span class="text">Sign-up</span>
+                </div>
+                <div t-attf-class="step step-2 #{partner.profile_state in ('step-2','step-3') and 'done' or ''}">
+                    <div class="spacer"></div>
+                    <span class="text">Member profile published</span>
+                </div>
+                <div t-attf-class="step step-3 #{partner.profile_state == 'step-3' and 'done' or ''}">
+                    <div class="spacer"></div>
+                    <span class="text">Upload references</span>
+                </div>
             </div>
         </div>
     </template>
