@@ -144,11 +144,11 @@ $(document).ready(function() {
 	}
 
 	//Members slider
-	var member_template = `<div class="members-box">
-		<a href="<%- url %>" title="<%- name %>">
-			<img src="<%- avatar_url %>" />
-		</a>
-	</div>`;
+	var member_template = '<div class="members-box">' +
+		'<a href="<%- url %>" title="<%- name %>">' +
+			'<img src="<%- avatar_url %>" />' +
+		'</a>' +
+	'</div>';
 	$('.members-wrap').each(function() {
 		var template = _.template(member_template)
 		var membersWrap = $(this);
