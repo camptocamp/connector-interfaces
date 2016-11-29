@@ -33,7 +33,7 @@ We'll probably include stuff that has already been done and referenced on Redmin
 
 **Bugfixes**
 
-* [RM#16131](https://redmine.iart.ch/issues/16131) [fix] expertise/industries search + fix css for s2 input field
+* [RM#16131](https://redmine.iart.ch/issues/16131) [fix] expertise/industries load on IE11 + fix css for s2 input field
 * [fix] regression that brakes membership wizard (addresses [RM#15409](https://redmine.iart.ch/issues/15409))
 * [fix] show all active membership states in /members (addresses [RM#15409](https://redmine.iart.ch/issues/15409))
 * [fix] control of real form submission (account+membership) + protect membership buy controller w/ POST + CSRF
