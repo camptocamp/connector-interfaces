@@ -14,8 +14,8 @@
      'specific_project_proposal',
  ],
  'data': [
-     # 'security/ir.model.access.csv',
-     # 'security/record_rules.xml',
+     'security/ir.model.access.csv',
+     'security/record_rules.xml',
      'views/project_reference.xml',
      'templates/reference.xml',
      'templates/reference_form.xml',
