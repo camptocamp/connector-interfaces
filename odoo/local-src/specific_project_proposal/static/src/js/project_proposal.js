@@ -40,6 +40,6 @@ var _t = core._t;
     // show it also with calendar icon
     // FIXME: is not working ATM :S
     $("div.date span.fa-calendar").on('click', function() {
-        $(this).closest("div.date").find('input').datepicker('show');
+        $(this).closest("div.date").find('input').datetimepicker('show');
     });
 });
