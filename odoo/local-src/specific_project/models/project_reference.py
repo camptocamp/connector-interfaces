@@ -36,14 +36,15 @@ class ProjectReference(models.Model):
     video_url = fields.Char(
         string='Video URL',
     )
-    owner_id = fields.Many2one(
-        comodel_name='res.users',
-        string="Project Owner",
-        required=True,
-    )
     linked_partner_ids = fields.Many2many(
         comodel_name="res.users",
         string="Referenced partners",
+    )
+    create_uid = fields.Many2one(
+        'res.users',
+        'Owner',
+        select=True,
+        readonly=True,
     )
 
     @api.multi

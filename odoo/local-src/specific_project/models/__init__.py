@@ -1,2 +1,2 @@
 from . import project_reference
-from . import user
+from . import res_users

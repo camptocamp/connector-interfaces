@@ -21,16 +21,17 @@
             <h1>
                 <field name="name" placeholder="e.g. My great project"/>
             </h1>
-            <label for="owner_id" string="Owner" class="oe_edit_only"/>
+            <div class="oe_view_only">
+                <label for="create_uid" string="Owner"/>
+            </div>
             <h2>
-              <field name="owner_id"/>
+              <field name="create_uid" readonly="1" />
             </h2>
           </div>
           <notebook>
             <page string="Project Details">
               <group>
                 <group>
-                  <field name="name" string="Project name"/>
                   <field name="implementation_date"/>
                   <field name="location"/>
                   <field name="industry_ids"/>
@@ -38,7 +39,7 @@
                   <field name="image"/>
                   <field name="description"/>
                   <field name="video_url"/>
-                  <field name="owner_id"/>
+                  <field name="create_uid"/>
                   <field name='linked_partner_ids'/>
                 </group>
               </group>
@@ -78,6 +79,10 @@
     <field name="view_id" ref="view_project_reference_tree"/>
   </record>
 
-  <menuitem name="References" id="menu_project_reference" parent="specific_project_proposal.menu_project_proposal" action="action_project_reference" sequence="3" groups="base.group_user"/>
+  <menuitem
+    name="References" id="menu_project_reference"
+    parent="specific_project_proposal.menu_project_proposal"
+    action="action_project_reference"
+    sequence="3" groups="base.group_user"/>
 
 </odoo>

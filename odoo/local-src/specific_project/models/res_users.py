@@ -9,8 +9,5 @@ class ResUsers(models.Model):
 
     references_ids = fields.One2many(
         comodel_name='project.reference',
-        inverse_name='owner_id'
-    )
-    linked_references = fields.Many2one(
-        comodel_name='project.reference'
+        inverse_name='create_uid'
     )

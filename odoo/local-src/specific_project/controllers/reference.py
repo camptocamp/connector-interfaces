@@ -132,9 +132,6 @@ class WebsiteReference(http.Controller):
             errors, errors_message = self.details_form_validate(post)
             if not errors:
                 values = self.extract_values(post)
-                values.update({
-                    'owner_id': request.uid
-                })
                 if reference:
                     reference.write(values)
                 else:
