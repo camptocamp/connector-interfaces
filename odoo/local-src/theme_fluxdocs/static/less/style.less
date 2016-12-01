@@ -1,4 +1,9 @@
 @import "variables";
+// NOTE: the way ir_qweb load LESS files make sure that we can import variables
+// in one single file. If you try to import it in `utils.less` too
+// you'll get a security error. Sounds weird and like a bug
+// but this is how it works:
+// https://github.com/odoo/odoo/blob/9.0/openerp/addons/base/ir/ir_qweb.py#L1431
 
 body #wrapwrap main #wrap.o_editable{
 	// We are in edit mode
