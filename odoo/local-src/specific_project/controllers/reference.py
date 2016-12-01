@@ -59,6 +59,15 @@ class WebsiteReference(http.Controller):
                 # a custom handler could pop a field
                 # to discard it from submission, ie: keep an image as it is
                 values[fname] = value
+        # FIXME:
+        # we do this to prevent submitting
+        # of bad empty values for specific fields
+        # we should retrieve field info/type via real model fields
+        _values = values.copy()
+        for k, v in _values.iteritems():
+            if k.endswith(('_ids', '_id', '_date')) \
+                    and isinstance(v, basestring) and len(v) == 0:
+                values.pop(k)
         return values
 
     def _extract_image(self, field_value, form_values):
