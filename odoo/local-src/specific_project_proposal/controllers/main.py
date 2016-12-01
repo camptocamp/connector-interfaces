@@ -257,12 +257,14 @@ class WebsiteProposal(http.Controller):
         industry_ids = []
         expertise_ids = []
 
-        if post:
+        # TODO: read only real form fields! (As done for references)
+        if request.httprequest.method == 'POST':
             if 'publish' in post:
                 del post['publish']
                 post['website_published'] = not proposal.website_published
             else:
-                del post['confirm']
+                # XXX: done for??
+                post.pop('confirm', None)
 
             error, error_message = self.details_form_validate(post)
             values.update({'error': error, 'error_message': error_message})
