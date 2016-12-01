@@ -1,0 +1,30 @@
+#wrapwrap{
+    main{
+        form{
+            padding-top: 2em;
+            padding-bottom: 2em;
+            h2{
+                margin-bottom: 2em;
+            }
+            .controls{
+                .btn{
+                    margin-right: 0.5em;
+                    &:last-child{
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+        .opt_dark_grid_bg{
+            form{
+                input[type="file"].form-control{
+                    background-color: @darkColor;
+                    color: white;
+                }
+                .help-block{
+                    color: #ccc;
+                }
+            }
+        }
+    }
+}

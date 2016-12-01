@@ -27,15 +27,19 @@ var _t = core._t;
         });
     });
 
-    $("div.input-group span.fa-calendar").on('click', function(e) {
-        $(e.currentTarget).closest("div.date").datetimepicker({
-            useSeconds: true,
-            icons : {
-                time: 'fa fa-clock-o',
-                date: 'fa fa-calendar',
-                up: 'fa fa-chevron-up',
-                down: 'fa fa-chevron-down'
-            },
-        });
+    // enable datetimepicker
+    $("div.date input").datetimepicker({
+        useSeconds: true,
+        icons : {
+            time: 'fa fa-clock-o',
+            date: 'fa fa-calendar',
+            up: 'fa fa-chevron-up',
+            down: 'fa fa-chevron-down'
+        },
+    });
+    // show it also with calendar icon
+    // FIXME: is not working ATM :S
+    $("div.date span.fa-calendar").on('click', function() {
+        $(this).closest("div.date").find('input').datepicker('show');
     });
 });

@@ -19,7 +19,10 @@ class ProjectReference(models.Model):
         string="Project Name",
         required=True
     )
-    implementation_date = fields.Date(string="Date of implementation")
+    implementation_date = fields.Date(
+        string="Date of implementation",
+        required=False,
+    )
     location = fields.Char()
     industry_ids = fields.Many2many(
         comodel_name="res.partner.category",
