@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <template id="partner" inherit_id="website_membership.partner">
+        <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="class" add="opt_dark_grid_bg" separator=" " />
+        </xpath>
+        <xpath expr="//div[contains(@class,'container')]"  position="attributes">
+            <attribute name="class">container-fluid</attribute>
+        </xpath>
+    </template>
+
     <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">
       <xpath expr="//h1[@id='partner_name']" position="replace">
         <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
@@ -9,7 +18,7 @@
         <section class="top-spacer opt_dark_grid_bg"></section>
       </xpath>
       <xpath expr="//div[@class='col-md-4']" position="replace">
-        <section class="content member-detail-view">
+        <section class="content member-detail-view white_bg">
           <div class="content-wrap">
             <!--  Rich snippet -->
             <t t-if="partner.image">

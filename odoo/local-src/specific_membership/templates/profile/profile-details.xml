@@ -3,7 +3,7 @@
 
 	<template id="profile_details" name="Profile details" inherit_id="website_portal.details">
 		<xpath expr="//div[@id='wrap']" position="attributes">
-			<attribute name="class" add="profile_details" separator=" " />
+			<attribute name="class" add="profile_details opt_dark_grid_bg" separator=" " />
 		</xpath>
 		<xpath expr="//h1" position="replace">
 			<h1 class="hide">Member profile</h1>
