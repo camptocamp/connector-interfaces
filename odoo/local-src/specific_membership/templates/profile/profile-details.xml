@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-	<template id="profile_details" name="Profile details"
-		      inherit_id="website_portal.details">
+	<template id="profile_details" name="Profile details" inherit_id="website_portal.details">
+		<xpath expr="//div[@id='wrap']" position="attributes">
+			<attribute name="class" add="profile_details opt_dark_grid_bg" separator=" " />
+		</xpath>
 		<xpath expr="//h1" position="replace">
 			<h1 class="hide">Member profile</h1>
 		</xpath>

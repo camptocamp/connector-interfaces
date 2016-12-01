@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="member_listing_tags" name="Fluxdock member tags template">
+    <template id="member_item_tags" name="Fluxdock member tags template">
         <div class="item-tags">
             <strong>Industry:</strong>
             <span class="tag-value">
@@ -87,7 +87,7 @@
                     <t t-set="detail_url" t-value="'/members/{}'" />
                     <t t-set="show_preview" t-value="1" />
                     <t t-set="listing_items" t-value="memberships_partners" />
-                    <t t-set="item_tags_template" t-value="'specific_membership.member_listing_tags'" />
+                    <t t-set="item_tags_template" t-value="'specific_membership.member_item_tags'" />
                 </t>
             </div>
           </div>

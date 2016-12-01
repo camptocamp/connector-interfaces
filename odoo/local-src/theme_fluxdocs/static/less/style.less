@@ -1,4 +1,9 @@
 @import "variables";
+// NOTE: the way ir_qweb load LESS files make sure that we can import variables
+// in one single file. If you try to import it in `utils.less` too
+// you'll get a security error. Sounds weird and like a bug
+// but this is how it works:
+// https://github.com/odoo/odoo/blob/9.0/openerp/addons/base/ir/ir_qweb.py#L1431
 
 body #wrapwrap main #wrap.o_editable{
 	// We are in edit mode
@@ -933,7 +938,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	}
 
 	//MY ACCOUNT
-	.o_website_portal_details{
+	.profile_details{
 		//Logo upload
 		.media {
 			position: absolute;
@@ -992,7 +997,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 
 
 	//LOGIN
-	.oe_website_login_container, .o_website_portal_details {
+	.oe_website_login_container, .profile_details {
 		color: white;
 		background-color: @darkColor;
 		background-image: url("/theme_fluxdocs/static/img/netz.png");
@@ -1401,7 +1406,7 @@ ul.service-menu {
 	//Forms
 	body #wrapwrap {
 		.oe_website_login_container,
-		.o_website_portal_details {
+		.profile_details {
 			.media {
 				position: relative;
 				.imgupload {

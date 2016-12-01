@@ -16,19 +16,19 @@ Template:
 
 # Release History
 
-## 9.1.0 (Unreleased)
+## 9.1.0a1 (Unreleased)
 
-WIP including fixes for 0.10 and new stuff for 1.0.
+WIP including fixes for 0.10 and new stuff for 1.0. Alpha versions are the WIP for this.
 We'll probably include stuff that has already been done and referenced on Redmine as 1.1.0.
 
 **Features and Improvements**
 
 <!-- * [RM#](https://redmine.iart.ch/issues/) -->
 
-* [RM#16095](https://redmine.iart.ch/issues/16095) [add] profile progress bar
+* [RM#16095](https://redmine.iart.ch/issues/16095) [add] profile progress bar (waiting for glue w/ references and profile upgrade)
 * [RM#16142](https://redmine.iart.ch/issues/16142) [imp] update email/login send reset pwd email to verify
 * [imp] start splitting less files by meaningful utilities and components
-* [RM#16166](https://redmine.iart.ch/issues/16166) [imp] unify markup for main content wrappers + results listing
+* [RM#16166](https://redmine.iart.ch/issues/16166) [imp] unify markup for main content wrappers + results listing (still WIP)
 
 
 **Bugfixes**

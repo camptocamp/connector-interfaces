@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <template id="partner" inherit_id="website_membership.partner">
+        <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="class" add="opt_dark_grid_bg member-detail" separator=" " />
+        </xpath>
+        <xpath expr="//div[contains(@class,'container')]"  position="attributes">
+            <attribute name="class">container-fluid</attribute>
+        </xpath>
+    </template>
+
     <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">
       <xpath expr="//h1[@id='partner_name']" position="replace">
         <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
@@ -9,38 +18,30 @@
         <section class="top-spacer opt_dark_grid_bg"></section>
       </xpath>
       <xpath expr="//div[@class='col-md-4']" position="replace">
-        <section class="content member-detail-view">
+        <section class="content member-detail-view white_bg">
           <div class="content-wrap">
-            <!--  Rich snippet -->
-            <t t-if="partner.image">
-                <div class="member-logo" t-field="partner.image" t-field-options='{"widget": "image", "class": ""}' />
-            </t>
-            <address class="hide well">
-              <div t-field="partner.self" t-field-options='{ "widget": "contact", "fields": ["address", "website", "phone", "fax", "email"] }' />
-            </address>
-            <div class="member-details">
-              <h2 class="member-title" id="partner_name" t-field="partner.display_name" />
-              <t t-if="partner">
-                <div class="member-description" t-field="partner.website_short_description" />
-                <div class="member-tags">
-                  <label for="category">Industry:</label>
-                  <div class="tag-value" id="category">
-                    <t t-foreach="partner.category_id" t-as="one_tag">
-                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+            <div class="row">
+                <div class="col-md-3">
+                    <t t-if="partner.image">
+                        <div t-field="partner.image" t-field-options='{"widget": "image", "class": "center-block"}' />
                     </t>
-                  </div>
                 </div>
-                <div class="member-tags">
-                  <label for="expertise">Expertise:</label>
-                  <div class="tag-value" id="expertise">
-                    <t t-foreach="partner.expertise_ids" t-as="one_tag">
-                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                    </t>
-                  </div>
+                <div class="col-md-9">
+                    <div class="item-details">
+                      <h2 class="item-title member-title" id="partner_name" t-field="partner.display_name" />
+                      <t t-if="partner">
+                        <div class="item-description" t-field="partner.website_short_description" />
+                        <t t-call="specific_membership.member_item_tags">
+                            <t t-set="item" t-value="partner" />
+                        </t>
+                      </t>
+                    </div>
                 </div>
-              </t>
             </div>
           </div>
+          <address class="hide well">
+            <div t-field="partner.self" t-field-options='{ "widget": "contact", "fields": ["address", "website", "phone", "fax", "email"] }' />
+          </address>
         </section>
         <section class="content member-address opt_dark_bg">
           <t t-if="partner">
