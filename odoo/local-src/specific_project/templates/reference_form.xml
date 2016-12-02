@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-
-    <template id="reference_form" name="Reference form">
-        <t t-call="website.layout">
-            <div id="wrap" class="opt_dark_grid_bg">
-                <div class="container">
-                    <div class="center-block main-content-wrapper">
-                        <form action="" method="post" role="form" class="form form-horizontal" enctype="multipart/form-data">
-                            <h2>
-                                <t t-if="reference">Edit reference</t>
-                                <t t-if="not reference">Add reference</t>
-                            </h2>
-                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                            <!--
+  <template id="reference_form" name="Reference form">
+    <t t-call="website.layout">
+      <div id="wrap" class="opt_dark_grid_bg">
+        <div class="container">
+          <div class="center-block main-content-wrapper">
+            <form action="" method="post" role="form" class="form form-horizontal" enctype="multipart/form-data">
+              <h2>
+                <t t-if="reference">Edit reference</t>
+                <t t-if="not reference">Add reference</t>
+              </h2>
+              <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+              <!--
                             TEMPLATE FOR A NEW FIELD!
                             <div t-attf-class="form-group #{errors.get('AAA') and 'has-error' or ''} field-AAA">
                                 <label class="col-sm-3 control-label" for="AAA">AAA</label>
@@ -22,140 +21,111 @@
                                 </div>
                             </div>
                              -->
-                            <div t-attf-class="form-group #{errors.get('name') and 'has-error' or ''} field-name">
-                                <label class="col-sm-3 control-label" for="name">Reference title*</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="name" name="name" class="form-control" t-att-value="name" />
-                                </div>
-                            </div>
-                            <div t-attf-class="form-group #{errors.get('implementation_date') and 'has-error' or ''} field-implementation_date">
-                                <label class="col-sm-3 control-label" for="implementation_date">Implementation date</label>
-                                <div class="col-sm-9 date">
-                                    <div class="input-group">
-                                        <input
-                                            name="implementation_date" id="implementation_date"
-                                            class="form-control" type="text"
-                                            data-date-format="YYYY-MM-DD"
-                                            placeholder="YYYY-MM-DD" t-att-value="implementation_date"
-                                            />
-                                        <span class="input-group-addon">
-                                            <span class="fa fa-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div t-attf-class="form-group #{errors.get('location') and 'has-error' or ''} field-location">
-                                <label class="col-sm-3 control-label" for="location">Location</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="location" name="location" class="form-control" t-att-value="location" />
-                                </div>
-                            </div>
-                            <div t-attf-class="form-group #{errors.get('industry_ids') and 'has-error' or ''} field-industry_ids">
-                              <label class="col-sm-3 control-label" for="industry_ids">Industry</label>
-                              <div class="col-sm-9">
-                                  <input type="text" id="industry_ids" name="industry_ids"
-                                         class="form-control js_select2_categories"
-                                         t-attf-data-init-value="#{industry_ids}" value="industries"/>
-                              </div>
-                            </div>
-                            <div t-attf-class="form-group #{errors.get('expertise_ids') and 'has-error' or ''} field-expertise_ids">
-                              <label class="control-label col-sm-3" for="industry_ids">Expertise</label>
-                              <div class="col-sm-9">
-                                  <input type="text" name="expertise_ids" class="form-control js_select2_expertises"
-                                         t-attf-data-init-value="#{expertise_ids}" value="expertises"/>
-                                  <p class="help-block">
-                                      Don't find your industry or expertise? Write us an email at <a href="mailto:expertise@fluxdock.io?subject=new%20industry%20/%20expertise">expertise@fluxdock.io</a>
-                                  </p>
-                              </div>
-                            </div>
-                            <div t-attf-class="form-group #{errors.get('description') and 'has-error' or ''} field-description">
-                                <label class="control-label col-sm-3" for="description">Description*</label>
-                                <div class="col-sm-9">
-                                    <textarea
-                                      class="form-control"
-                                      name="description"
-                                      t-esc="description"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group form-field mt8 field-image">
-                              <label class="col-sm-3 control-label" for="image">Image</label>
-                              <div class="col-sm-9">
-                                  <input
-                                      type="file"
-                                      capture="camera"
-                                      accept="image/*"
-                                      id="image"
-                                      name="image"
-                                      class="form-control"
-                                      />
-                                  <t t-if="has_image">
-                                <t t-if="reference">
-                                    <div class="preview image-preview mt8">
-                                        <img t-att-src="website.image_url(reference, 'image', '256x256')" />
-                                    </div>
-                                </t>
-                                <t t-set="prefix" t-value="'image'" />
-                                <div t-attf-id="#{prefix}_keepbox" class="row keepbox">
-                                      <div class="col-md-6">
-                                          <div class="form-group">
-                                              <input
-                                                  type="radio"
-                                                  t-attf-id="#{prefix}_keepcheck_yes"
-                                                  t-attf-name="#{prefix}_keepcheck"
-                                                  checked="1"
-                                                  value="yes"
-                                                  />
-                                              <label
-                                                  t-attf-for="#{prefix}_keepcheck_yes">
-                                                  keep submitted
-                                              </label>
-                                          </div>
-                                          <div class="form-group">
-                                              <input
-                                                  type="radio"
-                                                  t-attf-id="#{prefix}_keepcheck_no"
-                                                  t-attf-name="#{prefix}_keepcheck"
-                                                  value="no"
-                                                  />
-                                              <label
-                                                  t-attf-for="#{prefix}_keepcheck_no">
-                                                  replace submitted
-                                              </label>
-                                          </div>
-                                      </div>
-                                </div>
-                              </t>
-                              </div>
-                            </div>
-                            <div t-attf-class="form-group #{errors.get('video_url') and 'has-error' or ''} field-video_url ">
-                                <label class="control-label col-sm-3" for="video_url">Video_URL</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="video_url" name="video_url" class="form-control"
-                                           t-att-value="video_url" />
-                                </div>
-                            </div>
-                            <div t-attf-class="form-group #{errors.get('linked_partner_ids') and 'has-error' or ''} field-linked_partner_ids">
-                                <label class="control-label col-sm-3" for="linked_partner_ids">Linked partners TODO</label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="linked_partner_ids" class="form-control"
-                                           t-att-value="linked_partner_ids" />
-                                    <p class="help-block">Don't find your partner? Write us an email with the partner company name and email address at <a href="mailto:newpartner@fluxdock.io?subject=new%20partner">newpartner@fluxdock.io</a> for inviting him.</p>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                              <p>* Required fields</p>
-                            </div>
-                            <div class="form-group mt32 controls">
-                              <div class="col-sm-9 col-sm-offset-3">
-                                <a class="btn btn-warning" t-att-href="request.httprequest.referrer">Cancel</a>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                              </div>
-                            </div>
-                        </form>
-                    </div>
+              <div t-attf-class="form-group #{errors.get('name') and 'has-error' or ''} field-name">
+                <label class="col-sm-3 control-label" for="name">Reference title*</label>
+                <div class="col-sm-9">
+                  <input type="text" id="name" name="name" class="form-control" t-att-value="name"/>
                 </div>
-            </div>
-        </t>
-    </template>
+              </div>
+              <div t-attf-class="form-group #{errors.get('implementation_date') and 'has-error' or ''} field-implementation_date">
+                <label class="col-sm-3 control-label" for="implementation_date">Implementation date</label>
+                <div class="col-sm-9 date">
+                  <div class="input-group">
+                    <input name="implementation_date" id="implementation_date" class="form-control" type="text" data-date-format="YYYY-MM-DD" placeholder="YYYY-MM-DD" t-att-value="implementation_date"/>
+                    <span class="input-group-addon">
+                      <span class="fa fa-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div t-attf-class="form-group #{errors.get('location') and 'has-error' or ''} field-location">
+                <label class="col-sm-3 control-label" for="location">Location</label>
+                <div class="col-sm-9">
+                  <input type="text" id="location" name="location" class="form-control" t-att-value="location"/>
+                </div>
+              </div>
+              <div t-attf-class="form-group #{errors.get('industry_ids') and 'has-error' or ''} field-industry_ids">
+                <label class="col-sm-3 control-label" for="industry_ids">Industry</label>
+                <div class="col-sm-9">
+                  <input type="text" id="industry_ids" name="industry_ids" class="form-control js_select2_categories" t-attf-data-init-value="#{industry_ids}" value="industries"/>
+                </div>
+              </div>
+              <div t-attf-class="form-group #{errors.get('expertise_ids') and 'has-error' or ''} field-expertise_ids">
+                <label class="control-label col-sm-3" for="industry_ids">Expertise</label>
+                <div class="col-sm-9">
+                  <input type="text" name="expertise_ids" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertise_ids}" value="expertises"/>
+                  <p class="help-block">
+                    Don't find your industry or expertise? Write us an email at
+                    <a href="mailto:expertise@fluxdock.io?subject=new%20industry%20/%20expertise">expertise@fluxdock.io</a>
+                  </p>
+                </div>
+              </div>
+              <div t-attf-class="form-group #{errors.get('description') and 'has-error' or ''} field-description">
+                <label class="control-label col-sm-3" for="description">Description*</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" name="description" t-esc="description"></textarea>
+                </div>
+              </div>
+              <div class="form-group form-field mt8 field-image">
+                <label class="col-sm-3 control-label" for="image">Image</label>
+                <div class="col-sm-9">
+                  <input type="file" capture="camera" accept="image/*" id="image" name="image" class="form-control"/>
 
-    </odoo>
+                  <t t-if="has_image">
+                    <t t-if="reference">
+                      <div class="preview image-preview mt8">
+                        <img t-att-src="website.image_url(reference, 'image', '256x256')"/>
+                      </div>
+                    </t>
+                    <t t-set="prefix" t-value="'image'"/>
+                    <div t-attf-id="#{prefix}_keepbox" class="row keepbox">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="radio" t-attf-id="#{prefix}_keepcheck_yes" t-attf-name="#{prefix}_keepcheck" checked="1" value="yes"/>
+                          <label t-attf-for="#{prefix}_keepcheck_yes">
+                            keep submitted
+                          </label>
+                        </div>
+                        <div class="form-group">
+                          <input type="radio" t-attf-id="#{prefix}_keepcheck_no" t-attf-name="#{prefix}_keepcheck" value="no"/>
+                          <label t-attf-for="#{prefix}_keepcheck_no">
+                            replace submitted
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </t>
+                </div>
+              </div>
+              <div t-attf-class="form-group #{errors.get('video_url') and 'has-error' or ''} field-video_url ">
+                <label class="control-label col-sm-3" for="video_url">Video_URL</label>
+                <div class="col-sm-9">
+                  <input type="text" id="video_url" name="video_url" class="form-control" t-att-value="video_url"/>
+                </div>
+              </div>
+              <div t-attf-class="form-group #{errors.get('linked_partner_ids') and 'has-error' or ''} field-linked_partner_ids">
+                <label class="control-label col-sm-3" for="linked_partner_ids">Linked partners TODO</label>
+                <div class="col-sm-9">
+                  <input type="text" name="linked_partner_ids" class="form-control" t-att-value="linked_partner_ids"/>
+                  <p class="help-block">Don't find your partner? Write us an email with the partner company name and email address at
+                    <a href="mailto:newpartner@fluxdock.io?subject=new%20partner">newpartner@fluxdock.io</a>
+                    for inviting him.</p>
+                </div>
+              </div>
+              <div class="form-group row">
+                <p>* Required fields</p>
+              </div>
+              <div class="form-group mt32 controls">
+                <div class="col-sm-9 col-sm-offset-3">
+                  <a class="btn btn-warning" t-att-href="request.httprequest.referrer">Cancel</a>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+
+</odoo>
