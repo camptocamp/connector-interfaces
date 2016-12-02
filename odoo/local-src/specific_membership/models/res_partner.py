@@ -126,7 +126,8 @@ class ResPartner(models.Model):
                     "No email template found for "
                     "`specific_membership.mail_membership_upgrade`")
 
-        return inv
+        # make original action happy and returns list of ids
+        return inv.ids
 
     @api.multi
     def button_buy_membership(self):

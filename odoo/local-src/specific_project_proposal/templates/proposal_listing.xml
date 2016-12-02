@@ -2,14 +2,16 @@
 <odoo>
 
 <template id="proposals_no_results" name="Fluxdock no proposals results">
-    <div class="text-center text-muted">
-      <h4 class="css_editable_display">No project proposal found</h4>
-      <t t-if="not my">
-        <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
-      </t>
-      <t t-if="my">
-        <h4 class="css_editable_hidden">Go in <a href="/my">your account</a> to create your proposals.</h4>
-      </t>
+    <div class="row list-item no-results text-muted">
+        <div class="col-md-12">
+            <h4 class="text-center">No result found.</h4>
+            <t t-if="not my">
+                <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
+            </t>
+            <t t-if="my">
+                <h4 class="css_editable_hidden">Go in <a href="/my">your account</a> to create your proposals.</h4>
+            </t>
+        </div>
     </div>
 </template>
 

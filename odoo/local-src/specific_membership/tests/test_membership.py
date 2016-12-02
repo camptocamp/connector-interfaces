@@ -46,8 +46,9 @@ class TestMembership(test_common.TransactionCase):
         #     return value.get() if isinstance(value, SpecialValue) else value
         #   File "/opt/odoo/src/openerp/fields.py", line 39, in get
         #     raise self.exception
-        invoice = self.partner.create_membership_invoice(email=False)
-        invoice = self.env['account.invoice'].search([('id', '=', invoice.id)])
+        invoice_ids = self.partner.create_membership_invoice(email=False)
+        invoice = self.env['account.invoice'].search(
+            [('id', 'in', invoice_ids)])
         self.assertEqual(invoice.state, 'open')
 
     # def test_buy_membership_twice(self):
