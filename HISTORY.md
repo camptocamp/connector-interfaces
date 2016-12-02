@@ -16,7 +16,7 @@ Template:
 
 # Release History
 
-## 9.1.0a1 (Unreleased)
+## 9.1.0a1 (2016-11-02)
 
 WIP including fixes for 0.10 and new stuff for 1.0. Alpha versions are the WIP for this.
 We'll probably include stuff that has already been done and referenced on Redmine as 1.1.0.
