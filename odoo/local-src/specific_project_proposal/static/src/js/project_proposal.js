@@ -35,7 +35,7 @@ var _t = core._t;
             date: 'fa fa-calendar',
             up: 'fa fa-chevron-up',
             down: 'fa fa-chevron-down'
-        },
+        }
     });
     // show it also with calendar icon
     // FIXME: is not working ATM :S

@@ -23,9 +23,9 @@
                             </div>
                              -->
                             <div t-attf-class="form-group #{errors.get('name') and 'has-error' or ''} field-name">
-                                <label class="col-sm-3 control-label" for="contact_name">Reference title*</label>
+                                <label class="col-sm-3 control-label" for="name">Reference title*</label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="name" class="form-control" t-att-value="name" />
+                                    <input type="text" id="name" name="name" class="form-control" t-att-value="name" />
                                 </div>
                             </div>
                             <div t-attf-class="form-group #{errors.get('implementation_date') and 'has-error' or ''} field-implementation_date">
