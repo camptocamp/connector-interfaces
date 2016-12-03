@@ -10,6 +10,7 @@
         'views/assets.xml',
         'views/status_message.xml',
         'views/listing.xml',
+        'views/widgets.xml',
         'pages/homepage.xml',
     ],
     'category': 'Theme/Creative',

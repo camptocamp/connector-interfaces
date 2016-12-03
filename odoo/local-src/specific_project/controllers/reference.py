@@ -55,7 +55,7 @@ class WebsiteReference(http.Controller):
             custom_handler = getattr(self, '_extract_' + fname, None)
             if custom_handler:
                 value = custom_handler(value, form_values)
-            if fname in form_values:
+            if fname in form_values and value is not None:
                 # a custom handler could pop a field
                 # to discard it from submission, ie: keep an image as it is
                 values[fname] = value
@@ -85,7 +85,7 @@ class WebsiteReference(http.Controller):
         return value
 
     def _extract_industry_ids(self, field_value, form_values):
-        value = {}
+        value = False
         if len(field_value) > 0:
             industry_ids = field_value.split(',')
             industry_ids = [int(rec_id) for rec_id in industry_ids]
@@ -93,7 +93,7 @@ class WebsiteReference(http.Controller):
         return value
 
     def _extract_expertise_ids(self, field_value, form_values):
-        value = {}
+        value = False
         if len(field_value) > 0:
             expertise_ids = field_value.split(',')
             expertise_ids = [int(rec_id) for rec_id in expertise_ids]

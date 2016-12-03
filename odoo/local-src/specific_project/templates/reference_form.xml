@@ -3,7 +3,7 @@
 
   <template id="reference_form" name="Reference form">
     <t t-call="website.layout">
-      <div id="wrap" class="opt_dark_grid_bg">
+      <div id="wrap" class="opt_dark_grid_bg reference-form">
         <div class="container">
           <div class="center-block main-content-wrapper">
             <form action="" method="post" role="form" class="form form-horizontal" enctype="multipart/form-data">
@@ -13,14 +13,14 @@
               </h2>
               <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
               <!--
-                            TEMPLATE FOR A NEW FIELD!
-                            <div t-attf-class="form-group #{errors.get('AAA') and 'has-error' or ''} field-AAA">
-                                <label class="col-sm-3 control-label" for="AAA">AAA</label>
-                                <div class="col-sm-9">
-                                    <input type="text" id="AAA" name="AAA" class="form-control" t-att-value="AAA" />
-                                </div>
-                            </div>
-                             -->
+                TEMPLATE FOR A NEW FIELD!
+                <div t-attf-class="form-group #{errors.get('AAA') and 'has-error' or ''} field-AAA">
+                    <label class="col-sm-3 control-label" for="AAA">AAA</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="AAA" name="AAA" class="form-control" t-att-value="AAA" />
+                    </div>
+                </div>
+                 -->
               <div t-attf-class="form-group #{errors.get('name') and 'has-error' or ''} field-name">
                 <label class="col-sm-3 control-label" for="name">Reference title*</label>
                 <div class="col-sm-9">
@@ -69,29 +69,24 @@
               <div class="form-group form-field mt8 field-image">
                 <label class="col-sm-3 control-label" for="image">Image</label>
                 <div class="col-sm-9">
-                  <input type="file" capture="camera" accept="image/*" id="image" name="image" class="form-control"/>
-
-                  <t t-if="has_image">
-                    <t t-if="reference">
-                      <div class="preview image-preview mt8">
-                        <img t-att-src="website.image_url(reference, 'image', '256x256')"/>
-                      </div>
+                  <t t-call="theme_fluxdocs.imageupload_widget">
+                    <t t-if="reference and reference.image">
+                      <t t-set="image_preview_url" t-value="website.image_url(reference, 'image', '450x200')" />
                     </t>
+                    <t t-set="image_preview_width" t-value="450" />
+                  </t>
+                  <t t-if="has_image">
                     <t t-set="prefix" t-value="'image'"/>
-                    <div t-attf-id="#{prefix}_keepbox" class="row keepbox">
-                      <div class="col-md-6">
-                        <div class="form-group">
+                    <div t-attf-id="#{prefix}_keepbox" class="keepbox text-center">
+                      <div class="form-group">
+                        <label class="checkbox inline" t-attf-for="#{prefix}_keepcheck_yes">
                           <input type="radio" t-attf-id="#{prefix}_keepcheck_yes" t-attf-name="#{prefix}_keepcheck" checked="1" value="yes"/>
-                          <label t-attf-for="#{prefix}_keepcheck_yes">
-                            keep submitted
-                          </label>
-                        </div>
-                        <div class="form-group">
+                          keep submitted
+                        </label>
+                        <label class="checkbox inline" t-attf-for="#{prefix}_keepcheck_no">
                           <input type="radio" t-attf-id="#{prefix}_keepcheck_no" t-attf-name="#{prefix}_keepcheck" value="no"/>
-                          <label t-attf-for="#{prefix}_keepcheck_no">
-                            replace submitted
-                          </label>
-                        </div>
+                          replace submitted
+                        </label>
                       </div>
                     </div>
                   </t>

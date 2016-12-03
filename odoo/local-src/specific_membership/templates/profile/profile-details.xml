@@ -3,7 +3,7 @@
 
 	<template id="profile_details" name="Profile details" inherit_id="website_portal.details">
 		<xpath expr="//div[@id='wrap']" position="attributes">
-			<attribute name="class" add="profile_details opt_dark_grid_bg" separator=" " />
+			<attribute name="class" add="profile-form profile_details opt_dark_grid_bg" separator=" " />
 		</xpath>
 		<xpath expr="//h1" position="replace">
 			<h1 class="hide">Member profile</h1>
@@ -38,19 +38,11 @@
                                     <div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
 
                                         <div class="media">
-                                            <img itemtype="image" class="img img-responsive" t-att-src="website.image_url(partner, 'image', '170x170')"/>
-                                            <div class="imgupload">
-                                                <div class="file-tab">
-                                                    <div>
-                                                        <label class="btn bnt-default btn-file">
-                                                            <span>Upload image</span>
-                                                            <p>Add logo here</p>
-                                                            <p>Format:<br/>JPG/PNG</p>
-                                                            <input type="file" name="uimage"></input>
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <t t-call="theme_fluxdocs.imageupload_widget">
+												<t t-set="image_preview_url" t-value="website.image_url(partner, 'image', '170x170')" />
+												<t t-set="image_preview_width" t-value="'170'" />
+												<t t-set="image_input_name" t-value="'uimage'" />
+											</t>
                                         </div>
 
                                         <label class="form-control-label col-sm-2" for="contact_name">Company name*

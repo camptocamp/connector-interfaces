@@ -15,7 +15,7 @@
 
     $.fn.imgupload = function(givenOptions) {
         if (this.filter("div").hasClass("imgupload")) {
-            options = $.extend(options, givenOptions); 
+            options = $.extend(options, givenOptions);
 
             var $fileTab = this.find(".file-tab");
             var $urlTab = this.find(".url-tab");
@@ -120,7 +120,7 @@
     function resetFileTab($fileTab) {
         $fileTab.find(".alert").remove();
         $fileTab.find(".btn:eq(1)").hide();
-        $fileTab.find(".btn span").text("Browse");
+        // $fileTab.find(".btn span").text("Browse");
         $fileTab.find("input").val("");
         $fileTab.find("img").remove();
     }
@@ -128,7 +128,7 @@
     function selectImageFile($fileTab) {
         var $submitUrlButton = $fileTab.find(".btn:eq(0)");
         var $fileInput = $submitUrlButton.find("input");
-        
+
         // Remove errors and previous image.
         $fileTab.find(".alert").remove();
         $fileTab.find("img").remove();
@@ -205,7 +205,7 @@
 
         var $textInput = $urlTab.find("input:text");
         var $buttons = $urlTab.find(".btn");
-        
+
         // Disable input.
         $textInput.prop("disabled", true);
         $buttons.prop("disabled", true);

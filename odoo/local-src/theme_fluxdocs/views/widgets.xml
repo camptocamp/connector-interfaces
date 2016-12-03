@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="imageupload_widget" name="Fluxdock image upload widget">
+        <div class="image-upload-widget">
+            <t t-set="image_input_name" t-value="image_input_name or 'image'" />
+            <t t-if="image_preview_url">
+                <img itemtype="image" class="img img-responsive" t-att-src="image_preview_url" />
+            </t>
+            <div class="imgupload" t-att-data-preview-width="image_preview_width">
+                <div class="file-tab">
+                    <label t-att-for="image_input_name" class="btn btn-file">
+                        <span class="info overlay overlay-slideup">
+                            <span class="browse">Browse</span>
+                            <info class="format">Format: *.png/*.jpg</info>
+                        </span>
+                        <input
+                            type="file" capture="camera" accept="image/*"
+                            t-att-id="image_input_name"
+                            t-att-name="image_input_name"
+                            class="form-control"
+                            />
+                    </label>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>
