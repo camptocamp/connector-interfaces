@@ -110,6 +110,22 @@ class WebsiteAccount(website_account):
             email = post['email']
             valid = validate_email(email)
             if email and valid and user.id != SUPERUSER_ID:
+                exists = user.sudo().search_count(
+                    ['|', ('login', '=', email), ('email', '=', email)]
+                )
+                # prevent email save and display friendly message
+                post.pop('email')
+                if exists and request.website:
+                    title = _('Warning')
+                    msg = _(
+                        'Email address `%s` already taken. '
+                        'Please check inside your company. '
+                    ) % email
+                    # NOTE: `add_status_message`
+                    # is defined into `theme_fluxdocs` ATM
+                    request.website.add_status_message(
+                        msg, mtype='warning', mtitle=title)
+                    return False
                 try:
                     # update login on user
                     # this MUST happen BEFORE `reset_password` call
