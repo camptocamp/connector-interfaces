@@ -36,10 +36,7 @@
                   <field name="location"/>
                   <field name="industry_ids"/>
                   <field name="expertise_ids"/>
-                  <field name="description"/>
-                  <field name="video_url"/>
                   <field name="create_uid"/>
-                  <field name='linked_partner_ids'/>
                 </group>
               </group>
             </page>
@@ -64,7 +61,7 @@
         <field name="implementation_date"/>
         <field name="industry_ids"/>
         <field name="image"/>
-        <field name="description"/>
+        <field name="website_short_description"/>
         <field name="video_url"/>
         <field name='linked_partner_ids'/>
       </tree>

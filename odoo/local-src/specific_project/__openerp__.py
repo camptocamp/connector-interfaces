@@ -19,6 +19,7 @@
      'views/project_reference.xml',
      'templates/reference.xml',
      'templates/reference_form.xml',
+     'templates/reference_listing.xml',
      'templates/my_home.xml',
  ],
  'test': [],

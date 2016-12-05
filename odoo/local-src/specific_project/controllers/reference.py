@@ -14,7 +14,7 @@ from openerp.http import request
 class WebsiteReference(http.Controller):
     """Controller for reference model."""
 
-    form_mandatory_fields = ("name", "description")
+    form_mandatory_fields = ("name", "website_short_description")
     form_optional_fields = (
         "implementation_date", "location", "industry_ids",
         "expertise_ids", "linked_partner_ids",
@@ -113,6 +113,10 @@ class WebsiteReference(http.Controller):
             if custom_handler:
                 value = custom_handler(item, value, **kw)
             defaults[fname] = value
+            if fname in kw:
+                # maybe a POST request with new values
+                # TODO: load particular fields too
+                defaults[fname] = kw.get(fname)
         for fname in self.form_file_fields:
             defaults['has_' + fname] = bool(item[fname])
         return defaults
@@ -133,7 +137,7 @@ class WebsiteReference(http.Controller):
 
     @http.route([
         '/my/references/add',
-        '/my/references/edit/<model("project.reference"):reference>',
+        '/my/references/<model("project.reference"):reference>/edit',
     ], type='http', auth='user', website=True)
     def reference_edit(self, reference=None, **post):
         values = {
@@ -157,13 +161,14 @@ class WebsiteReference(http.Controller):
                 'errors': errors,
                 'errors_message': errors_message,
             })
+            values.update(self.load_defaults(reference), **post)
         return request.website.render("specific_project.reference_form",
                                       values)
 
     @http.route([
         '/my/references/<model("project.reference"):reference>',
     ], type='http', auth='public', website=True)
-    def reference_detail(self, reference):
+    def reference_detail(self, reference, **kw):
         values = {
             'reference': reference
         }

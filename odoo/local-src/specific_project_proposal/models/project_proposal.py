@@ -36,6 +36,8 @@ class ProjectProposal(models.Model):
         store=False)  # Color of owner
     location = fields.Char()
     country_id = fields.Many2one(comodel_name='res.country', string="Country")
+    # TODO 2016-12-05:
+    # why are we not using website.seo.mixin to get this field????
     website_short_description = fields.Char(string="Teaser text")
     website_description = fields.Text()
     start_date = fields.Date(string="Start date")

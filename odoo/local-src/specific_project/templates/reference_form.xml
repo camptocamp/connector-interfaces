@@ -60,10 +60,10 @@
                   </p>
                 </div>
               </div>
-              <div t-attf-class="form-group #{errors.get('description') and 'has-error' or ''} field-description">
-                <label class="control-label col-sm-3" for="description">Description*</label>
+              <div t-attf-class="form-group #{errors.get('website_short_description') and 'has-error' or ''} field-website_short_description">
+                <label class="control-label col-sm-3" for="website_short_description">Description*</label>
                 <div class="col-sm-9">
-                  <textarea class="form-control" name="description" t-esc="description"></textarea>
+                  <textarea class="form-control" name="website_short_description" t-esc="website_short_description"></textarea>
                 </div>
               </div>
               <div class="form-group form-field mt8 field-image">

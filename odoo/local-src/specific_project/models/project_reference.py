@@ -35,7 +35,7 @@ class ProjectReference(models.Model):
     image = fields.Binary(
         "Reference image"
     )
-    description = fields.Text()
+    website_short_description = fields.Char(string="Description")
     video_url = fields.Char(
         string='Video URL',
     )
