@@ -52,3 +52,7 @@ migration:
       addons:
         upgrade:
           - specific_membership
+    - version: 9.1.0a2
+      addons:
+        upgrade:
+          - specific_membership
