@@ -52,6 +52,7 @@ class WebsiteReference(http.Controller):
         }
         for fname in valid_fields:
             value = form_values.get(fname)
+            # TODO: lookup by field type 1st
             custom_handler = getattr(self, '_extract_' + fname, None)
             if custom_handler:
                 value = custom_handler(value, form_values)
@@ -84,21 +85,22 @@ class WebsiteReference(http.Controller):
             value = field_value.split(',')[-1]
         return value
 
-    def _extract_industry_ids(self, field_value, form_values):
+    def _extract_m2m_ids(self, field_value, form_values):
         value = False
         if len(field_value) > 0:
-            industry_ids = field_value.split(',')
-            industry_ids = [int(rec_id) for rec_id in industry_ids]
-            value = [(6, None, industry_ids)]
+            ids = field_value.split(',')
+            ids = [int(rec_id) for rec_id in ids]
+            value = [(6, None, ids)]
         return value
 
+    def _extract_industry_ids(self, field_value, form_values):
+        return self._extract_m2m_ids(field_value, form_values)
+
     def _extract_expertise_ids(self, field_value, form_values):
-        value = False
-        if len(field_value) > 0:
-            expertise_ids = field_value.split(',')
-            expertise_ids = [int(rec_id) for rec_id in expertise_ids]
-            value = [(6, None, expertise_ids)]
-        return value
+        return self._extract_m2m_ids(field_value, form_values)
+
+    def _extract_linked_partner_ids(self, field_value, form_values):
+        return self._extract_m2m_ids(field_value, form_values)
 
     def load_defaults(self, item, **kw):
         """Override to load default values."""
@@ -115,15 +117,19 @@ class WebsiteReference(http.Controller):
             defaults['has_' + fname] = bool(item[fname])
         return defaults
 
-    def _load_default_industry_ids(self, item, value):
+    def _load_default_m2m_ids(self, item, value):
         value = [{'id': x.id, 'name': x.display_name} for x in value]
         value = json.dumps(value)
         return value
 
+    def _load_default_industry_ids(self, item, value):
+        return self._load_default_m2m_ids(item, value)
+
     def _load_default_expertise_ids(self, item, value):
-        value = [{'id': x.id, 'name': x.display_name} for x in value]
-        value = json.dumps(value)
-        return value
+        return self._load_default_m2m_ids(item, value)
+
+    def _load_default_linked_partner_ids(self, item, value):
+        return self._load_default_m2m_ids(item, value)
 
     @http.route([
         '/my/references/add',

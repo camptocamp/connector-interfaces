@@ -40,7 +40,7 @@ class ProjectReference(models.Model):
         string='Video URL',
     )
     linked_partner_ids = fields.Many2many(
-        comodel_name="res.users",
+        comodel_name="res.partner",
         string="Referenced partners",
     )
     create_uid = fields.Many2one(

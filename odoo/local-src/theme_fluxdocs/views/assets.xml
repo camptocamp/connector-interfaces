@@ -21,6 +21,7 @@
 				<link rel="shortcut icon" href="/theme_fluxdocs/static/favicon/favicon_v02.png" type="image/x-icon" />
 				<link rel="icon" href="/theme_fluxdocs/static/favicon/favicon_v01.png" type="image/x-icon" />
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/bxslider.js"></script>
+				<script type="text/javascript" src="/theme_fluxdocs/static/js/select2widgets.js"></script>
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/fluxdock.js"></script>
 			</xpath>
 
