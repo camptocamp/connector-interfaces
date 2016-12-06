@@ -44,6 +44,21 @@
                   <input type="text" id="location" name="location" class="form-control" t-att-value="location"/>
                 </div>
               </div>
+              <div t-attf-class="form-group #{errors.get('country_id') and 'has-error' or ''} field-country_id">
+                <label class="col-sm-3 control-label" for="country_id">Country</label>
+                <div class="col-sm-9">
+                  <div class="styled-select">
+                    <select name="country_id" class="form-control">
+                      <option value="">Country...</option>
+                      <t t-foreach="countries or []" t-as="country">
+                        <option t-att-value="country.id" t-att-selected="country.id == country_id">
+                            <t t-esc="country.name"/>
+                        </option>
+                      </t>
+                    </select>
+                  </div>
+                </div>
+              </div>
               <div t-attf-class="form-group #{errors.get('industry_ids') and 'has-error' or ''} field-industry_ids">
                 <label class="col-sm-3 control-label" for="industry_ids">Industry</label>
                 <div class="col-sm-9">

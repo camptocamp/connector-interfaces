@@ -33,7 +33,7 @@ class ProjectReference(models.Model):
         string="Expertises",
     )
     image = fields.Binary(
-        "Reference image"
+        "Reference image",
     )
     website_short_description = fields.Char(string="Description")
     video_url = fields.Char(
@@ -54,6 +54,7 @@ class ProjectReference(models.Model):
         compute='_compute_image_url',
         default='',
     )
+    country_id = fields.Many2one(comodel_name='res.country', string="Country")
 
     @api.multi
     @api.depends('image')
