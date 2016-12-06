@@ -4,7 +4,7 @@
 import json
 import werkzeug.urls
 
-from openerp import _, http
+from openerp import http
 from openerp.http import request
 
 # from openerp.addons.website.models.website import slug
