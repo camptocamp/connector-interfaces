@@ -2,7 +2,6 @@
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 import json
-import base64
 import werkzeug.urls
 
 from openerp import _, http

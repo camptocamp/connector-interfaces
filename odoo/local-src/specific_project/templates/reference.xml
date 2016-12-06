@@ -4,19 +4,9 @@
   <template id="reference_detail" name="Reference">
     <t t-call="website.layout">
       <div class="opt_dark_bg" id="wrap">
-        <div class="container mgmt-actions">
-          <t t-if="reference.create_uid.id == uid">
-            <div class="center-block main-content-wrapper">
-              <a class="btn btn-defaul" t-att-href="reference.website_url + '/edit'">
-                Edit
-              </a>
-              <t t-call="website.publish_management">
-                <t t-set="object" t-value="reference"/>
-                <t t-set="publish_edit" t-value="True"/>
-              </t>
-            </div>
-          </t>
-        </div>
+        <t t-call="theme_fluxdocs.mgmt_actions">
+            <t t-set="object" t-value="reference"/>
+        </t>
         <div>
           <t t-if="reference.image">
             <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(website.image_url(reference,'image'))">

@@ -26,4 +26,31 @@
         </div>
     </template>
 
+    <!--
+    TODO: whole customization for the "publish_short" widget defined in "website".
+    We should make the default ones (even `publish_management` one) work as we like.
+    We need object owners to be able to publish items.
+    -->
+
+    <template id="publish_short">
+        <div t-attf-class="pull-right js_publish_management #{object.website_published and 'css_published' or 'css_unpublished'}"
+             t-att-data-id="object.id" t-att-data-object="object._name" t-att-data-controller="publish_controller">
+            <button class="btn btn-danger js_publish_btn">Not Published</button>
+            <button class="btn btn-success js_publish_btn">Published</button>
+        </div>
+    </template>
+
+    <!--
+    TODO: We need to check for permissions here, not by owner/user id.
+    -->
+    <template id="mgmt_actions">
+        <t t-set="is_owner" t-value="object.create_uid.id == request.session.uid or request.session.uid == 1" />
+        <t t-if="is_owner">
+            <div class="mgmt-actions">
+                <a class="btn btn-defaul pull-left" t-att-href="reference.website_url + '/edit'">Edit</a>
+                <t t-call="theme_fluxdocs.publish_short" />
+            </div>
+        </t>
+    </template>
+
 </odoo>
