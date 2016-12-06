@@ -21,6 +21,7 @@ Template:
 
 **Features and Improvements**
 
+* [add] references
 * [add] new widget for publishing/unpublishing items
 
 
