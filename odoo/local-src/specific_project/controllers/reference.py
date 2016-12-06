@@ -33,6 +33,9 @@ class WebsiteReference(http.Controller):
 
         for field_name in self.form_mandatory_fields:
             if not data.get(field_name):
+                if field_name == 'image' \
+                        and not data.get('image_keepcheck') == 'no':
+                    continue
                 error[field_name] = 'missing'
                 missing = True
 
@@ -102,6 +105,9 @@ class WebsiteReference(http.Controller):
     def _extract_linked_partner_ids(self, field_value, form_values):
         return self._extract_m2m_ids(field_value, form_values)
 
+    def _extract_country_id(self, field_value, form_values):
+        return int(field_value or False)
+
     def load_defaults(self, item, **kw):
         """Override to load default values."""
         defaults = {}
@@ -135,6 +141,7 @@ class WebsiteReference(http.Controller):
     def _load_default_linked_partner_ids(self, item, value):
         return self._load_default_m2m_ids(item, value)
 
+
     # TODO: do we really need 2 routes per 'my'/'all'?
     @http.route([
         '/my/references/add',
@@ -143,10 +150,12 @@ class WebsiteReference(http.Controller):
         '/references/<model("project.reference"):reference>/edit',
     ], type='http', auth='user', website=True)
     def reference_edit(self, reference=None, **post):
+        countries = request.env['res.country'].sudo().search([])
         values = {
             'reference': reference,
             'errors': {},
             'error_messages': {},
+            'countries': countries,
         }
         if request.httprequest.method == 'GET':
             values.update(self.load_defaults(reference))

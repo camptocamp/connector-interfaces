@@ -50,8 +50,8 @@
                   <div class="styled-select">
                     <select name="country_id" class="form-control">
                       <option value="">Country...</option>
-                      <t t-foreach="countries or []" t-as="country_id">
-                        <option t-att-value="country.id" t-att-selected="country.id == (country_id or reference.country_id.id)">
+                      <t t-foreach="countries or []" t-as="country">
+                        <option t-att-value="country.id" t-att-selected="country.id == country_id">
                             <t t-esc="country.name"/>
                         </option>
                       </t>

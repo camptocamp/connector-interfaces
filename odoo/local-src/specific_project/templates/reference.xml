@@ -29,19 +29,19 @@
               <table class="table table-condensed no-border">
                     <tr>
                         <td><strong>Date:</strong></td>
-                        <td><t t-esc="reference.implementation_date" /></td>
+                        <td><span t-field="reference.implementation_date" /></td>
                     </tr>
                     <tr>
                         <td><strong>Location:</strong></td>
-                        <td><t t-esc="reference.location" /></td>
+                        <td><span t-field="reference.location" /></td>
                     </tr>
                     <tr>
                         <td><strong>Country:</strong></td>
-                        <td><t t-esc="reference.country_id" /></td>
+                        <td><span t-field="reference.country_id.name" /></td>
                     </tr>
                     <tr>
                         <td><strong>Video URL:</strong></td>
-                        <td><t t-esc="reference.video_url" /></td>
+                        <td><a t-att-href="reference.video_url" t-esc="reference.video_url"/></td>
                     </tr>
                     <tr>
                         <td><strong>Industry:</strong></td>
