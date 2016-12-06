@@ -16,6 +16,14 @@ Template:
 
 # Release History
 
+## 9.1.0a2 (Unreleased)
+
+**Features and Improvements**
+
+* [RM#16093](https://redmine.iart.ch/issues/16093) [imp] redirect to /my/home after password reset too
+* [RM#16142](https://redmine.iart.ch/issues/16142) [imp] prevent change email to use existing email within users
+
+
 ## 9.1.0a1 (2016-11-02)
 
 WIP including fixes for 0.10 and new stuff for 1.0. Alpha versions are the WIP for this.
