@@ -63,7 +63,11 @@
                   </thead>
                   <t t-foreach="reference.linked_partner_ids" t-as="linked_partner">
                     <tr>
-                      <td><span t-esc="linked_partner.name"/><span class="fa-long-arrow-right"/></td>
+                      <td>
+                          <a t-att-href="linked_partner.website_url">
+                              <span t-esc="linked_partner.name"/><span class="pull-right fa fa-long-arrow-right"/>
+                          </a>
+                       </td>
                     </tr>
                   </t>
                 </table>
