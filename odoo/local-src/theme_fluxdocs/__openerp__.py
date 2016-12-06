@@ -11,6 +11,7 @@
         'views/status_message.xml',
         'views/listing.xml',
         'views/widgets.xml',
+        'views/mosaic.xml',
         'pages/homepage.xml',
     ],
     'category': 'Theme/Creative',
