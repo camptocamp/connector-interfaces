@@ -76,9 +76,16 @@ class WebsiteAccount(website_account):
 
             if 'error' not in response.qcontext:
                 vals['website'] = post['website_url']
+
                 # finally publish the partner
                 if not partner.website_published:
                     vals['website_published'] = True
+
+                # handle profile step upgrade
+                # TODO: we should hook via events/write to handle it
+                if partner.profile_state == 'step-1':
+                    # 1st update here, let's upgrade to step 2
+                    vals['profile_state'] = 'step-2'
                 partner.sudo().write(vals)
 
                 if request.website:
