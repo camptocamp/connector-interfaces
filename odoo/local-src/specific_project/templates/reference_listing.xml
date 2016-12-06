@@ -23,6 +23,24 @@
     <template id="reference_listing" name="Fluxdock reference listing">
       <t t-call="website.layout">
         <div id="wrap" class="reference-listing">
+          <section class="content opt_dark_bg">
+            <div class="content-wrap">
+                <div class="center-block mb16">
+                    <div class="content-icon">
+                        <img src="/specific_project_proposal/static/src/img/market.png"></img>
+                    </div>
+                    <h2>
+                        <t t-if="my">
+                            My Project references
+                        </t>
+                        <t t-if="not my">
+                            References
+                        </t>
+                    </h2>
+                </div>
+                <t t-call="specific_project_proposal.proposals_search_form" />
+            </div>
+          </section>
             <div class="container">
               <div class="center-block main-content-wrapper" id="ref_content">
                   <t t-call="theme_fluxdocs.listing">

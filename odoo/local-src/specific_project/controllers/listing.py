@@ -83,7 +83,6 @@ class WebsiteReference(http.Controller):
                                       url_args=url_args)
 
         detail_url = "%s/{}?%s" % (url, werkzeug.url_encode(url_args))
-        print detail_url
         references = Reference.search(
             domain, limit=self._reference_per_page, offset=pager['offset'],
             order=sorting
