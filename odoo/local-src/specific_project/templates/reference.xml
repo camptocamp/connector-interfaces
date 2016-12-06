@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="reference_detail" name="Reference">
+    <t t-call="website.layout">
+      <div class="opt_dark_bg" id="wrap">
+        <t t-call="theme_fluxdocs.mgmt_actions">
+            <t t-set="object" t-value="reference"/>
+        </t>
+        <div>
+          <t t-if="reference.image">
+            <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(website.image_url(reference,'image'))">
+            </div>
+          </t>
+          <div class="container">
+            <div class="center-block main-content-wrapper" id="ref_content">
+              <h1><t t-esc="reference.name"/></h1>
+              <p><t t-esc="reference.website_short_description"/></p>
+              <table class="table table-condensed no-border">
+                    <tr>
+                        <td><strong>Date:</strong></td>
+                        <td><span t-field="reference.implementation_date" /></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Location:</strong></td>
+                        <td><span t-field="reference.location" /></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Country:</strong></td>
+                        <td><span t-field="reference.country_id.name" /></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Video URL:</strong></td>
+                        <td><a t-att-href="reference.video_url" t-esc="reference.video_url"/></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Industry:</strong></td>
+                        <td>
+                            <t t-foreach="reference.industry_ids" t-as="one_tag">
+                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                            </t>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Expertise:</strong></td>
+                        <td>
+                            <t t-foreach="reference.expertise_ids" t-as="one_tag">
+                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                            </t>
+                        </td>
+                    </tr>
+              </table>
+              <t t-if="reference.linked_partner_ids">
+                <table class="table o_my_proposal_table">
+                  <thead>
+                    <th>Related Members</th>
+                  </thead>
+                  <t t-foreach="reference.linked_partner_ids" t-as="linked_partner">
+                    <tr>
+                      <td>
+                          <a t-att-href="linked_partner.website_url">
+                              <span t-esc="linked_partner.name"/><span class="pull-right fa fa-long-arrow-right"/>
+                          </a>
+                       </td>
+                    </tr>
+                  </t>
+                </table>
+              </t>
+            </div>
+          </div>
+        </div>
+      </div>
+    </t>
+  </template>
+
+    <!-- TODO: make this generic and reuse the same logic and template for every model! -->
+    <template id="reference_delete_confirm" name="Reference delete confirm">
+        <t t-call="website.layout">
+            <div class="delete_confirm" style="clear:both;">
+                <section class="content members-list opt_dark_bg text-center">
+                    <h3>Are you sure you want to remove this reference?</h3>
+                    <a class="btn btn-primary btn-show-proposal" title="Confirm" t-attf-href="#{reference.website_url}/delete">
+                        Confirm
+                    </a>
+                    <a class="btn btn-primary btn-show-proposal" title="Cancel" t-attf-href="#{reference.website_url}/edit">
+                        Cancel
+                    </a>
+                </section>
+            </div>
+        </t>
+    </template>
+
+</odoo>

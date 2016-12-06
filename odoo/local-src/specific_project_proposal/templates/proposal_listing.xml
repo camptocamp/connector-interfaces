@@ -27,62 +27,65 @@
     </div>
 </template>
 
+<!-- TODO: make this form generic! (we are using it also for references search) -->
+<template id="proposals_search_form" name="Fluxdock proposals search form">
+  <form class="search-panel" role="search" t-attf-action="#{url}" method="get">
+      <div class="row filter-row row-1">
+          <div class="col-md-12">
+              <input type="text" name="search_name" class="search-query form-control" placeholder="Search..." t-att-value="search_name"/>
+              <button type="submit" class="btn btn-default btn-primary ">Search</button>
+          </div>
+      </div>
+      <div class="row filter-row row-2">
+          <div class="col-md-6">
+              <input name="search_industries" class="search-query form-control oe_search_box js_select2_categories" placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/>
+          </div>
+          <div class="col-md-6">
+              <input name="search_expertises" class="search-query form-control oe_search_box js_select2_expertises" placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/>
+          </div>
+      </div>
+      <div class="row filter-row row-3">
+          <div class="col-md-6">
+              <div class="styled-select">
+                  <select name="search_country" class="form-control">
+                      <option value="">Country...</option>
+                      <t t-foreach="countries or []" t-as="country">
+                          <option t-att-value="country.id" t-att-selected="country.id == selected_country_id">
+                              <t t-esc="country.name"/>
+                          </option>
+                      </t>
+                  </select>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <input type="text" name="search_location" class="search-query form-control oe_search_box" placeholder="Location" t-att-value="search_location"/>
+          </div>
+      </div>
+  </form>
+</template>
+
 
 <template id="proposal_index" name="Proposals">
   <t t-call="website.layout">
     <div id="wrap" class="oe_website_proposals proposals-listing">
-      <div class="oe_structure">
-        <section class="content opt_dark_bg">
-            <div class="content-wrap">
-                <div class="center-block mb16">
-                    <div class="content-icon">
-                        <img src="/specific_project_proposal/static/src/img/market.png"></img>
-                    </div>
-                    <h2>
-                        <t t-if="my">
-                            My Project proposals
-                        </t>
-                        <t t-if="not my">
-                            Market
-                        </t>
-                    </h2>
+      <section class="content opt_dark_bg">
+        <div class="content-wrap">
+            <div class="center-block mb16">
+                <div class="content-icon">
+                    <img src="/specific_project_proposal/static/src/img/market.png"></img>
                 </div>
-                <form class="search-panel" role="search" t-attf-action="#{url}" method="get">
-                    <div class="row filter-row row-1">
-                        <div class="col-md-12">
-                            <input type="text" name="search_name" class="search-query form-control" placeholder="Search project..." t-att-value="search_name"/>
-                            <button type="submit" class="btn btn-default btn-primary ">Search</button>
-                        </div>
-                    </div>
-                    <div class="row filter-row row-2">
-                        <div class="col-md-6">
-                            <input name="search_industries" class="search-query form-control oe_search_box js_select2_categories" placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/>
-                        </div>
-                        <div class="col-md-6">
-                            <input name="search_expertises" class="search-query form-control oe_search_box js_select2_expertises" placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/>
-                        </div>
-                    </div>
-                    <div class="row filter-row row-3">
-                        <div class="col-md-6">
-                            <div class="styled-select">
-                                <select name="search_country" class="form-control">
-                                    <option value="">Country...</option>
-                                    <t t-foreach="countries or []" t-as="country">
-                                        <option t-att-value="country.id" t-att-selected="country.id == selected_country_id">
-                                            <t t-esc="country.name"/>
-                                        </option>
-                                    </t>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="text" name="search_location" class="search-query form-control oe_search_box" placeholder="Location" t-att-value="search_location"/>
-                        </div>
-                    </div>
-                </form>
+                <h2>
+                    <t t-if="my">
+                        My Project proposals
+                    </t>
+                    <t t-if="not my">
+                        Market
+                    </t>
+                </h2>
             </div>
-        </section>
-      </div>
+            <t t-call="specific_project_proposal.proposals_search_form" />
+        </div>
+      </section>
       <div class="container">
         <div class="center-block main-content-wrapper" id="ref_content">
             <t t-call="theme_fluxdocs.listing">

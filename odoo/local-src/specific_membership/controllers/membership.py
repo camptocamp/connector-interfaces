@@ -22,7 +22,24 @@ MEMBERSHIP_STATES = ('free', 'paid', 'invoiced')
 
 
 class WebsiteMembership(WebsiteMembershipController):
-    _references_per_page = 10
+    _items_per_page = 10
+
+    @http.route()
+    def partners_detail(self, partner_id, **post):
+        response = super(
+            WebsiteMembership, self).partners_detail(partner_id, **post)
+        # FIXME: this is super-weird
+        # a partner HAS NO USER associated
+        # while the user HAS A PARTNER associated
+        if response.qcontext.get('partner'):
+            partner_user = request.env['res.users'].search(
+                [('partner_id', '=', response.qcontext.get('partner').id)],
+                limit=1
+            )
+            response.qcontext.update({
+                'partner_user': partner_user
+            })
+        return response
 
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
@@ -135,14 +152,12 @@ class WebsiteMembership(WebsiteMembershipController):
         if post_name:
             country_domain += ['|', ('name', 'ilike', post_name),
                                ('website_description', 'ilike', post_name)]
-        print 'COUNTRY DOMAIN' + ('*' * 100)
-        print country_domain
         countries = partner_obj.read_group(
             country_domain + [("website_published", "=", True)],
             ["id", "country_id"],  # noqa
             groupby="country_id", orderby="country_id")
 
-        limit = self._references_per_page
+        limit = self._items_per_page
         offset = limit * (page - 1)
 
         search_domain = [
@@ -178,8 +193,6 @@ class WebsiteMembership(WebsiteMembershipController):
             expertises = Expertise.browse(expertise_ids).read(['name'])
             expertises = json.dumps(expertises)
 
-        print 'SEARCH DOMAIN' + ('*' * 100)
-        print search_domain
         partners = partner_obj.search(
             search_domain,
             offset=offset,

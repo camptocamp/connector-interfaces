@@ -46,6 +46,20 @@ class ResPartner(models.Model):
         default='step-1',
     )
 
+    # TEMP solution for testing mosaic with partners >>
+    image_url = fields.Char(
+        compute='_compute_image_url',
+        readonly=True,
+    )
+
+    @api.multi
+    @api.depends()
+    def _compute_image_url(self):
+        for item in self:
+            item.image_url = \
+                'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg'
+    # >> TEMP solution for testing mosaic with partners
+
     def _select_profile_state(self):
         options = [
             ('step-1', 'Signup'),

@@ -1,0 +1,13 @@
+<odoo>
+
+<record model="ir.rule" id="unpublished_reference_visible_by_owner">
+  <field name="name">Unpublished references are only visibile by the owner</field>
+  <field name="model_id" ref="model_project_reference"/>
+  <field name="perm_read" eval="True"/>
+  <field name="perm_write" eval="True"/>
+  <field name="perm_create" eval="True"/>
+  <field name="perm_unlink" eval="True"/>
+  <field name="domain_force">['|', ('website_published', '=', True), '&amp;', ('create_uid','=',user.id), ('website_published', '=', False)]</field>
+</record>
+
+</odoo>

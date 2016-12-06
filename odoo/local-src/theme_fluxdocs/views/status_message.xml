@@ -10,7 +10,7 @@
         <t t-set="status_message" t-value="website.get_status_message()" />
         <t t-if="status_message">
           <!-- pop it, so that we show msg only once! -->
-          <div class="container status_message">
+          <div class="container-fluid status_message">
             <t t-foreach="status_message" t-as="msg">
               <div t-attf-class="alert alert-#{msg['type']} alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

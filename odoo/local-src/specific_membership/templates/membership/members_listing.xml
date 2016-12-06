@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- TODO: unify this template too, since we need it for all the listings (proposals, reference, market, etc)
+    Unfortunately we cannot pass translateable strings for label as variables... AFAIK -->
     <template id="member_item_tags" name="Fluxdock member tags template">
         <div class="item-tags">
             <strong>Industry:</strong>

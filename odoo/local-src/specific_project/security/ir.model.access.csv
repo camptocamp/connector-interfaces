@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_project_reference_all,project.reference all,model_project_reference,,1,0,0,0
+access_project_reference_portal,project.reference portal,model_project_reference,base.group_portal,1,1,1,1
+access_project_reference_user,project.reference user,model_project_reference,base.group_user,1,1,1,1

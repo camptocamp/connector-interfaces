@@ -937,67 +937,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 	}
 
-	//MY ACCOUNT
-	.profile_details{
-		//Logo upload
-		.media {
-			position: absolute;
-			right: 0;
-			top: 0;
-			margin-top: 0;
-			border: 1px solid #fff;
-			background-color: @darkColor;
-			max-width: 170px;
-			width: 170px;
-			height: 170px;
-			padding: 0;
-			label {
-				position: absolute;
-				color: #fff;
-				top: 0;
-				right: 0;
-				margin-top: 0;
-				font-size: 20px;
-				float: left;
-				text-align: left;
-				padding-left: 10px;
-				padding-top: 0;
-				display: block;
-				span {
-					text-align: left;
-					color: #fff;
-					float: left;
-					margin-top: 0;
-					padding-top: 0;
-				}
-				p {
-					color: #999999;
-					text-align: left;
-					float: left;
-					display: list-item;
-					padding-bottom: 0;
-					margin-top: 5px;
-				}
-			}
-                        .img {
-                            max-width: 170px;
-                            width: 170px;
-                        }
-			.thumbnail {
-				position: absolute;
-				right: 0;
-				top: 0;
-				margin-top: 0;
-				max-width: 170px;
-				width: 170px;
-				opacity: 1;
-			}
-		}
-	}
-
-
 	//LOGIN
 	.oe_website_login_container, .profile_details {
+		// TODO: move form styles to `form.less`
 		color: white;
 		background-color: @darkColor;
 		background-image: url("/theme_fluxdocs/static/img/netz.png");
@@ -1402,89 +1344,6 @@ ul.service-menu {
 		 	}
 		}
 	}
-
-	//Forms
-	body #wrapwrap {
-		.oe_website_login_container,
-		.profile_details {
-			.media {
-				position: relative;
-				.imgupload {
-					position: absolute;
-					top: 0px;
-					left: 0px;
-				}
-				label {
-					position: absolute;
-					color: #fff;
-					top: 0px;
-					left: 0px;
-					margin-top: 0;
-					font-size: 20px;
-					float: left;
-					text-align: left;
-					padding-left: 10px;
-					padding-top: 0;
-					max-width: 170px;
-					height: 170px;
-					width: 170px;
-					z-index: 1;
-					span {
-						position: static;
-						text-align: left;
-						color: #fff;
-						float: left;
-						margin-top: 0;
-						padding-top: 0;
-					}
-					p {
-						position: static;
-						color: #999999;
-						text-align: left;
-						float: left;
-						display: list-item;
-						padding-bottom: 0;
-						margin-top: 5px;
-					}
-				}
-				.img {
-					opacity: 0;
-				}
-				.thumbnail {
-					position: absolute;
-					top: 0;
-					left: 0;
-					margin-top: 0;
-					img {
-						margin: 0 auto;
-					}
-				}
-			}
-			.form-group {
-				padding-left: 0;
-				padding-right: 0;
-				max-width: 600px;
-				label {
-					width: auto;
-					position: static;
-					display: block;
-					text-align: left;
-					padding-left: 5px;
-					padding-right: 5px;
-				}
-				.styled-select {
-					width: 100%;
-				}
-			}
-			.form-group.form-group-checkbox {
-				label {
-					display: inline;
-					padding-left: 0;
-					padding-right: 0;
-				}
-			}
-		}
-	}
 }
 @media only screen and (max-width : 700px) {
 	body #wrapwrap .oe_website_login_container .presignup .presignup-buttons a.btn {
@@ -1687,15 +1546,6 @@ body #wrapwrap main .pagination > li:last-child > a:after {
 
 /* ---- END of PUBLISH ---- */
 
-.status_message{
-  position: fixed;
-  margin-top: 90px;
-  .alert{
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-}
-
 body.editor_enable{
 	#my_header{
 		// make sure the <main /> tag is positioned correctly on edit
@@ -1705,4 +1555,11 @@ body.editor_enable{
 		// show it only when editing at 1st
 		display: block;
 	}
+}
+div.mgmt-actions{
+	padding: 10px;
+}
+body #wrapwrap main #wrap .container-fluid{
+	padding-left: 0px;
+    padding-right: 0px;
 }

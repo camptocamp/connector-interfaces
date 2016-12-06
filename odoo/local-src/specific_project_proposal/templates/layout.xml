@@ -4,7 +4,7 @@
 <template id="layout">
   <t t-call="website.layout">
     <t t-set="additional_title">Proposal Detail</t>
-    <div id="wrap" class="js_proposal o_website_proposal">
+    <div id="wrap" t-attf-class="js_proposal o_website_proposal #{extra_css_klass or ''}">
       <div class="oe_structure"/>
 
       <div class="container mt8">

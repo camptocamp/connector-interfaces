@@ -8,10 +8,11 @@
 				<link href="/theme_fluxdocs/static/less/webfonts.css" rel="stylesheet" type="text/css" />
 				<link href="/theme_fluxdocs/static/less/bxslider/bxslider.css" rel="stylesheet" type="text/css" />
 				<link href="/theme_fluxdocs/static/less/variables.less" rel="stylesheet" type="text/less" />
+				<link href="/theme_fluxdocs/static/less/style.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/utils.less" rel="stylesheet" type="text/less" />
+				<link href="/theme_fluxdocs/static/less/form.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/components.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/listing.less" rel="stylesheet" type="text/less" />
-				<link href="/theme_fluxdocs/static/less/style.less" rel="stylesheet" type="text/less" />
 			</xpath>
 
 
@@ -20,6 +21,10 @@
 				<link rel="shortcut icon" href="/theme_fluxdocs/static/favicon/favicon_v02.png" type="image/x-icon" />
 				<link rel="icon" href="/theme_fluxdocs/static/favicon/favicon_v01.png" type="image/x-icon" />
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/bxslider.js"></script>
+				<script type="text/javascript" src="/theme_fluxdocs/static/js/select2widgets.js"></script>
+				<!--  still needed ? -->
+				<script type="text/javascript" src="/theme_fluxdocs/static/js/plugins/imagesloaded.pkgd.js"></script>
+				<script type="text/javascript" src="/theme_fluxdocs/static/js/mosaic.js"></script>
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/fluxdock.js"></script>
 			</xpath>
 

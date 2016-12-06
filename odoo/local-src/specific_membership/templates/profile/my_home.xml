@@ -3,17 +3,21 @@
 
     <!-- override personal account view -->
     <template id="account" name="Account" inherit_id="website_portal.account">
+
         <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
             <t t-call="specific_membership.my_home_content" />
         </xpath>
         <!-- reset classes -->
+        <xpath expr="//div[contains(@class,'container mb64')]" position="attributes">
+            <attribute name="class">mb64</attribute>
+        </xpath>
         <xpath expr="//div[contains(@class,'o_my_documents')]" position="attributes">
             <attribute name="class">o_my_documents my_home</attribute>
         </xpath>
     </template>
 
     <template id="my_home_content" name="My account content">
-        <div class="my_home_content">
+        <div class="container my_home_content">
             <div class="row">
                 <div id="col-1" class="col col-md-6">
                     <t t-call="specific_membership.partner_table" />
@@ -22,6 +26,27 @@
                     <t t-call="specific_membership.website_membership_status" />
                 </div>
             </div>
+        </div>
+        <div class="project-references opt_dark_bg">
+          <div class="container">
+            <section class="content">
+              <div class="content-wrap">
+                <h2>Projects</h2>
+                <p class="text-left">Lorem ipsum dolor sit amet, vix ex quodsi blandit suscipit. His in decore omnium appareat, usu at quas albucius complectitur. Everti menandri suavitate duo in, per cu liber dicit. Posse delectus postulant ea vis. Agam legimus percipit eu vis. Summo labores offendit quo eu, quo quas posidonium at, ea incorrupte interpretaris sit.</p>
+              </div>
+            </section>
+            <t t-call="theme_fluxdocs.mosaic">
+                <t t-set="data_model" t-value="'project.reference'" />
+                <t t-set="data_limit" t-value="'4'" />
+                <t t-set="data_order" t-value="'create_date desc'" />
+                <t t-set="data_domain" t-value='"""[["create_uid","=",{}]]""".format(request.uid)' />
+            </t>
+            <section class="content">
+              <div class="content-wrap">
+                <a class="text-center" href="/references">More...</a>
+              </div>
+            </section>
+          </div>
         </div>
     </template>
 

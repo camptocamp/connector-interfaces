@@ -218,14 +218,6 @@
 			                			</div>
 			                		</div>
 
-<!-- 			                		<div t-foreach="blog_posts" t-as="blog_post" class="blog-list"> -->
-
-<!-- 					                    <h2 t-field="blog_post.name" class="blog-name"> -->
-<!-- 					                    	<t t-if="not blog_post.name">Untitled Post</t> -->
-<!-- 					                    </h2> -->
-
-<!-- 					                </div> -->
-
 			                	</div>
 			                	<div class="news-list-link">
 			                		<a href="/blog/news-1">
@@ -634,7 +626,23 @@
 						</section>
 		            </div>
 
-
+					<!-- MOSAIC / References aggregation -->
+					<div>
+						<div class="oe_snippet_thumbnail">
+							<img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/references-aggregation.png"/>
+							<span class="oe_snippet_thumbnail_title">Reference mosaic</span>
+						</div>
+						<section class="content container">
+							<div class="content-wrap">
+								<h2>References</h2>
+								<p>Lorem ipsum.</p>
+							</div>
+							<t t-call="theme_fluxdocs.mosaic">
+								<t t-set="data_model" t-value="'res.partner'"/>
+								<t t-set="data_limit" t-value="'4'"/>
+							</t>
+						</section>
+					</div>
 	            </div>
 	        </xpath>
 

@@ -37,7 +37,7 @@ odoo.define('specific_membership.portal_profile', function (require) {
                 }
             },
             query: function(query) {
-                ajax.jsonRpc("/web/dataset/call_kw_pub", 'call', {
+                ajax.jsonRpc("/web/dataset/call_kw", 'call', {
                     model: 'res.partner.category',
                     method: 'search_read',
                     args: [],
@@ -101,7 +101,7 @@ odoo.define('specific_membership.portal_profile', function (require) {
                 }
             },
             query: function(query) {
-                ajax.jsonRpc("/web/dataset/call_kw_pub", 'call', {
+                ajax.jsonRpc("/web/dataset/call_kw", 'call', {
                     model: 'partner.project.expertise',
                     method: 'search_read',
                     args: [],

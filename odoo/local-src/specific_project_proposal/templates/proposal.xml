@@ -1,248 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="proposal_detail" name="Proposal Detail">
-  <t t-call="specific_project_proposal.layout">
-
-    <t t-set="is_anon" t-value="not request.session.uid" />
-    <!-- important to check for `is_anon` too because when you are anonymous user
+    <template id="proposal_detail" name="Proposal Detail">
+        <t t-call="specific_project_proposal.layout">
+            <t t-set="is_anon" t-value="not request.session.uid"/>
+            <!-- important to check for `is_anon` too because when you are anonymous user
     you are "Public User" indeed, so you could have a membership state (default to `free`)-->
-    <t t-set="is_associate" t-value="not is_anon and request.env.user.is_associate" />
-    <t t-set="is_free_member" t-value="not is_anon and request.env.user.is_free" />
+            <t t-set="is_associate" t-value="not is_anon and request.env.user.is_associate"/>
+            <t t-set="is_free_member" t-value="not is_anon and request.env.user.is_free"/>
 
-    <div class="oe_structure" style="clear:both;">
-      <section class="content members-list opt_dark_bg">
-        <div class="content-wrap">
-            <a class="btn btn-primary btn-show-proposal" t-attf-href="#{previous_link}" title="Previous Proposal">
-                Previous
-            </a>
-            <a class="btn btn-primary btn-show-proposal" t-attf-href="#{next_link}" title="Next Proposal">
-                Next
-            </a>
-        </div>
-      </section>
-      <section class="content members-list">
-        <div class="content-wrap">
-          <div class="text-muted">
-            <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
-          </div>
-          <address>
-            <t t-set="partner" t-value="proposal.sudo().owner_id.partner_id"/>
-            <t t-set="partner" t-value="partner.parent_id if partner.parent_id else partner"/>
-            <t t-if="is_associate">
-              <b t-field="partner.name"/>
-              <div t-field="partner.self" t-field-options='{
-                "widget": "contact",
-                "fields": ["address", "phone", "fax", "email"]
-              }'/>
-            </t>
-          </address>
+            <div class="oe_structure" style="clear:both;">
+                <section class="content members-list opt_dark_bg">
+                    <div class="content-wrap">
+                        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{previous_link}" title="Previous Proposal">
+                            Previous
+                        </a>
+                        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{next_link}" title="Next Proposal">
+                            Next
+                        </a>
+                    </div>
+                </section>
+                <section class="content members-list">
+                    <div class="content-wrap">
+                        <div class="text-muted">
+                            <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
+                        </div>
+                        <address>
+                            <t t-set="partner" t-value="proposal.sudo().owner_id.partner_id"/>
+                            <t t-set="partner" t-value="partner.parent_id if partner.parent_id else partner"/>
+                            <t t-if="is_associate">
+                                <b t-field="partner.name"/>
+                                <div t-field="partner.self" t-field-options='{
+                                                                                "widget": "contact",
+                                                                                "fields": ["address", "phone", "fax", "email"]
+                                                                              }'/>
+                            </t>
+                        </address>
 
-          <h1 t-field="proposal.name"/>
+                        <h1 t-field="proposal.name"/>
 
-          <p><b t-field="proposal.website_short_description"/></p>
+                        <p><b t-field="proposal.website_short_description"/></p>
 
-          <t t-if="is_associate">
-            <p t-field="proposal.website_description"/>
+                        <t t-if="is_associate">
+                            <p t-field="proposal.website_description"/>
+                        </t>
+
+                        <div t-if="is_associate">
+                            <b>Country:</b>
+                            <span t-field="proposal.country_id"/>
+                        </div>
+                        <div t-if="is_associate">
+                            <b>Location:</b>
+                            <span t-field="proposal.location"/>
+                        </div>
+
+                        <div>
+                            <b>Duration:</b>
+                            <span t-field="proposal.start_date"/>
+                            -
+                            <span t-field="proposal.stop_date"/>
+                        </div>
+                        <div>
+                            <b>Industries:</b>
+                            <t t-foreach="proposal.industry_ids" t-as="industry">
+                                <span t-field="industry.display_name"/>
+                            </t>
+                        </div>
+                        <div t-if="is_associate">
+                            <b>Expertises:</b>
+                            <t t-foreach="proposal.expertise_ids" t-as="expertise">
+                                <span t-field="expertise.name"/>
+                            </t>
+                        </div>
+                    </div>
+                </section>
+                <t t-if="is_anon">
+                    <!-- anonymous -->
+                    <section class="content opt_dark_bg">
+                        <div class="content-wrap">
+                            <h1>Membership</h1>
+                            <a class="btn btn-primary" t-att-href="'/web/presignup?redirect=' + detail_url">
+                                Sign Up
+                            </a>
+                            <a class="btn btn-primary" t-att-href="'/web/login?redirect=' + detail_url">
+                                Login
+                            </a>
+                        </div>
+                    </section>
+                </t>
+                <t t-if="is_free_member">
+                    <section class="content opt_dark_bg">
+                        <div class="content-wrap">
+                            <h1>Membership</h1>
+                            <a class="btn btn-primary" t-att-href="'/my/membership?redirect=' + detail_url">
+                                Become an associate member
+                            </a>
+                        </div>
+                    </section>
+                </t>
+                <section class="content">
+                    <div class="content-wrap no-border">
+                        <a class="btn btn-primary btn-show-proposal" t-attf-href="#{return_link}">
+                            <t t-if="filters == 'match'">
+                                Return to my account
+                            </t>
+                            <t t-if="filters != 'match'">
+                                Return to list
+                            </t>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="proposal_edit" name="Proposal Edit">
+        <t t-call="specific_project_proposal.layout">
+            <t t-set="extra_css_klass" t-value="'opt_dark_grid_bg'"/>
+
+            <div class="container">
+                <div class="center-block main-content-wrapper">
+                  <form action="" method="post" role="form" class="form form-horizontal" enctype="multipart/form-data">
+
+                    <h2>Edit proposal</h2>
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                    <!-- FIXME: use website status message  -->
+                    <div class="foo">
+                        <div t-if="error_message" class="alert alert-danger">
+                            <t t-foreach="error_message" t-as="err">
+                                <t t-esc="err"/>
+                                <br/>
+                            </t>
+                        </div>
+                    </div>
+
+                    <div t-attf-class="form-group #{errors.get('name') and 'has-error' or ''} field-name">
+                        <label class="col-sm-3 control-label" for="name">Proposal name (*)</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="name" name="name" class="form-control" t-att-value="name or proposal.name"/>
+                        </div>
+                    </div>
+
+                    <div t-attf-class="form-group #{errors.get('location') and 'has-error' or ''} field-location ">
+                        <label class="control-label col-sm-3" for="location">Location</label>
+                        <div class="col-sm-9">
+                          <input type="text" id="location" name="location" class="form-control" t-att-value="location or proposal.location"/>
+                        </div>
+                    </div>
+
+                    <div t-attf-class="form-group #{errors.get('country_id') and 'has-error' or ''} field-country_id">
+                        <label class="control-label col-sm-3" for="country_id">Country</label>
+                        <div class="col-sm-9">
+                          <div class="styled-select">
+                            <select name="country_id" class="form-control">
+                                <option value="">Country...</option>
+                                <t t-foreach="countries or []" t-as="country">
+                                    <option t-att-value="country.id" t-att-selected="country.id == (country_id or proposal.country_id.id)">
+                                        <t t-esc="country.name"/>
+                                    </option>
+                                </t>
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div t-attf-class="form-group separate #{errors.get('website_short_description') and 'has-error' or ''} field-website_short_description">
+                        <label class="control-label col-sm-3" for="website_short_description">
+                            Teaser text (*)
+                        </label>
+                        <div class="col-sm-9">
+                          <textarea placeholder="200 characters left"
+                                    name="website_short_description"
+                                    class="form-control"><t t-esc="website_short_description or proposal.website_short_description"/></textarea>
+                        </div>
+                    </div>
+                    <div t-attf-class="form-group separate row #{errors.get('website_description') and 'has-error' or ''} field-website_description">
+                        <label class="control-label col-sm-3" for="website_description">
+                            Description (*)
+                        </label>
+                        <div class="col-sm-9">
+                          <textarea name="website_description" class="form-control"><t t-esc="website_description or proposal.website_description"/></textarea>
+                        </div>
+                    </div>
+                    <div t-attf-class="form-group date #{errors.get('start_date') and 'has-error' or ''} field-start_date">
+                        <label class="control-label col-sm-3" for="start_date">Start date</label>
+                        <div class="col-sm-9">
+                          <div class="input-group">
+                            <input type="text" class="form-control" data-date-format="YYYY-MM-DD" name="start_date" placeholder="YYYY-MM-DD" t-att-value="start_date or proposal.start_date"/>
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div t-attf-class="form-group date #{errors.get('stop_date') and 'has-error' or ''} field-stop_date">
+                        <label class="control-label col-sm-3" for="stop_date">Stop date</label>
+                        <div class="col-sm-9">
+                          <div class="input-group">
+                            <input type="text" class="form-control" data-date-format="YYYY-MM-DD" name="stop_date" placeholder="YYYY-MM-DD" t-att-value="stop_date or proposal.stop_date"/>
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div t-attf-class="form-group #{errors.get('post_industries') and 'has-error' or ''} field-post_industries">
+                        <label class="control-label col-sm-3" for="industry_ids">Industry (*)</label>
+                        <div class="col-sm-9">
+                          <input name="post_industries" placeholder="Industry" class="form-control js_select2_categories" t-attf-data-init-value="#{industries}" value="Industry"/>
+                        </div>
+                    </div>
+                    <div t-attf-class="form-group #{errors.get('post_expertises') and 'has-error' or ''} field-post_expertises">
+                        <label class="control-label col-sm-3" for="expertise_ids">Expertise</label>
+                        <div class="col-sm-9">
+                          <input name="post_expertises" placeholder="Expertise" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/>
+                        </div>
+                    </div>
+                    <div class="form-group controls">
+                      <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" name="confirm" value="Confirm"
+                                class="btn btn-default btn-primary ">Confirm</button>
+                        <a class="btn btn-default btn-primary" t-attf-href="/my">Back</a>
+
+                        <a class="btn btn-default btn-primary delete_proposal ml32"
+                           t-attf-href="/proposals/proposal/#{slug(proposal)}/delete_confirm">Delete</a>
+                        <button type="submit" name="publish"
+                                t-att-value="'Unpublish' if proposal.website_published else 'Publish'"
+                                class="btn btn-default btn-primary">
+                            <span t-att-class="'hidden' if proposal.website_published else ''">
+                                Publish
+                            </span>
+                            <span t-att-class="'hidden' if not proposal.website_published else ''">
+                                Unpublish
+                            </span>
+                        </button>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+        </t>
+    </template>
+
+    <!-- TODO: make this generic and reuse the same logic and template for every model! -->
+      <template id="proposal_delete_confirm" name="Proposal Detail">
+          <t t-call="specific_project_proposal.layout">
+
+              <div class="oe_structure" style="clear:both;">
+                  <section class="content members-list opt_dark_bg">
+                      <h3>Are you sure you want to remove this proposal?</h3>
+                      <a class="btn btn-primary btn-show-proposal" title="Confirm" t-attf-href="/proposals/proposal/#{slug(proposal)}/delete">
+                          Confirm
+                      </a>
+                      <a class="btn btn-primary btn-show-proposal" title="Cancel" t-attf-href="/my/proposals/edit/#{slug(proposal)}">
+                          Cancel
+                      </a>
+                  </section>
+              </div>
           </t>
-
-          <div t-if="is_associate">
-            <b>Country:</b>
-            <span t-field="proposal.country_id"/>
-          </div>
-          <div t-if="is_associate">
-            <b>Location:</b>
-            <span t-field="proposal.location"/>
-          </div>
-
-          <div>
-            <b>Duration:</b>
-            <span t-field="proposal.start_date"/> - <span t-field="proposal.stop_date"/>
-          </div>
-          <div>
-            <b>Industries:</b>
-            <t t-foreach="proposal.industry_ids" t-as="industry">
-              <span t-field="industry.display_name"/>
-            </t>
-          </div>
-          <div t-if="is_associate">
-            <b>Expertises:</b>
-            <t t-foreach="proposal.expertise_ids" t-as="expertise">
-              <span t-field="expertise.name"/>
-            </t>
-          </div>
-        </div>
-      </section>
-      <t t-if="is_anon">
-        <!-- anonymous -->
-        <section class="content opt_dark_bg">
-            <div class="content-wrap">
-              <h1>Membership</h1>
-              <a class="btn btn-primary" t-att-href="'/web/presignup?redirect=' + detail_url">
-                Sign Up
-              </a>
-              <a class="btn btn-primary" t-att-href="'/web/login?redirect=' + detail_url">
-                Login
-              </a>
-            </div>
-        </section>
-      </t>
-      <t t-if="is_free_member">
-        <section class="content opt_dark_bg">
-          <div class="content-wrap">
-              <h1>Membership</h1>
-              <a class="btn btn-primary" t-att-href="'/my/membership?redirect=' + detail_url">
-                Become an associate member
-              </a>
-          </div>
-        </section>
-      </t>
-      <section class="content">
-        <div class="content-wrap no-border">
-            <a class="btn btn-primary btn-show-proposal" t-attf-href="#{return_link}">
-              <t t-if="filters == 'match'">
-                  Return to my account
-              </t>
-              <t t-if="filters != 'match'">
-                  Return to list
-              </t>
-            </a>
-        </div>
-      </section>
-    </div>
-  </t>
-</template>
-
-<template id="proposal_edit" name="Proposal Edit">
-  <t t-call="specific_project_proposal.layout">
-    <div class="oe_structure oe_website_proposals" style="clear:both;">
-      <form t-attf-action="/my/proposals/edit/#{ slug(proposal) }" method="post" enctype="multipart/form-data" t-attf-data-success_page="/my">
-        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-        <div class="row o_website_portal_details">
-          <h2>Proposal</h2>
-          <div class="col-md-12">
-            <div class="row">
-              <div class="">
-                <div t-if="error_message" class="alert alert-danger">
-                  <t t-foreach="error_message" t-as="err">
-                    <t t-esc="err" />
-                    <br />
-                  </t>
-                </div>
-              </div>
-              <div t-attf-class="form-group row #{error.get('name') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="name">Proposal name (*)
-                </label>
-                <input type="text" name="name" class="form-control"
-                  t-att-value="name or proposal.name" />
-              </div>
-              <div t-attf-class="form-group row #{error.get('location') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="location">Location
-                </label>
-                <input type="text" name="location" class="form-control"
-                  t-att-value="location or proposal.location" />
-              </div>
-              <div
-                t-attf-class="form-group row #{error.get('country_id') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="country_id">Country
-                </label>
-                <div class="styled-select">
-                  <select name="country_id" class="form-control">
-                    <option value="">Country...</option>
-                    <t t-foreach="countries or []" t-as="country">
-                      <option t-att-value="country.id"
-                        t-att-selected="country.id == (country_id or proposal.country_id.id)">
-                        <t t-esc="country.name" />
-                      </option>
-                    </t>
-                  </select>
-                </div>
-              </div>
-
-              <div
-                t-attf-class="form-group separate row #{error.get('website_short_description') and 'has-error' or ''} ">
-                <label class="form-control-label label-optional col-sm-2" for="website_short_description">
-                  Teaser text (*)
-                </label>
-                <textarea placeholder="200 characters left" name="website_short_description" class="form-control"><t t-esc="website_short_description or proposal.website_short_description"/></textarea>
-              </div>
-              <div
-                t-attf-class="form-group separate row #{error.get('website_description') and 'has-error' or ''} ">
-                <label class="form-control-label label-optional col-sm-2" for="website_description">
-                  Description (*)
-                </label>
-                <textarea name="website_description" class="form-control"><t t-esc="website_description or proposal.website_description"/></textarea>
-              </div>
-              <div
-                t-attf-class="form-group input-group date #{error.get('start_date') and 'has-error' or ''}">
-                <label class="form-control-label label-optional col-sm-2"
-                  for="start_date">Start date</label>
-                <input type="text" class="form-control" data-date-format="YYYY-MM-DD" name="start_date" placeholder="YYYY-MM-DD"
-                  t-att-value="start_date or proposal.start_date"
-                  />
-                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-              </div>
-
-              <div
-                t-attf-class="form-group input-group date #{error.get('stop_date') and 'has-error' or ''}">
-                <label class="form-control-label label-optional col-sm-2"
-                  for="stop_date">Stop date</label>
-                <input type="text" class="form-control" data-date-format="YYYY-MM-DD" name="stop_date" placeholder="YYYY-MM-DD"
-                  t-att-value="stop_date or proposal.stop_date"/>
-                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-              </div>
-
-              <div
-                t-attf-class="form-group row #{error.get('post_industries') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="industry_ids">Industry (*)
-                </label>
-                <input name="post_industries" placeholder="Industry" class="form-control js_select2_categories" t-attf-data-init-value="#{industries}" value="Industry" />
-              </div>
-              <div
-                t-attf-class="form-group row #{error.get('post_expertises') and 'has-error' or ''} ">
-                <label class="form-control-label col-sm-2" for="expertise_ids">Expertise (*)
-                </label>
-                <input name="post_expertises" placeholder="Expertise" class="form-control js_select2_expertises" t-attf-data-init-value="#{expertises}" value="Expertise" />
-              </div>
-            </div>
-            <div class="button-wrap">
-              <button type="submit" name="confirm" value="Confirm" class="btn btn-default btn-primary mb32 ">Confirm</button>
-              <button type="submit" name="publish" t-att-value="'Unpublish' if proposal.website_published else 'Publish'" class="btn btn-default btn-primary mb32">
-                <span t-att-class="'hidden' if proposal.website_published else ''">
-                  Publish
-                </span>
-                <span t-att-class="'hidden' if not proposal.website_published else ''">
-                  Unpublish
-                </span>
-              </button>
-              <a class="btn btn-default btn-primary mb32 delete_proposal" t-attf-href="/proposals/proposal/#{slug(proposal)}/delete_confirm">Delete</a>
-            </div>
-              <a class="btn btn-default btn-primary mb32" t-attf-href="/my">Back</a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </t>
-</template>
-
-<template id="proposal_delete_confirm" name="Proposal Detail">
-  <t t-call="specific_project_proposal.layout">
-
-    <div class="oe_structure" style="clear:both;">
-      <section class="content members-list opt_dark_bg">
-        <h3>Are you sure you want to remove this proposal?</h3>
-        <a class="btn btn-primary btn-show-proposal" title="Confirm"
-          t-attf-href="/proposals/proposal/#{slug(proposal)}/delete">
-          Confirm
-        </a>
-        <a class="btn btn-primary btn-show-proposal" title="Cancel"
-          t-attf-href="/my/proposals/edit/#{slug(proposal)}">
-          Cancel
-        </a>
-      </section>
-    </div>
-  </t>
-</template>
-
+      </template>
 
 </odoo>

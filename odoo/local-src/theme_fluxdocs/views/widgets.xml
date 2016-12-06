@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="imageupload_widget" name="Fluxdock image upload widget">
+        <div class="image-upload-widget">
+            <t t-set="image_input_name" t-value="image_input_name or 'image'" />
+            <t t-if="image_preview_url">
+                <img itemtype="image" class="img img-responsive" t-att-src="image_preview_url" />
+            </t>
+            <div class="imgupload" t-att-data-preview-width="image_preview_width">
+                <div class="file-tab">
+                    <label t-att-for="image_input_name" class="btn btn-file">
+                        <span class="info overlay overlay-slideup">
+                            <span class="browse">Browse</span>
+                            <info class="format">Format: *.png/*.jpg</info>
+                        </span>
+                        <input
+                            type="file" capture="camera" accept="image/*"
+                            t-att-id="image_input_name"
+                            t-att-name="image_input_name"
+                            class="form-control"
+                            />
+                    </label>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!--
+    TODO: whole customization for the "publish_short" widget defined in "website".
+    We should make the default ones (even `publish_management` one) work as we like.
+    We need object owners to be able to publish items.
+    -->
+
+    <template id="publish_short">
+        <div t-attf-class="pull-right js_publish_management #{object.website_published and 'css_published' or 'css_unpublished'}"
+             t-att-data-id="object.id" t-att-data-object="object._name" t-att-data-controller="publish_controller">
+            <button class="btn btn-danger js_publish_btn">Not Published</button>
+            <button class="btn btn-success js_publish_btn">Published</button>
+        </div>
+    </template>
+
+    <!--
+    TODO: We need to check for permissions here, not by owner/user id.
+    -->
+    <template id="mgmt_actions">
+        <t t-set="is_owner" t-value="object.create_uid.id == request.session.uid or request.session.uid == 1" />
+        <t t-if="is_owner">
+            <div class="mgmt-actions">
+                <a class="btn btn-defaul pull-left" t-att-href="reference.website_url + '/edit'">Edit</a>
+                <t t-call="theme_fluxdocs.publish_short" />
+            </div>
+        </t>
+    </template>
+
+</odoo>

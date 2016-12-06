@@ -7,9 +7,8 @@ var website = require('website.website');
 
 var _t = core._t;
 
-if(!$('.oe_website_proposals').length) {
-    return $.Deferred().reject("DOM doesn't contain '.oe_website_proposals'");
-}
+// TODO: move this to theme_fluxdocs as it's general stuff now
+
 
     $('.hide_listing_item').on('click', function (ev) {
         ev.preventDefault();
@@ -30,15 +29,19 @@ if(!$('.oe_website_proposals').length) {
         });
     });
 
-    $("div.input-group span.fa-calendar").on('click', function(e) {
-        $(e.currentTarget).closest("div.date").datetimepicker({
-            useSeconds: true,
-            icons : {
-                time: 'fa fa-clock-o',
-                date: 'fa fa-calendar',
-                up: 'fa fa-chevron-up',
-                down: 'fa fa-chevron-down'
-            },
-        });
+    // enable datetimepicker
+    $("div.date input").datetimepicker({
+        useSeconds: true,
+        icons : {
+            time: 'fa fa-clock-o',
+            date: 'fa fa-calendar',
+            up: 'fa fa-chevron-up',
+            down: 'fa fa-chevron-down'
+        }
+    });
+    // show it also with calendar icon
+    // FIXME: is not working ATM :S
+    $("div.date span.fa-calendar").on('click', function() {
+        $(this).closest("div.date").find('input').datetimepicker('show');
     });
 });

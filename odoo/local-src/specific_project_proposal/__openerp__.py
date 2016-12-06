@@ -11,7 +11,6 @@
      'project',
      'partner_project_expertise',
      'specific_membership',
-     'specific_membership',
  ],
  'data': [
      'security/ir.model.access.csv',

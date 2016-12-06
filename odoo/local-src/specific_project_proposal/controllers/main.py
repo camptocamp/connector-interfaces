@@ -243,13 +243,15 @@ class WebsiteProposal(http.Controller):
     @http.route(['/my/proposals/edit/<model("project.proposal"):proposal>'],
                 type='http', auth="user", website=True)
     def my_proposals_detail(self, proposal, redirect=None, **post):
+        # make the form work w/ ?debug on
+        post.pop('debug', None)
         values = {
-            'error': {},
-            'error_message': []
+            'errors': {},
+            'errors_messages': []
         }
 
-        error = None
-        error_message = None
+        errors = None
+        errors_messages = None
 
         if proposal.owner_id != request.env.user:
             return request.website.render("website.403")
@@ -266,8 +268,9 @@ class WebsiteProposal(http.Controller):
                 # XXX: done for??
                 post.pop('confirm', None)
 
-            error, error_message = self.details_form_validate(post)
-            values.update({'error': error, 'error_message': error_message})
+            errors, errors_messages = self.details_form_validate(post)
+            values.update({'errors': errors,
+                           'errors_messages': errors_messages})
             values.update(post)
             country_id = post['country_id']
             if country_id and country_id.isdigit():
@@ -279,7 +282,7 @@ class WebsiteProposal(http.Controller):
             if post.get('post_expertises'):
                 expertise_ids = post['post_expertises'].split(',')
                 expertise_ids = [int(rec_id) for rec_id in expertise_ids]
-            if not error:
+            if not errors:
                 if industry_ids:
                     post['industry_ids'] = [(6, None, industry_ids)]
                 if expertise_ids:
@@ -291,7 +294,7 @@ class WebsiteProposal(http.Controller):
                 proposal.write(post)
                 if redirect:
                     return request.redirect(redirect)
-                return request.redirect('/my/home')
+                return request.redirect(proposal.website_url)
 
         industries = proposal.industry_ids
         if industry_ids:

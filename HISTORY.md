@@ -16,7 +16,16 @@ Template:
 
 # Release History
 
-## 9.1.0a2 (Unreleased)
+
+## 9.1.0a3 (Unreleased)
+
+**Features and Improvements**
+
+* [add] references
+* [add] new widget for publishing/unpublishing items
+
+
+## 9.1.0a2 (2016-12-06)
 
 **Features and Improvements**
 
