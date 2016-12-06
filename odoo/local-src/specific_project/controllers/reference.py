@@ -18,7 +18,7 @@ class WebsiteReference(http.Controller):
     form_optional_fields = (
         "implementation_date", "location", "industry_ids",
         "expertise_ids", "linked_partner_ids",
-        "video_url", "country_ids"
+        "video_url", "country_id"
     )
     # TODO: determine this by inspecting the field on the model
     form_file_fields = ('image', )

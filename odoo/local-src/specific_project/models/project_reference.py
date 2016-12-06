@@ -56,7 +56,6 @@ class ProjectReference(models.Model):
     )
     country_id = fields.Many2one(comodel_name='res.country', string="Country")
 
-
     @api.multi
     @api.depends('image')
     def _compute_image_url(self):
