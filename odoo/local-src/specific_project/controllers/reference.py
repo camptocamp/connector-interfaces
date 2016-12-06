@@ -169,6 +169,7 @@ class WebsiteReference(http.Controller):
                                       values)
 
     @http.route([
+        '/references/<model("project.reference"):reference>',
         '/my/references/<model("project.reference"):reference>',
     ], type='http', auth='public', website=True)
     def reference_detail(self, reference, **kw):
