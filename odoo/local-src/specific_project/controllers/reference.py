@@ -141,7 +141,6 @@ class WebsiteReference(http.Controller):
     def _load_default_linked_partner_ids(self, item, value):
         return self._load_default_m2m_ids(item, value)
 
-
     # TODO: do we really need 2 routes per 'my'/'all'?
     @http.route([
         '/my/references/add',
