@@ -36,6 +36,10 @@
                         <td><t t-esc="reference.location" /></td>
                     </tr>
                     <tr>
+                        <td><strong>Country:</strong></td>
+                        <td><t t-esc="reference.country_id" /></td>
+                    </tr>
+                    <tr>
                         <td><strong>Website URL:</strong></td>
                         <td><t t-esc="reference.website_url" /></td>
                     </tr>

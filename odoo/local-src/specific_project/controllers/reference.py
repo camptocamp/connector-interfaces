@@ -14,11 +14,11 @@ from openerp.http import request
 class WebsiteReference(http.Controller):
     """Controller for reference model."""
 
-    form_mandatory_fields = ("name", "website_short_description")
+    form_mandatory_fields = ("name", "website_short_description", "image")
     form_optional_fields = (
         "implementation_date", "location", "industry_ids",
         "expertise_ids", "linked_partner_ids",
-        "image", "video_url",
+        "video_url", "country_ids"
     )
     # TODO: determine this by inspecting the field on the model
     form_file_fields = ('image', )

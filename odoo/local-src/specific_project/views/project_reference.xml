@@ -34,6 +34,7 @@
                 <group>
                   <field name="implementation_date"/>
                   <field name="location"/>
+                  <field name='country_id'/>
                   <field name="industry_ids"/>
                   <field name="expertise_ids"/>
                   <field name="create_uid"/>
