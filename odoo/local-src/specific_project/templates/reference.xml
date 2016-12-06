@@ -3,10 +3,14 @@
 
   <template id="reference_detail" name="Reference">
     <t t-call="website.layout">
-      <div id="wrap">
+      <div class="opt_dark_bg" id="wrap">
         <div class="container mgmt-actions">
           <t t-if="reference.create_uid.id == uid">
-            <div class="col-sm-5">
+            <!-- <button type="object" t-att-onclick="window.location.href='/ reference.id/edit'">
+              Edit
+            </button> -->
+            <!-- <span t-esc="reference.website_url"/> -->
+            <div class="center-block main-content-wrapper">
               <t t-call="website.publish_management">
                 <t t-set="object" t-value="reference"/>
                 <t t-set="publish_edit" t-value="True"/>
@@ -14,7 +18,7 @@
             </div>
           </t>
         </div>
-        <div class="container-fluid">
+        <div>
           <t t-if="reference.image">
             <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(website.image_url(reference,'image'))">
             </div>
@@ -23,6 +27,51 @@
             <div class="center-block main-content-wrapper" id="ref_content">
               <h1><t t-esc="reference.name"/></h1>
               <p><t t-esc="reference.website_short_description"/></p>
+              <table class="table table-condensed no-border">
+                    <tr>
+                        <td>Phone:</td>
+                        <td><t t-esc="partner.phone" /></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><t t-esc="partner.email" /></td>
+                    </tr>
+                    <tr>
+                        <td>Website:</td>
+                        <td><t t-esc="partner.website"/></td>
+                    </tr>
+                    <tr>
+                        <td>Facebook:</td>
+                        <td><t t-esc="partner.facebook"/></td>
+                    </tr>
+                    <tr>
+                        <td>Twitter:</td>
+                        <td><t t-esc="partner.twitter"/></td>
+                    </tr>
+                    <tr>
+                        <td>Skype:</td>
+                        <td><t t-esc="partner.skype"/></td>
+                    </tr>
+                    <tr>
+                        <td>Claim:</td>
+                        <td><t t-esc="partner.website_short_description"/></td>
+                    </tr>
+                    <tr>
+                        <td>Industry:</td>
+                        <td>
+                            <t t-foreach="partner.category_id" t-as="one_tag">
+                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                            </t>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Expertise:</td>
+                        <td>
+                            <t t-foreach="partner.expertise_ids" t-as="one_tag">
+                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                            </t>
+                        </td>
+                    </tr>
               <t t-if="reference.linked_partner_ids">
                 <table class="table table-hover no-border o_my_proposal_table">
                   <thead>
