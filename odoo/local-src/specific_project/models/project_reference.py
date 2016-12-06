@@ -49,6 +49,20 @@ class ProjectReference(models.Model):
         select=True,
         readonly=True,
     )
+    image_url = fields.Char(
+        string='Main image URL',
+        compute='_compute_image_url',
+        default='',
+    )
+
+    @api.multi
+    @api.depends('image')
+    def _compute_image_url(self):
+        ws_model = self.env['website']
+        for item in self:
+            if not item.image:
+                continue
+            item.image_url = ws_model.image_url(item, 'image')
 
     @api.multi
     def toggle_published(self):
@@ -62,5 +76,5 @@ class ProjectReference(models.Model):
     @api.depends('name')
     def _website_url(self, name, arg):
         res = super(ProjectReference, self)._website_url(name, arg)
-        res.update({(p.id, '/my/references/%s' % slug(p)) for p in self})
+        res.update({(p.id, '/references/%s' % slug(p)) for p in self})
         return res

@@ -220,6 +220,7 @@
 
 	// mosaic grid >>
 	.mosaic.grid{
+		width: 100%;
 		/* clear fix */
 		&:after {
 		  content: '';
@@ -227,14 +228,21 @@
 		  clear: both;
 		}
 		/* ---- .grid-item ---- */
-		.grid-sizer,
-		.grid-item { width: 50%; }
 		.grid-item {
-		  float: left;
+			width: 50%;
+			height: 50%;
+		  	float: left;
+		  	overflow: hidden;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-clip: content-box;
+			background-position: center center;
+			.sepia-filter;
 		}
-		.grid-item img {
-		  display: block;
-		  max-width: 100%;
+	}
+	.my_references{
+		.mosaic.grid{
+			height: 600px;
 		}
 	}
 	// >> mosaic grid

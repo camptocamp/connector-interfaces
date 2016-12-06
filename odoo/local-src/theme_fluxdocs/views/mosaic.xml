@@ -14,6 +14,10 @@
             <t t-set="data_order" t-value="'name asc'" />
             <t t-set="data_domain" t-value='"""[["create_uid","=",{}]]""".format(request.uid)' />
         </t>
+
+        WARNING:
+
+        The model must have a field `image_url` pointing to the correct image to use.
         -->
 
         <t t-set="data_model" t-value="data_model or ''" />
@@ -22,10 +26,10 @@
         <t t-set="data_domain" t-value="data_domain or '[]'" />
 
         <script id="mosaic-grid-tmpl" type="text/template">
-            <div class="grid-item hidden">
-        		<a href="&amp;lt;%- url %&amp;gt;" title="&amp;lt;%- title %&amp;gt;">
-        			<img src="&amp;lt;%- src %&amp;gt;" />
-        		</a>
+            <div class="grid-item clickable hidden"
+                 data-url="&amp;lt;%- url %&amp;gt;"
+                 title="&amp;lt;%- title %&amp;gt;"
+                 style="background-image:url(&amp;lt;%- src %&amp;gt;)">
             </div>
         </script>
 
@@ -36,15 +40,13 @@
              t-att-data-domain="data_domain"
              data-template="mosaic-grid-tmpl"
              data-fields='{"display_name":"title","website_url":"url","image_url":"src"}'>
-          <div class="grid-sizer"></div>
-          <div class="grid-item">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
+          <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg)">
           </div>
-          <div class="grid-item">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
+          <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg)">
           </div>
-          <div class="grid-item">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" />
+          <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
+          </div>
+          <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
           </div>
         </div>
     </template>

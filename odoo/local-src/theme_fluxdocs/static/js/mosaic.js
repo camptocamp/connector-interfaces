@@ -26,7 +26,7 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
             var tmpl = unEntity($('#' + data.template).html());
             var template = _.template(tmpl);
             // 1st load items
-            ajax.jsonRpc("/web/dataset/call_kw_pub", 'call', {
+            ajax.jsonRpc("/web/dataset/call_kw", 'call', {
                 model: data.model,
                 method: 'search_read',
                 args: [data.domain],
@@ -52,13 +52,9 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
                 $grid.append(html);
                 $('.grid-item', $grid).removeClass('hidden');
             }).then(function(){
-                $grid.imagesLoaded( function() {
-                    // init Masonry after all images have loaded
-                    $grid.masonry({
-                        itemSelector: '.grid-item',
-                        columnWidth: '.grid-sizer',
-                        percentPosition: true
-                    });
+                // make grid items clickable as links
+                $('.clickable').on('click', function(){
+                    window.location.href=$(this).data('url');
                 })
             })
         })
