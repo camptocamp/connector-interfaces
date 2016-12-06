@@ -72,18 +72,7 @@
                             </t>
                         </td>
                     </tr>
-              <t t-if="reference.linked_partner_ids">
-                <table class="table table-hover no-border o_my_proposal_table">
-                  <thead>
-                    <th>Related Members</th>
-                  </thead>
-                  <t t-foreach="reference.linked_partner_ids" t-as="linked_partner">
-                    <tr>
-                      <td><span t-esc="linked_partner.name"/></td>
-                    </tr>
-                  </t>
                 </table>
-              </t>
             </div>
           </div>
         </div>
