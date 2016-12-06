@@ -246,6 +246,7 @@
         </t>
     </template>
 
+    <!-- TODO: make this generic and reuse the same logic and template for every model! -->
       <template id="proposal_delete_confirm" name="Proposal Detail">
           <t t-call="specific_project_proposal.layout">
 

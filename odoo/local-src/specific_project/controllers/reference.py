@@ -178,3 +178,22 @@ class WebsiteReference(http.Controller):
         }
         return request.website.render("specific_project.reference_detail",
                                       values)
+
+    # TODO: unify this controllers and use the same on for every model!
+    # Now duplicated from proposal!
+    @http.route(
+        '/references/<model("project.reference"):reference>/delete_confirm',
+        type='http', auth="user", website=True)
+    def delete_confirm(self, reference, **kwargs):
+        return request.render(
+            "specific_project.reference_delete_confirm", {
+                'reference': reference,
+                'main_object': reference,
+            })
+
+    @http.route(
+        '/references/<model("project.reference"):reference>/delete',
+        type='http', auth="user", website=True)
+    def delete(self, reference, **kwargs):
+        reference.unlink()
+        return request.redirect('/my/home')

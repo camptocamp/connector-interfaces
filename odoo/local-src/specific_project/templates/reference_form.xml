@@ -119,6 +119,10 @@
                 <div class="col-sm-9 col-sm-offset-3">
                   <a class="btn btn-warning" t-att-href="request.httprequest.referrer">Cancel</a>
                   <button type="submit" class="btn btn-primary">Submit</button>
+                  <t t-if="reference">
+                      <a class="btn btn-default btn-danger delete_reference ml32 pull-right"
+                         t-attf-href="#{reference.website_url}/delete_confirm">Delete</a>
+                  </t>
                 </div>
               </div>
             </form>
