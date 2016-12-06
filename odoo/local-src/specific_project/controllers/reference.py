@@ -158,6 +158,11 @@ class WebsiteReference(http.Controller):
                     reference.write(values)
                 else:
                     reference = request.env['project.reference'].create(values)
+                    # TODO: handle this better with some hook
+                    # and with proper mgmt of partner profile
+                    partner = request.env.user.partner_id
+                    if partner.profile_state == 'step-2':
+                        partner.profile_state = 'step-3'
                 return werkzeug.utils.redirect(reference.website_url)
 
             values.update({
