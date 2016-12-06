@@ -40,8 +40,8 @@
                         <td><t t-esc="reference.country_id" /></td>
                     </tr>
                     <tr>
-                        <td><strong>Website URL:</strong></td>
-                        <td><t t-esc="reference.website_url" /></td>
+                        <td><strong>Video URL:</strong></td>
+                        <td><t t-esc="reference.video_url" /></td>
                     </tr>
                     <tr>
                         <td><strong>Industry:</strong></td>
