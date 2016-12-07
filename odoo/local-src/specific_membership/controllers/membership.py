@@ -32,7 +32,7 @@ class WebsiteMembership(WebsiteMembershipController):
         # a partner HAS NO USER associated
         # while the user HAS A PARTNER associated
         if response.qcontext.get('partner'):
-            partner_user = request.env['res.users'].search(
+            partner_user = request.env['res.users'].sudo().search(
                 [('partner_id', '=', response.qcontext.get('partner').id)],
                 limit=1
             )
