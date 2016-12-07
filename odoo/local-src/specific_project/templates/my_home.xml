@@ -3,9 +3,7 @@
 
 <template id="account" name="Account" inherit_id="specific_membership.my_home_content">
   <xpath expr="//div[@id='col-2']/t[@t-call][last()]" position="after">
-    <t groups="base.group_tester">
         <t t-call="specific_project.reference_overview" />
-    </t>
   </xpath>
 </template>
 
