@@ -27,27 +27,6 @@
                 </div>
             </div>
         </div>
-        <div class="project-references opt_dark_bg">
-          <div class="container">
-            <section class="content">
-              <div class="content-wrap">
-                <h2>Projects</h2>
-                <p class="text-left">Lorem ipsum dolor sit amet, vix ex quodsi blandit suscipit. His in decore omnium appareat, usu at quas albucius complectitur. Everti menandri suavitate duo in, per cu liber dicit. Posse delectus postulant ea vis. Agam legimus percipit eu vis. Summo labores offendit quo eu, quo quas posidonium at, ea incorrupte interpretaris sit.</p>
-              </div>
-            </section>
-            <t t-call="theme_fluxdocs.mosaic">
-                <t t-set="data_model" t-value="'project.reference'" />
-                <t t-set="data_limit" t-value="'4'" />
-                <t t-set="data_order" t-value="'create_date desc'" />
-                <t t-set="data_domain" t-value='"""[["create_uid","=",{}]]""".format(request.uid)' />
-            </t>
-            <section class="content">
-              <div class="content-wrap">
-                <a class="text-center" href="/references">More...</a>
-              </div>
-            </section>
-          </div>
-        </div>
     </template>
 
 
