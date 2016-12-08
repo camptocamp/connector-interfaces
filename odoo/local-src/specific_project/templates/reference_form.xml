@@ -116,15 +116,17 @@
               <div t-attf-class="form-group #{errors.get('linked_partner_ids') and 'has-error' or ''} field-linked_partner_ids">
                 <label class="col-sm-3 control-label" for="linked_partner_ids">Linked partners</label>
                 <div class="col-sm-9">
-                  <input type="text" id="linked_partner_ids" name="linked_partner_ids"
-                         class="form-control js_select2_m2m_widget"
-                         t-attf-data-init-value="#{linked_partner_ids}" value="industries"
-                         data-model="res.partner" data-display_name="name" data-fields='["name"]'
-                         data-domain='[["membership_state","in",["free","paid","invoiced"]]]'
-                         />
-                  <p class="help-block">Don't find your partner? Write us an email with the partner company name and email address at
-                    <a href="mailto:newpartner@fluxdock.io?subject=new%20partner">newpartner@fluxdock.io</a>
-                    for inviting him.</p>
+                    <!-- a record rule makes sure that here
+                    we can list only partners that are published and fluxdock members.
+                    We just need to exclude ourselves with a custom domain -->
+                    <input type="text" id="linked_partner_ids" name="linked_partner_ids"
+                           class="form-control js_select2_m2m_widget"
+                           t-attf-data-init-value="#{linked_partner_ids}" value="industries"
+                           data-model="res.partner" data-display_name="name" data-fields='["name"]'
+                           t-att-data-domain='"""[["id","!=",{}]]""".format(request.session.uid)'
+                           />
+                    <p class="help-block">Don't find your partner? Write us an email with the partner company name and email address at
+                        <a href="mailto:newpartner@fluxdock.io?subject=new%20partner">newpartner@fluxdock.io</a> for inviting him.</p>
                 </div>
               </div>
               <div class="form-group row">
