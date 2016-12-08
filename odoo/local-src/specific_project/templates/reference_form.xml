@@ -134,7 +134,7 @@
               </div>
               <div class="form-group mt32 controls">
                 <div class="col-sm-9 col-sm-offset-3">
-                  <a class="btn btn-warning" t-att-href="request.httprequest.referrer">Cancel</a>
+                  <a class="btn btn-default" t-att-href="request.httprequest.referrer or reference and reference.website_url">Cancel</a>
                   <button type="submit" class="btn btn-primary">Submit</button>
                   <t t-if="reference">
                       <a class="btn btn-default btn-danger delete_reference ml32 pull-right"

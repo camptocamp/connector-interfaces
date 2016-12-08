@@ -3,6 +3,30 @@
         form{
             padding-top: 2em;
             padding-bottom: 2em;
+            .form-control:not(.select2-container){
+                font-size: 20px;
+            }
+            .form-group {
+                label {
+                    text-align: left;
+                }
+                .styled-select {
+                    width: 100%;
+                }
+                .checkbox.inline{
+                    margin-right: 0.5em;
+                }
+                .keepbox{
+                    padding: 0.2em;
+                }
+            }
+            .form-group.form-group-checkbox {
+                label {
+                    display: inline;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
             h2{
                 margin-bottom: 2em;
             }
@@ -55,27 +79,6 @@
                     float: none;
                 }
             }
-            .form-group {
-                label {
-                    text-align: left;
-                }
-                .styled-select {
-                    width: 100%;
-                }
-                .checkbox.inline{
-                    margin-right: 0.5em;
-                }
-                .keepbox{
-                    padding: 0.2em;
-                }
-            }
-            .form-group.form-group-checkbox {
-            label {
-                display: inline;
-                padding-left: 0;
-                padding-right: 0;
-            }
-        }
         } // form
         .opt_dark_grid_bg{
             form{
