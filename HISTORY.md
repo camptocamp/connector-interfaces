@@ -16,6 +16,26 @@ Template:
 
 # Release History
 
+## 9.1.0a4 (Unreleased)
+
+**Features and Improvements**
+
+* [add] make mosaic snippet work with references (was prototyped with res.partner)
+* [add] tooltip to profile progress bar
+
+**Bugfixes**
+
+* [fix] member partners ACL (allow display of members to portal users)
+* [fix] responsive for account detail form
+* [fix] responsive for login/signup/reset pwd forms
+* [fix] reference form load country value (not matching current value)
+* [fix] responsive for container fluid (missing padding)
+* [fix] remove ref mosaic from account detail
+* [fix] partner public URL -> always /members/*
+* [fix] make sure we find a user for a partner to show references
+* [fix] be defensive when no user is found for a partner when loading references
+
+
 ## 9.1.0a3 (Unreleased)
 
 **Features and Improvements**
