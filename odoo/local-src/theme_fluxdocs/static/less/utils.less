@@ -1,10 +1,22 @@
 .inline{ display: inline }
-.no-border{
-	border: none !important;
+// .TODO: use functions to generate all the padding classes
+.pt05{ padding-top: 0.5em }
+.pt1{ padding-top: 1em }
+.pb05{ padding-bottom: 0.5em }
+.pb1{ padding-bottom: 1em }
+.no-border{ border: none !important; }
+.border-top{ border-top: 1px solid #fff; }
+.border-bottom{ border-bottom: 1px solid #fff; }
+.border-tnb{
+	.border-top;
+	.border-bottom;
 }
-.table.no-border{
-	td,th {
-		.no-border
+.table{
+	tbody.no-border,
+	&.no-border{
+		td,th {
+			.no-border
+		}
 	}
 }
 .main-content-wrapper{

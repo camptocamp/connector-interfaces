@@ -1,0 +1,14 @@
+<odoo>
+
+<record model="ir.rule" id="portal_members_visibility">
+  <field name="name">Portal user can see published members</field>
+  <field name="model_id" ref="model_res_partner"/>
+  <field name="perm_read" eval="True"/>
+  <field name="perm_write" eval="False"/>
+  <field name="perm_create" eval="False"/>
+  <field name="perm_unlink" eval="False"/>
+  <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+  <field name="domain_force">['&amp;', ('membership_state', 'in', ('free', 'paid', 'invoiced')), ('website_published', '=', True)]</field>
+</record>
+
+</odoo>

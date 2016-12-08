@@ -15,6 +15,10 @@ class ProjectReference(models.Model):
     _inherit = [
         'mail.thread', 'ir.needaction_mixin',
         'website.published.mixin']
+
+    # we use this for website template add action
+    website_add_url = '/references/add'
+
     name = fields.Char(
         string="Project Name",
         required=True

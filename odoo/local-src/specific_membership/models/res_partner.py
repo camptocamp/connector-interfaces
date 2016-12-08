@@ -2,6 +2,7 @@
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from openerp import api, models, fields, exceptions, _
+from openerp.addons.website.models.website import slug
 
 import logging
 
@@ -165,3 +166,10 @@ class ResPartner(models.Model):
                 part_to_update |= partner
 
         part_to_update.write({'flux_membership': 'free'})
+
+    @api.multi
+    def _website_url(self, field_name, arg):
+        res = {}
+        for item in self:
+            res[item.id] = "/members/%s" % slug(item)
+        return res

@@ -31,6 +31,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/partner_rules.xml',
         # views
         'views/partner_view.xml',
         # templates

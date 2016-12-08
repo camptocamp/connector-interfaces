@@ -23,10 +23,17 @@ class Website(models.Model):
     # TODO: the status_message concept has been borrowed from website_cms
     # we should refactor this in the separate module!
 
+    DEFAULT_STATUS_MSG_TITLE = {
+        'info': _('Info'),
+        'success': _('Success'),
+        'danger': _('Error'),
+        'warning': _('Warning'),
+    }
+
     @api.model
     def add_status_message(self, msg, mtitle='', mtype='info'):
         """Inject status message in session."""
-        mtitle = mtitle or _('Info')
+        mtitle = mtitle or self.DEFAULT_STATUS_MSG_TITLE.get(mtype or 'info')
         status_message = {
             'msg': msg,
             'title': mtitle,

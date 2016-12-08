@@ -3,6 +3,33 @@
         form{
             padding-top: 2em;
             padding-bottom: 2em;
+            .form-control:not(.select2-container){
+                font-size: 20px;
+            }
+            .form-group {
+                label {
+                    text-align: left;
+                }
+                &.has-error label {
+    				color: @brand-danger;
+    			}
+                .styled-select {
+                    width: 100%;
+                }
+                .checkbox.inline{
+                    margin-right: 0.5em;
+                }
+                .keepbox{
+                    padding: 0.2em;
+                }
+            }
+            .form-group.form-group-checkbox {
+                label {
+                    display: inline;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
             h2{
                 margin-bottom: 2em;
             }
@@ -55,27 +82,6 @@
                     float: none;
                 }
             }
-            .form-group {
-                label {
-                    text-align: left;
-                }
-                .styled-select {
-                    width: 100%;
-                }
-                .checkbox.inline{
-                    margin-right: 0.5em;
-                }
-                .keepbox{
-                    padding: 0.2em;
-                }
-            }
-            .form-group.form-group-checkbox {
-            label {
-                display: inline;
-                padding-left: 0;
-                padding-right: 0;
-            }
-        }
         } // form
         .opt_dark_grid_bg{
             form{
@@ -115,5 +121,32 @@
     		}
     	}
 
+
     } // main
+}
+
+@media only screen and (max-width : 1050px) {
+    // temp fix for non-BS form
+    body #wrapwrap .profile-form form{
+        .media{
+            position: static;
+            margin-bottom: 0.5em;
+        }
+        label{
+            width: auto !important;
+            position: static !important;
+            display: block !important;
+            text-align: left !important;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+        input{
+            width: 100%;
+        }
+        .form-group{
+            padding-left: 0;
+            padding-right: 0;
+            max-width: 600px;
+        }
+    }
 }

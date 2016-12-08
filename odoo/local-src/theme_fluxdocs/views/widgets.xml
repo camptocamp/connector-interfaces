@@ -33,7 +33,7 @@
     -->
 
     <template id="publish_short">
-        <div t-attf-class="pull-right js_publish_management #{object.website_published and 'css_published' or 'css_unpublished'}"
+        <div t-attf-class="js_publish_management #{object.website_published and 'css_published' or 'css_unpublished'}"
              t-att-data-id="object.id" t-att-data-object="object._name" t-att-data-controller="publish_controller">
             <button class="btn btn-danger js_publish_btn">Not Published</button>
             <button class="btn btn-success js_publish_btn">Published</button>
@@ -47,8 +47,16 @@
         <t t-set="is_owner" t-value="object.create_uid.id == request.session.uid or request.session.uid == 1" />
         <t t-if="is_owner">
             <div class="mgmt-actions">
-                <a class="btn btn-defaul pull-left" t-att-href="reference.website_url + '/edit'">Edit</a>
-                <t t-call="theme_fluxdocs.publish_short" />
+                <div class="pull-left left-actions">
+                    <a class="btn btn-default" t-att-href="object.website_url + '/edit'">Edit</a>
+                    <t t-call="theme_fluxdocs.publish_short" />
+                </div>
+                <t t-set="add_url" t-value="add_url or request.env[object._name].website_add_url" />
+                <t t-if="add_url">
+                    <div class="pull-right right-actions">
+                        <a class="btn btn-default" t-att-href="add_url">Add new</a>
+                    </div>
+                </t>
             </div>
         </t>
     </template>

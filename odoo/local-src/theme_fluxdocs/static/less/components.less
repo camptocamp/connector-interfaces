@@ -1,14 +1,19 @@
-#wrapwrap {
-	// btns >>
-	.btn{
-		border-radius: 0;
+.alert{
+	text-align: center;
+	strong{
+		padding-right: 1em;
 	}
-	.btn.btn-dark {
-		background-color: @darkColor;
-		color: white;
+}
+.form-group{
+	.alert{
+		text-align: left;
+		strong{
+			padding-right: 0;
+		}
 	}
-	// >> btns
+}
 
+#wrapwrap {
 	// select2 >>
 	.js_select2_categories {
 		background-color: @darkColor;
@@ -51,50 +56,6 @@
 		font-family: inherit;
 	}
 	// >> select2
-
-	// profile progress bar styles >>
-	.profile-progress-bar{
-		width: 60%;
-		margin: 2em auto 2em auto;
-		overflow: hidden;
-		background-position: center top;
-		background-repeat: no-repeat;
-		background-size: 100%;
-		&.step-1{
-			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-1.png");
-		}
-		&.step-2{
-			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-2.png");
-		}
-		&.step-3{
-			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-3.png");
-		}
-		.spacer{
-			height: 90px;
-		}
-		.step{
-			float:left;
-			width: 33.33%;
-			padding: 0 4%;
-			text-align: center;
-			display: table-cell;
-			vertical-align: bottom;
-			&.done .text{ font-weight: bold}
-		}
-	}
-	@media only screen and (max-width : 640px) {
-		.profile-progress-bar{
-			width: 90%;
-			.spacer{
-				height: 50px;
-			}
-			.step{
-				font-size: 90%;
-				line-height: 95%;
-			}
-		}
-	}
-	// >> profile progress bar styles
 
 	// my home boxes >>
 	.my_home{
@@ -223,6 +184,7 @@
 
 	// mosaic grid >>
 	.mosaic.grid{
+		height: 600px;
 		width: 100%;
 		/* clear fix */
 		&:after {
@@ -243,11 +205,6 @@
 			.sepia-filter;
 		}
 	}
-	.project-references{
-		.mosaic.grid{
-			height: 600px;
-		}
-	}
 	// >> mosaic grid
 
 	.mgmt-actions{
@@ -257,6 +214,18 @@
 		.center-block;
 		clear: both;
 		overflow: hidden;
+		.left-actions{
+			> .btn, > div{
+				float: left;
+				margin-right: 0.5em;
+			}
+		}
+		.right-actions{
+			> .btn, > div{
+				float: right;
+				margin-left: 0.5em;
+			}
+		}
 	}
 	.delete_confirm{
 		// TMP style here
@@ -264,5 +233,130 @@
 			padding: 4em;
 		}
 	}
+
+	// profile progress bar styles >>
+	.profile-progress-bar{
+		width: 70%;
+		min-height: 10em;
+		margin: 2em auto 2em auto;
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		&.step-1{
+			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-1.png");
+		}
+		&.step-2{
+			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-2.png");
+		}
+		&.step-3{
+			background-image: url("/theme_fluxdocs/static/img/profile/profile-state-step-3.png");
+			min-height: 5em;
+		}
+		.spacer{
+			height: 100px;
+		}
+		.step{
+			float:left;
+			width: 33.33%;
+			padding: 0 4%;
+			text-align: center;
+			display: table-cell;
+			vertical-align: bottom;
+			&.done .text{ font-weight: bold}
+		}
+	}
+	@media only screen and (max-width : 640px) {
+		.profile-progress-bar{
+			width: 90%;
+			.spacer{
+				height: 50px;
+			}
+			.step{
+				font-size: 90%;
+				line-height: 95%;
+			}
+			position: relative;
+			a.tooltips{
+				position: static;
+				span.msg{
+					top: 120px;
+					&:before{
+						left: 46%;
+					}
+				}
+			}
+			.step-3{
+				a.tooltips{
+					span.msg{
+						&:before{
+							left: 80%;
+						}
+						&:after{
+							left: 84%;
+						}
+					}
+				}
+			}
+		}
+	}
+	// >> profile progress bar styles
+
+	// tooltips >>
+	a.tooltips {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		text-decoration: none;
+		span.msg {
+			position: absolute;
+			left: 0;
+			width:100%;
+			top: 40px;
+			color: #000000;
+			background: #FFFFFF;
+			border: 2px solid @brand-warning;
+			line-height: 30px;
+			visibility: hidden;
+			border-radius: 0;
+			font-size: 90%;
+			line-height: 88%;
+			text-align: left;
+			padding: 4%;
+			&:before {
+				content: '';
+				position: absolute;
+				bottom: 100%;
+				left: 45%;
+				margin-left: 0;
+				width: 0; height: 0;
+				border-bottom: 12px solid @brand-warning;
+				border-right: 12px solid transparent;
+				border-left: 12px solid transparent;
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: 99%;
+				left: 50%;
+				margin-left: -3%;
+				width: 0; height: 0;
+				border-bottom: 8px solid #FFFFFF;
+				border-right: 8px solid transparent;
+				border-left: 8px solid transparent;
+			}
+		}
+		&:hover,
+		&.sticky{
+			text-decoration: none;
+			span.msg {
+				visibility: visible;
+				opacity: 1;
+				z-index: 999;
+			}
+		}
+	}
+	// >> tooltips
+
+
 
 } // #wrapwrap wrapping end

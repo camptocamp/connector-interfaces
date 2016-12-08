@@ -638,7 +638,7 @@
 								<p>Lorem ipsum.</p>
 							</div>
 							<t t-call="theme_fluxdocs.mosaic">
-								<t t-set="data_model" t-value="'res.partner'"/>
+								<t t-set="data_model" t-value="'project.reference'"/>
 								<t t-set="data_limit" t-value="'4'"/>
 							</t>
 						</section>

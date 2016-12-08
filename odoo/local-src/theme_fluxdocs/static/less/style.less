@@ -1,10 +1,3 @@
-@import "variables";
-// NOTE: the way ir_qweb load LESS files make sure that we can import variables
-// in one single file. If you try to import it in `utils.less` too
-// you'll get a security error. Sounds weird and like a bug
-// but this is how it works:
-// https://github.com/odoo/odoo/blob/9.0/openerp/addons/base/ir/ir_qweb.py#L1431
-
 body #wrapwrap main #wrap.o_editable{
 	// We are in edit mode
 	 .accordion .accordion-content{
@@ -79,7 +72,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	p{
 		line-height: 1.3;
 	}
-	a{
+	a:not(.btn){
 		color: @darkColor;
 		&:hover{
 			color: @darkColor;
@@ -135,30 +128,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		opacity: 1;
 		color: @placeholderColor;
 	}
-
-	input[type="text"],
-	input[type="tel"],
-	input[type="email"],
-	input[type="password"],
-	button[type="submit"],
-	a.btn,
-	.mybutton a,
-	a.button{
-		color: black;
-		border: solid 1px black;
-		border-radius: 0;
-		box-shadow: none;
-		height: 42px;
-		font-size: 20px;
-		padding-left: 10px;
-		padding-right: 10px;
-		background-color: white;
-		outline: none;
-		&:hover{
-			text-decoration: none;
-		}
-	}
-
 	textarea {
 		color: black;
 		border: solid 1px black;
@@ -963,23 +932,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.login-notice-wrap{
 			margin-top: 30px;
 		}
-		.alert {
-			background-color: white;
-			border-radius: 0;
-			margin-left: auto;
-			margin-right: auto;
-			max-width: 1000px;
-			text-align: center;
-			&.alert-danger{
-				color: red;
-			}
-			&.alert-success{
-				color: green;
-			}
-		}
-		.form-control-label {
-			white-space: nowrap;
-		}
 		.form-group {
 			margin: 0 auto;
 			max-width: 1000px;
@@ -987,9 +939,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			padding-right: 200px;
 			position: relative;
 			margin-bottom: 20px;
-			&.has-error label {
-				color: red;
-			}
 			&.separate {
 				margin-top: 80px;
 			}
@@ -1355,6 +1304,21 @@ ul.service-menu {
 		}
 	}
 }
+@media only screen and (max-width : 1050px) {
+	// login
+	body #wrapwrap .oe_website_login_container {
+		// fix responsive for current non-BS markup
+		.form-group{
+			padding-left: 0;
+			padding-right: 0;
+			max-width: 600px;
+			label{
+				position: static;
+				width: auto;
+			}
+		}
+	}
+}
 
 
 //Projects boxes
@@ -1558,8 +1522,4 @@ body.editor_enable{
 }
 div.mgmt-actions{
 	padding: 10px;
-}
-body #wrapwrap main #wrap .container-fluid{
-	padding-left: 0px;
-    padding-right: 0px;
 }
