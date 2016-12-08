@@ -16,7 +16,7 @@ Template:
 
 # Release History
 
-## 9.1.0a4 (Unreleased)
+## 9.1.0a4 (2016-12-08)
 
 **Features and Improvements**
 
@@ -44,8 +44,6 @@ Template:
 * [fix] styles for reference detail data
 * [fix] styles for alerts
 * [fix] buttons and inputs styles
-* [fix] member detail: move projects after address
-* [fix] styles for reference detail data
 
 
 ## 9.1.0a3 (2016-12-06)
