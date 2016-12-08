@@ -127,6 +127,15 @@ class WebsiteReference(http.Controller):
             defaults['has_' + fname] = bool(item[fname])
         return defaults
 
+    def _load_default_m2o_id(self, item, value):
+        # important: return False if no value
+        # otherwise you will compare an empty recordset with an id
+        # in the form template.
+        return value and value.id or False
+
+    def _load_default_country_id(self, item, value):
+        return self._load_default_m2o_id(item, value)
+
     def _load_default_m2m_ids(self, item, value):
         value = [{'id': x.id, 'name': x.display_name} for x in value]
         value = json.dumps(value)
