@@ -168,11 +168,13 @@ class WebsiteReference(http.Controller):
         if request.httprequest.method == 'GET':
             values.update(self.load_defaults(reference))
         elif request.httprequest.method == 'POST':
+            msg = False
             errors, errors_message = self.details_form_validate(post)
             if not errors:
                 values = self.extract_values(post)
                 if reference:
                     reference.write(values)
+                    msg = _('Reference updated.')
                 else:
                     reference = request.env['project.reference'].create(values)
                     # TODO: handle this better with some hook
@@ -180,6 +182,9 @@ class WebsiteReference(http.Controller):
                     partner = request.env.user.partner_id
                     if partner.profile_state == 'step-2':
                         partner.profile_state = 'step-3'
+                    msg = _('Reference created.')
+                if msg and request.website:
+                    request.website.add_status_message(msg)
                 return werkzeug.utils.redirect(reference.website_url)
 
             values.update({
@@ -187,6 +192,9 @@ class WebsiteReference(http.Controller):
                 'errors_message': errors_message,
             })
             values.update(self.load_defaults(reference), **post)
+            if request.website:
+                msg = _('Some errors occurred.')
+                request.website.add_status_message(msg, mtype='danger')
         return request.website.render("specific_project.reference_form",
                                       values)
 
