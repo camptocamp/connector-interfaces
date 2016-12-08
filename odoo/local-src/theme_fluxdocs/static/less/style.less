@@ -1355,6 +1355,21 @@ ul.service-menu {
 		}
 	}
 }
+@media only screen and (max-width : 1050px) {
+	// login
+	body #wrapwrap .oe_website_login_container {
+		// fix responsive for current non-BS markup
+		.form-group{
+			padding-left: 0;
+			padding-right: 0;
+			max-width: 600px;
+			label{
+				position: static;
+				width: auto;
+			}
+		}
+	}
+}
 
 
 //Projects boxes
