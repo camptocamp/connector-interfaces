@@ -22,6 +22,8 @@ Template:
 
 * [add] make mosaic snippet work with references (was prototyped with res.partner)
 * [add] tooltip to profile progress bar
+* [add] "add new" button to mgmt actions
+
 
 **Bugfixes**
 
@@ -31,9 +33,11 @@ Template:
 * [fix] reference form load country value (not matching current value)
 * [fix] responsive for container fluid (missing padding)
 * [fix] remove ref mosaic from account detail
-* [fix] partner public URL -> always /members/*
+* [fix] partner public URL -> always /members/slug
 * [fix] make sure we find a user for a partner to show references
 * [fix] be defensive when no user is found for a partner when loading references
+* [fix] member detail: move projects after address
+* [fix] styles for reference detail data
 
 
 ## 9.1.0a3 (2016-12-06)
