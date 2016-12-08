@@ -3,7 +3,7 @@
 
   <template id="reference_detail" name="Reference">
     <t t-call="website.layout">
-      <div class="opt_dark_bg" id="wrap">
+      <div class="opt_dark_bg reference-detail" id="wrap">
         <t t-call="theme_fluxdocs.mgmt_actions">
             <t t-set="object" t-value="reference"/>
         </t>
@@ -15,56 +15,66 @@
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
               <h1><t t-esc="reference.name"/></h1>
-              <p><t t-esc="reference.website_short_description"/></p>
-              <table class="table table-condensed no-border">
-                    <tr>
-                        <td><strong>Date:</strong></td>
-                        <td><span t-field="reference.implementation_date" /></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Location:</strong></td>
-                        <td><span t-field="reference.location" /></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Country:</strong></td>
-                        <td><span t-field="reference.country_id.name" /></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Video URL:</strong></td>
-                        <td><a t-att-href="reference.video_url" t-esc="reference.video_url"/></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Industry:</strong></td>
-                        <td>
-                            <t t-foreach="reference.industry_ids" t-as="one_tag">
-                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                            </t>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>Expertise:</strong></td>
-                        <td>
-                            <t t-foreach="reference.expertise_ids" t-as="one_tag">
-                              <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                            </t>
-                        </td>
-                    </tr>
-              </table>
+              <p class="description"><t t-esc="reference.website_short_description"/></p>
+
+              <div class="info border-tnb mb32 mt16 pt1 pb1">
+                <div class="row">
+                  <div class="col-md-3"><strong>Date:</strong>
+                  </div>
+                  <div class="col-md-9"><span t-field="reference.implementation_date" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><strong>Location:</strong>
+                  </div>
+                  <div class="col-md-9"><span t-field="reference.location" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><strong>Country:</strong>
+                  </div>
+                  <div class="col-md-9"><span t-field="reference.country_id.name" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><strong>Video URL:</strong>
+                  </div>
+                  <div class="col-md-9"><a t-att-href="reference.video_url" t-esc="reference.video_url"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><strong>Industry:</strong>
+                  </div>
+                  <div class="col-md-9">
+                    <t t-foreach="reference.industry_ids" t-as="one_tag">
+                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                    </t>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><strong>Expertise:</strong>
+                  </div>
+                  <div class="col-md-9">
+                    <t t-foreach="reference.expertise_ids" t-as="one_tag">
+                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                    </t>
+                  </div>
+                </div>
+              </div>
+
               <t t-if="reference.linked_partner_ids">
-                <table class="table o_my_proposal_table">
-                  <thead>
-                    <th>Related Members</th>
-                  </thead>
+                <div class="linked-partners mb64 mt32">
+                  <h3 class="text-center border-bottom pb05">Related Members</h3>
                   <t t-foreach="reference.linked_partner_ids" t-as="linked_partner">
-                    <tr>
-                      <td>
-                          <a t-att-href="linked_partner.website_url">
-                              <span t-esc="linked_partner.name"/><span class="pull-right fa fa-long-arrow-right"/>
-                          </a>
-                       </td>
-                    </tr>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <a t-att-href="linked_partner.website_url">
+                            <span t-esc="linked_partner.name"/><span class="pull-right fa fa-arrow-right"/>
+                        </a>
+                      </div>
+                    </div>
                   </t>
-                </table>
+                </div>
               </t>
             </div>
           </div>
