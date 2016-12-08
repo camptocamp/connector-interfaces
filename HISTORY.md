@@ -36,7 +36,7 @@ Template:
 * [fix] be defensive when no user is found for a partner when loading references
 
 
-## 9.1.0a3 (Unreleased)
+## 9.1.0a3 (2016-12-06)
 
 **Features and Improvements**
 
