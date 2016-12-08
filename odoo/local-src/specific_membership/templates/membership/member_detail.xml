@@ -43,30 +43,6 @@
             <div t-field="partner.self" t-field-options='{ "widget": "contact", "fields": ["address", "website", "phone", "fax", "email"] }' />
           </address>
         </section>
-        <t t-if="partner_user">
-            <div class="project-references opt_dark_bg">
-              <div class="container">
-                <section class="content">
-                  <div class="content-wrap">
-                    <h2>Projects</h2>
-                    <p class="text-left">Lorem ipsum dolor sit amet, vix ex quodsi blandit suscipit. His in decore omnium appareat, usu at quas albucius complectitur. Everti menandri suavitate duo in, per cu liber dicit. Posse delectus postulant ea vis. Agam legimus percipit eu vis. Summo labores offendit quo eu, quo quas posidonium at, ea incorrupte interpretaris sit.</p>
-                  </div>
-                </section>
-                <t t-call="theme_fluxdocs.mosaic">
-                    <t t-set="data_model" t-value="'project.reference'" />
-                    <t t-set="data_limit" t-value="'4'" />
-                    <t t-set="data_order" t-value="'create_date desc'" />
-                    <!-- `partner_user` comes from our `partner_details` controller override -->
-                    <t t-set="data_domain" t-value='"""[["create_uid","=",{}]]""".format(partner_user.id)' />
-                </t>
-                <section class="content">
-                  <div class="content-wrap">
-                    <a class="text-center" href="/references">More...</a>
-                  </div>
-                </section>
-              </div>
-            </div>
-        </t>
         <section class="content member-address opt_dark_bg">
           <t t-if="partner">
             <div class="content-wrap">
@@ -106,6 +82,30 @@
             </div>
           </t>
         </section>
+        <t t-if="partner_user">
+            <div class="project-references white_bg">
+              <div class="container">
+                <section class="content">
+                  <div class="content-wrap">
+                    <h2>Projects</h2>
+                    <p class="text-left">Lorem ipsum dolor sit amet, vix ex quodsi blandit suscipit. His in decore omnium appareat, usu at quas albucius complectitur. Everti menandri suavitate duo in, per cu liber dicit. Posse delectus postulant ea vis. Agam legimus percipit eu vis. Summo labores offendit quo eu, quo quas posidonium at, ea incorrupte interpretaris sit.</p>
+                  </div>
+                </section>
+                <t t-call="theme_fluxdocs.mosaic">
+                    <t t-set="data_model" t-value="'project.reference'" />
+                    <t t-set="data_limit" t-value="'4'" />
+                    <t t-set="data_order" t-value="'create_date desc'" />
+                    <!-- `partner_user` comes from our `partner_details` controller override -->
+                    <t t-set="data_domain" t-value='"""[["create_uid","=",{}]]""".format(partner_user.id)' />
+                </t>
+                <section class="content">
+                  <div class="content-wrap">
+                    <a class="text-center" href="/references">More...</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+        </t>
       </xpath>
       <xpath expr="//div[@class='col-md-8 mt32']" position="replace">
         <div class="col-md-8 mt32 hide">
