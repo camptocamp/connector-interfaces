@@ -75,3 +75,4 @@ migration:
       addons:
         upgrade:
           - specific_membership
+          - theme_fluxdocs
