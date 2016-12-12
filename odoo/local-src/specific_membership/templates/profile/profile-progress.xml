@@ -11,38 +11,51 @@
         Show more about your company by uploading and publishing your reference projects.
     </template>
 
+    <!-- split this text to keep its customization independent from progress bar -->
+    <template id="profile_completed_msg" name="Fluxdock profile completed message">
+        <p>You successfully completed your profile message</p>
+        <p>Continue exploring Fluxdock</p>
+    </template>
+
 
     <template id="profile_progress_bar" name="Fluxdock profile progress bar">
-        <div class="container">
-            <div t-attf-class="profile-progress-bar #{partner.profile_state}">
-                <div t-attf-class="step step-1 #{partner.profile_state in ('step-1','step-2','step-3') and 'done' or ''}">
-                    <div class="spacer"></div>
-                    <span class="text">Sign-up</span>
+        <t t-if="show_profile_progress">
+            <div class="container">
+                <div t-attf-class="profile-progress-bar #{partner.profile_state}">
+                    <div t-attf-class="step step-1 #{partner.profile_state in ('step-1','step-2','step-3') and 'done' or ''}">
+                        <div class="spacer"></div>
+                        <span class="text">Sign-up</span>
+                    </div>
+                    <div t-attf-class="step step-2 #{partner.profile_state in ('step-2','step-3') and 'done' or ''}">
+                        <div class="spacer"></div>
+                        <t t-set="show_tooltip" t-value="partner.profile_state == 'step-1'" />
+                        <t t-if="show_tooltip">
+                            <a class="tooltips sticky" href="#"><span class="text">Member profile published</span>
+                            <span class="msg"><t t-call="specific_membership.profile_step_2_msg" /></span></a>
+                        </t>
+                        <t t-if="not show_tooltip">
+                            <span class="text">Member profile published</span>
+                        </t>
+                    </div>
+                    <div t-attf-class="step step-3 #{partner.profile_state == 'step-3' and 'done' or ''}">
+                        <div class="spacer"></div>
+                        <t t-set="show_tooltip" t-value="partner.profile_state == 'step-2'" />
+                        <t t-if="show_tooltip">
+                            <a class="tooltips sticky" href="#"><span class="text">Upload references</span>
+                            <span class="msg"><t t-call="specific_membership.profile_step_3_msg" /></span></a>
+                        </t>
+                        <t t-if="not show_tooltip">
+                            <span class="text">Upload references</span>
+                        </t>
+                    </div>
                 </div>
-                <div t-attf-class="step step-2 #{partner.profile_state in ('step-2','step-3') and 'done' or ''}">
-                    <div class="spacer"></div>
-                    <t t-set="show_tooltip" t-value="partner.profile_state == 'step-1'" />
-                    <t t-if="show_tooltip">
-                        <a class="tooltips sticky" href="#"><span class="text">Member profile published</span>
-                        <span class="msg"><t t-call="specific_membership.profile_step_2_msg" /></span></a>
-                    </t>
-                    <t t-if="not show_tooltip">
-                        <span class="text">Member profile published</span>
-                    </t>
-                </div>
-                <div t-attf-class="step step-3 #{partner.profile_state == 'step-3' and 'done' or ''}">
-                    <div class="spacer"></div>
-                    <t t-set="show_tooltip" t-value="partner.profile_state == 'step-2'" />
-                    <t t-if="show_tooltip">
-                        <a class="tooltips sticky" href="#"><span class="text">Upload references</span>
-                        <span class="msg"><t t-call="specific_membership.profile_step_3_msg" /></span></a>
-                    </t>
-                    <t t-if="not show_tooltip">
-                        <span class="text">Upload references</span>
-                    </t>
-                </div>
+                <t t-if="partner.profile_completed">
+                    <div class="center-block main-content-wrapper profile-complete-msg">
+                        <t t-call="specific_membership.profile_completed_msg" />
+                    </div>
+                </t>
             </div>
-        </div>
+        </t>
     </template>
 
 </odoo>

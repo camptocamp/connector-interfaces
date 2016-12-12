@@ -10,6 +10,7 @@ from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
 import json
 import base64
 import logging
+import datetime
 _logger = logging.getLogger(__name__)
 try:
     from validate_email import validate_email
@@ -27,8 +28,15 @@ class WebsiteAccount(website_account):
 
     def _account_extra_qcontext(self):
         partner = request.env['res.users'].browse(request.uid).partner_id
+        yesterday = (
+            datetime.datetime.now() - datetime.timedelta(days=1)
+        ).strftime('%Y-%m-%d')
+        show_profile_progress = not partner.profile_completed or \
+            (partner.profile_completed and not
+                partner.profile_completed_date <= yesterday)
         return {
             'partner': partner,
+            'show_profile_progress': show_profile_progress
         }
 
     @http.route(['/my/account'], type='http', auth="user", website=True)
@@ -82,10 +90,7 @@ class WebsiteAccount(website_account):
                     vals['website_published'] = True
 
                 # handle profile step upgrade
-                # TODO: we should hook via events/write to handle it
-                if partner.profile_state == 'step-1':
-                    # 1st update here, let's upgrade to step 2
-                    vals['profile_state'] = 'step-2'
+                partner.update_profile_state()
                 partner.sudo().write(vals)
 
                 if request.website:
