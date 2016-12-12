@@ -16,6 +16,20 @@ Template:
 
 # Release History
 
+## 9.1.0a5 (2016-12-12)
+
+**Features and Improvements**
+
+* [add] [RM#16122](https://redmine.iart.ch/issues/16122) carousel for project references in member detail view RM#16122
+* [add] profile progress: add completed message and disappear after one day
+
+
+**Bugfixes**
+
+* [fix] [RM#16132](https://redmine.iart.ch/issues/16132) styled select options visibility on FF
+* [fix] [RM#16232](https://redmine.iart.ch/issues/16232) select2 input size
+
+
 ## 9.1.0a4 (2016-12-08)
 
 **Features and Improvements**
