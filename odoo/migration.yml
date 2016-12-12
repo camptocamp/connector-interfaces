@@ -71,3 +71,8 @@ migration:
           - specific_project_proposal
           - theme_fluxdocs
           - specific_project
+    - version: 9.1.0a5
+      addons:
+        upgrade:
+          - specific_membership
+          - theme_fluxdocs

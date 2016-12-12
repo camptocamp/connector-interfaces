@@ -265,6 +265,13 @@
 			&.done .text{ font-weight: bold}
 		}
 	}
+	.profile-complete-msg{
+		.text-center;
+		.text-upper;
+		.text-success;
+		margin-top: 3em;
+		font-size: (@font-size-base * 1.5);
+	}
 	@media only screen and (max-width : 640px) {
 		.profile-progress-bar{
 			width: 90%;
@@ -297,6 +304,9 @@
 					}
 				}
 			}
+		}
+		.profile-complete-msg{
+			margin-top: 1em;
 		}
 	}
 	// >> profile progress bar styles
@@ -357,6 +367,26 @@
 	}
 	// >> tooltips
 
+	.references-slider{
+		.center-block;
+		max-width: 2000px;
+		.bx-wrapper{
+			margin-bottom: 0;
+		}
+		.carousel-item{
+			height: 600px;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+	@media only screen and (max-width : 640px) {
+		.references-slider{
+			.carousel-item{
+				height: 400px;
+			}
+		}
+	}
 
 
 } // #wrapwrap wrapping end

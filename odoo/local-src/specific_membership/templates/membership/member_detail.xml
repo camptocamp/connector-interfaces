@@ -15,9 +15,18 @@
         <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
       </xpath>
       <xpath expr="//h1[@id='partner_name']" position="after">
-        <section class="top-spacer opt_dark_grid_bg"></section>
+        <section class="top-spacer-small opt_dark_grid_bg"></section>
       </xpath>
       <xpath expr="//div[@class='col-md-4']" position="replace">
+
+        <t t-if="partner_user">
+            <t t-set="carousel_items" t-value="[x for x in partner_user.references_ids if x.image]" />
+            <t t-if="carousel_items">
+                <div class="references-slider">
+                    <t t-call="theme_fluxdocs.carousel" />
+                </div>
+            </t>
+        </t>
         <section class="content member-detail-view white_bg">
           <div class="content-wrap">
             <div class="row">

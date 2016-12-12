@@ -46,20 +46,29 @@ class ResPartner(models.Model):
         required=True,
         default='step-1',
     )
-
-    # TEMP solution for testing mosaic with partners >>
-    image_url = fields.Char(
-        compute='_compute_image_url',
+    profile_completed = fields.Boolean(
+        string='Profile completed',
+        compute='_compute_profile_completed',
         readonly=True,
+    )
+    profile_completed_date = fields.Date(
+        string='Profile completed date',
     )
 
     @api.multi
-    @api.depends()
-    def _compute_image_url(self):
+    @api.depends('profile_state')
+    def _compute_profile_completed(self):
         for item in self:
-            item.image_url = \
-                'https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg'
-    # >> TEMP solution for testing mosaic with partners
+            item.profile_completed = item.profile_state == 'step-3'
+
+    @api.multi
+    def update_profile_state(self):
+        for item in self:
+            if item.profile_state == 'step-1':
+                item.profile_state = 'step-2'
+            elif item.profile_state == 'step-2':
+                item.profile_state = 'step-3'
+                item.profile_completed_date = fields.Date.today()
 
     def _select_profile_state(self):
         options = [

@@ -61,4 +61,14 @@
         </t>
     </template>
 
+    <template id="carousel">
+        <section class="carousel">
+            <ul class="bxslider">
+                <t t-foreach="carousel_items" t-as="carousel_item">
+                    <li class="carousel-item" t-att-style="'background-image: url({});'.format(website.image_url(carousel_item, 'image'))" />
+                </t>
+            </ul>
+        </section>
+    </template>
+
 </odoo>
