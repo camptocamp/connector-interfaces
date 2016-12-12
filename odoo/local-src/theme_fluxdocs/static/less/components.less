@@ -369,7 +369,7 @@
 
 	.references-slider{
 		.center-block;
-		max-width: 100%;
+		max-width: 2000px;
 		.bx-wrapper{
 			margin-bottom: 0;
 		}
@@ -380,7 +380,13 @@
 			background-repeat: no-repeat;
 		}
 	}
-
+	@media only screen and (max-width : 640px) {
+		.references-slider{
+			.carousel-item{
+				height: 400px;
+			}
+		}
+	}
 
 
 } // #wrapwrap wrapping end
