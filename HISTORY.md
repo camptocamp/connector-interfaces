@@ -36,7 +36,11 @@ Template:
 
 **Bugfixes**
 
-TODO
+* [imp] [RM#16133](https://redmine.iart.ch/issues/16133) IE11 some member logos are not displayed
+
+    * upgraded both `OCB` and `server-tools` repos to latest version 
+      that include some fixing for detecting images mimetypes
+    * add option `attachment` to reference image field in order to preserve filename and mimetype
 
 
 ## 9.1.0a5 (2016-12-12)

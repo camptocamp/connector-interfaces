@@ -21,8 +21,11 @@
                     <t t-set="detail_href" t-value="detail_url.format(slug(item))"/>
                     <t t-if="show_preview">
                         <div class="col-md-3">
-                            <a class="item-preview" t-att-href="detail_href" t-field="item.image"
-                               t-field-options='{"widget": "image", "class": "media-object center-block", "max_width": 128}'/>
+                            <a class="item-preview"
+                               t-att-href="detail_href">
+                               <img class="img img-responsive center-block"
+                                    t-att-src="website.image_url(item, 'image', '128x128')" />
+                            </a>
                         </div>
                     </t>
                     <div t-att-class="show_preview and 'col-md-9' or 'col-md-12'">

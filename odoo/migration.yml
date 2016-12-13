@@ -76,3 +76,12 @@ migration:
         upgrade:
           - specific_membership
           - theme_fluxdocs
+    - version: 9.1.0a6
+      addons:
+        upgrade:
+          # we upgraded odoo OCB and server-tools versions
+          # to today latest commits @2016-12-13 16:30
+          - base
+      operations:
+        post:
+          - anthem songs.install.post::remove_useless_menuitems
