@@ -19,6 +19,7 @@ Template:
 **Features and Improvements**
 
 * [add] [SNIPPETS LIST](odoo/local-src/theme_fluxdocs/SNIPPETS_LIST.md)
+* [imp] [RM#16122](https://redmine.iart.ch/issues/16122) add auto-play carousel for project references
 
 
 **Bugfixes**
@@ -30,7 +31,7 @@ TODO
 
 **Features and Improvements**
 
-* [add] [RM#16122](https://redmine.iart.ch/issues/16122) carousel for project references in member detail view RM#16122
+* [add] [RM#16122](https://redmine.iart.ch/issues/16122) carousel for project references in member detail view
 * [add] profile progress: add completed message and disappear after one day
 
 

@@ -217,7 +217,10 @@ $(document).ready(function() {
 	}
 
 	//Init Carousel with bxslider
-	$('.bxslider').bxSlider();
+	$('.bxslider').each(function(){
+		var data = $(this).data('slider') ? $(this).data('slider'): {};
+		$(this).bxSlider(data);
+	})
 
 	//Accordion
 	$('.accordion-trigger').on('click', function(event) {
