@@ -25,14 +25,6 @@
         <t t-set="data_order" t-value="data_order or 'create_date desc'" />
         <t t-set="data_domain" t-value="data_domain or '[]'" />
 
-        <script id="mosaic-grid-tmpl" type="text/template">
-            <div class="grid-item clickable hidden"
-                 data-url="&amp;lt;%- url %&amp;gt;"
-                 title="&amp;lt;%- title %&amp;gt;"
-                 style="background-image:url(&amp;lt;%- src %&amp;gt;)">
-            </div>
-        </script>
-
         <div class="mosaic grid"
              t-att-data-model="data_model"
              t-att-data-limit="data_limit"
@@ -48,6 +40,13 @@
           </div>
           <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
           </div>
+          <script class="mosaic-grid-tmpl" type="text/template">
+              <div class="grid-item clickable hidden"
+                   data-url="&amp;lt;%- url %&amp;gt;"
+                   title="&amp;lt;%- title %&amp;gt;"
+                   style="background-image:url(&amp;lt;%- src %&amp;gt;)">
+              </div>
+          </script>
         </div>
     </template>
 

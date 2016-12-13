@@ -7,13 +7,14 @@
 			<xpath expr="link[@href='/website/static/src/css/website.css']" position="replace">
 				<link href="/theme_fluxdocs/static/less/webfonts.css" rel="stylesheet" type="text/css" />
 				<link href="/theme_fluxdocs/static/less/bxslider/bxslider.css" rel="stylesheet" type="text/css" />
-				<link href="/theme_fluxdocs/static/less/variables.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/buttons.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/style.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/utils.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/form.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/components.less" rel="stylesheet" type="text/less" />
 				<link href="/theme_fluxdocs/static/less/listing.less" rel="stylesheet" type="text/less" />
+				<!-- variables must stay at the end https://github.com/odoo/odoo/issues/14657 -->
+				<link href="/theme_fluxdocs/static/less/variables.less" rel="stylesheet" type="text/less" />
 			</xpath>
 
 

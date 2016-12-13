@@ -23,7 +23,7 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
             $('.grid-item', $grid).remove();
             var data = $grid.data();
             var fields = _.keys(data.fields);
-            var tmpl = unEntity($('#' + data.template).html());
+            var tmpl = unEntity($('.' + data.template, $grid).html());
             var template = _.template(tmpl);
             // 1st load items
             ajax.jsonRpc("/web/dataset/call_kw", 'call', {
