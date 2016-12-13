@@ -1,5 +1,3 @@
-.. :changelog:
-
 <!--
 Template:
 
@@ -16,11 +14,40 @@ Template:
 
 # Release History
 
+## 9.1.0a6 (Unreleased)
+
+**Features and Improvements**
+
+* [add] [SNIPPETS LIST](odoo/local-src/theme_fluxdocs/SNIPPETS_LIST.md)
+* [imp] [RM#16122](https://redmine.iart.ch/issues/16122) add auto-play carousel for project references
+* [imp] [RM#16231](https://redmine.iart.ch/issues/16231) reference mosaic
+
+    * violet overlay instead of sepia effect
+    * add title to overlay
+    * expand width to 1366px max (.container-lg)
+    * adapt homepage snippet
+
+        * update intro text + add "more" link
+
+* [imp] reference slider reduce width to 1366px max (.container-lg)
+
+  Let's be consistend with mosaic max size and wait for more design instructions.
+
+
+**Bugfixes**
+
+* [imp] [RM#16133](https://redmine.iart.ch/issues/16133) IE11 some member logos are not displayed
+
+    * upgraded both `OCB` and `server-tools` repos to latest version 
+      that include some fixing for detecting images mimetypes
+    * add option `attachment` to reference image field in order to preserve filename and mimetype
+
+
 ## 9.1.0a5 (2016-12-12)
 
 **Features and Improvements**
 
-* [add] [RM#16122](https://redmine.iart.ch/issues/16122) carousel for project references in member detail view RM#16122
+* [add] [RM#16122](https://redmine.iart.ch/issues/16122) carousel for project references in member detail view
 * [add] profile progress: add completed message and disappear after one day
 
 

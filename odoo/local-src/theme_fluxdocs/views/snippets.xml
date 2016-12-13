@@ -632,15 +632,23 @@
 							<img class="oe_snippet_thumbnail_img" src="/theme_fluxdocs/static/img/snippet-thumbs/references-aggregation.png"/>
 							<span class="oe_snippet_thumbnail_title">Reference mosaic</span>
 						</div>
-						<section class="content container">
-							<div class="content-wrap">
-								<h2>References</h2>
-								<p>Lorem ipsum.</p>
+						<section class="content opt_dark_bg">
+							<div class="container-lg">
+								<div class="content-wrap">
+				                	<div class="content-icon">
+				                		<img src="/theme_fluxdocs/static/img/content-icons/references-icon.png"></img>
+				                	</div>
+									<h2>References</h2>
+									<p>The members of Fluxdock have broad expertise and extensive experience. Their skills become evident in their numerous successful reference projects, which you can see here.</p>
+								</div>
+								<t t-call="theme_fluxdocs.mosaic">
+									<t t-set="data_model" t-value="'project.reference'"/>
+									<t t-set="data_limit" t-value="'4'"/>
+								</t>
+								<p class="text-center mt16">
+									<a href="/references">More...</a>
+								</p>
 							</div>
-							<t t-call="theme_fluxdocs.mosaic">
-								<t t-set="data_model" t-value="'project.reference'"/>
-								<t t-set="data_limit" t-value="'4'"/>
-							</t>
 						</section>
 					</div>
 	            </div>

@@ -56,7 +56,27 @@ def add_membership_upgrade_email(ctx):
 
 
 @anthem.log
+def remove_useless_menuitems(ctx):
+    """ Remove useless website menu items """
+    xmlids = (
+        'website_slades.website_menu_slides',
+        'website_blog.menu_news',
+        'website_sale.menu_shop',
+        'website.menu_homepage',
+        'website.menu_contactus',
+    )
+    ids = []
+    for xmlid in xmlids:
+        item = ctx.env.ref(xmlid, raise_if_not_found=False)
+        if item:
+            ids.append(item.id)
+    if ids:
+        ctx.env['website.menu'].browse(ids).unlink()
+
+
+@anthem.log
 def main(ctx):
     """ Main: creating demo data """
     change_signup_email(ctx)
     add_membership_upgrade_email(ctx)
+    remove_useless_menuitems(ctx)
