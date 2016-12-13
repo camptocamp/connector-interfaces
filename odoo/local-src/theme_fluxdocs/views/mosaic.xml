@@ -32,19 +32,25 @@
              t-att-data-domain="data_domain"
              data-template="mosaic-grid-tmpl"
              data-fields='{"display_name":"title","website_url":"url","image_url":"src"}'>
-          <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg)">
+          <div class="grid-item flex-align-vertical"
+               style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg)">
+            <h4>Lorem ipsum</h4>
           </div>
           <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg)">
+            <h4>Lorem ipsum</h4>
           </div>
           <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
+            <h4>Lorem ipsum</h4>
           </div>
           <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
+              <h4>Lorem ipsum</h4>
           </div>
           <script class="mosaic-grid-tmpl" type="text/template">
               <div class="grid-item clickable hidden"
                    data-url="&amp;lt;%- url %&amp;gt;"
                    title="&amp;lt;%- title %&amp;gt;"
                    style="background-image:url(&amp;lt;%- src %&amp;gt;)">
+                <h4>&amp;lt;%- title %&amp;gt;</h4>
               </div>
           </script>
         </div>

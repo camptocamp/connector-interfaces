@@ -20,6 +20,18 @@ Template:
 
 * [add] [SNIPPETS LIST](odoo/local-src/theme_fluxdocs/SNIPPETS_LIST.md)
 * [imp] [RM#16122](https://redmine.iart.ch/issues/16122) add auto-play carousel for project references
+* [imp] [RM#16231](https://redmine.iart.ch/issues/16231) reference mosaic
+
+    * violet overlay instead of sepia effect
+    * add title to overlay
+    * expand width to 1366px max (.container-lg)
+    * adapt homepage snippet
+
+        * update intro text + add "more" link
+
+* [imp] reference slider reduce width to 1366px max (.container-lg)
+
+  Let's be consistend with mosaic max size and wait for more design instructions.
 
 
 **Bugfixes**
