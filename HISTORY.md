@@ -1,5 +1,3 @@
-.. :changelog:
-
 <!--
 Template:
 
@@ -15,6 +13,18 @@ Template:
 -->
 
 # Release History
+
+## 9.1.0a6 (Unreleased)
+
+**Features and Improvements**
+
+* [add] [SNIPPETS LIST](odoo/local-src/theme_fluxdocs/SNIPPETS_LIST.md)
+
+
+**Bugfixes**
+
+TODO
+
 
 ## 9.1.0a5 (2016-12-12)
 
