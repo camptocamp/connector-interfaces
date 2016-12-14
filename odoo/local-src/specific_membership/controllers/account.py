@@ -41,7 +41,7 @@ class WebsiteAccount(website_account):
 
     @http.route(['/my/account'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
-        vals = {}
+        values = {}
         user = request.env['res.users'].browse(request.uid)
         partner = user.partner_id
         if redirect:
@@ -52,50 +52,74 @@ class WebsiteAccount(website_account):
         # handle this here since the call to super klass
         # saves the new email already
         if post and post.get('email'):
-            vals['email_updated'] = self._handle_email_update(user, post)
+            values['email_updated'] = self._handle_email_update(user, post)
 
-        response = super(WebsiteAccount, self).details(redirect, **post)
-
-        # FIXME: Workaround for problem with saving of fields website.
-        # If required fields are not set, website will be taken out of
-        # response dictionary in order to avoid server errors.
-        if 'website' in response.qcontext:
-            del response.qcontext['website']
+        partner = request.env['res.users'].browse(request.uid).partner_id
+        countries = request.env['res.country'].sudo().search([])
+        states = request.env['res.country.state'].sudo().search([])
+        values = {
+            'error': {},
+            'error_message': [],
+            'partner': partner,
+            'countries': countries,
+            'states': states,
+            'has_check_vat': hasattr(request.env['res.partner'], 'check_vat'),
+            'redirect': redirect,
+        }
 
         industry_ids = []
         expertise_ids = []
 
         if request.httprequest.method == 'POST':
             # form really submitted by user
-            country_id = post['country_id']
-            if country_id and country_id.isdigit():
-                vals.update({'country_id': int(country_id)})
-            if post['post_categories']:
-                industry_ids = post['post_categories'].split(',')
-                industry_ids = [int(rec_id) for rec_id in industry_ids]
-                vals['category_id'] = [(6, None, industry_ids)]
-            if post['post_expertises']:
-                expertise_ids = post['post_expertises'].split(',')
-                expertise_ids = [int(rec_id) for rec_id in expertise_ids]
-                vals['expertise_ids'] = [(6, None, expertise_ids)]
-            if post['uimage']:
-                vals['image'] = base64.encodestring(post['uimage'].read())
-            response.qcontext.update(vals)
 
-            if 'error' not in response.qcontext:
-                vals['website'] = post['website_url']
+            # ORIGINAL BITS FROM website_portal.details
+            error, error_message = self.details_form_validate(post)
+            values.update({'error': error, 'error_message': error_message})
+            values.update(post)
+            if not error:
+                post.update({'zip': post.pop('zipcode', '')})
+                country_id = int(post.get('country_id', 0))
+                if partner.type == "contact":
+                    address_fields = {
+                        'city': post.get('city', None),
+                        'street': post.get('street', None),
+                        'street2': post.get('street2', None),
+                        'zip': post.get('zip', None),
+                        'country_id': country_id,
+                        'state_id': post.get('state_id', None)
+                    }
+                    partner.commercial_partner_id.sudo().write(address_fields)
+                # END OF ORIGINAL STUFF
+                if post['post_categories']:
+                    industry_ids = post['post_categories'].split(',')
+                    industry_ids = [int(rec_id) for rec_id in industry_ids]
+                    values['category_id'] = [(6, None, industry_ids)]
+                if post['post_expertises']:
+                    expertise_ids = post['post_expertises'].split(',')
+                    expertise_ids = [int(rec_id) for rec_id in expertise_ids]
+                    values['expertise_ids'] = [(6, None, expertise_ids)]
+                if post['uimage']:
+                    values['image'] = base64.encodestring(
+                        post['uimage'].read())
+                values.update(values)
 
                 # finally publish the partner
                 if not partner.website_published:
-                    vals['website_published'] = True
+                    values['website_published'] = True
 
                 # handle profile step upgrade
-                partner.update_profile_state()
-                partner.sudo().write(vals)
+                # TODO: proper permissions
+                # should allow user to write on its partner!
+                partner.sudo().update_profile_state()
+                partner.sudo().write(values)
 
                 if request.website:
                     msg = _('Profile details updated.')
                     request.website.add_status_message(msg)
+                if redirect:
+                    return request.redirect(redirect)
+                return request.redirect('/my/home')
 
         if industry_ids:
             Industry = request.env['res.partner.category']
@@ -113,8 +137,8 @@ class WebsiteAccount(website_account):
             expertises = partner.expertise_ids
         expertises = json.dumps(expertises.read(['name']))
 
-        response.qcontext.update(categories=industries, expertises=expertises)
-        return response
+        values.update(categories=industries, expertises=expertises)
+        return request.website.render("website_portal.details", values)
 
     def _handle_email_update(self, user, post):
         """Validate email update and handle login update."""
