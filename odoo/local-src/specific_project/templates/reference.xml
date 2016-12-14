@@ -62,20 +62,26 @@
                 </div>
               </div>
 
-              <t t-if="reference.linked_partner_ids">
-                <div class="linked-partners mb64 mt32">
-                  <h3 class="text-center border-bottom pb05">Related Members</h3>
-                  <t t-foreach="reference.linked_partner_ids" t-as="linked_partner">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <a t-att-href="linked_partner.website_url">
-                            <span t-esc="linked_partner.name"/><span class="pull-right fa fa-arrow-right"/>
-                        </a>
-                      </div>
-                    </div>
-                  </t>
+              <div class="linked-partners mb64 mt32">
+                <h3 class="text-center border-bottom pb05">Related Members</h3>
+                <div class="row">
+                  <t t-set="owner" t-value="reference.create_uid.partner_id" />
+                  <div class="col-md-12">
+                    <a t-att-href="owner.website_url">
+                        <span t-esc="owner.name"/><span class="pull-right fa fa-arrow-right"/>
+                    </a>
+                  </div>
                 </div>
-              </t>
+                <t t-foreach="reference.linked_partner_ids" t-as="linked_partner">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <a t-att-href="linked_partner.website_url">
+                          <span t-esc="linked_partner.name"/><span class="pull-right fa fa-arrow-right"/>
+                      </a>
+                    </div>
+                  </div>
+                </t>
+              </div>
             </div>
           </div>
         </div>
