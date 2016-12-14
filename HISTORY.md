@@ -24,25 +24,34 @@ Template:
 
     * violet overlay instead of sepia effect
     * add title to overlay
-    * expand width to 1366px max (.container-lg)
+    * expand width to 2560px max (.container-xxlg)
     * adapt homepage snippet
 
         * update intro text + add "more" link
 
-* [imp] reference slider reduce width to 1366px max (.container-lg)
+* [imp] reference slider max width (.container-xxlg)
 
   Let's be consistend with mosaic max size and wait for more design instructions.
+
+* [add] redirect to home in login button snippet
+* [add] show owner partner in linked partners RM#16098
 
 
 **Bugfixes**
 
 * [fix] [RM#16133](https://redmine.iart.ch/issues/16133) IE11 some member logos are not displayed
 
-    * upgraded both `OCB` and `server-tools` repos to latest version 
+    * upgraded both `OCB` and `server-tools` repos to latest version
       that include some fixing for detecting images mimetypes
     * add option `attachment` to reference image field in order to preserve filename and mimetype
 
 * [fix] [RM#16098](https://redmine.iart.ch/issues/16098) linked members not visible for anon users
+* [fix] wrap mgmt actions with container fluid to have proper padding on mobile
+* [fix] link colors RM#16240
+* [fix] domain for m2m widget on linked_partner_ids to exclude owner
+* [fix] m2m reset with no value in reference form
+* [fix] RM#16098 linked members not visible for anon users
+* [fix] RM#16133 IE11 some member logos are not displayed
 
 
 ## 9.1.0a5 (2016-12-12)
