@@ -166,7 +166,7 @@
 			                </div>
 			                <div class="content-wrap">
 			                	<a class="btn" href="/web/presignup">Sign up</a>
-			                	<a class="btn" href="/web/login">Login</a>
+			                	<a class="btn" href="/web/login?redirect=/my/home">Login</a>
 			                </div>
 
 						</section>
