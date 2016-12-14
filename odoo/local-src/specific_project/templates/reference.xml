@@ -9,7 +9,9 @@
         </t>
         <div>
           <t t-if="reference.image">
-            <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(website.image_url(reference,'image'))">
+            <div class="container-xxlg">
+                <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(website.image_url(reference,'image'))">
+                </div>
             </div>
           </t>
           <div class="container">
