@@ -90,7 +90,10 @@ class WebsiteReference(http.Controller):
 
     def _extract_m2m_ids(self, field_value, form_values):
         value = False
-        if len(field_value) > 0:
+        if field_value == '':
+            # reset the field
+            value = [(5, False, False), ]
+        elif len(field_value) > 0:
             ids = field_value.split(',')
             ids = [int(rec_id) for rec_id in ids]
             value = [(6, None, ids)]

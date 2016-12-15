@@ -166,7 +166,7 @@
 			                </div>
 			                <div class="content-wrap">
 			                	<a class="btn" href="/web/presignup">Sign up</a>
-			                	<a class="btn" href="/web/login">Login</a>
+			                	<a class="btn" href="/web/login?redirect=/my/home">Login</a>
 			                </div>
 
 						</section>
@@ -633,7 +633,7 @@
 							<span class="oe_snippet_thumbnail_title">Reference mosaic</span>
 						</div>
 						<section class="content opt_dark_bg">
-							<div class="container-lg">
+							<div class="container-xxlg">
 								<div class="content-wrap">
 				                	<div class="content-icon">
 				                		<img src="/theme_fluxdocs/static/img/content-icons/references-icon.png"></img>

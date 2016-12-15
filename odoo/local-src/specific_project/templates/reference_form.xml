@@ -123,7 +123,7 @@
                            class="form-control js_select2_m2m_widget"
                            t-attf-data-init-value="#{linked_partner_ids}" value="industries"
                            data-model="res.partner" data-display_name="name" data-fields='["name"]'
-                           t-att-data-domain='"""[["id","!=",{}]]""".format(request.session.uid)'
+                           t-att-data-domain='request.env.user.partner_id and """[["id","!=",{}]]""".format(request.env.user.partner_id.id) or []'
                            />
                     <p class="help-block">Don't find your partner? Write us an email with the partner company name and email address at
                         <a href="mailto:newpartner@fluxdock.io?subject=new%20partner">newpartner@fluxdock.io</a> for inviting him.</p>
