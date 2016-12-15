@@ -14,6 +14,17 @@ Template:
 
 # Release History
 
+
+## 9.1.0a7 (2016-12-15)
+
+**Bugfixes**
+
+* [fix] [RM#16241](https://redmine.iart.ch/issues/16241) refactor account detail form handler and fix profile update too
+* [fix] profile state update, force only explicitely
+* [fix] button overlay color
+* [fix] some exceptions in button coloring
+
+
 ## 9.1.0a6 (2016-12-15)
 
 **Features and Improvements**

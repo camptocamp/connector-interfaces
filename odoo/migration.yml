@@ -85,3 +85,8 @@ migration:
       operations:
         post:
           - anthem songs.install.post::remove_useless_menuitems
+    - version: 9.1.0a7
+      addons:
+        upgrade:
+          - theme_fluxdocs
+          - specific_membership
