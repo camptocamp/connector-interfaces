@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-	<template id="account_confirmation" name="Account confirmation">
+	<template id="login_layout" inherit_id="website.login_layout" name="Fluxdock Login Layout">
+		<xpath expr="//div[contains(@class,'oe_website_login_container')]"  position="attributes">
+			<attribute name="class" add="opt_dark_grid_bg" separator=" " />
+	    </xpath>
+	</template>
+
+
+	<template id="account_confirmation" name="Fluxdock Account confirmation">
 		<t t-call="web.login_layout">
 			<div class="clearfix oe_login_buttons">
 				<h2>
@@ -21,7 +28,7 @@
 		</t>
 	</template>
 
-	<template id="presignup" name="Pre Signup Form">
+	<template id="presignup" name="Fluxdock Pre Signup Form">
 		<t t-call="web.login_layout">
 			<div class="clearfix oe_login_buttons presignup">
 				<h2>
@@ -42,7 +49,7 @@
 		</t>
 	</template>
 
-	<template id="thanks_for_registration" name="Thanks for registration">
+	<template id="thanks_for_registration" name="Fluxdock Thanks for registration">
 		<div class="clearfix oe_login_buttons">
 			<h2>
 				THANK YOU FOR YOUR REGISTRATION.
@@ -55,7 +62,7 @@
 		</div>
 	</template>
 
-	<template id="privateperson" name="Private person">
+	<template id="privateperson" name="Fluxdock Private person">
 		<t t-call="web.login_layout">
 			<div>
 				<section class="content newsletter_subscribe opt_dark_bg">
@@ -222,7 +229,7 @@
 		</t>
 	</template>
 
-	<template id="signup_modals" name="Sign up modals">
+	<template id="signup_modals" name="Fluxdock Sign up modals">
 		<!-- modal for agree to terms -->
 		<div class="modal fade agree_to_terms_modal" tabindex="-1" role="dialog"
 		  aria-hidden="true">
