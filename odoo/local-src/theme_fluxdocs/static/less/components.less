@@ -185,6 +185,8 @@
 	// mosaic grid >>
 	.mosaic.grid{
 		width: 100%;
+		// safe height
+		min-height: 400px;
 		/* clear fix */
 		&:after {
 		  content: '';
@@ -229,6 +231,8 @@
 			}
 		}
 	}
+	.container-xxlg .mosaic.grid{ height:1080px; }
+	.container-xlg .mosaic.grid{ height: 900px; }
 	.container-lg .mosaic.grid{	height: 766px; }
 	.container .mosaic.grid{ height: 600px; }
 	// >> mosaic grid
