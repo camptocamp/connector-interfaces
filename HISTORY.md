@@ -14,7 +14,7 @@ Template:
 
 # Release History
 
-## 9.1.0a6 (Unreleased)
+## 9.1.0a6 (2016-12-15)
 
 **Features and Improvements**
 
