@@ -61,13 +61,21 @@ class ResPartner(models.Model):
         for item in self:
             item.profile_completed = item.profile_state == 'step-3'
 
+    PROFILE_STATE_LAST = 'step-3'
+
     @api.multi
-    def update_profile_state(self):
+    def update_profile_state(self, step=0):
         for item in self:
-            if item.profile_state == 'step-1':
-                item.profile_state = 'step-2'
-            elif item.profile_state == 'step-2':
-                item.profile_state = 'step-3'
+            if step:
+                state = 'step-{}'.format(step)
+            else:
+                # just the next one
+                if item.profile_state == 'step-1':
+                    state = 'step-2'
+                elif item.profile_state == 'step-2':
+                    state = 'step-3'
+            item.profile_state = state
+            if item.profile_state == self.PROFILE_STATE_LAST:
                 item.profile_completed_date = fields.Date.today()
 
     def _select_profile_state(self):
