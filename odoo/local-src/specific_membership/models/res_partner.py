@@ -64,7 +64,7 @@ class ResPartner(models.Model):
     PROFILE_STATE_LAST = 'step-3'
 
     @api.multi
-    def update_profile_state(self, step=0):
+    def update_profile_state(self, step=0, force_back=False):
         for item in self:
             if step:
                 state = 'step-{}'.format(step)
@@ -74,6 +74,9 @@ class ResPartner(models.Model):
                     state = 'step-2'
                 elif item.profile_state == 'step-2':
                     state = 'step-3'
+            if state < item.profile_state and not force_back:
+                # you must explicitely force to get back to prev state
+                continue
             item.profile_state = state
             if item.profile_state == self.PROFILE_STATE_LAST:
                 item.profile_completed_date = fields.Date.today()
