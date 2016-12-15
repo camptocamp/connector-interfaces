@@ -2,26 +2,13 @@
 main .btn{
     font-size: 20px;
 }
-.btn.btn-dark {
-    .button-variant(white; @darkColor; @darkColor);
+.btn-dark{
+    color: @brand-secondary;
+    background-color: @brand-primary;
+    border-color: @brand-secondary;
+    &:hover {
+        color: @brand-success;
+        background-color: @brand-secondary;
+        border-color: @brand-success;
+    }
 }
-// define inverse buttons
-// .btn-default {
-//   &.btn-inverse {
-//     .button-variant(@btn-default-bg; @btn-default-color; @btn-default-bg);
-//     &:hover {
-//       .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
-//     }
-//   }
-// }
-//
-// .btn-primary {
-//   &.btn-inverse {
-//     .button-variant(@btn-primary-bg, @btn-primary-color, @btn-primary-bg);
-//     &:hover {
-//       .button-variant(@btn-primary-color, @btn-primary-bg, @btn-primary-border);
-//     }
-//   }
-// }
-
-// >> btns

@@ -183,7 +183,7 @@ class WebsiteReference(http.Controller):
                     # TODO: handle this better with some hook
                     # and with proper mgmt of partner profile
                     partner = request.env.user.partner_id
-                    partner.update_profile_state()
+                    partner.update_profile_state(3)
                     msg = _('Reference created.')
                 if msg and request.website:
                     request.website.add_status_message(msg)
