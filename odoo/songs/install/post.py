@@ -62,7 +62,6 @@ def remove_useless_menuitems(ctx):
         'website_slades.website_menu_slides',
         'website_blog.menu_news',
         'website_sale.menu_shop',
-        'website.menu_homepage',
         'website.menu_contactus',
     )
     ids = []
