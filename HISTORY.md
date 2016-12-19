@@ -14,6 +14,16 @@ Template:
 
 # Release History
 
+## 9.1.0a8 (Unreleased)
+
+**Features and Improvements**
+
+* [RM#15653](https://redmine.iart.ch/issues/15653) Adapt texts and translations from test instance
+* [RM#16098](https://redmine.iart.ch/issues/16098) update member detail design
+* [RM#15639](https://redmine.iart.ch/issues/15639) [add] c2c logo to footer
+* unify custom modules names
+* adapt mosaic a bit for responsive
+
 
 ## 9.1.0a7 (2016-12-15)
 
