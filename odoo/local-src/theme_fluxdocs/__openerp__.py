@@ -1,5 +1,5 @@
 {
-    'name': 'Fluxdock Theme',
+    'name': 'Fluxdock Theme specific development',
     'description': 'Custom Theme for the fluxdock website.',
     'version': '1.0',
     'author': 'Pierre Sandrin',

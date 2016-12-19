@@ -222,6 +222,17 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			background-color: @darkColor;
 		}
 	}
+	.white_bg{
+		background-color: white;
+		color: @darkColor;
+		a {
+			color: @darkColor;
+			&:hover{
+				color: @brand-success;
+				border-color: @brand-success;
+			}
+		}
+	}
 
 	//Read more link. Used in News and Member list
 	.read-more{
@@ -702,9 +713,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			}
 			.member-details {
 				padding-left: 210px;
-			}
-			.content-wrap {
-				max-width: 900px;
 			}
 		}
 

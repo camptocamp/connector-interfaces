@@ -1,21 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* theme_fluxdocs
+#	* theme_fluxdocs
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-15 08:36+0000\n"
-"PO-Revision-Date: 2016-11-15 09:47+0100\n"
+"POT-Creation-Date: 2016-12-19 15:17+0000\n"
+"PO-Revision-Date: 2016-12-19 15:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: de\n"
-"X-Generator: Poedit 1.8.9\n"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -24,18 +22,18 @@ msgstr "1 Apr 2016"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "26 Aug 2015"
-msgstr "26 Aug 2015"
+msgid "1 Sep 2016"
+msgstr "1 Sep 2016"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "27 Aug 2015"
-msgstr "27 Aug 2015"
+msgid "2 Nov 2016"
+msgstr "2 Nov 2016"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "28 Aug 2015"
-msgstr "28 Aug 2015"
+msgid "3 Nov 2016"
+msgstr "3 Nov 2016"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -46,6 +44,11 @@ msgstr "4 Feb 2016"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "5 Apr 2016"
 msgstr "5 Apr 2016"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.imageupload_widget
+msgid "<span class=\"browse\">Browse</span>"
+msgstr "<span class=\"browse\">Browse</span>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -61,33 +64,6 @@ msgstr "<span class=\"number-label\">Projects</span>"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"number-label\">Users</span>"
 msgstr "<span class=\"number-label\">Users</span>"
-
-#. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"<span class=\"number-value o_default_snippet_text\">17</span>\n"
-"              <span class=\"number-label o_default_snippet_text\">Projects</span>"
-msgstr ""
-"<span class=\"number-value o_default_snippet_text\">17</span>\n"
-"              <span class=\"number-label o_default_snippet_text\">Projects</span>"
-
-#. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"<span class=\"number-value o_default_snippet_text\">52</span>\n"
-"              <span class=\"number-label o_default_snippet_text\">Members</span>"
-msgstr ""
-"<span class=\"number-value o_default_snippet_text\">52</span>\n"
-"              <span class=\"number-label o_default_snippet_text\">Mitglieder</span>"
-
-#. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"<span class=\"number-value o_default_snippet_text\">86</span>\n"
-"              <span class=\"number-label o_default_snippet_text\">Users</span>"
-msgstr ""
-"<span class=\"number-value o_default_snippet_text\">86</span>\n"
-"              <span class=\"number-label o_default_snippet_text\">Users</span>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -171,6 +147,11 @@ msgstr "<span class=\"oe_snippet_thumbnail_title\">Projects teaser</span>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "<span class=\"oe_snippet_thumbnail_title\">Reference mosaic</span>"
+msgstr "<span class=\"oe_snippet_thumbnail_title\">Reference mosaic</span>"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Signup / Login</span>"
 msgstr "<span class=\"oe_snippet_thumbnail_title\">Signup / Login</span>"
 
@@ -186,29 +167,30 @@ msgstr "<span style=\"line-height: 1.3\">DIE PLATTFORM FÜR KOLLABORATIVE INNOVA
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"<span>\n"
-"\t\t\t\t\t\t\t\t\t\t\tDaten herunterladen\n"
-"\t\t\t\t\t\t\t\t\t\t</span>\n"
-"\t\t\t\t\t\t\t\t\t\t<span class=\"downloadProgress\">0%</span>"
-msgstr ""
-"<span>\n"
-"\t\t\t\t\t\t\t\t\t\t\tDaten herunterladen\n"
-"\t\t\t\t\t\t\t\t\t\t</span>\n"
-"\t\t\t\t\t\t\t\t\t\t<span class=\"downloadProgress\">0%</span>"
+msgid "<span>\n"
+"											Daten herunterladen\n"
+"										</span>\n"
+"										<span class=\"downloadProgress\">0%</span>"
+msgstr "<span>\n"
+"											Daten herunterladen\n"
+"										</span>\n"
+"										<span class=\"downloadProgress\">0%</span>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"<span>\n"
-"\t\t\t\t\t\t\t\t\t\t\tSimulation wird geladen\n"
-"\t\t\t\t\t\t\t\t\t\t</span>\n"
-"\t\t\t\t\t\t\t\t\t\t<span class=\"loaderProgress\"/>"
-msgstr ""
-"<span>\n"
-"\t\t\t\t\t\t\t\t\t\t\tSimulation wird geladen\n"
-"\t\t\t\t\t\t\t\t\t\t</span>\n"
-"\t\t\t\t\t\t\t\t\t\t<span class=\"loaderProgress\"/>"
+msgid "<span>\n"
+"											Simulation wird geladen\n"
+"										</span>\n"
+"										<span class=\"loaderProgress\"/>"
+msgstr "<span>\n"
+"											Simulation wird geladen\n"
+"										</span>\n"
+"										<span class=\"loaderProgress\"/>"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
+msgid "Add new"
+msgstr "Add new"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -237,13 +219,9 @@ msgstr "Klicken Sie auf <em>Inhalt</em> im Top Menü zur Erstellung der ersten B
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid "Collaboration creates Innovation"
-msgstr "Kollaboration schafft Innovation"
-
-#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "Collaborative. Effective. Innovative. Fluxdock is a project management platform for startups and agile developers &amp; designers who want a simple, beautiful tool that makes work truly enjoyable."
-msgstr "Collaborative. Effective. Innovative. Fluxdock is a project management platform for startups and agile developers &amp; designers who want a simple, beautiful tool that makes work truly enjoyable."
+msgid "Collaboration creates Innovation"
+msgstr "Kollaboration schafft innovation"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -254,6 +232,16 @@ msgstr "Consetetur sadipscing elitr"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 msgstr "Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+
+#. module: theme_fluxdocs
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_create_uid
+msgid "Created by"
+msgstr "Angelegt von"
+
+#. module: theme_fluxdocs
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_create_date
+msgid "Created on"
+msgstr "Angelegt am"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.snippet_content_opt
@@ -286,14 +274,20 @@ msgid "Deutschland"
 msgstr "Deutschland"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "Durch geeignete Regeln, Methoden und Tools zum Erfolg."
-msgstr "Durch geeignete Regeln, Methoden und Tools zum Erfolg."
+#: model:ir.ui.view,arch_db:theme_fluxdocs.listing
+msgid "Don't show again item"
+msgstr "Don't show again item"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole."
-msgstr "Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole."
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. module: theme_fluxdocs
+#: code:addons/theme_fluxdocs/website.py:29
+#, python-format
+msgid "Error"
+msgstr "Error"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -321,9 +315,20 @@ msgid "Fluxdock 3d Simulation"
 msgstr "Fluxdock 3d Simulation"
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "Fluxdock Facility opens<br/>"
+msgstr "Fluxdock Standort eröffnet<br/>"
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Fluxdock enables firms to innovate."
 msgstr "Fluxdock befähigt Firmen zu Innovation."
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "Fluxdock features a network of professional and innovative companies in different industries. Their references demonstrate this best."
+msgstr "Fluxdock ist ein Netzwerk von erfahrenen und innovativen Firmen in unterschiedlichen Branchen. Ihre Referenzen zeigen das."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -341,9 +346,9 @@ msgid "Fluxdock is the platform for successful collaboration between companies. 
 msgstr "Fluxdock ist die Plattform für erfolgreiche Kollaboration zwischen Firmen. Um Kollaboration zu fördern und zu vereinfachen, entwickelt Fluxdock eine integrierte digitale Plattform mit Firmenverzeichnis, Projektmarkt, Projektverwaltung und Firmenverwaltung. Dadurch wird die firmenübergreifende Zusammenarbeit einfacher und professioneller."
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region."
-msgstr "Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region."
+#: model:ir.ui.view,arch_db:theme_fluxdocs.imageupload_widget
+msgid "Format: *.png/*.jpg"
+msgstr "Format: *.png/*.jpg"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -356,12 +361,12 @@ msgid "Glossar"
 msgstr "Glossar"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid "Hier sehen Sie wer im Netzwerk steckt."
-msgstr "Hier sehen Sie wer im Netzwerk steckt."
+#: model:ir.model,name:theme_fluxdocs.model_ir_http
+msgid "HTTP routing"
+msgstr "HTTP Routing"
 
 #. module: theme_fluxdocs
-#: code:addons/theme_fluxdocs/website.py:29
+#: code:addons/theme_fluxdocs/website.py:27
 #, python-format
 msgid "Info"
 msgstr "Info"
@@ -373,6 +378,7 @@ msgstr "Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At 
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Join Fluxdock now."
 msgstr "Werden auch Sie Teil des Fluxdock Netzwerks."
 
@@ -380,6 +386,16 @@ msgstr "Werden auch Sie Teil des Fluxdock Netzwerks."
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Kraftwerk Basel"
 msgstr "Kraftwerk Basel"
+
+#. module: theme_fluxdocs
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: theme_fluxdocs
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
@@ -396,13 +412,21 @@ msgid "Logout"
 msgstr "Abmelden"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mosaic
+msgid "Lorem ipsum"
+msgstr "Lorem ipsum"
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Lorem ipsum dolor"
 msgstr "Lorem ipsum dolor"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "Member References"
+msgstr "&amp;nbsp;Mitglieder Referenzen"
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Members"
 msgstr "Mitglieder"
@@ -452,12 +476,33 @@ msgid "No blog post yet."
 msgstr "Bislang wurde noch keine Blognachricht geschrieben."
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.listing
+msgid "No result found."
+msgstr "Kein Resultat gefunden"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.publish_short
+msgid "Not Published"
+msgstr "Nicht veröffentlicht"
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "ONLINE NOW"
 msgstr "JETZT&amp;nbsp;ONLINE"
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "On November 10th Fluxdock will host another Fuckup Night. This event is an excellent opportunity for everyone who wants to learn from others failures. Because errors are on your way to success."
+msgstr "Die nächste FuckUp Night Basel findet wieder im FLuxdock statt. Am 10. November findet im Fluxdock am Freilagerplatz 3 in Münchenstein/Basel die nächste FUN.Basel statt. Das ist eine hervorragende Möglichkeit um aus den Fehlern anderer zu lernen. Unter unten stehenden Link können sich Interessierte registrieren. Weil Fehler zum Erfolg führen."
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "On November 9th at 7 pm Fluxdock opens for the Salon des Créateurs, the informal gathering of the members of kreaB, the association for the creative industries in Basel. Join us and get to know the creative people in town."
+msgstr "Der Salon des Créateurs, der Stammtisch der Mitglieder von kreaB (Verband der Basler Kreativwirtschaft), eröffnet seinen Stammtisch im Fluxdock. Am 9. November um 19:00 Uhr öffnet das Fluxdock am Freilagerplatz 3 in Münchenstein/Basel seine Türen für den Stammtisch von kreaB und allen Interessierten, die gerne einmal die Kreativen in der Stadt kennenlernen möchten."
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "People. Methods. Collaboration."
 msgstr "Menschen. Methoden. Kollaboration."
 
@@ -477,9 +522,21 @@ msgid "Projects"
 msgstr "Projekte"
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.publish_short
+msgid "Published"
+msgstr "Veröffentlicht"
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Read More"
 msgstr "Read More"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.listing
+msgid "Read More\n"
+"                                    <i class=\"fa fa-long-arrow-right\"/>"
+msgstr "Read More\n"
+"                                    <i class=\"fa fa-long-arrow-right\"/>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
@@ -488,6 +545,7 @@ msgstr "Read more <i class=\"fa fa-long-arrow-right\"/>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Register here"
 msgstr "Hier registrieren"
 
@@ -525,6 +583,7 @@ msgstr "Registrieren"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Sign up for our newsletter and stay up to date:"
 msgstr "Schreiben Sie sich ein für unseren Newsletter und bleiben Sie auf dem Laufenden:"
 
@@ -550,9 +609,15 @@ msgid "Subscribe"
 msgstr "Abonnieren"
 
 #. module: theme_fluxdocs
+#: code:addons/theme_fluxdocs/website.py:28
+#, python-format
+msgid "Success"
+msgstr "Success"
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Successful collaboration requires physical interaction. In the Transitlager on the Dreispitz in Basel Fluxdock operates a place for companies to work and collaborate permanently or temporarily. The site provides up to 90 permanent workplaces and workplaces, meeting and event rooms as well as workshops and a studio that can be rented temporarily. The entire infrastructure is flexible, adaptable and designed to support agile ways of working and collaboration optimally."
-msgstr "Erfolgreiche Kollaboration bedingt physische Interaktion. Im Transitlager auf dem Dreispitz in Basel betreibt Fluxdock einen Standort, an dem Firmen dauerhaft oder temporär arbeiten und kollaborieren können. Der Standort bietet bis zu 90 feste Arbeitsplätze und Arbeitsplätze, Workshop-, Sitzungs- und Veranstaltungsräume sowie Werkstätten und ein Studio, die temporär gemietet werden können. Die gesamte Infrastruktur ist flexibel, anpassbar und darauf ausgelegt, agile Arbeitsweisen und Kollaboration räumlich und technisch optimal zu unterstützen."
+msgstr "Erfolgreiche Kollaboration bedingt physische Interaktion. Im Transitlager auf dem Dreispitz in Basel betreibt Fluxdock einen Standort, an dem Firmen dauerhaft oder temporär arbeiten und kollaborieren können. Der Standort bietet bis zu 90 feste Arbeitsplätze und Arbeitsplätze, Workshop-, Sitzungs- und Veranstaltungsräume sowie Werkstätten und ein Studio, die temporär gemietet werden können. Die gesamte Infrastruktur ist flexibel, anpassbar und darauf ausgelegt, agile Arbeitsweisen und Kollaboration räumlich und technisch optimal zu unterstützen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -570,9 +635,30 @@ msgid "Titel. Klicke um auszuklappen."
 msgstr "Titel. Klicke um auszuklappen."
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "Today the Fluxdock Facility opened at Freilagerplatz in Münchenstein/Basel. Here are up to 90 workplaces and new infrastructure ready for collaboration."
+msgstr "Heute öffnete der Fluxdock Standort am Freilagerplatz in Münchenstein/Basel. Hier stehen nun 90 Arbeitsplätze und neueste Infrastruktur für Kollaboration zur Verfügung."
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 msgid "Untitled Post"
 msgstr "Untitled Post"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "Upcoming: Fuckup Night<br/>"
+msgstr "Upcoming: Fuckup Night<br/>"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "Upcoming: Salon des Créateurs<br/>"
+msgstr "Upcoming: Salon des Créateurs<br/>"
+
+#. module: theme_fluxdocs
+#: code:addons/theme_fluxdocs/website.py:30
+#, python-format
+msgid "Warning"
+msgstr "Warning"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -595,19 +681,9 @@ msgid "Webentwicklung"
 msgstr "Webentwicklung"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "Webplattform Fluxdock erfolgreich gestartet"
-msgstr "Webplattform Fluxdock erfolgreich gestartet"
-
-#. module: theme_fluxdocs
 #: model:ir.model,name:theme_fluxdocs.model_website
 msgid "Website"
 msgstr "Website"
-
-#. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid "Werden Sie Teil vom Netzwerk - zeigen Sie was ihre Firma kann werden Sie kollaborativ"
-msgstr "Werden Sie Teil vom Netzwerk - zeigen Sie was ihre Firma kann werden Sie kollaborativ"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.snippet_content_opt
@@ -641,13 +717,13 @@ msgid "firma suchen"
 msgstr "firma suchen"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "fluxdock bieten Firmen die Plattform um sich zu präsentieren, vernetzen und den offenen, interdisziplinären Austausch und die gleichberechtigte Kollaboration zu pflegen. Durch geeignete Regeln, Methoden und Tools befähigt fluxdock dabei seine Mitglieder zu mehr Innovation."
 msgstr "fluxdock bieten Firmen die Plattform um sich zu präsentieren, vernetzen und den offenen, interdisziplinären Austausch und die gleichberechtigte Kollaboration zu pflegen. Durch geeignete Regeln, Methoden und Tools befähigt fluxdock dabei seine Mitglieder zu mehr Innovation."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
+#: model:ir.ui.view,arch_db:theme_fluxdocs.listing
 msgid "not published"
 msgstr "Nicht Veröffentlicht"
 
@@ -655,3 +731,4 @@ msgstr "Nicht Veröffentlicht"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "suchen"
 msgstr "suchen"
+

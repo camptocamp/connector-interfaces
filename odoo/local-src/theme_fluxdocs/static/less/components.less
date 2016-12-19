@@ -235,6 +235,22 @@
 	.container-xlg .mosaic.grid{ height: 900px; }
 	.container-lg .mosaic.grid{	height: 766px; }
 	.container .mosaic.grid{ height: 600px; }
+
+	@media only screen and (max-width : 700px) {
+		.container, .container-lg, .container-xlg, .container-xxlg{
+			.mosaic.grid{ height: 500px; }
+		}
+	}
+	@media only screen and (max-width : 400px) {
+		.container, .container-lg, .container-xlg, .container-xxlg{
+			.mosaic.grid{
+				height: 300px;
+				.grid-item h4{
+					font-size: 76%;
+				}
+			}
+		}
+	}
 	// >> mosaic grid
 
 	.mgmt-actions{

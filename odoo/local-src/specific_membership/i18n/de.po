@@ -1,383 +1,432 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* specific_membership
+#	* specific_membership
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-01 08:58+0000\n"
-"PO-Revision-Date: 2016-11-01 17:09+0100\n"
+"POT-Creation-Date: 2016-12-19 15:18+0000\n"
+"PO-Revision-Date: 2016-12-19 15:18+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"Language: de\n"
-"X-Generator: Poedit 1.8.7.1\n"
-
-#. module: specific_membership
-#: model:mail.template,body_html:specific_membership.account_confirmation_email
-msgid ""
-"\n"
-"                \n"
-"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
-"<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-" <head>\n"
-"  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n"
-"  <title>Fluxdock</title>\n"
-"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n"
-" </head>\n"
-"\n"
-" <body style=\"margin: 0; padding: 0;\">\n"
-"  <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse: collapse;\">\n"
-"\n"
-"   <tr>\n"
-"    <td align=\"center\">\n"
-"     <img src=\"http://fluxdock.io/theme_fluxdocs/static/email/images/logo-title.png\" alt=\"Fluxdock Logo\" width=\"200\" height=\"200\" style=\"display: block;\" />\n"
-"    </td>\n"
-"   </tr>\n"
-"\n"
-"   <tr bgcolor=\"#463246\">\n"
-"    <td align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;\">Please do not reply! This email was generated automatically.</td>\n"
-"   </tr>\n"
-"\n"
-"   <tr bgcolor=\"#2e112d\">\n"
-"    <td align=\"center\">\n"
-"     <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n"
-"      <tr>\n"
-"       <td align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:50px; padding-bottom:100px; padding-left: 10px; padding-right: 10px;\">\n"
-"        <p>Thank you for signing up to Fluxdock!</p>\n"
-"        <p>Please confirm Your Email Address by clicking the link bellow.</p>\n"
-"        <p>You can now complete the basic informations of your company. Before the publication of the registered users, we will ask you to provide further information and give you the possibility to edit your profile. This will be soon.</p>\n"
-"\n"
-"        <table border=\"1\" cellpadding=\"0\" cellspacing=\"0\">\n"
-"         <tr>\n"
-"          <td style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding: 10px 20px;\">\n"
-"           <a style=\"color: #ffffff; text-decoration: none;\" href=\"http://www.fluxdock.io/web/confirmation\">Activate account</a>\n"
-"          </td>\n"
-"         </tr>\n"
-"        </table>\n"
-"        <p>Thank you!</p>\n"
-"        <p>Kind regards,</p>\n"
-"        <p>Your Fluxdock Team</p>\n"
-"\n"
-"\n"
-"       </td>\n"
-"      </tr>\n"
-"     </table>\n"
-"    </td>\n"
-"   </tr>\n"
-"\n"
-"   <tr bgcolor=\"#463246\">\n"
-"    <td align=\"center\">\n"
-"     <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n"
-"      <tr>\n"
-"       <td width=\"33%\" align=\"left\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-left: 10px;\">\n"
-"        <a style=\"font-size:14px; color: #ffffff; text-decoration: none;\" href=\"http://fluxdock.io/my/account\">\n"
-"         <strong>My Account</strong>\n"
-"        </a>\n"
-"       </td>\n"
-"       <td width=\"33%\" align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;\">\n"
-"        <a style=\"color: #ffffff; text-decoration: none;\" href=\"https://fluxdock.io\">\n"
-"         <strong>fluxdock.io</strong>\n"
-"        </a>\n"
-"       </td>\n"
-"       <td width=\"33%\" align=\"right\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-right:18px;\">\n"
-"        <a style=\"font-size:14px; color: #ffffff; text-decoration: none;\" href=\"http://fluxdock.io/page/about\">\n"
-"         <strong>Contact us</strong>\n"
-"        </a>\n"
-"       </td>\n"
-"      </tr>\n"
-"     </table>\n"
-"    </td>\n"
-"   </tr>\n"
-"\n"
-"   <tr bgcolor=\"#ffffff\">\n"
-"    <td align=\"center\" style=\"color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;\">PRODUCT OF A COLLABORATION 2016</td>\n"
-"   </tr>\n"
-"  </table>\n"
-" </body>\n"
-"\n"
-"</html>\n"
-"                \n"
-"            "
-msgstr ""
-"\n"
-"                \n"
-"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
-"<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
-" <head>\n"
-"  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n"
-"  <title>Fluxdock</title>\n"
-"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n"
-" </head>\n"
-"\n"
-" <body style=\"margin: 0; padding: 0;\">\n"
-"  <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse: collapse;\">\n"
-"\n"
-"   <tr>\n"
-"    <td align=\"center\">\n"
-"     <img src=\"http://fluxdock.io/theme_fluxdocs/static/email/images/logo-title.png\" alt=\"Fluxdock Logo\" width=\"200\" height=\"200\" style=\"display: block;\" />\n"
-"    </td>\n"
-"   </tr>\n"
-"\n"
-"   <tr bgcolor=\"#463246\">\n"
-"    <td align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;\">Please do not reply! This email was generated automatically.</td>\n"
-"   </tr>\n"
-"\n"
-"   <tr bgcolor=\"#2e112d\">\n"
-"    <td align=\"center\">\n"
-"     <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n"
-"      <tr>\n"
-"       <td align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:50px; padding-bottom:100px; padding-left: 10px; padding-right: 10px;\">\n"
-"        <p>Thank you for signing up to Fluxdock!</p>\n"
-"        <p>Please confirm Your Email Address by clicking the link bellow.</p>\n"
-"        <p>You can now complete the basic informations of your company. Before the publication of the registered users, we will ask you to provide further information and give you the possibility to edit your profile. This will be soon.</p>\n"
-"\n"
-"        <table border=\"1\" cellpadding=\"0\" cellspacing=\"0\">\n"
-"         <tr>\n"
-"          <td style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding: 10px 20px;\">\n"
-"           <a style=\"color: #ffffff; text-decoration: none;\" href=\"http://www.fluxdock.io/web/confirmation\">Activate account</a>\n"
-"          </td>\n"
-"         </tr>\n"
-"        </table>\n"
-"        <p>Thank you!</p>\n"
-"        <p>Kind regards,</p>\n"
-"        <p>Your Fluxdock Team</p>\n"
-"\n"
-"\n"
-"       </td>\n"
-"      </tr>\n"
-"     </table>\n"
-"    </td>\n"
-"   </tr>\n"
-"\n"
-"   <tr bgcolor=\"#463246\">\n"
-"    <td align=\"center\">\n"
-"     <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n"
-"      <tr>\n"
-"       <td width=\"33%\" align=\"left\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-left: 10px;\">\n"
-"        <a style=\"font-size:14px; color: #ffffff; text-decoration: none;\" href=\"http://fluxdock.io/my/account\">\n"
-"         <strong>My Account</strong>\n"
-"        </a>\n"
-"       </td>\n"
-"       <td width=\"33%\" align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;\">\n"
-"        <a style=\"color: #ffffff; text-decoration: none;\" href=\"https://fluxdock.io\">\n"
-"         <strong>fluxdock.io</strong>\n"
-"        </a>\n"
-"       </td>\n"
-"       <td width=\"33%\" align=\"right\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-right:18px;\">\n"
-"        <a style=\"font-size:14px; color: #ffffff; text-decoration: none;\" href=\"http://fluxdock.io/page/about\">\n"
-"         <strong>Contact us</strong>\n"
-"        </a>\n"
-"       </td>\n"
-"      </tr>\n"
-"     </table>\n"
-"    </td>\n"
-"   </tr>\n"
-"\n"
-"   <tr bgcolor=\"#ffffff\">\n"
-"    <td align=\"center\" style=\"color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;\">PRODUCT OF A COLLABORATION 2016</td>\n"
-"   </tr>\n"
-"  </table>\n"
-" </body>\n"
-"\n"
-"</html>\n"
-"                \n"
-"            "
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "* Required fields"
-msgstr "* Required fields"
+msgstr "* Pflichtfelder"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid ""
-"1.1 Ihr Vertrag besteht mit der FLUXDOCK AG, einem Schweizer\n"
-"       Unternehmen. Dieser Vertrag untersteht den Gesetzen des\n"
-"       Kantons Basel-Landschaft und den Gesetzen der Schweiz."
-msgstr ""
-"1.1 Ihr Vertrag besteht mit der FLUXDOCK AG, einem Schweizer\n"
-"       Unternehmen. Dieser Vertrag untersteht den Gesetzen des\n"
-"       Kantons Basel-Landschaft und den Gesetzen der Schweiz."
+msgid "1.1 Your contract is with the FLUXDOCK AG, a Swiss company. This contract is subject to the laws of the Canton of Basel-Country and the laws of Switzerland."
+msgstr "1.1 Ihr Vertrag besteht mit der FLUXDOCK AG, einem Schweizer Unternehmen. Dieser Vertrag untersteht den Gesetzen des Kantons Basel-Landschaft und den Gesetzen der Schweiz."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid ""
-"1.1 Lorem ipsum untersteht den Gesetzen des Kantons\n"
-"       Basel-Landschaft und den Gesetzen der Schweiz."
-msgstr ""
-"1.1 Lorem ipsum untersteht den Gesetzen des Kantons\n"
-"       Basel-Landschaft und den Gesetzen der Schweiz."
+msgid "10.1 Jurisdiction for disputes with Fluxdock is the canton of Basel-Country, Switzerland, unless otherwise agreed in writing."
+msgstr "10.1 Gerichtsstand für Streitigkeiten mit Fluxdock ist der Kanton Basel-Landschaft, Schweiz, sofern nichts anderes schriftlich vereinbart wurde."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid ""
-"2.1 Eigentümer: Sie behalten alle Rechte und das Eigentum an\n"
-"       Ihren Daten und Inhalten. Fluxdock erhebt keinerlei\n"
-"       Eigentumsrechte an Ihren Inhalten."
-msgstr ""
-"2.1 Eigentümer: Sie behalten alle Rechte und das Eigentum an\n"
-"       Ihren Daten und Inhalten. Fluxdock erhebt keinerlei\n"
-"       Eigentumsrechte an Ihren Inhalten."
+msgid "11.1 You may not use our services at any time."
+msgstr "11.1 Sie können unsere Dienste jederzeit nicht mehr verwenden."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "2.1 Lorem ipsum wenn Sie Inhalte auf unsere Dienste hochlade"
-msgstr "2.1 Lorem ipsum wenn Sie Inhalte auf unsere Dienste hochlade"
+msgid "11.2 We can add features or functions, change or remove them, and we may suspend or terminate services."
+msgstr "11.2 Wir können Features oder Funktionen hinzufügen, ändern oder entfernen und wir können Dienste aussetzen oder beenden."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid ""
-"2.2 Lizenzen für Ihre Inhalte. Wenn Sie Inhalte auf unsere\n"
-"       Dienste hochladen oder einreichen, gewähren Sie Fluxdock eine\n"
-"       weltweite Lizenz sie zu kommunizieren, zu verbreiten, zu\n"
-"       veröffentlichen, zu vervielfältigen, zu speichern und diese\n"
-"       Inhalte zu nutzen. Die von Ihnen gewährte Lizenz dient dem\n"
-"       Zweck des Betriebs von Fluxdock und der Bewerbung unserer\n"
-"       Dienstleistungen."
-msgstr ""
-"2.2 Lizenzen für Ihre Inhalte. Wenn Sie Inhalte auf unsere\n"
-"       Dienste hochladen oder einreichen, gewähren Sie Fluxdock eine\n"
-"       weltweite Lizenz sie zu kommunizieren, zu verbreiten, zu\n"
-"       veröffentlichen, zu vervielfältigen, zu speichern und diese\n"
-"       Inhalte zu nutzen. Die von Ihnen gewährte Lizenz dient dem\n"
-"       Zweck des Betriebs von Fluxdock und der Bewerbung unserer\n"
-"       Dienstleistungen."
+msgid "11.3 Usage fees that were paid before a termination shall not be refunded. By canceling your account you will not be exempt from unfunded commitments."
+msgstr "11.3 Nutzungsgebühren, die vor einer Kündigung bezahlt wurden, werden nicht erstattet. Durch die Kündigung Ihres Kontos werden Sie nicht von offenen Zahlungsverpflichtungen befreit."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid ""
-"2.3 2.3 Kündigung der Lizenz. Sie können durch das Entfernen\n"
-"       Ihrer Inhalte aus den Diensten, diese Lizenz jederzeit\n"
-"       kündigen. Allerdings erklären Sie sich bereit, dass Fluxdock\n"
-"       Kopien Ihrer Inhalte für die Archivierung oder für\n"
-"       Backup-Zwecke behalten und verwenden kann."
-msgstr ""
-"2.3 2.3 Kündigung der Lizenz. Sie können durch das Entfernen\n"
-"       Ihrer Inhalte aus den Diensten, diese Lizenz jederzeit\n"
-"       kündigen. Allerdings erklären Sie sich bereit, dass Fluxdock\n"
-"       Kopien Ihrer Inhalte für die Archivierung oder für\n"
-"       Backup-Zwecke behalten und verwenden kann."
+msgid "11.4 If our service are stopped or interrupted, then we will take the reasonable efforts to notify you and provide you with the ability to access your content."
+msgstr "11.4 Wenn unsere Dienst eingestellt oder unterbrochen werden, dann werden wir die angemessenen Anstrengungen unternehmen, um Sie zu benachrichtigen, und Ihnen die Möglichkeit bieten, Ihre Inhalte abzurufen."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
-msgid ""
-"<br/>\n"
-"           City:"
-msgstr ""
-"<br/>\n"
-"          Stadt:"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "12.1 Notices to Fluxdock: Please send your correspondence to the following address: FLUXDOCK AG, c / o iart ag, Mülhauserstrasse 111, 4056 Basel, Switzerland."
+msgstr "12.1 Mitteilungen an Fluxdock: Bitte richten Sie Ihre Korrespondenz an folgende Adresse: FLUXDOCK AG, c / o iart ag, Mülhauserstrasse 111, 4056 Basel, Schweiz."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
-msgid ""
-"<br/>\n"
-"           NPA:"
-msgstr ""
-"<br/>\n"
-"           PLZ:"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "12.2 Notification: Fluxdock notifies you either by e-mail, mail, SMS, or within the services."
+msgstr "12.2 Mitteilung an Sie: Fluxdock benachrichtigt Sie entweder per E-Mail, Post, SMS, oder innerhalb der Dienste."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
-msgid ""
-"<br/>\n"
-"           Payment type: Wire Transer<br/>"
-msgstr ""
-"<br/>\n"
-"           Payment type: Wire Transer<br/>"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "13.1 German version. For the interpretation of these Terms of Use, the German version is authoritative."
+msgstr "13.1 Deutsche Version. Für die Auslegung dieser Nutzungsbedingungen ist die Deutsche Version massgebend."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
-msgid ""
-"<br/>\n"
-"           Street:"
-msgstr ""
-"<br/>\n"
-"           Straße:"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "13.2 Severability. If any part of these Terms is invalid or unenforceable, the remainder retains its force and effect."
+msgstr "13.2 Trennbarkeit. Sollte ein Teil dieser Nutzungsbedingungen ungültig oder nicht durchsetzbar sein, behält der Rest seine Wirkung und Gültigkeit."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
-msgid ""
-"<br/>\n"
-"           Taxes:"
-msgstr ""
-"<br/>\n"
-"           Steuern:"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "13.3 No waiver. If we waive the enforcement of these conditions, this does not constitute a waiver of our rights for enforcement."
+msgstr "13.3 Kein Verzicht: Wenn wir von der Durchsetzung dieser Bedingungen absehen, bedeutet dies kein Verzicht auf unsere Durchsetzungsrechte."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "13.4 Assignment or transfer: You can not transfer to another person or assign your rights and obligations under this Agreement without the written consent of Fluxdock. We may assign our rights and obligations without your permission."
+msgstr "13.4 Abtretung oder Übertragung: Sie können Ihre Rechte und Pflichten aus diesem Vertrag ohne schriftliche Zustimmung von Fluxdock nicht an eine andere Person abtreten oder übertragen. Wir können unsere Rechte und Pflichten ohne Ihre Erlaubnis übertragen."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "13.5 Change. We can customize these conditions. We publish changes to these terms on this page. Your continued use of the Services after the changes take effect, you agree to the revised terms."
+msgstr "13.5 Änderung. Wir können diese Bedingungen anpassen. Wir veröffentlichen Änderungen an diesen Bedingungen auf dieser Seite. Durch die weitere Nutzung der Services nachdem die Änderungen in Kraft treten, stimmen Sie den geänderten Bedingungen zu."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "2.1 Ownership: You retain all rights and ownership of your data and content. Fluxdock disclaims proprietary interest in your content."
+msgstr "2.1 Eigentümer: Sie behalten alle Rechte und das Eigentum an Ihren Daten und Inhalten. Fluxdock erhebt keinerlei Eigentumsrechte an Ihren Inhalten."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "2.2 Licenses for your content. If you access our services and upload or submit content, you grant Fluxdock a worldwide license to communicate them to spread, publish, reproduce, store and use this content. The license granted by you is for the purpose of the operation of Fluxdock and the advertising for our services."
+msgstr "2.2 Lizenzen für Ihre Inhalte. Wenn Sie Inhalte auf unsere Dienste hochladen oder einreichen, gewähren Sie Fluxdock eine weltweite Lizenz sie zu kommunizieren, zu verbreiten, zu veröffentlichen, zu vervielfältigen, zu speichern und diese Inhalte zu nutzen. Die von Ihnen gewährte Lizenz dient dem Zweck des Betriebs von Fluxdock und der Bewerbung unserer Dienstleistungen."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "2.3 Termination of the license. You can by removing your content from the Services, terminate this license at any time. However, you agree that Fluxdock may retain and use copies of your content for archival or backup purposes."
+msgstr "2.3 Kündigung der Lizenz. Sie können durch das Entfernen Ihrer Inhalte aus den Diensten, diese Lizenz jederzeit kündigen. Allerdings erklären Sie sich bereit, dass Fluxdock Kopien Ihrer Inhalte für die Archivierung oder für Backup-Zwecke behalten und verwenden kann."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "3.1 Services Authority: You can use our services if you are legally capable of contracting."
+msgstr "3.1 Service-Berechtigung: Sie können unsere Dienste nutzen, wenn Sie rechtlich vertragsfähig sind."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "3.2 International Users: It is your task to clarify whether your use of the Services, in your location country is legal. The services are not available in all languages."
+msgstr "3.2 Internationale Benutzer: Es ist Ihre Aufgabe abzuklären, ob Ihre Nutzung der Dienste, in Ihrem Standortland legal ist. Die Dienstleistungen stehen nicht in allen Sprachen zur Verfügung."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "4.1 You may create an account with us to use our services. It is your responsibility to keep your account information safe and you are responsible for all activities that occur under your account."
+msgstr "4.1 Unter Umständen erstellen Sie ein Konto bei uns, um unsere Services zu nutzen. Es liegt in Ihrer Verantwortung die Kontodaten sicher zu verwahren, und Sie sind verantwortlich für alle Aktivitäten, die über Ihr Konto erfolgen."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "5.1 Do not use our services to do something unlawful."
+msgstr "5.1 Nutzen Sie unsere Dienste nicht, um etwas Rechtswidriges zu tun."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "5.2 Identity. Since Fluxdock is a professional network of companies, we require that you use our services for and on behalf of a real company."
+msgstr "5.2 Identität. Da Fluxdock ein professionelles Netzwerk für Unternehmen ist, verlangen wir, dass Sie unsere Dienstleistungen im Namen und Auftrag eines realen Unternehmens verwenden."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "6.1 Certain services are only available if you pay a fee or provide certain information."
+msgstr "6.1 Bestimmte Dienste stehen nur zur Verfügung, wenn Sie eine Gebühr bezahlt haben oder bestimmte Kontoinformationen zur Verfügung stellen.tion."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "6.2 Unless otherwise specified in a separate agreement, we are not responsible for (a) the loss, corruption or damage to your content, (b) the deletion or accuracy of the contents, or (c) the security, privacy or communications regarding your content."
+msgstr "6.2 Soweit es nicht anders in einer separaten Vereinbarung angegeben ist, sind wir nicht verantwortlich für (a) der Verlust, die Beschädigung oder Schäden an Ihrem Inhalt, (b) die Löschung oder die Richtigkeit der Inhalte, oder (c) die Sicherheit, Datenschutz oder Kommunikation in Bezug auf Ihre Inhalte."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "6.3 We can restrict the use of services."
+msgstr "6.3 Wir können die Nutzung von Dienstleistungen beschränken."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "6.4 We have no control over and are not responsible for the content of websites or services of third parties to which we refer on our website."
+msgstr "6.4 Wir haben keine Kontrolle über und sind nicht verantwortlich für den Inhalt von Websites oder Dienste Dritter auf die wir auf unserer Website verweisen."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "7.1 Fluxdock shall disclose information about you or your use of a service, (A) if this is required by law (if we receive a valid subpoena or warrant); (B) in order to process your requests."
+msgstr "7.1 Fluxdock legt Informationen über Sie oder Ihre Nutzung eines Dienstes offen, (A) wenn dies gesetzlich vorgeschrieben (wenn wir eine gültige Vorladung oder Durchsuchungsbefehl erhalten) ist; (B), um Ihre Anfragen zu bearbeiten."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "8.1 Fluxdock materials. The services and all trademarks, logos, software and other content and assets (\"Fluxdock Materials\") that Fluxdock offers as part of the Service, are protected by intellectual property rights. By using our services you acquire no rights to this intellectual property. Using Fluxdock trademarks and logos is prohibited, as is the removal, obscure or change text or proprietary notices in the Fluxdock materials."
+msgstr "8.1 Fluxdock Materialien. Die Dienste und alle Marken, Logos, Software und anderen Inhalten und Vermögenswerten ( \"Fluxdock Materialien\"), die Fluxdock Ihnen als Teil des Service bietet, sind durch geistige Eigentumsrechte geschützt. Durch die Nutzung unserer Dienste erwerben Sie kein Recht an diesem geistigem Eigentum. Die Verwendung von Fluxdock Markenzeichen und Logos ist nicht erlaubt, ebenso das Entfernen, verdecken oder ändern von Text oder Eigentumsvermerken in den Fluxdock Materialien."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "8.2 Software. If we make certain software, then this software may be subject to a separate license agreement. If no such separate license agreement exists, then granted Fluxdock you a personal, non-transferable, non-sublicensable license to use the software solely for the purpose of using our services. You may then not copy, modify, distribute, sell, re-engineer or decompile it."
+msgstr "8.2 Software. Wenn wir bestimmte Software zur Verfügung stellen, dann kann diese Software einem separaten Lizenzvertrag unterliegen. Wenn kein solcher separater Lizenzvertrag vorliegt, dann gewährt Fluxdock Ihnen eine persönliche, nicht übertragbare, nicht unterlizenzierbare Lizenz zur Nutzung der Software ausschließlich zum Zweck der Nutzung unser Dienste. Sie dürfen dann die Software nicht kopieren, modifizieren, verbreiten, verkaufen, reengineeren oder dekompilieren."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "9.1 You represent and warrant that you have all intellectual property rights (or have received all necessary consents) for your content and have the right to grant the license indicated above us in Section 2.2."
+msgstr "9.1 Sie erklären und garantieren, dass Sie alle geistigen Eigentumsrechte (oder haben alle erforderlichen Genehmigungen erhalten), für Ihre Inhalte besitzen und haben das Recht, uns die Lizenz in Abschnitt 2.2 oben angegeben zu gewähren."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "9.2 You represent and warrant that your content does not infringe any intellectual property or other proprietary rights, including the right of publicity or privacy of any natural or legal person."
+msgstr "9.2 Sie erklären und garantieren, dass Ihre Inhalte keine Rechte an geistigem Eigentum oder andere Eigentumsrechte verletzen, einschließlich des Rechts auf Veröffentlichung oder Privatsphäre, jeder natürlichen oder juristischen Person."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid ""
-"<br/>\n"
-"              City:"
-msgstr ""
-"<br/>\n"
+msgid "<br/>\n"
+"                  City:"
+msgstr "<br/>\n"
 "              Stadt:"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid ""
-"<br/>\n"
-"              NPA:"
-msgstr ""
-"<br/>\n"
+msgid "<br/>\n"
+"                  NPA:"
+msgstr "<br/>\n"
 "              PLZ:"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid ""
-"<br/>\n"
-"              Payment type: Wire Transer<br/>"
-msgstr ""
-"<br/>\n"
-"              Payment type: Wire Transer<br/>"
+msgid "<br/>\n"
+"                  Payment type: Wire Transer<br/>"
+msgstr "<br/>\n"
+"                  Payment type: Wire Transer<br/>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid ""
-"<br/>\n"
-"              Street:"
-msgstr ""
-"<br/>\n"
+msgid "<br/>\n"
+"                  Street:"
+msgstr "<br/>\n"
 "              Straße:"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid ""
-"<br/>\n"
-"              Taxes:"
-msgstr ""
-"<br/>\n"
+msgid "<br/>\n"
+"                  Taxes:"
+msgstr "<br/>\n"
 "              Steuern:"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.profile_details
-msgid "<span>Upload image</span>"
-msgstr "<span>Upload image</span>"
+#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
+msgid "<br/>\n"
+"                City:"
+msgstr "<br/>\n"
+"                City:"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
+msgid "<br/>\n"
+"                NPA:"
+msgstr "<br/>\n"
+"                NPA:"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
+msgid "<br/>\n"
+"                Payment type: Wire Transer<br/>"
+msgstr "<br/>\n"
+"                Payment type: Wire Transer<br/>"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
+msgid "<br/>\n"
+"                Street:"
+msgstr "<br/>\n"
+"           Straße:"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
+msgid "<br/>\n"
+"                Taxes:"
+msgstr "<br/>\n"
+"           Steuern:"
+
+#. module: specific_membership
+#: model:mail.template,body_html:specific_membership.mail_membership_upgrade
+msgid "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+"    <head>\n"
+"        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n"
+"        <title>Fluxdock</title>\n"
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n"
+"    </head>\n"
+"\n"
+"    <body style=\"margin: 0; padding: 0;\">\n"
+"        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse: collapse;\">\n"
+"\n"
+"            <tr>\n"
+"                <td align=\"center\">\n"
+"                    <img src=\"http://fluxdock.io/theme_fluxdocs/static/email/images/logo-title.png\" alt=\"Fluxdock Logo\" width=\"200\" height=\"200\" style=\"display: block;\" />\n"
+"                </td>\n"
+"            </tr>\n"
+"\n"
+"            <tr bgcolor=\"#463246\">\n"
+"                <td align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;\">Please do not reply! This email was generated automatically.</td>\n"
+"            </tr>\n"
+"\n"
+"            <tr bgcolor=\"#2e112d\">\n"
+"                <td align=\"center\">\n"
+"                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n"
+"                        <tr>\n"
+"                            <td align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:50px; padding-bottom:100px; padding-left: 10px; padding-right: 10px;\">\n"
+"                                <p>Thank you for upgrading your membership!</p>\n"
+"                                <p>Please, find your invoice attached.</p>\n"
+"                                <p>Thank you!</p>\n"
+"                                <p>Kind regards,</p>\n"
+"                                <p>Your Fluxdock Team</p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                </td>\n"
+"            </tr>\n"
+"\n"
+"            <tr bgcolor=\"#463246\">\n"
+"                <td align=\"center\">\n"
+"                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n"
+"                        <tr>\n"
+"                            <td width=\"33%\" align=\"left\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-left: 10px;\">\n"
+"                                <a style=\"font-size:14px; color: #ffffff; text-decoration: none;\" href=\"http://fluxdock.io/my/account\">\n"
+"                                    <strong>My Account</strong>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td width=\"33%\" align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;\">\n"
+"                                <a style=\"color: #ffffff; text-decoration: none;\" href=\"https://fluxdock.io\">\n"
+"                                    <strong>fluxdock.io</strong>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td width=\"33%\" align=\"right\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-right:18px;\">\n"
+"                                <a style=\"font-size:14px; color: #ffffff; text-decoration: none;\" href=\"http://fluxdock.io/page/about\">\n"
+"                                    <strong>Contact us</strong>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                </td>\n"
+"            </tr>\n"
+"\n"
+"            <tr bgcolor=\"#ffffff\">\n"
+"                <td align=\"center\" style=\"color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;\">PRODUCT OF A COLLABORATION 2016</td>\n"
+"            </tr>\n"
+"        </table>\n"
+"    </body>\n"
+"\n"
+"</html>\n"
+""
+msgstr "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
+"    <head>\n"
+"        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\n"
+"        <title>Fluxdock</title>\n"
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n"
+"    </head>\n"
+"\n"
+"    <body style=\"margin: 0; padding: 0;\">\n"
+"        <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse: collapse;\">\n"
+"\n"
+"            <tr>\n"
+"                <td align=\"center\">\n"
+"                    <img src=\"http://fluxdock.io/theme_fluxdocs/static/email/images/logo-title.png\" alt=\"Fluxdock Logo\" width=\"200\" height=\"200\" style=\"display: block;\" />\n"
+"                </td>\n"
+"            </tr>\n"
+"\n"
+"            <tr bgcolor=\"#463246\">\n"
+"                <td align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;\">Please do not reply! This email was generated automatically.</td>\n"
+"            </tr>\n"
+"\n"
+"            <tr bgcolor=\"#2e112d\">\n"
+"                <td align=\"center\">\n"
+"                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n"
+"                        <tr>\n"
+"                            <td align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:50px; padding-bottom:100px; padding-left: 10px; padding-right: 10px;\">\n"
+"                                <p>Thank you for upgrading your membership!</p>\n"
+"                                <p>Please, find your invoice attached.</p>\n"
+"                                <p>Thank you!</p>\n"
+"                                <p>Kind regards,</p>\n"
+"                                <p>Your Fluxdock Team</p>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                </td>\n"
+"            </tr>\n"
+"\n"
+"            <tr bgcolor=\"#463246\">\n"
+"                <td align=\"center\">\n"
+"                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\">\n"
+"                        <tr>\n"
+"                            <td width=\"33%\" align=\"left\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-left: 10px;\">\n"
+"                                <a style=\"font-size:14px; color: #ffffff; text-decoration: none;\" href=\"http://fluxdock.io/my/account\">\n"
+"                                    <strong>My Account</strong>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td width=\"33%\" align=\"center\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;\">\n"
+"                                <a style=\"color: #ffffff; text-decoration: none;\" href=\"https://fluxdock.io\">\n"
+"                                    <strong>fluxdock.io</strong>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                            <td width=\"33%\" align=\"right\" style=\"color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-right:18px;\">\n"
+"                                <a style=\"font-size:14px; color: #ffffff; text-decoration: none;\" href=\"http://fluxdock.io/page/about\">\n"
+"                                    <strong>Contact us</strong>\n"
+"                                </a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                </td>\n"
+"            </tr>\n"
+"\n"
+"            <tr bgcolor=\"#ffffff\">\n"
+"                <td align=\"center\" style=\"color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;\">PRODUCT OF A COLLABORATION 2016</td>\n"
+"            </tr>\n"
+"        </table>\n"
+"    </body>\n"
+"\n"
+"</html>\n"
+""
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.profile_progress_bar
+msgid "<span class=\"text\">Member profile published</span>"
+msgstr "<span class=\"text\">Member profile published</span>"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.profile_progress_bar
+msgid "<span class=\"text\">Sign-up</span>"
+msgstr "<span class=\"text\">Sign-up</span>"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.profile_progress_bar
+msgid "<span class=\"text\">Upload references</span>"
+msgstr "<span class=\"text\">Upload references</span>"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.member_item_tags
+msgid "<strong>Expertise:</strong>"
+msgstr "<strong>Expertise:</strong>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
-msgid ""
-"<strong>Important:</strong>\n"
-"            <span>if you modify your email, your login will be updated as well.</span>"
-msgstr ""
-"<strong>Important:</strong>\n"
-"            <span>if you modify your email, your login will be updated as well.</span>"
+msgid "<strong>Important:</strong>\n"
+"												<span>if you modify your email, your login will be updated as well.</span>"
+msgstr "<strong>Important:</strong>\n"
+"												<span>if you modify your email, your login will be updated as well.</span>"
 
 #. module: specific_membership
-#: code:addons/specific_membership/models/res_users.py:15
+#: model:ir.ui.view,arch_db:specific_membership.member_item_tags
+msgid "<strong>Industry:</strong>"
+msgstr "<strong>Industry:</strong>"
+
+#. module: specific_membership
+#: code:addons/specific_membership/models/res_users.py:27
 #: sql_constraint:res.users:0
 #, python-format
 msgid "A user with this login already exists !"
 msgstr "A user with this login already exists !"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.profile_details
-msgid "Add logo here"
-msgstr "Add logo here"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "About these Terms"
+msgstr "Über diese Bedingungen"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Account Information."
+msgstr "Kontoinformationen."
 
 #. module: specific_membership
 #: model:product.product,name:specific_membership.membership_variable_year
@@ -386,38 +435,19 @@ msgid "Advanced Membership"
 msgstr "Advanced Membership"
 
 #. module: specific_membership
-#: model:ir.model.fields,help:specific_membership.field_res_partner_agree_to_terms
-#: model:ir.model.fields,help:specific_membership.field_res_users_agree_to_terms
-msgid "Agree to terms"
-msgstr "Agree to terms"
-
-#. module: specific_membership
-#: model:ir.model.fields,field_description:specific_membership.field_res_partner_agree_to_terms
-#: model:ir.model.fields,field_description:specific_membership.field_res_users_agree_to_terms
-msgid "Agree to unity terms"
-msgstr "Agree to unity terms"
+#: model:ir.ui.view,arch_db:specific_membership.reset_password
+msgid "After confirmation your can edit and complete your company profile. The profile will be published automatically after completion."
+msgstr "Nach der Bestätigung können Sie Ihr Firmenprofil bearbeiten und vervollständigen. Das Profil wird nach Vervollständigung automatisch publiziert."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
-msgid "All"
-msgstr "Alle"
-
-#. module: specific_membership
-#: code:addons/specific_membership/controllers/membership.py:163
-#, python-format
-msgid "All Countries"
-msgstr "Alle Länder"
+msgid "All countries"
+msgstr "All countries"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.thanks_for_registration
-msgid ""
-"An email has been sent to your address.\n"
-"    Click on its link to activate your account\n"
-"    and set your credentials."
-msgstr ""
-"TO TRANSLATE\n"
-"    Click on its link to activate your account\n"
-"    and set your credentials."
+msgid "An email with a confirmation link has been sent to your address. Please click the link, to activate your account and set your login credentials.<br/>Check your spam folder, if you did not receive any message."
+msgstr "Eine E-Mail mit einem Bestätigungs-Link wurde an Ihre Adresse gesendet. Bitte klicken Sie auf den Link, um Ihr Konto zu aktivieren und Ihre Zugangsdaten festzulegen.<br/>Prüfen Sie Ihren Spam-Ordner, falls Sie keine Nachricht erhalten haben."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.presignup
@@ -431,16 +461,6 @@ msgstr "Sind Sie bereits registriert?"
 #: selection:res.partner,flux_membership:0
 msgid "Associate Membership"
 msgstr "Associate Membership"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
-msgid "Associations"
-msgstr "Vereine & Verbände"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "At vero domine."
-msgstr "At vero domine."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
@@ -457,6 +477,11 @@ msgstr "Zurück zum Profil"
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "Billing Address"
 msgstr "Billing Address"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.profile_completed_msg
+msgid "Continue exploring fluxdock"
+msgstr "Fahren sie fort und erkunden sie fluxdock"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -483,6 +508,11 @@ msgstr "Claim"
 #: model:ir.ui.view,arch_db:specific_membership.partner_table
 msgid "Claim:"
 msgstr "Claim:"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Communication"
+msgstr "Kommunikation"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.presignup
@@ -522,23 +552,12 @@ msgstr "Content Preview"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Country*"
-msgstr "Land *"
+msgstr "Land"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Country..."
 msgstr "Bitte Land auswählen..."
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.login
-msgid "Create a free account here"
-msgstr "Hier können Sie sich kostenlos anmelden"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Datenschutzbedingungen Fluxdock.io"
-msgstr "Datenschutzbedingungen Fluxdock.io"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -551,6 +570,11 @@ msgstr "Details"
 #, python-format
 msgid "Discard"
 msgstr "Discard"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Disclosure."
+msgstr "Offenlegung."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -569,9 +593,15 @@ msgid "Edit profile"
 msgstr "Profil vervollständingen"
 
 #. module: specific_membership
+#: code:addons/specific_membership/controllers/account.py:163
+#, python-format
+msgid "Email address `%s` already taken. Please check inside your company. "
+msgstr "Email address `%s` already taken. Please check inside your company. "
+
+#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Email*"
-msgstr "Email*"
+msgstr "E-Mail"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.partner_table
@@ -580,23 +610,17 @@ msgstr "E-Mail:"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.privateperson
-msgid ""
-"Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia\n"
-"       quam ex eium Et maximos ut mole."
-msgstr ""
-"Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia\n"
-"       quam ex eium Et maximos ut mole."
+msgid "Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia\n"
+"							quam ex eium Et maximos ut mole."
+msgstr "Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia\n"
+"							quam ex eium Et maximos ut mole."
 
 #. module: specific_membership
-#: model:ir.model.fields,field_description:specific_membership.field_res_partner_expertise
-#: model:ir.model.fields,field_description:specific_membership.field_res_users_expertise
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Expertise"
 msgstr "Expertise"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_partner_detail
 #: model:ir.ui.view,arch_db:specific_membership.partner_table
 msgid "Expertise:"
 msgstr "Expertise:"
@@ -612,8 +636,6 @@ msgid "Expiration:"
 msgstr "Expiration:"
 
 #. module: specific_membership
-#: model:ir.model.fields,field_description:specific_membership.field_res_partner_facebook
-#: model:ir.model.fields,field_description:specific_membership.field_res_users_facebook
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Facebook"
 msgstr "Facebook"
@@ -630,14 +652,13 @@ msgstr "Finden Sie einen Geschäftspartner"
 
 #. module: specific_membership
 #: model:ir.model.fields,field_description:specific_membership.field_res_partner_flux_membership
-#: model:ir.model.fields,field_description:specific_membership.field_res_users_flux_membership
 msgid "Flux membership"
 msgstr "Flux membership"
 
 #. module: specific_membership
-#: model:mail.template,subject:specific_membership.account_confirmation_email
-msgid "Fluxdock account confirmation"
-msgstr "Accountbestätigung Fluxdock"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Fluxdock is an online platform where companies present themselves, exchange with one another and organise."
+msgstr "Fluxdock ist eine Online-Plattform, auf der sich Unternehmen präsentieren, untereinander austauschen und organisieren können."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
@@ -645,20 +666,24 @@ msgid "Fluxdock is based on its members. They form all together the interdiscipl
 msgstr "Fluxdock basiert auf seinen Mitgliedern. Sie bilden alle gemeinsam das interdisziplinäre und kollaborativen Netzwerk, das die Mitglieder gegenseitig zu Innovation befähigt. Hier sehen sind alle Mitglieder von Fluxdock"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.login
-msgid "Forgot your password?"
-msgstr "Passwort vergessen?"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Fluxdock is operated from Switzerland and can be accessed on the internet at www.fluxdock.io."
+msgstr "Fluxdock wird aus der Schweiz betrieben. Auf Fluxdock kann direkt im Internet unter www.fluxdock.io zugegriffen werden."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.profile_details
-msgid "Format:<br/>JPG/PNG"
-msgstr "Format:<br/>JPG/PNG"
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Fluxdock materials."
+msgstr "Fluxdock Materialien."
 
 #. module: specific_membership
-#: code:addons/specific_membership/controllers/membership.py:236
-#, python-format
-msgid "Free Members"
-msgstr "Kostenbefreite Mitglieder"
+#: model:mail.template,subject:specific_membership.mail_membership_upgrade
+msgid "Fluxdock membership upgrade confirmed"
+msgstr "Fluxdock membership upgrade confirmed"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Fluxdock provides no user data with third parties. The user-managed user profiles and reference projects of the company, however, are in terms of operation and objectives of Fluxdock publicly available."
+msgstr "Fluxdock teilt keine Nutzerdaten mit Dritten. Die durch die Nutzer verwalteten Nutzerprofile und Referenzprojekte der Firmen sind jedoch im Sinne der Funktionsweise und Zielsetzungen von Fluxdock öffentlich einsehbar."
 
 #. module: specific_membership
 #: selection:res.partner,flux_membership:0
@@ -671,16 +696,6 @@ msgid "I represent a"
 msgstr "Ich repräsentiere"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Ihr Inhalt."
-msgstr "Ihr Inhalt."
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Ihr Vertrag mit Fluxdock."
-msgstr "Ihr Vertrag mit Fluxdock."
-
-#. module: specific_membership
 #. openerp-web
 #: code:addons/specific_membership/static/src/xml/image_upload.xml:28
 #, python-format
@@ -688,7 +703,7 @@ msgid "Image File"
 msgstr "Image File"
 
 #. module: specific_membership
-#: code:addons/specific_membership/controllers/account.py:115
+#: code:addons/specific_membership/controllers/account.py:187
 #, python-format
 msgid "Important"
 msgstr "Important"
@@ -701,25 +716,35 @@ msgstr "Branche"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Industry"
-msgstr "Branche:"
+msgstr "Branche"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_partner_detail
 #: model:ir.ui.view,arch_db:specific_membership.partner_table
 msgid "Industry:"
 msgstr "Branche:"
 
 #. module: specific_membership
-#: code:addons/specific_membership/controllers/account.py:150
+#: code:addons/specific_membership/controllers/account.py:230
 #, python-format
 msgid "Invalid Email! Please enter a valid email address."
 msgstr "Invalid Email! Please enter a valid email address."
 
 #. module: specific_membership
-#: model:ir.model.fields,field_description:specific_membership.field_res_users_last_website_so_id
-msgid "Last Online Sale Order"
-msgstr "Letzter Online-Verkaufsauftrag"
+#: model:mail.template,report_name:specific_membership.mail_membership_upgrade
+msgid "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
+msgstr "Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
+
+#. module: specific_membership
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_is_associate
+#: model:ir.model.fields,field_description:specific_membership.field_res_users_is_associate
+msgid "Is associate member"
+msgstr "Is associate member"
+
+#. module: specific_membership
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_is_free
+#: model:ir.model.fields,field_description:specific_membership.field_res_users_is_free
+msgid "Is free member"
+msgstr "Is free member"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.presignup
@@ -733,9 +758,14 @@ msgid "Login"
 msgstr "Anmelden"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Lorem Ipsum"
-msgstr "Lorem Ipsum"
+#: model:ir.ui.view,arch_db:specific_membership.fluxdock_partner_detail
+msgid "Lorem ipsum dolor sit amet, vix ex quodsi blandit suscipit. His in decore omnium appareat, usu at quas albucius complectitur. Everti menandri suavitate duo in, per cu liber dicit. Posse delectus postulant ea vis. Agam legimus percipit eu vis. Summo labores offendit quo eu, quo quas posidonium at, ea incorrupte interpretaris sit."
+msgstr "Lorem ipsum dolor sit amet, vix ex quodsi blandit suscipit. His in decore omnium appareat, usu at quas albucius complectitur. Everti menandri suavitate duo in, per cu liber dicit. Posse delectus postulant ea vis. Agam legimus percipit eu vis. Summo labores offendit quo eu, quo quas posidonium at, ea incorrupte interpretaris sit."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.fluxdock_my_account_header
+msgid "Manage your company profile, your membership and your project proposals on the market. Matching project proposals from the market will also be shown here."
+msgstr "Verwalten Sie Ihr Firmenprofil, Ihre Mitgliedschaft und Ihre Projektausschreibungen auf dem Markt. Passende Projektvorschläge vom Markt werden auch hier angezeigt."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_confirmation
@@ -769,6 +799,11 @@ msgid "Membership status"
 msgstr "Mitgliederstatus"
 
 #. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.fluxdock_partner_detail
+msgid "More..."
+msgstr "Mehr..."
+
+#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_my_account_header
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_confirmation
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -793,21 +828,6 @@ msgstr "Newsletter"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
-msgid "No result found."
-msgstr "Kein Resultat gefunden"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.login
-msgid "Not registered yet?"
-msgstr "Not registered yet?"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Nutzungsbedingungen Fluxdock.io"
-msgstr "Nutzungsbedingungen Fluxdock.io"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
 msgid "Our Members Directory"
 msgstr "Unser Mitgliederverzeichnis"
 
@@ -819,7 +839,7 @@ msgstr "Partner"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Phone*"
-msgstr "Telefon *"
+msgstr "Telefon"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.partner_table
@@ -834,6 +854,11 @@ msgid "Please <a href=\"/web?redirect=%s\">login</a> to vote this slide"
 msgstr "Please <a href=\"/web?redirect=%s\">login</a> to vote this slide"
 
 #. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.reset_password
+msgid "Please set and confirm your password below."
+msgstr "Bitte wählen und bestätigen Sie unten Ihr Passwort."
+
+#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "Price:"
@@ -841,8 +866,8 @@ msgstr "Preis:"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Privacy Policy"
-msgstr "Privacy Policy"
+msgid "Privacy Policy fluxdock.io"
+msgstr "Datenschutz fluxdock.io"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.presignup
@@ -850,24 +875,42 @@ msgid "Private individual"
 msgstr "eine Privatperson"
 
 #. module: specific_membership
-#: code:addons/specific_membership/controllers/account.py:84
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_profile_completed
+#: model:ir.model.fields,field_description:specific_membership.field_res_users_profile_completed
+msgid "Profile completed"
+msgstr "Profile completed"
+
+#. module: specific_membership
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_profile_completed_date
+#: model:ir.model.fields,field_description:specific_membership.field_res_users_profile_completed_date
+msgid "Profile completed date"
+msgstr "Profile completed date"
+
+#. module: specific_membership
+#: code:addons/specific_membership/controllers/account.py:90
 #, python-format
 msgid "Profile details updated."
 msgstr "Profile details updated."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.profile_success
-msgid "REGISTRATION COMPLETED"
-msgstr "REGISTRATION COMPLETED"
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_profile_state
+msgid "Profile state"
+msgstr "Profile state"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
-msgid ""
-"Read More\n"
-"                              <i class=\"fa fa-long-arrow-right\"/>"
-msgstr ""
-"Mehr\n"
-"                              <i class=\"fa fa-long-arrow-right\"/>"
+#: model:ir.ui.view,arch_db:specific_membership.fluxdock_partner_detail
+msgid "Projects"
+msgstr "Projekte"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Published on 5th of April 2016"
+msgstr "Stand 5. April 2016"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.profile_success
+msgid "REGISTRATION COMPLETED"
+msgstr "REGISTRIERUNG ABGESCHLOSSEN"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
@@ -875,9 +918,9 @@ msgid "Reset Password"
 msgstr "Passwort zurücksetzen"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.login
-msgid "Reset your password here"
-msgstr "Hier können Sie Ihr Passwort zurücksetzen"
+#: model:ir.ui.view,arch_db:specific_membership.reset_password
+msgid "SET / CONFIRM PASSWORD"
+msgstr "SET / CONFIRM PASSWORD"
 
 #. module: specific_membership
 #. openerp-web
@@ -889,7 +932,7 @@ msgstr "Speichern"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
 msgid "Search"
-msgstr "Suche"
+msgstr "Suchen"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_upload
@@ -897,9 +940,19 @@ msgid "Send"
 msgstr "Senden"
 
 #. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Settlement of Disputes"
+msgstr "Beilegung von Streitigkeiten"
+
+#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_partner_detail
 msgid "Short Description for List View"
 msgstr "Kurzbeschreibung für Listenansicht"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.profile_step_3_msg
+msgid "Show your proficiency by supplementing your profile with your reference projects."
+msgstr "Zeigen Sie Ihr Können indem Sie Ihr Profil mit Ihren Referenzprojekten ergänzen."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_buttons
@@ -907,8 +960,6 @@ msgid "Sign up"
 msgstr "Registrieren"
 
 #. module: specific_membership
-#: model:ir.model.fields,field_description:specific_membership.field_res_partner_skype
-#: model:ir.model.fields,field_description:specific_membership.field_res_users_skype
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Skype"
 msgstr "Skype"
@@ -924,15 +975,10 @@ msgid "Skype:"
 msgstr "Skype:"
 
 #. module: specific_membership
-#: code:addons/specific_membership/controllers/account.py:144
+#: code:addons/specific_membership/controllers/account.py:224
 #, python-format
 msgid "Some required fields are empty."
 msgstr "Bitte füllen Sie alle Pflichtfelder aus."
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Stand 29. Februar 2016"
-msgstr "Stand 29. Februar 2016"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -942,7 +988,7 @@ msgstr "Strasse / Nr. *"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.privateperson
 msgid "Subscribe"
-msgstr "Subscribe"
+msgstr "Abonnieren"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.account_confirmation
@@ -955,25 +1001,33 @@ msgid "THANK YOU FOR YOUR REGISTRATION."
 msgstr "DANKE FÜR DIE REGISTRIERUNG."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_login
+#: model:ir.ui.view,arch_db:specific_membership.login
 #: model:ir.ui.view,arch_db:specific_membership.presignup
 msgid "THROUGH COLLABORATION TO INNOVATION"
-msgstr "DURCH KOLLABORATION ZU INNOVATION"
+msgstr "Durch Kollaboration zu Innovation"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Terms of use"
-msgstr "Terms of use"
+msgid "Termination."
+msgstr "Kündigung."
 
 #. module: specific_membership
-#: code:addons/specific_membership/models/res_partner.py:49
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Terms of use fluxdock.io"
+msgstr "Nutzungsbedingungen fluxdock.io"
+
+#. module: specific_membership
+#: code:addons/specific_membership/models/res_partner.py:136
 #, python-format
 msgid "There is no associate default product"
 msgstr "There is no associate default product"
 
 #. module: specific_membership
-#: model:ir.model.fields,field_description:specific_membership.field_res_partner_twitter
-#: model:ir.model.fields,field_description:specific_membership.field_res_users_twitter
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "These conditions govern the use of Fluxdock sites or services (\"Services\"). By using the Services, you agree to these conditions."
+msgstr "Diese Bedingungen regeln die Nutzung der Fluxdock Webseiten oder Dienste (\"Dienste\"). Durch die Nutzung der Dienste erklären Sie sich mit diesen Bedingungen einverstanden."
+
+#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Twitter"
 msgstr "Twitter"
@@ -1003,6 +1057,16 @@ msgid "Uploading image..."
 msgstr "Uploading image..."
 
 #. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Use of our services."
+msgstr "Nutzung unserer Dienste."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "User behavior."
+msgstr "Nutzerverhalten."
+
+#. module: specific_membership
 #: model:ir.model,name:specific_membership.model_res_users
 msgid "Users"
 msgstr "Benutzer"
@@ -1011,6 +1075,12 @@ msgstr "Benutzer"
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "VAT Number"
 msgstr "VAT Nummer"
+
+#. module: specific_membership
+#: code:addons/specific_membership/controllers/account.py:162
+#, python-format
+msgid "Warning"
+msgstr "Warning"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -1023,15 +1093,21 @@ msgid "Website:"
 msgstr "Webseite:"
 
 #. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Who can use our services?"
+msgstr "Wer kann unsere Dienste nutzen?"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.profile_completed_msg
+msgid "You succesfully completed your profile"
+msgstr "Sie haben ihr profil erfolgreich erfasst"
+
+#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.account_confirmation
-msgid ""
-"You can edit your profile in the Fluxdock members area. To login\n"
-"     please use the choosen\n"
-"     password and user name."
-msgstr ""
-"You can edit your profile in the Fluxdock members area. To login\n"
-"     please use the choosen\n"
-"     password and user name."
+msgid "You can edit your profile in the Fluxdock members area. To login\n"
+"					please use the choosen\n"
+"					password and user name."
+msgstr "Sie können Ihr Mitgliederprofil jederzeit auf dem Fluxdock-Memberbereich editieren. Der Login erfolgt mit Ihrem gewählten Benutzernamen und Passwort."
 
 #. module: specific_membership
 #. openerp-web
@@ -1039,6 +1115,11 @@ msgstr ""
 #, python-format
 msgid "You have already voted for this slide"
 msgstr "You have already voted for this slide"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Your Content."
+msgstr "Ihr Inhalt."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
@@ -1052,27 +1133,39 @@ msgstr "Your command is being processed. You should receive a confirmation email
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_success
-msgid ""
-"Your company is now registered with Fluxdock.\n"
-"     Soon we will publish the profiles of registered companies.\n"
-"     Previously, we will inform you and give you the opportunity\n"
-"     to complete your profile and to create reference projects."
-msgstr ""
-"Ihre Firma ist nun bei Fluxdock registriert.\n"
+msgid "Your company is now registered with Fluxdock.\n"
+"					Soon we will publish the profiles of registered companies.\n"
+"					Previously, we will inform you and give you the opportunity\n"
+"					to complete your profile and to create reference projects."
+msgstr "Ihre Firma ist nun bei Fluxdock registriert.\n"
 "     Demnächst werden wir die Profile der registrierten Firmen für alle sichtbar machen.\n"
 "     Zuvor werden wir Sie informieren und Ihnen die Gelegenheit geben,\n"
 "     Ihr Profil zu vervollständigen und Referenzprojekte zu erfassen."
 
 #. module: specific_membership
-#: code:addons/specific_membership/controllers/account.py:116
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Your contract with Fluxdock."
+msgstr "Ihr Vertrag mit Fluxdock."
+
+#. module: specific_membership
+#: code:addons/specific_membership/controllers/account.py:188
 #, python-format
-msgid "Your login username has changed to: %s"
-msgstr "Your login username has changed to: %s"
+msgid "Your login username has changed to: `%s`. An email has been sent to verify it. You will be asked to reset your password."
+msgstr "Your login username has changed to: `%s`. An email has been sent to verify it. You will be asked to reset your password."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.profile_step_2_msg
+msgid "Your profile has not been published yet. Please complete your member profile to get visible as a Fluxdock member."
+msgstr "Ihr Profil wurde noch nicht publiziert. Bitte ergänzen Sie ihr Mitgliederprofil um als Fluxdock Mitglied sichtbar zu werden."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.signup_modals
+msgid "Your warranty and liability for damages."
+msgstr "Ihre Garantie- und Schadenersatzpflicht."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
-msgid ""
-"Zip / Postal\n"
+msgid "Zip / Postal\n"
 "                                            Code*"
 msgstr "PLZ *"
 
@@ -1112,8 +1205,3 @@ msgstr "name@domain.com"
 #, python-format
 msgid "or"
 msgstr "or"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.fluxdock_membership
-msgid "pull-left"
-msgstr "nach links verschieben"

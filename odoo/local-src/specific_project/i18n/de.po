@@ -1,0 +1,472 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* specific_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-12-19 15:18+0000\n"
+"PO-Revision-Date: 2016-12-19 15:18+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "* Required fields"
+msgstr "* Pflichtfelder"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_overview
+msgid "<span>Show more</span><span class=\"hidden\">Show less</span>"
+msgstr "<span>Show more</span><span class=\"hidden\">Show less</span>"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_detail
+msgid "<strong>Country:</strong>"
+msgstr "<strong>Country:</strong>"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_detail
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_detail
+#: model:ir.ui.view,arch_db:specific_project.reference_item_tags
+msgid "<strong>Expertise:</strong>"
+msgstr "<strong>Expertise:</strong>"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_detail
+#: model:ir.ui.view,arch_db:specific_project.reference_item_tags
+msgid "<strong>Industry:</strong>"
+msgstr "<strong>Industry:</strong>"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_detail
+msgid "<strong>Location:</strong>"
+msgstr "<strong>Location:</strong>"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_detail
+msgid "<strong>Video URL:</strong>"
+msgstr "<strong>Video URL:</strong>"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_overview
+msgid "Add a reference"
+msgstr "Add a reference"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Add reference"
+msgstr "Add reference"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_delete_confirm
+msgid "Are you sure you want to remove this reference?"
+msgstr "Are you sure you want to remove this reference?"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_delete_confirm
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_delete_confirm
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_country_id
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Country"
+msgstr "Land"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Country..."
+msgstr "Bitte Land auswählen..."
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_implementation_date
+msgid "Date of implementation"
+msgstr "Date of implementation"
+
+#. module: specific_project
+#: model:ir.model.fields,help:specific_project.field_project_reference_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr "Datum der letzten Nachricht."
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Delete"
+msgstr "Löschen"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_website_short_description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Description*"
+msgstr "Description*"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Don't find your industry or expertise? Write us an email at"
+msgstr "Don't find your industry or expertise? Write us an email at"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Don't find your partner? Write us an email with the partner company name and email address at"
+msgstr "Don't find your partner? Write us an email with the partner company name and email address at"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_overview
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Edit reference"
+msgstr "Edit reference"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Expertise"
+msgstr "Expertise"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_expertise_ids
+msgid "Expertises"
+msgstr "Expertises"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_follower_ids
+msgid "Followers"
+msgstr "Followers"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Beobachter (Kanäle)"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Followers (Partner)"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_id
+msgid "ID"
+msgstr "ID"
+
+#. module: specific_project
+#: model:ir.model.fields,help:specific_project.field_project_reference_message_unread
+msgid "If checked new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: specific_project
+#: model:ir.model.fields,help:specific_project.field_project_reference_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Image"
+msgstr "Image"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Implementation date"
+msgstr "Implementation date"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_industry_ids
+msgid "Industries"
+msgstr "Industries"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Industry"
+msgstr "Branche"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_is_follower
+msgid "Is Follower"
+msgstr "Ist Beobachter"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_last_post
+msgid "Last Message Date"
+msgstr "Letzte Benachrichtigung"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Linked partners"
+msgstr "Linked partners"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_location
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Location"
+msgstr "Veranstaltungsort"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_image_url
+msgid "Main image URL"
+msgstr "Main image URL"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_ids
+msgid "Messages"
+msgstr "Mitteilungen"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_listing
+msgid "My Project references"
+msgstr "My Project references"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: specific_project
+#: model:ir.model.fields,help:specific_project.field_project_reference_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: specific_project
+#: model:ir.model.fields,help:specific_project.field_project_reference_message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_create_uid
+#: model:ir.ui.view,arch_db:specific_project.view_project_reference_form
+msgid "Owner"
+msgstr "Besitzer"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.view_project_reference_form
+msgid "Project Details"
+msgstr "Project Details"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_name
+msgid "Project Name"
+msgstr "Project Name"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.view_project_reference_tree
+msgid "Project name"
+msgstr "Project name"
+
+#. module: specific_project
+#: model:ir.model,name:specific_project.model_project_reference
+msgid "Project reference"
+msgstr "Project reference"
+
+#. module: specific_project
+#: code:addons/specific_project/controllers/reference.py:187
+#, python-format
+msgid "Reference created."
+msgstr "Reference created."
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_image
+msgid "Reference image"
+msgstr "Reference image"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Reference title*"
+msgstr "Reference title*"
+
+#. module: specific_project
+#: code:addons/specific_project/controllers/reference.py:180
+#, python-format
+msgid "Reference updated."
+msgstr "Reference updated."
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_linked_partner_ids
+msgid "Referenced partners"
+msgstr "Referenced partners"
+
+#. module: specific_project
+#: model:ir.actions.act_window,name:specific_project.action_project_reference
+#: model:ir.ui.menu,name:specific_project.menu_project_reference
+#: model:ir.ui.view,arch_db:specific_project.reference_listing
+#: model:ir.ui.view,arch_db:specific_project.reference_overview
+#: model:ir.ui.view,arch_db:specific_project.view_project_reference_form
+#: model:ir.ui.view,arch_db:specific_project.view_project_reference_tree
+msgid "References"
+msgstr "References"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_res_users_references_ids
+msgid "References ids"
+msgstr "References ids"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_detail
+msgid "Related Members"
+msgstr "Related Members"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_overview
+msgid "Show all references"
+msgstr "Show all references"
+
+#. module: specific_project
+#: code:addons/specific_project/controllers/reference.py:198
+#, python-format
+msgid "Some errors occurred."
+msgstr "Some errors occurred."
+
+#. module: specific_project
+#: code:addons/specific_project/controllers/reference.py:44
+#, python-format
+msgid "Some required fields are empty."
+msgstr "Some required fields are empty."
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Submit"
+msgstr "Absenden"
+
+#. module: specific_project
+#: model:ir.model.fields,help:specific_project.field_project_reference_website_url
+msgid "The full URL to access the document through the website."
+msgstr "Die vollständige URL mit der das Dokument überall aufgerufen werden kann."
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_unread
+msgid "Unread Messages"
+msgstr "Ungelesene Mitteilungen"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Zähler der ungelelesen Nachrichten"
+
+#. module: specific_project
+#: model:ir.model,name:specific_project.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_video_url
+msgid "Video URL"
+msgstr "Video URL"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "Video_URL"
+msgstr "Video_URL"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_website_published
+msgid "Visible in Website"
+msgstr "Sichtbar in Webseite"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_website_message_ids
+msgid "Website Messages"
+msgstr "Website Nachrichten"
+
+#. module: specific_project
+#: model:ir.model.fields,field_description:specific_project.field_project_reference_website_url
+msgid "Website URL"
+msgstr "Webseite URL"
+
+#. module: specific_project
+#: model:ir.model.fields,help:specific_project.field_project_reference_website_message_ids
+msgid "Website communication history"
+msgstr "Website Kommunikationshistorie"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_overview
+msgid "You have currently registred no references on your account."
+msgstr "You have currently registred no references on your account."
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.view_project_reference_form
+msgid "e.g. My great project"
+msgstr "e.g. My great project"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "expertise@fluxdock.io"
+msgstr "expertise@fluxdock.io"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "for inviting him."
+msgstr "for inviting him."
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "keep submitted"
+msgstr "keep submitted"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "newpartner@fluxdock.io"
+msgstr "newpartner@fluxdock.io"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_overview
+msgid "not published"
+msgstr "Nicht Veröffentlicht"
+
+#. module: specific_project
+#: model:ir.ui.view,arch_db:specific_project.reference_form
+msgid "replace submitted"
+msgstr "replace submitted"
+
