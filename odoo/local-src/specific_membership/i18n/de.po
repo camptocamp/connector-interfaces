@@ -480,8 +480,8 @@ msgstr "Billing Address"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_completed_msg
-msgid "CONTINUE EXPLORING FLUXDOCK"
-msgstr "FAHREN SIE FORT UND ERKUNDEN SIE FLUXDOCK"
+msgid "Continue exploring fluxdock"
+msgstr "Fahren sie fort und erkunden sie fluxdock"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -1099,8 +1099,8 @@ msgstr "Wer kann unsere Dienste nutzen?"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_completed_msg
-msgid "YOU SUCCESFULLY COMPLETED YOUR PROFILE"
-msgstr "SIE HABEN IHR PROFIL ERFOLGREICH ERFASST"
+msgid "You succesfully completed your profile"
+msgstr "Sie haben ihr profil erfolgreich erfasst"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.account_confirmation
@@ -1144,7 +1144,7 @@ msgstr "Ihre Firma ist nun bei Fluxdock registriert.\n"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
-msgid "Your contract with Fluxdock.."
+msgid "Your contract with Fluxdock."
 msgstr "Ihr Vertrag mit Fluxdock."
 
 #. module: specific_membership
@@ -1205,4 +1205,3 @@ msgstr "name@domain.com"
 #, python-format
 msgid "or"
 msgstr "or"
-

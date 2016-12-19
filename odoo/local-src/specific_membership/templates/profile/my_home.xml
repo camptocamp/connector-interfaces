@@ -39,6 +39,7 @@
                   <img src="/specific_membership/static/src/img/member-white.png"></img>
                 </div>
                 <h2>My Account</h2>
+                <p>Manage your company profile, your membership and your project proposals on the market. Matching project proposals from the market will also be shown here.</p>
               </div>
             </section>
             <t t-call="specific_membership.profile_progress_bar" />

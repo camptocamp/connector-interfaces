@@ -639,7 +639,7 @@
 				                		<img src="/theme_fluxdocs/static/img/content-icons/references-icon.png"></img>
 				                	</div>
 									<h2>References</h2>
-									<p>The members of Fluxdock have broad expertise and extensive experience. Their skills become evident in their numerous successful reference projects, which you can see here.</p>
+									<p>Fluxdock features a network of professional and innovative companies in different industries. Their references demonstrate this best.</p>
 								</div>
 								<t t-call="theme_fluxdocs.mosaic">
 									<t t-set="data_model" t-value="'project.reference'"/>
