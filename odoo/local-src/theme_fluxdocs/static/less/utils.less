@@ -40,10 +40,6 @@
 	.center-block;
 }
 .clickable{ cursor: pointer }
-.white_bg{
-	background-color: white;
-	color: @darkColor;
-}
 
 // sepia effect
 .sepia-filter{
@@ -64,3 +60,12 @@
 
 .text-success{ color: @state-success-text; }
 .text-upper{ text-transform: uppercase; }
+
+i.fa,span.fa{
+	// circled icons
+	&.circled{
+		width: 50px;
+		border-radius: 50px;
+		border: 1px solid;
+	}
+}
