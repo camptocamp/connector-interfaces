@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # © 2016 Denis Leemann (Camptocamp SA)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-{'name': 'Fluxdock project specific development',
+{'name': 'Fluxdock Project specific development',
  'version': '9.0.1.0.0',
  'category': '',
  'author': 'Camptocamp',
