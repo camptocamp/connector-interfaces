@@ -14,6 +14,13 @@ Template:
 
 # Release History
 
+## 9.1.0b2 (2016-12-20)
+
+**Bugfixes**
+
+* [fix] status message do not overlap with content
+
+
 ## 9.1.0b1 (2016-12-20)
 
 **Features and Improvements**
