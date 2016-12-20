@@ -27,7 +27,7 @@
             <div class="content-wrap">
                 <div class="center-block mb16">
                     <div class="content-icon">
-                        <img src="/specific_project_proposal/static/src/img/market.png"></img>
+                        <img src="/theme_fluxdocs/static/img/snippet-thumbs/references-aggregation.png"/>
                     </div>
                     <h2>
                         <t t-if="my">
