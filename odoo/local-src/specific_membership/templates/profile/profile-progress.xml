@@ -28,23 +28,27 @@
                     </div>
                     <div t-attf-class="step step-2 #{partner.profile_state in ('step-2','step-3') and 'done' or ''}">
                         <div class="spacer"></div>
-                        <t t-set="show_tooltip" t-value="partner.profile_state == 'step-1'" />
-                        <t t-if="show_tooltip">
-                            <a class="tooltips sticky" href="#"><span class="text">Member profile published</span>
-                            <span class="msg"><t t-call="specific_membership.profile_step_2_msg" /></span></a>
+                        <t t-set="show_tooltips" t-value="partner.profile_state == 'step-1'" />
+                        <t t-if="show_tooltips">
+                            <span class="tooltips sticky">
+                                <span class="text">Member profile published</span>
+                                <span class="msg"><t t-call="specific_membership.profile_step_2_msg" /></span>
+                            </span>
                         </t>
-                        <t t-if="not show_tooltip">
+                        <t t-if="not show_tooltips">
                             <span class="text">Member profile published</span>
                         </t>
                     </div>
                     <div t-attf-class="step step-3 #{partner.profile_state == 'step-3' and 'done' or ''}">
                         <div class="spacer"></div>
-                        <t t-set="show_tooltip" t-value="partner.profile_state == 'step-2'" />
-                        <t t-if="show_tooltip">
-                            <a class="tooltips sticky" href="#"><span class="text">Upload references</span>
-                            <span class="msg"><t t-call="specific_membership.profile_step_3_msg" /></span></a>
+                        <t t-set="show_tooltips" t-value="partner.profile_state == 'step-2'" />
+                        <t t-if="show_tooltips">
+                            <span class="tooltips sticky">
+                                <span class="text">Upload references</span>
+                                <span class="msg"><t t-call="specific_membership.profile_step_3_msg" /></span>
+                            </span>
                         </t>
-                        <t t-if="not show_tooltip">
+                        <t t-if="not show_tooltips">
                             <span class="text">Upload references</span>
                         </t>
                     </div>
