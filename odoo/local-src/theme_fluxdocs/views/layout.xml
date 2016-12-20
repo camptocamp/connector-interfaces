@@ -69,11 +69,17 @@
 		        		</div>
 	                </div>
                 </header>
-				<t t-call="theme_fluxdocs.status_message" />
 			</xpath>
 
 		</template>
 
+		<template id="add_status_message" inherit_id="website.layout" name="Add status message">
+
+			<xpath expr="//div[@id='wrapwrap']/main/*" position="before">
+				<t t-call="theme_fluxdocs.status_message" />
+			</xpath>
+
+		</template>
 
 
 		<!-- Add mobile menu -->

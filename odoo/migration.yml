@@ -103,3 +103,7 @@ migration:
           - theme_fluxdocs
           - specific_membership
           - specific_project
+    - version: 9.1.0b2
+      addons:
+        upgrade:
+          - theme_fluxdocs
