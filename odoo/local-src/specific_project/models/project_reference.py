@@ -42,7 +42,7 @@ class ProjectReference(models.Model):
         "Reference image",
         attachment=True,
     )
-    website_short_description = fields.Char(string="Description")
+    website_short_description = fields.Text(string="Description")
     video_url = fields.Char(
         string='Video URL',
     )
