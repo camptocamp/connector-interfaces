@@ -4,6 +4,8 @@
 from openerp import api, fields, models
 from openerp.addons.website.models.website import slug
 
+STATIC_FOLDER = '/specific_project/static'
+
 
 class ProjectReference(models.Model):
     """ProjectReference contains projects to be shown on member's profile. Can
@@ -66,9 +68,12 @@ class ProjectReference(models.Model):
     def _compute_image_url(self):
         ws_model = self.env['website']
         for item in self:
-            if not item.image:
-                continue
-            item.image_url = ws_model.image_url(item, 'image')
+            if item.image:
+                image_url = ws_model.image_url(item, 'image')
+            else:
+                image_url = STATIC_FOLDER \
+                    + '/src/img/reference_placeholder.png'
+            item.image_url = image_url
 
     @api.multi
     def toggle_published(self):

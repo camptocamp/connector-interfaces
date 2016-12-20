@@ -8,12 +8,10 @@
             <t t-set="object" t-value="reference"/>
         </t>
         <div>
-          <t t-if="reference.image">
-            <div class="container-xxlg">
-                <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(website.image_url(reference,'image'))">
-                </div>
+          <div class="container-xxlg">
+            <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(reference.image_url)">
             </div>
-          </t>
+          </div>
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
               <h1><t t-esc="reference.name"/></h1>
