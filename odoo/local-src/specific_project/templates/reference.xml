@@ -43,6 +43,12 @@
                   </div>
                 </div>
                 <div class="row">
+                  <div class="col-md-3"><strong>Website URL:</strong>
+                  </div>
+                  <div class="col-md-9"><a t-att-href="reference.ext_website_url" t-esc="reference.ext_website_url"/>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-md-3"><strong>Industry:</strong>
                   </div>
                   <div class="col-md-9">

@@ -46,6 +46,9 @@ class ProjectReference(models.Model):
     video_url = fields.Char(
         string='Video URL',
     )
+    ext_website_url = fields.Char(
+        string='External Website URL',
+    )
     linked_partner_ids = fields.Many2many(
         comodel_name="res.partner",
         string="Referenced partners",
