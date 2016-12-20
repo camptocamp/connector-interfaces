@@ -97,3 +97,9 @@ migration:
           - theme_fluxdocs
           - specific_membership
           - specific_project
+    - version: 9.1.0b1
+      addons:
+        upgrade:
+          - theme_fluxdocs
+          - specific_membership
+          - specific_project
