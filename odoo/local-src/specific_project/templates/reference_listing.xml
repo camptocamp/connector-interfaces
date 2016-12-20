@@ -27,7 +27,7 @@
             <div class="content-wrap">
                 <div class="center-block mb16">
                     <div class="content-icon">
-                        <img src="/theme_fluxdocs/static/img/snippet-thumbs/references-aggregation.png"/>
+                        <img src="/specific_project/static/src/img/references_icon_white.png"/>
                     </div>
                     <h2>
                         <t t-if="my">
