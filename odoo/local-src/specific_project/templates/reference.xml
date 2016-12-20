@@ -8,12 +8,10 @@
             <t t-set="object" t-value="reference"/>
         </t>
         <div>
-          <t t-if="reference.image">
-            <div class="container-xxlg">
-                <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(website.image_url(reference,'image'))">
-                </div>
+          <div class="container-xxlg">
+            <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(reference.image_url)">
             </div>
-          </t>
+          </div>
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
               <h1><t t-esc="reference.name"/></h1>
@@ -42,6 +40,12 @@
                   <div class="col-md-3"><strong>Video URL:</strong>
                   </div>
                   <div class="col-md-9"><a t-att-href="reference.video_url" t-esc="reference.video_url"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3"><strong>Website URL:</strong>
+                  </div>
+                  <div class="col-md-9"><a t-att-href="reference.ext_website_url" t-esc="reference.ext_website_url"/>
                   </div>
                 </div>
                 <div class="row">

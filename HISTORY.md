@@ -14,6 +14,21 @@ Template:
 
 # Release History
 
+## 9.1.0b1 (2016-12-20)
+
+**Features and Improvements**
+
+* [imp] do not play slider with only 1 image
+* [add] ext website URL to reference model, form and view
+* [add] placeholder for reference image
+* Unify my * templates names (membership status, market overview, etc) and hide each one with `base.group_tester`
+
+**Bugfixes**
+
+* [fix] do not use links for profile progress labels
+* [fix] do not display "THROUGH COLLABORATION TO INNOVATION" if token is valued in reset pwd view
+
+
 ## 9.1.0a8 (2016-12-19)
 
 **Features and Improvements**

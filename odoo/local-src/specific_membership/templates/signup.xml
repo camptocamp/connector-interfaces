@@ -180,9 +180,11 @@
 		because we are altering the content of the original view,
 		and if we uninstall this module you'll have to upgrade `auth_signup`
 		to restore the original template content. -->
-		<h2>
-			THROUGH COLLABORATION TO INNOVATION
-		</h2>
+		<t t-if="not token">
+			<h2>
+				THROUGH COLLABORATION TO INNOVATION
+			</h2>
+		</t>
 
         <div class="form-group field-login">
             <label for="login" class="control-label">Your Email</label>

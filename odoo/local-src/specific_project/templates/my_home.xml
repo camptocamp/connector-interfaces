@@ -8,13 +8,13 @@
 </template>
 
 
-<template id="reference_overview" name="My References">
+<template id="reference_overview" name="Fluxdock My References">
     <div class="home_box">
         <h3 class="page-header">References</h3>
+        <t t-set="references" t-value="request.env.user.references_ids" />
         <t t-if="not references">
             <p>You have currently registred no references on your account.</p>
         </t>
-        <t t-set="references" t-value="request.env.user.references_ids" />
         <t t-if="references">
             <table class="table table-hover no-border o_my_proposal_table">
                 <thead>

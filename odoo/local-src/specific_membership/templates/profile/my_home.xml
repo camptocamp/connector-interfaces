@@ -130,7 +130,7 @@
     </template>
 
     <template id="website_membership_status">
-        <div id="website_membership_status" class="home_box">
+        <div id="website_membership_status" class="home_box" groups="base.group_tester">
             <h3 class="page-header">Membership status</h3>
             <p>
                 <b t-esc="dict(partner.fields_get(allfields=['flux_membership'])['flux_membership']['selection'])[partner.flux_membership]" />

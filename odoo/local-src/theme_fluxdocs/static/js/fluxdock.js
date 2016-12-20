@@ -219,7 +219,15 @@ $(document).ready(function() {
 	//Init Carousel with bxslider
 	$('.bxslider').each(function(){
 		var data = $(this).data('slider') ? $(this).data('slider'): {};
+		var only_one = $(this).children().length < 2;
+		if(only_one){
+			data['auto'] = false;
+		}
 		$(this).bxSlider(data);
+		if(only_one){
+			// remove useless controls
+			$(this).closest('.bx-wrapper').find('.bx-controls').remove();
+		}
 	})
 
 	//Accordion

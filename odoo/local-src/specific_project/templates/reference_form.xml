@@ -108,9 +108,15 @@
                 </div>
               </div>
               <div t-attf-class="form-group #{errors.get('video_url') and 'has-error' or ''} field-video_url ">
-                <label class="control-label col-sm-3" for="video_url">Video_URL</label>
+                <label class="control-label col-sm-3" for="video_url">Video URL</label>
                 <div class="col-sm-9">
                   <input type="text" id="video_url" name="video_url" class="form-control" t-att-value="video_url"/>
+                </div>
+              </div>
+              <div t-attf-class="form-group #{errors.get('ext_website_url') and 'has-error' or ''} field-ext_website_url ">
+                <label class="control-label col-sm-3" for="ext_website_url">Website URL</label>
+                <div class="col-sm-9">
+                  <input type="text" id="ext_website_url" name="ext_website_url" class="form-control" t-att-value="ext_website_url"/>
                 </div>
               </div>
               <div t-attf-class="form-group #{errors.get('linked_partner_ids') and 'has-error' or ''} field-linked_partner_ids">
