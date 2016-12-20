@@ -15,8 +15,7 @@
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
               <h1><t t-esc="reference.name"/></h1>
-              <p class="description"><t t-esc="reference.website_short_description"/></p>
-
+              <div class="item-description" t-field="reference.website_short_description" />
               <div class="info border-tnb mb32 mt16 pt1 pb1">
                 <div class="row">
                   <div class="col-md-3"><strong>Date:</strong>

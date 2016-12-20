@@ -27,7 +27,7 @@
             <div class="content-wrap">
                 <div class="center-block mb16">
                     <div class="content-icon">
-                        <img src="/specific_project_proposal/static/src/img/market.png"></img>
+                        <img src="/specific_project/static/src/img/references_icon_white.png"/>
                     </div>
                     <h2>
                         <t t-if="my">

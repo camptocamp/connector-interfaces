@@ -36,7 +36,7 @@
             <t t-if="partner.image">
               <div class="row mb32">
                   <div class="col-md-12">
-                    <div t-field="partner.image" t-field-options='{"widget": "image", "class": "center-block"}' />
+                    <div t-field="partner.image" t-field-options='{"widget": "image", "class": "center-block", "max_width": 200}' />
                   </div>
               </div>
             </t>
