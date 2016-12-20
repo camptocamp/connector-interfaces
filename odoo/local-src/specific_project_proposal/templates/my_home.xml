@@ -3,15 +3,14 @@
 
 <template id="account" name="Account" inherit_id="specific_membership.my_home_content">
   <xpath expr="//div[@id='col-2']/t[@t-call][last()]" position="after">
-    <t groups="base.group_tester">
-        <t t-call="specific_project_proposal.matches_overview" />
-        <t t-call="specific_project_proposal.proposals_overview" />
-    </t>
+    <t t-call="specific_project_proposal.matches_overview" />
+    <t t-call="specific_project_proposal.proposals_overview" />
   </xpath>
 </template>
 
-<template id="matches_overview" name="My Matches">
-    <div id="matches_overview" class="home_box">
+
+<template id="matches_overview" name="Fluxdock My Matches">
+    <div id="matches_overview" class="home_box" groups="base.group_tester" >
         <h3 class="page-header">Matches</h3>
         <t t-if="not matches">
             <p>No matches</p>
@@ -60,8 +59,8 @@
     </div>
 </template>
 
-<template id="proposals_overview" name="My Proposals">
-    <div id="proposals_overview" class="home_box">
+<template id="proposals_overview" name="Fluxdock My Proposals">
+    <div id="proposals_overview" class="home_box" groups="base.group_tester">
         <h3 class="page-header">Proposals</h3>
         <t t-if="not proposals">
             <p>You have currently registred no proposals on your account.</p>
