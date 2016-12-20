@@ -14,6 +14,16 @@ Template:
 
 # Release History
 
+## 9.1.0b3 (2016-12-21)
+
+**Bugfixes**
+
+* [fix] be defensive when listing country for members
+* [fix] set max width for partner profile logo
+* [fix] use reference icon in reference listing/search
+* [fix] reference description field type and display
+
+
 ## 9.1.0b2 (2016-12-20)
 
 **Bugfixes**
