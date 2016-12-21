@@ -92,15 +92,15 @@ def load_email_translations(ctx):
         template = ctx.env.ref(line['res_id'], raise_if_not_found=False)
         if template:
             line['res_id'] = template.id
-        # check untranslated
-        to_translate = ctx.env['ir.translation'].search([
-            ('module', '=', line['module']),
-            ('res_id', '=', template.id),
-            ('name', '=', line['name']),
-            ('state', 'in', ('to_translate', False)),
-        ])
-        if to_translate:
-            to_translate.unlink()
+            # check untranslated
+            to_translate = ctx.env['ir.translation'].search([
+                ('module', '=', line['module']),
+                ('res_id', '=', template.id),
+                ('name', '=', line['name']),
+                ('state', 'in', ('to_translate', False)),
+            ])
+            if to_translate:
+                to_translate.unlink()
         translation = create_or_update(
             ctx, 'ir.translation', xmlid, line)
         # force state since is automatically set to to-translate
