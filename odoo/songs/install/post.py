@@ -3,11 +3,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import anthem
+import csv
 
 from pkg_resources import resource_stream
 from anthem.lyrics.records import create_or_update
 
 from ..common import req
+from ..common import load_file_content
 
 
 @anthem.log
@@ -74,6 +76,38 @@ def add_membership_upgrade_email(ctx):
 
 
 @anthem.log
+def load_email_translations(ctx):
+    """ Load email translations """
+    # translation links original items with "res_id"
+    # which is not a relation field but an integer.
+    # So we cannot use an xmlid because it will fail like this:
+    #
+    # "'auth_signup.reset_password_email'
+    #   does not seem to be an integer for field 'Record ID'"
+    content = load_file_content('data/email.ir.translation.csv')
+    for line in csv.DictReader(content, delimiter='|'):
+        xmlid = line.pop('id')
+        if not line['res_id']:
+            continue
+        template = ctx.env.ref(line['res_id'], raise_if_not_found=False)
+        if template:
+            line['res_id'] = template.id
+        # check untranslated
+        to_translate = ctx.env['ir.translation'].search([
+            ('module', '=', line['module']),
+            ('res_id', '=', template.id),
+            ('name', '=', line['name']),
+            ('state', 'in', ('to_translate', False)),
+        ])
+        if to_translate:
+            to_translate.unlink()
+        translation = create_or_update(
+            ctx, 'ir.translation', xmlid, line)
+        # force state since is automatically set to to-translate
+        translation.write({'state': 'translated'})
+
+
+@anthem.log
 def remove_useless_menuitems(ctx):
     """ Remove useless website menu items """
     xmlids = (
@@ -98,3 +132,4 @@ def main(ctx):
     add_membership_upgrade_email(ctx)
     remove_useless_menuitems(ctx)
     change_reset_pwd_email(ctx)
+    load_email_translations(ctx)
