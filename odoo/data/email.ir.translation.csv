@@ -177,8 +177,8 @@ sc.ir_translation_mail_reset_pwd_html|"<html xmlns=""http://www.w3.org/1999/xhtm
                     </td>
                   </tr>
                 </table>
-                <p>Danke,</p>
-                <p>Fluxdock Team</p>
+                <p>Beste Grüsse,</p>
+                <p>Ihr Fluxdock Team</p>
               </td>
             </tr>
           </table>
@@ -396,8 +396,8 @@ sc.ir_translation_mail_account_confirmation_html|"<html xmlns=""http://www.w3.or
                     </td>
                   </tr>
                 </table>
-                <p>Kind regards,</p>
-                <p>Your Fluxdock Team</p>
+                <p>Beste Grüsse,</p>
+                <p>Ihr Fluxdock Team</p>
               </td>
             </tr>
           </table>
