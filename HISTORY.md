@@ -14,6 +14,23 @@ Template:
 
 # Release History
 
+## 9.1.0 (Unreleased)
+
+**Features and Improvements**
+
+* [add] New reset password template RM#13346
+* [imp] Update signup email template RM#16127
+* [add] New email logo, remove old stuff
+* [add] Email translations and manipulation for import
+* [imp] Mosaic now works with bare items too
+        (hide it in member detail if no result)
+
+
+**Bugfixes**
+
+* [fix] border color on white bg
+
+
 ## 9.1.0b3 (2016-12-21)
 
 **Bugfixes**
