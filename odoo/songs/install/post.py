@@ -89,9 +89,15 @@ def load_email_translations(ctx):
         xmlid = line.pop('id')
         if not line['res_id']:
             continue
-        template = ctx.env.ref(line['res_id'], raise_if_not_found=False)
+        # load HTML from file
+        for key in ('src', 'value'):
+            if line[key].startswith('path:'):
+                line[key] = resource_stream(
+                    req, line[key].split('path:')[-1]).read()
+        # must fail if template not there
+        template = ctx.env.ref(line['res_id'])
+        line['res_id'] = template.id
         if template:
-            line['res_id'] = template.id
             # check untranslated
             to_translate = ctx.env['ir.translation'].search([
                 ('module', '=', line['module']),
