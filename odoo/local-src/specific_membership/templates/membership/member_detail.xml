@@ -99,7 +99,7 @@
               </div>
           </section>
         </t>
-        <t t-if="partner_user">
+        <t t-if="partner_user and partner_user.references_ids">
             <div class="project-references opt_dark_bg">
                 <div class="container-xxlg">
                     <section class="content">
@@ -108,11 +108,7 @@
                       </div>
                     </section>
                     <t t-call="theme_fluxdocs.mosaic">
-                        <t t-set="data_model" t-value="'project.reference'" />
-                        <t t-set="data_limit" t-value="'4'" />
-                        <t t-set="data_order" t-value="'create_date desc'" />
-                        <!-- `partner_user` comes from our `partner_details` controller override -->
-                        <t t-set="data_domain" t-value='"""[["create_uid","=",{}]]""".format(partner_user.id)' />
+                        <t t-set="mosaic_items" t-value="partner_user.references_ids[:4]" />
                     </t>
                 </div>
             </div>

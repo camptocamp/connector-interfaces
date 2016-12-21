@@ -34,7 +34,7 @@
                             My Project references
                         </t>
                         <t t-if="not my">
-                            References
+                            Member References
                         </t>
                     </h2>
                 </div>

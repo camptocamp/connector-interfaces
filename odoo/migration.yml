@@ -113,3 +113,13 @@ migration:
           - theme_fluxdocs
           - specific_membership
           - specific_project
+    - version: 9.1.0
+      addons:
+        upgrade:
+          - specific_membership
+          - theme_fluxdocs
+      operations:
+        post:
+          - anthem songs.install.post::change_signup_email
+          - anthem songs.install.post::change_reset_pwd_email
+          - anthem songs.install.post::load_email_translations

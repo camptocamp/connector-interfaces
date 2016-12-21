@@ -18,7 +18,7 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
     }
 
     $(document).ready(function () {
-        $('.mosaic.grid').each(function(){
+        $('.mosaic.grid[data-model]').each(function(){
             var $grid = $(this);
             $('.grid-item', $grid).remove();
             var data = $grid.data();

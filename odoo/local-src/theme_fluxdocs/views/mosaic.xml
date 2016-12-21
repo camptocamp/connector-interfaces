@@ -6,7 +6,7 @@
         <!--
         Create a mosaic of pictures using Masonry lib.
 
-        USAGE:
+        USAGE 1 - javascript load (usable in snippets):
 
         <t t-call="theme_fluxdocs.mosaic">
             <t t-set="data_model" t-value="'res.partner'" />
@@ -18,9 +18,17 @@
         WARNING:
 
         The model must have a field `image_url` pointing to the correct image to use.
+
+        USAGE 2 - pass mosaic items:
+
+        <t t-call="theme_fluxdocs.mosaic">
+            <t t-set="mosaic_items" t-value="my_recordset" />
+        </t>
+
         -->
 
-        <t t-set="data_model" t-value="data_model or ''" />
+        <!-- if data-model is there we load items via JS -->
+        <t t-set="data_model" t-value="not mosaic_items and data_model or None" />
         <t t-set="data_limit" t-value="data_limit or '8'" />
         <t t-set="data_order" t-value="data_order or 'create_date desc'" />
         <t t-set="data_domain" t-value="data_domain or '[]'" />
@@ -32,27 +40,36 @@
              t-att-data-domain="data_domain"
              data-template="mosaic-grid-tmpl"
              data-fields='{"display_name":"title","website_url":"url","image_url":"src"}'>
-          <div class="grid-item flex-align-vertical"
-               style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg)">
-            <h4>Lorem ipsum</h4>
-          </div>
-          <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg)">
-            <h4>Lorem ipsum</h4>
-          </div>
-          <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
-            <h4>Lorem ipsum</h4>
-          </div>
-          <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
-              <h4>Lorem ipsum</h4>
-          </div>
-          <script class="mosaic-grid-tmpl" type="text/template">
-              <div class="grid-item clickable hidden"
-                   data-url="&amp;lt;%- url %&amp;gt;"
-                   title="&amp;lt;%- title %&amp;gt;"
-                   style="background-image:url(&amp;lt;%- src %&amp;gt;)">
-                <h4>&amp;lt;%- title %&amp;gt;</h4>
+          <t t-if="not mosaic_items">
+              <div class="grid-item"
+                   style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg)">
+                <h4>Lorem ipsum</h4>
               </div>
-          </script>
+              <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg)">
+                <h4>Lorem ipsum</h4>
+              </div>
+              <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
+                <h4>Lorem ipsum</h4>
+              </div>
+              <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
+                  <h4>Lorem ipsum</h4>
+              </div>
+              <script class="mosaic-grid-tmpl" type="text/template">
+                  <div class="grid-item clickable hidden"
+                       data-url="&amp;lt;%- url %&amp;gt;"
+                       title="&amp;lt;%- title %&amp;gt;"
+                       style="background-image:url(&amp;lt;%- src %&amp;gt;)">
+                    <h4>&amp;lt;%- title %&amp;gt;</h4>
+                  </div>
+              </script>
+          </t>
+          <t t-if="mosaic_items">
+            <t t-foreach="mosaic_items" t-as="item">
+              <div class="grid-item" t-attf-style="background-image:url(#{website.image_url(item, 'image')})">
+                <h4 t-esc="item.name">Lorem ipsum</h4>
+              </div>
+            </t>
+          </t>
         </div>
     </template>
 
