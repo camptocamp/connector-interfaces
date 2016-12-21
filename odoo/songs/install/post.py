@@ -32,6 +32,24 @@ def change_signup_email(ctx):
 
 
 @anthem.log
+def change_reset_pwd_email(ctx):
+    """ Updating reset password email """
+    content = resource_stream(req, 'data/mail_reset_password.html').read()
+    values = {
+        'name': 'Fluxdock Password Reset',
+        'subject': 'Fluxdock password reset',
+        'body_html': content,
+        'email_from': 'noreply@fluxdock.io',
+        'model_id': ctx.env.ref('base.model_res_users').id,
+        'email_to': '${object.email|safe}',
+        'lang': '${object.partner_id.lang}',
+        'auto_delete': False,
+    }
+    create_or_update(
+        ctx, 'mail.template', 'auth_signup.reset_password_email', values)
+
+
+@anthem.log
 def add_membership_upgrade_email(ctx):
     """ Add membership upgrade email """
     content = resource_stream(req, 'data/mail_membership_upgrade.html').read()
@@ -79,3 +97,4 @@ def main(ctx):
     change_signup_email(ctx)
     add_membership_upgrade_email(ctx)
     remove_useless_menuitems(ctx)
+    change_reset_pwd_email(ctx)

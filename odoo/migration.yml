@@ -121,3 +121,4 @@ migration:
       operations:
         post:
           - anthem songs.install.post::change_signup_email
+          - anthem songs.install.post::change_reset_pwd_email
