@@ -14,6 +14,13 @@ Template:
 
 # Release History
 
+## 9.1.1 (2016-12-23)
+
+**Bugfixes**
+
+* [fix] image upload size up to 15MB + fix size error display
+
+
 ## 9.1.0 (2016-12-23)
 
 **Features and Improvements**
