@@ -11,7 +11,8 @@ odoo.define('specific_membership.image_upload', function (require) {
     $('.imgupload').each(function(){
         $(this).imgupload({
             allowedFormats: ['jpg', 'jpeg', 'png'],
-            previewWidth: $(this).data('preview-width')
+            previewWidth: $(this).data('preview-width'),
+            maxFileSizeKb: 15360
         })
     });
 
