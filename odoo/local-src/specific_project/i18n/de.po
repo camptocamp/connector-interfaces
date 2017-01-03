@@ -106,8 +106,8 @@ msgstr "Angelegt am"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_implementation_date
-msgid "Date of implementation"
-msgstr "Date of implementation"
+msgid "Implementation date"
+msgstr "Implementation date"
 
 #. module: specific_project
 #: model:ir.model.fields,help:specific_project.field_project_reference_message_last_post
@@ -293,13 +293,13 @@ msgstr "Project Details"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_name
-msgid "Project Name"
-msgstr "Project Name"
+msgid "Reference title"
+msgstr "Reference title"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.view_project_reference_tree
-msgid "Project name"
-msgstr "Project name"
+msgid "Reference title"
+msgstr "Reference title"
 
 #. module: specific_project
 #: model:ir.model,name:specific_project.model_project_reference
@@ -469,4 +469,3 @@ msgstr "Nicht Veröffentlicht"
 #: model:ir.ui.view,arch_db:specific_project.reference_form
 msgid "replace submitted"
 msgstr "replace submitted"
-

@@ -16,6 +16,11 @@
                 &.has-error label {
     				color: @brand-danger;
     			}
+                &.field-required{
+                    label.control-label::after{
+                        content: '*';
+                    }
+                }
                 .styled-select {
                     width: 100%;
                 }
@@ -24,6 +29,9 @@
                 }
                 .keepbox{
                     padding: 0.2em;
+                }
+                .help-block{
+                    font-size: 90%;
                 }
             }
             .form-group.form-group-checkbox {
@@ -36,7 +44,7 @@
             h2{
                 margin-bottom: 2em;
             }
-            .controls{
+            .form-controls, .controls{
                 .btn{
                     margin-right: 0.5em;
                     &:last-child{
@@ -47,6 +55,7 @@
             .image-upload-widget{
                 position: relative;
                 height: 100%;
+                min-height: 4em;
                 overflow: hidden;
     			border: 1px solid #fff;
     			background-color: @darkColor;
@@ -69,8 +78,8 @@
                         border: none;
                     }
                 }
-                label {
-                    // TODO: remove ``!important` when styles gets cleaned up
+                .file-tab label {
+                    // TODO: remove ``!important` when styles get cleaned up
                     cursor: pointer !important;
                     position: absolute;
                     top: 0 !important;
@@ -84,15 +93,17 @@
                     font-size: 18px;
                     float: none;
                 }
-                .overlay{
+                .file-tab .overlay{
                 	background-color: rgba(0,0,0,0.65);
                 	bottom: 0;
                 	left: 0;
-                	height: 50%;
+                	height: 100%;
                 	width: 100%;
                 	z-index: 10;
                 	color: white;
                 	margin: 0;
+                    position: absolute;
+                    top: 0;
                 	span{
                 		display: block;
                 	}
@@ -109,6 +120,17 @@
                 }
             }
         } // form
+        .cms_form_wrapper.project_reference{
+            .image-widget-wrapper{
+                height: 300px;
+                .image-upload-widget{
+                    height: 80%;
+                }
+                img{
+                    width: 100%;
+                }
+            }
+        }
         .opt_dark_grid_bg{
             form{
                 input[type="file"].form-control{

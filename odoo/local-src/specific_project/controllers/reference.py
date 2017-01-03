@@ -155,10 +155,10 @@ class WebsiteReference(http.Controller):
 
     # TODO: do we really need 2 routes per 'my'/'all'?
     @http.route([
-        '/my/references/add',
-        '/my/references/<model("project.reference"):reference>/edit',
-        '/references/add',
-        '/references/<model("project.reference"):reference>/edit',
+        '/my/references/old-add',
+        '/my/references/<model("project.reference"):reference>/old-edit',
+        '/references/old-add',
+        '/references/<model("project.reference"):reference>/old-edit',
     ], type='http', auth='user', website=True)
     def reference_edit(self, reference=None, **post):
         countries = request.env['res.country'].sudo().search([])

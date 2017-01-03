@@ -22,11 +22,11 @@ class ProjectReference(models.Model):
     website_add_url = '/references/add'
 
     name = fields.Char(
-        string="Project Name",
+        string="Reference title",
         required=True
     )
     implementation_date = fields.Date(
-        string="Date of implementation",
+        string="Implementation date",
         required=False,
     )
     location = fields.Char()

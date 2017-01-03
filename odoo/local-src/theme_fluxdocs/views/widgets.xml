@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <template id="field_widget_m2o" name="Fluxdock styled m2o field widget" inherit_id="cms_form.field_widget_m2o">
+      <select position="replace">
+        <div class="styled-select">
+          <select t-attf-class="form-control #{widget.get('css_klass', '')}"
+                  t-att-name="fname"
+                  t-att-required="field['required'] and '1' or None"
+                  t-att-data-params="widget.get('params')">
+            <option value="">Select...</option>
+            <t t-set="comodel" t-value="form.env[field['relation']]" />
+            <t t-set="domain" t-value="field.get('domain', [])" />
+            <t t-set="option_items" t-value="comodel.search(domain)" />
+            <t t-foreach="option_items or []" t-as="opt_item">
+             <option t-att-value="opt_item.id"
+                     t-att-selected="opt_item.id == form_data.get(fname)">
+                 <t t-esc="opt_item.name"/>
+             </option>
+            </t>
+          </select>
+        </div>
+      </select>
+    </template>
+
+
+    <template id="field_widget_image" name="Fluxdock image upload widget" inherit_id="cms_form.field_widget_image">
+      <xpath expr="//div[contains(@class,'image-widget-wrapper')]" position="replace">
+        <div class="image-widget-wrapper">
+          <div class="image-upload-widget">
+            <t t-set="image_input_name" t-value="image_input_name or 'image'" />
+            <t t-if="form_data.get(fname)">
+              <img class="img img-responsive" t-att-src="form_data.get(fname, {}).get('value')" />
+            </t>
+            <div class="imgupload"
+                 t-att-data-preview-width="widget.get('params', {}).get('image_preview_width', 200)"
+                 t-att-data-preview-height="widget.get('params', {}).get('image_preview_height', 200)">
+                <div class="file-tab">
+                    <label t-att-for="fname" class="btn btn-file">
+                        <span class="info overlay overlay-slideup">
+                            <span class="browse">Browse</span>
+                            <info class="format">Format: *.png/*.jpg</info>
+                        </span>
+                        <input
+                            type="file" capture="camera" accept="image/*"
+                            t-att-id="fname"
+                            t-att-name="fname"
+                            class="form-control"
+                            />
+                    </label>
+                </div>
+            </div>
+          </div>
+          <t t-if="form_data.get(fname)">
+            <t t-set="prefix" t-value="fname"/>
+            <div t-attf-id="#{prefix}_keepbox" class="keepbox text-center">
+              <div class="form-group">
+                <label class="checkbox inline" t-attf-for="#{prefix}_keepcheck_yes">
+                  <input type="radio" t-attf-id="#{prefix}_keepcheck_yes" t-attf-name="#{prefix}_keepcheck" checked="1" value="yes"/>
+                  keep submitted
+                </label>
+                <label class="checkbox inline" t-attf-for="#{prefix}_keepcheck_no">
+                  <input type="radio" t-attf-id="#{prefix}_keepcheck_no" t-attf-name="#{prefix}_keepcheck" value="no"/>
+                  replace submitted
+                </label>
+              </div>
+            </div>
+          </t>
+        </div>
+      </xpath>
+    </template>
+
+    <!--  old implementation -->
     <template id="imageupload_widget" name="Fluxdock image upload widget">
         <div class="image-upload-widget">
             <t t-set="image_input_name" t-value="image_input_name or 'image'" />
