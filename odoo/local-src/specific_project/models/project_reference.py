@@ -15,11 +15,14 @@ class ProjectReference(models.Model):
     _name = 'project.reference'
     _description = "Project reference"
     _inherit = [
-        'mail.thread', 'ir.needaction_mixin',
-        'website.published.mixin']
+        'mail.thread',
+        'ir.needaction_mixin',
+        'website.published.mixin',
+    ]
 
     # we use this for website template add action
     website_add_url = '/references/add'
+    cms_after_delete_url = '/references'
 
     name = fields.Char(
         string="Reference title",

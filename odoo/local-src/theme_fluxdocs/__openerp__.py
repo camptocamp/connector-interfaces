@@ -18,5 +18,7 @@
                 'website_blog',
                 'website_portal',
                 'cms_status_message',
+                'cms_delete_content',
+                'cms_form',
                 ],
 }
