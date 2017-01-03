@@ -21,8 +21,13 @@ class ProjectReference(models.Model):
     ]
 
     # we use this for website template add action
-    website_add_url = '/references/add'
-    cms_after_delete_url = '/references'
+    cms_add_url = '/references/add'
+    cms_after_delete_url = '/my/home'
+
+    @api.multi
+    def _compute_cms_edit_url(self):
+        for item in self:
+            item.cms_edit_url = item.website_url + '/edit'
 
     name = fields.Char(
         string="Reference title",
