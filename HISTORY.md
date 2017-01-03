@@ -14,6 +14,13 @@ Template:
 
 # Release History
 
+## 9.1.3 (Unreleased)
+
+**Features and Improvements**
+
+* Use new module `cms_status_message` (remove custom implementation in theme_fluxdocs)'
+
+
 ## 9.1.2 (2017-01-05)
 
 **Bugfixes**

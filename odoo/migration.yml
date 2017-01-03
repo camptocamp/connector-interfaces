@@ -126,3 +126,7 @@ migration:
     - version: 9.1.1
     - version: 9.1.2
     - version: 9.1.3
+      addons:
+        upgrade:
+          - theme_fluxdocs
+          - cms_status_message
