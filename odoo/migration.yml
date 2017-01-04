@@ -129,4 +129,10 @@ migration:
       addons:
         upgrade:
           - theme_fluxdocs
+          - specific_membership
+          - specific_project
+          - specific_project_proposal
           - cms_status_message
+      operations:
+        post:
+          - anthem songs.install.post::update_emails
