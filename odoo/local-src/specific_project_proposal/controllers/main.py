@@ -7,10 +7,6 @@ import werkzeug.urls
 from openerp import _, fields, http
 from openerp.http import request
 
-from openerp.addons.specific_membership.controllers.account import (
-    WebsiteAccount
-)
-
 from openerp.addons.website.models.website import slug
 
 

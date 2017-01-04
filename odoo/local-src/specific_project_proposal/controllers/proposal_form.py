@@ -34,7 +34,6 @@ class ProposalForm(models.AbstractModel):
     _form_required_fields = (
         'name',
         'website_short_description',
-        'website_description',
         'industry_ids',
         'expertise_ids',
     )
