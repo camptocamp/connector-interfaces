@@ -67,31 +67,9 @@
               </div>
             </div>
           </div>
-          <div class="membership-actions opt_dark_bg">
-            <div class="center-block main-content-wrapper">
-              <t t-if="is_anon">
-                <div class="is_anon">
-                  <!-- anonymous -->
-                  <h2>Membership</h2>
-                  <a class="btn btn-primary" t-att-href="'/web/presignup?redirect=' + detail_url">
-                      Sign Up
-                  </a>
-                  <a class="btn btn-primary" t-att-href="'/web/login?redirect=' + detail_url">
-                      Login
-                  </a>
-                </div>
-              </t>
-              <t t-if="is_free_member">
-                <div class="is_free_member">
-                  <h2>Membership</h2>
-                  <a class="btn btn-primary" t-att-href="'/my/membership?redirect=' + detail_url">
-                      Become an associate member
-                  </a>
-                </div>
-              </t>
-            </div>
+          
+          <t t-call="specific_membership.membership_actions"/>
 
-          </div>
           <div class="white_bg pt2 backto_actions">
             <div class="center-block main-content-wrapper text-center">
               <a class="btn btn-dark" t-attf-href="#{return_link}">

@@ -26,4 +26,48 @@
         </t>
     </template>
 
+    <template id="become_member_claim" name="Fluxdock claim for members">
+Associate Member have full access to the project market and support Fluxdock as a collaboration network.<br/>
+Please login or register to become a member to Fluxdock Associate Member.
+    </template>
+
+    <template id="become_associate_member_claim" name="Fluxdock claim for members">
+Associate Member have full access to the project market and support Fluxdock as a collaboration network.<br/>
+Become Associate Member here.
+    </template>
+
+    <template id="membership_actions" name="Fluxdock membership actions">
+        <t t-if="is_anon or is_free_member">
+            <div class="membership-actions opt_dark_bg pt2 pb2">
+                <div class="center-block main-content-wrapper text-center">
+                    <h2>Membership</h2>
+                    <t t-if="is_anon">
+                      <div class="is_anon">
+                        <p class="claim">
+                          <t t-call="specific_membership.become_member_claim"/>
+                        </p>
+                        <!-- anonymous -->
+                        <a class="btn btn-dark" t-att-href="'/web/presignup?redirect=' + detail_url">
+                          Sign Up
+                        </a>
+                        <a class="btn btn-dark ml16" t-att-href="'/web/login?redirect=' + detail_url">
+                          Login
+                        </a>
+                      </div>
+                    </t>
+                    <t t-if="is_free_member">
+                      <div class="is_free_member">
+                        <p class="claim">
+                          <t t-call="specific_membership.become_associate_member_claim"/>
+                        </p>
+                        <a class="btn btn-dark" t-att-href="'/my/membership?redirect=' + detail_url">
+                          Become an associate member
+                        </a>
+                      </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
 </odoo>
