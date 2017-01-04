@@ -14,26 +14,6 @@ from openerp.addons.specific_membership.controllers.account import (
 from openerp.addons.website.models.website import slug
 
 
-class WebsiteAccountProposal(WebsiteAccount):
-
-    @http.route(['/my', '/my/home'], type='http', auth="public", website=True)
-    def account(self, **kw):
-        env = request.env
-
-        Proposal = env['project.proposal']
-
-        response = super(WebsiteAccountProposal, self).account(**kw)
-        proposal_overview = Proposal.search(
-            [('owner_id', '=', request.uid)],
-            order='website_published DESC, create_date DESC',
-        )
-        response.qcontext.update({
-            'matches': env.user.proposal_match_ids,
-            'proposals': proposal_overview,
-        })
-        return response
-
-
 class WebsiteProposal(http.Controller):
     _proposal_per_page = 10
 
@@ -43,7 +23,7 @@ class WebsiteProposal(http.Controller):
         domain = []
         industry_ids = None
         if filters == 'my':
-            domain = [('owner_id', '=', request.env.user.id)]
+            domain = [('create_uid', '=', request.env.user.id)]
         elif filters == 'match':
             domain = [('id', 'in', request.env.user.proposal_match_ids.ids)]
         if search_name:
@@ -102,7 +82,7 @@ class WebsiteProposal(http.Controller):
                                       scope=self._proposal_per_page,
                                       url_args=url_args)
 
-        detail_url = "/proposals/detail/{0}"
+        detail_url = "/proposals/{0}"
         detail_url = "%s?%s" % (detail_url, werkzeug.url_encode(url_args))
 
         proposals = Proposal.search(
@@ -171,25 +151,7 @@ class WebsiteProposal(http.Controller):
         proposal.blacklist()
         return {}
 
-    @http.route(
-        '/proposals/proposal/<model("project.proposal"):proposal>/'
-        'delete_confirm',
-        type='http', auth="user", website=True)
-    def delete_confirm(self, proposal, **kwargs):
-        return request.render(
-            "specific_project_proposal.proposal_delete_confirm", {
-                'proposal': proposal,
-                'main_object': proposal,
-            })
-
-    @http.route(
-        '/proposals/proposal/<model("project.proposal"):proposal>/delete',
-        type='http', auth="user", website=True)
-    def delete(self, proposal, **kwargs):
-        proposal.unlink()
-        return request.redirect('/my/home')
-
-    @http.route('/proposals/detail/<model("project.proposal"):proposal>',
+    @http.route('/proposals/<model("project.proposal"):proposal>',
                 type='http', auth="public", website=True)
     def proposals_detail(self, proposal, filters='all', **kwargs):
         if filters == 'match':
@@ -202,7 +164,7 @@ class WebsiteProposal(http.Controller):
         base_link = self._url_with_args(base_link, filters, **kwargs)
         previous_link = base_link.format("previous")
         next_link = base_link.format("next")
-        detail_url = "/proposals/detail/{0}".format(slug(proposal))
+        detail_url = "/proposals/{0}".format(slug(proposal))
         detail_url = self._url_with_args(detail_url, filters, **kwargs)
         return request.render("specific_project_proposal.proposal_detail", {
             'proposal': proposal,
@@ -224,7 +186,7 @@ class WebsiteProposal(http.Controller):
         )
         index = proposals.ids.index(proposal.id)
         previous_proposal = proposals[index - 1]
-        url = "/proposals/detail/{0}".format(slug(previous_proposal))
+        url = "/proposals/{0}".format(slug(previous_proposal))
         return request.redirect(self._url_with_args(url, filters, **kwargs))
 
     @http.route(['/proposals/<model("project.proposal"):proposal>/next'],
@@ -237,7 +199,7 @@ class WebsiteProposal(http.Controller):
         )
         index = proposals.ids.index(proposal.id)
         next_proposal = proposals[(index + 1) % len(proposals)]
-        url = "/proposals/detail/{0}".format(slug(next_proposal))
+        url = "/proposals/{0}".format(slug(next_proposal))
         return request.redirect(self._url_with_args(url, filters, **kwargs))
 
     @http.route(['/my/proposals/edit/<model("project.proposal"):proposal>'],
@@ -253,7 +215,7 @@ class WebsiteProposal(http.Controller):
         errors = None
         errors_messages = None
 
-        if proposal.owner_id != request.env.user:
+        if proposal.create_uid != request.env.user:
             return request.website.render("website.403")
 
         industry_ids = []
@@ -365,9 +327,8 @@ class WebsiteProposal(http.Controller):
 
     @http.route('/my/proposals/add', type='http', auth="user", website=True)
     def proposals_add(self, **kwargs):
-        proposal = request.env['project.proposal'].sudo().create({
+        proposal = request.env['project.proposal'].create({
             'name': _('New Proposal'),
-            'owner_id': request.uid,
         })
         return request.redirect("/my/proposals/edit/%s"
                                 % slug(proposal))

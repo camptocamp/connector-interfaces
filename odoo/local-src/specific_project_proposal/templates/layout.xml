@@ -27,7 +27,7 @@
               <li class="active"><span t-field="proposal.name"></span></li>
             </ol>
           </div>
-          <t t-if="proposal.owner_id.id == uid">
+          <t t-if="proposal.create_uid.id == uid">
             <div class="col-sm-5">
               <t t-call="website.publish_management">
                 <t t-set="object" t-value="proposal"/>

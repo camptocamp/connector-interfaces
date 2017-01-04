@@ -12,6 +12,7 @@
 <template id="matches_overview" name="Fluxdock My Matches">
     <div id="matches_overview" class="home_box" groups="base.group_tester" >
         <h3 class="page-header">Matches</h3>
+        <t t-set="matches" t-value="request.env.user.proposal_match_ids" />
         <t t-if="not matches">
             <p>No matches</p>
             <p>Please, verify you have set your expertises and industry on your profile.</p>
@@ -62,6 +63,7 @@
 <template id="proposals_overview" name="Fluxdock My Proposals">
     <div id="proposals_overview" class="home_box" groups="base.group_tester">
         <h3 class="page-header">Proposals</h3>
+        <t t-set="proposals" t-value="request.env.user.proposal_ids" />
         <t t-if="not proposals">
             <p>You have currently registred no proposals on your account.</p>
         </t>

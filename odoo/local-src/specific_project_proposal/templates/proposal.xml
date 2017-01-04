@@ -26,7 +26,7 @@
                             <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
                         </div>
                         <address>
-                            <t t-set="partner" t-value="proposal.sudo().owner_id.partner_id"/>
+                            <t t-set="partner" t-value="proposal.sudo().create_uid.partner_id"/>
                             <t t-set="partner" t-value="partner.parent_id if partner.parent_id else partner"/>
                             <t t-if="is_associate">
                                 <b t-field="partner.name"/>

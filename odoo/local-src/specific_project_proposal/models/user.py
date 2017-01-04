@@ -9,7 +9,7 @@ class ResUsers(models.Model):
 
     proposal_ids = fields.One2many(
         comodel_name='project.proposal',
-        inverse_name='owner_id',
+        inverse_name='create_uid',
     )
 
     proposal_blacklist_ids = fields.Many2many(
@@ -41,7 +41,7 @@ class ResUsers(models.Model):
                 ['|', ('expertise_ids', 'in', partner.expertise_ids.ids),
                       ('industry_ids', 'in', partner.category_id.ids),
                  ('id', 'not in', rec.proposal_blacklist_ids.ids),
-                 ('owner_id', '!=', rec.id),
+                 ('create_uid', '!=', rec.id),
                  ],
                 order='website_published DESC, start_date DESC',
             )

@@ -52,21 +52,21 @@ class TestVisibility(test_common.TransactionCase):
 
         self.prop1usr1 = self.Proposal.create({
             'name': "Project 1 Owner 1",
-            'owner_id': self.user1.id,
+            'create_uid': self.user1.id,
             'website_published': True,
         })
         self.prop2usr1 = self.Proposal.create({
             'name': "Project 2 Owner 1",
-            'owner_id': self.user1.id,
+            'create_uid': self.user1.id,
             'website_published': True,
         })
         self.prop1usr2 = self.Proposal.create({
             'name': "Project 1 Owner 2",
-            'owner_id': self.user2.id,
+            'create_uid': self.user2.id,
             'website_published': True,
         })
         self.prop2usr2 = self.Proposal.create({
             'name': "Project 2 Owner 2",
-            'owner_id': self.user2.id,
+            'create_uid': self.user2.id,
             'website_published': False,
         })

@@ -14,10 +14,22 @@ class ProjectProposal(models.Model):
     _name = 'project.proposal'
     _description = "Project proposal"
     _inherit = [
-        'mail.thread', 'ir.needaction_mixin',
-        'website.published.mixin']
+        'mail.thread',
+        'ir.needaction_mixin',
+        'website.published.mixin',
+    ]
+
+    # we use this for website template add action
+    cms_add_url = '/proposals/add'
+    cms_after_delete_url = '/my/home'
+
+    @api.multi
+    def _compute_cms_edit_url(self):
+        for item in self:
+            item.cms_edit_url = item.website_url + '/edit'
+
     name = fields.Char(
-        string="Project Name",
+        string="Proposal Name",
         required=True
     )
     display_name = fields.Char(
@@ -25,20 +37,23 @@ class ProjectProposal(models.Model):
         readonly=True,
         related='name'
     )
-    owner_id = fields.Many2one(
-        comodel_name='res.users',
-        string="Project Owner",
-        required=True,
+    create_uid = fields.Many2one(
+        'res.users',
+        'Owner',
+        select=True,
+        readonly=True,
     )
     color_owner_id = fields.Integer(
-        compute='_get_color_owner_id',
         string="Color index of owner",
-        store=False)  # Color of owner
+        compute='_get_color_owner_id',
+        readonly=True,
+        store=False,
+    )  # Color of owner
     location = fields.Char()
     country_id = fields.Many2one(comodel_name='res.country', string="Country")
     # TODO 2016-12-05:
     # why are we not using website.seo.mixin to get this field????
-    website_short_description = fields.Char(string="Teaser text")
+    website_short_description = fields.Text(string="Teaser text")
     website_description = fields.Text()
     start_date = fields.Date(string="Start date")
     stop_date = fields.Date(string="End date")
@@ -56,10 +71,10 @@ class ProjectProposal(models.Model):
         compute='_is_new'
     )
 
-    @api.depends('owner_id')
+    @api.depends('create_uid')
     def _get_color_owner_id(self):
         for rec in self:
-            rec.color_owner_id = rec.owner_id.id
+            rec.color_owner_id = rec.create_uid.id
 
     @api.multi
     def toggle_published(self):
@@ -73,7 +88,7 @@ class ProjectProposal(models.Model):
     @api.depends('name')
     def _website_url(self, name, arg):
         res = super(ProjectProposal, self)._website_url(name, arg)
-        res.update({(p.id, '/proposals/detail/%s' % slug(p)) for p in self})
+        res.update({(p.id, '/proposals/%s' % slug(p)) for p in self})
         return res
 
     @api.multi
