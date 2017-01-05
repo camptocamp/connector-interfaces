@@ -76,8 +76,8 @@ class ResUsers(models.Model):
         for user in self.browse(cr, uid, ids, context):
             if not user.email:
                 raise UserError(
-                    _("Cannot send email: user %s has no email address."
-                ) % user.name)
+                    _("Cannot send email: user %s has no email address.")
+                    % user.name)
             context['lang'] = user.lang
             self.pool.get('mail.template').send_mail(
                 cr, uid, template.id, user.id,
