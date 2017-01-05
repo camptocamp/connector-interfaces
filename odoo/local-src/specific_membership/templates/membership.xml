@@ -26,14 +26,16 @@
         </t>
     </template>
 
-    <template id="become_member_claim" name="Fluxdock claim for members">
-Associate Member have full access to the project market and support Fluxdock as a collaboration network.<br/>
-Please login or register to become a member to Fluxdock Associate Member.
+    <template id="become_member_claim" name="Fluxdock claim to become members">
+Associate Member have full access to the project market<br />
+and support Fluxdock as a collaboration network.<br/>
+Please <a class="cta login" t-att-href="'/web/login?redirect=' + detail_url or '/my/home'">login</a> or <a class="cta signup" t-att-href="'/web/presignup?redirect=' + detail_url or '/my/home'">register</a> to become a Fluxdock Member.
     </template>
 
-    <template id="become_associate_member_claim" name="Fluxdock claim for associate members">
-Associate Member have full access to the project market and support Fluxdock as a collaboration network.<br/>
-Become Associate Member here.
+    <template id="become_associate_member_claim" name="Fluxdock claim to become associate members">
+Associate Member have full access to the project market<br />
+and support Fluxdock as a collaboration network.<br/>
+<a class="cta associate" t-att-href="'/my/membership?redirect=' + detail_url or '/my/home'">Become Associate Member here</a>.
     </template>
 
     <template id="membership_actions" name="Fluxdock membership actions">
@@ -46,13 +48,6 @@ Become Associate Member here.
                         <p class="claim">
                           <t t-call="specific_membership.become_member_claim"/>
                         </p>
-                        <!-- anonymous -->
-                        <a class="btn btn-dark" t-att-href="'/web/presignup?redirect=' + detail_url">
-                          Sign Up
-                        </a>
-                        <a class="btn btn-dark ml16" t-att-href="'/web/login?redirect=' + detail_url">
-                          Login
-                        </a>
                       </div>
                     </t>
                     <t t-if="is_free_member">
@@ -60,9 +55,6 @@ Become Associate Member here.
                         <p class="claim">
                           <t t-call="specific_membership.become_associate_member_claim"/>
                         </p>
-                        <a class="btn btn-dark" t-att-href="'/my/membership?redirect=' + detail_url">
-                          Become an associate member
-                        </a>
                       </div>
                     </t>
                 </div>
