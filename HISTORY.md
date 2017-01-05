@@ -19,6 +19,15 @@ Template:
 **Features and Improvements**
 
 * Use new module `cms_status_message` (remove custom implementation in theme_fluxdocs)'
+* Use new module `cms_form` (replace reference form and proposal form)'
+* Use new module `cms_delete_content` to drop custom delete/confirm controllers
+* [RM#16309](https://redmine.iart.ch/issues/16309) Update payment views
+* Cleanup and adjust views according to reference work
+* Various miscellaneous Improvements
+
+**Bugfixes**
+
+* Fix responsive for search form
 
 
 ## 9.1.2 (2017-01-05)

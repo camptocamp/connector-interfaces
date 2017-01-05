@@ -132,7 +132,10 @@ migration:
           - specific_membership
           - specific_project
           - specific_project_proposal
+          # they are dependencies but just to be explicit about their addition ;)
+          - cms_form
           - cms_status_message
+          - cms_delete_content
       operations:
         post:
           - anthem songs.install.post::update_emails

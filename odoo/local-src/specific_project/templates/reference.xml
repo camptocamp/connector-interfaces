@@ -94,21 +94,5 @@
     </t>
   </template>
 
-    <!-- TODO: make this generic and reuse the same logic and template for every model! -->
-    <template id="reference_delete_confirm" name="Reference delete confirm">
-        <t t-call="website.layout">
-            <div class="delete_confirm" style="clear:both;">
-                <section class="content members-list opt_dark_bg text-center">
-                    <h3>Are you sure you want to remove this reference?</h3>
-                    <a class="btn btn-primary btn-show-proposal" title="Confirm" t-attf-href="#{reference.website_url}/delete">
-                        Confirm
-                    </a>
-                    <a class="btn btn-primary btn-show-proposal" title="Cancel" t-attf-href="#{reference.website_url}/edit">
-                        Cancel
-                    </a>
-                </section>
-            </div>
-        </t>
-    </template>
 
 </odoo>
