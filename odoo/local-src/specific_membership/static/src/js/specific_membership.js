@@ -113,6 +113,9 @@ odoo.define('specific_membership.portal_profile', function (require) {
                     var tags = {
                         results: []
                     };
+                    data.sort(function(a, b) {
+                        return a.name.localeCompare(b.name);
+                    });
                     _.each(data, function(x) {
                         tags.results.push({
                             id: x.id,

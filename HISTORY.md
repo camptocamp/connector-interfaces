@@ -14,6 +14,13 @@ Template:
 
 # Release History
 
+## 9.1.2 (2017-01-05)
+
+**Bugfixes**
+
+* [fix] ordering of JS widget for expertises
+
+
 ## 9.1.1 (2016-12-23)
 
 **Bugfixes**

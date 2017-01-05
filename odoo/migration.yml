@@ -123,3 +123,5 @@ migration:
           - anthem songs.install.post::change_signup_email
           - anthem songs.install.post::change_reset_pwd_email
           - anthem songs.install.post::load_email_translations
+    - version: 9.1.1
+    - version: 9.1.2
