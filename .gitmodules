@@ -14,4 +14,4 @@
 [submodule "odoo/external-src/website-cms"]
 	path = odoo/external-src/website-cms
 	url = git@github.com:simahawk/website-cms.git
-        branch = add-status-message
+        branch = add-cms_form
