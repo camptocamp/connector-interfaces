@@ -30,7 +30,7 @@ def change_signup_email(ctx):
         'auto_delete': False,
     }
     create_or_update(
-        ctx, 'mail.template', 'auth_signup.set_password_email', values)
+        ctx, 'mail.template', 'specific_membership.set_password_email', values)
 
 
 @anthem.log
@@ -48,7 +48,8 @@ def change_reset_pwd_email(ctx):
         'auto_delete': False,
     }
     create_or_update(
-        ctx, 'mail.template', 'auth_signup.reset_password_email', values)
+        ctx, 'mail.template',
+        'specific_membership.reset_password_email', values)
 
 
 @anthem.log
@@ -90,7 +91,7 @@ def load_email_translations(ctx):
         if not line['res_id']:
             continue
         # load HTML from file
-        for key in ('src', 'value'):
+        for key in ('src', 'source', 'value'):
             if line[key].startswith('path:'):
                 line[key] = resource_stream(
                     req, line[key].split('path:')[-1]).read()
@@ -107,17 +108,26 @@ def load_email_translations(ctx):
             ])
             if to_translate:
                 to_translate.unlink()
+        # create or update here is not enough
+        # if you delete the template from backend
+        # you can get a stale entry for translation
+        # so we must remove it 1st.
+        existing = ctx.env.ref(xmlid, raise_if_not_found=0)
+        if existing:
+            existing.unlink()
         translation = create_or_update(
             ctx, 'ir.translation', xmlid, line)
-        # force state since is automatically set to to-translate
-        translation.write({'state': 'translated'})
+        translation.write({
+            # force state, since is not set to translated with values
+            'state': 'translated'
+        })
 
 
 @anthem.log
 def remove_useless_menuitems(ctx):
     """ Remove useless website menu items """
     xmlids = (
-        'website_slades.website_menu_slides',
+        'website_slides.website_menu_slides',
         'website_blog.menu_news',
         'website_sale.menu_shop',
         'website.menu_contactus',
@@ -132,10 +142,16 @@ def remove_useless_menuitems(ctx):
 
 
 @anthem.log
-def main(ctx):
-    """ Main: creating demo data """
+def update_emails(ctx):
+    """ Update emails """
     change_signup_email(ctx)
     add_membership_upgrade_email(ctx)
-    remove_useless_menuitems(ctx)
     change_reset_pwd_email(ctx)
     load_email_translations(ctx)
+
+
+@anthem.log
+def main(ctx):
+    """ Main: creating demo data """
+    remove_useless_menuitems(ctx)
+    update_emails(ctx)

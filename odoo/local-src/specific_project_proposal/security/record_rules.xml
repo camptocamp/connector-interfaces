@@ -7,7 +7,7 @@
   <field name="perm_write" eval="True"/>
   <field name="perm_create" eval="True"/>
   <field name="perm_unlink" eval="True"/>
-  <field name="domain_force">['|', ('website_published', '=', True), '&amp;', ('owner_id','=',user.id), ('website_published', '=', False)]</field>
+  <field name="domain_force">['|', ('website_published', '=', True), '&amp;', ('create_uid','=',user.id), ('website_published', '=', False)]</field>
 </record>
 
 </odoo>

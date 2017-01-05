@@ -15,18 +15,26 @@ class ProjectReference(models.Model):
     _name = 'project.reference'
     _description = "Project reference"
     _inherit = [
-        'mail.thread', 'ir.needaction_mixin',
-        'website.published.mixin']
+        'mail.thread',
+        'ir.needaction_mixin',
+        'website.published.mixin',
+    ]
 
     # we use this for website template add action
-    website_add_url = '/references/add'
+    cms_add_url = '/references/add'
+    cms_after_delete_url = '/my/home'
+
+    @api.multi
+    def _compute_cms_edit_url(self):
+        for item in self:
+            item.cms_edit_url = item.website_url + '/edit'
 
     name = fields.Char(
-        string="Project Name",
+        string="Reference title",
         required=True
     )
     implementation_date = fields.Date(
-        string="Date of implementation",
+        string="Implementation date",
         required=False,
     )
     location = fields.Char()

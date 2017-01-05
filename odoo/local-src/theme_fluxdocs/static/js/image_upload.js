@@ -1,4 +1,4 @@
-odoo.define('specific_membership.image_upload', function (require) {
+odoo.define('theme_fluxdocs.image_upload', function (require) {
 "use strict";
 
     var core = require('web.core');
@@ -12,6 +12,7 @@ odoo.define('specific_membership.image_upload', function (require) {
         $(this).imgupload({
             allowedFormats: ['jpg', 'jpeg', 'png'],
             previewWidth: $(this).data('preview-width'),
+            previewHeight: $(this).data('preview-height'),
             maxFileSizeKb: 15360
         })
     });

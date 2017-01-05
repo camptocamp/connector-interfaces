@@ -26,4 +26,40 @@
         </t>
     </template>
 
+    <template id="become_member_claim" name="Fluxdock claim to become members">
+Associate Member have full access to the project market<br />
+and support Fluxdock as a collaboration network.<br/>
+Please <a class="cta login" t-att-href="'/web/login?redirect=' + detail_url or '/my/home'">login</a> or <a class="cta signup" t-att-href="'/web/presignup?redirect=' + detail_url or '/my/home'">register</a> to become a Fluxdock Member.
+    </template>
+
+    <template id="become_associate_member_claim" name="Fluxdock claim to become associate members">
+Associate Member have full access to the project market<br />
+and support Fluxdock as a collaboration network.<br/>
+<a class="cta associate" t-att-href="'/my/membership?redirect=' + detail_url or '/my/home'">Become Associate Member here</a>.
+    </template>
+
+    <template id="membership_actions" name="Fluxdock membership actions">
+        <t t-if="is_anon or is_free_member">
+            <div class="membership-actions opt_dark_bg pt2 pb2">
+                <div class="center-block main-content-wrapper text-center">
+                    <h2>Membership</h2>
+                    <t t-if="is_anon">
+                      <div class="is_anon">
+                        <p class="claim">
+                          <t t-call="specific_membership.become_member_claim"/>
+                        </p>
+                      </div>
+                    </t>
+                    <t t-if="is_free_member">
+                      <div class="is_free_member">
+                        <p class="claim">
+                          <t t-call="specific_membership.become_associate_member_claim"/>
+                        </p>
+                      </div>
+                    </t>
+                </div>
+            </div>
+        </t>
+    </template>
+
 </odoo>

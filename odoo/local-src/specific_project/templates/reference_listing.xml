@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="reference_item_tags" name="Fluxdock reference tags template">
-        <div class="item-tags">
-            <strong>Industry:</strong>
-            <span class="tag-value">
-                <t t-foreach="item.industry_ids" t-as="one_tag">
-                    <t t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
-                </t>
-            </span>
-        </div>
-        <div class="item-tags">
-            <strong>Expertise:</strong>
-            <span class="tag-value">
-                <t t-foreach="item.expertise_ids" t-as="one_tag">
-                    <t t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
-                </t>
-            </span>
-        </div>
-    </template>
-
     <template id="reference_listing" name="Fluxdock reference listing">
       <t t-call="website.layout">
         <div id="wrap" class="reference-listing">
@@ -46,7 +27,7 @@
                   <t t-call="theme_fluxdocs.listing">
                       <t t-set="show_preview" t-value="1" />
                       <t t-set="listing_items" t-value="references" />
-                      <t t-set="item_tags_template" t-value="'specific_project.reference_item_tags'" />
+                      <t t-set="item_tags_template" t-value="'theme_fluxdocs.item_tags'" />
                   </t>
               </div>
             </div>

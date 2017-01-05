@@ -22,9 +22,7 @@
                 <t t-foreach="references" t-as="item">
                     <tr t-att-class="'hidden to_hide' if item_index &gt; 3 else ''">
                         <td>
-                            <a t-att-href="item.website_url">
-                            <b t-field="item.name"/>
-                            </a>
+                            <a t-att-href="item.website_url"><b t-field="item.name"/></a>
                         </td>
                         <td>
                             <small t-if="not item.website_published" class="text-muted">not published</small>
@@ -33,9 +31,7 @@
                             <span t-field="item.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
                         </td>
                         <td>
-                            <a t-attf-href="#{item.website_url}/edit" class="text-muted">
-                            Edit
-                            </a>
+                            <a t-att-href="item.cms_edit_url" class="text-muted">Edit</a>
                         </td>
                     </tr>
                 </t>

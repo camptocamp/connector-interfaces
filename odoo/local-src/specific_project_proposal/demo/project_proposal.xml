@@ -23,7 +23,7 @@
   <field name="name">Proposal 1</field>
   <field name="website_short_description">Teaser 1</field>
   <field name="website_published" eval="1"/>
-  <field name="owner_id" ref="base.user_demo"></field>
+  <field name="create_uid" ref="base.user_demo"></field>
   <field name="country_id" ref="base.ch"/>
   <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_architecture')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_business_planning')])]"/>
@@ -33,7 +33,7 @@
   <field name="name">Proposal 2</field>
   <field name="website_short_description">Teaser 2</field>
   <field name="website_published" eval="1"/>
-  <field name="owner_id" ref="base.user_demo"></field>
+  <field name="create_uid" ref="base.user_demo"></field>
   <field name="country_id" ref="base.ch"/>
   <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_scenography')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_branding')])]"/>
@@ -43,7 +43,7 @@
   <field name="name">Proposal 3</field>
   <field name="website_short_description">Teaser 3</field>
   <field name="website_published" eval="1"/>
-  <field name="owner_id" ref="base.user_demo"></field>
+  <field name="create_uid" ref="base.user_demo"></field>
   <field name="country_id" ref="base.ch"/>
   <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_acoustic'), ref('specific_project_proposal.industry_interior_design'), ref('specific_project_proposal.industry_graphic_design')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_branding'), ref('partner_project_expertise.expertise_business_planning'), ref('partner_project_expertise.expertise_innovation_design')])]"/>
@@ -53,7 +53,7 @@
   <field name="name">Proposal iart 1</field>
   <field name="website_short_description">Teaser iart 1</field>
   <field name="website_published" eval="1"/>
-  <field name="owner_id" ref="base.user_root"></field>
+  <field name="create_uid" ref="base.user_root"></field>
   <field name="country_id" ref="base.ch"/>
   <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_scenography')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_branding')])]"/>
@@ -63,7 +63,7 @@
   <field name="name">Proposal iart 2</field>
   <field name="website_short_description">Teaser iart 2</field>
   <field name="website_published" eval="1"/>
-  <field name="owner_id" ref="base.user_root"></field>
+  <field name="create_uid" ref="base.user_root"></field>
   <field name="country_id" ref="base.ch"/>
   <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_scenography')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_product_dev')])]"/>

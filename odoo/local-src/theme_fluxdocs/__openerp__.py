@@ -8,7 +8,6 @@
         'views/snippets.xml',
         'views/options.xml',
         'views/assets.xml',
-        'views/status_message.xml',
         'views/listing.xml',
         'views/widgets.xml',
         'views/mosaic.xml',
@@ -18,5 +17,8 @@
     'depends': ['website',
                 'website_blog',
                 'website_portal',
+                'cms_status_message',
+                'cms_delete_content',
+                'cms_form',
                 ],
 }

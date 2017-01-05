@@ -21,9 +21,9 @@
           <h1>
               <field name="name" placeholder="e.g. My great project"/>
           </h1>
-          <label for="owner_id" string="Owner" class="oe_edit_only"/>
+          <label for="create_uid" string="Owner" class="oe_edit_only"/>
           <h2>
-            <field name="owner_id"/>
+            <field name="create_uid"/>
           </h2>
         </div>
         <notebook>
@@ -72,7 +72,7 @@
       <field name="name" string="Project name"/>
       <field name="start_date" string="Start Date"/>
       <field name="stop_date" string="End Date"/>
-      <field name="owner_id"/>
+      <field name="create_uid"/>
       <field name="location"/>
       <field name="country_id"/>
       <field name="duration"/>
@@ -89,7 +89,7 @@
     <calendar string="Proposals" date_start="start_date" date_stop="stop_date" date_delay="duration"
       display="[name]" color="color_owner_id" mode="month">
       <field name="name"/>
-      <field name="owner_id"/>
+      <field name="create_uid"/>
       <field name="color_owner_id"/>
     </calendar>
   </field>
@@ -105,11 +105,11 @@
       <field name="industry_ids"/>
       <field name="expertise_ids"/>
       <field name="country_id"/>
-      <field name="owner_id"/>
+      <field name="create_uid"/>
       <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>
       <separator/>
       <group expand="0" string="Group By">
-        <filter string="Owner" domain="[]" context="{'group_by':'owner_id'}"/>
+        <filter string="Owner" domain="[]" context="{'group_by':'create_uid'}"/>
         <filter string="Country" domain="[]" context="{'group_by':'country_id'}"/>
       </group>
     </search>

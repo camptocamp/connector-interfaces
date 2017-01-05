@@ -125,3 +125,17 @@ migration:
           - anthem songs.install.post::load_email_translations
     - version: 9.1.1
     - version: 9.1.2
+    - version: 9.1.3
+      addons:
+        upgrade:
+          - theme_fluxdocs
+          - specific_membership
+          - specific_project
+          - specific_project_proposal
+          # they are dependencies but just to be explicit about their addition ;)
+          - cms_form
+          - cms_status_message
+          - cms_delete_content
+      operations:
+        post:
+          - anthem songs.install.post::update_emails

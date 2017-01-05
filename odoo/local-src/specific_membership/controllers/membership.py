@@ -43,6 +43,8 @@ class WebsiteMembership(WebsiteMembershipController):
 
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
+        if not request.session.uid:
+            return request.not_found()
         partner = request.env['res.users'].browse(request.uid).partner_id
         values = {
             'error': {},

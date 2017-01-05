@@ -11,6 +11,8 @@
      'project',
      'partner_project_expertise',
      'specific_membership',
+     'cms_delete_content',
+     'cms_form',
  ],
  'data': [
      'security/ir.model.access.csv',
@@ -18,15 +20,10 @@
      'views/menu.xml',
      'views/project_proposal.xml',
      'templates/assets.xml',
-     'templates/layout.xml',
      'templates/proposal.xml',
      'templates/proposal_listing.xml',
      'templates/my_home.xml',
  ],
- 'demo': [
-     # 'demo/project_proposal.xml'
- ],
- 'test': [],
  'installable': True,
  'auto_install': False,
  'application': True,

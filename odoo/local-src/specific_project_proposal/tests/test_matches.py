@@ -71,6 +71,6 @@ class TestMatches(test_common.TransactionCase):
 
         self.prop = self.env['project.proposal'].create({
             'name': "Project 1",
-            'owner_id': self.user2.id,
+            'create_uid': self.user2.id,
             'website_published': True,
         })

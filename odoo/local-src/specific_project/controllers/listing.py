@@ -139,24 +139,6 @@ class WebsiteReference(http.Controller):
         return self.reference_listing(filters='all', **kwargs)
 
     @http.route(
-        '/references/<model("project.reference"):reference>/'
-        'delete_confirm',
-        type='http', auth="user", website=True)
-    def delete_confirm(self, reference, **kwargs):
-        return request.render(
-            "specific_project.reference_delete_confirm", {
-                'reference': reference,
-                'main_object': reference,
-            })
-
-    @http.route(
-        '/references/<model("project.reference"):reference>/delete',
-        type='http', auth="user", website=True)
-    def delete(self, reference, **kwargs):
-        reference.unlink()
-        return request.redirect('/my/home')
-
-    @http.route(
         ['/references/<model("project.reference"):reference>/previous'],
         type='http', auth="public", website=True)
     def reference_previous(self, reference, filters='all', **kwargs):

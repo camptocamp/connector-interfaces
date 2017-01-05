@@ -14,6 +14,27 @@ Template:
 
 # Release History
 
+## 9.1.3 (Unreleased)
+
+**Features and Improvements**
+
+* Use new module `cms_status_message` (remove custom implementation in theme_fluxdocs)'
+* Use new module `cms_form` (replace reference form and proposal form)'
+* Use new module `cms_delete_content` to drop custom delete/confirm controllers
+* Cleanup and adjust views according to reference work
+* Various miscellaneous Improvements:
+
+    * [RM#16130](https://redmine.iart.ch/issues/16130) Text Membership Upgrade email confirm
+    * [RM#16198](https://redmine.iart.ch/issues/16198) /proposals/add: miscellaneous
+    * [RM#16199](https://redmine.iart.ch/issues/16199) /market, /members --> same layout, both responsive
+    * [RM#16309](https://redmine.iart.ch/issues/16309) Update payment views
+    
+
+**Bugfixes**
+
+* Fix responsive for search form
+
+
 ## 9.1.2 (2017-01-05)
 
 **Bugfixes**
