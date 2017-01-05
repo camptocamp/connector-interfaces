@@ -6,6 +6,42 @@ import openerp.tests.common as test_common
 
 class TestVisibility(test_common.TransactionCase):
 
+    def setUp(self):
+        super(TestVisibility, self).setUp()
+        self.user1 = self.env['res.users'].create({
+            'name': 'User1',
+            'login': 'user_test_visibility_1',
+            'email': 'user1@email.com',
+        })
+        self.user2 = self.env['res.users'].create({
+            'name': 'User2',
+            'login': 'user_test_visibility_2',
+            'email': 'user2@email.com',
+        })
+
+        self.Proposal = self.env['project.proposal']
+
+        # Count demo data
+        self.seen_usr1 = self.Proposal.sudo(self.user1).search([])
+        self.seen_usr2 = self.Proposal.sudo(self.user2).search([])
+
+        self.prop1usr1 = self.Proposal.sudo(self.user1).create({
+            'name': "Project 1 Owner 1",
+            'website_published': True,
+        })
+        self.prop2usr1 = self.Proposal.sudo(self.user1).create({
+            'name': "Project 2 Owner 1",
+            'website_published': True,
+        })
+        self.prop1usr2 = self.Proposal.sudo(self.user2).create({
+            'name': "Project 1 Owner 2",
+            'website_published': True,
+        })
+        self.prop2usr2 = self.Proposal.sudo(self.user2).create({
+            'name': "Project 2 Owner 2",
+            'website_published': False,
+        })
+
     def test_deactivate(self):
         seen_by_user1 = self.Proposal.sudo(self.user1).search([])
         seen_by_user2 = self.Proposal.sudo(self.user2).search([])
@@ -32,41 +68,3 @@ class TestVisibility(test_common.TransactionCase):
         self.assertEquals(seen_by_user1, visible | self.seen_usr1)
         visible = self.prop1usr2 | self.prop2usr2
         self.assertEquals(seen_by_user2, visible | self.seen_usr2)
-
-    def setUp(self):
-        super(TestVisibility, self).setUp()
-        self.user1 = self.env['res.users'].create({
-            'name': 'User1',
-            'login': 'user_test_visibility_1',
-        })
-        self.user2 = self.env['res.users'].create({
-            'name': 'User2',
-            'login': 'user_test_visibility_2',
-        })
-
-        self.Proposal = self.env['project.proposal']
-
-        # Count demo data
-        self.seen_usr1 = self.Proposal.sudo(self.user1).search([])
-        self.seen_usr2 = self.Proposal.sudo(self.user2).search([])
-
-        self.prop1usr1 = self.Proposal.create({
-            'name': "Project 1 Owner 1",
-            'create_uid': self.user1.id,
-            'website_published': True,
-        })
-        self.prop2usr1 = self.Proposal.create({
-            'name': "Project 2 Owner 1",
-            'create_uid': self.user1.id,
-            'website_published': True,
-        })
-        self.prop1usr2 = self.Proposal.create({
-            'name': "Project 1 Owner 2",
-            'create_uid': self.user2.id,
-            'website_published': True,
-        })
-        self.prop2usr2 = self.Proposal.create({
-            'name': "Project 2 Owner 2",
-            'create_uid': self.user2.id,
-            'website_published': False,
-        })
