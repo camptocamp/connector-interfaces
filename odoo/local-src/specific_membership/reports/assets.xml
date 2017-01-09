@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <template id="assets_common" name="Fluxdock reports assets" inherit_id="report.assets_common">
+        <xpath expr="." position="inside">
+            <link href="/theme_fluxdocs/static/less/webfonts.css" rel="stylesheet" type="text/css" />
+            <link href="/specific_membership/static/src/less/report.less" rel="stylesheet"/>
+        </xpath>
+    </template>
+
+    </data>
+</openerp>

@@ -138,4 +138,5 @@ migration:
           - cms_delete_content
       operations:
         post:
+          - anthem songs.install.pre::setup_url_params
           - anthem songs.install.post::update_emails

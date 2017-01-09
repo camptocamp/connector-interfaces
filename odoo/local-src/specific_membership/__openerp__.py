@@ -34,6 +34,11 @@
         'security/partner_rules.xml',
         # views
         'views/partner_view.xml',
+        # reports
+        # TODO: move to a new module `fluxdock_reports`
+        'reports/assets.xml',
+        'reports/layout.xml',
+        'reports/invoice.xml',
         # templates
         'templates/assets.xml',
         'templates/membership.xml',
@@ -51,7 +56,6 @@
         'data/group_data.xml',
         'data/email_data.xml',
     ],
-    'test': [],
     'installable': True,
     'auto_install': False,
 }

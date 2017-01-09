@@ -5,10 +5,10 @@ from openerp import models
 # from openerp import _
 # from openerp.http import request
 from openerp.addons.cms_form.controllers import FormControllerMixin
-from openerp.addons.cms_form.models.cms_form import DEFAULT_WIDGETS
+from openerp.addons.cms_form.widgets import DEFAULT_WIDGETS
 
 WIDGETS = DEFAULT_WIDGETS.copy()
-WIDGETS['image']['params'] = {
+WIDGETS['image'].data = {
     'image_preview_width': 600,
     'image_preview_height': 400,
 }

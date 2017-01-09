@@ -5,10 +5,10 @@ from openerp import models
 from openerp import _
 # from openerp.http import request
 from openerp.addons.cms_form.controllers import FormControllerMixin
-from openerp.addons.cms_form.models.cms_form import DEFAULT_WIDGETS
+from openerp.addons.cms_form.widgets import DEFAULT_WIDGETS
 
 WIDGETS = DEFAULT_WIDGETS.copy()
-WIDGETS['image']['params'] = {
+WIDGETS['image'].data = {
     'image_preview_width': 600,
     'image_preview_height': 400,
 }
@@ -47,9 +47,9 @@ class ReferenceForm(models.AbstractModel):
     _form_extra_css_klass = 'center-block main-content-wrapper'
     _form_widgets = WIDGETS
 
-    def _form_update_fields_attributes(self, _fields):
+    def form_update_fields_attributes(self, _fields):
         """Override to add help messages."""
-        super(ReferenceForm, self)._form_update_fields_attributes(_fields)
+        super(ReferenceForm, self).form_update_fields_attributes(_fields)
         _fields['expertise_ids']['help'] = EXPERTISE_HELP
         _fields['linked_partner_ids']['help'] = LINKED_PARTNERS_HELP
         if self.env.user and self.env.user.partner_id:

@@ -4,8 +4,6 @@
 
 import anthem
 
-from ..common import req
-
 
 @anthem.log
 def setup_language(ctx):
@@ -17,6 +15,7 @@ def setup_language(ctx):
         'date_format': '%d/%m/%Y',
     })
 
+
 @anthem.log
 def setup_website_signup(ctx):
     """ Setting up system parameters to allow signup """
@@ -24,6 +23,18 @@ def setup_website_signup(ctx):
         'auth_signup.reset_password', True)
     ctx.env['ir.config_parameter'].set_param(
         'auth_signup.allow_uninvited', True)
+
+
+@anthem.log
+def setup_url_params(ctx):
+    """ Setup url params """
+    # make pdf report generation happy
+    # see https://github.com/odoo/odoo/issues/1105
+    url = "http://localhost:8069"
+    ctx.env['ir.config_parameter'].set_param('web.base.url', url)
+    ctx.env['ir.config_parameter'].set_param('web.base.url.freeze', 'True')
+    ctx.env['ir.config_parameter'].set_param('report.url', url)
+
 
 @anthem.log
 def main(ctx):

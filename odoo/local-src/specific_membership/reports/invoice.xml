@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="report_invoice_document" inherit_id="account.report_invoice_document">
+
+    <xpath expr="//div[contains(@class,'page')]"  position="attributes">
+        <attribute name="class" add="report_invoice" separator=" " />
+    </xpath>
+
+    <xpath expr="//p[@t-if='o.fiscal_position_id.note']"  position="after">
+        <t t-foreach="o.company_id.bank_journal_ids" t-as="journal">
+            <div class="bank_info">
+                <t t-set="bank_acc" t-value="journal.bank_account_id"/>
+                <span t-esc="bank_acc.bank_name" /><br />
+                IBAN: <span t-esc="bank_acc.acc_number"/><br />
+                <t t-if="bank_acc.bank_bic">
+                    SWIFT/BIC: <span t-esc="bank_acc.bank_bic"/>
+                </t>
+            </div>
+        </t>
+    </xpath>
+
+</template>
+
+</odoo>
