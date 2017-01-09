@@ -4,17 +4,17 @@
     <template id="field_widget_m2o" name="Fluxdock styled m2o field widget" inherit_id="cms_form.field_widget_m2o">
       <select position="replace">
         <div class="styled-select">
-          <select t-attf-class="form-control #{widget.get('css_klass', '')}"
-                  t-att-name="fname"
-                  t-att-required="field['required'] and '1' or None"
-                  t-att-data-params="widget.get('params')">
+          <select t-attf-class="form-control #{widget.css_klass}"
+                  t-att-name="widget.fname"
+                  t-att-required="widget.field['required'] and '1' or None"
+                  t-att-data-params="widget.data">
             <option value="">Select...</option>
-            <t t-set="comodel" t-value="form.env[field['relation']]" />
-            <t t-set="domain" t-value="field.get('domain', [])" />
+            <t t-set="comodel" t-value="widget.env[widget.field['relation']]" />
+            <t t-set="domain" t-value="widget.field.get('domain', [])" />
             <t t-set="option_items" t-value="comodel.search(domain)" />
             <t t-foreach="option_items or []" t-as="opt_item">
              <option t-att-value="opt_item.id"
-                     t-att-selected="opt_item.id == form_data.get(fname)">
+                     t-att-selected="opt_item.id == widget.field_value">
                  <t t-esc="opt_item.name"/>
              </option>
             </t>
@@ -29,14 +29,14 @@
         <div class="image-widget-wrapper">
           <div class="image-upload-widget">
             <t t-set="image_input_name" t-value="image_input_name or 'image'" />
-            <t t-if="form_data.get(fname)">
-              <img class="img img-responsive" t-att-src="form_data.get(fname, {}).get('value')" />
+            <t t-if="widget.field_value">
+              <img class="img img-responsive" t-att-src="widget.field_value.get('value')" />
             </t>
             <div class="imgupload"
-                 t-att-data-preview-width="widget.get('params', {}).get('image_preview_width', 200)"
-                 t-att-data-preview-height="widget.get('params', {}).get('image_preview_height', 200)">
+                 t-att-data-preview-width="widget.data.get('image_preview_width', 200)"
+                 t-att-data-preview-height="widget.data.get('image_preview_height', 200)">
                 <div class="file-tab">
-                    <label t-att-for="fname" class="btn btn-file">
+                    <label t-att-for="widget.fname" class="btn btn-file">
                         <span class="info overlay overlay-slideup">
                             <span class="browse">Browse</span>
                             <info class="format">Format: *.png/*.jpg</info>
@@ -44,15 +44,15 @@
                         <input
                             type="file" capture="camera" accept="image/*"
                             t-att-id="fname"
-                            t-att-name="fname"
+                            t-att-name="widget.fname"
                             class="form-control"
                             />
                     </label>
                 </div>
             </div>
           </div>
-          <t t-if="form_data.get(fname)">
-            <t t-set="prefix" t-value="fname"/>
+          <t t-if="widget.field_value">
+            <t t-set="prefix" t-value="widget.fname"/>
             <div t-attf-id="#{prefix}_keepbox" class="keepbox text-center">
               <div class="form-group">
                 <label class="checkbox inline" t-attf-for="#{prefix}_keepcheck_yes">
@@ -70,7 +70,7 @@
       </xpath>
     </template>
 
-    <!--  old implementation -->
+    <!--  old implementation for no-cms form -->
     <template id="imageupload_widget" name="Fluxdock image upload widget">
         <div class="image-upload-widget">
             <t t-set="image_input_name" t-value="image_input_name or 'image'" />

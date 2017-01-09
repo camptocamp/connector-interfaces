@@ -74,9 +74,7 @@
             <t t-foreach="proposals" t-as="proposal">
                 <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
                 <td>
-                    <a t-attf-href="/my/proposals/edit/#{ slug(proposal) }">
-                    <b t-field="proposal.name"/>
-                    </a>
+                    <a t-att-href="proposal.website_url"><b t-field="proposal.name"/></a>
                 </td>
                 <td>
                     <small t-if="not proposal.website_published" class="text-muted">not published</small>
@@ -85,9 +83,7 @@
                     <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
                 </td>
                 <td>
-                    <a t-attf-href="/my/proposals/edit/#{ slug(proposal) }" class="text-muted">
-                    Edit
-                    </a>
+                    <a t-att-href="proposal.cms_edit_url" class="text-muted">Edit</a>
                 </td>
                 </tr>
             </t>
@@ -97,10 +93,10 @@
             </table>
         </t>
         <div class="actions">
-            <a class="btn btn-dark btn-show-proposal" t-attf-href="/my/proposals" title="Show all proposals">
+            <a class="btn btn-dark btn-show-proposal" t-att-href="'/my/proposals'" title="Show all proposals">
                 Show all proposals
             </a>
-            <a class="btn btn-dark btn-add-proposal" t-attf-href="/my/proposals/add" title="Add a proposal">
+        <a class="btn btn-dark btn-add-proposal" t-att-href="request.env['project.proposal'].cms_add_url" title="Add a proposal">
                 Add a proposal
             </a>
         </div>

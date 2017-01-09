@@ -41,10 +41,10 @@
             </table>
         </t>
         <div class="actions">
-            <a class="btn btn-dark btn-show-proposal" t-attf-href="/my/references" title="Show all references">
+            <a class="btn btn-dark btn-show-proposal" t-att-href="'/my/references'" title="Show all references">
                 Show all references
             </a>
-            <a class="btn btn-dark btn-add-proposal" t-attf-href="/my/references/add" title="Add a reference">
+            <a class="btn btn-dark btn-add-proposal" t-att-href="request.env['project.reference'].cms_add_url" title="Add a reference">
                 Add a reference
             </a>
         </div>
