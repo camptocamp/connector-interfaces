@@ -7,6 +7,16 @@
         <attribute name="class" add="report_invoice" separator=" " />
     </xpath>
 
+    <xpath expr="//div[contains(@class,'col-xs-5 col-xs-offset-7')]"  position="attributes">
+        <attribute name="class">col-xs-12 text-left</attribute>
+    </xpath>
+
+    <xpath expr="//table[contains(@class,'table')][1]"  position="before">
+        <p class="membership-info">
+            <strong>Membership status expiration:</strong> <span t-field="o.partner_id.membership_stop" t-field-options='{"widget": "date"}' />
+        </p>
+    </xpath>
+
     <xpath expr="//p[@t-if='o.fiscal_position_id.note']"  position="after">
         <t t-foreach="o.company_id.bank_journal_ids" t-as="journal">
             <div class="bank_info">
@@ -19,6 +29,9 @@
             </div>
         </t>
     </xpath>
+
+    <!--  remove taxes summary -->
+    <xpath expr="//div[@t-if='o.tax_line_ids']"  position="replace" />
 
 </template>
 
