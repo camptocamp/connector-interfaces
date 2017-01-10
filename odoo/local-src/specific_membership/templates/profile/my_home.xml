@@ -129,7 +129,7 @@
         </div>
     </template>
 
-    <template id="website_membership_status">
+    <template id="website_membership_status" name="Fluxdock membership status homebox">
         <div id="website_membership_status" class="home_box">
             <h3 class="page-header">Membership status</h3>
             <p>
