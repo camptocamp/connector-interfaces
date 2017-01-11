@@ -125,7 +125,7 @@ migration:
           - anthem songs.install.post::load_email_translations
     - version: 9.1.1
     - version: 9.1.2
-    - version: 9.1.3
+    - version: 9.2.0
       addons:
         upgrade:
           - theme_fluxdocs

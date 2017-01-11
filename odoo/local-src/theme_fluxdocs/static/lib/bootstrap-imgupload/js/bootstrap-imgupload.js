@@ -15,7 +15,6 @@
 
     $.fn.imgupload = function(givenOptions) {
         if (this.filter("div").hasClass("imgupload")) {
-            console.log('AAAAAAAAAAAAAA');
             options = $.extend(options, givenOptions);
 
             var $fileTab = this.find(".file-tab");
