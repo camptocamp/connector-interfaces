@@ -90,7 +90,10 @@ After confirmation you will receive per email the invoice for the membership fee
             <div class="center-block main-content-wrapper" id="ref_content">
               <h1>Confirmation</h1>
               <div class="item-description">
-                <p>Your command is being processed. You should receive a confirmation email soon.</p>
+                <p/>
+                <div style="text-align: center;">Thank you for signing up as an Associate Member.&amp;nbsp;</div>
+                <div style="text-align: center;">The invoice for the membership fee has been sent to you by email. Please pay the amount within the next 30 days.</div>
+                <div style="text-align: center;">You can now proceed to the project market.</div>
               </div>
               <div class="controls text-center pb2">
                 <a class="btn btn-primary" href="/market">Market</a>

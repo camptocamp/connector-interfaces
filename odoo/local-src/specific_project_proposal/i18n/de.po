@@ -18,7 +18,7 @@ msgstr ""
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
 msgid "&lt;b&gt;NEW!"
-msgstr "&lt;b&gt;NEW!"
+msgstr "&lt;b&gt;NEU!"
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
@@ -64,7 +64,7 @@ msgstr "Aktion notwendig"
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
 msgid "Add a proposal"
-msgstr "Add a proposal"
+msgstr "Projektausschreibung hinzufügen"
 
 #. module: specific_project_proposal
 #: model:ir.model.fields,field_description:specific_project_proposal.field_res_users_proposal_blacklist_ids
@@ -265,7 +265,7 @@ msgstr "Veranstaltungsort"
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposal_index
 msgid "Market"
-msgstr "Market"
+msgstr "Projektmarkt"
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
@@ -292,7 +292,7 @@ msgstr "New Proposal"
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
 msgid "No matches"
-msgstr "No matches"
+msgstr "Keine Treffer"
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
@@ -371,7 +371,7 @@ msgstr "Proposal ids"
 #: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
 #: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_tree
 msgid "Proposals"
-msgstr "Proposals"
+msgstr "Projektausschreibungen"
 
 #. module: specific_project_proposal
 #: model:ir.model.fields,help:specific_project_proposal.field_res_users_proposal_match_ids
@@ -381,7 +381,7 @@ msgstr "Proposals that match with user expertises and industries. (Blacklisted a
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
 msgid "Read More"
-msgstr "Read More"
+msgstr "Mehr"
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
@@ -416,7 +416,7 @@ msgstr "Einstellungen"
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
 msgid "Show all proposals"
-msgstr "Show all proposals"
+msgstr "Alle Projektausschreibungen anzeigen"
 
 #. module: specific_project_proposal
 #: code:addons/local-src/specific_project_proposal/controllers/main.py:304
@@ -508,8 +508,8 @@ msgstr "Beschreibung"
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
-msgid "You have currently registred no proposals on your account."
-msgstr "You have currently registred no proposals on your account."
+msgid "You have currently registered no proposals on your account."
+msgstr "Sie haben zur Zeit keine Projektausschreibungen in Ihrem Profil erfasst."
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
@@ -541,4 +541,3 @@ msgstr "to create your proposals."
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
 msgid "your account"
 msgstr "your account"
-

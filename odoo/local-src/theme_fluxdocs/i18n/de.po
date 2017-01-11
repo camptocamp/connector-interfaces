@@ -48,7 +48,7 @@ msgstr "5 Apr 2016"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.imageupload_widget
 msgid "<span class=\"browse\">Browse</span>"
-msgstr "<span class=\"browse\">Browse</span>"
+msgstr "<span class=\"browse\">Durchsuchen</span>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -731,4 +731,3 @@ msgstr "Nicht Veröffentlicht"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "suchen"
 msgstr "suchen"
-

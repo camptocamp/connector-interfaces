@@ -683,8 +683,8 @@ msgstr "<strong>Expertise:</strong>"
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "<strong>Important:</strong>\n"
 "												<span>if you modify your email, your login will be updated as well.</span>"
-msgstr "<strong>Important:</strong>\n"
-"												<span>if you modify your email, your login will be updated as well.</span>"
+msgstr ""<strong>Wichtig:</strong>\n"
+"												<span>Bei Änderung der Email-Adresse werden die Login-Daten ebenfalls angepasst.</span>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_item_tags
@@ -775,15 +775,35 @@ msgstr "Sind Sie bereits registriert?"
 #: model:ir.ui.view,arch_db:specific_membership.become_associate_member_claim
 msgid "Associate Member have full access to the project market and support Fluxdock as a collaboration network.<br/>\n"
 "Become Associate Member here."
-msgstr "Associate Member have full access to the project market and support Fluxdock as a collaboration network.<br/>\n"
-"Become Associate Member here."
+msgstr "Associate Member haben vollen Zugriff auf den Projektmarkt<br/>\n""
+"und unterstützen Fluxdock als Kollaborationsnetzwerk.<br/>"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.become_associate_member_claim
+msgid "Become Associate Member here."
+msgstr "Werden Sie hier Associate Member"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.become_associate_member_claim
+msgid "login"
+msgstr "loggen Sie sich ein"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.become_associate_member_claim
+msgid "or"
+msgstr "oder"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.become_associate_member_claim
+msgid "register"
+msgstr "registrieren"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.become_member_claim
 msgid "Associate Member have full access to the project market and support Fluxdock as a collaboration network.<br/>\n"
 "Please login or register to become a member to Fluxdock Associate Member."
 msgstr "Associate Member have full access to the project market and support Fluxdock as a collaboration network.<br/>\n"
-"Please login or register to become a member to Fluxdock Associate Member."
+"Become Associate Member here."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
@@ -881,7 +901,7 @@ msgstr "Bestätigen"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_confirmation
 msgid "Confirmation"
-msgstr "Confirmation"
+msgstr "Bestätigung"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_partner_detail
@@ -932,7 +952,7 @@ msgstr "Offenlegung."
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 msgid "Don't find your industry or expertise? Write us an email at"
-msgstr "Don't find your industry or expertise? Write us an email at"
+msgstr "Ist Ihre Branche oder Expertise nicht aufgeführt? Schreiben Sie uns eine Email an"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
@@ -991,7 +1011,12 @@ msgstr "Expertises"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.website_membership_status
 msgid "Expiration:"
-msgstr "Expiration:"
+msgstr "gültig bis:"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.website_membership_status
+msgid "Membership Upgrade"
+msgstr "Assoziierte Mitgliedschaft erwerben"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -1137,7 +1162,7 @@ msgstr "Verwalten Sie Ihr Firmenprofil, Ihre Mitgliedschaft und Ihre Projektauss
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_confirmation
 msgid "Market"
-msgstr "Market"
+msgstr "Projektmarkt"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
@@ -1288,7 +1313,7 @@ msgstr "Passwort zurücksetzen"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
 msgid "SET / CONFIRM PASSWORD"
-msgstr "SET / CONFIRM PASSWORD"
+msgstr "Passwort setzen"
 
 #. module: specific_membership
 #. openerp-web
@@ -1510,6 +1535,16 @@ msgstr "Ihre E-Mail"
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_confirmation
 msgid "Your command is being processed. You should receive a confirmation email soon."
 msgstr "Your command is being processed. You should receive a confirmation email soon."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.membership_payment_confirmation
+msgid "You can now proceed to the project market."
+msgstr "Sie können nun weiter zum Projektmarkt."
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.membership_payment_confirmation
+msgid "The invoice for the membership fee has been sent to you by email. Please pay the amount within the next 30 days."
+msgstr "Die Rechnung über den Mitgliederbeitrag wurde Ihnen per E-Mail zugestellt. Bitte begleichen Sie den Betrag innerhalb der nächsten 30 Tage."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_success
