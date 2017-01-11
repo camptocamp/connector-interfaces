@@ -68,7 +68,7 @@ After confirmation you will receive per email the invoice for the membership fee
                 </div>
               </div>
               <div class="controls text-center pb2">
-                <a class="btn btn-primary" href="/my/account">Edit information</a>
+                <a class="btn btn-primary" href="/my/account?redirect=/my/membership">Edit information</a>
                 <form name="membership_buy" action="/my/membership/buy" method="POST" class="inline ml16">
                   <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                   <button type="submit" class="btn btn-primary">Confirm</button>
