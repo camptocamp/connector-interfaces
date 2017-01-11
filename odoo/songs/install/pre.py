@@ -31,6 +31,12 @@ def setup_url_params(ctx):
     # make pdf report generation happy
     # see https://github.com/odoo/odoo/issues/1105
     url = "http://localhost:8069"
+    # TMP fix: we need to move this stuff to environment files
+    current = ctx.env['ir.config_parameter'].get_param('web.base.url')
+    if 'fluxdock.io' in current:
+        url = 'http://fluxdock.io'
+    elif '52.57.98.170:8101' in current:
+        url = 'http://52.57.98.170:8101'
     ctx.env['ir.config_parameter'].set_param('web.base.url', url)
     ctx.env['ir.config_parameter'].set_param('web.base.url.freeze', 'True')
     ctx.env['ir.config_parameter'].set_param('report.url', url)
