@@ -61,7 +61,7 @@
           </address>
         </section>
         <t t-if="partner">
-          <section class="content member-address white_bg">
+          <section class="content detail-address member-address white_bg">
               <div class="content-wrap">
                 <h2 class="border-bottom">Contact</h2>
                 <div class="member-fields">
