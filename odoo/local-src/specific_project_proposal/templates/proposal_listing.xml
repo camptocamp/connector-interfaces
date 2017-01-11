@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="proposals_no_results" name="Fluxdock no proposals results">
-    <div class="row list-item no-results text-muted">
-        <div class="col-md-12">
-            <h4 class="text-center">No result found.</h4>
-            <t t-if="not my">
-                <h4 class="css_editable_hidden">There isn't project proposal published now, click <a t-attf-href="/page/website.contactus">here</a> to contact us</h4>
-            </t>
-            <t t-if="my">
-                <h4 class="css_editable_hidden">Go in <a href="/my">your account</a> to create your proposals.</h4>
-            </t>
-        </div>
-    </div>
-</template>
-
-
 <!-- TODO: make this form generic! (we are using it also for references search) -->
 <template id="proposals_search_form" name="Fluxdock proposals search form">
   <form class="search-panel" role="search" t-attf-action="#{url}" method="get">
@@ -82,10 +67,9 @@
                 <!-- <t t-set="detail_url" t-value="'/proposals/{}'" /> -->
                 <t t-set="listing_items" t-value="proposals" />
                 <t t-set="show_create_date" t-value="1" />
-                <t t-set="no_results_template" t-value="'specific_project_proposal.proposals_no_results'" />
                 <t t-set="item_tags_template" t-value="'theme_fluxdocs.item_tags'" />
                 <!-- <t t-set="show_published" t-value="1" /> -->
-                <t t-set="hide_item_url" t-value="'/proposals/proposal/{}/hide'" />
+                <!-- <t t-set="hide_item_url" t-value="'/proposals/proposal/{}/hide'" /> -->
             </t>
         </div>
       </div>

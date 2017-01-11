@@ -1,0 +1,543 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* specific_project_proposal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-10 16:47+0000\n"
+"PO-Revision-Date: 2017-01-10 16:47+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+msgid "&lt;b&gt;NEW!"
+msgstr "&lt;b&gt;NEU!"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
+msgid "<b>Country:</b>"
+msgstr "<b>Country:</b>"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
+msgid "<b>Duration:</b>"
+msgstr "<b>Duration:</b>"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
+msgid "<b>Expertises:</b>"
+msgstr "<b>Expertises:</b>"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
+msgid "<b>Industries:</b>"
+msgstr "<b>Industries:</b>"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
+msgid "<b>Location:</b>"
+msgstr "<b>Location:</b>"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+msgid "<span> days</span>"
+msgstr "<span> days</span>"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
+msgid "<span>Show more</span><span class=\"hidden\">Show less</span>"
+msgstr "<span>Mehr</span><span class=\"hidden\">Weniger</span>"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
+msgid "Add a proposal"
+msgstr "Projektausschreibung hinzufügen"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_res_users_proposal_blacklist_ids
+msgid "Blacklisted proposals"
+msgstr "Blacklisted proposals"
+
+#. module: specific_project_proposal
+#: model:ir.model,name:specific_project_proposal.model_cms_form_project_proposal
+msgid "CMS Form mixin"
+msgstr "CMS Form mixin"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_cms_delete_url
+msgid "CMS delete URL"
+msgstr "CMS delete URL"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_cms_delete_confirm_url
+msgid "CMS delete confirm URL"
+msgstr "CMS delete confirm URL"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_cms_edit_url
+msgid "CMS edit URL"
+msgstr "CMS edit URL"
+
+#. module: specific_project_proposal
+#: model:ir.actions.act_window,help:specific_project_proposal.action_project_proposal
+msgid "Click to add a proposal."
+msgstr "Click to add a proposal."
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_color_owner_id
+msgid "Color index of owner"
+msgstr "Color index of owner"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_country_id
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_search
+msgid "Country"
+msgstr "Land"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_search_form
+msgid "Country..."
+msgstr "Bitte Land auswählen..."
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_project_proposal_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr "Datum der letzten Nachricht."
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_cms_form_project_proposal_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_display_name
+msgid "Display name"
+msgstr "Display name"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_duration
+msgid "Duration"
+msgstr "Dauer"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_tree
+msgid "End Date"
+msgstr "Enddatum"
+
+#. module: specific_project_proposal
+#: code:addons/local-src/specific_project_proposal/controllers/main.py:314
+#: code:addons/local-src/specific_project_proposal/models/project_proposal.py:130
+#: code:addons/specific_project_proposal/controllers/main.py:314
+#: code:addons/specific_project_proposal/models/project_proposal.py:130
+#, python-format
+msgid "End Date cannot be set before Start Date."
+msgstr "End Date cannot be set before Start Date."
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_stop_date
+msgid "End date"
+msgstr "Enddatum"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+msgid "Ending on"
+msgstr "Ending on"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_expertise_ids
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_search_form
+msgid "Expertises"
+msgstr "Expertisen"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_res_users_flux_membership
+msgid "Flux membership"
+msgstr "Flux membership"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_follower_ids
+msgid "Followers"
+msgstr "Followers"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Beobachter (Kanäle)"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Followers (Partner)"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
+msgid "Go in"
+msgstr "Go in"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_search
+msgid "Group By"
+msgstr "Gruppiere nach"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_cms_form_project_proposal_id
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_id
+msgid "ID"
+msgstr "ID"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_project_proposal_message_unread
+msgid "If checked new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_project_proposal_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_industry_ids
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_search_form
+msgid "Industries"
+msgstr "Branchen"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_is_follower
+msgid "Is Follower"
+msgstr "Ist Beobachter"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_is_new
+msgid "Is new"
+msgstr "Is new"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_last_post
+msgid "Last Message Date"
+msgstr "Letzte Benachrichtigung"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_cms_form_project_proposal___last_update
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_location
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_search_form
+msgid "Location"
+msgstr "Veranstaltungsort"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_index
+msgid "Market"
+msgstr "Projektmarkt"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+msgid "Matches"
+msgstr "Matches"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_ids
+msgid "Messages"
+msgstr "Mitteilungen"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_index
+msgid "My Project proposals"
+msgstr "My Project proposals"
+
+#. module: specific_project_proposal
+#: code:addons/local-src/specific_project_proposal/controllers/main.py:327
+#: code:addons/specific_project_proposal/controllers/main.py:327
+#, python-format
+msgid "New Proposal"
+msgstr "New Proposal"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+msgid "No matches"
+msgstr "Keine Treffer"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
+msgid "No result found."
+msgstr "Kein Resultat gefunden"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_project_proposal_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_project_proposal_message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_create_uid
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_search
+msgid "Owner"
+msgstr "Besitzer"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+msgid "Please, verify you have set your expertises and industry on your profile."
+msgstr "Please, verify you have set your expertises and industry on your profile."
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_res_users_profile_state
+msgid "Profile state"
+msgstr "Profile state"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+msgid "Project Details"
+msgstr "Project Details"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_tree
+msgid "Project name"
+msgstr "Project name"
+
+#. module: specific_project_proposal
+#: model:ir.model,name:specific_project_proposal.model_project_proposal
+msgid "Project proposal"
+msgstr "Project proposal"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_search
+msgid "Proposal"
+msgstr "Proposal"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_name
+msgid "Proposal Name"
+msgstr "Titel"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_res_users_proposal_ids
+msgid "Proposal ids"
+msgstr "Proposal ids"
+
+#. module: specific_project_proposal
+#: model:ir.actions.act_window,name:specific_project_proposal.action_project_proposal
+#: model:ir.ui.menu,name:specific_project_proposal.menu_base_project_proposal
+#: model:ir.ui.menu,name:specific_project_proposal.menu_project_proposal
+#: model:ir.ui.menu,name:specific_project_proposal.menu_project_proposal_open
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_calendar
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_tree
+msgid "Proposals"
+msgstr "Projektausschreibungen"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_res_users_proposal_match_ids
+msgid "Proposals that match with user expertises and industries. (Blacklisted and own proposals are not part of this list)"
+msgstr "Proposals that match with user expertises and industries. (Blacklisted and own proposals are not part of this list)"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+msgid "Read More"
+msgstr "Mehr"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
+msgid "Return to list"
+msgstr "Return to list"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposal_detail
+msgid "Return to my account"
+msgstr "Return to my account"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_search_form
+msgid "Search"
+msgstr "Suchen"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_search
+msgid "Search Proposals"
+msgstr "Search Proposals"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_search_form
+msgid "Search..."
+msgstr "Suche ..."
+
+#. module: specific_project_proposal
+#: model:ir.ui.menu,name:specific_project_proposal.menu_project_proposal_settings
+msgid "Settings"
+msgstr "Einstellungen"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
+msgid "Show all proposals"
+msgstr "Alle Projektausschreibungen anzeigen"
+
+#. module: specific_project_proposal
+#: code:addons/local-src/specific_project_proposal/controllers/main.py:304
+#: code:addons/specific_project_proposal/controllers/main.py:304
+#, python-format
+msgid "Some required fields are empty."
+msgstr "Some required fields are empty."
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_tree
+msgid "Start Date"
+msgstr "Startdatum"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_start_date
+msgid "Start date"
+msgstr "Startdatum"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+msgid "Starting on"
+msgstr "Starting on"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_res_users_proposal_match_ids
+msgid "Suggested proposals"
+msgstr "Suggested proposals"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_website_short_description
+msgid "Teaser text"
+msgstr "Kurzbeschreibung"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_project_proposal_website_url
+msgid "The full URL to access the document through the website."
+msgstr "Die vollständige URL mit der das Dokument überall aufgerufen werden kann."
+
+#. module: specific_project_proposal
+#: model:ir.actions.act_window,help:specific_project_proposal.action_project_proposal
+msgid "The proposal will shared with parners depending on industries and expertises."
+msgstr "The proposal will shared with parners depending on industries and expertises."
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
+msgid "There isn't project proposal published now, click"
+msgstr "There isn't project proposal published now, click"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_unread
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_search
+msgid "Unread Messages"
+msgstr "Ungelesene Mitteilungen"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Zähler der ungelelesen Nachrichten"
+
+#. module: specific_project_proposal
+#: model:ir.model,name:specific_project_proposal.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_website_published
+msgid "Visible in Website"
+msgstr "Sichtbar in Webseite"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_website_message_ids
+msgid "Website Messages"
+msgstr "Website Nachrichten"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_website_url
+msgid "Website URL"
+msgstr "Webseite URL"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_project_proposal_website_message_ids
+msgid "Website communication history"
+msgstr "Website Kommunikationshistorie"
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_website_description
+msgid "Website description"
+msgstr "Beschreibung"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
+msgid "You have currently registered no proposals on your account."
+msgstr "Sie haben zur Zeit keine Projektausschreibungen in Ihrem Profil erfasst."
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+msgid "e.g. My great project"
+msgstr "e.g. My great project"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
+msgid "here"
+msgstr "here"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_overview
+msgid "not published"
+msgstr "Nicht Veröffentlicht"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
+msgid "to contact us"
+msgstr "to contact us"
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
+msgid "to create your proposals."
+msgstr "to create your proposals."
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.proposals_no_results
+msgid "your account"
+msgstr "your account"

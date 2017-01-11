@@ -129,8 +129,8 @@
         </div>
     </template>
 
-    <template id="website_membership_status">
-        <div id="website_membership_status" class="home_box" groups="base.group_tester">
+    <template id="website_membership_status" name="Fluxdock membership status homebox">
+        <div id="website_membership_status" class="home_box">
             <h3 class="page-header">Membership status</h3>
             <p>
                 <b t-esc="dict(partner.fields_get(allfields=['flux_membership'])['flux_membership']['selection'])[partner.flux_membership]" />
