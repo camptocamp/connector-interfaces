@@ -20,19 +20,6 @@
                 <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
             </div>
             <p><b t-field="proposal.website_short_description"/></p>
-            <!-- <div class="info border-tnb mb32 mt16 pt1 pb1">
-              <address>
-                  <t t-set="partner" t-value="proposal.sudo().create_uid.partner_id"/>
-                  <t t-set="partner" t-value="partner.parent_id if partner.parent_id else partner"/>
-                  <t t-if="is_associate">
-                      <b t-field="partner.name"/>
-                      <div t-field="partner.self" t-field-options='{
-                                                                      "widget": "contact",
-                                                                      "fields": ["address", "phone", "fax", "email"]
-                                                                    }'/>
-                  </t>
-              </address>
-            </div> -->
             <div class="details border-tnb mb32 mt16 pt1 pb1">
               <t t-if="is_associate">
                   <p t-field="proposal.website_description"/>
@@ -67,7 +54,49 @@
               </div>
             </div>
           </div>
-          
+          <t t-set="owner_partner" t-value="proposal.sudo().create_uid.partner_id"/>
+          <t t-set="owner_partner" t-value="owner_partner.parent_id if owner_partner.parent_id else owner_partner"/>
+          <t t-if="owner_partner and is_associate">
+              <!-- TODO: make this a reusable template since is used also in member detail -->
+            <section class="content detail-address proposal-address white_bg">
+                <div class="content-wrap">
+                  <h2 class="border-bottom">Contact</h2>
+                  <div class="member-fields">
+                    <t t-esc="owner_partnerstreet" /><br />
+                    <t t-if="owner_partner.country_id">
+                      <t t-esc="owner_partner.country_id.name" />-
+                    </t>
+                    <t t-esc="owner_partner.zip" /> <t t-esc="owner_partner.city" /><br />
+                    <t t-if="owner_partner.phone">t
+                      <t t-esc="owner_partner.phone" /><br />
+                    </t>
+                    <t t-if="owner_partner.fax">f
+                      <t t-esc="owner_partner.fax" /><br />
+                    </t>
+                    <!--  TODO: obfuscate email to prevent SPAMming -->
+                    <t t-if="owner_partner.email">
+                      <a t-attf-href="mailto:{{ owner_partner.email }}"><t t-esc="owner_partner.email"/></a>
+                      <br />
+                    </t>
+                    <t t-if="owner_partner.website">
+                      <a t-att-href="owner_partner.website"><t t-esc="owner_partner.website"/></a>
+                    </t>
+                  </div>
+                  <div class="member-social-media">
+                    <a target="_blank" t-att-href="owner_partner.facebook" t-if="owner_partner.facebook" class="social-media facebook">
+                      <i class="fa fa-facebook circled" aria-hidden="true"/>
+                    </a>
+                    <a target="_blank" t-att-href="owner_partner.twitter" t-if="owner_partner.twitter" class="social-media twitter">
+                      <i class="fa fa-twitter circled" aria-hidden="true"></i>
+                    </a>
+                    <a target="_blank" t-attf-href="skype:#{owner_partner.skype}?userinfo" t-if="owner_partner.skype" class="social-media skype">
+                      <i class="fa fa-skype circled" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+            </section>
+          </t>
+
           <t t-call="specific_membership.membership_actions"/>
 
           <div class="white_bg pt2 backto_actions">
