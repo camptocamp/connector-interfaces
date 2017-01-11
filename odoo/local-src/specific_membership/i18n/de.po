@@ -667,12 +667,12 @@ msgstr "<span class=\"text\">Upload references</span>"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "<span>Wire Transfer</span>"
-msgstr "<span>Wire Transfer</span>"
+msgstr "<span>Banküberweisung</span>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
-msgid "<strong>City</strong>"
-msgstr "<strong>City</strong>"
+msgid "<strong>City:</strong>"
+msgstr "<strong>Stadt:</strong>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_item_tags
@@ -693,8 +693,8 @@ msgstr "<strong>Industry:</strong>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
-msgid "<strong>NPA:</strong>"
-msgstr "<strong>NPA:</strong>"
+msgid "<strong>ZIP:</strong>"
+msgstr "<strong>PLZ:</strong>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
@@ -704,7 +704,7 @@ msgstr "<strong>Name:</strong>"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "<strong>Payment type:</strong>"
-msgstr "<strong>Payment type:</strong>"
+msgstr "<strong>Zahlungsart:</strong>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
@@ -714,12 +714,17 @@ msgstr "<strong>Price:</strong>"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "<strong>Street:</strong>"
-msgstr "<strong>Street:</strong>"
+msgstr "<strong>Straße:</strong>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "<strong>Taxes:</strong>"
-msgstr "<strong>Taxes:</strong>"
+msgstr "<strong>Steuern:</strong>"
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
+msgid "<strong>Total amount:</strong>"
+msgstr "<strong>Gesamtbetrag:</strong>"
 
 #. module: specific_membership
 #: code:addons/local-src/specific_membership/models/res_users.py:38
@@ -805,7 +810,7 @@ msgstr "Become an associate member"
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "Billing Address"
-msgstr "Billing Address"
+msgstr "Erweiterung der Mitgliedschaft"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address_claim
@@ -932,7 +937,7 @@ msgstr "Don't find your industry or expertise? Write us an email at"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "Edit information"
-msgstr "Edit information"
+msgstr "Bearbeiten"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.member_tile
@@ -1582,4 +1587,3 @@ msgstr "name@domain.com"
 #, python-format
 msgid "or"
 msgstr "or"
-
