@@ -69,7 +69,7 @@
                 <t t-set="show_create_date" t-value="1" />
                 <t t-set="item_tags_template" t-value="'theme_fluxdocs.item_tags'" />
                 <!-- <t t-set="show_published" t-value="1" /> -->
-                <t t-set="hide_item_url" t-value="'/proposals/proposal/{}/hide'" />
+                <!-- <t t-set="hide_item_url" t-value="'/proposals/proposal/{}/hide'" /> -->
             </t>
         </div>
       </div>
