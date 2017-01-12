@@ -2,8 +2,6 @@
 
 from openerp import http
 from openerp import models
-from openerp import _
-# from openerp.http import request
 from openerp.addons.cms_form.controllers import FormControllerMixin
 from openerp.addons.cms_form.widgets import DEFAULT_WIDGETS
 
