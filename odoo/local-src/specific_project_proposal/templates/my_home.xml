@@ -24,7 +24,7 @@
             <t t-foreach="matches" t-as="proposal">
                 <tr t-att-class="'hidden to_hide' if proposal_index &gt; 3 else ''">
                 <td>
-                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }?filters=match">
+                    <a t-att-href="proposal.website_url">
                     <t t-if="proposal.is_new">
                         &lt;b&gt;NEW!
                     </t>
@@ -41,7 +41,7 @@
                     <span t-field="proposal.create_date" class="text-muted" t-field-options='{"format": "d MMMM y"}'/>
                 </td>
                 <td>
-                    <a t-attf-href="/proposals/detail/#{ slug(proposal) }?filters=match" class="text-muted">
+                    <a t-att-href="proposal.website_url" class="text-muted">
                     Read More
                     </a>
                 </td>
