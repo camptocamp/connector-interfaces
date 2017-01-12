@@ -65,7 +65,8 @@
               <div class="content-wrap">
                 <h2 class="border-bottom">Contact</h2>
                 <div class="member-fields">
-                  <t t-esc="partner.street" /><br />
+                  <t t-esc="partner.name" /><br />
+                  <t t-esc="partner.street2" /><br />
                   <t t-if="partner.country_id">
                     <t t-esc="partner.country_id.name" />-
                   </t>
