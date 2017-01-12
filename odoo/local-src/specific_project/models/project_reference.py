@@ -106,5 +106,6 @@ class ProjectReference(models.Model):
         res = super(ProjectReference, self).create(vals)
         partner = res.create_uid.partner_id
         if partner:
-            partner.update_profile_state()
+            # TODO: set proper rule/permission to do this w/ no sudo
+            partner.sudo().update_profile_state()
         return res
