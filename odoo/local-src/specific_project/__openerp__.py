@@ -20,6 +20,7 @@
      'templates/reference.xml',
      'templates/reference_listing.xml',
      'templates/my_home.xml',
+     'templates/help_msgs.xml',
  ],
  'test': [],
  'installable': True,

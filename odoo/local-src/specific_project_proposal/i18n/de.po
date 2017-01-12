@@ -16,6 +16,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: specific_project_proposal
+#: model:ir.model,name:specific_project_proposal.model_project_proposal
+msgid "Project proposal"
+msgstr "Projektausschreibung"
+
+#. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
 msgid "&lt;b&gt;NEW!"
 msgstr "&lt;b&gt;NEU!"

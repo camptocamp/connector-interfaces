@@ -13,15 +13,6 @@ WIDGETS['image'].data = {
     'image_preview_height': 400,
 }
 
-EXPERTISE_HELP = _("""Don't find your industry or expertise? Write us an email at
-<a href="mailto:expertise@fluxdock.io?subject=new%20industry%20/%20expertise">expertise@fluxdock.io</a>
-""") # noqa
-
-
-LINKED_PARTNERS_HELP = _("""Don't find your partner? Write us an email with the partner company name and email address at
-<a href="mailto:newpartner@fluxdock.io?subject=new%20partner">newpartner@fluxdock.io</a> for inviting him.
-""") # noqa
-
 
 class ReferenceForm(models.AbstractModel):
     """Reference model form."""
@@ -50,8 +41,16 @@ class ReferenceForm(models.AbstractModel):
     def form_update_fields_attributes(self, _fields):
         """Override to add help messages."""
         super(ReferenceForm, self).form_update_fields_attributes(_fields)
-        _fields['expertise_ids']['help'] = EXPERTISE_HELP
-        _fields['linked_partner_ids']['help'] = LINKED_PARTNERS_HELP
+        industry_help = self.env.ref(
+            'specific_project.ref_form_industry_help',
+            raise_if_not_found=False)
+        if industry_help:
+            _fields['expertise_ids']['help'] = industry_help.render()
+        partner_help = self.env.ref(
+            'specific_project.ref_form_partner_help',
+            raise_if_not_found=False)
+        if partner_help:
+            _fields['linked_partner_ids']['help'] = partner_help.render()
         if self.env.user and self.env.user.partner_id:
             _fields['linked_partner_ids']['domain'] = \
                 '[["id","!=",{}]]'.format(self.env.user.partner_id.id)

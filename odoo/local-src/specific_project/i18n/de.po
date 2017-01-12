@@ -16,6 +16,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: specific_project
+#: model:ir.model,name:specific_project.model_project_reference
+msgid "Project reference"
+msgstr "Referenzprojekt"
+
+#. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_form
 msgid "* Required fields"
 msgstr "* Pflichtfelder"
