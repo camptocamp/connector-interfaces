@@ -100,3 +100,11 @@ class ProjectReference(models.Model):
         res = super(ProjectReference, self)._website_url(name, arg)
         res.update({(p.id, '/references/%s' % slug(p)) for p in self})
         return res
+
+    @api.model
+    def create(self, vals):
+        res = super(ProjectReference, self).create(vals)
+        partner = res.create_uid.partner_id
+        if partner:
+            partner.update_profile_state()
+        return res

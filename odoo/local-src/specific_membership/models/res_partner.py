@@ -66,6 +66,7 @@ class ResPartner(models.Model):
     @api.multi
     def update_profile_state(self, step=0, force_back=False):
         for item in self:
+            state = ''
             if step:
                 state = 'step-{}'.format(step)
             else:
@@ -74,7 +75,7 @@ class ResPartner(models.Model):
                     state = 'step-2'
                 elif item.profile_state == 'step-2':
                     state = 'step-3'
-            if state < item.profile_state and not force_back:
+            if not state or state < item.profile_state and not force_back:
                 # you must explicitely force to get back to prev state
                 continue
             item.profile_state = state
