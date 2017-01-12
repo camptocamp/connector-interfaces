@@ -14,13 +14,14 @@ Template:
 
 # Release History
 
-## 9.2.0 (Unreleased)
+## 9.2.0 (2017-01-12)
 
 **Features and Improvements**
 
 * Use new module `cms_status_message` (remove custom implementation in theme_fluxdocs)'
 * Use new module `cms_form` (replace reference form and proposal form)'
 * Use new module `cms_delete_content` to drop custom delete/confirm controllers
+* Publish "Market" features
 * Cleanup and adjust views according to reference work
 * Various miscellaneous Improvements:
 
@@ -28,7 +29,18 @@ Template:
     * [RM#16198](https://redmine.iart.ch/issues/16198) /proposals/add: miscellaneous
     * [RM#16199](https://redmine.iart.ch/issues/16199) /market, /members --> same layout, both responsive
     * [RM#16309](https://redmine.iart.ch/issues/16309) Update payment views
-    
+    * [add] member detail redirect to /my/membership if coming from there
+    * [RM#16360](https://redmine.iart.ch/issues/16360) port views updates and transl from test
+    * [add] owner address in proposal detail
+    * [RM#16346](https://redmine.iart.ch/issues/16346) [imp] payment info details + translations
+    * remove hide link from proposal listing
+    * [RM#16363](https://redmine.iart.ch/issues/16363) drop custom listing no result for proposal
+    * update template names to include "fluxdock"
+    * [add] proposal translations
+    * [add] customize invoice report
+    * update payment views RM#16309
+    * update emails + fix importer for translations
+    * update membership actions RM#16310
 
 **Bugfixes**
 
