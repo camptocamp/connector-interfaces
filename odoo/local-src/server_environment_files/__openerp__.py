@@ -20,21 +20,10 @@
 ##############################################################################
 
 {
-    "name": "Example server configuration environment files repository module",
+    "name": "Server environment files",
     "version": "1.0",
     "depends": ["base"],
     "author": "Camptocamp",
-    "description": """\
-Fluxdock store for environment file module
-==================================================
-:wq
-This module provides a file store for classical configuration by
-environment file pattern into OpenERP provided by the
-`server_environment` addon.  Please look at this module for more info
-and doc.
-
-
-    """,
     "website": "http://www.camptocamp.com",
     "category": "Tools",
     "data": [],

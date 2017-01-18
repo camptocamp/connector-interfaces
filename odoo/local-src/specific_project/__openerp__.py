@@ -12,6 +12,8 @@
      'partner_project_expertise',
      'specific_membership',
      'specific_project_proposal',
+     'cms_form',
+     'cms_delete_content',
  ],
  'data': [
      'security/ir.model.access.csv',

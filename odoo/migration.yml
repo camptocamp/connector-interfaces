@@ -1,142 +1,39 @@
 migration:
   options:
-    install_command: odoo.py
+    install_args: --load=web,web_kanban,session_redis,attachment_s3,logging_json
   versions:
-    - version: 9.0.1
-      operations:
-        pre:
-          - "sh -c 'PGPASSWORD=$DB_PASSWORD psql -h db -U $DB_USER -c \"CREATE EXTENSION IF NOT EXISTS pg_trgm;\" $DB_NAME'"
+    - version: 9.2.0
       addons:
         upgrade:
           - base_technical_features
           - l10n_ch
           - specific_membership
+          - specific_project
           - specific_project_proposal
           - theme_fluxdocs
           - website_fluxdock_signup
           - website_portal_profile
           - website_portal_project
-    - version: 9.0.2
-      # nothing to do, all has been installed in 9.0.1
-    - version: 9.0.3
-      # nothing to do, all has been installed in 9.0.1
-    - version: 9.0.4
-      # nothing to do, all has been installed in 9.0.1
-    - version: 9.0.5
-      # nothing to do, all has been installed in 9.0.1
-    - version: 9.0.6
-      # nothing to do, all has been installed in 9.0.1
-    - version: 9.0.7
-      # nothing to do, all has been installed in 9.0.1
-    - version: 9.0.8
-      # nothing to do, all has been installed in 9.0.1
-    - version: 9.0.9
+          # env conf
+          - mail_environment
+          - server_environment_ir_config_parameter
+          # camptocamp/cloud-platform
+          - cloud_platform
+          - attachment_s3
       operations:
         pre:
           - anthem songs.install.pre::main
         post:
+          - anthem openerp.addons.cloud_platform.songs::install_exoscale
           - anthem songs.install.post::main
+    - version: 9.2.1
+      # here we start with cloud platform.
+      # This step is needed to update current prod DB.
       addons:
         upgrade:
-          - specific_server_environment_files
-    - version: 9.0.10
-      addons:
-        upgrade:
-          - specific_membership
-          - specific_project_proposal
-          - theme_fluxdocs
-          - specific_project
+          # camptocamp/cloud-platform
+          - cloud_platform
+          - attachment_s3
       operations:
         post:
-          - anthem songs.install.post::add_membership_upgrade_email
-    - version: 9.1.0a1
-      addons:
-        upgrade:
-          - specific_membership
-    - version: 9.1.0a2
-      addons:
-        upgrade:
-          - specific_membership
-    - version: 9.1.0a3
-      addons:
-        upgrade:
-          - specific_membership
-          - specific_project_proposal
-          - theme_fluxdocs
-          - specific_project
-    - version: 9.1.0a4
-      addons:
-        upgrade:
-          - specific_membership
-          - specific_project_proposal
-          - theme_fluxdocs
-          - specific_project
-    - version: 9.1.0a5
-      addons:
-        upgrade:
-          - specific_membership
-          - theme_fluxdocs
-    - version: 9.1.0a6
-      addons:
-        upgrade:
-          # we upgraded odoo OCB and server-tools versions
-          # to today latest commits @2016-12-13 16:30
-          - base
-      operations:
-        post:
-          - anthem songs.install.post::remove_useless_menuitems
-    - version: 9.1.0a7
-      addons:
-        upgrade:
-          - theme_fluxdocs
-          - specific_membership
-
-    - version: 9.1.0a8
-      addons:
-        upgrade:
-          - theme_fluxdocs
-          - specific_membership
-          - specific_project
-    - version: 9.1.0b1
-      addons:
-        upgrade:
-          - theme_fluxdocs
-          - specific_membership
-          - specific_project
-    - version: 9.1.0b2
-      addons:
-        upgrade:
-          - theme_fluxdocs
-    - version: 9.1.0b3
-      addons:
-        upgrade:
-          - theme_fluxdocs
-          - specific_membership
-          - specific_project
-    - version: 9.1.0
-      addons:
-        upgrade:
-          - specific_membership
-          - theme_fluxdocs
-      operations:
-        post:
-          - anthem songs.install.post::change_signup_email
-          - anthem songs.install.post::change_reset_pwd_email
-          - anthem songs.install.post::load_email_translations
-    - version: 9.1.1
-    - version: 9.1.2
-    - version: 9.2.0
-      addons:
-        upgrade:
-          - theme_fluxdocs
-          - specific_membership
-          - specific_project
-          - specific_project_proposal
-          # they are dependencies but just to be explicit about their addition ;)
-          - cms_form
-          - cms_status_message
-          - cms_delete_content
-      operations:
-        post:
-          - anthem songs.install.pre::setup_url_params
-          - anthem songs.install.post::update_emails
+          - anthem openerp.addons.cloud_platform.songs::install_exoscale

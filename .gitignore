@@ -49,3 +49,6 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+# project specific
+rancher/*/rancher.env

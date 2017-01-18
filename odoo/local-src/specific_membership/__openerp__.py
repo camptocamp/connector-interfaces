@@ -28,6 +28,7 @@
         'website_partner',
         'website_membership',
         'partner_project_expertise',
+        'cms_status_message',
     ],
     'data': [
         'security/ir.model.access.csv',
