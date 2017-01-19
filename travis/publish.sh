@@ -14,7 +14,7 @@ function deploy {
 
     (cd "${TEMPLATE_DIR}" && \
      ${RANCHER_COMPOSE} -p "${RANCHER_STACK_NAME}" rm odoo db --force && \
-     sleep 30 && \
+     sleep 120 && \
      ${RANCHER_COMPOSE} -p "${RANCHER_STACK_NAME}" up --pull --recreate --force-recreate --confirm-upgrade -d)
 }
 

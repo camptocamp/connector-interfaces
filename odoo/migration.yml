@@ -16,7 +16,6 @@ migration:
           - website_portal_project
           # env conf
           - mail_environment
-          - server_environment_ir_config_parameter
           # camptocamp/cloud-platform
           - cloud_platform
           - attachment_s3
