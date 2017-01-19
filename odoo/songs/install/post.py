@@ -151,7 +151,20 @@ def update_emails(ctx):
 
 
 @anthem.log
+def setup_website_languages(ctx):
+    """ Adding languages to website """
+    website_langs = [ctx.env.ref('base.lang_en').id, ]
+    for code in ('de_DE',):
+        lang = ctx.env['res.lang'].search([('code', '=', code)])
+        website_langs.append(lang.id)
+    ws = ctx.env['website'].browse(1)
+    ws.write(
+        {'language_ids': [(6, 0, website_langs), ]})
+
+
+@anthem.log
 def main(ctx):
     """ Main: creating demo data """
     remove_useless_menuitems(ctx)
     update_emails(ctx)
+    setup_website_languages(ctx)
