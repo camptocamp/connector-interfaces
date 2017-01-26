@@ -70,6 +70,10 @@ class ProjectProposal(models.Model):
     is_new = fields.Boolean(
         compute='_is_new'
     )
+    # contact fields
+    contact_name = fields.Char()
+    contact_email = fields.Char()
+    contact_phone = fields.Char()
 
     @api.depends('create_uid')
     def _get_color_owner_id(self):

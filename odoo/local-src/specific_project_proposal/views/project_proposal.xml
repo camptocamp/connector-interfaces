@@ -131,6 +131,4 @@
   </field>
 </record>
 
-<menuitem name="Proposals" id="menu_project_proposal_open" parent="menu_project_proposal" sequence="2" action="action_project_proposal" web_icon="calendar,static/description/icon.png" groups="base.group_user"/>
-
 </odoo>

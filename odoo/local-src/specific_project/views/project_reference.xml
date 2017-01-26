@@ -76,10 +76,4 @@
     <field name="view_id" ref="view_project_reference_tree"/>
   </record>
 
-  <menuitem
-    name="References" id="menu_project_reference"
-    parent="specific_project_proposal.menu_project_proposal"
-    action="action_project_reference"
-    sequence="3" groups="base.group_user"/>
-
 </odoo>

@@ -18,8 +18,8 @@
  'data': [
      'security/ir.model.access.csv',
      'security/record_rules.xml',
-     'views/menu.xml',
      'views/project_proposal.xml',
+     'views/menu.xml',
      'templates/assets.xml',
      'templates/proposal.xml',
      'templates/proposal_listing.xml',
