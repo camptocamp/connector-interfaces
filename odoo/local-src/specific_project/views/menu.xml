@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
     <menuitem
         id="fluxdock_menu_project" name="Fluxdock"
         parent="base.menu_main_pm"
@@ -11,12 +12,7 @@
         name="References" id="fluxdock_base_menu_references"
         parent="specific_project.fluxdock_menu_project"
         groups="base.group_user"
-        />
-
-    <menuitem
-        name="References" id="menu_references"
-        parent="fluxdock_base_menu_references"
-        groups="base.group_user"
         action="specific_project.action_project_reference"
         />
+
 </odoo>

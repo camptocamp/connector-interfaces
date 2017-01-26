@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    
     <menuitem
         name="Proposals" id="fluxdock_base_menu_proposals"
         parent="specific_project.fluxdock_menu_project"
         groups="base.group_user"
-        />
-
-    <menuitem
-        name="Proposals" id="project_proposals"
-        parent="fluxdock_base_menu_proposals"
-        groups="base.group_user"
         action="specific_project_proposal.action_project_proposal"
         />
+
 </odoo>
