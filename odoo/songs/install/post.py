@@ -163,8 +163,16 @@ def setup_website_languages(ctx):
 
 
 @anthem.log
+def enable_html_compression(ctx):
+    """ Enable html compression """
+    ws = ctx.env['website'].browse(1)
+    ws.write({'compress_html': True})
+
+
+@anthem.log
 def main(ctx):
     """ Main: creating demo data """
     remove_useless_menuitems(ctx)
     update_emails(ctx)
     setup_website_languages(ctx)
+    enable_html_compression(ctx)

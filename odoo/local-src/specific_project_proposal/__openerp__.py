@@ -11,6 +11,7 @@
      'project',
      'partner_project_expertise',
      'specific_membership',
+     'specific_project',
      'cms_delete_content',
      'cms_form',
  ],
