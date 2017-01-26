@@ -40,8 +40,7 @@ migration:
       addons:
         upgrade:
           - base_technical_features
-          - specific_project
-          - specific_project_proposal
+          - base
       operations:
         post:
           - anthem songs.install.post::enable_html_compression
