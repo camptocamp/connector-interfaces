@@ -104,8 +104,9 @@ class ProjectReference(models.Model):
     @api.model
     def create(self, vals):
         res = super(ProjectReference, self).create(vals)
-        partner = res.create_uid.partner_id
-        if partner:
-            # TODO: set proper rule/permission to do this w/ no sudo
-            partner.sudo().update_profile_state()
+        if not self.env.context.get('no_profile_update'):
+            partner = res.create_uid.partner_id
+            if partner:
+                # TODO: set proper rule/permission to do this w/ no sudo
+                partner.sudo().update_profile_state()
         return res

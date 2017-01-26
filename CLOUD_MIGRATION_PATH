@@ -1,0 +1,51 @@
+S3 env vars
+
+      - RUNNING_ENV=prod/integration
+      - MARABUNTA_MODE=full
+      - ODOO_CLOUD_PLATFORM_UNSAFE=true
+      - AWS_HOST=sos.exo.io
+      - AWS_BUCKETNAME=fluxdock-odoo-prod/integration
+      - AWS_ACCESS_KEY_ID=(see LP)
+      - AWS_SECRET_ACCESS_KEY=(see LP)
+
+
+migration steps are:
+
+1. restore db and filestore locally (as you have seen yesterday, 1st script)
+2. modify env vars as above
+3. run the instance to migrate to 9.2.1
+
+3a: check filestore migration
+
+select store_fname from ir_attachment;  # should show you the uris of the attachments **
+
+4. dump the db to .pg (2nd script)
+5. import the db on prod cluster (3rd script)
+
+6. domain
+
+add official one after comma, like:
+
+    io.rancher.loadbalancer.target.alcyon-odoo-integration/odoo: integration.alcyon.odoo.camptocamp.ch:443=80,erp-integration.alcyonbelux.be:443=80
+
+7. certificate
+
+add it here: https://caas.camptocamp.net/env/1a19171/infra/certificates
+
+NOTE: there's no way to renew it automatically and we don't get any warning for expiration
+
+
+** this can be done with `s3cmd`
+
+~/.s3cfg:
+
+[default]
+host_base = sos.exo.io
+host_bucket = %(bucket)s.sos.exo.io
+access_key = # put the key
+secret_key = # put the key
+use_https = True
+signature_v2 = True
+
+
+s3cmd ls s3://fluxdock-odoo-integration|prod
