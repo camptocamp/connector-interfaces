@@ -110,3 +110,7 @@ class ProjectReference(models.Model):
                 # TODO: set proper rule/permission to do this w/ no sudo
                 partner.sudo().update_profile_state()
         return res
+
+    def redirect_after_publish(self):
+        """Redirect after publishing if it's 1st ref."""
+        return len(self.env.user.references_ids) == 1
