@@ -122,7 +122,10 @@
                 </table>
             </t>
             <div class="actions">
-              <a class="btn btn-dark" t-attf-href="/my/account" title="Edit profile">
+              <a class="btn btn-dark" t-att-href="partner.website_url" title="View profile">
+                  View profile
+              </a>
+              <a class="btn btn-dark" href="/my/account" title="Edit profile">
                   Edit profile
               </a>
             </div>
