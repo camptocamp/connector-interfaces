@@ -40,6 +40,7 @@ migration:
       addons:
         upgrade:
           - base_technical_features
+        #   updated OCB version
           - base
       operations:
         post:
