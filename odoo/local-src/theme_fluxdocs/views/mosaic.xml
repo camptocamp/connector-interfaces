@@ -41,6 +41,7 @@
              data-template="mosaic-grid-tmpl"
              data-fields='{"display_name":"title","website_url":"url","image_url":"src"}'>
           <t t-if="not mosaic_items">
+              <!-- rendered via JS -->
               <div class="grid-item"
                    style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg)">
                 <h4>Lorem ipsum</h4>
@@ -64,8 +65,12 @@
               </script>
           </t>
           <t t-if="mosaic_items">
+            <!-- rendered normally -->
             <t t-foreach="mosaic_items" t-as="item">
-              <div class="grid-item" t-attf-style="background-image:url(#{website.image_url(item, 'image')})">
+              <div class="grid-item clickable"
+                   t-att-data-url="item.website_url"
+                   t-att-title="item.name"
+                   t-attf-style="background-image:url(#{website.image_url(item, 'image')})">
                 <h4 t-esc="item.name">Lorem ipsum</h4>
               </div>
             </t>

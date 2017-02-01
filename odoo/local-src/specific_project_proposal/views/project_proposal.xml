@@ -119,18 +119,14 @@
 <record id="action_project_proposal" model="ir.actions.act_window">
   <field name="name">Proposals</field>
   <field name="res_model">project.proposal</field>
+  <field name="view_type">form</field>
   <field name="view_mode">tree,form,calendar</field>
   <field name="view_id" ref="view_project_proposal_tree"/>
   <field name="search_view_id" ref="view_project_proposal_search"/>
   <field name="help" type="html">
-    <p class="oe_view_nocontent_create">
-      Click to add a proposal.
-      </p><p>
-      The proposal will shared with parners depending on industries and expertises.
-    </p>
+    <p class="oe_view_nocontent_create">Click to add a proposal.</p>
+    <p>The proposal will shared with parners depending on industries and expertises.</p>
   </field>
 </record>
-
-<menuitem name="Proposals" id="menu_project_proposal_open" parent="menu_project_proposal" sequence="2" action="action_project_proposal" web_icon="calendar,static/description/icon.png" groups="base.group_user"/>
 
 </odoo>

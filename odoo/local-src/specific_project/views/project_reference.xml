@@ -58,13 +58,9 @@
     <field name="model">project.reference</field>
     <field name="arch" type="xml">
       <tree string="References">
-        <field name="name" string="Project name"/>
+        <field name="name" />
+        <field name="create_uid"/>
         <field name="implementation_date"/>
-        <field name="industry_ids"/>
-        <field name="image"/>
-        <field name="website_short_description"/>
-        <field name="video_url"/>
-        <field name='linked_partner_ids'/>
       </tree>
     </field>
   </record>
@@ -72,14 +68,9 @@
   <record id="action_project_reference" model="ir.actions.act_window">
     <field name="name">References</field>
     <field name="res_model">project.reference</field>
+    <field name="view_type">form</field>
     <field name="view_mode">tree,form</field>
     <field name="view_id" ref="view_project_reference_tree"/>
   </record>
-
-  <menuitem
-    name="References" id="menu_project_reference"
-    parent="specific_project_proposal.menu_project_proposal"
-    action="action_project_reference"
-    sequence="3" groups="base.group_user"/>
 
 </odoo>

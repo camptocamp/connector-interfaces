@@ -19,7 +19,7 @@
                         </t>
                     </h2>
                 </div>
-                <t t-call="specific_project_proposal.proposals_search_form" />
+                <t t-call="specific_project.search_form" />
             </div>
           </section>
             <div class="container">

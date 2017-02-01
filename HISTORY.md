@@ -14,6 +14,19 @@ Template:
 
 # Release History
 
+## 9.2.2 (Unrelased)
+
+**Features and Improvements**
+
+* Compress HTML
+
+
+## 9.2.1 (2017-01-24)
+
+**Features and Improvements**
+
+* Go cloud!
+
 ## 9.2.0 (2017-01-12)
 
 **Features and Improvements**

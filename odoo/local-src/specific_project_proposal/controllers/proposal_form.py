@@ -30,6 +30,9 @@ class ProposalForm(models.AbstractModel):
         'stop_date',
         'industry_ids',
         'expertise_ids',
+        'contact_name',
+        'contact_email',
+        'contact_phone',
     )
     _form_required_fields = (
         'name',

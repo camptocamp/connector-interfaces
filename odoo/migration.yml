@@ -36,3 +36,12 @@ migration:
       operations:
         post:
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
+    - version: 9.2.2
+      addons:
+        upgrade:
+          - base_technical_features
+        #   updated OCB version
+          - base
+      operations:
+        post:
+          - anthem songs.install.post::enable_html_compression

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--
+        TODO: make this form generic! (we are using it also for references search).
+        ATM the form template is shared between proposal and references
+        and the controller for handling the search is duplicated in both
+        specific_project_proposal and specific_project
+    -->
+    <template id="search_form" name="Fluxdock project models search form">
+      <form class="search-panel" role="search" t-attf-action="#{url}" method="get">
+          <div class="row filter-row row-1">
+              <div class="col-md-12">
+                  <input type="text" name="search_name" class="search-query form-control" placeholder="Search..." t-att-value="search_name"/>
+                  <button type="submit" class="btn btn-default btn-primary ">Search</button>
+              </div>
+          </div>
+          <div class="row filter-row row-2">
+              <div class="col-md-6">
+                  <input type="text" id="search_industries" name="search_industries"
+                         t-attf-class="search-query form-control js_select2_m2m_widget search_industries"
+                         t-att-data-init-value="industries" value="Industries"
+                         t-attf-data-model="res.partner.category"
+                         data-display_name="name" data-fields='["name"]' data-domain='[]'
+                        />
+                  <!-- <input name="search_industries"
+                         class="search-query form-control oe_search_box js_select2_m2m_widget"
+                         placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/> -->
+              </div>
+              <div class="col-md-6">
+                  <input type="text" id="search_expertises" name="search_expertises"
+                         t-attf-class="search-query form-control js_select2_m2m_widget search_expertises"
+                         t-att-data-init-value="expertises" value="Expertise"
+                         t-attf-data-model="partner.project.expertise"
+                         data-display_name="name" data-fields='["name"]' data-domain='[]'
+                        />
+                  <!-- <input name="search_expertises"
+                         class="search-query form-control oe_search_box js_select2_m2m_widget"
+                         placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/> -->
+              </div>
+          </div>
+          <div class="row filter-row row-3">
+              <div class="col-md-6">
+                  <div class="styled-select">
+                      <select name="search_country" class="form-control">
+                          <option value="">Country...</option>
+                          <t t-foreach="countries or []" t-as="country">
+                              <option t-att-value="country.id" t-att-selected="country.id == selected_country_id">
+                                  <t t-esc="country.name"/>
+                              </option>
+                          </t>
+                      </select>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <input type="text" name="search_location" class="search-query form-control oe_search_box" placeholder="Location" t-att-value="search_location"/>
+              </div>
+          </div>
+      </form>
+    </template>
+
+</odoo>

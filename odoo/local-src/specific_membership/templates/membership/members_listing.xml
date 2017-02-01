@@ -48,16 +48,20 @@
                     </div>
                     <div class="row filter-row row-2">
                         <div class="col-md-4">
-                            <input name="search_industries"
-                                  class="search-query form-control oe_search_box js_select2_categories"
-                                  placeholder="Industries"
-                                  t-attf-data-init-value="#{industries}" value="Industry"/>
+                            <input type="text" id="search_industries" name="search_industries"
+                                   t-attf-class="search-query form-control js_select2_m2m_widget search_industries"
+                                   t-att-data-init-value="industries" value="Industries"
+                                   t-attf-data-model="res.partner.category"
+                                   data-display_name="name" data-fields='["name"]' data-domain='[]'
+                                   />
                         </div>
                         <div class="col-md-4">
-                            <input name="search_expertises"
-                                  class="search-query form-control oe_search_box js_select2_expertises"
-                                  placeholder="Expertises"
-                                  t-attf-data-init-value="#{expertises}" value="Expertise"/>
+                            <input type="text" id="search_expertises" name="search_expertises"
+                                   t-attf-class="search-query form-control js_select2_m2m_widget search_expertises"
+                                   t-att-data-init-value="expertises" value="Expertise"
+                                   t-attf-data-model="partner.project.expertise"
+                                   data-display_name="name" data-fields='["name"]' data-domain='[]'
+                                  />
                         </div>
                         <div class="col-md-4">
                             <div class="styled-select">

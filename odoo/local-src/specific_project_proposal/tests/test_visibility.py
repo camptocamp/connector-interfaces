@@ -8,12 +8,13 @@ class TestVisibility(test_common.TransactionCase):
 
     def setUp(self):
         super(TestVisibility, self).setUp()
-        self.user1 = self.env['res.users'].create({
+        user_model = self.env['res.users'].with_context(no_reset_password=1)
+        self.user1 = user_model.create({
             'name': 'User1',
             'login': 'user_test_visibility_1',
             'email': 'user1@email.com',
         })
-        self.user2 = self.env['res.users'].create({
+        self.user2 = user_model.create({
             'name': 'User2',
             'login': 'user_test_visibility_2',
             'email': 'user2@email.com',
