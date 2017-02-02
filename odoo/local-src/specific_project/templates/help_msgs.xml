@@ -2,11 +2,17 @@
 <odoo>
 
   <template id="ref_form_industry_help" name="Reference form industry help">
+    <t t-if="form_field.get('help')">
+        <t t-esc="form_field.get('help')" /><br /><br />
+    </t>
     Don't find your industry or expertise? Write us an email at
     <a href="mailto:expertise@fluxdock.io?subject=new%20industry%20/%20expertise">expertise@fluxdock.io</a>
   </template>
 
   <template id="ref_form_partner_help" name="Reference form partner help">
+    <t t-if="form_field.get('help')">
+          <t t-esc="form_field.get('help')" /><br /><br />
+    </t>
     Don't find your partner? Write us an email with the partner company name and email address at
     <a href="mailto:newpartner@fluxdock.io?subject=new%20partner">newpartner@fluxdock.io</a> for inviting him.
   </template>

@@ -11,50 +11,48 @@
 
       <div class="opt_dark_bg proposal-detail" id="wrap">
         <t t-call="theme_fluxdocs.mgmt_actions">
-            <t t-set="object" t-value="proposal"/>
+            <t t-set="object" t-value="main_object"/>
         </t>
         <div class="white_bg pt2">
           <div class="center-block main-content-wrapper" id="ref_content">
-            <h1><t t-esc="proposal.name"/></h1>
+            <h1><t t-esc="main_object.name"/></h1>
             <div class="text-muted">
-                <span t-field="proposal.create_date" t-field-options='{"widget": "date"}'/>
+                <span t-field="main_object.create_date" t-field-options='{"widget": "date"}'/>
             </div>
-            <p><b t-field="proposal.website_short_description"/></p>
+            <p><b t-field="main_object.website_short_description"/></p>
             <div class="details border-tnb mb32 mt16 pt1 pb1">
               <t t-if="is_associate">
-                  <p t-field="proposal.website_description"/>
+                  <p t-field="main_object.website_description"/>
               </t>
-
               <div t-if="is_associate">
                   <b>Country:</b>
-                  <span t-field="proposal.country_id"/>
+                  <span t-field="main_object.country_id"/>
               </div>
               <div t-if="is_associate">
                   <b>Location:</b>
-                  <span t-field="proposal.location"/>
+                  <span t-field="main_object.location"/>
               </div>
-
               <div>
                   <b>Duration:</b>
-                  <span t-field="proposal.start_date"/>
+                  <span t-field="main_object.start_date"/>
                   -
-                  <span t-field="proposal.stop_date"/>
+                  <span t-field="main_object.stop_date"/>
               </div>
               <div>
                   <b>Industries:</b>
-                  <t t-foreach="proposal.industry_ids" t-as="industry">
-                      <span t-field="industry.display_name"/>
+                  <t t-foreach="main_object.industry_ids" t-as="item">
+                      <span t-field="item.display_name"/><t t-esc="('' if item_last else ', ')" />
                   </t>
               </div>
               <div t-if="is_associate">
                   <b>Expertises:</b>
-                  <t t-foreach="proposal.expertise_ids" t-as="expertise">
-                      <span t-field="expertise.name"/>
+                  <t t-foreach="main_object.expertise_ids" t-as="item">
+                      <span t-field="item.name"/><t t-esc="('' if item_last else ', ')" />
                   </t>
               </div>
             </div>
           </div>
-          <t t-set="owner_partner" t-value="proposal.sudo().create_uid.partner_id"/>
+          <t t-set="owner_partner" t-value="main_object.sudo().create_uid.partner_id"/>
           <t t-set="owner_partner" t-value="owner_partner.parent_id if owner_partner.parent_id else owner_partner"/>
           <t t-if="owner_partner and is_associate">
               <!-- TODO: make this a reusable template since is used also in member detail -->
@@ -100,14 +98,14 @@
 
           <t t-call="specific_membership.membership_actions"/>
 
-          <div class="white_bg pt2 backto_actions">
+          <!-- <div class="white_bg pt2 backto_actions">
             <div class="center-block main-content-wrapper text-center">
-              <a class="btn btn-dark" t-attf-href="#{return_link}">
+              <a class="btn btn-dark" t-att-href="TODO">
                 <t t-if="filters == 'match'">Return to my account</t>
                 <t t-if="filters != 'match'">Return to list</t>
               </a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </t>

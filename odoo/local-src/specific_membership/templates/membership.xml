@@ -35,7 +35,7 @@ Please <a class="cta login" t-att-href="'/web/login?redirect=' + detail_url or '
     <template id="become_associate_member_claim" name="Fluxdock claim to become associate members">
 Associate Member have full access to the project market<br />
 and support Fluxdock as a collaboration network.<br/>
-<a class="cta associate" t-att-href="'/my/membership?redirect=' + detail_url or '/my/home'">Become Associate Member here</a>.
+<a class="cta associate" t-att-href="'/my/membership?redirect=' + (detail_url or '/my/home')">Become Associate Member here</a>.
     </template>
 
     <template id="membership_actions" name="Fluxdock membership actions">

@@ -18,7 +18,7 @@
             <t t-foreach="listing_items" t-as="item">
                 <div class="row list-item"
                      t-att-data-publish="handle_publish and (item.website_published and 'on' or 'off') or None">
-                    <t t-set="detail_href" t-value="detail_url.format(slug(item))"/>
+                    <t t-set="detail_href" t-value="detail_url and detail_url.format(slug(item)) or item.website_url"/>
                     <t t-if="show_preview">
                         <div class="col-md-3">
                             <a class="item-preview"

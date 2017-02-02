@@ -1,48 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-
-
-
-<template id="proposal_index" name="Proposals">
-  <t t-call="website.layout">
-    <div id="wrap" class="oe_website_proposals proposals-listing">
-      <section class="content opt_dark_bg">
-        <div class="content-wrap">
-            <div class="center-block mb16">
-                <div class="content-icon">
-                    <img src="/specific_project_proposal/static/src/img/market.png"></img>
-                </div>
-                <h2>
-                    <t t-if="my">
-                        My Project proposals
-                    </t>
-                    <t t-if="not my">
-                        Market
-                    </t>
-                </h2>
-            </div>
-            <t t-call="specific_project.search_form" />
+  <template id="proposal_search_form_wrapper" name="Fluxdock reference search form wrapper">
+      <t t-call="specific_project.search_form_wrapper">
+        <div class="content-icon">
+            <img src="/specific_project_proposal/static/src/img/market.png"></img>
         </div>
-      </section>
-      <div class="container">
-        <div class="center-block main-content-wrapper" id="ref_content">
-            <t t-call="theme_fluxdocs.listing">
-                <!-- detail url comes from controller -->
-                <!-- <t t-set="detail_url" t-value="'/proposals/{}'" /> -->
-                <t t-set="listing_items" t-value="proposals" />
-                <t t-set="show_create_date" t-value="1" />
-                <t t-set="item_tags_template" t-value="'theme_fluxdocs.item_tags'" />
-                <!-- <t t-set="show_published" t-value="1" /> -->
-                <!-- <t t-set="hide_item_url" t-value="'/proposals/proposal/{}/hide'" /> -->
-            </t>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mb32">
-      <t t-call="website.pager"/>
-    </div>
-  </t>
-</template>
+        <h2>Market</h2>
+      </t>
+  </template>
 
 </odoo>

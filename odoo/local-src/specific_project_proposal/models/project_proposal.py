@@ -18,10 +18,15 @@ class ProjectProposal(models.Model):
         'ir.needaction_mixin',
         'website.published.mixin',
     ]
+    _order = 'website_published DESC, create_date DESC'
 
     # we use this for website template add action
-    cms_add_url = '/proposals/add'
+    cms_add_url = '/market/proposals/add'
     cms_after_delete_url = '/my/home'
+
+    @property
+    def cms_search_url(self):
+        return '/market'
 
     @api.multi
     def _compute_cms_edit_url(self):
@@ -53,18 +58,27 @@ class ProjectProposal(models.Model):
     country_id = fields.Many2one(comodel_name='res.country', string="Country")
     # TODO 2016-12-05:
     # why are we not using website.seo.mixin to get this field????
-    website_short_description = fields.Text(string="Teaser text")
-    website_description = fields.Text()
+    website_short_description = fields.Text(
+        string="Teaser text",
+        help=("Write a short description of the Project. "
+              "E.g. Virtualisation of an architectural model.")
+    )
+    website_description = fields.Text(
+        help=("Describe the project you have in mind "
+              "and add contact information.")
+    )
     start_date = fields.Date(string="Start date")
     stop_date = fields.Date(string="End date")
     duration = fields.Integer()
     industry_ids = fields.Many2many(
         comodel_name="res.partner.category",
         string="Industries",
+        help="In which Industries do you need a collaborator?",
     )
     expertise_ids = fields.Many2many(
         comodel_name="partner.project.expertise",
         string="Expertises",
+        help="Which expertises do you need for your project?",
     )
 
     is_new = fields.Boolean(
@@ -92,7 +106,7 @@ class ProjectProposal(models.Model):
     @api.depends('name')
     def _website_url(self, name, arg):
         res = super(ProjectProposal, self)._website_url(name, arg)
-        res.update({(p.id, '/proposals/%s' % slug(p)) for p in self})
+        res.update({(p.id, '/market/proposals/%s' % slug(p)) for p in self})
         return res
 
     @api.multi

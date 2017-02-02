@@ -125,6 +125,11 @@
                 }
             }
         } // form
+        .cms_form_wrapper{
+            .form_description{
+                text-align: center;
+            }
+        }
         .cms_form_wrapper.project_reference{
             .image-widget-wrapper{
                 height: 300px;
@@ -136,6 +141,45 @@
                 }
             }
         }
+        // search forms >>
+        .cms_form_wrapper.mode_search form {
+            margin-top: 40px;
+
+            button[type="submit"] {
+                width: 100%;
+            }
+
+            .filter-row {
+                margin-bottom: 20px;
+
+                .styled-select {
+                    &:nth-of-type(3n) {
+                        margin-right: 0;
+                    }
+
+                    select {
+                        display: block;
+                        width: 120%;
+                    }
+                }
+            }
+            .checkbox{
+                text-align: left;
+                input{
+                    width: auto;
+                    height: auto;
+                    margin-top: 8px;
+                }
+            }
+        }
+        @media only screen and (max-width : 1050px) {
+            .cms_form_wrapper.mode_search form {
+                .filter-row > div:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    	// >> search form
         .opt_dark_grid_bg{
             form{
                 input[type="file"].form-control{

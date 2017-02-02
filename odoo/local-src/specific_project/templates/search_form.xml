@@ -1,62 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!--
-        TODO: make this form generic! (we are using it also for references search).
-        ATM the form template is shared between proposal and references
-        and the controller for handling the search is duplicated in both
-        specific_project_proposal and specific_project
-    -->
-    <template id="search_form" name="Fluxdock project models search form">
-      <form class="search-panel" role="search" t-attf-action="#{url}" method="get">
-          <div class="row filter-row row-1">
-              <div class="col-md-12">
-                  <input type="text" name="search_name" class="search-query form-control" placeholder="Search..." t-att-value="search_name"/>
-                  <button type="submit" class="btn btn-default btn-primary ">Search</button>
-              </div>
+    <template id="search_form" name="Fluxdock project search form"
+              inherit_id="cms_form.base_form" primary="True">
+
+      <!-- remove std buttons at bottom -->
+      <xpath expr="//div[contains(@class, 'form-controls')]" position="replace" />
+
+    </template>
+
+    <template id="search_form_fields" name="Fluxdock project search form fields">
+
+      <div class="row filter-row row-1">
+        <div class="col-md-9 col-xs-12">
+          <t t-raw="form_fields['name']['widget'].render()"/>
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <button type="submit" class="btn btn-default btn-primary ">Search</button>
+        </div>
+      </div>
+      <div class="row filter-row row-2">
+        <div class="col-md-6 col-xs-12">
+          <t t-raw="form_fields['industry_ids']['widget'].render()"/>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <t t-raw="form_fields['expertise_ids']['widget'].render()"/>
+        </div>
+      </div>
+      <div class="row filter-row row-3">
+        <div class="col-md-6 col-xs-12">
+          <t t-raw="form_fields['country_id']['widget'].render()"/>
+        </div>
+        <div class="col-md-6 col-xs-12">
+          <t t-raw="form_fields['location']['widget'].render()"/>
+        </div>
+      </div>
+      <t t-if="request.session.uid">
+        <div class="row filter-row row-4">
+          <t t-set="field" t-value="form_fields['only_my']" />
+          <div class="col-md-12 col-xs-12">
+            <div class="checkbox">
+              <label>
+                <t t-raw="field['widget'].render()"/>
+                <t t-esc="field['string']" />
+              </label>
+            </div>
           </div>
-          <div class="row filter-row row-2">
-              <div class="col-md-6">
-                  <input type="text" id="search_industries" name="search_industries"
-                         t-attf-class="search-query form-control js_select2_m2m_widget search_industries"
-                         t-att-data-init-value="industries" value="Industries"
-                         t-attf-data-model="res.partner.category"
-                         data-display_name="name" data-fields='["name"]' data-domain='[]'
-                        />
-                  <!-- <input name="search_industries"
-                         class="search-query form-control oe_search_box js_select2_m2m_widget"
-                         placeholder="Industries" t-attf-data-init-value="#{industries}" value="Industry"/> -->
+        </div>
+      </t>
+
+    </template>
+
+
+    <template id="search_form_wrapper" name="Fluxdock search form wrapper">
+
+        <t t-call="website.layout">
+          <t t-set="title" t-value="form.form_title" />
+          <div id="wrap" t-att-class="form.form_wrapper_css_klass">
+            <section class="content opt_dark_bg">
+              <div class="content-wrap">
+                <div class="center-block mb16">
+                  <t t-raw="0" />
+                </div>
+                <t t-raw="form.form_render()" />
               </div>
-              <div class="col-md-6">
-                  <input type="text" id="search_expertises" name="search_expertises"
-                         t-attf-class="search-query form-control js_select2_m2m_widget search_expertises"
-                         t-att-data-init-value="expertises" value="Expertise"
-                         t-attf-data-model="partner.project.expertise"
-                         data-display_name="name" data-fields='["name"]' data-domain='[]'
-                        />
-                  <!-- <input name="search_expertises"
-                         class="search-query form-control oe_search_box js_select2_m2m_widget"
-                         placeholder="Expertises" t-attf-data-init-value="#{expertises}" value="Expertise"/> -->
+            </section>
+            <div class="container">
+              <div class="center-block main-content-wrapper" id="ref_content">
+                <t t-call="theme_fluxdocs.listing">
+                  <t t-set="listing_items" t-value="form.form_search_results['results']" />
+                  <t t-set="show_create_date" t-value="1" />
+                  <t t-set="item_tags_template" t-value="'theme_fluxdocs.item_tags'" />
+                </t>
               </div>
+            </div>
+            <div class="text-center mb32">
+              <t t-call="website.pager">
+                <t t-set="pager" t-value="form.form_search_results['pager']" />
+              </t>
+            </div>
           </div>
-          <div class="row filter-row row-3">
-              <div class="col-md-6">
-                  <div class="styled-select">
-                      <select name="search_country" class="form-control">
-                          <option value="">Country...</option>
-                          <t t-foreach="countries or []" t-as="country">
-                              <option t-att-value="country.id" t-att-selected="country.id == selected_country_id">
-                                  <t t-esc="country.name"/>
-                              </option>
-                          </t>
-                      </select>
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <input type="text" name="search_location" class="search-query form-control oe_search_box" placeholder="Location" t-att-value="search_location"/>
-              </div>
-          </div>
-      </form>
+        </t>
+
     </template>
 
 </odoo>

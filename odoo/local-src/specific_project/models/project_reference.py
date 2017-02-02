@@ -24,6 +24,10 @@ class ProjectReference(models.Model):
     cms_add_url = '/references/add'
     cms_after_delete_url = '/my/home'
 
+    @property
+    def cms_search_url(self):
+        return '/references'
+
     @api.multi
     def _compute_cms_edit_url(self):
         for item in self:
@@ -41,10 +45,12 @@ class ProjectReference(models.Model):
     industry_ids = fields.Many2many(
         comodel_name="res.partner.category",
         string="Industries",
+        help="To which industries belongs the project?",
     )
     expertise_ids = fields.Many2many(
         comodel_name="partner.project.expertise",
         string="Expertises",
+        help="Which expertises did your company bring to the project?",
     )
     image = fields.Binary(
         "Reference image",
@@ -114,3 +120,15 @@ class ProjectReference(models.Model):
     def redirect_after_publish(self):
         """Redirect after publishing if it's 1st ref."""
         return len(self.env.user.references_ids) == 1
+
+    @api.multi
+    def unlink(self):
+        # drop image attachments before deletion
+        # since this commit here
+        # https://github.com/odoo/odoo/commit/eb9113c04d66627fbe04b473b9010e5de973c6aa  # noqa
+        # prevents a normal portal user to delete the attachment
+        # if you are not an employee.
+        # Reported issue https://github.com/odoo/odoo/issues/15311
+        self.write({'image': False})
+        res = super(ProjectReference, self).unlink()
+        return res

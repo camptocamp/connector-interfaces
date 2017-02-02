@@ -43,8 +43,22 @@ def setup_url_params(ctx):
 
 
 @anthem.log
+def admin_user_password(ctx):
+    if os.environ.get('RUNNING_ENV') in ('dev', ):
+        ctx.log_line('RUNNING_ENV=dev => nothing to do here.')
+        return
+    if os.environ.get('RUNNING_ENV') in ('test', ):
+        ctx.env.user.password_crypt = (
+            '$pbkdf2-sha512$12000$sVYK4ZyzVioFYMyZU4pRag$BXgpuHm7B54rt6BMy6VCZ'
+            'ydIIl0PGhH.dj986wQTaGw6dH3o5rDIK/SN5VUt.Om3HS4s9tj3pcCRQq1/.X07Kw'
+        )
+        ctx.log_line('Set admin user password.')
+
+
+@anthem.log
 def main(ctx):
     """ Main: creating demo data """
     setup_language(ctx)
     setup_website_signup(ctx)
     setup_url_params(ctx)
+    admin_user_password(ctx)

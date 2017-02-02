@@ -7,7 +7,7 @@
     <field name="perm_read" eval="True"/>
     <field name="perm_create" eval="False"/>
     <field name="perm_write" eval="False"/>
-    <field name="perm_delete" eval="False"/>
+    <field name="perm_unlink" eval="False"/>
     <field name="domain_force">['|', ('website_published', '=', True), '&amp;', ('create_uid','=',user.id), ('website_published', '=', False)]</field>
   </record>
 
@@ -15,9 +15,9 @@
     <field name="name">References can be updated and deleted only by owner or admin</field>
     <field name="model_id" ref="model_project_reference"/>
     <field name="perm_write" eval="True"/>
-    <field name="perm_delete" eval="False"/>
     <field name="perm_create" eval="False"/>
     <field name="perm_read" eval="False"/>
+    <field name="perm_unlink" eval="True"/>
     <field name="domain_force">[('create_uid','=',user.id)]</field>
   </record>
 

@@ -1,38 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="reference_listing" name="Fluxdock reference listing">
-      <t t-call="website.layout">
-        <div id="wrap" class="reference-listing">
-          <section class="content opt_dark_bg">
-            <div class="content-wrap">
-                <div class="center-block mb16">
-                    <div class="content-icon">
-                        <img src="/specific_project/static/src/img/references_icon_white.png"/>
-                    </div>
-                    <h2>
-                        <t t-if="my">
-                            My Project references
-                        </t>
-                        <t t-if="not my">
-                            Member References
-                        </t>
-                    </h2>
-                </div>
-                <t t-call="specific_project.search_form" />
-            </div>
-          </section>
-            <div class="container">
-              <div class="center-block main-content-wrapper" id="ref_content">
-                  <t t-call="theme_fluxdocs.listing">
-                      <t t-set="show_preview" t-value="1" />
-                      <t t-set="listing_items" t-value="references" />
-                      <t t-set="item_tags_template" t-value="'theme_fluxdocs.item_tags'" />
-                  </t>
-              </div>
-            </div>
-        </div>
-      </t>
+    <template id="reference_search_form_wrapper" name="Fluxdock reference search form wrapper">
+        <t t-call="specific_project.search_form_wrapper">
+          <div class="content-icon">
+            <img src="/specific_project/static/src/img/references_icon_white.png"/>
+          </div>
+          <h2>Member references</h2>
+        </t>
     </template>
 
 </odoo>

@@ -18,11 +18,15 @@ class BaseTestCase(object):
             'name': 'User 1 (test ref)',
             'login': 'testref_user1',
             'email': 'testref_user1@email.com',
+            # make sure to have only portal group
+            'groups_id': [(6, 0, [self.env.ref('base.group_portal').id])]
         })
         self.user2 = user_model.create({
             'name': 'User2',
             'login': 'testref_user2',
             'email': 'testref_user2@email.com',
+            # make sure to have only portal group
+            'groups_id': [(6, 0, [self.env.ref('base.group_portal').id])]
         })
         self.group_public = self.env.ref('base.group_public')
         self.user_public = self.env['res.users'].with_context(

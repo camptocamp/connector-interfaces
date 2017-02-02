@@ -52,7 +52,7 @@
             </tr>
             </table>
             <div class="actions">
-                <a class="btn btn-dark btn-show-proposal" t-attf-href="/market" title="Market">
+                <a class="btn btn-dark btn-show-proposal" t-att-href="request.env['project.proposal'].cms_search_url" title="Market">
                     Market
                 </a>
             </div>
@@ -93,7 +93,7 @@
             </table>
         </t>
         <div class="actions">
-            <a class="btn btn-dark btn-show-proposal" t-att-href="'/my/proposals'" title="Show all proposals">
+            <a class="btn btn-dark btn-show-proposal" t-attf-href="#{request.env['project.proposal'].cms_search_url}?only_my=on" title="Show all proposals">
                 Show all proposals
             </a>
         <a class="btn btn-dark btn-add-proposal" t-att-href="request.env['project.proposal'].cms_add_url" title="Add a proposal">
