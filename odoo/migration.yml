@@ -39,6 +39,7 @@ migration:
     - version: 9.2.2
       addons:
         upgrade:
+          - mail_environment
           - base_technical_features
         #   updated OCB version
           - base
