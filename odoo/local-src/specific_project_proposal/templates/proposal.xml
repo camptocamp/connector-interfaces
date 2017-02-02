@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <template id="proposal_detail" name="Proposal Detail">
+  <template id="proposal_detail" name="Fluxdock proposal detail view">
     <t t-call="website.layout">
       <t t-set="is_anon" t-value="not request.session.uid"/>
       <!-- important to check for `is_anon` too because when you are anonymous user

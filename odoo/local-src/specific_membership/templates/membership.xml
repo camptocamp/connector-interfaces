@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
-    <!-- # TODO: is this needed at all? -->
-    <template id="member_tile" name="member_tile">
-        <t t-call="website.layout">
-          <div id="wrap">
-            <div class="container">
-              <div class="oe_structure">
-                <div class="row o_website_portal_details text-center">
-                  <h1>Billing Address</h1>
-                  Name: <span t-esc="partner.name"/><br/>
-                  Street: <span t-esc="partner.street2"/><br/>
-                  NPA: <span t-esc="partner.zip"/><br/>
-                  City: <span t-esc="partner.city"/><br/>
-                  Payment type: Wire Transer<br/>
-                  <h1>Associate Membership</h1>
-                  Price: <span t-esc="product.list_price"/><br/>
-                  Taxes: <span t-esc="product.taxes_id.amount"/><br/>
-                  <button type="object" onclick="window.location.href='/my/account'">Edit informations</button>
-                  <button type="object" name="button_buy_membership" onclick="window.location.href='/my/membership/buy'">Confirm</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </t>
-    </template>
-
     <template id="become_member_claim" name="Fluxdock claim to become members">
 Associate Member have full access to the project market<br />
 and support Fluxdock as a collaboration network.<br/>

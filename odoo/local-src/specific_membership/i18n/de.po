@@ -171,41 +171,6 @@ msgid "9.2 You represent and warrant that your content does not infringe any int
 msgstr "9.2 Sie erklären und garantieren, dass Ihre Inhalte keine Rechte an geistigem Eigentum oder andere Eigentumsrechte verletzen, einschließlich des Rechts auf Veröffentlichung oder Privatsphäre, jeder natürlichen oder juristischen Person."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid "<br/>\n"
-"                  City:"
-msgstr "<br/>\n"
-"              Stadt:"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid "<br/>\n"
-"                  NPA:"
-msgstr "<br/>\n"
-"              PLZ:"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid "<br/>\n"
-"                  Payment type: Wire Transer<br/>"
-msgstr "<br/>\n"
-"                  Payment type: Wire Transer<br/>"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid "<br/>\n"
-"                  Street:"
-msgstr "<br/>\n"
-"              Straße:"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid "<br/>\n"
-"                  Taxes:"
-msgstr "<br/>\n"
-"              Steuern:"
-
-#. module: specific_membership
 #: model:mail.template,body_html:specific_membership.mail_membership_upgrade
 msgid "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n"
 "\n"
@@ -806,12 +771,6 @@ msgstr "Associate Member have full access to the project market and support Flux
 "Become Associate Member here."
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-#: selection:res.partner,flux_membership:0
-msgid "Associate Membership"
-msgstr "Associate Membership"
-
-#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
 msgid "Back to Login"
 msgstr "Zurück zur Anmeldung"
@@ -827,7 +786,6 @@ msgid "Become an associate member"
 msgstr "Become an associate member"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "Billing Address"
 msgstr "Erweiterung der Mitgliedschaft"
@@ -891,7 +849,6 @@ msgid "Company name*"
 msgstr "Firmenname *"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 #: model:ir.ui.view,arch_db:specific_membership.profile_details
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
@@ -958,11 +915,6 @@ msgstr "Ist Ihre Branche oder Expertise nicht aufgeführt? Schreiben Sie uns ein
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
 msgid "Edit information"
 msgstr "Bearbeiten"
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid "Edit informations"
-msgstr "Edit informations"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.partner_table
@@ -1208,11 +1160,6 @@ msgid "Name"
 msgstr "Bezeichnung"
 
 #. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid "Name:"
-msgstr "Name:"
-
-#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.privateperson
 msgid "Newsletter"
 msgstr "Newsletter"
@@ -1249,11 +1196,6 @@ msgstr "Please <a href=\"/web?redirect=%s\">login</a> to vote this slide"
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
 msgid "Please set and confirm your password below."
 msgstr "Bitte wählen und bestätigen Sie unten Ihr Passwort."
-
-#. module: specific_membership
-#: model:ir.ui.view,arch_db:specific_membership.member_tile
-msgid "Price:"
-msgstr "Preis:"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <template id="reference_detail" name="Reference">
+  <template id="reference_detail" name="Fluxdock Reference detail view">
     <t t-call="website.layout">
       <div class="opt_dark_bg reference-detail" id="wrap">
         <t t-call="theme_fluxdocs.mgmt_actions">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="account" name="Account" inherit_id="specific_membership.my_home_content">
+<template id="account" name="Fluxdock my/home add proposals" inherit_id="specific_membership.my_home_content">
   <xpath expr="//div[@id='col-2']/t[@t-call][last()]" position="after">
     <t t-call="specific_project_proposal.matches_overview" />
     <t t-call="specific_project_proposal.proposals_overview" />
@@ -9,7 +9,7 @@
 </template>
 
 
-<template id="matches_overview" name="Fluxdock My Matches">
+<template id="matches_overview" name="Fluxdock my home matches">
     <div id="matches_overview" class="home_box">
         <h3 class="page-header">Matches</h3>
         <t t-set="matches" t-value="request.env.user.proposal_match_ids" />
@@ -60,7 +60,7 @@
     </div>
 </template>
 
-<template id="proposals_overview" name="Fluxdock My Proposals">
+<template id="proposals_overview" name="Fluxdock my home proposals">
     <div id="proposals_overview" class="home_box">
         <h3 class="page-header">Proposals</h3>
         <t t-set="proposals" t-value="request.env.user.proposal_ids" />

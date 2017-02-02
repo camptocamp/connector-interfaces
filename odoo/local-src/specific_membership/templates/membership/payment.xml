@@ -82,7 +82,7 @@ After confirmation you will receive per email the invoice for the membership fee
   </template>
 
   <!-- view for confirmation -->
-  <template id="membership_payment_confirmation" name="membership_payment_confirmation">
+  <template id="membership_payment_confirmation" name="Fluxdock membership payment confirmation">
     <t t-call="website.layout">
       <div id="wrap" class="opt_dark_bg payment-address-detail">
         <div>

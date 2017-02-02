@@ -89,25 +89,6 @@ class WebsiteMembership(WebsiteMembershipController):
         return request.website.render(
             "specific_membership.membership_payment_confirmation", values)
 
-    # TODO: is this needed at all?
-    @http.route(['/my/tiles'], type='http', auth="user", website=True)
-    def tiles_member(self, redirect=None, **post):
-        partner = request.env['res.users'].browse(request.uid).partner_id
-        values = {
-            'error': {},
-            'error_message': []
-        }
-        product = request.env['product.product'].sudo().search([
-            ('default_code', '=', 'associate')])
-
-        values.update({
-            'partner': partner,
-            'product': product,
-            # 'redirect': redirect,
-        })
-        return request.website.render(
-            "specific_membership.member_tile", values)
-
     def _get_domain(self, search_industries='', search_expertises='',
                     search_country='', **kwargs):
         domain = []

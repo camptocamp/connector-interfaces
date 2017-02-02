@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="assets_frontend" inherit_id="website.assets_frontend" name="Proposal Assets">
+<template id="assets_frontend" inherit_id="website.assets_frontend" name="Fluxdock proposal frontend assets">
   <xpath expr="." position="inside">
     <script type="text/javascript" src="/specific_project_proposal/static/src/js/project_proposal.js"/>
   </xpath>

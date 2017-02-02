@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="account" name="Account" inherit_id="specific_membership.my_home_content">
+<template id="account" name="Fluxdock my/home: add references" inherit_id="specific_membership.my_home_content">
   <xpath expr="//div[@id='col-1']/t[@t-call][last()]" position="after">
         <t t-call="specific_project.reference_overview" />
   </xpath>
 </template>
 
 
-<template id="reference_overview" name="Fluxdock My References">
+<template id="reference_overview" name="Fluxdock references overview">
     <div class="home_box">
         <h3 class="page-header">References</h3>
         <t t-set="references" t-value="request.env.user.references_ids" />
