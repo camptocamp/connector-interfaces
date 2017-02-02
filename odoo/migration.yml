@@ -36,7 +36,7 @@ migration:
       operations:
         post:
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
-    - version: 9.2.2
+    - version: 9.2.2b1
       addons:
         upgrade:
           - mail_environment
