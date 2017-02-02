@@ -25,13 +25,14 @@ class JSHelpers(http.Controller):
         # http://stackoverflow.com/questions/8674718/
         # best-way-to-select-random-rows-postgresql/14450321#14450321
         query = (
-            "select * from ("
-            "select distinct id from res_partner "
-            "where membership_state in ('invoiced','paid','free')"
+            "SELECT * FROM ("
+            "SELECT DISTINCT id FROM res_partner "
+            "WHERE membership_state IN %s "
+            "AND website_published = %s "
             ") members "
             "ORDER BY random()"
         )
-        env.cr.execute(query)
+        env.cr.execute(query, (('invoiced', 'paid', 'free'), True))
         ids = [x[0] for x in env.cr.fetchall()]
         res = []
         if ids:

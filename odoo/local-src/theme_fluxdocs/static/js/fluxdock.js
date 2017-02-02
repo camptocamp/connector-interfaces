@@ -144,6 +144,10 @@ $(document).ready(function() {
 	}
 
 	//Members slider
+	// NOTE: sometime the ajax call could fail because of this error.
+	// If it happens again we should add a trailing slash at the end of the url.
+	// http://stackoverflow.com/questions/37314650/ajax-calls-to-fail-with-mixed-content-http-https-errors-cant-force-https
+	// http://stackoverflow.com/questions/41865180/mixed-content-jquery-ajax-https-request-has-been-blocked-on-laravel
 	var member_template = '<div class="members-box">' +
 		'<a href="<%- url %>" title="<%- name %>">' +
 			'<img src="<%- avatar_url %>" />' +
