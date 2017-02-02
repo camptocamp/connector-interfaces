@@ -9,8 +9,8 @@ A script to convert exported csv data to scenario data.
 import csv
 import os
 
-FILE_IN = 'demo/_partner.project.expertise.csv'
-FILE_OUT = 'demo/partner.project.expertise.csv'
+FILE_IN = 'demo/_res.partner.category.csv'
+FILE_OUT = 'demo/res.partner.category.csv'
 
 PATH_BASE = os.path.dirname(__file__)
 PATH_IN = os.path.join(PATH_BASE, FILE_IN)
@@ -24,7 +24,7 @@ def cleanup_string(val):
 
 
 def toxmlid(val):
-    prefix = 'sc.proj_expertise_'
+    prefix = 'sc.partner_categ_'
     if not val.startswith(prefix):
         val = prefix + val
     return cleanup_string(val).lower()
