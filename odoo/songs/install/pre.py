@@ -36,10 +36,10 @@ def setup_url_params(ctx):
     # because env vars are not loaded :(
     # PR for odoo project
     # https://github.com/camptocamp/docker-odoo-project/pull/20
-    url = os.environ.get('DOMAIN_NAME', 'http://localhost:8069')
-    ctx.env['ir.config_parameter'].set_param('web.base.url', url)
-    ctx.env['ir.config_parameter'].set_param('web.base.url.freeze', 'True')
+    url = ctx.env['ir.config_parameter'].get_param('web.base.url')
+    url = os.environ.get('DOMAIN_NAME', url or 'http://localhost:8069')
     ctx.env['ir.config_parameter'].set_param('report.url', url)
+    ctx.log_line('report.url = ' + url)
 
 
 @anthem.log
