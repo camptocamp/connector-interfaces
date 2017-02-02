@@ -21,7 +21,19 @@ def load_partner_categories(ctx):
 
 
 @anthem.log
+def create_test_user(ctx):
+    user_model = ctx.env['res.users'].with_context(no_reset_password=1)
+    user_model.create({
+        'name': 'Scenario User Test',
+        'login': 'usertest',
+        'email': 'usertest@sc.com',
+        'groups_id': [(6, 0, [ctx.env.ref('base.group_portal').id])]
+    })
+
+
+@anthem.log
 def main(ctx):
     """ Installing demo data """
     load_expertises(ctx)
     load_partner_categories(ctx)
+    create_test_user(ctx)
