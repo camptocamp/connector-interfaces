@@ -167,7 +167,7 @@ class WebsiteAccount(website_account):
                     # NOTE: `add_status_message`
                     # is defined into `theme_fluxdocs` ATM
                     request.website.add_status_message(
-                        msg, mtype='warning', mtitle=title)
+                        msg, type_='warning', title=title)
                     return False
                 try:
                     # update login on user
@@ -193,7 +193,7 @@ class WebsiteAccount(website_account):
                     # NOTE: `add_status_message`
                     # is defined into `theme_fluxdocs` ATM
                     request.website.add_status_message(
-                        msg, mtype='warning', mtitle=title)
+                        msg, type_='warning', title=title)
                 return True
         return False
 
