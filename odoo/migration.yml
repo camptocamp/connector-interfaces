@@ -25,6 +25,11 @@ migration:
         post:
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
           - anthem songs.install.post::main
+      modes:
+        demo:
+          operations:
+            post:
+              - anthem songs.demo.data_demo::main
     - version: 9.2.1
       # here we start with cloud platform.
       # This step is needed to update current prod DB.

@@ -17,54 +17,68 @@
               <h1><t t-esc="reference.name"/></h1>
               <div class="item-description" t-field="reference.website_short_description" />
               <div class="info border-tnb mb32 mt16 pt1 pb1">
-                <div class="row">
-                  <div class="col-md-3"><strong>Date:</strong>
+                <t t-if="reference.implementation_date">
+                  <div class="row">
+                    <div class="col-md-3"><strong>Date:</strong>
+                    </div>
+                    <div class="col-md-9"><span t-field="reference.implementation_date" />
+                    </div>
                   </div>
-                  <div class="col-md-9"><span t-field="reference.implementation_date" />
+                </t>
+                <t t-if="reference.location">
+                  <div class="row">
+                    <div class="col-md-3"><strong>Location:</strong>
+                    </div>
+                    <div class="col-md-9"><span t-field="reference.location" />
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3"><strong>Location:</strong>
+                </t>
+                <t t-if="reference.country_id">
+                  <div class="row">
+                    <div class="col-md-3"><strong>Country:</strong>
+                    </div>
+                    <div class="col-md-9"><span t-field="reference.country_id" />
+                    </div>
                   </div>
-                  <div class="col-md-9"><span t-field="reference.location" />
+                </t>
+                <t t-if="reference.video_url">
+                  <div class="row">
+                    <div class="col-md-3"><strong>Video URL:</strong>
+                    </div>
+                    <div class="col-md-9"><a t-att-href="reference.video_url" t-esc="reference.video_url"/>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3"><strong>Country:</strong>
+                </t>
+                <t t-if="reference.ext_website_url">
+                  <div class="row">
+                    <div class="col-md-3"><strong>Website URL:</strong>
+                    </div>
+                    <div class="col-md-9"><a t-att-href="reference.ext_website_url" t-esc="reference.ext_website_url"/>
+                    </div>
                   </div>
-                  <div class="col-md-9"><span t-field="reference.country_id.name" />
+                </t>
+                <t t-if="reference.industry_ids">
+                  <div class="row">
+                    <div class="col-md-3"><strong>Industry:</strong>
+                    </div>
+                    <div class="col-md-9">
+                      <t t-foreach="reference.industry_ids" t-as="one_tag">
+                        <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                      </t>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3"><strong>Video URL:</strong>
+                </t>
+                <t t-if="reference.expertise_ids">
+                  <div class="row">
+                    <div class="col-md-3"><strong>Expertise:</strong>
+                    </div>
+                    <div class="col-md-9">
+                      <t t-foreach="reference.expertise_ids" t-as="one_tag">
+                        <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                      </t>
+                    </div>
                   </div>
-                  <div class="col-md-9"><a t-att-href="reference.video_url" t-esc="reference.video_url"/>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3"><strong>Website URL:</strong>
-                  </div>
-                  <div class="col-md-9"><a t-att-href="reference.ext_website_url" t-esc="reference.ext_website_url"/>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3"><strong>Industry:</strong>
-                  </div>
-                  <div class="col-md-9">
-                    <t t-foreach="reference.industry_ids" t-as="one_tag">
-                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                    </t>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-3"><strong>Expertise:</strong>
-                  </div>
-                  <div class="col-md-9">
-                    <t t-foreach="reference.expertise_ids" t-as="one_tag">
-                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                    </t>
-                  </div>
-                </div>
+                </t>
               </div>
 
               <div class="linked-partners mb64 mt32">

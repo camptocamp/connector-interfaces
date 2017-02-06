@@ -246,4 +246,10 @@ $(document).ready(function() {
 
 	});
 
+	// disable links and buttons
+	$('a.disabled, button.disabled').click(function(evt){
+		evt.preventDefault();
+		return false;
+	})
+
 });

@@ -1,0 +1,10 @@
+id,name
+sc.partner_categ_architecture,Architecture
+sc.partner_categ_arts,Arts
+sc.partner_categ_communication,Communication
+sc.partner_categ_construction,Construction
+sc.partner_categ_design,Design
+sc.partner_categ_education,Education
+sc.partner_categ_engineering,Engineering
+sc.partner_categ_fabrication,Fabrication
+sc.partner_categ_ict,ICT

@@ -46,6 +46,18 @@ class ProposalForm(models.AbstractModel):
     def form_description(self):
         return _('Announce here a project your looking for collaborators. ')
 
+    def form_update_fields_attributes(self, _fields):
+        """Override to add help messages."""
+        super(ProposalForm, self).form_update_fields_attributes(_fields)
+        industry_help = self.env.ref(
+            'specific_project.ref_form_industry_help',
+            raise_if_not_found=False)
+        if industry_help:
+            help_text = industry_help.render({
+                'form_field': _fields['expertise_ids'],
+            })
+            _fields['expertise_ids']['help'] = help_text
+
 
 class ProposalSearchForm(models.AbstractModel):
     """Proposal model search form."""

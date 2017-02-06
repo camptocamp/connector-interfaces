@@ -1,0 +1,77 @@
+id,name
+sc.proj_expertise_analysis,Analysis
+sc.proj_expertise_appdevelopment,App Development
+sc.proj_expertise_augmentedreality,Augmented Reality
+sc.proj_expertise_branding,Branding
+sc.proj_expertise_budgeting&finance,Budgeting & Finance
+sc.proj_expertise_businessplanning,Business Planning
+sc.proj_expertise_creativethinking,Creative Thinking
+sc.proj_expertise_consulting,Consulting
+sc.proj_expertise_designthinking,Design Thinking
+sc.proj_expertise_eventmanagement,Event Management
+sc.proj_expertise_innovationdesign,Innovation Design
+sc.proj_expertise_marketing,Marketing
+sc.proj_expertise_processmanagement,Process Management
+sc.proj_expertise_projectmanagement,Project Management
+sc.proj_expertise_productdevelopment,Product Development
+sc.proj_expertise_prototyping,Prototyping
+sc.proj_expertise_riskmanagement,Risk Management
+sc.proj_expertise_strategicplanning,Strategic Planning
+sc.proj_expertise_supervisionofworks,Supervision of works
+sc.proj_expertise_videoproduction,Video Production
+sc.proj_expertise_mediadesign,Media Design
+sc.proj_expertise_interiordesign,Interior Design
+sc.proj_expertise_scenography,Scenography
+sc.proj_expertise_advertising,Advertising
+sc.proj_expertise_editing,Editing
+sc.proj_expertise_film,Film
+sc.proj_expertise_illustration,Illustration
+sc.proj_expertise_music,Music
+sc.proj_expertise_photography,Photography
+sc.proj_expertise_fashionandtextiledesign,Fashion and Textile Design
+sc.proj_expertise_graphicdesign,Graphic Design
+sc.proj_expertise_industryandproductdesign,Industry and Product Design
+sc.proj_expertise_ui/uxdesign,UI/UX  Design
+sc.proj_expertise_civilengineering,Civil Engineering
+sc.proj_expertise_electricalengineering,Electrical Engineering
+sc.proj_expertise_mechanicalengineering,Mechanical Engineering
+sc.proj_expertise_systemengineering,System Engineering
+sc.proj_expertise_animation,Animation
+sc.proj_expertise_databaseadministration,Database Administration
+sc.proj_expertise_gamedesign,Game Design
+sc.proj_expertise_softwaredevelopment,Software Development
+sc.proj_expertise_webdesign,Web Design
+sc.proj_expertise_agiledevelopment,Agile Development
+sc.proj_expertise_archiving,Archiving
+sc.proj_expertise_modelling,Modelling
+sc.proj_expertise_acting,Acting
+sc.proj_expertise_cad,CAD
+sc.proj_expertise_campaignplanning,Campaign Planning
+sc.proj_expertise_cinematography,Cinematography
+sc.proj_expertise_contentmanagement,Content Management
+sc.proj_expertise_crafts,Crafts
+sc.proj_expertise_carpentry,Carpentry
+sc.proj_expertise_cameraoperator,Camera Operator
+sc.proj_expertise_choreography,Choreography
+sc.proj_expertise_copywriting,Copywriting
+sc.proj_expertise_composing,Composing
+sc.proj_expertise_curating,Curating
+sc.proj_expertise_datahandling/processing,Data Handling / Processing
+sc.proj_expertise_exhibitiondesign,Exhibition Design
+sc.proj_expertise_furnituredesign,Furniture Design
+sc.proj_expertise_landscapearchitecture,Landscape Architecture
+sc.proj_expertise_lightingdesign,Lighting Design
+sc.proj_expertise_proofreading,Proof Reading
+sc.proj_expertise_translation,Translation
+sc.proj_expertise_urbandesign,Urban Design
+sc.proj_expertise_eventdesign,Event Design
+sc.proj_expertise_performingarts,Performing Arts
+sc.proj_expertise_post_production,Post-production
+sc.proj_expertise_print,Print
+sc.proj_expertise_typography,Typography
+sc.proj_expertise_visualization,Visualization
+sc.proj_expertise_virtualreality,Virtual Reality
+sc.proj_expertise_sounddesign,Sound Design
+sc.proj_expertise_3d,3D
+sc.proj_expertise_interactiondesign,Interaction Design
+sc.proj_expertise_contentdevelopment,Content Development

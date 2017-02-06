@@ -63,6 +63,11 @@
                   <h2 class="border-bottom">Contact</h2>
                   <div class="member-fields">
                     <t t-esc="owner_partner.name" /><br />
+                    <t t-foreach="('contact_name', 'contact_email', 'contact_phone')"  t-as="fname">
+                        <t t-if="main_object[fname]">
+                            <t t-esc="main_object[fname]" /><br />
+                        </t>
+                    </t>
                     <t t-esc="owner_partner.street2" /><br />
                     <t t-if="owner_partner.country_id">
                       <t t-esc="owner_partner.country_id.name" />-
