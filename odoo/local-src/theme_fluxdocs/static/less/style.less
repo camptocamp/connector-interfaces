@@ -95,7 +95,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	.breadcrumb {
 		display: none;
 	}
-	a{ cursor: pointer; }
+	a:not(.disabled){ cursor: pointer; }
+	a.disabled{ cursor: not-allowed;}
 	.mybutton a{
 		display: inline-block;
 		vertical-align: middle;

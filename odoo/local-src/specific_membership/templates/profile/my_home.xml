@@ -117,7 +117,8 @@
                 </table>
             </t>
             <div class="actions">
-              <a class="btn btn-dark" t-att-href="partner.website_url" title="View profile">
+              <a t-attf-class="btn btn-dark #{not partner.website_published and 'disabled'}"
+                 t-att-href="partner.website_published and partner.website_url" title="View profile">
                   View profile
               </a>
               <a class="btn btn-dark" href="/my/account" title="Edit profile">
@@ -138,9 +139,9 @@
             </p>
             <t t-if="partner.flux_membership == 'free'">
                 <div class="actions">
-                    <button class="btn btn-default btn-dark mb32 center-block"
+                    <button t-attf-class="btn btn-dark mb32 center-block #{not partner.website_published and 'disabled'}"
                             name="button_buy_membership"
-                            onclick="window.location.href='/my/membership'">
+                            t-att-onclick="partner.website_published and 'window.location.href={}'.format('/my/membership')">
                         Membership Upgrade
                     </button>
                 </div>
