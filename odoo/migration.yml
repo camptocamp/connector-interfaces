@@ -53,10 +53,3 @@ migration:
           - anthem songs.install.post::enable_html_compression
           # this is needed after updating ALL modules
           - anthem songs.install.post::remove_useless_menuitems
-    - version: 9.2.2b2
-    #   addons:
-    #     upgrade:
-    #       - foo
-      operations:
-        post:
-          - anthem songs.install.project::main
