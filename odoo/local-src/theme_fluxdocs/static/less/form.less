@@ -142,7 +142,8 @@
             }
         }
         // search forms >>
-        .cms_form_wrapper.mode_search form {
+        //  .members-listing form => temporary waiting to migrate members search to cms form
+        .cms_form_wrapper.mode_search form, .members-listing form {
             margin-top: 40px;
 
             button[type="submit"] {
@@ -173,12 +174,13 @@
             }
         }
         @media only screen and (max-width : 1050px) {
-            .cms_form_wrapper.mode_search form {
+            .cms_form_wrapper.mode_search form, .members-listing form {
                 .filter-row > div:not(:last-child) {
                     margin-bottom: 20px;
                 }
             }
         }
+
     	// >> search form
         .opt_dark_grid_bg{
             form{

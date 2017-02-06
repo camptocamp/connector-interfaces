@@ -41,8 +41,10 @@
                 <p align="left">Fluxdock is based on its members. They form all together the interdisciplinary and collaborative network that enables the members mutually to innovation. See here are all members of Fluxdock, their industries and special expertises.</p>
                 <form action="/members" method="get" class="search-panel members-search-panel">
                     <div class="row filter-row row-1">
-                        <div class="col-md-12">
+                        <div class="col-md-9">
                             <input type="text" name="search" class="search-query form-control" placeholder="Search" t-att-value="post.get('search', '')" />
+                        </div>
+                        <div class="col-md-3">
                             <button type="submit" class="btn btn-default btn-primary ">Search</button>
                         </div>
                     </div>
