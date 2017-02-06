@@ -60,12 +60,10 @@ class ProjectProposal(models.Model):
     # why are we not using website.seo.mixin to get this field????
     website_short_description = fields.Text(
         string="Teaser text",
-        help=("Write a short description of the Project. "
-              "E.g. Virtualisation of an architectural model.")
+        help=("Write a short description of the Project.")
     )
     website_description = fields.Text(
-        help=("Describe the project you have in mind "
-              "and add contact information.")
+        help=("Describe the project you have in mind.")
     )
     start_date = fields.Date(string="Start date")
     stop_date = fields.Date(string="End date")
@@ -85,7 +83,9 @@ class ProjectProposal(models.Model):
         compute='_is_new'
     )
     # contact fields
-    contact_name = fields.Char()
+    contact_name = fields.Char(
+        help='Contact person for this project.'
+    )
     contact_email = fields.Char()
     contact_phone = fields.Char()
 
