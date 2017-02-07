@@ -1,9 +1,11 @@
-# Odoo Platform
+# Odoo Cloud Platform
 
-Odoo platform is the new platform for deploying Camptocamp Odoo projects.
-This platform is managed on [Rancher](https://caas.camptocamp.net/)
+Odoo Cloud Platform is the new platform for deploying Camptocamp Odoo projects.
 
-So your project should be dockerized and use:
+This platform is managed on [Rancher](https://caas.camptocamp.net/).
+There is also a test platform on [Rancher-dev](https://caas-dev.camptocamp.com/), see this [document](./odoo-test-cloud-platform.md).
+
+Your project should be dockerized and use:
  * [Camptocamp Docker base image for Odoo project](https://github.com/camptocamp/docker-odoo-project)
  * [Odoo cloud platform addons](https://github.com/camptocamp/odoo-cloud-platform)
 
@@ -28,43 +30,33 @@ These servers are tagged with Rancher labels (e.g.: application=true), we will s
 
 ## Instances
 
-For a standard Camptocamp Odoo project, we will have 3 Odoo instances:
+For a standard Camptocamp Odoo project, we will have 3 Odoo environments:
 
 ### Test
 
-This instance is for Camptocamp developers and project managers. The goal is to quickly test a merged pull request on master.
-
-This instance will be **automatically recreated from scratch** after every commit on master in your github project.
-For this reason:
-* We will not put the test database on the postgres cluster but in a docker container in your composition.
-* This instance should be populated with a little set of data in order to be quickly created.
-* Assumed this Odoo **can be deleted at every moment** with all the data you have created or modified.
+See the dedicated [document](./odoo-test-cloud-platform.md).
 
 ### Integration
 
 This instance can be used by the client as well as Camptocamp.
-The goal is to test new release, either during project developement or upgrade release when project is in production.
+The goal is to test new release, either during project development or upgrade release when project is in production.
 
 This instance should be populated with all the client data, in order to test full creation process and server performance.
 
-The database should be created on the Postgres cluster with the production randomly generated name suffixed by `_integration`.
+The database should be created on Postgres integration with the production randomly generated name suffixed by `_integration`.
 
 ### Prod
 
-The client production instance, the database is of course also on the Postgres cluster (with randomly generated name).
+The client production instance, the database is on the Postgres cluster (with randomly generated name).
 
 
 ## Rancher stacks
 
-Many stacks are required for our project to run on the platform:
+Different stacks are required for our project to run on the platform.
+All the stacks templates are on the [odoo-cloud-platform-ch-rancher-templates GitHub project](https://github.com/camptocamp/odoo-cloud-platform-ch-rancher-templates).
 
 **Odoo stacks**:
 
-* **fluxdock-odoo-test**
- * odoo: Your odoo image with latest tag, build from the last commit in master
- * nginx: [Nginx proxy for odoo](https://github.com/camptocamp/docker-odoo-nginx)
- * db: [Postgres database container](https://github.com/camptocamp/docker-postgresql)
- * letsencrypt: [Container managing the certificate for the test domain name](https://github.com/janeczku/rancher-letsencrypt)
 * **fluxdock-odoo-integration**
  * odoo: Your odoo image with a fixed version (e.g.: 9.1.0) build from a github tag
  * nginx: it's a sidekick of the odoo container [Nginx proxy for odoo](https://github.com/camptocamp/docker-odoo-nginx)
@@ -175,64 +167,6 @@ There is another file, rancher.env.gpg, which is encrypted and contains environm
 
 See [rancher.md](rancher.md#rancher-environment-setup) for more details and encrypt / decrypt command.
 
-#### Test stack configuration
-
-For the test stack, the composition file is [rancher/latest/docker-compose.yml](../rancher/latest/docker-compose.yml)
-
-If you used [Odoo template](https://github.com/camptocamp/odoo-template) to create your project you should already have it.
-Otherwise, you can download it and replace all cookiecutter values.
-
-Then create a rancher.env file containing:
-
- ```
- export RANCHER_URL=https://caas.camptocamp.net/
- export RANCHER_ACCESS_KEY=
- export RANCHER_SECRET_KEY=
-
- export DOMAIN_NAME=test.fluxdock.odoo.camptocamp.ch
- export LETSENCRYPT_AWS_ACCESS_KEY=
- export LETSENCRYPT_AWS_SECRET_KEY=
-
- export DB_USER=fluxdock_test
- export DB_NAME=fluxdock_test_db
- export DB_PASSWORD=
- export DB_PORT=5432
- export ADMIN_PASSWD=
- export RUNNING_ENV=test
- # set to WORKERS=2 and MAX_CRON_THREADS=1 when
- # once the production is up
- export WORKERS=2
- export MAX_CRON_THREADS=1
- export LOG_LEVEL=info
- export LOG_HANDLER=":INFO"
- export DB_MAXCONN=5
- export LIMIT_MEMORY_SOFT=325058560
- export LIMIT_MEMORY_HARD=1572864000
- export LIMIT_TIME_CPU=86400
- export LIMIT_TIME_REAL=86400
- export LIMIT_REQUEST=8192
- export DEMO=False
- export MARABUNTA_MODE=demo
-
- export ODOO_SESSION_REDIS=1
- export ODOO_SESSION_REDIS_HOST=redis
- export ODOO_SESSION_REDIS_PREFIX=fluxdock-odoo-test
- export ODOO_SESSION_REDIS_EXPIRATION=86400
-
- export ODOO_LOGGING_JSON=1
-
- # when activated, platform checks are not performed, use for debug
- export ODOO_CLOUD_PLATFORM_UNSAFE=0
- ```
-
-You have to fill:
-* RANCHER_ACCESS_KEY and RANCHER_SECRET_KEY, you can find this value in rancher.env.gpg of other project hosted on odoo-platform.
-  This access keys is per rancher environment.
-* LETSENCRYPT_AWS_ACCESS_KEY and LETSENCRYPT_AWS_SECRET_KEY, you can find this value in rancher.env.gpg of other project hosted on odoo-platform.
-* DB_PASSWORD and ADMIN_PASSWD by generated passwords. To generate passwords, you can use this command in your terminal `pwgen -s 20`
-
-Then encrypt this file (see [rancher.md](rancher.md#rancher-environment-setup) to know how to encrypt the file).
-
 #### Integration and production stacks
 
 The files for the integration and production stacks are stored in a project
@@ -255,7 +189,7 @@ Let's talk about the difference with test stack:
 
  ```
  odoo:
-  image: camptocamp/y:9.0.0
+  image: camptocamp/fluxdock_odoo:9.0.0
    command: odoo --load=web,web_kanban,attachment_s3,session_redis,logging_json
    external_links:
      - postgres-integration/postgres:db
@@ -278,6 +212,7 @@ Let's talk about the difference with test stack:
      - LIMIT_REQUEST=${LIMIT_REQUEST}
      - LIMIT_TIME_CPU=${LIMIT_TIME_CPU}
      - LIMIT_TIME_REAL=${LIMIT_TIME_REAL}
+     - ODOO_BASE_URL=${ODOO_BASE_URL}
      - MARABUNTA_ALLOW_SERIE=False
      - MARABUNTA_MODE=${MARABUNTA_MODE}
      - AWS_HOST=${AWS_HOST}
@@ -290,7 +225,7 @@ Let's talk about the difference with test stack:
      - ODOO_LOGGING_JSON=${ODOO_LOGGING_JSON}
      - ODOO_CLOUD_PLATFORM_UNSAFE=${ODOO_CLOUD_PLATFORM_UNSAFE}
      - ODOO_STATSD=${ODOO_STATSD}
-     - STATSD_CUSTOMER=y
+     - STATSD_CUSTOMER=fluxdock_odoo
      - STATSD_ENVIRONMENT=${STATSD_ENVIRONMENT}
      - STATSD_HOST=${STATSD_HOST}
      - STATSD_PORT=${STATSD_PORT}
@@ -339,6 +274,7 @@ Let's talk about the difference with test stack:
 
  ```
  export DOMAIN_NAME=integration.fluxdock.odoo.camptocamp.ch
+ export ODOO_BASE_URL="https://${DOMAIN_NAME}"
  
  export DB_USER=
  export DB_NAME=
@@ -388,7 +324,7 @@ Let's talk about the difference with test stack:
 
  ```
  odoo:
-  image: camptocamp/y:9.0.0
+  image: camptocamp/fluxdock_odoo:9.0.0
    command: odoo --load=web,web_kanban,attachment_s3,session_redis,logging_json
    external_links:
      - postgres-cluster/lb:db
@@ -411,6 +347,7 @@ Let's talk about the difference with test stack:
      - LIMIT_REQUEST=${LIMIT_REQUEST}
      - LIMIT_TIME_CPU=${LIMIT_TIME_CPU}
      - LIMIT_TIME_REAL=${LIMIT_TIME_REAL}
+     - ODOO_BASE_URL=${ODOO_BASE_URL}
      - MARABUNTA_ALLOW_SERIE=False
      - MARABUNTA_MODE=${MARABUNTA_MODE}
      - AWS_HOST=${AWS_HOST}
@@ -423,12 +360,13 @@ Let's talk about the difference with test stack:
      - ODOO_LOGGING_JSON=${ODOO_LOGGING_JSON}
      - ODOO_CLOUD_PLATFORM_UNSAFE=${ODOO_CLOUD_PLATFORM_UNSAFE}
      - ODOO_STATSD=${ODOO_STATSD}
-     - STATSD_CUSTOMER=y
+     - STATSD_CUSTOMER=fluxdock_odoo
      - STATSD_ENVIRONMENT=${STATSD_ENVIRONMENT}
      - STATSD_HOST=${STATSD_HOST}
      - STATSD_PORT=${STATSD_PORT}
    labels:
      io.rancher.scheduler.affinity:host_label: application=true,production=true
+     io.rancher.scheduler.global: 'true'
      io.rancher.sidekicks: nginx
  
  nginx:
@@ -472,6 +410,7 @@ Let's talk about the difference with test stack:
 
  ```
  export DOMAIN_NAME=integration.fluxdock.odoo.camptocamp.ch
+ export ODOO_BASE_URL="https://${DOMAIN_NAME}"
  
  export DB_USER=
  export DB_NAME=
@@ -538,43 +477,15 @@ pity to be unable to create the certificate the day of the golive. In the platfo
 ./rancher fluxdock-odoo-prod up -d letsencrypt
 ```
 
-
-### Docker images
-
-Docker images for Odoo are generated and pushed to [Docker Hub](https://hub.docker.com) by Travis when builds are successfull.
-This push is done in [travis/publish.sh](../travis/publish.sh) which is called by [travis.yml](../.travis.yml) in after_succes section.
-
-You can see that this script will tag docker image with:
- * latest: When the build was triggered by a commit on master
- * `git tag name`: When the build was triggered after a new tag is pushed.
-
-So Travis should have access to your project on Docker Hub. If it's not the case, ask someone with access to:
- * Create if needed the [project on Docker Hub](https://hub.docker.com/r/camptocamp/y/)
- * Create access for Travis in this new project and put auth informations in Lastpass
-  * user: c2cbusinessfluxdocktravis
-  * password: Generated password
-  * email: business-deploy+fluxdock-travis@camptocamp.com (which is aliased on camptocamp@camptocamp.com)
-
-On Travis, in [settings page](https://travis-ci.com/camptocamp/y/settings) , add following environnement variables:
- * DOCKER_USERNAME : c2cbusinessfluxdocktravis
- * DOCKER_PASSWORD : The generated password in previous step, so you can find it in Lastpass
- * DOCKER_EMAIL : business-deploy+fluxdock-travis@camptocamp.com (which is aliased on camptocamp@camptocamp.com)
-
-**From there, each travis successfull build on master or on tags will build a docker image and push it to Docker Hub**
-
-**And even better, if you followed all the previous steps, the next successfull build on master will automatically create the test stack (fluxdock-odoo-test) on Rancher**
-
-**See next part to understand how.**
-
 ### Stack Deployment
 
 #### Rancher Compose
 
 To deploy stacks on rancher, we use the Rancher client [rancher-compose](https://github.com/rancher/rancher-compose).
 
-rancher-compose is a Docker compose compatible client that deploys to Rancher.
+`rancher-compose` is a Docker compose compatible client that deploys to Rancher.
 
-rancher-compose need a -p parameter which indicates the name of the stack to work on.
+`rancher-compose` need a -p parameter which indicates the name of the stack to work on.
 
 The access keys and rancher url can be passed with rancher-compose options or with environment variables ($RANCHER_URL, $RANCHER_ACCESS_KEY, $RANCHER_SECRET_KEY)
 
@@ -590,25 +501,10 @@ rancher-compose -p stack_name up -d
 rancher-compose -p stack_name logs --follow odoo
 ```
 
-#### Test deployment
-
-In [travis/publish.sh](../travis/publish.sh), you can see that the deploy function is called when the latest image is generated
-(so after a successfull travis build on master)
-
-This deploy function do the following steps:
- * Download a rancher-compose client
- * Decrypt latest/rancher.env.gpg and source it to read all needed configurations for accessing rancher and configuring the stack.
- * Remove, if exists, the test stack db container on rancher.
- * Create or upgrade the full stack (with the new builded odoo docker image)
- * This upgrade will recreate a database and container and run the installation process.
-
-But Travis need the gpg password in order to decrypt rancher.env.gpg file.
-
-Look at [rancher.md in travis section](rancher.md#travis) to know how to configure travis for that.
 
 #### Integration deployment
 
-The integration stack is manually deployed but the process is quite similar with test
+The integration stack is deployed manually after a release.
 
 * If needed, download [rancher-compose](http://releases.rancher.com/compose/beta/v0.7.2/rancher-compose-linux-amd64-v0.7.2.tar.gz) and untar the executable in a `$PATH`.
 * Go to your locally cloned platform project (https://github.com/camptocamp/odoo-cloud-platform-ch-rancher-templates)
@@ -619,11 +515,6 @@ The integration stack is manually deployed but the process is quite similar with
   ```
 
 ### Upgrade stack
-
-#### Test
-
-As test stack is automatically rebuilt from scratch, there is no need to upgrade
-
 
 #### Integration / Production
 
@@ -658,7 +549,7 @@ Take a look at [releases.md](releases.md) for more details but here is a quick s
  # Don't forget to push master too but note that it will drop/recreate the test stack.
  git push
  ```
- * Travis will run a build on this tag and, if succcessfull, push a docker image (tagged as X.X.X) on Docker Hub.
+ * Travis will run a build on this tag and, if successful, push a docker image (tagged as X.X.X) on Docker Hub.
 
 * Go to your locally cloned platform project (https://github.com/camptocamp/odoo-cloud-platform-ch-rancher-templates)
 * Update the version of the image in the `docker-compose.yml` file of the stack, commit and push

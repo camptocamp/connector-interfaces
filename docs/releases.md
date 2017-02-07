@@ -25,7 +25,7 @@ In the following order, at the end of a sprint, the release master will do:
   git push --tags
   ```
 When the tag is pushed on GitHub, Travis will build a new Docker image (as
-long as the build is green!) and push it on the registry as `odoo/odoo:x.y.z`
+long as the build is green!) and push it on the registry as `camptocamp/fluxdock_odoo:x.y.z`
 
 ## Versioning pattern
 
@@ -94,6 +94,12 @@ The release master checks the following points before doing a release:
 * there are no conflicts between the merged branches (but he might ask to the
   other developers to resolve them)
 * complete and correct the [changelog](../HISTORY.rst).
+* bump version (see [invoke.md](invoke.md#releasebump) for more information)
+```
+invoke release.bump --feature # for new feature (will increment `y` number)
+invoke release.bump --patch # for a patch (will increment `z` number)
+
+```
 * check and update the docker-compose files if necessary
 * ensure Travis is green
 
