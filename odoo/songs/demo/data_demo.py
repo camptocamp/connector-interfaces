@@ -21,14 +21,19 @@ def load_partner_categories(ctx):
 
 
 @anthem.log
-def create_test_user(ctx):
-    user_model = ctx.env['res.users'].with_context(no_reset_password=1)
-    user_model.create({
-        'name': 'Scenario User Test',
-        'login': 'usertest',
-        'email': 'usertest@sc.com',
-        'groups_id': [(6, 0, [ctx.env.ref('base.group_portal').id])]
-    })
+def load_users(ctx):
+    load_csv(
+        ctx, 'data/demo/res.users.csv',
+        'res.users')
+
+    # update partners
+    free_member = ctx.env.ref('scenario.res_user_freemember')
+    asso_member = ctx.env.ref('scenario.res_user_associatemember')
+    free_member.partner_id.free_member = True
+    free_member.partner_id.website_published = True
+    asso_member.partner_id.free_member = True
+    asso_member.partner_id.website_published = True
+    asso_member.partner_id.create_membership_invoice(email=False)
 
 
 @anthem.log
@@ -36,4 +41,4 @@ def main(ctx):
     """ Installing demo data """
     load_expertises(ctx)
     load_partner_categories(ctx)
-    create_test_user(ctx)
+    load_users(ctx)

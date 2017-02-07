@@ -11,6 +11,7 @@
 <template id="reference_overview" name="Fluxdock references overview">
     <div class="home_box">
         <h3 class="page-header">References</h3>
+        <p>References are projects your company has realized.</p>
         <t t-set="references" t-value="request.env.user.references_ids" />
         <t t-if="not references">
             <p>You have currently registred no references on your account.</p>

@@ -1,8 +1,8 @@
 odoo:
   image: camptocamp/fluxdock_odoo:latest
-  command: odoo --load=web,web_kanban,attachment_s3,session_redis,logging_json
+  command: "odoo --load=web,web_kanban,attachment_s3,session_redis,logging_json"
   external_links:
-    - redis-integration/redis:redis
+    - redis/redis:redis
   links:
     - db:db
   environment:
@@ -12,7 +12,6 @@ odoo:
     - DB_PORT=${DB_PORT}
     - ADMIN_PASSWD=${ADMIN_PASSWD}
     - RUNNING_ENV=${RUNNING_ENV}
-    - DOMAIN_NAME=${DOMAIN_NAME}
     - DEMO=${DEMO}
     - WORKERS=${WORKERS}
     - MAX_CRON_THREADS=${MAX_CRON_THREADS}
@@ -24,6 +23,7 @@ odoo:
     - LIMIT_REQUEST=${LIMIT_REQUEST}
     - LIMIT_TIME_CPU=${LIMIT_TIME_CPU}
     - LIMIT_TIME_REAL=${LIMIT_TIME_REAL}
+    - ODOO_BASE_URL=${ODOO_BASE_URL}
     - MARABUNTA_ALLOW_SERIE=True
     - MARABUNTA_MODE=${MARABUNTA_MODE}
 
@@ -34,25 +34,25 @@ odoo:
     - ODOO_LOGGING_JSON=${ODOO_LOGGING_JSON}
     - ODOO_CLOUD_PLATFORM_UNSAFE=${ODOO_CLOUD_PLATFORM_UNSAFE}
   labels:
-    io.rancher.scheduler.affinity:host_label: application=true,integration=true
+    io.rancher.sidekicks: nginx
+    odoo.publish: true
+
+
+nginx:
+  image: camptocamp/odoo-nginx:9.0-1.1.0
+  net: "container:odoo"
+  environment:
+    - NGX_ODOO_HOST=127.0.0.1
+  links:
+    - odoo:odoo
+
 
 db:
   image: camptocamp/postgresql:pg9.5-latest
   environment:
     - POSTGRES_USER=${DB_USER}
     - POSTGRES_PASSWORD=${DB_PASSWORD}
-  volumes:
-    - fluxdock-latest-datadb:/var/lib/postgresql
-  labels:
-    io.rancher.scheduler.affinity:host_label: application=true,integration=true
 
-
-nginx:
-  image: camptocamp/odoo-nginx:9.0
-  links:
-    - odoo:odoo
-  labels:
-    io.rancher.scheduler.affinity:host_label: application=true,integration=true
 
 letsencrypt:
   environment:
@@ -75,7 +75,6 @@ letsencrypt:
     PUBLIC_KEY_TYPE: RSA-2048
     RENEWAL_TIME: '12'
   labels:
-    io.rancher.scheduler.affinity:host_label: application=true,integration=true
     io.rancher.container.create_agent: 'true'
     io.rancher.container.agent.role: environment
   image: janeczku/rancher-letsencrypt:v0.3.0

@@ -10,32 +10,36 @@ Be sure to [install Docker and docker-compose](prerequisites.md) before going an
 
         git clone git@github.com:camptocamp/fluxdock_odoo.git fluxdock
 
-2a. Clone the submodules from scratch
+2. Submodules
 
-```bash
-git submodule init
-git submodule update
-```
+    You have two options:
 
-If you have an error because a ref cannot be found, it is probably that the
-remote has change, you just need to run the following command that will update
-the remote:
+    1. Clone the submodules from scratch
 
-```bash
-git submodule sync
-```
+    ```bash
+    git submodule init
+    git submodule update
+    ```
 
-2b. Use existing cloned submodules
+    If you have an error because a ref cannot be found, it is probably that the
+    remote has changes, you just need to run the following command that will update
+    the remote:
 
-The Odoo repo `odoo/src` will take quite some time if pulled from scratch.
-If you already have a local checkout of one or more submodules
-you can save a lot of time avoiding to download the whole repos, by doing this:
+    ```bash
+    git submodule sync
+    ```
 
-```
-cp -r path/to/odoo odoo/src
-cp -r path/to/server-tools odoo/external-src/
-git submodule update --init --recursive
-```
+    2. Use existing cloned submodules
+
+    The Odoo repo `odoo/src` will take quite some time if pulled from scratch.
+    If you already have a local checkout of one or more submodules
+    you can save a lot of time avoiding to download the whole repos, by doing this:
+
+    ```
+    cp -r path/to/odoo odoo/src
+    cp -r path/to/server-tools odoo/external-src/
+    git submodule update --init --recursive
+    ```
 
 ## Docker
 
@@ -58,7 +62,7 @@ Building the image is a simple command:
 
 ```bash
 # build the docker image locally (--pull pulls the base images before building the local image)
-docker-compose build --pull   
+docker-compose build --pull
 ```
 
 You could also first pull the base images, then run the build:
@@ -121,33 +125,35 @@ Last but not least, we'll see other means to run Odoo, because `docker-compose
 up` is not really good when it comes to real development with inputs and
 interactions such as `pdb`.
 
-**docker exec** (or `docker-compose exec` in the last versions of docker-compose)
-allows to *enter* in a already running container, which can be handy to inspect
-files, check something, ...
+**docker-compose exec** allows to *enter* in a already running container, which
+can be handy to inspect files, check something, ...
 
 ```bash
-# open the database (the container name is found using 'docker ps')
-docker exec -ti fluxdock_db_1 psql -U odoo odoodb  
+# show odoo configuration file (the container name is found using 'docker ps')
+docker-compose exec odoo cat /opt/odoo/etc/odoo.cfg
 # run bash in the running odoo container
-docker exec -ti fluxdock_odoo_1 bash
+docker exec odoo bash
 ```
 
 **docker run** spawns a new container for a given service, allowing the
 interactive mode, which is exactly what we want to run Odoo with pdb.
-This is probably the command you'll use the more often.
+This is probably the command you'll use the most often.
 
 The `--rm` option drops the container after usage, which is usually what we
 want.
 
 ```bash
-# start Odoo
-docker-compose run --rm odoo odoo.py --workers=0 ... additional arguments
-# start Odoo and expose the port 8069 to the host on the same port
-docker-compose run --rm -p 8069:8069 odoo odoo.py
+# start Odoo (use workers=0 for dev)
+docker-compose run --rm odoo odoo --workers=0 ... additional arguments
+# start Odoo and expose the port 8069 to the host on the port 80
+docker-compose run --rm -p 80:8069 odoo odoo
 # open an odoo shell
-docker-compose run --rm odoo odoo.py shell  
+docker-compose run --rm odoo odoo shell
 ```
 
+`workers=0` let you use your `pdb` interactive mode without trouble otherwise
+you will have to deal with one trace per worker that catched a breakpoint.
+Plus, it will stop the annoying `bus is not available` errors.
 
 Finally, a few aliases suggestions:
 
@@ -155,7 +161,8 @@ Finally, a few aliases suggestions:
 alias doco='docker-compose'
 alias docu='docker-compose up -d'
 alias docl='docker-compose logs'
-alias docsh='docker-compose run --rm odoo ./src/odoo.py shell'
+alias docsh='docker-compose run --rm odoo odoo shell'
+alias dood='docker-compose run --rm odoo odoo'
 alias bro='chromium-browser --incognito $(docker-compose port odoo 8069)'
 ```
 
@@ -181,6 +188,11 @@ bro
 # stop all the containers
 doco stop
 
+# upgrade module and or run tests
+dood -u my_module [--test-enable]
+
+# if you are using the `connector` remember to pass the `load` attribute
+dood --load=web,connector
 ```
 
 Note: if you get the following error when you do `docker-compose up`:
