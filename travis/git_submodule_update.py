@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Download submodules from Github zip archive url
 # Keep standard update form private repositories
