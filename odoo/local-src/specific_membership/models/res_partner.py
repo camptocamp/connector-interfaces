@@ -12,6 +12,8 @@ _logger = logging.getLogger(__file__)
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    cms_search_url = '/members'
+
     flux_membership = fields.Selection(
         string='Flux membership',
         selection=[

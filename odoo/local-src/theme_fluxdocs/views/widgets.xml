@@ -8,7 +8,7 @@
                   t-att-name="widget.fname"
                   t-att-required="widget.field['required'] and '1' or None"
                   t-att-data-params="widget.data">
-            <option value="">Select...</option>
+            <option value=""><t t-esc="widget.field['string'] + '...'" /></option>
             <t t-set="comodel" t-value="widget.env[widget.field['relation']]" />
             <t t-set="domain" t-value="widget.field.get('domain', [])" />
             <t t-set="option_items" t-value="comodel.search(domain)" />
@@ -27,7 +27,8 @@
     <template id="field_widget_image" name="Fluxdock image upload widget" inherit_id="cms_form.field_widget_image">
       <xpath expr="//div[contains(@class,'image-widget-wrapper')]" position="replace">
         <div class="image-widget-wrapper">
-          <div class="image-upload-widget">
+          <div class="image-upload-widget"
+               t-attf-style="width:#{widget.data.get('image_preview_width', 200)}px;height:#{widget.data.get('image_preview_height', 200)}px">
             <t t-set="image_input_name" t-value="image_input_name or 'image'" />
             <t t-if="widget.field_value">
               <img class="img img-responsive" t-att-src="widget.field_value.get('value')" />

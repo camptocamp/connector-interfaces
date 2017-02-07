@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="partner_form_email_help" name="Fluxdock partner form email help">
+    <t t-if="form_field.get('help')">
+        <t t-esc="form_field.get('help')" /><br /><br />
+    </t>
+    <div class="alert alert-danger mt8" role="alert">
+        <strong>Important:</strong><span>if you modify your email, your login will be updated as well.</span>
+    </div>
+  </template>
+
+
+</odoo>

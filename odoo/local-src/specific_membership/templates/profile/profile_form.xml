@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<template id="profile_form_buttons" name="Fluxdock profile form buttons"
+          inherit_id="cms_form.base_form_buttons" primary="True">
+
+  <xpath expr="//button[@type='submit']" position="after">
+    <a class="btn btn-danger btn-bg-sticky pull-right" t-attf-href="/web/reset_password?login=#{request.env.user.login}">Change password</a>
+  </xpath>
+
+</template>
+
+
+</odoo>

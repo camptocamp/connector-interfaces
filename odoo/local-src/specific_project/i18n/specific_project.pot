@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 14:04+0000\n"
-"PO-Revision-Date: 2017-02-21 14:04+0000\n"
+"POT-Creation-Date: 2017-02-22 13:02+0000\n"
+"PO-Revision-Date: 2017-02-22 13:02+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -223,7 +223,7 @@ msgid "Main image URL"
 msgstr ""
 
 #. module: specific_project
-#: model:ir.ui.view,arch_db:specific_project.reference_search_form_wrapper
+#: model:ir.ui.view,arch_db:specific_project.reference_search_form_header
 msgid "Member references"
 msgstr ""
 

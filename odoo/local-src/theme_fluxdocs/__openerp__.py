@@ -12,6 +12,7 @@
         'views/widgets.xml',
         'views/mosaic.xml',
         'views/status_msg.xml',
+        'views/search_form.xml',
         'pages/homepage.xml',
     ],
     'category': 'Theme/Creative',
