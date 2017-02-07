@@ -3,6 +3,7 @@ import logging
 import werkzeug
 import json
 
+from openerp import SUPERUSER_ID
 from openerp import http
 from openerp.http import request
 from openerp.tools.translate import _
@@ -48,10 +49,13 @@ class AuthSignupHome(SignupVerifyEmail):
 
         # check backend permissions
         has_backend_permissions = False
-        for xmlid in ('base.group_website_designer',):
-            if request.env.user.has_group(xmlid):
-                has_backend_permissions = True
-                break
+        if request.uid == SUPERUSER_ID:
+            has_backend_permissions = True
+        else:
+            for xmlid in ('base.group_website_designer',):
+                if request.env.user.has_group(xmlid):
+                    has_backend_permissions = True
+                    break
 
         if not has_backend_permissions:
             # redirect to public homepage
