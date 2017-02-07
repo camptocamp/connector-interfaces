@@ -25,13 +25,28 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="membership.view_partner_form"/>
         <field name="arch" type="xml">
-
           <xpath expr="//group/field[@name='associate_member']" position="replace">
             <field name="associate_member" attrs="{'invisible': 'True'}"/>
             <field name="flux_membership"/>
           </xpath>
-
         </field>
+    </record>
+
+    <record model="ir.ui.view" id="profile_view_partner_form">
+      <field name="name">Fluxdock partner form profile</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <notebook position="inside">
+          <page string="Fluxdock profile">
+            <group name="profile_state">
+              <field name="profile_state"/>
+              <field name="profile_completed" readonly="1"/>
+              <field name="profile_completed_date"/>
+            </group>
+          </page>
+        </notebook>
+      </field>
     </record>
 
 </odoo>

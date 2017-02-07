@@ -59,7 +59,10 @@ class ResPartner(models.Model):
     @api.depends('profile_state')
     def _compute_profile_completed(self):
         for item in self:
-            item.profile_completed = item.profile_state == 'step-3'
+            item.profile_completed = \
+                item.profile_state == self.PROFILE_STATE_LAST
+            item.profile_completed_date = \
+                item.profile_completed and fields.Date.today()
 
     PROFILE_STATE_LAST = 'step-3'
 
@@ -79,14 +82,12 @@ class ResPartner(models.Model):
                 # you must explicitely force to get back to prev state
                 continue
             item.profile_state = state
-            if item.profile_state == self.PROFILE_STATE_LAST:
-                item.profile_completed_date = fields.Date.today()
 
     def _select_profile_state(self):
         options = [
-            ('step-1', 'Signup'),
-            ('step-2', 'Update details'),
-            ('step-3', 'Add references'),
+            ('step-1', 'S1 - Signup'),
+            ('step-2', 'S2 - Update details'),
+            ('step-3', 'S3 - Add references'),
         ]
         return options
 
