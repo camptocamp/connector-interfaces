@@ -73,17 +73,17 @@
                       <t t-esc="owner_partner.country_id.name" />-
                     </t>
                     <t t-esc="owner_partner.zip" /> <t t-esc="owner_partner.city" /><br />
-                    <t t-if="owner_partner.phone">t
+                    <!-- <t t-if="owner_partner.phone">t
                       <t t-esc="owner_partner.phone" /><br />
                     </t>
                     <t t-if="owner_partner.fax">f
                       <t t-esc="owner_partner.fax" /><br />
-                    </t>
+                    </t> -->
                     <!--  TODO: obfuscate email to prevent SPAMming -->
-                    <t t-if="owner_partner.email">
+                    <!-- <t t-if="owner_partner.email">
                       <a t-attf-href="mailto:{{ owner_partner.email }}"><t t-esc="owner_partner.email"/></a>
                       <br />
-                    </t>
+                    </t> -->
                     <t t-if="owner_partner.website">
                       <a t-att-href="owner_partner.website"><t t-esc="owner_partner.website"/></a>
                     </t>
