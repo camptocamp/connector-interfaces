@@ -6,7 +6,6 @@
         <xpath expr="." position="inside">
             <link href="/theme_fluxdocs/static/less/webfonts.css" rel="stylesheet" type="text/css" />
             <link href="/specific_membership/static/src/less/report.less" rel="stylesheet"/>
-            <link href="/theme_fluxdocs/static/less/variables.less" rel="stylesheet" type="text/less" />
         </xpath>
     </template>
 
