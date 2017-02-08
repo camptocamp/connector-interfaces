@@ -42,8 +42,8 @@
             </table>
         </t>
         <div class="actions">
-            <a class="btn btn-dark btn-show-proposal"
-               t-attf-href="#{request.env['project.reference'].cms_search_url}?only_my=on" title="Show all references">
+            <a t-attf-class="btn btn-dark btn-show-reference #{not partner.website_published and 'disabled'}"
+               t-att-href="partner.website_published and (request.env['project.reference'].cms_search_url + '?only_my=on')" title="Show all references">
                 Show all references
             </a>
             <a t-attf-class="btn btn-dark btn-add-reference #{not partner.website_published and 'disabled'}"

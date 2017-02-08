@@ -95,7 +95,8 @@
             </table>
         </t>
         <div class="actions">
-            <a class="btn btn-dark btn-show-proposal" t-attf-href="#{request.env['project.proposal'].cms_search_url}?only_my=on" title="Show all proposals">
+            <a t-attf-class="btn btn-dark btn-show-proposal #{not partner.website_published and 'disabled'}"
+               t-att-href="partner.website_published and (request.env['project.proposal'].cms_search_url + '?only_my=on')" title="Show all proposals">
                 Show all proposals
             </a>
             <a t-attf-class="btn btn-dark btn-add-proposal #{not partner.website_published and 'disabled'}"
