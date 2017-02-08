@@ -15,7 +15,7 @@ Template:
 
 # Release History
 
-## 9.2.2b1 (Unrelased)
+## 9.2.2 (Unrelased)
 
 **Features and Improvements**
 
@@ -23,13 +23,18 @@ Template:
 * [add] use cms form search as base search form
 * [imp] replace proposal/reference search form
 * [add] "my" filter to search form + refactoring and cleanup of all "/my" stuff
-* [add] RM#16492 form descriptions
-* [add] RM#16492 form help texts
-* [imp] RM#16287 cleanup custom template names
+* [add] form descriptions
+* [add] [RM#16492](https://redmine.iart.ch/issues/16492) form help texts
+* [imp] [RM#16287](https://redmine.iart.ch/issues/16287) cleanup custom template names
 * [imp] get rid of old /my/* urls
 * [upd] [RM#16416](https://redmine.iart.ch/issues/16416) box order in my home
 * [add] [RM#16404](https://redmine.iart.ch/issues/16404) view profile button
-* [add] redirect after 1st reference puslished
+* [RM#16517](https://redmine.iart.ch/issues/16517) proposal view remove company phone/email
+* [RM#16522](https://redmine.iart.ch/issues/16522) proposal "website description" -> "description"
+* [RM#16491](https://redmine.iart.ch/issues/16491) Port changes from prod
+* [imp] [RM#16520](https://redmine.iart.ch/issues/16520) adapt progress bar status manually
+* [add] demo users
+* [add] redirect after 1st reference published
 * [add] popover for publish button tooltip
 * upgrade cms
 * upgrade OCB
@@ -37,15 +42,20 @@ Template:
 * update backend menu entries
 * force secure pwd on test (integration and prod already have it)
 
+
 **Bugfixes**
 
-* [fix] [RM#16512]](https://redmine.iart.ch/issues/16512) members slider: show only published
-* [fix] [RM#16511]](https://redmine.iart.ch/issues/16511) proposal view: show details for owner
-* [fix] [RM#16403]](https://redmine.iart.ch/issues/16403) References in member profile not clickable
-* [fix] [RM#16128]](https://redmine.iart.ch/issues/16128) autocomplete for m2m fields
-* [fix] [RM#16502]](https://redmine.iart.ch/issues/16502) delete issue w/ attachment fields (breaking reference deletion)
+* [fix] [RM#16512](https://redmine.iart.ch/issues/16512) members slider: show only published
+* [fix] [RM#16511](https://redmine.iart.ch/issues/16511) proposal view: show details for owner
+* [fix] [RM#16403](https://redmine.iart.ch/issues/16403) References in member profile not clickable
+* [fix] [RM#16128](https://redmine.iart.ch/issues/16128) autocomplete for m2m fields
+* [fix] [RM#16502](https://redmine.iart.ch/issues/16502) delete issue w/ attachment fields (breaking reference deletion)
+* [fix] [RM#16399](https://redmine.iart.ch/issues/16399) change market icon
+* [fix] [RM#16521](https://redmine.iart.ch/issues/16521) add some spaces
 * [fix] proposal test and backend menu
 * [fix] required field error color
+* [fix] superadmin bypasses backend permission check
+* [fix] proposal view for anon, adapt padding for cta links
 
 
 ## 9.2.1 (2017-01-24)
