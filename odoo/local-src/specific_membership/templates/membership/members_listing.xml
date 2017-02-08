@@ -52,7 +52,7 @@
                         <div class="col-md-4">
                             <input type="text" id="search_industries" name="search_industries"
                                    t-attf-class="search-query form-control js_select2_m2m_widget search_industries"
-                                   t-att-data-init-value="industries" value="Industries"
+                                   t-att-data-init-value="industries" value="Industries" placeholder="Industries..."
                                    t-attf-data-model="res.partner.category"
                                    data-display_name="name" data-fields='["name"]' data-domain='[]'
                                    />
@@ -60,7 +60,7 @@
                         <div class="col-md-4">
                             <input type="text" id="search_expertises" name="search_expertises"
                                    t-attf-class="search-query form-control js_select2_m2m_widget search_expertises"
-                                   t-att-data-init-value="expertises" value="Expertise"
+                                   t-att-data-init-value="expertises" value="Expertise" placeholder="Expertises..."
                                    t-attf-data-model="partner.project.expertise"
                                    data-display_name="name" data-fields='["name"]' data-domain='[]'
                                   />
