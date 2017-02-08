@@ -242,9 +242,10 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	}
 
 	//Read more link. Used in News and Member list
-	.read-more{
+	a.read-more{
 		color: @brightColor;
 		white-space: nowrap;
+		padding: 0 0.2em;
 		&:hover {
 			text-decoration: none;
 		}
@@ -724,6 +725,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		.member-fields {
 			margin-bottom: 50px;
+			span {
+				padding: 0 0.2em;
+			}
 		}
 
 		//Members Slider
