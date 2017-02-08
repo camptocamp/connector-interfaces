@@ -37,7 +37,7 @@ def setup_url_params(ctx):
     # PR for odoo project
     # https://github.com/camptocamp/docker-odoo-project/pull/20
     url = ctx.env['ir.config_parameter'].get_param('web.base.url')
-    url = os.environ.get('DOMAIN_NAME', url or 'http://localhost:8069')
+    url = os.environ.get('ODOO_BASE_URL', url or 'http://localhost:8069')
     ctx.env['ir.config_parameter'].set_param('report.url', url)
     ctx.log_line('report.url = ' + url)
 
