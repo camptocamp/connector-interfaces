@@ -63,6 +63,7 @@ class ProjectProposal(models.Model):
         help=("Write a short description of the Project.")
     )
     website_description = fields.Text(
+        string="Description",
         help=("Describe the project you have in mind.")
     )
     start_date = fields.Date(string="Start date")
