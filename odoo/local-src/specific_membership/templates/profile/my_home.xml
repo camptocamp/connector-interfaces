@@ -140,11 +140,10 @@
             </p>
             <t t-if="partner.flux_membership == 'free'">
                 <div class="actions">
-                    <button t-attf-class="btn btn-dark mb32 center-block #{not partner.website_published and 'disabled'}"
-                            name="button_buy_membership"
-                            t-att-onclick="partner.website_published and 'window.location.href={}'.format('/my/membership')">
+                    <a t-attf-class="btn btn-dark mb32 center-block #{not partner.website_published and 'disabled'}"
+                       t-att-href="partner.website_published and '/my/membership'">
                         Membership Upgrade
-                    </button>
+                    </a>
                 </div>
             </t>
         </div>
