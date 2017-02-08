@@ -4,7 +4,7 @@
     <template id="become_member_claim" name="Fluxdock claim to become members">
 Associate Member have full access to the project market<br />
 and support Fluxdock as a collaboration network.<br/>
-Please <a class="cta login" t-att-href="'/web/login?redirect=' + detail_url or '/my/home'">login</a> or <a class="cta signup" t-att-href="'/web/presignup?redirect=' + detail_url or '/my/home'">register</a> to become a Fluxdock Member.
+Please <a class="cta login" t-att-href="'/web/login?redirect=' + (detail_url or '/my/home')">login</a> or <a class="cta signup" t-att-href="'/web/presignup?redirect=' + (detail_url or '/my/home')">register</a> to become a Fluxdock Member.
     </template>
 
     <template id="become_associate_member_claim" name="Fluxdock claim to become associate members">
