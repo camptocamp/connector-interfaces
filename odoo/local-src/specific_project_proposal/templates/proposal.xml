@@ -27,31 +27,54 @@
                   <p t-field="main_object.website_description"/>
               </t>
               <div t-if="can_view_details">
-                  <b>Country:</b>
-                  <span t-field="main_object.country_id"/>
+                <div class="row">
+                  <div class="col-md-3"><strong>Country:</strong>
+                  </div>
+                  <div class="col-md-9"><span t-field="main_object.country_id" />
+                  </div>
+                </div>
               </div>
               <div t-if="can_view_details">
-                  <b>Location:</b>
-                  <span t-field="main_object.location"/>
+                <div class="row">
+                  <div class="col-md-3"><strong>Location:</strong>
+                  </div>
+                  <div class="col-md-9"><span t-field="main_object.location" />
+                  </div>
+                </div>
               </div>
               <div>
-                  <b>Duration:</b>
-                  <span t-field="main_object.start_date"/>
-                  -
-                  <span t-field="main_object.stop_date"/>
+                <div class="row">
+                  <div class="col-md-3"><strong>Duration:</strong>
+                  </div>
+                  <div class="col-md-9">
+                    <span t-field="main_object.start_date"/>
+                    -
+                    <span t-field="main_object.stop_date"/>
+                  </div>
+                </div>
               </div>
-              <div>
-                  <b>Industries:</b>
-                  <t t-foreach="main_object.industry_ids" t-as="item">
-                      <span t-field="item.display_name"/><t t-esc="('' if item_last else ', ')" />
-                  </t>
-              </div>
-              <div t-if="can_view_details">
-                  <b>Expertises:</b>
-                  <t t-foreach="main_object.expertise_ids" t-as="item">
-                      <span t-field="item.name"/><t t-esc="('' if item_last else ', ')" />
-                  </t>
-              </div>
+              <t t-if="can_view_details and main_object.industry_ids">
+                <div class="row">
+                  <div class="col-md-3"><strong>Industry:</strong>
+                  </div>
+                  <div class="col-md-9">
+                    <t t-foreach="main_object.industry_ids" t-as="one_tag">
+                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                    </t>
+                  </div>
+                </div>
+              </t>
+              <t t-if="can_view_details and main_object.expertise_ids">
+                <div class="row">
+                  <div class="col-md-3"><strong>Expertise:</strong>
+                  </div>
+                  <div class="col-md-9">
+                    <t t-foreach="main_object.expertise_ids" t-as="one_tag">
+                      <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
+                    </t>
+                  </div>
+                </div>
+              </t>
             </div>
           </div>
           <t t-set="owner_partner" t-value="main_object.sudo().create_uid.partner_id"/>
