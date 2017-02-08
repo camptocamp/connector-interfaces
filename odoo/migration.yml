@@ -41,11 +41,12 @@ migration:
       operations:
         post:
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
-    - version: 9.2.2b1
+    - version: 9.2.2
       addons:
         upgrade:
-          - mail_environment
           - base_technical_features
+          - document
+          - mail_environment
         #   updated OCB version
           - base
       operations:
