@@ -58,3 +58,5 @@ migration:
       addons:
         upgrade:
           - attachment_s3
+          - cms_status_message
+          - cms_form

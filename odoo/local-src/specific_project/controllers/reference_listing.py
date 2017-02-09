@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 from openerp import http
-from openerp.addons.cms_form.controllers import SearchFormControllerMixin
+from openerp.addons.cms_form.controllers.main import SearchFormControllerMixin
 
 
 class ReferenceListing(http.Controller, SearchFormControllerMixin):
