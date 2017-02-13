@@ -15,7 +15,16 @@ Template:
 
 # Release History
 
-## 9.2.2 (Unrelased)
+## 9.2.3 (2016-02-09)
+
+**Features and Improvements**
+
+* [fix] [RM#16537](https://redmine.iart.ch/issues/16537) Server error on end date validation
+
+  Add validation handling to cms_form + improved tests.
+
+
+## 9.2.2 (2016-02-09)
 
 **Features and Improvements**
 
