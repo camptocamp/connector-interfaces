@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template id="status_message_wrapper" inherit_id="cms_status_message.message_wrapper" name="Fluxdock status_message wrapper">
+        <xpath expr="//div[contains(@class,'msg-wrapper')]" position="replace">
+            <div class="msg-wrapper text-center">
+                <t t-if="msg['title']">
+                    <span class="title">
+                        <strong t-esc="msg['title']" />
+                    </span>
+                </t>
+                <span class="msg">
+                    <t t-raw="msg['msg']" />
+                </span>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
