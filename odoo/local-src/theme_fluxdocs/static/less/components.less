@@ -1,5 +1,7 @@
 .alert{
 	text-align: center;
+	border-left: none;
+	border-right: none;
 	strong{
 		padding-right: 1em;
 	}
@@ -7,8 +9,16 @@
 		position: relative;
 		.close{
 			position: absolute;
-			top: 0;
+			top: 10px;
 			right: 5px;
+			color: inherit;
+			text-shadow: @close-text-shadow;
+			.opacity(1);
+		  &:hover,
+		  &:focus {
+				color: inherit;
+				.opacity(1);
+		  }
 		}
 	}
 }

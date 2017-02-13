@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
 	<data>
+
+		<template id="submenu" name="Submenu">
+			<!-- barely copied from website and fixed "active" class -->
+		    <li t-if="not submenu.child_id" t-att-class="
+		        'active' if submenu.url and submenu.url != '/' and submenu.url in request.httprequest.path else None">
+		        <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
+		            <span t-field="submenu.name"/>
+		        </a>
+		    </li>
+		</template>
+
 		<!-- Customize header -->
 		<template id="custom_header" inherit_id="website.layout" name="Custom Header">
 
@@ -27,7 +38,7 @@
 
                         <ul class="main-menu">
 		                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
-		                		<t t-call="website.submenu"/>
+		                		<t t-call="theme_fluxdocs.submenu"/>
 		                	</t>
 		            	</ul>
 
@@ -73,15 +84,6 @@
 
 		</template>
 
-		<template id="add_status_message" inherit_id="website.layout" name="Add status message">
-
-			<xpath expr="//div[@id='wrapwrap']/main/*" position="before">
-				<t t-call="cms_status_message.status_message" />
-			</xpath>
-
-		</template>
-
-
 		<!-- Add mobile menu -->
 		<template id="mobile-menu" inherit_id="website.layout" name="Fluxdock Mobile Menu">
 
@@ -90,7 +92,7 @@
 				<nav class="mobile-menu">
 					<ul class="main-menu">
 	                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
-	                		<t t-call="website.submenu"/>
+	                		<t t-call="theme_fluxdocs.submenu"/>
 	                	</t>
 	            	</ul>
 
@@ -200,17 +202,9 @@
 		    </xpath>
 		</template>
 
-		<!-- <template id="website.footer_custom" inherit_id="website.layout" name="Footer"> -->
-                <!--  -->
-		<!-- 	<xpath expr="//div[@id='footer']" position="replace"> -->
-		<!-- 		<div class="oe_structure" id="footer"> -->
-		<!-- 		</div> -->
-		<!-- 	</xpath> -->
-		<!-- </template> -->
 
 		<!-- Customize News List -->
 		<template id="fluxdock_news_list" inherit_id="website_blog.blog_post_short" name="Fluxdock News List">
-
 
 			<xpath expr="//div[@id='main_column']" position="replace">
 				<div t-ignore="True" id="main_column">
