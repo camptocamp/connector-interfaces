@@ -15,7 +15,7 @@ Template:
 
 # Release History
 
-## 9.2.3 (2016-02-09)
+## 9.2.3 (2016-02-14)
 
 **Features and Improvements**
 
