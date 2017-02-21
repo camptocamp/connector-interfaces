@@ -3,35 +3,48 @@
 
 <template id="report_invoice_document" inherit_id="account.report_invoice_document">
 
-    <xpath expr="//div[contains(@class,'page')]"  position="attributes">
+    <!-- add class to page wrapper -->
+    <xpath expr="//div[contains(@class,'page')]" position="attributes">
         <attribute name="class" add="report_invoice" separator=" " />
     </xpath>
 
-    <xpath expr="//div[contains(@class,'col-xs-5 col-xs-offset-7')]"  position="attributes">
+    <!-- align address left -->
+    <xpath expr="//div[contains(@class,'col-xs-5 col-xs-offset-7')]" position="attributes">
         <attribute name="class">col-xs-12 text-left</attribute>
     </xpath>
 
-    <xpath expr="//table[contains(@class,'table')][1]"  position="before">
+    <!-- add membership info -->
+    <xpath expr="//table[contains(@class,'table')][1]" position="before">
         <p class="membership-info">
-            <strong>Membership status expiration:</strong> <span t-field="o.partner_id.membership_stop" t-field-options='{"widget": "date"}' />
+            <strong>Membership duration:</strong>
+            <span t-field="o.partner_id.membership_start" t-field-options='{"widget": "date"}'/> -
+            <span t-field="o.partner_id.membership_stop" t-field-options='{"widget": "date"}'/>
         </p>
     </xpath>
 
-    <xpath expr="//p[@t-if='o.fiscal_position_id.note']"  position="after">
+    <!-- show only product name -->
+    <xpath expr="//table//span[@t-field='l.name']" position="replace">
+        <span t-field="l.product_id.name" />
+    </xpath>
+
+    <!-- force payment terms info -->
+    <xpath expr="//p[@t-if='o.fiscal_position_id.note']" position="after">
+        <p>We ask for payment within 30 days on the bank account below.</p>
         <t t-foreach="o.company_id.bank_journal_ids" t-as="journal">
             <div class="bank_info">
                 <t t-set="bank_acc" t-value="journal.bank_account_id"/>
-                <span t-esc="bank_acc.bank_name" /><br />
-                IBAN: <span t-esc="bank_acc.acc_number"/><br />
+                <span t-esc="bank_acc.bank_name"/><br/>
+                <t t-translation="off">IBAN:</t> <span t-esc="bank_acc.acc_number"/><br/>
                 <t t-if="bank_acc.bank_bic">
-                    SWIFT/BIC: <span t-esc="bank_acc.bank_bic"/>
+                    <t t-translation="off">SWIFT/BIC:</t> <span t-esc="bank_acc.bank_bic"/>
                 </t>
+                <p t-translation="off">MWST-Nr.: CHE-273.041.243 MWST<br/>UID: CHE-273.041.243 HR/MWST</p>
             </div>
         </t>
     </xpath>
 
     <!--  remove taxes summary -->
-    <xpath expr="//div[@t-if='o.tax_line_ids']"  position="replace" />
+    <xpath expr="//div[@t-if='o.tax_line_ids']" position="replace"/>
 
 </template>
 

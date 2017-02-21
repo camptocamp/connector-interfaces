@@ -1,19 +1,15 @@
-<!--
-Template:
+# Release History
 
-## 9.0.1 (2016-05-09)
+<!-- PLACEHOLDER_NEW_RELEASE -->
+
+## 9.2.4 (Unreleased)
 
 **Features and Improvements**
 
-[RM#](https://redmine.iart.ch/issues/)
-**Bugfixes**
+* Cleanup POT/PO files for all custom modules
+* [RM#16610](https://redmine.iart.ch/issues/16610) Adapt invoice
+* [RM#16525](https://redmine.iart.ch/issues/16525) Associate Membership - adapt product price
 
-**Build**
-
-**Documentation**
--->
-
-# Release History
 
 ## 9.2.3 (2016-02-14)
 

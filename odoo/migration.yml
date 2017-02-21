@@ -60,3 +60,11 @@ migration:
           - attachment_s3
           - cms_status_message
           - cms_form
+    - version: 9.2.4
+      addons:
+        upgrade:
+          # updated translations
+          - specific_membership
+          - specific_project
+          - specific_project_proposal
+          - theme_fluxdocs

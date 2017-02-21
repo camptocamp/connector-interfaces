@@ -16,6 +16,7 @@
     },
     'depends': [
         'base',
+        'l10n_ch',
         'membership',
         'membership_variable_period',
         'auth_signup',

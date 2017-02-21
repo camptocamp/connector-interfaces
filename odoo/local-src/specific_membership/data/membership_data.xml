@@ -21,8 +21,14 @@
         <field name="membership_interval_unit">years</field>
         <field name="default_code">associate</field>
         <field name="categ_id" ref="product.product_category_1"/>
-        <field name="list_price">100</field>
+        <field name="list_price">60</field>
+        <field name="taxes_id" eval="[(6,0, [ref('l10n_ch.vat_80')])]"/>
         <field name="type">service</field>
+    </record>
+
+    <!-- override address format -->
+    <record id="base.ch" model="res.country">
+        <field name="address_format" eval="'%(street)s\n%(street2)s\n%(zip)s %(city)s\n%(country_name)s'" />
     </record>
 
 </odoo>

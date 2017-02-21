@@ -1,16 +1,15 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* theme_fluxdocs
+#	* theme_fluxdocs
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-21 12:48+0000\n"
-"PO-Revision-Date: 2016-12-19 15:17+0000\n"
+"PO-Revision-Date: 2017-02-21 12:48+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,7 +18,7 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "1 Apr 2016"
-msgstr "1 Apr 2016"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -39,152 +38,145 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "4 Feb 2016"
-msgstr "4 Feb 2016"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "5 Apr 2016"
-msgstr "5 Apr 2016"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.field_widget_image
 #: model:ir.ui.view,arch_db:theme_fluxdocs.imageupload_widget
 msgid "<span class=\"browse\">Browse</span>"
-msgstr "<span class=\"browse\">Durchsuchen</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"number-label\">Members</span>"
-msgstr "<span class=\"number-label\">Members</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"number-label\">Projects</span>"
-msgstr "<span class=\"number-label\">Projects</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"number-label\">Users</span>"
-msgstr "<span class=\"number-label\">Users</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"number-value\">17</span>"
-msgstr "<span class=\"number-value\">17</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"number-value\">52</span>"
-msgstr "<span class=\"number-value\">52</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"number-value\">86</span>"
-msgstr "<span class=\"number-value\">86</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">3d Simulation</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">3d Simulation</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Accordion</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Accordion</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Button Link</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Button Link</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Community Members</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Community Members</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Content Image</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Content Image</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Content</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Content</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Fluxdock Logo</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Fluxdock Logo</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Image Carousel</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Image Carousel</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Latest news</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Latest news</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Members</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Members</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Newsletter</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Newsletter</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Projects List</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Projects List</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Projects teaser</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Projects teaser</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Reference mosaic</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Reference mosaic</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Signup / Login</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Signup / Login</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "<span class=\"oe_snippet_thumbnail_title\">Two Columns Content</span>"
-msgstr "<span class=\"oe_snippet_thumbnail_title\">Two Columns Content</span>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"<span style=\"line-height: 1.3\">The platform for collaborative innovation</"
-"span>"
+msgid "<span style=\"line-height: 1.3\">The platform for collaborative innovation</span>"
 msgstr ""
-"<span style=\"line-height: 1.3\">DIE PLATTFORM FÜR KOLLABORATIVE INNOVATIO</"
-"span><span style=\"line-height: 1.3\">n</span>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"<span>\n"
+msgid "<span>\n"
 "                                            Daten herunterladen\n"
 "                                        </span>\n"
-"                                        <span class=\"downloadProgress\">0%</"
-"span>"
+"                                        <span class=\"downloadProgress\">0%</span>"
 msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"<span>\n"
+msgid "<span>\n"
 "                                            Simulation wird geladen\n"
 "                                        </span>\n"
 "                                        <span class=\"loaderProgress\"/>"
@@ -203,85 +195,72 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
 msgid "Add new"
-msgstr "Add new"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Alle News..."
-msgstr "Alle News..."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Archäologisches Museum"
-msgstr "Archäologisches Museum"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.snippet_content_opt
 msgid "Background"
-msgstr "Hintergrund"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Cern"
-msgstr "Cern"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 msgid "Click on \"Content\" on the top menu to write your first blog post."
 msgstr ""
-"Klicken Sie auf <em>Inhalt</em> im Top Menü zur Erstellung der ersten "
-"Blognachricht."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Collaboration creates Innovation"
-msgstr "Kollaboration schafft innovation"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"Collaborative. Effective. Innovative. Fluxdock is a project management "
-"platform for startups and agile developers &amp; designers who want a "
-"simple, beautiful tool that makes work truly enjoyable."
+msgid "Collaborative. Effective. Innovative. Fluxdock is a project management platform for startups and agile developers &amp; designers who want a simple, beautiful tool that makes work truly enjoyable."
 msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Consetetur sadipscing elitr"
-msgstr "Consetetur sadipscing elitr"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut "
-"labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et "
-"accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea "
-"takimata sanctus est Lorem ipsum dolor sit amet."
+msgid "Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 msgstr ""
-"Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut "
-"labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et "
-"accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea "
-"takimata sanctus est Lorem ipsum dolor sit amet."
 
 #. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_create_uid
 msgid "Created by"
-msgstr "Angelegt von"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_create_date
 msgid "Created on"
-msgstr "Angelegt am"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.snippet_content_opt
 msgid "Dark Violet"
-msgstr "Dark Violet"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.snippet_content_opt
 msgid "Dark Violet Pattern"
-msgstr "Dark Violet Pattern"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
@@ -291,27 +270,27 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Der Inhalt der ausgeklappt wird"
-msgstr "Der Inhalt der ausgeklappt wird"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Design"
-msgstr "Design"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Desktop publishing"
-msgstr "Desktop publishing"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Deutschland"
-msgstr "Deutschland"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
 msgid "Don't show again item"
-msgstr "Don't show again item"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -321,153 +300,113 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et "
-"maximos ut mole."
+msgid "Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole."
 msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Expo Shanghai"
-msgstr "Expo Shanghai"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "FLUXDOCK 3D MODEL:"
-msgstr "FLUXDOCK 3-D MODELL:"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "FLUXDOCK IS RECRUTING"
-msgstr "FLUXDOCK SUCHT VERSTÄRKUNG"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Facility"
-msgstr "Standort"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Fluxdock 3d Simulation"
-msgstr "Fluxdock 3d Simulation"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Fluxdock enables firms to innovate."
-msgstr "Fluxdock befähigt Firmen zu Innovation."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"Fluxdock features a network of professional and innovative companies in "
-"different industries. Their references demonstrate this best."
+msgid "Fluxdock features a network of professional and innovative companies in different industries. Their references demonstrate this best."
 msgstr ""
-"Fluxdock ist ein Netzwerk von erfahrenen und innovativen Firmen in "
-"unterschiedlichen Branchen. Ihre Referenzen zeigen das."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"Fluxdock is now open for registration. Firms can sign up before the network "
-"is launched mid april."
+msgid "Fluxdock is now open for registration. Firms can sign up before the network is launched mid april."
 msgstr ""
-"Ab heute können sich Firmen bei Fluxdock registrieren, bevor Mitte April das "
-"Netzwerk lanciert wird."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"Fluxdock is the network of collaborative companies. Their employees work "
-"effectively together in projects with shared principles, methods and tools. "
-"Through mutual exchanges they empower themselves to innovate. Fluxdock "
-"provides the network, suitable methods, tools and excellent infrastructure "
-"for collaborative innovation - on the platform and in the Transitlager in "
-"Basel."
+msgid "Fluxdock is the network of collaborative companies. Their employees work effectively together in projects with shared principles, methods and tools. Through mutual exchanges they empower themselves to innovate. Fluxdock provides the network, suitable methods, tools and excellent infrastructure for collaborative innovation - on the platform and in the Transitlager in Basel."
 msgstr ""
-"Fluxdock ist das Netzwerk kollaborativer Firmen. Mit geteilten Prinzipien, "
-"Methoden und Werkzeugen arbeiten ihre Mitarbeitenden effizient in Projekten "
-"zusammen. Durch gegenseitigen Austausch befähigen sie sich zu Innovation. "
-"Fluxdock bietet dazu das Netzwerk, die geeigneten Methoden und Werkzeuge "
-"sowie eine ausgezeichnete Infrastruktur für kollaborative Innovation - auf "
-"der Plattform und im Transitlager am Standort Basel."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"Fluxdock is the platform for successful collaboration between companies. To "
-"promote and simplify collaboration Fluxdock develops an integrated digital "
-"platform with business directory, project market, project management and "
-"business management. Thus, cross-company cooperation becomes easier and more "
-"professional."
+msgid "Fluxdock is the platform for successful collaboration between companies. To promote and simplify collaboration Fluxdock develops an integrated digital platform with business directory, project market, project management and business management. Thus, cross-company cooperation becomes easier and more professional."
 msgstr ""
-"Fluxdock ist die Plattform für erfolgreiche Kollaboration zwischen Firmen. "
-"Um Kollaboration zu fördern und zu vereinfachen, entwickelt Fluxdock eine "
-"integrierte digitale Plattform mit Firmenverzeichnis, Projektmarkt, "
-"Projektverwaltung und Firmenverwaltung. Dadurch wird die firmenübergreifende "
-"Zusammenarbeit einfacher und professioneller."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden "
-"sie ab sofort die kreativen Unternehmen unserer Region."
+msgid "Fluxdock macht Vielfalt sichtbar. Auf der Webplattform Fluxdock sind finden sie ab sofort die kreativen Unternehmen unserer Region."
 msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.field_widget_image
 #: model:ir.ui.view,arch_db:theme_fluxdocs.imageupload_widget
 msgid "Format: *.png/*.jpg"
-msgstr "Format: *.png/*.jpg"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Frankreich"
-msgstr "Frankreich"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Glossar"
-msgstr "Glossar"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.model,name:theme_fluxdocs.model_ir_http
 msgid "HTTP routing"
-msgstr "HTTP Routing"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero "
-"eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, "
-"no sea takimata sanctus est Lorem ipsum dolor sit amet."
+msgid "Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 msgstr ""
-"Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero "
-"eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, "
-"no sea takimata sanctus est Lorem ipsum dolor sit amet."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Join Fluxdock now."
-msgstr "Werden auch Sie Teil des Fluxdock Netzwerks."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Kraftwerk Basel"
-msgstr "Kraftwerk Basel"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_write_uid
 msgid "Last Updated by"
-msgstr "Zuletzt aktualisiert durch"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_write_date
 msgid "Last Updated on"
-msgstr "Zuletzt aktualisiert am"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
@@ -475,97 +414,97 @@ msgstr "Zuletzt aktualisiert am"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Login"
-msgstr "Anmelden"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
 msgid "Logout"
-msgstr "Abmelden"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mosaic
 msgid "Lorem ipsum"
-msgstr "Lorem ipsum"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Lorem ipsum dolor"
-msgstr "Lorem ipsum dolor"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Members"
-msgstr "Mitglieder"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Methods"
-msgstr "Methoden"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "More..."
-msgstr "Mehr..."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
 msgid "My Account"
-msgstr "Mein Konto"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "My Button"
-msgstr "My Button"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Name"
-msgstr "Bezeichnung"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "News"
-msgstr "Neuigkeiten"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Newsletter"
-msgstr "Newsletter"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 msgid "No blog post yet."
-msgstr "Bislang wurde noch keine Blognachricht geschrieben."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
 msgid "No result found."
-msgstr "Kein Resultat gefunden"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "ONLINE NOW"
-msgstr "JETZT&amp;nbsp;ONLINE"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "People. Methods. Collaboration."
-msgstr "Menschen. Methoden. Kollaboration."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Pingpong"
-msgstr "Pingpong"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Platform"
-msgstr "Plattform"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.popover_html_content
@@ -585,63 +524,58 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Projects"
-msgstr "Projekte"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.publish_short
-#, fuzzy
 msgid "Publish"
-msgstr "Veröffentlicht"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Read More"
-msgstr "Read More"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
-msgid ""
-"Read More\n"
+msgid "Read More\n"
 "                                    <i class=\"fa fa-long-arrow-right\"/>"
 msgstr ""
-"Read More\n"
-"                                    <i class=\"fa fa-long-arrow-right\"/>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 msgid "Read more <i class=\"fa fa-long-arrow-right\"/>"
-msgstr "Read more <i class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-#, fuzzy
 msgid "References"
-msgstr "&amp;nbsp;Mitglieder Referenzen"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Register here"
-msgstr "Hier registrieren"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "SIGN UP NOW"
-msgstr "JETZT REGISTRIEREN"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Sadipscing elitr, sed diam nonumy eirmod tempor."
-msgstr "Sadipscing elitr, sed diam nonumy eirmod tempor."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Schweiz"
-msgstr "Schweiz"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Sed diam nonumy eirmod tempor."
-msgstr "Sed diam nonumy eirmod tempor."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.field_widget_m2o
@@ -652,138 +586,89 @@ msgstr ""
 #: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
 msgid "Sign Up"
-msgstr "Registrieren"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Sign up"
-msgstr "Registrieren"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Sign up for our newsletter and stay up to date:"
 msgstr ""
-"Schreiben Sie sich ein für unseren Newsletter und bleiben Sie auf dem "
-"Laufenden:"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Start Simulation"
-msgstr "Simulation starten"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Start!"
-msgstr "Start!"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"Step into Fluxdock and see the current planning status of the facility in "
-"the Transitlager at the Dreispitz."
+msgid "Step into Fluxdock and see the current planning status of the facility in the Transitlager at the Dreispitz."
 msgstr ""
-"Treten Sie ein ins Fluxdock und sehen Sie den aktuellen Planungsstand der "
-"Räume im Transitlager auf dem Dreispitz."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Subscribe"
-msgstr "Abonnieren"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"Successful collaboration requires physical interaction. In the Transitlager "
-"on the Dreispitz in Basel Fluxdock operates a place for companies to work "
-"and collaborate permanently or temporarily. The site provides up to 90 "
-"permanent workplaces and workplaces, meeting and event rooms as well as "
-"workshops and a studio that can be rented temporarily. The entire "
-"infrastructure is flexible, adaptable and designed to support agile ways of "
-"working and collaboration optimally."
+msgid "Successful collaboration requires physical interaction. In the Transitlager on the Dreispitz in Basel Fluxdock operates a place for companies to work and collaborate permanently or temporarily. The site provides up to 90 permanent workplaces and workplaces, meeting and event rooms as well as workshops and a studio that can be rented temporarily. The entire infrastructure is flexible, adaptable and designed to support agile ways of working and collaboration optimally."
 msgstr ""
-"Erfolgreiche Kollaboration bedingt physische Interaktion. Im Transitlager "
-"auf dem Dreispitz in Basel betreibt Fluxdock einen Standort, an dem Firmen "
-"dauerhaft oder temporär arbeiten und kollaborieren können. Der Standort "
-"bietet bis zu 90 feste Arbeitsplätze und Arbeitsplätze, Workshop-, Sitzungs- "
-"und Veranstaltungsräume sowie Werkstätten und ein Studio, die temporär "
-"gemietet werden können. Die gesamte Infrastruktur ist flexibel, anpassbar "
-"und darauf ausgelegt, agile Arbeitsweisen und Kollaboration räumlich und "
-"technisch optimal zu unterstützen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "The members constitute Fluxdock."
-msgstr "Die Mitglieder machen Fluxdock aus."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"They form together the interdisciplinary and collaborative network that "
-"comprises a multiplicity of competencies and enables the members mutually to "
-"innovation."
+msgid "They form together the interdisciplinary and collaborative network that comprises a multiplicity of competencies and enables the members mutually to innovation."
 msgstr ""
-"Sie bilden gemeinsam das interdisziplinäre und kollaborativen Netzwerk, das "
-"eine Vielzahl an Kompetenzen umfasst und die Mitglieder gegenseitig zu "
-"Innovation befähigt."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Titel. Klicke um auszuklappen."
-msgstr "Titel. Klicke um auszuklappen."
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.publish_short
-#, fuzzy
 msgid "Unpublish"
-msgstr "Nicht Veröffentlicht"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 msgid "Untitled Post"
-msgstr "Untitled Post"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"We are currently looking for a software developer who drives the development "
-"of our platform for collaborative innovation jointly with us."
+msgid "We are currently looking for a software developer who drives the development of our platform for collaborative innovation jointly with us."
 msgstr ""
-"<span style=\"line-height: 1.3\">Wir suchen per sofort eine Software-"
-"Entwicklerin oder einen Software-Entwickler, die/der mit uns gemeinsam die "
-"Entwicklung von Fluxdock, einer Plattform für kollaborative Innovation, "
-"vorantreibt</span>."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
-msgid ""
-"We believe that agile methods and methods of design thinking are best suited "
-"to promote collaboration and thereby innovation. An iterative approach, "
-"transparency, flexibility and trust are essential and can be lived by agile "
-"methods. Scrum provides a suitable framework for successful collaboration "
-"and innovation between companies. Fluxdock will therefore provide regular "
-"information, events, and offers on these methods in order to promote "
-"collaboration and innovation."
+msgid "We believe that agile methods and methods of design thinking are best suited to promote collaboration and thereby innovation. An iterative approach, transparency, flexibility and trust are essential and can be lived by agile methods. Scrum provides a suitable framework for successful collaboration and innovation between companies. Fluxdock will therefore provide regular information, events, and offers on these methods in order to promote collaboration and innovation."
 msgstr ""
-"Wir glauben, dass agile Methoden und Methoden des Design Thinkings bestens "
-"geeignet sind, um Kollaboration und damit Innovation zu fördern. Ein "
-"iteratives Vorgehen, Transparenz, Flexibilität und Vertrauen sind die "
-"Voraussetzung und können mittels agiler Methoden gelebt werden. Scrum bietet "
-"ein geeignetes Framework, um Kollaboration und Innovation zwischen Firmen "
-"erfolgreich zu gestalten. Fluxdock wird daher regelmässig Informationen, "
-"Events und Angebote zu diesen Methoden anbieten, um Kollaboration und "
-"Innovationskraft zu fördern."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Web"
-msgstr "Web"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Webentwicklung"
-msgstr "Webentwicklung"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -793,51 +678,43 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.model,name:theme_fluxdocs.model_website
 msgid "Website"
-msgstr "Website"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.snippet_content_opt
 msgid "White"
-msgstr "White"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "alle Expertisen"
-msgstr "alle Expertisen"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "alle Kategorien"
-msgstr "alle Kategorien"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "alle Länder"
-msgstr "alle Länder"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "email@domain.com"
-msgstr "email@domain.com"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "firma suchen"
-msgstr "firma suchen"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid ""
-"fluxdock bieten Firmen die Plattform um sich zu präsentieren, vernetzen und "
-"den offenen, interdisziplinären Austausch und die gleichberechtigte "
-"Kollaboration zu pflegen. Durch geeignete Regeln, Methoden und Tools "
-"befähigt fluxdock dabei seine Mitglieder zu mehr Innovation."
+msgid "fluxdock bieten Firmen die Plattform um sich zu präsentieren, vernetzen und den offenen, interdisziplinären Austausch und die gleichberechtigte Kollaboration zu pflegen. Durch geeignete Regeln, Methoden und Tools befähigt fluxdock dabei seine Mitglieder zu mehr Innovation."
 msgstr ""
-"fluxdock bieten Firmen die Plattform um sich zu präsentieren, vernetzen und "
-"den offenen, interdisziplinären Austausch und die gleichberechtigte "
-"Kollaboration zu pflegen. Durch geeignete Regeln, Methoden und Tools "
-"befähigt fluxdock dabei seine Mitglieder zu mehr Innovation."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.field_widget_image
@@ -848,7 +725,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
 msgid "not published"
-msgstr "Nicht Veröffentlicht"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.field_widget_image
@@ -858,4 +735,5 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "suchen"
-msgstr "suchen"
+msgstr ""
+
