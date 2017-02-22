@@ -11,9 +11,6 @@ migration:
           - specific_project
           - specific_project_proposal
           - theme_fluxdocs
-          - website_fluxdock_signup
-          - website_portal_profile
-          - website_portal_project
           # env conf
           - mail_environment
           # camptocamp/cloud-platform

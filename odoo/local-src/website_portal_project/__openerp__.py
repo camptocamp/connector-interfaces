@@ -18,10 +18,9 @@ This module adds projects inside your account's page on website.
                 'website_membership',
                 'website_crm_partner_assign'],
     'data': [
-        'data/data_proposal.xml',
         # 'views/project_project_templates.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'category': 'Hidden',
 }
