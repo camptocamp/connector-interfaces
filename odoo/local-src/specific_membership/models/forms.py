@@ -58,15 +58,8 @@ class PartnerForm(models.AbstractModel):
                 'image_preview_width': 200,
                 'image_preview_height': 200,
             })
-        # inject email help
-        email_help = self.env.ref(
-            'specific_membership.partner_form_email_help',
-            raise_if_not_found=False)
-        if email_help:
-            help_text = email_help.render({
-                'form_field': _fields['email'],
-            })
-            _fields['email']['help'] = help_text
+        _fields['email']['widget'].key = \
+            'specific_membership.email_field_widget_char'
 
     def form_validate_email(self, value, **req_values):
         error, message = None, None

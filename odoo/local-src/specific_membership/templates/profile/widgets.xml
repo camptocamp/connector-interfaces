@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="email_field_widget_char" name="Fluxdock email field widget"
+    inherit_id="cms_form.field_widget_char" primary="True">
+
+  <xpath expr="//input" position="attributes">
+    <attribute name="data-toggle">popover</attribute>
+    <attribute name="data-htmlcontent">#email_popover_html_content</attribute>
+  </xpath>
+  <xpath expr="//input" position="after">
+    <div id="email_popover_html_content" style="disply:none!important">If you modify your email, your login will be updated as well.</div>
+  </xpath>
+</template>
+
+</odoo>
