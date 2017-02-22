@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="proposal_search_form_header" name="Fluxdock proposal search form header">
+    <div class="content-icon">
+        <img src="/specific_project_proposal/static/src/img/market.png"></img>
+    </div>
+    <h2>Market</h2>
+  </template>
+
+</odoo>

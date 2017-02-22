@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <template id="ref_form_industry_help" name="Reference form industry help">
+  <template id="ref_form_industry_help" name="Fluxdock reference form industry help">
     <t t-if="form_field.get('help')">
         <t t-esc="form_field.get('help')" /><br /><br />
     </t>
@@ -9,7 +9,7 @@
     <a href="mailto:expertise@fluxdock.io?subject=new%20industry%20/%20expertise">expertise@fluxdock.io</a>
   </template>
 
-  <template id="ref_form_partner_help" name="Reference form partner help">
+  <template id="ref_form_partner_help" name="Fluxdock reference form partner help">
     <t t-if="form_field.get('help')">
           <t t-esc="form_field.get('help')" /><br /><br />
     </t>

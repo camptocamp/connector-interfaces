@@ -67,7 +67,9 @@
         <div class="item-tags">
             <strong>Industry:</strong>
             <span class="tag-value">
-                <t t-foreach="item.industry_ids" t-as="one_tag">
+                <!-- TODO: get rid of this after migrating `category_id` to `industry_ids` on partner model -->
+                <t t-set="industries" t-value="item.category_id if item._name == 'res.partner' else item.industry_ids" />
+                <t t-foreach="industries" t-as="one_tag">
                     <t t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
                 </t>
             </span>

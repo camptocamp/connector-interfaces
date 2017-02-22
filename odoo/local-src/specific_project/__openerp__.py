@@ -13,6 +13,7 @@
      'specific_membership',
      'cms_form',
      'cms_delete_content',
+     'theme_fluxdocs',
  ],
  'data': [
      'security/ir.model.access.csv',
@@ -21,7 +22,6 @@
      'views/menu.xml',
      'templates/reference.xml',
      'templates/search_form.xml',
-     'templates/reference_listing.xml',
      'templates/my_home.xml',
      'templates/help_msgs.xml',
  ],

@@ -30,6 +30,9 @@
         'website_membership',
         'partner_project_expertise',
         'cms_status_message',
+        'cms_form',
+        # flux
+        'theme_fluxdocs',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -47,10 +50,12 @@
         'templates/signup.xml',
         'templates/profile/reset.xml',
         'templates/profile/profile-progress.xml',
-        'templates/profile/profile-details.xml',
+        'templates/profile/profile_form.xml',
+        'templates/profile/widgets.xml',
         'templates/profile/my_home.xml',
         'templates/profile/upload.xml',
         'templates/membership/members_listing.xml',
+        'templates/membership/search_form.xml',
         'templates/membership/member_detail.xml',
         'templates/membership/payment.xml',
         # data

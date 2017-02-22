@@ -178,7 +178,7 @@ release.add_task(push_branches, 'push-branches')
 
 
 @task(default=True)
-def translate_generate(ctx, addon_path, update_po=True):
+def translate_generate(ctx, addon_path, update_po=True, remove_old=True):
     """ Generate pot template and merge it in language files
 
     Example:
@@ -213,8 +213,13 @@ def translate_generate(ctx, addon_path, update_po=True):
 
     if update_po:
         for po_file in glob.glob('%s/*.po' % i18n_dir):
+            print('merging %s' % po_file)
             ctx.run('msgmerge %(po)s %(pot)s -o %(po)s' %
                     {'po': po_file, 'pot': pot_file})
+            if remove_old:
+                print('removing old strings %s' % po_file)
+                ctx.run('msgattrib --no-obsolete -o %(po)s %(po)s' %
+                        {'po': po_file})
     print('%s.pot generated' % addon)
 
 translate.add_task(translate_generate, 'generate')

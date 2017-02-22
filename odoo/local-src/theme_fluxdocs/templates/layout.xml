@@ -2,7 +2,7 @@
 <openerp>
 	<data>
 
-		<template id="submenu" name="Submenu">
+		<template id="submenu" name="Fluxdock submenu">
 			<!-- barely copied from website and fixed "active" class -->
 		    <li t-if="not submenu.child_id" t-att-class="
 		        'active' if submenu.url and submenu.url != '/' and submenu.url in request.httprequest.path else None">
@@ -12,125 +12,150 @@
 		    </li>
 		</template>
 
-		<!-- Customize header -->
-		<template id="custom_header" inherit_id="website.layout" name="Custom Header">
+
+		<template id="personal_menu_content" name="Fluxdock personal menu content">
+			<li id="myhome">
+				<a href="/my/home" role="menuitem"><i class="fa fa-user" /> My home</a>
+			</li>
+			<li id="myprofile">
+				<a t-att-href="request.env.user.partner_id.website_url" role="menuitem"><i class="fa fa-user" /> My public profile</a>
+			</li>
+			<li role="separator" class="divider"></li>
+			<li id="add_reference">
+				<a t-att-href="request.env['project.reference'].cms_add_url" role="menuitem"><i class="fa fa-plus" /> Add reference</a>
+			</li>
+			<li id="add_proposal">
+				<a t-att-href="request.env['project.proposal'].cms_add_url" role="menuitem"><i class="fa fa-plus" /> Add proposal</a>
+			</li>
+			<li role="separator" class="divider"></li>
+			<li id="reset_pwd">
+				<a role="menuitem" t-attf-href="/web/reset_password?login=#{request.env.user.login}"><i class="fa fa-lock" /> Change password</a>
+			</li>
+			<li role="separator" class="divider"></li>
+			<li id="logout">
+				<a href="/web/session/logout?redirect=/" role="menuitem"><i class="fa fa-sign-out" /> Logout</a>
+			</li>
+		</template>
+
+
+		<template id="service_menu" name="Fluxdock service menu">
+			<!-- Logged in -->
+			<ul class="service-menu" t-ignore="true" t-if="request.session.uid">
+				<li id="user-menu">
+					<div class="dropdown">
+						<a id="usermenu" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-user" />
+							<span class="username" t-field="request.env.user.name" />
+							<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="usermenu">
+							<t t-call="theme_fluxdocs.personal_menu_content" />
+						</ul>
+					</div>
+				</li>
+				<li>
+					<t t-call="website.language_selector"/>
+				</li>
+			</ul>
+
+			<!-- Anonymous -->
+			<ul class="service-menu" t-ignore="true" t-if="not request.session.uid">
+				<li>
+					<a href="/web/login?redirect=/my/home">Login</a>
+				</li>
+				<li>
+					<a href="/web/presignup">Sign Up</a>
+				</li>
+				<li>
+					<t t-call="website.language_selector"/>
+				</li>
+			</ul>
+		</template>
+
+		<!-- Customize header -->odoo/src/addons/website_crm_claim/website_claim_view.xml
+		<template id="custom_header" inherit_id="website.layout" name="Fluxdock custom header">
 
 			<xpath expr="//div[@id='wrapwrap']/header" position="replace">
 				<header id="my_header">
-                    <div class="fluxdock-topbar">
+					<div class="fluxdock-topbar">
 
-                    	<a href="/" class="navbar-brand">
+						<a href="/" class="navbar-brand">
 							<!-- Needed for other modules to put their stuff in it -->
-                    	</a>
+						</a>
 
-                    	<a href="/" class="fluxdock-header-logo">
-				        	<div class="fluxdock-logo"></div>
-				        	<div class="fluxdock-title"></div>
-		        		</a>
+						<a href="/" class="fluxdock-header-logo">
+							<div class="fluxdock-logo"></div>
+							<div class="fluxdock-title"></div>
+						</a>
+						<ul id="top_menu">
+							<li></li>
+							<!-- Needed for other modules to put their stuff in it -->
+						</ul>
 
+						<ul class="main-menu">
+							<t t-foreach="website.menu_id.child_id" t-as="submenu">
+								<t t-call="theme_fluxdocs.submenu"/>
+							</t>
+						</ul>
 
+						<t t-call="theme_fluxdocs.service_menu"/>
 
-                        <ul id="top_menu">
-                            <li>
-                            </li>
-                            <!-- Needed for other modules to put their stuff in it -->
-                        </ul>
-
-                        <ul class="main-menu">
-		                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
-		                		<t t-call="theme_fluxdocs.submenu"/>
-		                	</t>
-		            	</ul>
-
-
-						<!-- Logged in -->
-		                <ul class="service-menu" t-ignore="true" t-if="website.user_id != user_id">
-		                    <li id="o_logout">
-		                    	<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">
-		                    		Logout
-		                    		<!-- <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>  -->
-		                    	</a>
-		                    </li>
-		                    <li id="myhome">
-		                    	<a t-attf-href="/my/home" role="menuitem">
-		                    		My Account
-		                    	</a>
-		                    </li>
-		                    <li>
-			            		<t t-call="website.language_selector"/>
-		                    </li>
-		                </ul>
-
-						<!-- Anonymous -->
-		                <ul class="service-menu" t-ignore="true" t-if="not website.user_id != user_id">
-							<li>
-		                    	<a href="/web/login?redirect=/my/home">Login</a>
-		                    </li>
-		                    <li>
-		                    	<a href="/web/presignup">Sign Up</a>
-		                    </li>
-		                    <li>
-			            		<t t-call="website.language_selector"/>
-		                    </li>
-		            	</ul>
+						<ul style="display:none!important">
+							<li id="o_logout">
+								<!-- fake hook for other website modules that want this
+										 to inject their stuff, but we don't want them to show anything here -->
+							</li>
+						</ul>
 
 						<!-- Hamburger -->
-		            	<div id="mobile-menu-trigger">
-		        			<i class="fa fa-bars"></i>
-		        		</div>
-	                </div>
-                </header>
+						<div id="mobile-menu-trigger">
+							<i class="fa fa-bars"></i>
+						</div>
+					</div>
+				</header>
 			</xpath>
 
 		</template>
 
 		<!-- Add mobile menu -->
-		<template id="mobile-menu" inherit_id="website.layout" name="Fluxdock Mobile Menu">
+	<template id="mobile-menu" inherit_id="website.layout" name="Fluxdock Mobile Menu">
 
-			<!-- ADD ID -->
-			<xpath expr="//div[@id='wrapwrap']" position="before">
-				<nav class="mobile-menu">
-					<ul class="main-menu">
-	                	<t t-foreach="website.menu_id.child_id" t-as="submenu">
-	                		<t t-call="theme_fluxdocs.submenu"/>
-	                	</t>
-	            	</ul>
+	<!-- ADD ID -->
+	<xpath expr="//div[@id='wrapwrap']" position="before">
+		<nav class="mobile-menu">
+			<ul class="main-menu">
+				<t t-foreach="website.menu_id.child_id" t-as="submenu">
+					<t t-call="theme_fluxdocs.submenu"/>
+				</t>
+			</ul>
 
+			<!-- Logged in -->
+			<ul class="service-menu" t-ignore="true" t-if="request.session.uid">
+				<t t-call="theme_fluxdocs.personal_menu_content" />
+			</ul>
 
+			<!-- Anonymous -->
+			<ul class="service-menu" t-ignore="true" t-if="not request.session.uid">
+				<li>
+					<a href="/web/login?redirect=/my/home">Login</a>
+				</li>
+				<li>
+					<a href="/web/presignup">Sign Up</a>
+				</li>
+			</ul>
 
-					<!-- Logged in -->
-	                <ul class="service-menu" t-ignore="true" t-if="website.user_id != user_id">
-	                    <li id="o_logout">
-	                    	<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">
-	                    		Logout
-	                    		<!-- <span t-esc="(len(user_id.name)&gt;25) and (user_id.name[:23]+'...') or user_id.name"/>  -->
-	                    	</a>
-	                    </li>
-	                </ul>
+			<t t-call="website.language_selector"/>
 
-					<!-- Anonymous -->
-	                <ul class="service-menu" t-ignore="true" t-if="not website.user_id != user_id">
-						<li>
-	                    	<a href="/web/login?redirect=/my/home">Login</a>
-	                    </li>
-	                    <li>
-	                    	<a href="/web/presignup">Sign Up</a>
-	                    </li>
-	            	</ul>
+			<div class="social-media">
+				<a class="facebook" href="https://www.facebook.com/fluxdock/" target="_blank"></a>
+				<a class="twitter" href="https://twitter.com/fluxdock" target="_blank"></a>
+				<a class="mail" href="mailto:info@fluxdock.io"></a>
+			</div>
 
+		</nav>
+	</xpath>
 
-		            <t t-call="website.language_selector"/>
-
-	                <div class="social-media">
-	                	<a class="facebook" href="https://www.facebook.com/fluxdock/" target="_blank"></a>
-	                	<a class="twitter" href="https://twitter.com/fluxdock" target="_blank"></a>
-	                	<a class="mail" href="mailto:info@fluxdock.io"></a>
-	                </div>
-
-				</nav>
-			</xpath>
-
-		</template>
+</template>
 
 
 		<!-- Customize footer -->

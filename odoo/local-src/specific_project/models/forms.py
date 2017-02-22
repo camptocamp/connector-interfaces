@@ -71,7 +71,7 @@ class ReferenceSearchForm(models.AbstractModel):
     """Reference model search form."""
 
     _name = 'cms.form.search.project.reference'
-    _inherit = 'cms.form.search'
+    _inherit = 'fluxdock.cms.form.search'
     _form_model = 'project.reference'
     _form_fields_order = (
         'name',
@@ -81,10 +81,17 @@ class ReferenceSearchForm(models.AbstractModel):
         'location',
         'only_my',
     )
-    form_template = 'specific_project.search_form'
     form_fields_template = 'specific_project.search_form_fields'
+    fluxdock_search_header_template = \
+        'specific_project.reference_search_form_header'
 
     only_my = fields.Boolean(string="Show only my references")
+
+    def listing_options(self):
+        return {
+            'show_preview': False,
+            'show_create_date': True,
+        }
 
     def form_search_domain(self, search_values):
         """Adapt domain to filter on personal items."""

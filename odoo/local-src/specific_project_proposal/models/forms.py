@@ -67,3 +67,5 @@ class ProposalSearchForm(models.AbstractModel):
     _form_model = 'project.proposal'
 
     only_my = fields.Boolean(string="Show only my proposals")
+    fluxdock_search_header_template = \
+        'specific_project_proposal.proposal_search_form_header'

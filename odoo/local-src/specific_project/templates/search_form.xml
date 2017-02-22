@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="search_form" name="Fluxdock project search form"
-              inherit_id="cms_form.base_form" primary="True">
-
-      <!-- remove std buttons at bottom -->
-      <xpath expr="//div[contains(@class, 'form-controls')]" position="replace" />
-
+    <template id="reference_search_form_header" name="Fluxdock reference search form header">
+      <div class="content-icon">
+        <img src="/specific_project/static/src/img/references_icon_white.png"/>
+      </div>
+      <h2>Member references</h2>
     </template>
 
     <template id="search_form_fields" name="Fluxdock project search form fields">
@@ -48,39 +47,6 @@
           </div>
         </div>
       </t>
-
-    </template>
-
-
-    <template id="search_form_wrapper" name="Fluxdock search form wrapper">
-
-        <t t-call="website.layout">
-          <t t-set="title" t-value="form.form_title" />
-          <div id="wrap" t-att-class="form.form_wrapper_css_klass">
-            <section class="content opt_dark_bg">
-              <div class="content-wrap">
-                <div class="center-block mb16">
-                  <t t-raw="0" />
-                </div>
-                <t t-raw="form.form_render()" />
-              </div>
-            </section>
-            <div class="container">
-              <div class="center-block main-content-wrapper" id="ref_content">
-                <t t-call="theme_fluxdocs.listing">
-                  <t t-set="listing_items" t-value="form.form_search_results['results']" />
-                  <t t-set="show_create_date" t-value="1" />
-                  <t t-set="item_tags_template" t-value="'theme_fluxdocs.item_tags'" />
-                </t>
-              </div>
-            </div>
-            <div class="text-center mb32">
-              <t t-call="website.pager">
-                <t t-set="pager" t-value="form.form_search_results['pager']" />
-              </t>
-            </div>
-          </div>
-        </t>
 
     </template>
 

@@ -6,14 +6,12 @@ from openerp import http
 from openerp.addons.cms_form.controllers.main import SearchFormControllerMixin
 
 
-class ProposalListing(http.Controller, SearchFormControllerMixin):
-
-    template = 'specific_project_proposal.proposal_search_form_wrapper'
+class ReferenceListing(http.Controller, SearchFormControllerMixin):
 
     @http.route([
-        '/market',
-        '/market/page/<int:page>',
+        '/references',
+        '/references/page/<int:page>',
     ], type='http', auth="public", website=True)
     def market(self, **kw):
-        model = 'project.proposal'
+        model = 'project.reference'
         return self.make_response(model, **kw)
