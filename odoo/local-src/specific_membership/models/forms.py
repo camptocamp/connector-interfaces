@@ -22,6 +22,7 @@ class PartnerForm(models.AbstractModel):
     _inherit = 'cms.form'
     _form_model = 'res.partner'
     _form_fields_order = (
+        'image',
         'name',
         'street2',
         'zip',
@@ -37,7 +38,6 @@ class PartnerForm(models.AbstractModel):
         # category_id = industry_ids
         'category_id',
         'expertise_ids',
-        'image',
     )
     _form_required_fields = (
         "name", "street2", "zipcode", "city", "country_id", "phone", "email")
@@ -49,9 +49,42 @@ class PartnerForm(models.AbstractModel):
     def form_title(self):
         return _('Member profile')
 
+    @property
+    def help_texts(self):
+        texts = {
+            'image': _(
+                'This field holds the company logo, limited to 1024x1024px'
+            ),
+        }
+        return texts
+
+    @property
+    def field_label_overrides(self):
+        texts = {
+            'image': _('Company logo'),
+            'name': _('Company name'),
+            'street2': _('Street / No.'),
+            'website_short_description': _('Claim'),
+            'category_id': _('Industries'),
+        }
+        return texts
+
     def form_update_fields_attributes(self, _fields):
         """Override to add help messages."""
         super(PartnerForm, self).form_update_fields_attributes(_fields)
+
+        # add extra help texts
+        for fname, help_text in self.help_texts.iteritems():
+            _fields[fname]['help'] = help_text
+
+        # remove some help texts
+        for fname in ('website', 'expertise_ids'):
+            _fields[fname]['help'] = ''
+
+        # update some labels
+        for fname, label in self.field_label_overrides.iteritems():
+            _fields[fname]['string'] = label
+
         # update image widget to force size
         _fields['image']['widget'] = ImageWidget(
             self, 'image', _fields['image'], data={
