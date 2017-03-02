@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<templates id="flux_qweb_templates" xml:space="preserve" inherit_id="cms_status_message.qweb_templates">
+
+  <t t-name="fluxdocs_theme.message_wrapper" t-extend="cms_status_message.message_wrapper">
+    <t t-jquery=".msg-wrapper" t-operation="replace">
+      <div class="msg-wrapper row">
+        <t t-if="msg['title']">
+          <div class="title col-md-3">
+            <strong t-esc="msg['title']" />
+          </div>
+        </t>
+        <div t-attf-class="msg #{msg['title'] and 'col-md-9' or 'col-md-12'}">
+          <t t-raw="msg['msg']" />
+        </div>
+      </div>
+    </t>
+  </t>
+
+</templates>
