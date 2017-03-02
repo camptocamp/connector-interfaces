@@ -6,6 +6,7 @@ from openerp import models, fields, _
 from openerp import SUPERUSER_ID
 from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
 from openerp.addons.cms_form.widgets import ImageWidget
+from openerp.addons.cms_form.widgets import M2OWidget
 
 import logging
 _logger = logging.getLogger(__name__)
@@ -13,6 +14,28 @@ try:
     from validate_email import validate_email
 except ImportError:
     _logger.debug("Cannot import `validate_email`.")
+
+
+class CountryM2OWidget(M2OWidget):
+
+    priority_countries = (
+        'base.ch', 'base.de',
+        'base.uk', 'base.at',
+        'base.fr', 'base.it'
+    )
+
+    @property
+    def option_items(self):
+        domain = self.domain[:]
+        # priority countries
+        prio = []
+        # switzerland, germany, UK, austria, france
+        for xmlid in self.priority_countries:
+            prio.append(self.env.ref(xmlid))
+        domain.append(('id', 'not in', [x.id for x in prio]))
+        _all = self.comodel.search(domain)
+        result = prio + list(_all)
+        return result
 
 
 class PartnerForm(models.AbstractModel):
@@ -91,8 +114,13 @@ class PartnerForm(models.AbstractModel):
                 'image_preview_width': 200,
                 'image_preview_height': 200,
             })
+        # use another template for email widget
         _fields['email']['widget'].key = \
             'specific_membership.email_field_widget_char'
+
+        # pre-sorted countries widget
+        _fields['country_id']['widget'] = CountryM2OWidget(
+            self, 'country_id', _fields['country_id'], data={})
 
     def form_validate_email(self, value, **req_values):
         error, message = None, None
