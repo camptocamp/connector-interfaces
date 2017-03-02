@@ -8,7 +8,9 @@
 
 * Cleanup POT/PO files for all custom modules
 * [RM#16610](https://redmine.iart.ch/issues/16610) Adapt invoice
-* [RM#16525](https://redmine.iart.ch/issues/16525) Associate Membership - adapt product price
+* [RM#16525](https://redmine.iart.ch/issues/16525) Associate Membership - adapt product price, name and make it not updatable
+* [RM#16623](https://redmine.iart.ch/issues/16623) filter industry / expertise: OR not AND condition
+* [RM#16260](https://redmine.iart.ch/issues/16260) Update /my/account design
 
 
 ## 9.2.3 (2016-02-14)

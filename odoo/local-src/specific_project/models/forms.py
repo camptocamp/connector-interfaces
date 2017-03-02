@@ -102,4 +102,13 @@ class ReferenceSearchForm(models.AbstractModel):
         # if value is submitted then filter by owner
         if self.o_request.session.uid and search_values.get('only_my'):
             domain.append(('create_uid', '=', self.env.user.id))
+        # put industry_ids and expertise_ids in OR
+        exp = [x for x in domain if x[0] == 'industry_ids']
+        ind = [x for x in domain if x[0] == 'expertise_ids']
+        if ind and exp:
+            common_domain = [
+                x for x in domain
+                if x[0] not in ('industry_ids', 'expertise_ids')
+            ]
+            domain = ['&', '|', ] + ind + exp + ['&'] + common_domain
         return domain

@@ -9,7 +9,7 @@
     <attribute name="data-htmlcontent">#email_popover_html_content</attribute>
   </xpath>
   <xpath expr="//input" position="after">
-    <div id="email_popover_html_content" style="disply:none!important">If you modify your email, your login will be updated as well.</div>
+    <div id="email_popover_html_content" style="display:none!important">If you modify your email, your login will be updated as well.</div>
   </xpath>
 </template>
 
