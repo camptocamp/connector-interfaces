@@ -16,7 +16,7 @@ except ImportError:
     _logger.debug("Cannot import `validate_email`.")
 
 
-class CountryM2OWidget(M2OWidget):
+class PriorityCountryM2OWidget(M2OWidget):
 
     priority_countries = (
         'base.ch', 'base.de',
@@ -119,7 +119,7 @@ class PartnerForm(models.AbstractModel):
             'specific_membership.email_field_widget_char'
 
         # pre-sorted countries widget
-        _fields['country_id']['widget'] = CountryM2OWidget(
+        _fields['country_id']['widget'] = PriorityCountryM2OWidget(
             self, 'country_id', _fields['country_id'], data={})
 
     def form_validate_email(self, value, **req_values):
@@ -265,8 +265,8 @@ class PartnerSearchForm(models.AbstractModel):
     def form_update_fields_attributes(self, _fields):
         """Override to change country domain."""
         super(PartnerSearchForm, self).form_update_fields_attributes(_fields)
-        # update image widget to force size
-        _fields['country_id']['domain'] = self.get_country_domain()
+        # TODO: move this to a custom widget
+        # _fields['country_id']['domain'] = self.get_country_domain()
         # TODO: remove when moving to proper industry_ids field
         _fields['category_id']['string'] = _('Industries')
 
@@ -286,5 +286,4 @@ class PartnerSearchForm(models.AbstractModel):
                 ('name', 'ilike', search_name),
                 ('website_description', 'ilike', search_name)
             ]
-        print domain
         return domain

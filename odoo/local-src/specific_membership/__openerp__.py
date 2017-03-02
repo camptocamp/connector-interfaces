@@ -54,7 +54,6 @@
         'templates/profile/widgets.xml',
         'templates/profile/my_home.xml',
         'templates/profile/upload.xml',
-        'templates/membership/members_listing.xml',
         'templates/membership/search_form.xml',
         'templates/membership/member_detail.xml',
         'templates/membership/payment.xml',
