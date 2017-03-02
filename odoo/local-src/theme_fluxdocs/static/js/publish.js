@@ -4,6 +4,9 @@ odoo.define('theme_fluxdock.publish', function (require) {
     // var Model = require('web.Model');
     var ajax = require('web.ajax');
     var base = require('web_editor.base');
+    var msg_tool = require('cms_status_message.tool');
+    var core = require('web.core');
+    var _t = core._t;
 
     // unbind existing publish widget event
     $(document).off('click','.js_publish_management .js_publish_btn');
@@ -13,19 +16,41 @@ odoo.define('theme_fluxdock.publish', function (require) {
         // we need to redirect after a while to user's home
         e.preventDefault();
         var $data = $(this).parents(".js_publish_management:first");
-        ajax.jsonRpc('/flux/publisher', 'call', {'id': +$data.data('id'), 'object': $data.data('object')})
-            .then(function (result) {
-                if (result.ok){
-                    $data.toggleClass("css_unpublished css_published");
-                    $data.parents("[data-publish]").attr("data-publish", +result ? 'on' : 'off');
+        ajax.jsonRpc(
+            '/flux/publisher', 'call',
+            {'id': +$data.data('id'), 'object': $data.data('object')}
+        ).then(function (result) {
+            if (result.ok){
+                $data.toggleClass("css_unpublished css_published");
+                $data.parents("[data-publish]").attr("data-publish", + result ? 'on' : 'off');
+            }
+
+            // inject status message
+            var msg;
+            if (result.status) {
+                msg = {
+                    'msg': _t('Item published.'),
+                    'title': _t('Info')
                 }
-                if(result.redirect){
-                    window.setTimeout(function() {
-                        location.href = result.redirect;
-                    }, 2000);
+            } else {
+                msg = {
+                    'msg': _t('Item unpublished.'),
+                    'title': _t('Warning'),
+                    'type': 'warning'
                 }
-            }).fail(function (err, data) {
-                error(data, '/web#return_label=Website&model='+$data.data('object')+'&id='+$data.data('id'));
-            });
+            }
+            // wipe existing
+            $('.status_message').remove();
+            // inject new
+            $(msg_tool.render_messages(msg)).hide().prependTo('main').fadeIn('slow');
+
+            if(result.redirect){
+                window.setTimeout(function() {
+                    location.href = result.redirect;
+                }, 2000);
+            }
+        }).fail(function (err, data) {
+            error(data, '/web#return_label=Website&model='+$data.data('object')+'&id='+$data.data('id'));
+        });
     });
 });
