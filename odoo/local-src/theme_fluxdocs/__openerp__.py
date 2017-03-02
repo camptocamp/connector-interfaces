@@ -24,7 +24,4 @@
         'cms_delete_content',
         'cms_form',
     ],
-    'qweb': [
-        'static/src/xml/*.xml'
-    ],
 }
