@@ -10,7 +10,7 @@
 * [RM#16610](https://redmine.iart.ch/issues/16610) Adapt invoice
 * [RM#16525](https://redmine.iart.ch/issues/16525) Associate Membership - adapt product price, name and make it not updatable
 * [RM#16623](https://redmine.iart.ch/issues/16623) filter industry / expertise: OR not AND condition
-* [RM#16260](https://redmine.iart.ch/issues/16260) Update /my/account design
+* [RM#16260](https://redmine.iart.ch/issues/16260) Update /my/account design (includes: migrate partner forms to cms_form)
 * [RM#16622](https://redmine.iart.ch/issues/16622) info message on unpublish
 * [RM#16392](https://redmine.iart.ch/issues/16392) countries pre-sorted
 
