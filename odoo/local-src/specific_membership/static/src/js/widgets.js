@@ -12,6 +12,18 @@ var page_widgets = {};
 
 $(document).ready(function () {
 
+    $('form [name="country_id"]').change(function(){
+        var phone_code = $(this).find(':selected').data('country').phone_code;
+        if (phone_code) {
+            var val = $('form input[name="phone"]').val();
+            if (val.split(' ').length > 1) {
+                // country code already present: +41 34353354534
+                val = val.split(' ')[1];
+            }
+            $('form input[name="phone"]').val('+' + phone_code + ' ' + val);
+        }
+    });
+
     var widget_parent = $('body');
 
 

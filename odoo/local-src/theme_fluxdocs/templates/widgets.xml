@@ -10,14 +10,24 @@
                   t-att-data-params="widget.data">
             <option value=""><t t-esc="widget.field['string'] + '...'" /></option>
             <t t-foreach="widget.option_items" t-as="opt_item">
-             <option t-att-value="opt_item.id"
+             <option class="value"
+                     t-att-value="opt_item.id"
                      t-att-selected="opt_item.id == widget.field_value">
-                 <t t-esc="opt_item.name"/>
+                <t t-esc="opt_item.name"/>
              </option>
             </t>
           </select>
         </div>
       </select>
+    </template>
+
+    <template id="country_field_widget_m2o"
+              name="Fluxdock country m2o field widget"
+              inherit_id="theme_fluxdocs.field_widget_m2o"
+              primary="True">
+      <xpath expr="//option[contains(@class,'value')]" position="attributes">
+        <attribute name="t-att-data-country">widget.country_info(opt_item)</attribute>
+      </xpath>
     </template>
 
 

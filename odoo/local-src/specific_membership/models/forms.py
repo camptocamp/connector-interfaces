@@ -8,6 +8,7 @@ from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
 from openerp.addons.cms_form.widgets import ImageWidget
 from openerp.addons.cms_form.widgets import M2OWidget
 
+import json
 import logging
 _logger = logging.getLogger(__name__)
 try:
@@ -18,11 +19,19 @@ except ImportError:
 
 class PriorityCountryM2OWidget(M2OWidget):
 
+    key = 'theme_fluxdocs.country_field_widget_m2o'
+
     priority_countries = (
         'base.ch', 'base.de',
         'base.uk', 'base.at',
         'base.fr', 'base.it'
     )
+
+    def country_info(self, opt_item):
+        return json.dumps({
+            'code': opt_item.code,
+            'phone_code': opt_item.phone_code
+        })
 
     @property
     def option_items(self):
