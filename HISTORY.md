@@ -2,7 +2,7 @@
 
 <!-- PLACEHOLDER_NEW_RELEASE -->
 
-## 9.2.4 (Unreleased)
+## 9.2.4b1 (2017-03-06)
 
 **Features and Improvements**
 
@@ -13,9 +13,10 @@
 * [RM#16260](https://redmine.iart.ch/issues/16260) Update /my/account design (includes: migrate partner forms to cms_form)
 * [RM#16622](https://redmine.iart.ch/issues/16622) info message on unpublish
 * [RM#16392](https://redmine.iart.ch/issues/16392) countries pre-sorted
+* [RM#16394](https://redmine.iart.ch/issues/16394) phone numbers, international code suggestions
 
 
-## 9.2.3 (2016-02-14)
+## 9.2.3 (2017-02-14)
 
 **Features and Improvements**
 
@@ -24,7 +25,7 @@
   Add validation handling to cms_form + improved tests.
 
 
-## 9.2.2 (2016-02-09)
+## 9.2.2 (2017-02-09)
 
 **Features and Improvements**
 
