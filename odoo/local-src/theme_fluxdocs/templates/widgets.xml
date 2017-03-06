@@ -131,7 +131,7 @@
             Please, publish your project proposal...
         </t>
         <t t-if="object._name not in ('project.proposal', 'project.reference')">
-            Please, rememer to publish your content when editing is finished.
+            Please, remember to publish your content when editing is finished.
         </t>
     </template>
 

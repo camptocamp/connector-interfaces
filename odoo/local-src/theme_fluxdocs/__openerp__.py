@@ -5,6 +5,8 @@
     'author': 'Pierre Sandrin',
     'data': [
         'templates/layout.xml',
+        'templates/footer.xml',
+        'templates/blog_news_list.xml',
         'templates/snippets.xml',
         'templates/options.xml',
         'templates/assets.xml',

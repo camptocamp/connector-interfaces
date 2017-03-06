@@ -6,25 +6,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 13:02+0000\n"
-"PO-Revision-Date: 2016-12-19 15:18+0000\n"
+"POT-Creation-Date: 2017-03-06 10:34+0000\n"
+"PO-Revision-Date: 2017-03-03 15:47+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 1.8.12\n"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_overview
 msgid "<span>Show more</span><span class=\"hidden\">Show less</span>"
-msgstr "<span>Show more</span><span class=\"hidden\">Show less</span>"
+msgstr ""
+"<span>Mehr anzeigen</span><span class=\"hidden\">Weniger anzeigen</span>"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_detail
 msgid "<strong>Country:</strong>"
-msgstr "<strong>Country:</strong>"
+msgstr "<strong>Land:</strong>"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_detail
@@ -39,12 +41,12 @@ msgstr "<strong>Expertise:</strong>"
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_detail
 msgid "<strong>Industry:</strong>"
-msgstr "<strong>Industry:</strong>"
+msgstr "<strong>Branche:</strong>"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_detail
 msgid "<strong>Location:</strong>"
-msgstr "<strong>Location:</strong>"
+msgstr "<strong>Ort:</strong>"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_detail
@@ -53,9 +55,8 @@ msgstr "<strong>Video URL:</strong>"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_detail
-#, fuzzy
 msgid "<strong>Website URL:</strong>"
-msgstr "<strong>Video URL:</strong>"
+msgstr "<strong>Website URL:</strong>"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_message_needaction
@@ -65,11 +66,10 @@ msgstr "Aktion notwendig"
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_overview
 msgid "Add a reference"
-msgstr "Add a reference"
+msgstr "Referenzprojekt hinzufügen"
 
 #. module: specific_project
 #: model:ir.model,name:specific_project.model_cms_form_project_reference
-#: model:ir.model,name:specific_project.model_cms_form_search_project_reference
 msgid "CMS Form mixin"
 msgstr ""
 
@@ -120,6 +120,8 @@ msgstr "Angezeigter Name"
 #: model:ir.ui.view,arch_db:specific_project.ref_form_industry_help
 msgid "Don't find your industry or expertise? Write us an email at"
 msgstr ""
+"Ist Ihre Branche oder Expertise nicht aufgeführt? Schreiben Sie uns eine "
+"Email an"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.ref_form_partner_help
@@ -127,6 +129,8 @@ msgid ""
 "Don't find your partner? Write us an email with the partner company name and "
 "email address at"
 msgstr ""
+"Ist Ihr Projektpartner noch kein Fluxdock Mitglied? Schreiben Sie uns eine "
+"Email mit Firmenname und Email-Adresse des Projektpartners an"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_overview
@@ -140,13 +144,17 @@ msgstr "Expertises"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_ext_website_url
-#, fuzzy
 msgid "External Website URL"
-msgstr "Webseite URL"
+msgstr "Website URL"
 
 #. module: specific_project
 #: model:ir.ui.menu,name:specific_project.fluxdock_menu_project
 msgid "Fluxdock"
+msgstr ""
+
+#. module: specific_project
+#: model:ir.model,name:specific_project.model_cms_form_search_project_reference
+msgid "Fluxdock CMS search form"
 msgstr ""
 
 #. module: specific_project
@@ -184,12 +192,12 @@ msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_implementation_date
 msgid "Implementation date"
-msgstr ""
+msgstr "Fertigstellung"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_industry_ids
 msgid "Industries"
-msgstr "Industries"
+msgstr "Branchen"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_message_is_follower
@@ -221,7 +229,7 @@ msgstr "Zuletzt aktualisiert am"
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_location
 msgid "Location"
-msgstr "Veranstaltungsort"
+msgstr "Ort"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_image_url
@@ -230,9 +238,8 @@ msgstr "Main image URL"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_search_form_header
-#, fuzzy
 msgid "Member references"
-msgstr "References"
+msgstr "Mitglieder Referenzen"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_message_ids
@@ -263,7 +270,7 @@ msgstr "Besitzer"
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.view_project_reference_form
 msgid "Project Details"
-msgstr "Project Details"
+msgstr "Projektdetails"
 
 #. module: specific_project
 #: model:ir.model,name:specific_project.model_project_reference
@@ -272,20 +279,18 @@ msgstr "Referenzprojekt"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_image
-#, fuzzy
 msgid "Reference image"
-msgstr "References ids"
+msgstr "Bild"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_name
-#, fuzzy
 msgid "Reference title"
-msgstr "References ids"
+msgstr "Titel"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_linked_partner_ids
 msgid "Referenced partners"
-msgstr "Referenced partners"
+msgstr "Projektpartner"
 
 #. module: specific_project
 #: model:ir.actions.act_window,name:specific_project.action_project_reference
@@ -294,12 +299,12 @@ msgstr "Referenced partners"
 #: model:ir.ui.view,arch_db:specific_project.view_project_reference_form
 #: model:ir.ui.view,arch_db:specific_project.view_project_reference_tree
 msgid "References"
-msgstr "References"
+msgstr "Referenzen"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_overview
 msgid "References are projects your company has realized."
-msgstr ""
+msgstr "Referenzen sind Projekte, die Ihre Firma umgesetzt hat."
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_res_users_references_ids
@@ -312,27 +317,27 @@ msgstr "References ids"
 #, python-format
 msgid "Register here projects your company accomplished successfully."
 msgstr ""
+"Erfassen Sie hier Projekte, die Ihre Firma erfolgreich durchgeführt hat."
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_detail
 msgid "Related Members"
-msgstr "Related Members"
+msgstr "Projektpartner"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.search_form_fields
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_overview
 msgid "Show all references"
-msgstr "Show all references"
+msgstr "Alle Referenzen"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_cms_form_search_project_reference_only_my
-#, fuzzy
 msgid "Show only my references"
-msgstr "Show all references"
+msgstr "Nur meine Referenzprojekte"
 
 #. module: specific_project
 #: model:ir.model.fields,help:specific_project.field_project_reference_website_url
@@ -343,7 +348,7 @@ msgstr ""
 #. module: specific_project
 #: model:ir.model.fields,help:specific_project.field_project_reference_industry_ids
 msgid "To which industries belongs the project?"
-msgstr ""
+msgstr "Welchen Branchen ist das Projekt zuzuordnen?"
 
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_message_unread
@@ -378,7 +383,7 @@ msgstr "Website Nachrichten"
 #. module: specific_project
 #: model:ir.model.fields,field_description:specific_project.field_project_reference_website_url
 msgid "Website URL"
-msgstr "Webseite URL"
+msgstr "Website URL"
 
 #. module: specific_project
 #: model:ir.model.fields,help:specific_project.field_project_reference_website_message_ids
@@ -388,12 +393,12 @@ msgstr "Website Kommunikationshistorie"
 #. module: specific_project
 #: model:ir.model.fields,help:specific_project.field_project_reference_expertise_ids
 msgid "Which expertises did your company bring to the project?"
-msgstr ""
+msgstr "Welche Expertisen hat Ihre Firma in das Projekt eingebracht?"
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_overview
 msgid "You have currently registred no references on your account."
-msgstr "You have currently registred no references on your account."
+msgstr "Sie haben zur Zeit noch kein Referenzprojekt hinzugefügt."
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.view_project_reference_form
@@ -408,7 +413,7 @@ msgstr ""
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.ref_form_partner_help
 msgid "for inviting him."
-msgstr ""
+msgstr "um ihn einzuladen."
 
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.ref_form_partner_help
@@ -418,4 +423,4 @@ msgstr ""
 #. module: specific_project
 #: model:ir.ui.view,arch_db:specific_project.reference_overview
 msgid "not published"
-msgstr "Nicht Veröffentlicht"
+msgstr "nicht veröffentlicht"

@@ -13,7 +13,7 @@ After confirmation you will receive per email the invoice for the membership fee
         <div>
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
-              <h1>Billing Address</h1>
+              <h1>Membership Upgrade</h1>
               <div class="item-description">
                 <t t-call="specific_membership.membership_payment_address_claim"/>
               </div>

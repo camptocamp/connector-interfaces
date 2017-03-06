@@ -2,7 +2,7 @@
 <odoo>
 
   <record model="ir.ui.view" id="view_project_reference_form">
-    <field name="name">project.reference.form</field>
+    <field name="name">Fluxdock project.reference.form</field>
     <field name="model">project.reference</field>
     <field name="arch" type="xml">
       <form string="References">
@@ -54,7 +54,7 @@
   <!-- Project Proposal Tree View  -->
 
   <record model="ir.ui.view" id="view_project_reference_tree">
-    <field name="name">References - Tree</field>
+    <field name="name">Fluxdock References - Tree</field>
     <field name="model">project.reference</field>
     <field name="arch" type="xml">
       <tree string="References">

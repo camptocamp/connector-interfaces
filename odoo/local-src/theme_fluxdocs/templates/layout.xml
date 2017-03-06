@@ -15,25 +15,28 @@
 
 		<template id="personal_menu_content" name="Fluxdock personal menu content">
 			<li id="myhome">
-				<a href="/my/home" role="menuitem"><i class="fa fa-user" /> My home</a>
+				<a href="/my/home" role="menuitem"><i class="fa fa-user" t-translation="off" /> My home</a>
+			</li>
+			<li id="myprofile_edit">
+				<a href="/my/account" role="menuitem"><i class="fa fa-pencil" t-translation="off" /> Edit my profile</a>
 			</li>
 			<li id="myprofile">
-				<a t-att-href="request.env.user.partner_id.website_url" role="menuitem"><i class="fa fa-user" /> My public profile</a>
+				<a t-att-href="request.env.user.partner_id.website_url" role="menuitem"><i class="fa fa-user" t-translation="off" /> My public profile</a>
 			</li>
 			<li role="separator" class="divider"></li>
 			<li id="add_reference">
-				<a t-att-href="request.env['project.reference'].cms_add_url" role="menuitem"><i class="fa fa-plus" /> Add reference</a>
+				<a t-att-href="request.env['project.reference'].cms_add_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add reference</a>
 			</li>
 			<li id="add_proposal">
-				<a t-att-href="request.env['project.proposal'].cms_add_url" role="menuitem"><i class="fa fa-plus" /> Add proposal</a>
+				<a t-att-href="request.env['project.proposal'].cms_add_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add proposal</a>
 			</li>
 			<li role="separator" class="divider"></li>
 			<li id="reset_pwd">
-				<a role="menuitem" t-attf-href="/web/reset_password?login=#{request.env.user.login}"><i class="fa fa-lock" /> Change password</a>
+				<a role="menuitem" t-attf-href="/web/reset_password?login=#{request.env.user.login}"><i class="fa fa-lock" t-translation="off" /> Change password</a>
 			</li>
 			<li role="separator" class="divider"></li>
 			<li id="logout">
-				<a href="/web/session/logout?redirect=/" role="menuitem"><i class="fa fa-sign-out" /> Logout</a>
+				<a href="/web/session/logout?redirect=/" role="menuitem"><i class="fa fa-sign-out" t-translation="off" /> Logout</a>
 			</li>
 		</template>
 
@@ -72,7 +75,7 @@
 			</ul>
 		</template>
 
-		<!-- Customize header -->odoo/src/addons/website_crm_claim/website_claim_view.xml
+		<!-- Customize header -->
 		<template id="custom_header" inherit_id="website.layout" name="Fluxdock custom header">
 
 			<xpath expr="//div[@id='wrapwrap']/header" position="replace">
@@ -118,115 +121,43 @@
 		</template>
 
 		<!-- Add mobile menu -->
-	<template id="mobile-menu" inherit_id="website.layout" name="Fluxdock Mobile Menu">
+		<template id="mobile-menu" inherit_id="website.layout" name="Fluxdock Mobile Menu">
 
-	<!-- ADD ID -->
-	<xpath expr="//div[@id='wrapwrap']" position="before">
-		<nav class="mobile-menu">
-			<ul class="main-menu">
-				<t t-foreach="website.menu_id.child_id" t-as="submenu">
-					<t t-call="theme_fluxdocs.submenu"/>
-				</t>
-			</ul>
+			<xpath expr="//div[@id='wrapwrap']" position="before">
+				<nav class="mobile-menu">
+					<ul class="main-menu">
+						<t t-foreach="website.menu_id.child_id" t-as="submenu">
+							<t t-call="theme_fluxdocs.submenu"/>
+						</t>
+					</ul>
 
-			<!-- Logged in -->
-			<ul class="service-menu" t-ignore="true" t-if="request.session.uid">
-				<t t-call="theme_fluxdocs.personal_menu_content" />
-			</ul>
+					<!-- Logged in -->
+					<ul class="service-menu" t-ignore="true" t-if="request.session.uid">
+						<t t-call="theme_fluxdocs.personal_menu_content" />
+					</ul>
 
-			<!-- Anonymous -->
-			<ul class="service-menu" t-ignore="true" t-if="not request.session.uid">
-				<li>
-					<a href="/web/login?redirect=/my/home">Login</a>
-				</li>
-				<li>
-					<a href="/web/presignup">Sign Up</a>
-				</li>
-			</ul>
+					<!-- Anonymous -->
+					<ul class="service-menu" t-ignore="true" t-if="not request.session.uid">
+						<li>
+							<a href="/web/login?redirect=/my/home">Login</a>
+						</li>
+						<li>
+							<a href="/web/presignup">Sign Up</a>
+						</li>
+					</ul>
 
-			<t t-call="website.language_selector"/>
+					<t t-call="website.language_selector"/>
 
-			<div class="social-media">
-				<a class="facebook" href="https://www.facebook.com/fluxdock/" target="_blank"></a>
-				<a class="twitter" href="https://twitter.com/fluxdock" target="_blank"></a>
-				<a class="mail" href="mailto:info@fluxdock.io"></a>
-			</div>
+					<div class="social-media">
+						<a class="facebook" href="https://www.facebook.com/fluxdock/" target="_blank"></a>
+						<a class="twitter" href="https://twitter.com/fluxdock" target="_blank"></a>
+						<a class="mail" href="mailto:info@fluxdock.io"></a>
+					</div>
 
-		</nav>
-	</xpath>
-
-</template>
-
-
-		<!-- Customize footer -->
-		<template id="fluxdock_footer" inherit_id="website.layout" name="Fluxdock Footer">
-
-			<!-- ADD ID -->
-			<xpath expr="//div[@id='wrapwrap']/footer" position="attributes">
-				<attribute name="id">my_footer</attribute>
+				</nav>
 			</xpath>
 
 		</template>
-
-		<template id="website.layout_footer_copyright" inherit_id="website.layout" name="Footer Copyright">
-
-		    <xpath expr="//footer" position="inside">
-		    	<div class="footer-row clearfix">
-			        <div class="footer-logo">
-				    	<a href="/">
-					    	<img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"></img>
-				    	</a>
-			    	</div>
-
-					<div class="footer-links clearfix">
-						<div class="footer-col">
-							<h4>Subtitle</h4>
-							<p>
-								<a href="/">Homepage</a>
-							</p>
-						</div>
-						<div class="footer-col">
-							<h4>Subtitle 2</h4>
-							<p>
-								...
-							</p>
-						</div>
-						<div class="footer-col">
-							<h4>Subtitle 3</h4>
-							<p>
-								...
-							</p>
-						</div>
-					</div>
-			        <div class="sponsors">
-				    	<div class="sponsor sponsor-iart">
-							<a href="http://www.iart.ch" target="_blank">
-								<img src="/theme_fluxdocs/static/img/footer-logos/iart.png"></img>
-							</a>
-						</div>
-				    	<div class="sponsor sponsor-mengagement">
-							<a href="http://www.engagement-migros.ch" target="_blank">
-								<img src="/theme_fluxdocs/static/img/footer-logos/mengagement.png"></img>
-							</a>
-						</div>
-				    	<div class="sponsor sponsor-cms">
-							<a href="http://www.cms-basel.ch" target="_blank">
-								<img src="/theme_fluxdocs/static/img/footer-logos/cms.png"></img>
-							</a>
-						</div>
-						<div class="sponsor sponsor-c2c">
-							<a href="http://www.camptocamp.com" target="_blank">
-								<img src="/theme_fluxdocs/static/img/footer-logos/c2c.png"></img>
-							</a>
-						</div>
-			    	</div>
-		    	</div>
-		    	<div class="copyright">
-		    		copyright © 2016
-		    	</div>
-		    </xpath>
-		</template>
-
 
 		<!-- Customize News List -->
 		<template id="fluxdock_news_list" inherit_id="website_blog.blog_post_short" name="Fluxdock News List">

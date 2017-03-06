@@ -2,7 +2,17 @@
 
 <!-- PLACEHOLDER_NEW_RELEASE -->
 
-## 9.2.4b1 (2017-03-06)
+## 9.2.4b2 (Unreleased)
+
+**Features and Improvements**
+
+* [RM#16671](https://redmine.iart.ch/issues/16671) update wording, translations, view names and typos
+* [RM#16672](https://redmine.iart.ch/issues/16672) Email templates + footer: copyright 2017 / translation
+* [RM#16100](https://redmine.iart.ch/issues/16100) [add] links to profile progress tooltips
+* [RM#16410](https://redmine.iart.ch/issues/16410) Restrict teaser on 200 characters (use new textarea widget in cms_form)
+
+
+## 9.2.4b1 (2017-03-06 - INT)
 
 **Features and Improvements**
 
@@ -14,7 +24,6 @@
 * [RM#16622](https://redmine.iart.ch/issues/16622) info message on unpublish
 * [RM#16392](https://redmine.iart.ch/issues/16392) countries pre-sorted
 * [RM#16394](https://redmine.iart.ch/issues/16394) phone numbers, international code suggestions
-
 
 ## 9.2.3 (2017-02-14)
 

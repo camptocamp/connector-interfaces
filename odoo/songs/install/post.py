@@ -7,9 +7,31 @@ import csv
 
 from pkg_resources import resource_stream
 from anthem.lyrics.records import create_or_update
+from anthem.lyrics.records import add_xmlid
 
 from ..common import req
 from ..common import load_file_content
+
+
+def create_or_update_email_template(ctx, xmlid, values):
+    template = ctx.env.ref(xmlid, raise_if_not_found=0)
+
+    # TODO: move email templates to qweb using
+    # https://github.com/OCA/social/blob/9.0/email_template_qweb
+    # HERE we are forced to delete existing templates
+    # to make sure they get updated when needed
+
+    # if template:
+    #     template.write(values)
+    # else:
+    #     template = ctx.env['mail.template'].create(values)
+    #     add_xmlid(template, xmlid)
+
+    if template:
+        template.unlink()
+    template = ctx.env['mail.template'].create(values)
+    add_xmlid(ctx, template, xmlid, noupdate=False)
+    return template
 
 
 @anthem.log
@@ -29,8 +51,10 @@ def change_signup_email(ctx):
         'lang': '${object.partner_id.lang}',
         'auto_delete': False,
     }
-    create_or_update(
-        ctx, 'mail.template', 'specific_membership.set_password_email', values)
+    xmlid = 'specific_membership.set_password_email'
+    # `anthem.lyrics.create_or_update`
+    # will not update if existing and modified TTW :S
+    create_or_update_email_template(ctx, xmlid, values)
 
 
 @anthem.log
@@ -47,9 +71,10 @@ def change_reset_pwd_email(ctx):
         'lang': '${object.partner_id.lang}',
         'auto_delete': False,
     }
-    create_or_update(
-        ctx, 'mail.template',
-        'specific_membership.reset_password_email', values)
+    xmlid = 'specific_membership.reset_password_email'
+    # `anthem.lyrics.create_or_update`
+    # will not update if existing and modified TTW :S
+    create_or_update_email_template(ctx, xmlid, values)
 
 
 @anthem.log
@@ -71,9 +96,10 @@ def add_membership_upgrade_email(ctx):
         ),
         'auto_delete': False,
     }
-    create_or_update(
-        ctx, 'mail.template',
-        'specific_membership.mail_membership_upgrade', values)
+    xmlid = 'specific_membership.mail_membership_upgrade'
+    # `anthem.lyrics.create_or_update`
+    # will not update if existing and modified TTW :S
+    create_or_update_email_template(ctx, xmlid, values)
 
 
 @anthem.log

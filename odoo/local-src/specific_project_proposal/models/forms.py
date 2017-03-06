@@ -58,6 +58,9 @@ class ProposalForm(models.AbstractModel):
             })
             _fields['expertise_ids']['help'] = help_text
 
+        # limit claim length
+        _fields['website_short_description']['widget'].maxlength = 200
+
 
 class ProposalSearchForm(models.AbstractModel):
     """Proposal model search form."""

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="partner" inherit_id="website_membership.partner">
+    <template id="partner" inherit_id="website_membership.partner" name="Fluxdock partner detail override">
         <xpath expr="//div[@id='wrap']" position="attributes">
             <attribute name="class" add="opt_dark_grid_bg member-detail" separator=" " />
         </xpath>

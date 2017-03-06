@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 13:15+0000\n"
-"PO-Revision-Date: 2017-02-22 13:15+0000\n"
+"POT-Creation-Date: 2017-03-06 15:50+0000\n"
+"PO-Revision-Date: 2017-03-06 15:50+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -189,8 +189,23 @@ msgid "<strong>Industry:</strong>"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "About us"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
 msgid "Add new"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "Add proposal"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "Add reference"
 msgstr ""
 
 #. module: theme_fluxdocs
@@ -211,6 +226,11 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Cern"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "Change password"
 msgstr ""
 
 #. module: theme_fluxdocs
@@ -304,6 +324,11 @@ msgid "Edit"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "Edit my profile"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole."
 msgstr ""
@@ -314,6 +339,11 @@ msgid "Expo Shanghai"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "FLUXDOCK"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "FLUXDOCK 3D MODEL:"
 msgstr ""
@@ -321,6 +351,11 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "FLUXDOCK IS RECRUTING"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Facebook"
 msgstr ""
 
 #. module: theme_fluxdocs
@@ -390,6 +425,11 @@ msgid "HTTP routing"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Home"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_fluxdock_cms_form_search_id
 msgid "ID"
 msgstr ""
@@ -410,6 +450,11 @@ msgid "Kraftwerk Basel"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "LEGAL"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_fluxdock_cms_form_search___last_update
 msgid "Last Modified on"
 msgstr ""
@@ -425,16 +470,15 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+#: model:ir.ui.view,arch_db:theme_fluxdocs.service_menu
 msgid "Login"
 msgstr ""
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
-#: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "Logout"
 msgstr ""
 
@@ -465,13 +509,18 @@ msgid "More..."
 msgstr ""
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
-msgid "My Account"
+#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+msgid "My Button"
 msgstr ""
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-msgid "My Button"
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "My home"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "My public profile"
 msgstr ""
 
 #. module: theme_fluxdocs
@@ -534,7 +583,17 @@ msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.popover_html_content
-msgid "Please, rememer to publish your content when editing is finished."
+msgid "Please, remember to publish your content when editing is finished."
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Privacy Policy"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Product of a collaboration"
 msgstr ""
 
 #. module: theme_fluxdocs
@@ -579,6 +638,11 @@ msgid "SIGN UP NOW"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "SOCIAL"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Sadipscing elitr, sed diam nonumy eirmod tempor."
 msgstr ""
@@ -594,8 +658,8 @@ msgid "Sed diam nonumy eirmod tempor."
 msgstr ""
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
+#: model:ir.ui.view,arch_db:theme_fluxdocs.service_menu
 msgid "Sign Up"
 msgstr ""
 
@@ -637,6 +701,11 @@ msgid "Successful collaboration requires physical interaction. In the Transitlag
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Terms of Use"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "The members constitute Fluxdock."
 msgstr ""
@@ -649,6 +718,11 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Titel. Klicke um auszuklappen."
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Twitter"
 msgstr ""
 
 #. module: theme_fluxdocs

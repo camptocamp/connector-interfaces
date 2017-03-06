@@ -6,15 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 13:15+0000\n"
-"PO-Revision-Date: 2016-12-19 15:17+0000\n"
+"POT-Creation-Date: 2017-03-06 15:50+0000\n"
+"PO-Revision-Date: 2017-03-06 13:14+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 1.8.9\n"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -168,7 +169,7 @@ msgid ""
 "<span style=\"line-height: 1.3\">The platform for collaborative innovation</"
 "span>"
 msgstr ""
-"<span style=\"line-height: 1.3\">DIE PLATTFORM FÜR KOLLABORATIVE INNOVATIO</"
+"<span style=\"line-height: 1.3\">DIE PLATTFORM FÜR KOLLABORATIVE INNOVATION</"
 "span><span style=\"line-height: 1.3\">n</span>"
 
 #. module: theme_fluxdocs
@@ -195,17 +196,33 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.item_tags
 msgid "<strong>Expertise:</strong>"
-msgstr ""
+msgstr "<strong>Expertise:</strong>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.item_tags
 msgid "<strong>Industry:</strong>"
-msgstr ""
+msgstr "<strong>Branche:</strong>"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "About us"
+msgstr "Über uns"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
 msgid "Add new"
-msgstr "Add new"
+msgstr "Hinzufügen"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "Add proposal"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+#, fuzzy
+msgid "Add reference"
+msgstr "Mitglieder Referenzen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -228,6 +245,11 @@ msgid "Cern"
 msgstr "Cern"
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "Change password"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 msgid "Click on \"Content\" on the top menu to write your first blog post."
 msgstr ""
@@ -237,7 +259,7 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Collaboration creates Innovation"
-msgstr "Kollaboration schafft innovation"
+msgstr "Kollaboration schafft Innovation"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -288,7 +310,7 @@ msgstr "Dark Violet Pattern"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -318,7 +340,7 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
 msgid "Don't show again item"
-msgstr "Don't show again item"
+msgstr "Nicht mehr anzeigen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -329,6 +351,11 @@ msgstr ""
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mgmt_actions
 msgid "Edit"
 msgstr "Bearbeiten"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "Edit my profile"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -343,6 +370,12 @@ msgid "Expo Shanghai"
 msgstr "Expo Shanghai"
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+#, fuzzy
+msgid "FLUXDOCK"
+msgstr "FLUXDOCK 3-D MODELL:"
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "FLUXDOCK 3D MODEL:"
 msgstr "FLUXDOCK 3-D MODELL:"
@@ -351,6 +384,11 @@ msgstr "FLUXDOCK 3-D MODELL:"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "FLUXDOCK IS RECRUTING"
 msgstr "FLUXDOCK SUCHT VERSTÄRKUNG"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Facebook"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -451,6 +489,11 @@ msgid "HTTP routing"
 msgstr "HTTP Routing"
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Home"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_fluxdock_cms_form_search_id
 msgid "ID"
 msgstr ""
@@ -477,6 +520,11 @@ msgid "Kraftwerk Basel"
 msgstr "Kraftwerk Basel"
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "LEGAL"
+msgstr "RECHTLICHES"
+
+#. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_fluxdock_cms_form_search___last_update
 #, fuzzy
 msgid "Last Modified on"
@@ -493,18 +541,17 @@ msgid "Last Updated on"
 msgstr "Zuletzt aktualisiert am"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
+#: model:ir.ui.view,arch_db:theme_fluxdocs.service_menu
 msgid "Login"
 msgstr "Anmelden"
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
-#: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "Logout"
-msgstr "Abmelden"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mosaic
@@ -533,14 +580,19 @@ msgid "More..."
 msgstr "Mehr..."
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
-msgid "My Account"
-msgstr "Mein Konto"
-
-#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "My Button"
 msgstr "My Button"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "My home"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "My public profile"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -594,16 +646,28 @@ msgstr "Plattform"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.popover_html_content
 msgid "Please, publish your project proposal..."
 msgstr ""
+"Bitte klicken Sie hier, um Ihre Projektausschreibung zu veröffentlichen."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.popover_html_content
 msgid "Please, publish your project reference..."
-msgstr ""
+msgstr "Bitte klicken Sie hier, um Ihr Referenzprojekt zu veröffentlichen."
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.popover_html_content
-msgid "Please, rememer to publish your content when editing is finished."
+msgid "Please, remember to publish your content when editing is finished."
 msgstr ""
+"Bitte veröffentlichen Sie den aktualisierten Inhalt nach der Bearbeitung."
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Privacy Policy"
+msgstr "Datenschutz"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Product of a collaboration"
+msgstr "Das Produkt einer Kollaboration"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -619,7 +683,7 @@ msgstr "Veröffentlicht"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Read More"
-msgstr "Read More"
+msgstr "Mehr"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
@@ -627,19 +691,18 @@ msgid ""
 "Read More\n"
 "                                    <i class=\"fa fa-long-arrow-right\"/>"
 msgstr ""
-"Read More\n"
+"Mehr\n"
 "                                    <i class=\"fa fa-long-arrow-right\"/>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 msgid "Read more <i class=\"fa fa-long-arrow-right\"/>"
-msgstr "Read more <i class=\"fa fa-long-arrow-right\"/>"
+msgstr "Mehr <i class=\"fa fa-long-arrow-right\"/>"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
-#, fuzzy
 msgid "References"
-msgstr "&amp;nbsp;Mitglieder Referenzen"
+msgstr "Mitglieder Referenzen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -650,6 +713,11 @@ msgstr "Hier registrieren"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "SIGN UP NOW"
 msgstr "JETZT REGISTRIEREN"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "SOCIAL"
+msgstr "NETZWERKE"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -667,8 +735,8 @@ msgid "Sed diam nonumy eirmod tempor."
 msgstr "Sed diam nonumy eirmod tempor."
 
 #. module: theme_fluxdocs
-#: model:ir.ui.view,arch_db:theme_fluxdocs.custom_header
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mobile-menu
+#: model:ir.ui.view,arch_db:theme_fluxdocs.service_menu
 msgid "Sign Up"
 msgstr "Registrieren"
 
@@ -708,7 +776,7 @@ msgstr ""
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Subscribe"
-msgstr "Abonnieren"
+msgstr "Anmelden"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -729,6 +797,11 @@ msgstr ""
 "gemietet werden können. Die gesamte Infrastruktur ist flexibel, anpassbar "
 "und darauf ausgelegt, agile Arbeitsweisen und Kollaboration räumlich und "
 "technisch optimal zu unterstützen"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Terms of Use"
+msgstr "AGB"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -752,10 +825,14 @@ msgid "Titel. Klicke um auszuklappen."
 msgstr "Titel. Klicke um auszuklappen."
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+msgid "Twitter"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.publish_short
-#, fuzzy
 msgid "Unpublish"
-msgstr "Nicht Veröffentlicht"
+msgstr "Verbergen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
@@ -860,18 +937,18 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.field_widget_image
 msgid "keep submitted"
-msgstr ""
+msgstr "Veröffentlichtes Bild behalten"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
 msgid "not published"
-msgstr "Nicht Veröffentlicht"
+msgstr "nicht veröffentlicht"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.field_widget_image
 msgid "replace submitted"
-msgstr ""
+msgstr "Bild ersetzen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar

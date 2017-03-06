@@ -303,6 +303,12 @@
 			display: table-cell;
 			vertical-align: bottom;
 			&.done .text{ font-weight: bold}
+			a{
+				color: @link-hover-color;
+				&:hover{
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 	.profile-complete-msg{

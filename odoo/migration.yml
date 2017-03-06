@@ -65,3 +65,13 @@ migration:
           - specific_project
           - specific_project_proposal
           - theme_fluxdocs
+    - version: 9.2.4b2
+      addons:
+        upgrade:
+          - specific_membership
+          - specific_project
+          - specific_project_proposal
+          - theme_fluxdocs
+      operations:
+        post:
+          - anthem songs.upgrades.924::main

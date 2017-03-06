@@ -3,12 +3,12 @@
 
     <!-- split this text to keep its customization independent from progress bar -->
     <template id="profile_step_2_msg" name="Fluxdock profile step 2 message">
-        Your profile has not been published yet. Please complete your member profile to get visible as a Fluxdock member.
+        Your profile has not been published yet. Please complete your <a href="/my/account">member profile</a> to get visible as a Fluxdock member.
     </template>
 
     <!-- split this text to keep its customization independent from progress bar -->
     <template id="profile_step_3_msg" name="Fluxdock profile step 3 message">
-        Show your proficiency by supplementing your profile with your reference projects.
+        Show your proficiency by supplementing your profile with your <a href="/references/add">reference projects</a>.
     </template>
 
     <!-- split this text to keep its customization independent from progress bar -->

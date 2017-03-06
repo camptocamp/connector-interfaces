@@ -2,7 +2,7 @@
 <odoo>
 
 <record model="ir.ui.view" id="view_project_proposal_form">
-  <field name="name">project.proposal.form</field>
+  <field name="name">Fluxdock project.proposal.form</field>
   <field name="model">project.proposal</field>
   <field name="arch" type="xml">
     <form string="Proposals">
@@ -65,7 +65,7 @@
 <!-- Project Proposal Tree View  -->
 
 <record model="ir.ui.view" id="view_project_proposal_tree">
-  <field name="name">Proposals - Tree</field>
+  <field name="name">Fluxdock Proposals - Tree</field>
   <field name="model">project.proposal</field>
   <field name="arch" type="xml">
     <tree string="Proposals" decoration-bf="message_needaction==True">
@@ -83,7 +83,7 @@
 
 <!-- Project Proposal Calendar -->
 <record model="ir.ui.view" id="view_project_proposal_calendar">
-  <field name="name">Proposal</field>
+  <field name="name">Fluxdock Proposal</field>
   <field name="model">project.proposal</field>
   <field name="arch" type="xml">
     <calendar string="Proposals" date_start="start_date" date_stop="stop_date" date_delay="duration"
@@ -97,7 +97,7 @@
 
 <!-- Project Proposal Search View  -->
 <record id="view_project_proposal_search" model="ir.ui.view">
-  <field name="name">Proposal Search</field>
+  <field name="name">Fluxdock Proposal Search</field>
   <field name="model">project.proposal</field>
   <field name="arch" type="xml">
     <search string="Search Proposals">

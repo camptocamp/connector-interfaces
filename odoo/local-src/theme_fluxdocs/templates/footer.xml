@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+
+		<!-- Customize footer -->
+		<template id="fluxdock_footer" inherit_id="website.layout" name="Fluxdock Footer">
+
+			<!-- ADD ID -->
+			<xpath expr="//div[@id='wrapwrap']/footer" position="attributes">
+				<attribute name="id">my_footer</attribute>
+			</xpath>
+
+		</template>
+
+		<!-- disable original template -->
+		<record id="website.layout_footer_copyright" model="ir.ui.view">
+			<field name="active" eval="0" />
+		</record>
+
+		<template id="layout_footer_copyright" inherit_id="website.layout" name="Fluxdock Footer Copyright">
+		  <xpath expr="//footer" position="inside">
+		    <div class="footer-row clearfix">
+		      <div class="footer-logo">
+		        <a href="/">
+		          <img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"/>
+		        </a>
+		      </div>
+		      <div class="footer-links clearfix">
+		        <div class="footer-col">
+		          <h4>FLUXDOCK</h4>
+		          <p>
+		            <a href="/">Home</a>
+		          </p>
+		          <p>
+		            <a href="/page/about">About us</a>
+		          </p>
+		        </div>
+		        <div class="footer-col">
+		          <h4>SOCIAL</h4>
+		          <p>
+		            <a href="https://www.facebook.com/fluxdock" target="_blank">Facebook</a>
+		          </p>
+		          <p>
+		            <a href="https://www.twitter.com/fluxdock" target="_blank">Twitter</a>
+		          </p>
+		        </div>
+		        <div class="footer-col">
+		          <h4>LEGAL</h4>
+		          <p>
+		            <a href="/page/terms">Terms of Use</a>
+		          </p>
+		          <p>
+		            <a href="/page/privacy">Privacy Policy</a>
+		          </p>
+		        </div>
+		      </div>
+		      <div class="sponsors">
+		        <div class="sponsor sponsor-iart">
+		          <a href="http://www.iart.ch" target="_blank">
+		            <img src="/theme_fluxdocs/static/img/footer-logos/iart.png"/>
+		          </a>
+		        </div>
+		        <div class="sponsor sponsor-mengagement">
+		          <a href="http://www.engagement-migros.ch" target="_blank">
+		            <img src="/theme_fluxdocs/static/img/footer-logos/mengagement.png"/>
+		          </a>
+		        </div>
+		        <div class="sponsor sponsor-cms">
+		          <a href="http://www.cms-basel.ch" target="_blank">
+		            <img src="/theme_fluxdocs/static/img/footer-logos/cms.png"/>
+		          </a>
+		        </div>
+						<div class="sponsor sponsor-c2c">
+							<a href="http://www.camptocamp.com" target="_blank">
+								<img src="/theme_fluxdocs/static/img/footer-logos/c2c.png" />
+							</a>
+						</div>
+		      </div>
+		    </div>
+		    <div class="copyright">Product of a collaboration <t t-translation="off"> - Copyright © <span t-esc="time.strftime('%Y')"/></t></div>
+			</xpath>
+		</template>
+
+
+	</data>
+</openerp>
