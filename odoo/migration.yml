@@ -57,7 +57,7 @@ migration:
           - attachment_s3
           - cms_status_message
           - cms_form
-    - version: 9.2.4
+    - version: 9.2.4b1
       addons:
         upgrade:
           # updated translations
