@@ -7,6 +7,8 @@
 **Bugfixes**
 
 * [fix] user need sudo to edit its partner
+* [fix] industry OR expertise in members search form too
+
 
 **Features and Improvements**
 
