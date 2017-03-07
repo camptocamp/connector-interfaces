@@ -21,7 +21,11 @@
 				<a href="/my/account" role="menuitem"><i class="fa fa-pencil" t-translation="off" /> Edit my profile</a>
 			</li>
 			<li id="myprofile">
-				<a t-att-href="request.env.user.partner_id.website_url" role="menuitem"><i class="fa fa-user" t-translation="off" /> My public profile</a>
+				<t t-set="profile_published" t-value="request.env.user.partner_id.website_published" />
+				<a t-att-href="request.env.user.partner_id.website_url if profile_published else None" role="menuitem"
+				   t-att-class="'disabled text-line-trough' if not profile_published else None">
+				   <i class="fa fa-user" t-translation="off" /> My public profile
+			    </a>
 			</li>
 			<li role="separator" class="divider"></li>
 			<li id="add_reference">

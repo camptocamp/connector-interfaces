@@ -295,4 +295,13 @@ class PartnerSearchForm(models.AbstractModel):
                 ('name', 'ilike', search_name),
                 ('website_description', 'ilike', search_name)
             ]
+        # put industry_ids and expertise_ids in OR
+        exp = [x for x in domain if x[0] == 'category_id']
+        ind = [x for x in domain if x[0] == 'expertise_ids']
+        if ind and exp:
+            common_domain = [
+                x for x in domain
+                if x[0] not in ('category_id', 'expertise_ids')
+            ]
+            domain = ['&', '|', ] + ind + exp + ['&'] + common_domain
         return domain

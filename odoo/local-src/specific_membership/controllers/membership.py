@@ -2,11 +2,12 @@
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import http
+from openerp import http, SUPERUSER_ID
 from openerp.http import request
 from openerp.addons.website_membership.controllers.main import (
     WebsiteMembership as WebsiteMembershipController
 )
+from openerp.addons.website.models.website import unslug
 
 
 from openerp.addons.cms_form.controllers.main import SearchFormControllerMixin
@@ -25,20 +26,24 @@ class WebsiteMembership(WebsiteMembershipController,
 
     @http.route()
     def partners_detail(self, partner_id, **post):
-        response = super(
-            WebsiteMembership, self).partners_detail(partner_id, **post)
-        # FIXME: this is super-weird
-        # a partner HAS NO USER associated
-        # while the user HAS A PARTNER associated
-        if response.qcontext.get('partner'):
-            partner_user = request.env['res.users'].sudo().search(
-                [('partner_id', '=', response.qcontext.get('partner').id)],
-                limit=1
-            )
-            response.qcontext.update({
-                'partner_user': partner_user
-            })
-        return response
+        _, partner_id = unslug(partner_id)
+        if partner_id:
+            partner = request.registry['res.partner'].browse(
+                request.cr, SUPERUSER_ID, partner_id, context=request.context)
+            if partner.exists() and partner.website_published:
+                values = {}
+                values['main_object'] = values['partner'] = partner
+                # FIXME: this is super-weird
+                # a partner HAS NO USER associated
+                # while the user HAS A PARTNER associated
+                partner_user = request.env['res.users'].sudo().search(
+                    [('partner_id', '=', partner.id)],
+                    limit=1
+                )
+                values['partner_user'] = partner_user
+                return request.website.render(
+                    "website_membership.partner", values)
+        return request.redirect('/market', code=302)
 
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):
