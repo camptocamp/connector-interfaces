@@ -43,3 +43,14 @@ class MyProfile(website_account, FormControllerMixin):
         partner = user.partner_id
         return self.make_response(
             model, model_id=partner.id, **kw)
+
+    def get_main_object(self, model, model_id):
+        """Return main_object for given ``model`` and ``model_id``."""
+        # FIXME: right now to allow users to edit their partner we must sudo
+        partner_user = request.env['res.users'].sudo().search(
+            [('partner_id', '=', model_id)],
+            limit=1
+        )
+        if not partner_user.id == request.env.user.id:
+            return super(MyProfile, self).get_main_object(model, model_id)
+        return request.env[model].sudo().browse(model_id)
