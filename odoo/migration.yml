@@ -75,3 +75,7 @@ migration:
       operations:
         post:
           - anthem songs.upgrades.924::main
+    - version: 9.2.4b3
+      addons:
+        upgrade:
+          - theme_fluxdocs

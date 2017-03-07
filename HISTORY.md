@@ -2,7 +2,18 @@
 
 <!-- PLACEHOLDER_NEW_RELEASE -->
 
-## 9.2.4b2 (Unreleased)
+## 9.2.4b3 (Unreleased)
+
+**Bugfixes**
+
+* [fix] user need sudo to edit its partner
+
+**Features and Improvements**
+
+* disable public profile link when not published
+
+
+## 9.2.4b2 (2017-03-07 - INT)
 
 **Features and Improvements**
 
