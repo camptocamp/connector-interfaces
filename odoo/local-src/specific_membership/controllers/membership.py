@@ -43,7 +43,7 @@ class WebsiteMembership(WebsiteMembershipController,
                 values['partner_user'] = partner_user
                 return request.website.render(
                     "website_membership.partner", values)
-        return request.redirect('/market', code=302)
+        return request.redirect('/members', code=302)
 
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):

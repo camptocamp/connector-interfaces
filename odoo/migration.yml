@@ -79,3 +79,4 @@ migration:
       addons:
         upgrade:
           - theme_fluxdocs
+    - version: 9.2.4b4

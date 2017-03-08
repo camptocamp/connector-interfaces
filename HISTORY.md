@@ -2,6 +2,19 @@
 
 <!-- PLACEHOLDER_NEW_RELEASE -->
 
+## 9.2.4b4 (2017-03-08 - INT)
+
+**Features and Improvements**
+
+* Use final version logo: no beta anymore
+
+
+**Bugfixes**
+
+* [fix] partner form: must publish on save
+* [fix] typo: redirect to /members not /market if profile is not published 
+
+
 ## 9.2.4b3 (2017-03-08 - INT)
 
 **Bugfixes**
