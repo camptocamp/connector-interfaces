@@ -22,9 +22,12 @@ class PriorityCountryM2OWidget(M2OWidget):
     key = 'theme_fluxdocs.country_field_widget_m2o'
 
     priority_countries = (
-        'base.ch', 'base.de',
-        'base.uk', 'base.at',
-        'base.fr', 'base.it'
+        'base.ch',
+        'base.de',
+        'base.fr',
+        'base.it'
+        'base.at',
+        'base.uk',
     )
 
     def country_info(self, opt_item):
