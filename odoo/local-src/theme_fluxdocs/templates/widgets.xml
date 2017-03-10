@@ -146,7 +146,7 @@
                     <div class="pull-left left-actions">
                         <a class="btn btn-default" t-att-href="object.cms_edit_url">Edit</a>
                         <t t-call="theme_fluxdocs.publish_short" />
-                        <a class="btn btn-danger btn-bg-sticky" t-att-href="object.cms_delete_confirm_url">Delete</a>
+                        <a class="btn btn-danger btn-bg-sticky cms_delete_confirm" t-att-href="object.cms_delete_confirm_url">Delete</a>
                     </div>
                     <t t-set="add_url" t-value="add_url or request.env[object._name].cms_add_url" />
                     <t t-if="add_url">
