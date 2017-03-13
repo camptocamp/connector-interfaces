@@ -30,11 +30,17 @@
     </template>
 
     <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">
+
+      <!--  we use theme_fluxdocs.mgmt_actions -->
+      <xpath expr="//t[@t-call='website.publish_management']" position="replace" />
+
       <xpath expr="//h1[@id='partner_name']" position="replace">
         <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
       </xpath>
       <xpath expr="//h1[@id='partner_name']" position="after">
-        <section class="top-spacer-small opt_dark_grid_bg"></section>
+        <t t-if="not request.session.uid">
+          <section class="top-spacer-small opt_dark_grid_bg"></section>
+        </t>
       </xpath>
       <xpath expr="//div[@class='col-md-4']" position="replace">
 
@@ -49,6 +55,11 @@
                     </div>
                 </div>
             </t>
+        </t>
+        <t t-call="theme_fluxdocs.mgmt_actions">
+          <t t-set="object" t-value="partner"/>
+          <t t-set="show_delete" t-value="False"/>
+          <t t-set="show_add" t-value="False"/>
         </t>
         <section class="content member-detail-view white_bg">
           <div class="content-wrap">

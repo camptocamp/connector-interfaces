@@ -130,7 +130,11 @@
         <t t-if="object._name == 'project.proposal'">
             Please, publish your project proposal...
         </t>
-        <t t-if="object._name not in ('project.proposal', 'project.reference')">
+        <t t-if="object._name == 'res.partner'">
+            Please, remember to publish your profile when editing is finished.
+        </t>
+        <t t-set="specific_models" t-value="('project.proposal', 'project.reference', 'res.partner')" />
+        <t t-if="object._name not in specific_models">
             Please, remember to publish your content when editing is finished.
         </t>
     </template>
@@ -139,20 +143,32 @@
     TODO: We need to check for permissions here, not by owner/user id.
     -->
     <template id="mgmt_actions">
-        <t t-set="is_owner" t-value="object.create_uid.id == request.session.uid or request.session.uid == 1" />
+        <t t-set="is_owner" t-value="object.is_owner(request.uid)" />
+        <t t-set="show_edit" t-value="True if show_edit is None else show_edit" />
+        <t t-set="show_publish" t-value="True if show_publish is None else show_publish" />
+        <t t-set="show_delete" t-value="True if show_delete is None else show_delete" />
+        <t t-set="show_add" t-value="True if show_add is None else show_add" />
         <t t-if="is_owner">
             <div class="container-fluid">
                 <div class="mgmt-actions">
                     <div class="pull-left left-actions">
-                        <a class="btn btn-default" t-att-href="object.cms_edit_url">Edit</a>
-                        <t t-call="theme_fluxdocs.publish_short" />
-                        <a class="btn btn-danger btn-bg-sticky cms_delete_confirm" t-att-href="object.cms_delete_confirm_url">Delete</a>
+                        <t t-if="show_edit">
+                            <a class="btn btn-default" t-att-href="object.cms_edit_url">Edit</a>
+                        </t>
+                        <t t-if="show_publish">
+                            <t t-call="theme_fluxdocs.publish_short" />
+                        </t>
+                        <t t-if="show_delete">
+                            <a class="btn btn-danger btn-bg-sticky cms_delete_confirm" t-att-href="object.cms_delete_confirm_url">Delete</a>
+                        </t>
                     </div>
-                    <t t-set="add_url" t-value="add_url or request.env[object._name].cms_add_url" />
-                    <t t-if="add_url">
-                        <div class="pull-right right-actions">
-                            <a class="btn btn-default" t-att-href="add_url">Add new</a>
-                        </div>
+                    <t t-if="show_add">
+                        <t t-set="add_url" t-value="add_url or request.env[object._name].cms_add_url" />
+                        <t t-if="add_url">
+                            <div class="pull-right right-actions">
+                                <a class="btn btn-default" t-att-href="add_url">Add new</a>
+                            </div>
+                        </t>
                     </t>
                 </div>
             </div>

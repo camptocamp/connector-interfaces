@@ -13,9 +13,18 @@ _logger = logging.getLogger(__file__)
 
 
 class ResPartner(models.Model):
-    _inherit = 'res.partner'
-
-    cms_search_url = '/members'
+    _name = 'res.partner'
+    _inherit = [
+        'res.partner',
+        # `website.published.mixin` extension
+        # from cms_form.models.website_mixin (like cms_edit_url field)
+        # are not propagated to partner model.
+        # Other features like `website_published` from std mixin are.
+        # This is due to a bug in v8/9 whereas some inheritance on res.partner
+        # model are broken at some point.
+        # https://github.com/odoo/odoo/issues/9084#issuecomment-148373268
+        'website.published.mixin',
+    ]
 
     flux_membership = fields.Selection(
         string='Flux membership',
@@ -116,6 +125,19 @@ class ResPartner(models.Model):
     def _compute_is_free(self):
         for item in self:
             item.is_free = item.flux_membership == 'free'
+
+    # CMS stuff
+    cms_search_url = '/members'
+
+    @api.multi
+    def _compute_cms_edit_url(self):
+        for item in self:
+            item.cms_edit_url = '/my/account'
+
+    @api.model
+    def is_owner(self, uid):
+        res = super(ResPartner, self).is_owner(uid)
+        return res or self.user_id.id == uid
 
     @api.multi
     def create_membership_invoice(

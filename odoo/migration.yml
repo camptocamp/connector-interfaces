@@ -80,3 +80,11 @@ migration:
         upgrade:
           - theme_fluxdocs
     - version: 9.2.4b4
+    - version: 9.2.4b5
+      addons:
+        upgrade:
+          - specific_membership
+          - theme_fluxdocs
+      operations:
+        post:
+          - anthem songs.upgrades.924::main

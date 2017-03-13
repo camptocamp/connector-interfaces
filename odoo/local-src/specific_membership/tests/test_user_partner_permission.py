@@ -26,6 +26,12 @@ class TestPermission(test_common.TransactionCase):
             'groups_id': [(6, 0, [self.env.ref('base.group_portal').id])]
         })
         self.partner2 = self.user2.partner_id
+        self.user_noportal = user_model.create({
+            'name': 'Member Noportal',
+            'login': 'testmember_noportal',
+            'email': 'testmember_noportal@email.com',
+        })
+        self.partner_noportal = self.user_noportal.partner_id
 
     def test_user_can_edit_own_partner(self):
         partner = self.partner1.sudo(self.user1)
@@ -42,3 +48,17 @@ class TestPermission(test_common.TransactionCase):
         partner = self.partner1.sudo(self.user2)
         with self.assertRaises(exceptions.AccessError):
             partner.write({'name': 'Boo'})
+
+    def test_user_portal_rel(self):
+        # on create
+        self.assertEqual(self.partner1.user_id.id, self.user1.id)
+        self.assertEqual(self.partner2.user_id.id, self.user2.id)
+        self.assertNotEqual(
+            self.partner_noportal.user_id.id, self.user_noportal.id)
+
+        # on write
+        self.user_noportal.write({
+            'groups_id': [(6, 0, [self.env.ref('base.group_portal').id])]
+        })
+        self.assertEqual(
+            self.partner_noportal.user_id.id, self.user_noportal.id)

@@ -25,7 +25,7 @@ class PriorityCountryM2OWidget(M2OWidget):
         'base.ch',
         'base.de',
         'base.fr',
-        'base.it'
+        'base.it',
         'base.at',
         'base.uk',
     )
