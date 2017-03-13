@@ -149,7 +149,6 @@ class PartnerForm(models.AbstractModel):
         values['website_published'] = True
 
     def form_after_create_or_update(self, values, extra_values):
-        self.form_redirect = '/my/home'
         partner = self.main_object
         if partner.type == "contact":
             address_fields = {
@@ -199,6 +198,9 @@ class PartnerForm(models.AbstractModel):
                 # if for any reason we cannot send email
                 can_change = False
             if can_change and self.o_request.website:
+                # force log out
+                self.o_request.session.logout(keep_db=True)
+                # add message
                 title = _('Important')
                 msg = _(
                     'Your login username has changed to: `%s`. '
