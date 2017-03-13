@@ -25,6 +25,13 @@
             <t t-set="mosaic_items" t-value="my_recordset" />
         </t>
 
+        USAGE 3 - javascript load (usable in snippets):
+
+        <t t-call="theme_fluxdocs.mosaic">
+            <t t-set="data_loadfrom" t-value="'/my/stuff/json'" />
+            <t t-set="data_limit" t-value="'4'" />
+        </t>
+
         -->
 
         <!-- if data-model is there we load items via JS -->
@@ -32,13 +39,14 @@
         <t t-set="data_limit" t-value="data_limit or '8'" />
         <t t-set="data_order" t-value="data_order or 'create_date desc'" />
         <t t-set="data_domain" t-value="data_domain or '[]'" />
+        <t t-set="data_loadfrom" t-value="data_loadfrom or None" />
 
         <div class="mosaic grid"
              t-att-data-model="data_model"
              t-att-data-limit="data_limit"
              t-att-data-order="data_order"
              t-att-data-domain="data_domain"
-             data-template="mosaic-grid-tmpl"
+             t-att-data-loadfrom="data_loadfrom"
              data-fields='{"display_name":"title","website_url":"url","image_url":"src"}'>
           <t t-if="not mosaic_items">
               <!-- rendered via JS -->
@@ -53,28 +61,24 @@
                 <h4>Lorem ipsum</h4>
               </div>
               <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
-                  <h4>Lorem ipsum</h4>
+                <h4>Lorem ipsum</h4>
               </div>
-              <script class="mosaic-grid-tmpl" type="text/template">
-                  <div class="grid-item clickable hidden"
-                       data-url="&amp;lt;%- url %&amp;gt;"
-                       title="&amp;lt;%- title %&amp;gt;"
-                       style="background-image:url(&amp;lt;%- src %&amp;gt;)">
-                    <h4>&amp;lt;%- title %&amp;gt;</h4>
-                  </div>
-              </script>
           </t>
           <t t-if="mosaic_items">
             <!-- rendered normally -->
             <t t-foreach="mosaic_items" t-as="item">
-              <div class="grid-item clickable"
-                   t-att-data-url="item.website_url"
-                   t-att-title="item.name"
-                   t-attf-style="background-image:url(#{website.image_url(item, 'image')})">
-                <h4 t-esc="item.name">Lorem ipsum</h4>
-              </div>
+              <t t-call="theme_fluxdocs.mosaic_item" />
             </t>
           </t>
+        </div>
+    </template>
+
+    <template id="mosaic_item" name="Fluxdock mosaic item">
+        <div class="grid-item clickable"
+             t-att-data-url="item.website_url"
+             t-att-title="item.name"
+             t-attf-style="background-image:url(#{item.image_url})">
+          <h4><span t-esc="item.name" /></h4>
         </div>
     </template>
 

@@ -640,6 +640,7 @@
                                 <t t-call="theme_fluxdocs.mosaic">
                                     <t t-set="data_model" t-value="'project.reference'"/>
                                     <t t-set="data_limit" t-value="'4'"/>
+                                    <t t-set="data_loadfrom" t-value="'/references/json'"/>
                                 </t>
                                 <p class="text-center mt16">
                                     <a href="/references">More...</a>
