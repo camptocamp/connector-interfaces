@@ -85,6 +85,7 @@ migration:
         upgrade:
           - specific_membership
           - theme_fluxdocs
+          - cms_delete_content
       operations:
         post:
           - anthem songs.upgrades.924::main
