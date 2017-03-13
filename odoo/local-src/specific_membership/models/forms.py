@@ -75,7 +75,7 @@ class PartnerForm(models.AbstractModel):
         'expertise_ids',
     )
     _form_required_fields = (
-        "name", "street2", "zipcode", "city", "country_id", "phone", "email")
+        "name", "street2", "zip", "city", "country_id", "phone", "email")
     _form_wrapper_extra_css_klass = 'opt_dark_grid_bg'
     _form_extra_css_klass = 'center-block main-content-wrapper'
     form_buttons_template = 'specific_membership.profile_form_buttons'
