@@ -11,6 +11,7 @@
 * Update `cms_delete_content`: delete confirmation now happens in modal
 * [RM#16412](https://redmine.iart.ch/issues/16412) references aggregation: random
   Includes partial refactoring of mosaic JS.
+* [RM#16672](https://redmine.iart.ch/issues/16672) Same footer for email and website
 
 
 ## 9.2.4b4 (2017-03-08 - INT)

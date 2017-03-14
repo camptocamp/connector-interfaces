@@ -77,7 +77,7 @@
 						</div>
 		      </div>
 		    </div>
-		    <div class="copyright">Product of a collaboration <t t-translation="off"> - Copyright © <span t-esc="time.strftime('%Y')"/></t></div>
+		    <div class="copyright"><span>Product of a collaboration</span> <span t-translation="off" t-esc="time.strftime('%Y')"/></div>
 			</xpath>
 		</template>
 
