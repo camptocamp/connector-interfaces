@@ -73,11 +73,6 @@ class ProjectReference(models.Model):
         select=True,
         readonly=True,
     )
-    image_url = fields.Char(
-        string='Main image URL',
-        compute='_compute_image_url',
-        default='',
-    )
     country_id = fields.Many2one(comodel_name='res.country', string="Country")
 
     @api.multi

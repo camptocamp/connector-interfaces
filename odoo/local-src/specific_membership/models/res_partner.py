@@ -70,6 +70,16 @@ class ResPartner(models.Model):
     )
 
     @api.multi
+    @api.depends('image')
+    def _compute_image_url(self):
+        ws_model = self.env['website']
+        for item in self:
+            image_url = '/theme_fluxdocs/static/img/member-placeholder.png'
+            if item.image:
+                image_url = ws_model.image_url(item, 'image')
+            item.image_url = image_url
+
+    @api.multi
     @api.depends('profile_state')
     def _compute_profile_completed(self):
         for item in self:

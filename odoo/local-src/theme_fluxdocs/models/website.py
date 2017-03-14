@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # © 2016 Simone Orsi (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import models, api, SUPERUSER_ID
+from openerp import models, api, SUPERUSER_ID, fields
 
 
 def smart_truncate(text, length=100, suffix='...'):
@@ -41,3 +41,22 @@ class WebsiteMixin(models.Model):
         if uid == SUPERUSER_ID:
             return True
         return self.create_uid.id == uid
+
+    # placeholder fields to make image_url compute method happy
+    image = fields.Binary('image')
+    image_url = fields.Char(
+        string='Main image URL',
+        compute='_compute_image_url',
+        default='',
+        readonly=1,
+    )
+
+    @api.multi
+    @api.depends('image')
+    def _compute_image_url(self):
+        ws_model = self.env['website']
+        for item in self:
+            image_url = ''
+            if item.image:
+                image_url = ws_model.image_url(item, 'image')
+            item.image_url = image_url

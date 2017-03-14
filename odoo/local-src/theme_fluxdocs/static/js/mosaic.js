@@ -4,17 +4,83 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
     // var Model = require('web.Model');
     var ajax = require('web.ajax');
     var base = require('web_editor.base');
+    var core = require('web.core');
+    var qweb = core.qweb;
 
-    var unEntity = function unEntity(str){
-       return str
-        .replace(/\/&amp;/g, "&")
-        .replace(/&amp;/g, "&")
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">");
-    }
+    // load existing qweb templates
+    ajax.jsonRpc('/web/dataset/call', 'call', {
+        'model': 'ir.ui.view',
+        'method': 'read_template',
+        'args': ['theme_fluxdocs.mosaic_item']
+    }).done(function (data) {
+        qweb.add_template(data);
+    });
 
     if(!$('.mosaic.grid').length) {
         return $.Deferred().reject("DOM doesn't contain '.mosaic.grid'");
+    }
+
+    var Mosaic = function(el, loadfrom) {
+        this.$grid = $(el);
+        this.loadfrom = loadfrom;
+        this.data = this.$grid.data();
+        this.fields = ["display_name", "website_url", "image_url"];
+        this.html = '';
+    };
+    Mosaic.prototype = {
+        render: function render() {
+            var self = this;
+            self.load_items().done(function(){
+                self.$grid.html(self.html);
+                self.$grid.find('.grid-item').removeClass('hidden');
+                $('.clickable').on('click', function(){
+                    window.location.href = $(this).data('url');
+                })
+            })
+        },
+        _render: function _render(item) {
+            return qweb.render(
+                'theme_fluxdocs.mosaic_item', {'item': item}
+            );
+        },
+        load_items: function load_items() {
+            var self = this;
+            if (self.loadfrom) {
+                return self.load_from();
+            } else {
+                return self.load_search_read();
+            }
+        },
+        load_from: function() {
+            var self = this;
+            return $.getJSON(self.loadfrom, {'limit': self.data.limit}).then(function(response) {
+                if(response.ok){
+                    // prepare and inject final html
+                    $.each(response.results, function(){
+                        self.html += self._render(this);
+                    })
+                }
+    		});
+        },
+        load_search_read: function() {
+            var self = this;
+            return ajax.jsonRpc("/web/dataset/call_kw", 'call', {
+                model: self.data.model,
+                method: 'search_read',
+                args: [self.data.domain],
+                kwargs: {
+                    fields: self.fields,
+                    limit: self.data.limit,
+                    order: self.data.order,
+                    context: base.get_context()
+                }
+            }).then(function(records) {
+                // invert mapping
+                $.each(records, function(){
+                    self.html += self._render(this);
+                })
+            })
+        }
     }
 
     $(document).ready(function () {
@@ -22,44 +88,12 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
             window.location.href=$(this).data('url');
         })
         $('.mosaic.grid[data-model]').each(function(){
-            var $grid = $(this);
-            $('.grid-item', $grid).remove();
-            var data = $grid.data();
-            var fields = _.keys(data.fields);
-            var tmpl = unEntity($('.' + data.template, $grid).html());
-            var template = _.template(tmpl);
-            // 1st load items
-            ajax.jsonRpc("/web/dataset/call_kw", 'call', {
-                model: data.model,
-                method: 'search_read',
-                args: [data.domain],
-                kwargs: {
-                    fields: fields,
-                    limit: data.limit,
-                    order: data.order,
-                    context: base.get_context()
-                }
-            }).then(function(records) {
-                // redefine as is not available anymore here (???)
-                var data = $grid.data();
-                var html = '';
-                // invert mapping
-                $.each(records, function(){
-                    var record = this;
-                    var item = {};
-                    $.each(data.fields, function(key, val) {
-                        item[val] = record[key];
-                    });
-                    html += template(item);
-                })
-                $grid.append(html);
-                $('.grid-item', $grid).removeClass('hidden');
-            }).then(function(){
-                // make grid items clickable as links
-                $('.clickable').on('click', function(){
-                    window.location.href=$(this).data('url');
-                })
-            })
+            var mosaic = new Mosaic(this);
+            mosaic.render();
+        })
+        $('.mosaic.grid[data-loadfrom]').each(function(){
+            var mosaic = new Mosaic(this, $(this).data('loadfrom'));
+            mosaic.render();
         })
     });
 });
