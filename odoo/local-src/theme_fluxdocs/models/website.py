@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # © 2016 Simone Orsi (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import models, api
+from openerp import models, api, SUPERUSER_ID
 
 
 def smart_truncate(text, length=100, suffix='...'):
@@ -29,3 +29,15 @@ class Website(models.Model):
             if field == 'image' and not record.image:
                 return '/theme_fluxdocs/static/img/member-placeholder.png'
         return super(Website, self).image_url(record, field, size=size)
+
+
+class WebsiteMixin(models.Model):
+    _inherit = 'website.published.mixin'
+
+    @api.model
+    def is_owner(self, uid):
+        if not uid:
+            return False
+        if uid == SUPERUSER_ID:
+            return True
+        return self.create_uid.id == uid

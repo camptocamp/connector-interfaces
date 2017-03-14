@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import models
-from openerp import fields
-from openerp import _
+from openerp import models, fields, api, _
 
 # just for action_reset_password override >
 from datetime import datetime, timedelta
@@ -38,6 +36,28 @@ class ResUsers(models.Model):
             _('A user with this login already exists !')
         )
     ]
+
+    @api.model
+    def _handle_partner_user(self, user):
+        if user.has_group('base.group_portal') \
+                and not self.env.context.get('partner_no_portal_user') \
+                and not user.user_id:
+            user.partner_id.write({'user_id': user.id})
+
+    @api.model
+    def create(self, vals):
+        # make sure user_id is propagated to partner for portal users
+        user = super(ResUsers, self).create(vals)
+        self._handle_partner_user(user)
+        return user
+
+    @api.multi
+    def write(self, vals):
+        # make sure user_id is propagated to partner for portal users
+        res = super(ResUsers, self).write(vals)
+        for user in self:
+            self._handle_partner_user(user)
+        return res
 
     # overridden to be able to use our own email templates!
     def action_reset_password(self, cr, uid, ids, context=None):

@@ -74,9 +74,18 @@ migration:
           - theme_fluxdocs
       operations:
         post:
-          - anthem songs.upgrades.924::main
+          - anthem songs.upgrades.upgrade_9_2_4::main
     - version: 9.2.4b3
       addons:
         upgrade:
           - theme_fluxdocs
     - version: 9.2.4b4
+    - version: 9.2.4b5
+      addons:
+        upgrade:
+          - specific_membership
+          - theme_fluxdocs
+          - cms_delete_content
+      operations:
+        post:
+          - anthem songs.upgrades.upgrade_9_2_4::main

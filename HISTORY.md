@@ -2,6 +2,15 @@
 
 <!-- PLACEHOLDER_NEW_RELEASE -->
 
+## 9.2.4b5 (Unrelased)
+
+**Features and Improvements**
+
+* [RM#16738](https://redmine.iart.ch/issues/16738) publish imp for partner
+    + fix parter/user relations
+* Update `cms_delete_content`: delete confirmation now happens in modal
+
+
 ## 9.2.4b4 (2017-03-08 - INT)
 
 **Features and Improvements**
@@ -12,7 +21,7 @@
 **Bugfixes**
 
 * [fix] partner form: must publish on save
-* [fix] typo: redirect to /members not /market if profile is not published 
+* [fix] typo: redirect to /members not /market if profile is not published
 
 
 ## 9.2.4b3 (2017-03-08 - INT)
