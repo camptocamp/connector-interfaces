@@ -2,16 +2,24 @@
 
 <!-- PLACEHOLDER_NEW_RELEASE -->
 
-## 9.2.4b5 (Unrelased)
+## 9.2.4b5 (2017-03-16)
 
 **Features and Improvements**
 
 * [RM#16738](https://redmine.iart.ch/issues/16738) publish imp for partner
     + fix parter/user relations
-* Update `cms_delete_content`: delete confirmation now happens in modal
 * [RM#16412](https://redmine.iart.ch/issues/16412) references aggregation: random
   Includes partial refactoring of mosaic JS.
 * [RM#16672](https://redmine.iart.ch/issues/16672) Same footer for email and website
+* [RM#16401](https://redmine.iart.ch/issues/16401) [imp] force logout on email change
+* [RM#16392](https://redmine.iart.ch/issues/16392) update pre-sorted countries order
+* Update `cms_delete_content`: delete confirmation now happens in modal
+* [upd] cyon.ch mailserver configuration
+
+
+**Bugfixes**
+
+* [fix] partner form: `zip` code is required
 
 
 ## 9.2.4b4 (2017-03-08 - INT)
