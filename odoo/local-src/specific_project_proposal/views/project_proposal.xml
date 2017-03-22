@@ -52,6 +52,13 @@
             <label for="website_description"/>
             <field name="website_description"/>
           </page>
+          <page string="Matches">
+            <field name="matching_partner_ids">
+              <tree>
+                <field name="name" />
+              </tree>
+            </field>
+          </page>
         </notebook>
       </sheet>
       <div class="oe_chatter">

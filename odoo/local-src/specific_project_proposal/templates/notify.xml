@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="message_proposal_match" name="Fluxdock proposal match message">
+    <p>You have match on this project proposal: <a t-att-href="proposal.website_url" t-field="proposal.name" /></p>
+  </template>
+
+</odoo>

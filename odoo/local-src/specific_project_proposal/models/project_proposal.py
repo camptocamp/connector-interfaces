@@ -90,6 +90,14 @@ class ProjectProposal(models.Model):
     contact_email = fields.Char()
     contact_phone = fields.Char()
 
+    matching_partner_ids = fields.Many2many(
+        string="Matching partners",
+        comodel_name="res.partner",
+        compute="_compute_matching_partner_ids",
+    )
+    # flag used to determine if the proposal needs notification
+    notify_dirty = fields.Boolean(default=False)
+
     @api.depends('create_uid')
     def _get_color_owner_id(self):
         for rec in self:
@@ -147,3 +155,152 @@ class ProjectProposal(models.Model):
                     rec.stop_date < rec.start_date):
                 raise exceptions.UserError(
                     _('End Date cannot be set before Start Date.'))
+
+    @api.multi
+    @api.depends('industry_ids', 'expertise_ids')
+    def _compute_matching_partner_ids(self):
+        """Get matching partners by expertise and industry."""
+        Partner = self.env['res.partner'].sudo()
+        for item in self:
+            if isinstance(item.id, models.NewId):
+                # bad fields behavior in form:
+                # when removing a tag here you get a new object :/
+                continue
+            ind_ids = item.industry_ids.ids
+            exp_ids = item.expertise_ids.ids
+            item.matching_partner_ids = Partner.search(
+                ['|', ('expertise_ids', 'in', exp_ids),
+                      ('category_id', 'in', ind_ids),
+                 ('user_id.proposal_blacklist_ids', 'not in', [item.id, ]),
+                 ('id', '!=', item.create_uid.partner_id.id),
+                 ],
+            )
+
+    @property
+    def _matches_subtype(self):
+        return self.env.ref(
+            'specific_project_proposal.mt_proposal_matches'
+        )
+
+    @api.model
+    def create(self, vals):
+        """Override to mark as `dirty` when needed."""
+        res = super(ProjectProposal, self).create(vals)
+        # notify only published objects
+        if not res.website_published:
+            return res
+        if not self.env.context.get('notify_disable') \
+                and self._matches_to_be_notified(res):
+            res.with_context(
+                **self._notify_restricted_context()
+            ).notify_dirty = True
+        return res
+
+    @api.multi
+    def write(self, vals):
+        """Override to mark as `dirty` when needed."""
+        res = super(ProjectProposal, self).write(vals)
+        if not self.env.context.get('notify_disable'):
+            for item in self:
+                # notify only published objects
+                if not item.website_published:
+                    continue
+                # yes, we write once more but we don't want tracking here
+                # and we need proposal to be saved to fetch updated matches
+                if self._matches_to_be_notified(item):
+                    item.with_context(
+                        **self._notify_restricted_context()
+                    ).notify_dirty = True
+        return res
+
+    @api.multi
+    def _notified_partners(self, partner_ids):
+        """Return partners' id that have been notified for current object."""
+        # TODO: is this enough? We are relying on existing messages
+        # but if you delete them, partners can be notified twice
+        self.ensure_one()
+        domain = [
+            ('partner_ids', 'in', partner_ids),
+            ('model', '=', self._name),
+            ('res_id', '=', self.id),
+            ('subtype_id', '=', self._matches_subtype.id),
+        ]
+        return self.env['mail.message'].search(domain).mapped('partner_ids')
+
+    @api.model
+    def _matches_to_be_notified(self, item):
+        """Return matches to be notified."""
+        to_be_notified = []
+        matching_partner_ids = item.matching_partner_ids.ids
+        if matching_partner_ids:
+            notified = self._notified_partners(matching_partner_ids)
+            to_be_notified = set(matching_partner_ids).difference(notified)
+        return list(to_be_notified)
+
+    # TODO: this part could be made generic
+    # and put in an extra module to be reusable
+
+    def _notify_restricted_context(self):
+        return {
+            'notify_only_recipients': True,
+            'tracking_disable': True,
+            'notify_disable': True,
+        }
+
+    @api.model
+    def cron_notify_matches(self):
+        """Create messages to notify matches."""
+        # 1. search for proposals that have matches (dirty)
+        # 2. get only matching partners that did not received yet notifications
+        # matching: model, res_id, subtype_id
+        # 3. mark proposal as not dirty
+        domain = [
+            ('website_published', '=', True),
+            ('notify_dirty', '=', True)
+        ]
+        proposals = self.search(domain)
+        proposals._create_match_messages()
+        proposals.with_context(
+            **self._notify_restricted_context()).write({'notify_dirty': False})
+
+    def _match_message_body(self, proposal, lang):
+        template = self.env.ref(
+            'specific_project_proposal.message_proposal_match')
+        return template.with_context(lang=lang).render({'proposal': proposal})
+
+    @api.multi
+    def _match_message_defaults(self):
+        self.ensure_one()
+        return {
+            'model': self._name,
+            'res_id': self.id,
+            'no_auto_thread': True,
+            'subject': _('Proposal match'),
+            'subtype_id': self._matches_subtype.id,
+        }
+
+    @api.multi
+    def _create_match_messages(self):
+        msg_model = self.env['mail.message'].sudo(
+        ).with_context(**self._notify_restricted_context())
+        for item in self:
+            to_be_notified = self._matches_to_be_notified(item)
+            if not to_be_notified:
+                continue
+            values = item._match_message_defaults()
+            # mail.message do not have translations
+            # hence we must render message by partner lang.
+            # We group them here and we create 1 message per lang.
+            grouped = {}
+            partner_langs = self.env['res.partner'].search_read(
+                [('id', 'in', to_be_notified),
+                 ('notify_email', '!=', 'none')],
+                ['lang', ])
+            for rec in partner_langs:
+                grouped.setdefault(rec['lang'], []).append(rec['id'])
+            for lang, pids in grouped.iteritems():
+                values['body'] = self._match_message_body(item, lang)
+                values['partner_ids'] = [
+                    (4, id) for id in pids
+                ]
+                msg_model.create(values)

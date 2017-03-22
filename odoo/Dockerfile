@@ -17,5 +17,6 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
 /opt/odoo/src/addons, \
 /opt/odoo/external-src/vertical-association, \
 /opt/odoo/external-src/website-cms, \
+/opt/odoo/external-src/social, \
 /opt/odoo/external-src/odoo-cloud-platform, \
 "

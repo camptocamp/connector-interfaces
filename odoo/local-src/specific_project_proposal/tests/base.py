@@ -13,7 +13,9 @@ class BaseTestCase(object):
 
     def setUp(self):
         super(BaseTestCase, self).setUp()
-        user_model = self.env['res.users'].with_context(no_reset_password=1)
+        user_model = self.env['res.users'].with_context(
+            {'no_reset_password': True,
+             'tracking_disable': True, })
         self.user1 = user_model.create({
             'name': 'User 1 (test ref)',
             'login': 'testref_user1',
@@ -29,10 +31,7 @@ class BaseTestCase(object):
             'groups_id': [(6, 0, [self.env.ref('base.group_portal').id])]
         })
         self.group_public = self.env.ref('base.group_public')
-        self.user_public = self.env['res.users'].with_context(
-            {'no_reset_password': True,
-             'mail_create_nosubscribe': True}
-        ).create({
+        self.user_public = user_model.create({
             'name': 'Public User',
             'login': 'publicuser',
             'email': 'publicuser@example.com',
@@ -44,49 +43,52 @@ class BaseTestCase(object):
         raise NotImplementedError()
 
     def test_perm_create(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
-        self.assertTrue(self.model.browse(ref.id))
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        self.assertTrue(self.model.browse(obj.id))
 
     def test_perm_write(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
-        ref.name = 'Baz'
-        self.assertEqual(ref.name, 'Baz')
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        obj.name = 'Baz'
+        self.assertEqual(obj.name, 'Baz')
 
     def test_perm_write_only_owner(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
         with self.assertRaises(exceptions.AccessError):
-            ref.sudo(self.user2.id).name = 'cannot do this!'
-        ref = self.model.sudo(self.user2.id).create({'name': 'Foo 2'})
+            obj.sudo(self.user2.id).name = 'cannot do this!'
+        obj = self.model.sudo(self.user2.id).create({'name': 'Foo 2'})
         with self.assertRaises(exceptions.AccessError):
-            ref.sudo(self.user1.id).name = 'cannot do this!'
+            obj.sudo(self.user1.id).name = 'cannot do this!'
 
     def test_delete(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
-        ref_id = ref.id
-        ref.unlink()
-        self.assertFalse(self.model.browse(ref_id).exists())
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        obj_id = obj.id
+        obj.unlink()
+        self.assertFalse(self.model.browse(obj_id).exists())
 
     def test_delete_only_owner(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
         with self.assertRaises(exceptions.AccessError):
-            ref.sudo(self.user2.id).unlink()
+            obj.sudo(self.user2.id).unlink()
 
     def test_published(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
-        self.assertFalse(ref.website_published)
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        self.assertFalse(obj.website_published)
         # admin
-        self.assertTrue(ref.read())
+        self.assertTrue(obj.read())
         # owner
-        self.assertTrue(ref.sudo(self.user1.id).read())
+        self.assertTrue(obj.sudo(self.user1.id).read())
         # public user
         with self.assertRaises(exceptions.AccessError):
-            ref.sudo(self.user_public.id).read()
+            obj.sudo(self.user_public.id).read()
         # another portal user
         with self.assertRaises(exceptions.AccessError):
-            ref.sudo(self.user2.id).read()
+            obj.sudo(self.user2.id).read()
         # publish it!
-        ref.website_published = True
+        obj.website_published = True
         # now public user can see it
-        self.assertTrue(ref.sudo(self.user_public.id).read())
+        # NOTE: do not use `read` without limiting accessed fields
+        # since all relation fields will be loaded and is not granted
+        # that public user can access them all. Eg: res.users.
+        self.assertTrue(obj.sudo(self.user_public.id).name)
         # and other portal user too
-        self.assertTrue(ref.sudo(self.user2.id).read())
+        self.assertTrue(obj.sudo(self.user2.id).name)

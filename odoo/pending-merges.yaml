@@ -1,0 +1,25 @@
+# file used with gitaggregator: https://github.com/acsone/git-aggregator/
+# please see docs in docs/how-to-integrate-pull-request.md
+./external-src/website-cms:
+  remotes:
+    oca: git@github.com:OCA/website-cms.git
+    c2c: git@github.com:camptocamp/website-cms.git
+    smk: git@github.com:simahawk/website-cms.git
+  merges:
+    - oca 9.0
+      # add cms_form
+    - oca refs/pull/9/head
+      # add cms_delete_content 
+    - smk add-cms_delete_content 
+      # add cms_notifications 
+    - smk add-cms_notifications
+  target: &default_target c2c merge-branch-3582-master
+./external-src/social:
+  remotes:
+    oca: git@github.com:OCA/social.git
+    c2c: git@github.com:camptocamp/social.git
+  merges:
+    - oca 9.0
+      # add mail_digest (not yet a PR)
+    - c2c add-mail_digest
+  target: *default_target

@@ -38,6 +38,9 @@
 			<li id="reset_pwd">
 				<a role="menuitem" t-attf-href="/web/reset_password?login=#{request.env.user.login}"><i class="fa fa-lock" t-translation="off" /> Change password</a>
 			</li>
+			<li id="notifications">
+				<a role="menuitem" href="/my/settings/notification"><i class="fa fa-envelope" t-translation="off" /> Notifications</a>
+			</li>
 			<li role="separator" class="divider"></li>
 			<li id="logout">
 				<a href="/web/session/logout?redirect=/" role="menuitem"><i class="fa fa-sign-out" t-translation="off" /> Logout</a>

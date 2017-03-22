@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <record id="mt_proposal_matches" model="mail.message.subtype">
+      <field name="name">Fluxdock Proposal matches</field>
+      <field name="res_model">project.proposal</field>
+      <field name="description">Get notified when a proposal match happens.</field>
+      <field name="cms_type" eval="1" />
+    </record>
+
+  </data>
+</openerp>
