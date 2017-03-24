@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-06 15:24+0000\n"
-"PO-Revision-Date: 2017-03-06 15:24+0000\n"
+"POT-Creation-Date: 2017-03-24 17:01+0000\n"
+"PO-Revision-Date: 2017-03-24 17:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -241,8 +241,8 @@ msgid "<strong>ZIP:</strong>"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/res_users.py:38
-#: code:addons/specific_membership/models/res_users.py:38
+#: code:addons/odoo/local-src/specific_membership/models/res_users.py:36
+#: code:addons/specific_membership/models/res_users.py:36
 #: sql_constraint:res.users:0
 #, python-format
 msgid "A user with this login already exists !"
@@ -329,8 +329,26 @@ msgid "CMS Form mixin"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/res_users.py:79
-#: code:addons/specific_membership/models/res_users.py:79
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_cms_delete_url
+#: model:ir.model.fields,field_description:specific_membership.field_res_users_cms_delete_url
+msgid "CMS delete URL"
+msgstr ""
+
+#. module: specific_membership
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_cms_delete_confirm_url
+#: model:ir.model.fields,field_description:specific_membership.field_res_users_cms_delete_confirm_url
+msgid "CMS delete confirm URL"
+msgstr ""
+
+#. module: specific_membership
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_cms_edit_url
+#: model:ir.model.fields,field_description:specific_membership.field_res_users_cms_edit_url
+msgid "CMS edit URL"
+msgstr ""
+
+#. module: specific_membership
+#: code:addons/odoo/local-src/specific_membership/models/res_users.py:99
+#: code:addons/specific_membership/models/res_users.py:99
 #, python-format
 msgid "Cannot send email: user %s has no email address."
 msgstr ""
@@ -341,8 +359,8 @@ msgid "Change password"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:99
-#: code:addons/specific_membership/models/forms.py:99
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:106
+#: code:addons/specific_membership/models/forms.py:106
 #: model:ir.ui.view,arch_db:specific_membership.partner_base_form
 #, python-format
 msgid "Claim"
@@ -364,15 +382,15 @@ msgid "Company"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:96
-#: code:addons/specific_membership/models/forms.py:96
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:103
+#: code:addons/specific_membership/models/forms.py:103
 #, python-format
 msgid "Company logo"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:97
-#: code:addons/specific_membership/models/forms.py:97
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:104
+#: code:addons/specific_membership/models/forms.py:104
 #, python-format
 msgid "Company name"
 msgstr ""
@@ -407,6 +425,11 @@ msgid "Continue exploring fluxdock"
 msgstr ""
 
 #. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.login
+msgid "Create a free account here"
+msgstr ""
+
+#. module: specific_membership
 #. openerp-web
 #: code:addons/odoo/local-src/specific_membership/static/src/xml/image_upload.xml:40
 #: code:addons/specific_membership/static/src/xml/image_upload.xml:40
@@ -436,8 +459,8 @@ msgid "Edit profile"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:175
-#: code:addons/specific_membership/models/forms.py:175
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:183
+#: code:addons/specific_membership/models/forms.py:183
 #, python-format
 msgid "Email address `%s` already taken. Please check inside your company. "
 msgstr ""
@@ -517,6 +540,11 @@ msgid "Fluxdock provides no user data with third parties. The user-managed user 
 msgstr ""
 
 #. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.login
+msgid "Forgot your password?"
+msgstr ""
+
+#. module: specific_membership
 #: selection:res.partner,flux_membership:0
 msgid "Free Membership"
 msgstr ""
@@ -546,17 +574,17 @@ msgid "Image File"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:197
-#: code:addons/specific_membership/models/forms.py:197
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:208
+#: code:addons/specific_membership/models/forms.py:208
 #, python-format
 msgid "Important"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:100
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:280
-#: code:addons/specific_membership/models/forms.py:100
-#: code:addons/specific_membership/models/forms.py:280
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:107
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:291
+#: code:addons/specific_membership/models/forms.py:107
+#: code:addons/specific_membership/models/forms.py:291
 #, python-format
 msgid "Industries"
 msgstr ""
@@ -567,8 +595,8 @@ msgid "Industry:"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:138
-#: code:addons/specific_membership/models/forms.py:138
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:145
+#: code:addons/specific_membership/models/forms.py:145
 #, python-format
 msgid "Invalid Email! Please enter a valid email address."
 msgstr ""
@@ -608,6 +636,12 @@ msgid "Login"
 msgstr ""
 
 #. module: specific_membership
+#: model:ir.model.fields,field_description:specific_membership.field_res_partner_image_url
+#: model:ir.model.fields,field_description:specific_membership.field_res_users_image_url
+msgid "Main image URL"
+msgstr ""
+
+#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.fluxdock_my_account_header
 msgid "Manage your company profile, your membership and your project proposals on the market. Matching project proposals from the market will also be shown here."
 msgstr ""
@@ -618,8 +652,8 @@ msgid "Market"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:82
-#: code:addons/specific_membership/models/forms.py:82
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:85
+#: code:addons/specific_membership/models/forms.py:85
 #: model:ir.ui.view,arch_db:specific_membership.partner_table
 #, python-format
 msgid "Member profile"
@@ -665,6 +699,11 @@ msgstr ""
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.privateperson
 msgid "Newsletter"
+msgstr ""
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.login
+msgid "Not registered yet?"
 msgstr ""
 
 #. module: specific_membership
@@ -719,6 +758,13 @@ msgid "Profile state"
 msgstr ""
 
 #. module: specific_membership
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:89
+#: code:addons/specific_membership/models/forms.py:89
+#, python-format
+msgid "Profile updated."
+msgstr ""
+
+#. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
 msgid "Published on 5th of April 2016"
 msgstr ""
@@ -731,6 +777,11 @@ msgstr ""
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
 msgid "Reset Password"
+msgstr ""
+
+#. module: specific_membership
+#: model:ir.ui.view,arch_db:specific_membership.login
+msgid "Reset your password here"
 msgstr ""
 
 #. module: specific_membership
@@ -788,8 +839,8 @@ msgid "Skype:"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:98
-#: code:addons/specific_membership/models/forms.py:98
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:105
+#: code:addons/specific_membership/models/forms.py:105
 #, python-format
 msgid "Street / No."
 msgstr ""
@@ -836,8 +887,8 @@ msgid "The invoice for the membership fee has been sent to you by email. Please 
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/res_partner.py:143
-#: code:addons/specific_membership/models/res_partner.py:143
+#: code:addons/odoo/local-src/specific_membership/models/res_partner.py:175
+#: code:addons/specific_membership/models/res_partner.py:175
 #, python-format
 msgid "There is no associate default product"
 msgstr ""
@@ -848,8 +899,8 @@ msgid "These conditions govern the use of Fluxdock sites or services (\"Services
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:87
-#: code:addons/specific_membership/models/forms.py:87
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:94
+#: code:addons/specific_membership/models/forms.py:94
 #, python-format
 msgid "This field holds the company logo, limited to 1024x1024px"
 msgstr ""
@@ -907,8 +958,8 @@ msgid "View profile"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:174
-#: code:addons/specific_membership/models/forms.py:174
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:182
+#: code:addons/specific_membership/models/forms.py:182
 #, python-format
 msgid "Warning"
 msgstr ""
@@ -969,8 +1020,8 @@ msgid "Your contract with Fluxdock."
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:198
-#: code:addons/specific_membership/models/forms.py:198
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:209
+#: code:addons/specific_membership/models/forms.py:209
 #, python-format
 msgid "Your login username has changed to: `%s`. An email has been sent to verify it. You will be asked to reset your password."
 msgstr ""

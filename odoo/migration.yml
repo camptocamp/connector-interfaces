@@ -89,3 +89,12 @@ migration:
       operations:
         post:
           - anthem songs.upgrades.upgrade_9_2_4::main
+    - version: 9.3.0b1
+      addons:
+        upgrade:
+          - specific_membership
+          - specific_project_proposal
+          - theme_fluxdocs
+      operations:
+        post:
+          - anthem songs.upgrades.upgrade_9_3_0::main

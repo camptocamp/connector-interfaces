@@ -7,6 +7,33 @@
 	    </xpath>
 	</template>
 
+	<!-- disable original -->
+	<record id="auth_signup.login" model="ir.ui.view">
+		<field name="name">[DISABLED] auth_signup Loging/reset pwd</field>
+		<field name="active" eval="0" />
+	</record>
+
+	<template id="login" inherit_id="web.login" name="Fluxdock Sign up - Reset Password">
+
+		<xpath expr="//div[contains(@class,'field-db')]" position="before">
+			<h2>
+				THROUGH COLLABORATION TO INNOVATION
+			</h2>
+		</xpath>
+
+		<xpath expr="//button[@type='submit']" position="after">
+			<div class="login-notice-wrap">
+				<div t-if="signup_enabled">
+					Not registered yet?
+					<a t-attf-href="/web/presignup?{{ keep_query() }}">Create a free account here</a>
+				</div>
+				<div t-if="reset_password_enabled">
+					Forgot your password?
+					<a t-attf-href="/web/reset_password?{{ keep_query() }}">Reset your password here</a>
+				</div>
+			</div>
+		</xpath>
+	</template>
 
 	<template id="account_confirmation" name="Fluxdock Account confirmation">
 		<t t-call="web.login_layout">
@@ -149,15 +176,6 @@
 			</t>
 		</xpath>
 	</template>
-
-	<template id="login" inherit_id="web.login" name="Fluxdock login">
-		<xpath expr="//div[contains(@class,'field-db')]" position="before">
-			<h2>
-				THROUGH COLLABORATION TO INNOVATION
-			</h2>
-		</xpath>
-	</template>
-
 
 	<template id="signup_buttons" name="Fluxdock sign up buttons" inherit_id="auth_signup.signup">
 		<xpath expr="//div[contains(@class,'oe_login_buttons')]"
