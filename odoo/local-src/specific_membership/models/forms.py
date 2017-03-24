@@ -85,6 +85,10 @@ class PartnerForm(models.AbstractModel):
         return _('Member profile')
 
     @property
+    def form_msg_success_updated(self):
+        return _('Profile updated.')
+
+    @property
     def help_texts(self):
         texts = {
             'image': _(
