@@ -10,9 +10,9 @@
       # add cms_form
     - oca refs/pull/9/head
       # add cms_delete_content 
-    - smk add-cms_delete_content 
+    - oca refs/pull/6/head
       # add cms_notifications 
-    - smk add-cms_notifications-PR
+    - oca refs/pull/13/head
   target: &default_target c2c merge-branch-3582-master
 ./external-src/social:
   remotes:
