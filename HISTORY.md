@@ -2,6 +2,21 @@
 
 <!-- PLACEHOLDER_NEW_RELEASE -->
 
+## 9.3.0b1 (Unreleased)
+
+**Features and Improvements**
+
+* [RM#16516](https://redmine.iart.ch/issues/16516) [add] matches notifications
+   Includes new modules: mail_digest + cms_notifications
+
+**Bugfixes**
+
+* [RM#16796](https://redmine.iart.ch/issues/16796) [fix] link spacing in labels
+* [RM#16797](https://redmine.iart.ch/issues/16797) [fix] port login template from prod, update transl
+* [RM#16797](https://redmine.iart.ch/issues/16797) [fix] redirect after sumbit/cancel in partner form
+
+
+
 ## 9.2.4b5 (2017-03-16)
 
 **Features and Improvements**
