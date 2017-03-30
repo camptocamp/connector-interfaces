@@ -77,7 +77,10 @@
 						</div>
 		      </div>
 		    </div>
-		    <div class="copyright"><span>Product of a collaboration</span> <span t-translation="off" t-esc="time.strftime('%Y')"/></div>
+		    <div class="copyright">
+					<!-- Use `div` to prevent inline elements to be included in translations -->
+					<div class="inline copy">Product of a collaboration</div> <span class="year pl02" t-translation="off" t-esc="time.strftime('%Y')"/>
+				</div>
 			</xpath>
 		</template>
 
