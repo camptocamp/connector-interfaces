@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-06 15:50+0000\n"
-"PO-Revision-Date: 2017-03-06 13:14+0100\n"
+"POT-Creation-Date: 2017-03-30 10:48+0000\n"
+"PO-Revision-Date: 2017-03-30 17:04+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -216,13 +216,12 @@ msgstr "Hinzufügen"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "Add proposal"
-msgstr ""
+msgstr "Projektausschreibung hinzufügen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
-#, fuzzy
 msgid "Add reference"
-msgstr "Mitglieder Referenzen"
+msgstr "Referenzprojekt hinzufügen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -247,7 +246,7 @@ msgstr "Cern"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "Change password"
-msgstr ""
+msgstr "Passwort ändern"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
@@ -289,11 +288,13 @@ msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_create_uid
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_website_published_mixin_create_uid
 msgid "Created by"
 msgstr "Angelegt von"
 
 #. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_create_date
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_website_published_mixin_create_date
 msgid "Created on"
 msgstr "Angelegt am"
 
@@ -355,7 +356,7 @@ msgstr "Bearbeiten"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "Edit my profile"
-msgstr ""
+msgstr "Profil bearbeiten"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -499,6 +500,14 @@ msgid "ID"
 msgstr ""
 
 #. module: theme_fluxdocs
+#. openerp-web
+#: code:addons/odoo/local-src/theme_fluxdocs/static/src/js/publish.js:33
+#: code:addons/theme_fluxdocs/static/src/js/publish.js:33
+#, python-format
+msgid "Info"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid ""
 "Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero "
@@ -508,6 +517,22 @@ msgstr ""
 "Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero "
 "eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, "
 "no sea takimata sanctus est Lorem ipsum dolor sit amet."
+
+#. module: theme_fluxdocs
+#. openerp-web
+#: code:addons/odoo/local-src/theme_fluxdocs/static/src/js/publish.js:32
+#: code:addons/theme_fluxdocs/static/src/js/publish.js:32
+#, python-format
+msgid "Item published."
+msgstr "Element wurde veröffentlicht"
+
+#. module: theme_fluxdocs
+#. openerp-web
+#: code:addons/odoo/local-src/theme_fluxdocs/static/src/js/publish.js:37
+#: code:addons/theme_fluxdocs/static/src/js/publish.js:37
+#, python-format
+msgid "Item unpublished."
+msgstr "Element verborgen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -532,11 +557,13 @@ msgstr "Zuletzt aktualisiert am"
 
 #. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_write_uid
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_website_published_mixin_write_uid
 msgid "Last Updated by"
 msgstr "Zuletzt aktualisiert durch"
 
 #. module: theme_fluxdocs
 #: model:ir.model.fields,field_description:theme_fluxdocs.field_ir_http_write_date
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_website_published_mixin_write_date
 msgid "Last Updated on"
 msgstr "Zuletzt aktualisiert am"
 
@@ -551,7 +578,7 @@ msgstr "Anmelden"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "Logout"
-msgstr ""
+msgstr "Abmelden"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.mosaic
@@ -562,6 +589,11 @@ msgstr "Lorem ipsum"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Lorem ipsum dolor"
 msgstr "Lorem ipsum dolor"
+
+#. module: theme_fluxdocs
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_website_published_mixin_image_url
+msgid "Main image URL"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
@@ -592,7 +624,7 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "My public profile"
-msgstr ""
+msgstr "Öffentliches Profil"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -621,6 +653,11 @@ msgstr "Bislang wurde noch keine Blognachricht geschrieben."
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
 msgid "No result found."
 msgstr "Kein Resultat gefunden"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
+msgid "Notifications"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -656,6 +693,13 @@ msgstr "Bitte klicken Sie hier, um Ihr Referenzprojekt zu veröffentlichen."
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.popover_html_content
 msgid "Please, remember to publish your content when editing is finished."
+msgstr ""
+"Bitte veröffentlichen Sie den aktualisierten Inhalt nach der Bearbeitung."
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.popover_html_content
+#, fuzzy
+msgid "Please, remember to publish your profile when editing is finished."
 msgstr ""
 "Bitte veröffentlichen Sie den aktualisierten Inhalt nach der Bearbeitung."
 
@@ -840,6 +884,14 @@ msgid "Untitled Post"
 msgstr "Untitled Post"
 
 #. module: theme_fluxdocs
+#. openerp-web
+#: code:addons/odoo/local-src/theme_fluxdocs/static/src/js/publish.js:38
+#: code:addons/theme_fluxdocs/static/src/js/publish.js:38
+#, python-format
+msgid "Warning"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid ""
 "We are currently looking for a software developer who drives the development "
@@ -935,6 +987,11 @@ msgstr ""
 "befähigt fluxdock dabei seine Mitglieder zu mehr Innovation."
 
 #. module: theme_fluxdocs
+#: model:ir.model.fields,field_description:theme_fluxdocs.field_website_published_mixin_image
+msgid "image"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.field_widget_image
 msgid "keep submitted"
 msgstr "Veröffentlichtes Bild behalten"
@@ -954,3 +1011,8 @@ msgstr "Bild ersetzen"
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "suchen"
 msgstr "suchen"
+
+#. module: theme_fluxdocs
+#: model:ir.model,name:theme_fluxdocs.model_website_published_mixin
+msgid "website.published.mixin"
+msgstr ""

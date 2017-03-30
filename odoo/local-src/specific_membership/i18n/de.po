@@ -410,9 +410,8 @@ msgstr "<strong>Gesamtbetrag:</strong>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
-#, fuzzy
 msgid "<strong>VAT:</strong>"
-msgstr "<strong>Steuern:</strong>"
+msgstr "<strong>MWST:</strong>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_payment_address
@@ -595,14 +594,14 @@ msgstr "Unternehmen"
 #. module: specific_membership
 #: code:addons/odoo/local-src/specific_membership/models/forms.py:103
 #: code:addons/specific_membership/models/forms.py:103
-#, fuzzy, python-format
+#, python-format
 msgid "Company logo"
-msgstr "Unternehmen"
+msgstr "Logo Unternehmen"
 
 #. module: specific_membership
 #: code:addons/odoo/local-src/specific_membership/models/forms.py:104
 #: code:addons/specific_membership/models/forms.py:104
-#, fuzzy, python-format
+#, python-format
 msgid "Company name"
 msgstr "Unternehmen"
 
@@ -908,10 +907,9 @@ msgid ""
 "Members have public profile on Fluxdock and can register company references."
 "<br/>Associated Members have full access on the market. For CHF 60.- per "
 "year they can make proposals and read all proposals on the market."
-msgstr ""
-"Members have public profile on Fluxdock and can register company references."
-"<br/>Associated Members have full access on the market. For CHF 60.- per "
-"year they can make proposals and read all proposals on the market."
+msgstr "Mitglieder haben ein öffentliches Profil bei Fluxdock und können Referenzen erfassen.
+"<br/>Assoziierte Mitglieder haben vollen Zugriff auf den Projektmarkt. Für CHF 60.- im "
+"Jahr können Sie Projekte ausschreiben und alle Ausschreibungen einsehen."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_actions
@@ -1065,7 +1063,8 @@ msgstr "Kurzbeschreibung für Listenansicht"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_step_3_msg
 msgid "Show your proficiency by supplementing your profile with your"
-msgstr "Zeigen Sie Ihr Können indem Sie Ihr Profil mit Ihren"
+msgstr ""
+"Zeigen Sie Ihr Können und ergänzen Sie Ihr Profil mit Ihren"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_buttons
@@ -1088,7 +1087,7 @@ msgstr "Skype:"
 #: code:addons/specific_membership/models/forms.py:105
 #, python-format
 msgid "Street / No."
-msgstr ""
+msgstr "Strasse / Nr."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.privateperson
@@ -1159,7 +1158,7 @@ msgstr ""
 #: code:addons/specific_membership/models/forms.py:94
 #, python-format
 msgid "This field holds the company logo, limited to 1024x1024px"
-msgstr ""
+msgstr "Bitte laden Sie hier Ihr Unternehmenslogo hoch, max. 1024x1024px"
 
 #. module: specific_membership
 #: model:ir.model.fields,field_description:specific_membership.field_res_partner_twitter
@@ -1294,7 +1293,8 @@ msgstr ""
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_step_2_msg
 msgid "Your profile has not been published yet. Please complete your"
-msgstr "Ihr Profil wurde noch nicht publiziert. Bitte ergänzen Sie ihr "
+msgstr ""
+"Ihr Profil wurde noch nicht publiziert. Bitte ergänzen Sie ihr "
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals
@@ -1328,7 +1328,7 @@ msgstr "oder"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_step_3_msg
 msgid "reference projects"
-msgstr "Referenzprojekte"
+msgstr "Referenzprojekten"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.become_member_claim

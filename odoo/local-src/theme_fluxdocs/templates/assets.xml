@@ -31,7 +31,7 @@
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/plugins/imagesloaded.pkgd.js"></script>
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/mosaic.js"></script>
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/tooltips.js"></script>
-				<script type="text/javascript" src="/theme_fluxdocs/static/js/publish.js"></script>
+				<script type="text/javascript" src="/theme_fluxdocs/static/src/js/publish.js"></script>
 				<script type="text/javascript" src="/theme_fluxdocs/static/js/fluxdock.js"></script>
 			</xpath>
 

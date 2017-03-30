@@ -160,7 +160,6 @@ msgstr "Beschreiben Sie das Projekt, das Sie vorhaben."
 
 #. module: specific_project_proposal
 #: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_website_description
-#, fuzzy
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -319,8 +318,7 @@ msgstr "Projektvorschläge"
 msgid ""
 "Matches are projects on the market, that correspond to your industry and "
 "expertise."
-msgstr ""
-"The proposal will shared with parners depending on industries and expertises."
+msgstr "Projektvorschläge sind Projekte auf dem Projektmarkt, die mit Ihrer Branche oder Expertise übereinstimmen."
 
 #. module: specific_project_proposal
 #: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_ids
