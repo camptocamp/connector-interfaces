@@ -149,8 +149,6 @@ class PartnerForm(models.AbstractModel):
         user = self.env.user
         if 'email' in values and user.email != values.get('email'):
             self._handle_email_update(user, values)
-        # we publish the profile anyway
-        values['website_published'] = True
 
     def form_after_create_or_update(self, values, extra_values):
         partner = self.main_object
