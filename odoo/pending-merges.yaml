@@ -9,8 +9,6 @@
     - oca 9.0
       # add cms_form
     - oca refs/pull/9/head
-      # add cms_delete_content 
-    - oca refs/pull/6/head
       # add cms_notifications 
     - oca refs/pull/13/head
   target: &default_target c2c merge-branch-3582-master
