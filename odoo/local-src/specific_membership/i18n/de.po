@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-24 17:01+0000\n"
+"POT-Creation-Date: 2017-04-06 07:24+0000\n"
 "PO-Revision-Date: 2017-03-24 18:07+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -669,8 +669,8 @@ msgid "Edit profile"
 msgstr "Profil bearbeiten"
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:183
-#: code:addons/specific_membership/models/forms.py:183
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:181
+#: code:addons/specific_membership/models/forms.py:181
 #, python-format
 msgid "Email address `%s` already taken. Please check inside your company. "
 msgstr ""
@@ -805,17 +805,17 @@ msgid "Image File"
 msgstr "Image File"
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:208
-#: code:addons/specific_membership/models/forms.py:208
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:206
+#: code:addons/specific_membership/models/forms.py:206
 #, python-format
 msgid "Important"
 msgstr "Important"
 
 #. module: specific_membership
 #: code:addons/odoo/local-src/specific_membership/models/forms.py:107
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:291
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:289
 #: code:addons/specific_membership/models/forms.py:107
-#: code:addons/specific_membership/models/forms.py:291
+#: code:addons/specific_membership/models/forms.py:289
 #, fuzzy, python-format
 msgid "Industries"
 msgstr "Branche"
@@ -898,6 +898,7 @@ msgstr "Mitgliederprofil"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.members_search_form_header
+#: model:website.menu,name:specific_membership.menu_members
 msgid "Members"
 msgstr "Mitglieder"
 
@@ -907,9 +908,11 @@ msgid ""
 "Members have public profile on Fluxdock and can register company references."
 "<br/>Associated Members have full access on the market. For CHF 60.- per "
 "year they can make proposals and read all proposals on the market."
-msgstr "Mitglieder haben ein öffentliches Profil bei Fluxdock und können Referenzen erfassen.
-"<br/>Assoziierte Mitglieder haben vollen Zugriff auf den Projektmarkt. Für CHF 60.- im "
-"Jahr können Sie Projekte ausschreiben und alle Ausschreibungen einsehen."
+msgstr ""
+"Mitglieder haben ein öffentliches Profil bei Fluxdock und können Referenzen "
+"erfassen.<br/>Assoziierte Mitglieder haben vollen Zugriff auf den "
+"Projektmarkt. Für CHF 60.- im Jahr können Sie Projekte ausschreiben und alle "
+"Ausschreibungen einsehen."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.membership_actions
@@ -1063,8 +1066,7 @@ msgstr "Kurzbeschreibung für Listenansicht"
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_step_3_msg
 msgid "Show your proficiency by supplementing your profile with your"
-msgstr ""
-"Zeigen Sie Ihr Können und ergänzen Sie Ihr Profil mit Ihren"
+msgstr "Zeigen Sie Ihr Können und ergänzen Sie Ihr Profil mit Ihren"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_buttons
@@ -1213,8 +1215,8 @@ msgid "View profile"
 msgstr "Profil anzeigen"
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:182
-#: code:addons/specific_membership/models/forms.py:182
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:180
+#: code:addons/specific_membership/models/forms.py:180
 #, python-format
 msgid "Warning"
 msgstr "Warnung"
@@ -1279,8 +1281,8 @@ msgid "Your contract with Fluxdock."
 msgstr "<span style=\"text-align: center\">Ihr Vertrag mit Fluxdock</span>."
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:209
-#: code:addons/specific_membership/models/forms.py:209
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:207
+#: code:addons/specific_membership/models/forms.py:207
 #, python-format
 msgid ""
 "Your login username has changed to: `%s`. An email has been sent to verify "
@@ -1293,8 +1295,7 @@ msgstr ""
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.profile_step_2_msg
 msgid "Your profile has not been published yet. Please complete your"
-msgstr ""
-"Ihr Profil wurde noch nicht publiziert. Bitte ergänzen Sie ihr "
+msgstr "Ihr Profil wurde noch nicht publiziert. Bitte ergänzen Sie ihr "
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.signup_modals

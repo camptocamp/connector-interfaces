@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-24 17:01+0000\n"
-"PO-Revision-Date: 2017-03-24 17:01+0000\n"
+"POT-Creation-Date: 2017-04-06 07:24+0000\n"
+"PO-Revision-Date: 2017-04-06 07:24+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -459,8 +459,8 @@ msgid "Edit profile"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:183
-#: code:addons/specific_membership/models/forms.py:183
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:181
+#: code:addons/specific_membership/models/forms.py:181
 #, python-format
 msgid "Email address `%s` already taken. Please check inside your company. "
 msgstr ""
@@ -574,17 +574,17 @@ msgid "Image File"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:208
-#: code:addons/specific_membership/models/forms.py:208
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:206
+#: code:addons/specific_membership/models/forms.py:206
 #, python-format
 msgid "Important"
 msgstr ""
 
 #. module: specific_membership
 #: code:addons/odoo/local-src/specific_membership/models/forms.py:107
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:291
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:289
 #: code:addons/specific_membership/models/forms.py:107
-#: code:addons/specific_membership/models/forms.py:291
+#: code:addons/specific_membership/models/forms.py:289
 #, python-format
 msgid "Industries"
 msgstr ""
@@ -661,6 +661,7 @@ msgstr ""
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.members_search_form_header
+#: model:website.menu,name:specific_membership.menu_members
 msgid "Members"
 msgstr ""
 
@@ -958,8 +959,8 @@ msgid "View profile"
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:182
-#: code:addons/specific_membership/models/forms.py:182
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:180
+#: code:addons/specific_membership/models/forms.py:180
 #, python-format
 msgid "Warning"
 msgstr ""
@@ -1020,8 +1021,8 @@ msgid "Your contract with Fluxdock."
 msgstr ""
 
 #. module: specific_membership
-#: code:addons/odoo/local-src/specific_membership/models/forms.py:209
-#: code:addons/specific_membership/models/forms.py:209
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:207
+#: code:addons/specific_membership/models/forms.py:207
 #, python-format
 msgid "Your login username has changed to: `%s`. An email has been sent to verify it. You will be asked to reset your password."
 msgstr ""

@@ -61,6 +61,7 @@
         'data/membership_data.xml',
         'data/group_data.xml',
         'data/email_data.xml',
+        'data/website_menu.xml',
     ],
     'installable': True,
     'auto_install': False,
