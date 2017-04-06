@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="report_invoice_document" inherit_id="account.report_invoice_document">
+<template id="report_invoice_document" inherit_id="account.report_invoice_document" name="Fluxdock invoice document">
 
     <!-- add class to page wrapper -->
     <xpath expr="//div[contains(@class,'page')]" position="attributes">

@@ -110,7 +110,7 @@
     We need object owners to be able to publish items.
     -->
 
-    <template id="publish_short">
+    <template id="publish_short" name="Fluxdock publish widget (short)">
         <div t-attf-class="js_publish_management #{object.website_published and 'css_published' or 'css_unpublished'}"
              t-att-data-id="object.id" t-att-data-object="object._name" t-att-data-controller="publish_controller">
             <button type="button" class="btn btn-danger btn-bg-sticky js_publish_btn popover_sticky"
@@ -123,7 +123,7 @@
         </div>
     </template>
 
-    <template id="popover_html_content">
+    <template id="popover_html_content" name="Fluxdock popover content">
         <t t-if="object._name == 'project.reference'">
             Please, publish your project reference...
         </t>
@@ -175,7 +175,7 @@
         </t>
     </template>
 
-    <template id="carousel">
+    <template id="carousel" name="Fluxdoc carousel">
         <section class="carousel">
             <ul class="bxslider" t-att-data-slider="carousel_data">
                 <t t-foreach="carousel_items" t-as="carousel_item">

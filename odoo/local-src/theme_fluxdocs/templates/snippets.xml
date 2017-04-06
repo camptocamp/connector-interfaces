@@ -3,7 +3,7 @@
     <data>
 
         <!-- FLUXDOCS SNIPPETS -->
-        <template id="place_into_bar" name="Fluxdocs Snippets" inherit_id="website.snippets">
+        <template id="place_into_bar" name="Fluxdock Snippets" inherit_id="website.snippets">
 
             <!--
             <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="inside">
