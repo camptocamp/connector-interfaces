@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Email templates for proposals.
+    We register it here since it belongs to this module,
+    but we populate the html via anthem song to keep better control
+    and to be able to use html file for it.
+    See `songs/install/post`
+    -->
+    <record id="mail_matches_notification" model="mail.template">
+        <field name="name">Fluxdock matches notification</field>
+    </record>
+
+</odoo>

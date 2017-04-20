@@ -247,17 +247,24 @@ class ProjectProposal(models.Model):
             'notify_disable': True,
         }
 
+    @api.multi
+    def button_test_notify_match(self):
+        self.ensure_one()
+        self.cron_notify_matches(domain=[('id', '=', self.id)])
+        self.env['mail.digest'].process()
+
     @api.model
-    def cron_notify_matches(self):
+    def cron_notify_matches(self, domain=None):
         """Create messages to notify matches."""
         # 1. search for proposals that have matches (dirty)
         # 2. get only matching partners that did not received yet notifications
         # matching: model, res_id, subtype_id
         # 3. mark proposal as not dirty
-        domain = [
-            ('website_published', '=', True),
-            ('notify_dirty', '=', True)
-        ]
+        if domain is None:
+            domain = [
+                ('website_published', '=', True),
+                ('notify_dirty', '=', True)
+            ]
         proposals = self.search(domain)
         proposals._create_match_messages()
         proposals.with_context(

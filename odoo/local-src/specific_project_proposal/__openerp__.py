@@ -23,6 +23,7 @@
         'data/data_menu.xml',
         'data/ir_cron.xml',
         'data/mail_message_subtype.xml',
+        'data/email_data.xml',
         'security/ir.model.access.csv',
         'security/record_rules.xml',
         'views/project_proposal.xml',

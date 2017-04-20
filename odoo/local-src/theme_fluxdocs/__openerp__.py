@@ -15,6 +15,7 @@
         'templates/mosaic.xml',
         'templates/status_msg.xml',
         'templates/search_form.xml',
+        'templates/email.xml',
         'pages/homepage.xml',
     ],
     'category': 'Theme/Creative',
@@ -25,5 +26,7 @@
         'cms_status_message',
         'cms_delete_content',
         'cms_form',
+        'cms_notifications',
+        'mail_digest',
     ],
 }

@@ -58,6 +58,12 @@
                 <field name="name" />
               </tree>
             </field>
+            <button
+                name="button_test_notify_match"
+                type="object"
+                string="Test notify match"
+                confirm="Warning: this test will schedule emails to send to all matches. Are you sure?"
+                />
           </page>
         </notebook>
       </sheet>

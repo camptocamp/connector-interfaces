@@ -2,7 +2,28 @@
 <odoo>
 
   <template id="message_proposal_match" name="Fluxdock proposal match message">
-    <p>You have match on this project proposal: <a t-att-href="proposal.website_url" t-field="proposal.name" /></p>
+    <p><a t-att-href="proposal.website_url" t-field="proposal.name" /></p>
+  </template>
+
+  <template id="default_digest_tmpl" inherit_id="mail_digest.default_digest_tmpl" name="Fluxdock Mail digest message">
+    <xpath expr="//div[@id='mail_inner_content']" position="replace">
+      <t t-foreach="grouped_messages.iterkeys()" t-as="typeid">
+        <t t-set="messages" t-value="grouped_messages[typeid]" />
+        <t t-if="typeid == matches_subtype.id">
+          <p>There are new proposals matches for your company:</p>
+          <ul style="margin:10px 20px">
+            <t t-foreach="messages" t-as="msg"><t t-raw="msg.body" /></t>
+          </ul>
+        </t>
+        <t t-if="typeid != matches_subtype.id">
+          <t t-foreach="messages" t-as="msg">
+            <div style="margin:20px">
+                <h3 t-esc="msg.subject" /><t t-raw="msg.body" />
+            </div>
+          </t>
+        </t>
+      </t>
+    </xpath>
   </template>
 
 </odoo>
