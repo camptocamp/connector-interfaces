@@ -103,6 +103,48 @@ def add_membership_upgrade_email(ctx):
 
 
 @anthem.log
+def override_default_notification_template(ctx):
+    content = resource_stream(req, 'data/mail_default_template.html').read()
+    # took from original one
+    subject = """${object.subject or (object.record_name
+    and 'Re: %s' % object.record_name)
+    or (object.parent_id and object.parent_id.subject
+    and 'Re: %s' % object.parent_id.subject)
+    or (object.parent_id and object.parent_id.record_name
+    and 'Re: %s' % object.parent_id.record_name)}"""
+    values = {
+        'body_html': content,
+        'name': 'Fluxdock Notification Email',
+        'subject': subject,
+        'model_id': ctx.env.ref('mail.model_mail_message').id,
+        'auto_delete': True,
+    }
+    xmlid = 'mail.mail_template_data_notification_email_default'
+    create_or_update_email_template(ctx, xmlid, values)
+
+
+@anthem.log
+def add_matches_notification_template(ctx):
+    content = resource_stream(req, 'data/mail_matches_template.html').read()
+    # took from original one
+    subject = """${object.subject or (object.record_name
+    and 'Re: %s' % object.record_name)
+    or (object.parent_id and object.parent_id.subject
+    and 'Re: %s' % object.parent_id.subject)
+    or (object.parent_id and object.parent_id.record_name
+    and 'Re: %s' % object.parent_id.record_name)}"""
+    values = {
+        'body_html': content,
+        'name': 'Fluxdock Matches Notification Email',
+        'subject': subject,
+        'model_id': ctx.env.ref('mail.model_mail_message').id,
+        'auto_delete': True,
+    }
+    xmlid = 'specific_project_proposal.mail_matches_notification'
+    create_or_update_email_template(ctx, xmlid, values)
+
+
+@anthem.log
 def load_email_translations(ctx):
     """ Load email translations """
     # translation links original items with "res_id"
@@ -174,6 +216,8 @@ def update_emails(ctx):
     add_membership_upgrade_email(ctx)
     change_reset_pwd_email(ctx)
     load_email_translations(ctx)
+    override_default_notification_template(ctx)
+    add_matches_notification_template(ctx)
 
 
 @anthem.log

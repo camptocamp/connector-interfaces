@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="mail_base_layout" name="Fluxdock Mail base layout">
+      <html>
+
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <title>Fluxdock</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </head>
+
+        <body style="margin: 0; padding: 0; background-color:white">
+          <t t-call="theme_fluxdocs.mail_body_wrapper">
+            <t t-raw="0" />
+          </t>
+        </body>
+
+      </html>
+    </template>
+
+
+    <template id="mail_body_wrapper" name="Fluxdock Mail body wrapper">
+      <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+        <tr>
+          <td align="center" style="text-align:center">
+            <img t-attf-src="#{base_url}/theme_fluxdocs/static/email/images/fluxdock-email-logo.png" alt="Fluxdock Logo" />
+          </td>
+        </tr>
+        <tr bgcolor="#463246">
+          <td align="center" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;">Please do not reply! This email was generated automatically.</td>
+        </tr>
+        <tr bgcolor="#2e112d">
+          <td t-attf-style="background: url(#{base_url}/theme_fluxdocs/static/img/netz.png);">
+            <table border="0" cellpadding="0" cellspacing="0" width="600" style="margin:0 auto;">
+              <tr>
+                <td align="left" style="text-align:left;width:600px; color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:50px; padding-bottom:100px; padding-left: 10px; padding-right: 10px;">
+                  <t t-raw="0" />
+                  <p>Kind regards,</p>
+                  <p>Your Fluxdock Team</p>
+                  <p>If you don't want to receive these notifications any more, you can deactivate them in the <a t-attf-href="#{base_url}/my/settings/notification">notification settings.</a></p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#463246">
+          <td align="center">
+            <table border="0" cellpadding="0" cellspacing="0" width="600">
+              <tr>
+                <td width="40%" align="right" style="text-align:right;color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;">
+                  <a style="color: #ffffff; text-decoration: none;" t-att-href="base_url">
+                    <strong>fluxdock.io</strong>
+                  </a>
+                </td>
+                <td width="20%">&amp;nbsp;</td>
+                <td width="40%" align="left" style="text-align:left;color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-right:18px;">
+                  <a style="font-size:14px; color: #ffffff; text-decoration: none;" t-attf-href="#{base_url}/page/about">
+                    <strong>Contact us</strong>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr bgcolor="#ffffff">
+          <td align="center"
+              style="text-align:center;color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;">Product of a collaboration <t t-esc="datetime.date.today().strftime('%Y')" /></td>
+        </tr>
+      </table>
+    </template>
+
+
+    <template id="digest_layout" inherit_id="mail_digest.digest_layout" name="Fluxdock Mail digest layout">
+      <xpath expr="//html" position="replace">
+        <t t-call="theme_fluxdocs.mail_base_layout">
+          <t t-raw="0" />
+        </t>
+      </xpath>
+    </template>
+
+</odoo>
