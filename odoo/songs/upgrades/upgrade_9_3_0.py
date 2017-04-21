@@ -3,6 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import anthem
+from ..install.defaults import default_values
+from ..install.defaults import DEFAULTS
 
 
 @anthem.log
@@ -19,5 +21,16 @@ def disable_old_login_template(ctx):
 
 
 @anthem.log
+def update_existing(ctx):
+    """Update existing records defaults."""
+    for model_name, fname, value in DEFAULTS:
+        ctx.env[model_name].with_context({
+            'tracking_disable': True,
+        }).search([]).write({fname: value})
+
+
+@anthem.log
 def main(ctx):
     disable_old_login_template(ctx)
+    default_values(ctx)
+    update_existing(ctx)

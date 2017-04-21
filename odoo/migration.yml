@@ -51,6 +51,7 @@ migration:
           - anthem songs.install.post::enable_html_compression
           # this is needed after updating ALL modules
           - anthem songs.install.post::remove_useless_menuitems
+          - anthem songs.install.defaults::default_values
     - version: 9.2.3
       addons:
         upgrade:
@@ -89,12 +90,15 @@ migration:
       operations:
         post:
           - anthem songs.upgrades.upgrade_9_2_4::main
-    - version: 9.3.0b1
+    - version: 9.3.0b2
       addons:
         upgrade:
           - specific_membership
           - specific_project_proposal
           - theme_fluxdocs
+          - cms_form
+          - cms_notifications
+          - mail_digest
       operations:
         post:
           - anthem songs.upgrades.upgrade_9_3_0::main

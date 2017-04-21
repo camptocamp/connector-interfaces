@@ -3,8 +3,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import fields, models
-from openerp.addons.cms_notifications.models.notification_panel_form \
-    import master_slave_rules
 
 
 class CMSNotificationPanel(models.AbstractModel):
@@ -36,6 +34,13 @@ class CMSNotificationPanel(models.AbstractModel):
     def _form_master_slave_info(self):
         info = super(CMSNotificationPanel, self)._form_master_slave_info()
         self._form_info_merge(info, {
-            'notify_email': master_slave_rules('enable_matches'),
+            'notify_email': {
+                'hide': {
+                    'enable_matches': ('none', ),
+                },
+                'show': {
+                    'enable_matches': ('digest', 'always', ),
+                },
+            },
         })
         return info

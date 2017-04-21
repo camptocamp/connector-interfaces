@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-06 10:42+0000\n"
-"PO-Revision-Date: 2017-03-06 10:42+0000\n"
+"POT-Creation-Date: 2017-04-21 14:10+0000\n"
+"PO-Revision-Date: 2017-04-21 14:10+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -99,6 +99,11 @@ msgid "CMS edit URL"
 msgstr ""
 
 #. module: specific_project_proposal
+#: model:ir.model,name:specific_project_proposal.model_cms_notification_panel_form
+msgid "CMS notifications control panel"
+msgstr ""
+
+#. module: specific_project_proposal
 #: model:ir.actions.act_window,help:specific_project_proposal.action_project_proposal
 msgid "Click to add a proposal."
 msgstr ""
@@ -181,13 +186,18 @@ msgid "Edit"
 msgstr ""
 
 #. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_cms_notification_panel_form_enable_matches
+msgid "Enable matches notifications"
+msgstr ""
+
+#. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_tree
 msgid "End Date"
 msgstr ""
 
 #. module: specific_project_proposal
-#: code:addons/odoo/local-src/specific_project_proposal/models/project_proposal.py:149
-#: code:addons/specific_project_proposal/models/project_proposal.py:149
+#: code:addons/odoo/local-src/specific_project_proposal/models/project_proposal.py:157
+#: code:addons/specific_project_proposal/models/project_proposal.py:157
 #, python-format
 msgid "End Date cannot be set before Start Date."
 msgstr ""
@@ -213,6 +223,11 @@ msgid "Fluxdock CMS search form"
 msgstr ""
 
 #. module: specific_project_proposal
+#: model:mail.message.subtype,name:specific_project_proposal.mt_proposal_matches
+msgid "Fluxdock Proposal matches"
+msgstr ""
+
+#. module: specific_project_proposal
 #: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_follower_ids
 msgid "Followers"
 msgstr ""
@@ -228,6 +243,11 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: specific_project_proposal
+#: model:mail.message.subtype,description:specific_project_proposal.mt_proposal_matches
+msgid "Get notified when a proposal match happens."
+msgstr ""
+
+#. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_search
 msgid "Group By"
 msgstr ""
@@ -237,6 +257,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:specific_project_proposal.field_cms_form_search_project_proposal_id
 #: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_id
 msgid "ID"
+msgstr ""
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,help:specific_project_proposal.field_cms_notification_panel_form_enable_matches
+msgid "If active, you will receive notifications about proposals matches."
 msgstr ""
 
 #. module: specific_project_proposal
@@ -297,6 +322,16 @@ msgid "Location"
 msgstr ""
 
 #. module: specific_project_proposal
+#: model:ir.model,name:specific_project_proposal.model_mail_digest
+msgid "Mail digest"
+msgstr ""
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_image_url
+msgid "Main image URL"
+msgstr ""
+
+#. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
 #: model:ir.ui.view,arch_db:specific_project_proposal.proposal_search_form_header
 #: model:website.menu,name:specific_project_proposal.menu_project_proposal
@@ -305,12 +340,18 @@ msgstr ""
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
 msgid "Matches"
 msgstr ""
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
 msgid "Matches are projects on the market, that correspond to your industry and expertise."
+msgstr ""
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_matching_partner_ids
+msgid "Matching partners"
 msgstr ""
 
 #. module: specific_project_proposal
@@ -321,6 +362,11 @@ msgstr ""
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
 msgid "No matches"
+msgstr ""
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_notify_dirty
+msgid "Notify dirty"
 msgstr ""
 
 #. module: specific_project_proposal
@@ -343,6 +389,11 @@ msgstr ""
 #: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
 #: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_search
 msgid "Owner"
+msgstr ""
+
+#. module: specific_project_proposal
+#: model:ir.model,name:specific_project_proposal.model_res_partner
+msgid "Partner"
 msgstr ""
 
 #. module: specific_project_proposal
@@ -378,6 +429,13 @@ msgstr ""
 #. module: specific_project_proposal
 #: model:ir.model.fields,field_description:specific_project_proposal.field_res_users_proposal_ids
 msgid "Proposal ids"
+msgstr ""
+
+#. module: specific_project_proposal
+#: code:addons/odoo/local-src/specific_project_proposal/models/project_proposal.py:285
+#: code:addons/specific_project_proposal/models/project_proposal.py:285
+#, python-format
+msgid "Proposal match"
 msgstr ""
 
 #. module: specific_project_proposal
@@ -446,6 +504,11 @@ msgid "Teaser text"
 msgstr ""
 
 #. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+msgid "Test notify match"
+msgstr ""
+
+#. module: specific_project_proposal
 #: model:ir.model.fields,help:specific_project_proposal.field_project_proposal_website_url
 msgid "The full URL to access the document through the website."
 msgstr ""
@@ -453,6 +516,11 @@ msgstr ""
 #. module: specific_project_proposal
 #: model:ir.actions.act_window,help:specific_project_proposal.action_project_proposal
 msgid "The proposal will shared with parners depending on industries and expertises."
+msgstr ""
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.default_digest_tmpl
+msgid "There are new proposals matches for your company:"
 msgstr ""
 
 #. module: specific_project_proposal
@@ -474,6 +542,11 @@ msgstr ""
 #. module: specific_project_proposal
 #: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_website_published
 msgid "Visible in Website"
+msgstr ""
+
+#. module: specific_project_proposal
+#: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
+msgid "Warning: this test will schedule emails to send to all matches. Are you sure?"
 msgstr ""
 
 #. module: specific_project_proposal
@@ -509,6 +582,11 @@ msgstr ""
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.view_project_proposal_form
 msgid "e.g. My great project"
+msgstr ""
+
+#. module: specific_project_proposal
+#: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_image
+msgid "image"
 msgstr ""
 
 #. module: specific_project_proposal
