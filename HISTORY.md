@@ -1,20 +1,44 @@
 # Release History
 
-<!-- PLACEHOLDER_NEW_RELEASE -->
+## 9.x.x (Unreleased)
 
-## 9.3.0b1 (Unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.3.0 (2017-04-21)
+++++++++++++++++++
+**Features and Improvements**
+
 * [RM#16516](https://redmine.iart.ch/issues/16516) [add] matches notifications
-   Includes new modules: mail_digest + cms_notifications
+* Includes new modules: mail_digest + cms_notifications
+* [RM#16936](https://redmine.iart.ch/issues/16936) [add] defaults and translations for notifications
+* [RM#16939](https://redmine.iart.ch/issues/16939) Profile and reference publish improvements RM#
+* [RM#16939](https://redmine.iart.ch/issues/16939) restore `redirect after 1st reference puslished`
+* [add] customize email template
+* improve mail servers setup
+* [add] /members menu item and update transl
+* [RM#16738](https://redmine.iart.ch/issues/16738) [upd] do not publish member profile automatically
+* update pending merges: cms_delete_content has been merged
 
 **Bugfixes**
 
 * [RM#16796](https://redmine.iart.ch/issues/16796) [fix] link spacing in labels
 * [RM#16797](https://redmine.iart.ch/issues/16797) [fix] port login template from prod, update transl
 * [RM#16797](https://redmine.iart.ch/issues/16797) [fix] redirect after sumbit/cancel in partner form
-
+* [fix] regression in form image widget
+* [fix] demo users import: do not send email
+* disable footer_custom too
+* [RM#16801](https://redmine.iart.ch/issues/16801) update template names
+* [RM#16795](https://redmine.iart.ch/issues/16795) [fix] disable default automatic footer
+* [RM#16892](https://redmine.iart.ch/issues/16892) adjust traslations
+* [RM#16672](https://redmine.iart.ch/issues/16672) [fix] footer copy translation and spacing
 
 
 ## 9.2.4b5 (2017-03-16)
