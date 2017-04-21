@@ -123,3 +123,8 @@ class ProjectReference(models.Model):
         self.write({'image': False})
         res = super(ProjectReference, self).unlink()
         return res
+
+    @api.multi
+    def redirect_after_publish(self):
+        self.ensure_one()
+        return len(self.env.user.references_ids) == 1
