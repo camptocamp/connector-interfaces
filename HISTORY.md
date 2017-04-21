@@ -12,8 +12,17 @@
 **Documentation**
 
 
+9.3.1 (2017-04-21)
+++++++++++++++++++
+
+**Bugfixes**
+
+* Fix missing upgrade song call for emails in migration.yml
+
+
 9.3.0 (2017-04-21)
 ++++++++++++++++++
+
 **Features and Improvements**
 
 * [RM#16516](https://redmine.iart.ch/issues/16516) [add] matches notifications

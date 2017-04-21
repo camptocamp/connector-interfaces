@@ -102,3 +102,7 @@ migration:
       operations:
         post:
           - anthem songs.upgrades.upgrade_9_3_0::main
+    - version: 9.3.1
+      operations:
+        post:
+          - anthem songs.install.post::update_emails
