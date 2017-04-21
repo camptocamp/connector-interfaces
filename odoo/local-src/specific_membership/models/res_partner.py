@@ -257,3 +257,16 @@ class ResPartner(models.Model):
             image = f.read()
 
         return openerp.tools.image_resize_image_big(image.encode('base64'))
+
+    @api.multi
+    def redirect_after_publish(self):
+        self.ensure_one()
+        if self.website_published:
+            return True
+
+    @api.multi
+    def do_after_publish(self):
+        self.ensure_one()
+        if self.website_published:
+            # handle profile step upgrade
+            self.sudo().update_profile_state(step=2)

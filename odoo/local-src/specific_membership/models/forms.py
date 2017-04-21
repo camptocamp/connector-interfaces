@@ -161,10 +161,6 @@ class PartnerForm(models.AbstractModel):
                 'country_id': values.get('country_id', None)
             }
             partner.commercial_partner_id.sudo().write(address_fields)
-        # handle profile step upgrade
-        # TODO: proper permissions
-        # should allow user to write on its partner!
-        partner.sudo().update_profile_state(step=2)
 
     def _handle_email_update(self, user, values):
         """Validate email update and handle login update."""
