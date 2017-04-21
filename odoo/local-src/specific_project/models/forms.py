@@ -5,13 +5,7 @@
 from openerp import models
 from openerp import fields
 from openerp import _
-from openerp.addons.cms_form.widgets import DEFAULT_WIDGETS
-
-WIDGETS = DEFAULT_WIDGETS.copy()
-WIDGETS['image'].data = {
-    'image_preview_width': 600,
-    'image_preview_height': 400,
-}
+from openerp.addons.cms_form.widgets import ImageWidget
 
 
 class ReferenceForm(models.AbstractModel):
@@ -36,7 +30,6 @@ class ReferenceForm(models.AbstractModel):
     _form_required_fields = ('name', 'website_short_description', 'image')
     _form_wrapper_extra_css_klass = 'opt_dark_grid_bg'
     _form_extra_css_klass = 'center-block main-content-wrapper'
-    _form_widgets = WIDGETS
 
     @property
     def form_description(self):
@@ -65,6 +58,13 @@ class ReferenceForm(models.AbstractModel):
         if self.env.user and self.env.user.partner_id:
             _fields['linked_partner_ids']['domain'] = \
                 '[["id","!=",{}]]'.format(self.env.user.partner_id.id)
+
+        # update image widget to force size
+        _fields['image']['widget'] = ImageWidget(
+            self, 'image', _fields['image'], data={
+                'image_preview_width': 600,
+                'image_preview_height': 400,
+            })
 
 
 class ReferenceSearchForm(models.AbstractModel):

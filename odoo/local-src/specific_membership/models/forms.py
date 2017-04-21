@@ -125,11 +125,17 @@ class PartnerForm(models.AbstractModel):
             _fields[fname]['string'] = label
 
         # update image widget to force size
+        data = {
+            'image_preview_width': 200,
+            'image_preview_height': 200,
+        }
+        data['forced_style'] = (
+            'width:{image_preview_width}px;'
+            'height:{image_preview_height}px;'
+        ).format(**data)
         _fields['image']['widget'] = ImageWidget(
-            self, 'image', _fields['image'], data={
-                'image_preview_width': 200,
-                'image_preview_height': 200,
-            })
+            self, 'image', _fields['image'], data=data)
+
         # use another template for email widget
         _fields['email']['widget'].key = \
             'specific_membership.email_field_widget_char'

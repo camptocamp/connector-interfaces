@@ -34,8 +34,7 @@
     <template id="field_widget_image" name="Fluxdock image upload widget" inherit_id="cms_form.field_widget_image">
       <xpath expr="//div[contains(@class,'image-widget-wrapper')]" position="replace">
         <div class="image-widget-wrapper">
-          <div class="image-upload-widget"
-               t-attf-style="width:#{widget.data.get('image_preview_width', 200)}px;height:#{widget.data.get('image_preview_height', 200)}px">
+          <div class="image-upload-widget" t-att-style="widget.data.get('forced_style')">
             <t t-set="image_input_name" t-value="image_input_name or 'image'" />
             <t t-if="widget.field_value">
               <img class="img img-responsive" t-att-src="widget.field_value.get('value')" />
