@@ -3,10 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import os
-from pkg_resources import resource_stream
 import anthem
-from anthem.lyrics.loaders import load_csv_stream
-from ..common import req
 
 
 @anthem.log
@@ -37,15 +34,6 @@ def configure_admin_user(ctx):
 
 
 @anthem.log
-def import_users(ctx):
-    """ Import users """
-    content = resource_stream(req, 'data/install/res.users.csv')
-    load_csv_stream(ctx, 'res.users', content, delimiter=',')
-
-
-@anthem.log
 def main(ctx):
-    """ Configuring products """
     admin_user_password(ctx)
     configure_admin_user(ctx)
-    import_users(ctx)

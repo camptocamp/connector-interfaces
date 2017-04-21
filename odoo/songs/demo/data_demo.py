@@ -22,9 +22,13 @@ def load_partner_categories(ctx):
 
 @anthem.log
 def load_users(ctx):
+    model = ctx.env['res.users'].with_context({
+        'no_reset_password': True,
+        'tracking_disable': True,
+    })
     load_csv(
         ctx, 'data/demo/res.users.csv',
-        'res.users')
+        model, delimiter=',')
 
     # update partners
     free_member = ctx.env.ref('scenario.res_user_freemember')

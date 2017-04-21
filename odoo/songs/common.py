@@ -13,6 +13,6 @@ def load_file_content(path):
     return resource_stream(req, path)
 
 
-def load_csv(ctx, path, model):
+def load_csv(ctx, path, model, delimiter=','):
     content = resource_stream(req, path)
-    load_csv_stream(ctx, model, content, delimiter=',')
+    load_csv_stream(ctx, model, content, delimiter=delimiter)
