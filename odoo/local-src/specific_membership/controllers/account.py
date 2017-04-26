@@ -17,6 +17,10 @@ class MyHome(website_account):
     def account(self, **kw):
         response = super(MyHome, self).account(**kw)
         response.qcontext.update(self._account_extra_qcontext())
+        if 'sales_rep' in response.qcontext:
+            # default website_portal template wants this
+            # but we don't need it
+            response.qcontext['sales_rep'] = None
         return response
 
     def _account_extra_qcontext(self):
