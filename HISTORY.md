@@ -1,7 +1,7 @@
 # Release History
 
-## 9.x.x (Unreleased)
-
+Latest (Unreleased)
++++++++++++++++++++
 
 **Features and Improvements**
 
@@ -10,6 +10,22 @@
 **Build**
 
 **Documentation**
+
+
+9.3.2 (2017-04-26)
+++++++++++++++++++
+
+**Bugfixes**
+
+* [fix] apply notification defaults to user template too
+    
+    When creating user trough backend interface
+    having defaults defined at field level is enough.
+    But when creating users via website interface
+    most of the defaults for involved fields
+    are taken from the user template by `auth_signup` module.
+
+* Fix a bug in `mail_digest` that prevented multiple digest email creation
 
 
 9.3.1 (2017-04-21)
