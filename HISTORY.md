@@ -12,6 +12,17 @@ Latest (Unreleased)
 **Documentation**
 
 
+9.3.3 (2017-04-27)
+++++++++++++++++++
+
+**Bugfixes**
+
+* [fix] enforce `user_id` on partner created via website
+
+  When creating users via website the partner is not always associated to the user.
+  We now enforce this on signup.
+
+
 9.3.2 (2017-04-26)
 ++++++++++++++++++
 

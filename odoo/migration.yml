@@ -111,3 +111,4 @@ migration:
         post:
           # update user template defaults
           - anthem songs.install.defaults::default_values
+    - version: 9.3.3
