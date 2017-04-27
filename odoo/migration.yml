@@ -112,3 +112,7 @@ migration:
           # update user template defaults
           - anthem songs.install.defaults::default_values
     - version: 9.3.3
+    - version: 9.3.4
+      operations:
+        post:
+          - anthem songs.install.post::update_emails

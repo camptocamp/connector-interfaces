@@ -350,13 +350,8 @@ msgstr "Projektvorschläge"
 
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.matches_overview
-#, fuzzy
-msgid ""
-"Matches are projects on the market, that correspond to your industry and "
-"expertise."
-msgstr ""
-"Projektvorschläge sind Projekte auf dem Projektmarkt, die mit Ihrer Branche "
-"oder Expertise übereinstimmen."
+msgid "Matches are projects on the market, that correspond to your industry and expertise."
+msgstr "Projektvorschläge sind Projekte auf dem Projektmarkt, die mit Ihrer Branche oder Expertise übereinstimmen."
 
 #. module: specific_project_proposal
 #: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_matching_partner_ids

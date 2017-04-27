@@ -215,9 +215,9 @@ def update_emails(ctx):
     change_signup_email(ctx)
     add_membership_upgrade_email(ctx)
     change_reset_pwd_email(ctx)
-    load_email_translations(ctx)
     override_default_notification_template(ctx)
     add_matches_notification_template(ctx)
+    load_email_translations(ctx)
 
 
 @anthem.log

@@ -16,7 +16,7 @@
       </tr>
 
       <tr bgcolor="#463246">
-        <td align="center" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;">Please do not reply! This email was generated automatically.</td>
+        <td align="center" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;">Bitte antworten Sie nicht auf diese E-Mail - sie wurde automatisch generiert.</td>
       </tr>
 
       <tr bgcolor="#2e112d">
@@ -24,12 +24,10 @@
           <table border="0" cellpadding="0" cellspacing="0" width="600" style="margin:0 auto;">
             <tr>
               <td align="left" style="text-align:left;width:600px; color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:50px; padding-bottom:100px; padding-left: 10px; padding-right: 10px;">
-                <p>There is a proposal match for your company:</p>
                 ${object.body | safe}
                 <br />
-                <p>Kind regards,</p>
-                <p>Your Fluxdock Team</p>
-                <p>If you don't want to receive these notifications any more, you can deactivate them in the <a href="${ctx['base_url']}/my/settings/notification">notification settings.</a></p>
+                <p>Beste Grüsse,</p>
+                <p>Ihr Fluxdock Team</p>
               </td>
             </tr>
           </table>
@@ -48,7 +46,7 @@
               <td width="20%">&nbsp;</td>
               <td width="40%" align="left" style="text-align:left;color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px; padding-right:18px;">
                 <a style="font-size:14px; color: #ffffff; text-decoration: none;" href="${ctx['base_url']}/page/about">
-                  <strong>Contact us</strong>
+                  <strong>Kontakt</strong>
                 </a>
               </td>
             </tr>
@@ -57,7 +55,7 @@
       </tr>
 
       <tr bgcolor="#ffffff">
-          <td align="center" style="text-align:center;color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;">Product of a collaboration ${datetime.date.today().strftime('%Y')}</td>
+          <td align="center" style="text-align:center;color: #2c132c; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:18px; padding-bottom:18px;">Das Produkt einer Kollaboration ${datetime.date.today().strftime('%Y')}</td>
       </tr>
     </table>
   </body>
