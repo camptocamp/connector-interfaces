@@ -159,14 +159,12 @@ class PartnerForm(models.AbstractModel):
     def form_after_create_or_update(self, values, extra_values):
         partner = self.main_object
         if partner.type == "contact":
-            address_fields = {
-                'city': values.get('city', None),
-                'street': values.get('street', None),
-                'street2': values.get('street2', None),
-                'zip': values.get('zip', None),
-                'country_id': values.get('country_id', None)
-            }
-            partner.commercial_partner_id.sudo().write(address_fields)
+            address_fields = {}
+            for key in ('city', 'street', 'street2', 'zip', 'country_id'):
+                if key in values:
+                    address_fields[key] = values[key]
+            if address_fields:
+                partner.commercial_partner_id.sudo().write(address_fields)
 
     def _handle_email_update(self, user, values):
         """Validate email update and handle login update."""
