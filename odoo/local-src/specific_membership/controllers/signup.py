@@ -101,7 +101,12 @@ class AuthSignupHome(SignupVerifyEmail):
                         'is_company': True,
                         # publish member only after confirm!
                         'website_published': False,
-                        'free_member': 'true'
+                        'free_member': 'true',
+                        # FIXME: make sure partner is attached to its user
+                        # sounds like this is no happening ALWAYS
+                        # and we really need this for website features.
+                        # OTOH the user is always attached to the partner :S
+                        'user_id': user.id
                     })
                     qcontext['show_thanks'] = True
                     # return request.render(
