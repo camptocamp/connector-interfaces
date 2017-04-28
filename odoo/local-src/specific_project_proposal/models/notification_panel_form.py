@@ -22,6 +22,27 @@ class CMSNotificationPanel(models.AbstractModel):
               "about proposals matches.")
     )
 
+    def form_update_fields_attributes(self, _fields):
+        """Override to add help messages."""
+        super(CMSNotificationPanel,
+              self).form_update_fields_attributes(_fields)
+        if self.env.context.get('lang') == 'de_DE':
+            # FIXME: brute force translation for "Digest".
+            # The only translation that is not loaded
+            # BUT IS IN THE PO in `mail_digest` is "Digest".
+            # We wasted so much time to get this translated
+            # that here is the last resort...
+            self.env.cr.execute(
+                "select value from ir_translation where src='Digest'")
+            try:
+                val = self.env.cr.fetchone()[0]
+            except:
+                val = None
+            if val:
+                options = dict(_fields['notify_email']['selection'])
+                options['digest'] = val
+                _fields['notify_email']['selection'] = options.items()
+
     @property
     def _form_subtype_fields(self):
         res = super(CMSNotificationPanel, self)._form_subtype_fields
