@@ -619,7 +619,7 @@ msgstr "My Button"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "My home"
-msgstr ""
+msgstr "Mein konto"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
@@ -657,7 +657,7 @@ msgstr "Kein Resultat gefunden"
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.personal_menu_content
 msgid "Notifications"
-msgstr ""
+msgstr "Benachrichtigungen"
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
