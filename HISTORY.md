@@ -12,6 +12,18 @@ Latest (Unreleased)
 **Documentation**
 
 
+9.3.4 (2017-04-28)
+++++++++++++++++++
+
+**Bugfixes**
+
+* [fix] brute force "Digest" translation
+* [add] missing translations to personal menu
+* Include transl fixes from `mail_digest` and `cms_notifications`
+* update translations and email templates
+* [fix] partner form: do not wipe address fields if no value 
+
+
 9.3.3 (2017-04-27)
 ++++++++++++++++++
 
