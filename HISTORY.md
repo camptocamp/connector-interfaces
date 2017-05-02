@@ -6,6 +6,9 @@ Latest (Unreleased)
 **Bugfixes**
 
 * [fix] send matches email using partner lang
+* [fix] notification settings link in emails 
+  
+  Make sure we redirect always to login + auto redirect to notificationi panel.
 
 
 9.3.4 (2017-04-28)
