@@ -114,10 +114,12 @@ def override_default_notification_template(ctx):
     and 'Re: %s' % object.parent_id.record_name)}"""
     values = {
         'body_html': content,
+        'email_from': 'noreply@fluxdock.io',
         'name': 'Fluxdock Notification Email',
         'subject': subject,
         'model_id': ctx.env.ref('mail.model_mail_message').id,
         'auto_delete': True,
+        'lang': '${object.partner_id.lang}',
     }
     xmlid = 'mail.mail_template_data_notification_email_default'
     create_or_update_email_template(ctx, xmlid, values)
@@ -135,10 +137,12 @@ def add_matches_notification_template(ctx):
     and 'Re: %s' % object.parent_id.record_name)}"""
     values = {
         'body_html': content,
+        'email_from': 'noreply@fluxdock.io',
         'name': 'Fluxdock Matches Notification Email',
         'subject': subject,
         'model_id': ctx.env.ref('mail.model_mail_message').id,
         'auto_delete': True,
+        'lang': '${object.partner_id.lang}',
     }
     xmlid = 'specific_project_proposal.mail_matches_notification'
     create_or_update_email_template(ctx, xmlid, values)

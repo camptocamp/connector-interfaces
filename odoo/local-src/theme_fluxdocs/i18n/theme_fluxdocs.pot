@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-30 10:48+0000\n"
-"PO-Revision-Date: 2017-03-30 10:48+0000\n"
+"POT-Creation-Date: 2017-05-02 08:00+0000\n"
+"PO-Revision-Date: 2017-05-02 08:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "&amp;nbsp;"
+msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
@@ -179,6 +184,11 @@ msgid "<span>Simulation wird geladen</span>\n"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "<strong>Contact us</strong>"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.item_tags
 msgid "<strong>Expertise:</strong>"
 msgstr ""
@@ -186,6 +196,11 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.item_tags
 msgid "<strong>Industry:</strong>"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "<strong>fluxdock.io</strong>"
 msgstr ""
 
 #. module: theme_fluxdocs
@@ -366,6 +381,11 @@ msgid "Facility"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_base_layout
+msgid "Fluxdock"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "Fluxdock 3d Simulation"
 msgstr ""
@@ -373,6 +393,11 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.model,name:theme_fluxdocs.model_fluxdock_cms_form_search
 msgid "Fluxdock CMS search form"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "Fluxdock Logo"
 msgstr ""
 
 #. module: theme_fluxdocs
@@ -437,6 +462,11 @@ msgid "ID"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "If you don't want to receive these notifications any more, you can deactivate them in the"
+msgstr ""
+
+#. module: theme_fluxdocs
 #. openerp-web
 #: code:addons/odoo/local-src/theme_fluxdocs/static/src/js/publish.js:33
 #: code:addons/theme_fluxdocs/static/src/js/publish.js:33
@@ -468,6 +498,11 @@ msgstr ""
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.homepage
 msgid "Join Fluxdock now."
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "Kind regards,"
 msgstr ""
 
 #. module: theme_fluxdocs
@@ -610,6 +645,11 @@ msgid "Platform"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "Please do not reply! This email was generated automatically."
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.popover_html_content
 msgid "Please, publish your project proposal..."
 msgstr ""
@@ -636,6 +676,7 @@ msgstr ""
 
 #. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.layout_footer_copyright
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
 msgid "Product of a collaboration"
 msgstr ""
 
@@ -822,6 +863,11 @@ msgid "White"
 msgstr ""
 
 #. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "Your Fluxdock Team"
+msgstr ""
+
+#. module: theme_fluxdocs
 #: model:ir.ui.view,arch_db:theme_fluxdocs.place_into_bar
 msgid "alle Expertisen"
 msgstr ""
@@ -866,6 +912,11 @@ msgstr ""
 #: model:ir.ui.view,arch_db:theme_fluxdocs.fluxdock_news_list
 #: model:ir.ui.view,arch_db:theme_fluxdocs.listing
 msgid "not published"
+msgstr ""
+
+#. module: theme_fluxdocs
+#: model:ir.ui.view,arch_db:theme_fluxdocs.mail_body_wrapper
+msgid "notification settings."
 msgstr ""
 
 #. module: theme_fluxdocs

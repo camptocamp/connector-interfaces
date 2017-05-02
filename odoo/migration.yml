@@ -116,3 +116,12 @@ migration:
       operations:
         post:
           - anthem songs.install.post::update_emails
+    - version: 9.3.5
+      operations:
+        post:
+          - anthem songs.install.post::update_emails
+      addons:
+        upgrade:
+          - specific_project_proposal
+          - theme_fluxdocs
+          - mail_digest 

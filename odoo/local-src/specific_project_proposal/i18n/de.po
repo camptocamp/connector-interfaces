@@ -539,7 +539,7 @@ msgstr ""
 #. module: specific_project_proposal
 #: model:ir.ui.view,arch_db:specific_project_proposal.default_digest_tmpl
 msgid "There are new proposals matches for your company:"
-msgstr ""
+msgstr "Für Ihre Firma gibt es folgende neue Projektvorschläge:"
 
 #. module: specific_project_proposal
 #: model:ir.model.fields,field_description:specific_project_proposal.field_project_proposal_message_unread

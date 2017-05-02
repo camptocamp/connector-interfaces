@@ -3,13 +3,9 @@
 Latest (Unreleased)
 +++++++++++++++++++
 
-**Features and Improvements**
-
 **Bugfixes**
 
-**Build**
-
-**Documentation**
+* [fix] send matches email using partner lang
 
 
 9.3.4 (2017-04-28)
