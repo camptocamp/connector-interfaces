@@ -12,6 +12,19 @@ Latest (Unreleased)
 **Documentation**
 
 
+9.3.6 (2017-05-02)
+++++++++++++++++++
+
+**Bugfixes**
+
+* Merge all upgrade steps between 9.2.3 and 9.3.6.
+
+  From production perspective all the versions between 9.2.3 and 9.3.6
+  are just transition versions and could be considered as alphas and betas.
+  Here we merge all their upgrade steps into 9.3.6 so that we run one single upgrade
+  but preservince the history in a way.
+
+
 9.3.5 (2017-05-02)
 ++++++++++++++++++
 

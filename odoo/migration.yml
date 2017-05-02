@@ -59,69 +59,32 @@ migration:
           - cms_status_message
           - cms_form
     - version: 9.2.4b1
-      addons:
-        upgrade:
-          # updated translations
-          - specific_membership
-          - specific_project
-          - specific_project_proposal
-          - theme_fluxdocs
     - version: 9.2.4b2
-      addons:
-        upgrade:
-          - specific_membership
-          - specific_project
-          - specific_project_proposal
-          - theme_fluxdocs
-      operations:
-        post:
-          - anthem songs.upgrades.upgrade_9_2_4::main
     - version: 9.2.4b3
-      addons:
-        upgrade:
-          - theme_fluxdocs
     - version: 9.2.4b4
     - version: 9.2.4b5
-      addons:
-        upgrade:
-          - specific_membership
-          - theme_fluxdocs
-          - cms_delete_content
+    - version: 9.3.0
+    - version: 9.3.1
+    - version: 9.3.2
+    - version: 9.3.3
+    - version: 9.3.4
+    - version: 9.3.5
+    - version: 9.3.6
       operations:
         post:
           - anthem songs.upgrades.upgrade_9_2_4::main
-    - version: 9.3.0
-      addons:
-        upgrade:
-          - specific_membership
-          - specific_project_proposal
-          - theme_fluxdocs
-          - cms_form
-          - cms_notifications
-          - mail_digest
-      operations:
-        post:
           - anthem songs.upgrades.upgrade_9_3_0::main
-    - version: 9.3.1
-      operations:
-        post:
           - anthem songs.install.post::update_emails
-    - version: 9.3.2
-      operations:
-        post:
           # update user template defaults
           - anthem songs.install.defaults::default_values
-    - version: 9.3.3
-    - version: 9.3.4
-      operations:
-        post:
-          - anthem songs.install.post::update_emails
-    - version: 9.3.5
-      operations:
-        post:
-          - anthem songs.install.post::update_emails
       addons:
         upgrade:
-          - specific_project_proposal
+          - mail_digest
+          - cms_form
+          - cms_notifications
+          - cms_delete_content
+          - cms_status_message
           - theme_fluxdocs
-          - mail_digest 
+          - specific_project_proposal
+          - specific_membership
+          - specific_project
