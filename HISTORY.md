@@ -12,6 +12,28 @@ Latest (Unreleased)
 **Documentation**
 
 
+9.3.7 (2017-05-09)
+++++++++++++++++++
+
+**Build**
+
+* Use odoo project image 2.1.1 to include security fix
+
+  Odoo Security Advisory                   ODOO-SA-2017-05-05-1
+
+  Title: Remote Code Execution via Ghostscript vulnerability
+
+  Affects: Odoo servers with an (unpatched) Ghostscript installation
+  Component: Core
+  Credits: Nils Hamerlinck
+  OVE ID: OVE-20170505-0003
+  References:
+    https://bugs.ghostscript.com/show_bug.cgi?id=697799
+    https://security-tracker.debian.org/tracker/CVE-2017-8291
+    https://www.ubuntu.com/usn/usn-3272-1/
+    https://bugzilla.suse.com/show_bug.cgi?id=1036453
+
+
 9.3.6 (2017-05-02)
 ++++++++++++++++++
 
