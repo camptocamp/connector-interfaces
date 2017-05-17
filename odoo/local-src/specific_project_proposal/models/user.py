@@ -42,6 +42,9 @@ class ResUsers(models.Model):
                       ('industry_ids', 'in', partner.category_id.ids),
                  ('id', 'not in', rec.proposal_blacklist_ids.ids),
                  ('create_uid', '!=', rec.id),
+                 # this should be handled by security rule
+                 # but let's be explicit :)
+                 ('website_published', '=', True),
                  ],
                 order='website_published DESC, start_date DESC',
             )

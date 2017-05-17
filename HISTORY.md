@@ -6,6 +6,7 @@ Latest (Unreleased)
 **Features and Improvements**
 
 * Better UX for notification settings RM#17108
+* Update matches notification when partner updates profile RM#17059
 
 
 **Bugfixes**

@@ -9,6 +9,20 @@ from openerp import models, api
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    @api.multi
+    def write(self, vals):
+        res = super(ResPartner, self).write(vals)
+        if 'category_id' in vals or 'expertise_ids' in vals:
+            self._update_matches()
+        return res
+
+    @api.multi
+    def _update_matches(self):
+        """Retrieve all matching proposals and set them as dirty."""
+        matching_props = self.sudo().mapped('user_id.proposal_match_ids')
+        # mark them as dirty and rely on cron to create messages
+        matching_props.set_notify_dirty(True)
+
     # TODO: move this to an OCA module
     # to allow to customize email.template by subtype.
     # This method has been barely copied from mail.models.res_partner
