@@ -7,6 +7,7 @@ Latest (Unreleased)
 
 * Better UX for notification settings RM#17108
 * Update matches notification when partner updates profile RM#17059
+* Trigger notification matche process for existing proposals RM#17059
 
 
 **Bugfixes**
@@ -57,8 +58,8 @@ Latest (Unreleased)
 **Bugfixes**
 
 * [fix] send matches email using partner lang
-* [fix] notification settings link in emails 
-  
+* [fix] notification settings link in emails
+
   Make sure we redirect always to login + auto redirect to notificationi panel.
 
 
@@ -71,7 +72,7 @@ Latest (Unreleased)
 * [add] missing translations to personal menu
 * Include transl fixes from `mail_digest` and `cms_notifications`
 * update translations and email templates
-* [fix] partner form: do not wipe address fields if no value 
+* [fix] partner form: do not wipe address fields if no value
 
 
 9.3.3 (2017-04-27)
@@ -91,7 +92,7 @@ Latest (Unreleased)
 **Bugfixes**
 
 * [fix] apply notification defaults to user template too
-    
+
     When creating user trough backend interface
     having defaults defined at field level is enough.
     But when creating users via website interface

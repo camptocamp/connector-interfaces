@@ -89,3 +89,14 @@ migration:
           - specific_membership
           - specific_project
     - version: 9.3.7
+    - version: 9.3.8
+      operations:
+        post:
+          - anthem songs.upgrades.upgrade_9_3_8::main
+      addons:
+        upgrade:
+          - mail_digest
+          - cms_form
+          - cms_notifications
+          - theme_fluxdocs
+          - specific_project_proposal
