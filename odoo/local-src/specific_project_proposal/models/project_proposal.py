@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-from datetime import datetime, timedelta
 
 from openerp import _, api, exceptions, fields, models
 from openerp.addons.website.models.website import slug
+
+from datetime import datetime, timedelta
+import logging
+logger = logging.getLogger(__file__)
 
 
 class ProjectProposal(models.Model):
@@ -190,10 +193,8 @@ class ProjectProposal(models.Model):
         if not res.website_published:
             return res
         if not self.env.context.get('notify_disable') \
-                and self._matches_to_be_notified(res):
-            res.with_context(
-                **self._notify_restricted_context()
-            ).notify_dirty = True
+                and res._matches_to_be_notified():
+            res.set_notify_dirty(True)
         return res
 
     @api.multi
@@ -207,10 +208,8 @@ class ProjectProposal(models.Model):
                     continue
                 # yes, we write once more but we don't want tracking here
                 # and we need proposal to be saved to fetch updated matches
-                if self._matches_to_be_notified(item):
-                    item.with_context(
-                        **self._notify_restricted_context()
-                    ).notify_dirty = True
+                if item._matches_to_be_notified():
+                    item.set_notify_dirty(True)
         return res
 
     @api.multi
@@ -228,17 +227,21 @@ class ProjectProposal(models.Model):
         return self.env['mail.message'].search(domain).mapped('partner_ids')
 
     @api.model
-    def _matches_to_be_notified(self, item):
+    def _matches_to_be_notified(self):
         """Return matches to be notified."""
         to_be_notified = []
-        matching_partner_ids = item.matching_partner_ids.ids
+        matching_partner_ids = self.matching_partner_ids.ids
         if matching_partner_ids:
             notified = self._notified_partners(matching_partner_ids)
-            to_be_notified = set(matching_partner_ids).difference(notified)
+            to_be_notified = set(matching_partner_ids).difference(notified.ids)
         return list(to_be_notified)
 
     # TODO: this part could be made generic
     # and put in an extra module to be reusable
+
+    def set_notify_dirty(self, value):
+        self.with_context(
+            **self._notify_restricted_context()).write({'notify_dirty': value})
 
     def _notify_restricted_context(self):
         return {
@@ -267,8 +270,7 @@ class ProjectProposal(models.Model):
             ]
         proposals = self.search(domain)
         proposals._create_match_messages()
-        proposals.with_context(
-            **self._notify_restricted_context()).write({'notify_dirty': False})
+        proposals.set_notify_dirty(False)
 
     def _match_message_body(self, proposal, lang):
         template = self.env.ref(
@@ -291,8 +293,8 @@ class ProjectProposal(models.Model):
         msg_model = self.env['mail.message'].sudo(
         ).with_context(**self._notify_restricted_context())
         for item in self:
-            to_be_notified = self._matches_to_be_notified(item)
-            if not to_be_notified:
+            to_be_notified = item._matches_to_be_notified()
+            if not to_be_notified or not item.website_published:
                 continue
             values = item._match_message_defaults()
             # mail.message do not have translations
@@ -311,3 +313,8 @@ class ProjectProposal(models.Model):
                     (4, id) for id in pids
                 ]
                 msg_model.create(values)
+            logger.info(
+                'Created match messages for prop: %d, partners: %s',
+                item.id,
+                ', '.join(to_be_notified)
+            )
