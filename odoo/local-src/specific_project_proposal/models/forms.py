@@ -61,6 +61,18 @@ class ProposalForm(models.AbstractModel):
         # limit claim length
         _fields['website_short_description']['widget'].maxlength = 200
 
+    def form_validate(self, request_values=None):
+        errors, errors_message = super(
+            ProposalForm, self).form_validate(request_values=request_values)
+        request_values = request_values or self.form_get_request_values()
+        start_date = request_values.get('start_date')
+        stop_date = request_values.get('stop_date')
+        if start_date > stop_date:
+            errors['stop_date'] = 'validation'
+            errors_message['stop_date'] = _(
+                'End Date cannot be set before Start Date.')
+        return errors, errors_message
+
 
 class ProposalSearchForm(models.AbstractModel):
     """Proposal model search form."""

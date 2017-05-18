@@ -4,6 +4,7 @@ odoo.define('specific_project_proposal.specific_project_proposal', function (req
 var ajax = require('web.ajax');
 var core = require('web.core');
 var website = require('website.website');
+var msg_tool = require('cms_status_message.tool');
 
 var _t = core._t;
 
@@ -44,4 +45,36 @@ var _t = core._t;
     $("div.date span.fa-calendar").on('click', function() {
         $(this).closest("div.date").find('input').datetimepicker('show');
     });
+
+    // TMP fix to prevent proposal submit w/ end date < start date
+    // waiting for default validation in cms_form
+    if ( $('.cms_form_wrapper [name=start_date]').length && $('.cms_form_wrapper [name=stop_date]').length){
+        $('.cms_form_wrapper [name=start_date], .cms_form_wrapper [name=stop_date]').change(function(){
+            var $start = $('.cms_form_wrapper [name=start_date]');
+            var $stop = $('.cms_form_wrapper [name=stop_date]');
+            if ($start.val() && $stop.val()) {
+                if( moment($start.val()) > moment($stop.val()) ) {
+                    var start_label = $start.closest('.form-group').find('label').text(),
+                        stop_label = $stop.closest('.form-group').find('label').text(),
+                        msg = {
+                            'msg': stop_label + _t(' must be greater than ') + start_label,
+                            'type': 'danger',
+                            'dismissible': false
+                        }
+                    // wipe existing
+                    $('#' + $stop.attr('id') + 'msg').remove();
+                    // inject
+                    $(msg_tool.render_messages(msg))
+                        .hide().insertAfter($stop.closest('.form-group'))
+                        .fadeIn('slow').attr('id', $stop.attr('id') + 'msg');
+                    $('.cms_form_wrapper form .form-controls button[type=submit]')
+                        .attr('disabled', 'disabled').attr('title', _('You have errors.'));
+                } else {
+                    $('#' + $stop.attr('id') + 'msg').remove();
+                    $('.cms_form_wrapper form .form-controls button[type=submit]')
+                        .attr('disabled', null).attr('title', '');
+                }
+            }
+        })
+    }
 });
