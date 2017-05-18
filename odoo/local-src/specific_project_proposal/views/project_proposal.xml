@@ -29,7 +29,6 @@
         <notebook>
           <page string="Project Details">
             <group>
-              <group>
                 <field name="start_date" string="Starting on"/>
                 <field name="stop_date" string="Ending on"/>
 
@@ -44,8 +43,12 @@
                   <field name="location" />
                   <field name="country_id" />
                 </group>
+                <group name="contact" string="Contact">
+                  <field name="contact_name" />
+                  <field name="contact_email" />
+                  <field name="contact_phone" />
+                </group>
 
-              </group>
             </group>
             <label for="website_short_description"/>
             <field name="website_short_description"/>
