@@ -27,7 +27,7 @@ class ReferenceForm(models.AbstractModel):
         'ext_website_url',
         'linked_partner_ids',
     )
-    _form_required_fields = ('name', 'website_short_description', 'image')
+    _form_required_fields = ('name', 'website_short_description', )
     _form_wrapper_extra_css_klass = 'opt_dark_grid_bg'
     _form_extra_css_klass = 'center-block main-content-wrapper'
 
