@@ -44,6 +44,12 @@
       </xpath>
       <xpath expr="//div[@class='col-md-4']" position="replace">
 
+        <t t-call="theme_fluxdocs.mgmt_actions">
+          <t t-set="object" t-value="partner"/>
+          <t t-set="show_delete" t-value="False"/>
+          <t t-set="show_add" t-value="False"/>
+        </t>
+
         <t t-if="partner_user">
             <t t-set="carousel_items" t-value="[x for x in partner_user.references_ids if x.image]" />
             <t t-if="carousel_items">
@@ -56,11 +62,7 @@
                 </div>
             </t>
         </t>
-        <t t-call="theme_fluxdocs.mgmt_actions">
-          <t t-set="object" t-value="partner"/>
-          <t t-set="show_delete" t-value="False"/>
-          <t t-set="show_add" t-value="False"/>
-        </t>
+
         <section class="content member-detail-view white_bg">
           <div class="content-wrap">
             <t t-if="partner.image">
