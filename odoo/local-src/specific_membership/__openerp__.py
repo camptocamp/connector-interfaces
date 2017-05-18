@@ -50,7 +50,6 @@
         'templates/signup.xml',
         'templates/profile/reset.xml',
         'templates/profile/profile-progress.xml',
-        'templates/profile/profile_form.xml',
         'templates/profile/widgets.xml',
         'templates/profile/my_home.xml',
         'templates/profile/upload.xml',
