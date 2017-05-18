@@ -127,7 +127,7 @@
 						Please set and confirm your password below.
 					</p>
 					<p class="text-center">
-						After confirmation your can edit and complete your company profile. The profile will be published automatically after completion.
+						After confirmation your can edit and complete your company profile. Please don't forget to publish your profile after completion.
 					</p>
 				</t>
 				<t t-if="not token and not show_thanks">

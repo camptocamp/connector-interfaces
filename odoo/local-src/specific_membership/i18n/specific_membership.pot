@@ -260,7 +260,7 @@ msgstr ""
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
-msgid "After confirmation your can edit and complete your company profile. The profile will be published automatically after completion."
+msgid "After confirmation your can edit and complete your company profile. Please don't forget to publish your profile after completion."
 msgstr ""
 
 #. module: specific_membership
@@ -1080,4 +1080,3 @@ msgstr ""
 #: model:ir.ui.view,arch_db:specific_membership.become_member_claim
 msgid "your company to become a Fluxdock Member."
 msgstr ""
-

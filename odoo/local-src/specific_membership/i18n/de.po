@@ -438,13 +438,8 @@ msgstr "<span style=\"text-align: center\">Kontoinformationen</span>."
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.reset_password
-msgid ""
-"After confirmation your can edit and complete your company profile. The "
-"profile will be published automatically after completion."
-msgstr ""
-"Nach der Bestätigung können Sie Ihr Firmenprofil bearbeiten und "
-"vervollständigen. Das Profil wird nach Vervollständigung automatisch "
-"publiziert."
+msgid "After confirmation your can edit and complete your company profile. Please don't forget to publish your profile after completion."
+msgstr "Nach der Bestätigung können Sie Ihr Firmenprofil bearbeiten und vervollständigen. Bitte vergessen Sie nicht, Ihr Profil nach Abschluss zu veröffentlichen."
 
 #. module: specific_membership
 #: model:ir.model.fields,help:specific_membership.field_res_partner_agree_to_terms
