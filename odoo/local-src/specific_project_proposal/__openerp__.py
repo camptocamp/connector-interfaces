@@ -33,6 +33,7 @@
         'templates/search_form.xml',
         'templates/my_home.xml',
         'templates/notify.xml',
+        'templates/notification_listing.xml',
     ],
     'installable': True,
     'auto_install': False,

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<template id="notif_listing" name="Fluxdock CMS notification listing" inherit_id="cms_notifications.listing">
+
+  <!-- The body for us contains aleady the link to the match -->
+  <xpath expr="//div[@t-field='item.body']" position="replace" />
+
+</template>
+
+</odoo>
