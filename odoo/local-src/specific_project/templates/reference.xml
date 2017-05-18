@@ -6,6 +6,7 @@
       <div class="opt_dark_bg reference-detail" id="wrap">
         <t t-call="theme_fluxdocs.mgmt_actions">
             <t t-set="object" t-value="reference"/>
+            <t t-set="show_add" t-value="False"/>
         </t>
         <div>
           <div class="container-xxlg">
