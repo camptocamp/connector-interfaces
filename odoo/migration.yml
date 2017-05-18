@@ -100,3 +100,6 @@ migration:
           - cms_notifications
           - theme_fluxdocs
           - specific_project_proposal
+          - specific_membership
+          - specific_project
+
