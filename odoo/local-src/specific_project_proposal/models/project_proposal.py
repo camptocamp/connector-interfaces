@@ -7,7 +7,7 @@ from openerp.addons.website.models.website import slug
 
 from datetime import datetime, timedelta
 import logging
-logger = logging.getLogger(__file__)
+logger = logging.getLogger('[project_proposal]')
 
 
 class ProjectProposal(models.Model):
@@ -316,5 +316,5 @@ class ProjectProposal(models.Model):
             logger.info(
                 'Created match messages for prop: %d, partners: %s',
                 item.id,
-                ', '.join(to_be_notified)
+                ', '.join([str(x) for x in to_be_notified])
             )
