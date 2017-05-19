@@ -8,6 +8,13 @@ odoo.define('theme_fluxdock.publish', function (require) {
     var core = require('web.core');
     var _t = core._t;
 
+    $(document).ready(function() {
+        if($('section.signup_login').length && $('#user-menu').length){
+            // dirty trick to remove login/signup snippet if the user is not logged-in
+            $('section.signup_login').remove();
+        }
+    });
+
     // unbind existing publish widget event
     $(document).off('click','.js_publish_management .js_publish_btn');
 
