@@ -12,6 +12,14 @@ Latest (Unreleased)
 **Documentation**
 
 
+9.4.0b2 (2017-05-19)
+++++++++++++++++++
+
+**Bugfixes**
+
+* `cms_notifications` did not included static lib for font-awesome
+
+
 9.4.0b1 (2017-05-19)
 ++++++++++++++++++++
 

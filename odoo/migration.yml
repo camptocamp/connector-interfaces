@@ -102,4 +102,4 @@ migration:
           - specific_project_proposal
           - specific_membership
           - specific_project
-
+    - version: 9.4.0b2
