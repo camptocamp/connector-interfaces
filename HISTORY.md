@@ -5,17 +5,53 @@ Latest (Unreleased)
 
 **Features and Improvements**
 
-* Better UX for notification settings RM#17108
-* Update matches notification when partner updates profile RM#17059
-* Trigger notification matche process for existing proposals RM#17059
-
-
 **Bugfixes**
 
 **Build**
 
+**Documentation**
+
+
+9.4.0b1 (2017-05-19)
+++++++++++++++++++++
+
+**Features and Improvements**
+
+* Better UX for notification settings RM#17108
+* Update matches notification when partner updates profile RM#17059
+* Trigger notification matche process for existing proposals RM#17059
+* Mail digest use company email address as "from"
+* Update partner logo image description RM#17099
+* Update mail_digest: use company email from
+* Trigger notification match process for existing proposals RM#17059
+* Support email address with special characters in reset pwd link RM#17107
+* Remove "profile will be published automatically" RM#17060
+* Remove "change pwd" button from profile form RM#16094
+* Reference: add missing fields in backend view RM#16749
+* Reference image not mandatory, update placeholder image RM#16978
+* Proposal: add missing fields to backend form RM#16748
+* Move mgmt buttons above member detail image RM#17122
+* Membership upgrade confirmation update design RM#17105
+* Make all submit buttons blue RM#17110
+* Improve my/home membership status messages RM#17103
+* Hide login/signup snippet if user is logged in RM#17096
+* Detail views: remove "add new" button RM#17114
+* Be defensive when proposals gets unpublished RM#17172
+* Add html help text to expertise in partner form RM#17099
+* Adapt payment views RM#17104
+
+
+**Bugfixes**
+
+* Fix add validation for proposal form end date>start date RM#17058
+* Fix no result bg color for select2 widget RM#17099
+* Fix log for proposal match cron
+* Fix links color in matches emails RM#17109
+
+**Build**
+
 * Use odoo project image 2.2.0
-  
+
   * use redis-sentinel
   * add before/start entrypoints
 
@@ -745,7 +781,7 @@ This release concerns `1b - Members II`. It is actually missing:
 
 **Features and Improvements**
 
-* #14554 + #14555 Add project proposals and matches on backend and website
+* RM#14554 + RM#14555 Add project proposals and matches on backend and website
   * An overview of my proposals is visible in /my/home
   * A list of proposal matches is visible in /my/home
   * The full list of my proposals is accessible at /my/proposals

@@ -89,7 +89,7 @@ migration:
           - specific_membership
           - specific_project
     - version: 9.3.7
-    - version: 9.4.0
+    - version: 9.4.0b1
       operations:
         post:
           - anthem songs.upgrades.upgrade_9_4_0::main
