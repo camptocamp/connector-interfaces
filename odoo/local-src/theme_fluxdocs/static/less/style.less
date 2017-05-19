@@ -195,7 +195,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				border-color: @brand-success;
 			}
 		}
-		a.btn, button.btn{
+		a.btn, button.btn:not(.btn-primary){
 			&:not(.btn-bg-sticky){
 				background-color: @darkColor;
 			}
@@ -208,7 +208,8 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.label {
 			color: white;
 		}
-		input[type="text"], input[type="tel"], input[type="email"], input[type="password"], button[type="submit"], textarea {
+		input[type="text"], input[type="tel"], input[type="email"],
+		input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
 			color: white;
 			border-color: white;
 			background-color: @darkColor;
@@ -984,9 +985,11 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			width: 100%;
 		}
 		a.btn, button {
-			color: white;
-			border-color: white;
-			background-color: @darkColor;
+			&:not(.btn-primary){
+				color: white;
+				border-color: white;
+				background-color: @darkColor;
+			}
 			min-width: 130px;
 		}
 		a.btn {

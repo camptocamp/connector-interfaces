@@ -89,10 +89,10 @@ migration:
           - specific_membership
           - specific_project
     - version: 9.3.7
-    - version: 9.3.8
+    - version: 9.4.0
       operations:
         post:
-          - anthem songs.upgrades.upgrade_9_3_8::main
+          - anthem songs.upgrades.upgrade_9_4_0::main
       addons:
         upgrade:
           - mail_digest
