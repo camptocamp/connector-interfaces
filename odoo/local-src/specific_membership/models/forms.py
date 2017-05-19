@@ -91,7 +91,8 @@ class PartnerForm(models.AbstractModel):
     def help_texts(self):
         texts = {
             'image': _(
-                'This field holds the company logo, limited to 1024x1024px'
+                'This field holds the company logo, '
+                'limited to 1024x1024px, square aspect ratio.'
             ),
         }
         return texts
