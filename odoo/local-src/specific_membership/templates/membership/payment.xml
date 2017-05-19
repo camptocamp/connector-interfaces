@@ -97,7 +97,7 @@ After confirmation you will receive per email the invoice for the membership fee
               </div>
               <div class="controls text-center pb2">
                 <a class="btn btn-primary" href="/market">Market</a>
-                <a class="btn btn-primary ml16" href="/my/home">My Account</a>
+                <a class="btn btn-default ml16" href="/my/home">My Account</a>
               </div>
             </div>
           </div>
