@@ -66,22 +66,10 @@ class WebsiteMembership(WebsiteMembershipController,
         partner = request.env['res.users'].browse(request.uid).partner_id
         values = {
             'error': {},
-            'error_message': []
-        }
-        product = request.env['product.product'].sudo().search([
-            ('default_code', '=', 'associate')])
-        total_price = product.list_price
-        tax_amount = 0
-        if product.taxes_id:
-            tax_amount = product.list_price * (
-                product.taxes_id[0].amount / 100)
-            total_price += tax_amount
-        values.update({
+            'error_message': [],
             'partner': partner,
-            'product': product,
-            'total_price': total_price,
-            'tax_amount': tax_amount,
-        })
+        }
+        values.update(partner.get_membership_cost())
         return request.website.render(
             "specific_membership.membership_payment_address", values)
 

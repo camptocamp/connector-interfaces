@@ -11,6 +11,12 @@ import threading
 
 _logger = logging.getLogger(__file__)
 
+FLUX_MEMBERSHIP_OPTIONS = [
+    ('free', 'Free Membership'),
+    ('asso', 'Associate Membership')
+]
+FLUX_MEMBERSHIP_OPTIONS_DICT = dict(FLUX_MEMBERSHIP_OPTIONS)
+
 
 class ResPartner(models.Model):
     _name = 'res.partner'
@@ -28,13 +34,15 @@ class ResPartner(models.Model):
 
     flux_membership = fields.Selection(
         string='Flux membership',
-        selection=[
-            ('free', 'Free Membership'),
-            ('asso', 'Associate Membership')
-        ],
+        selection=FLUX_MEMBERSHIP_OPTIONS,
         default='free',
         compute='_compute_flux_membership',
         required=True
+    )
+    flux_membership_display = fields.Char(
+        string='Flux membership display',
+        compute='_compute_flux_membership',
+        readonly=True
     )
     is_associate = fields.Boolean(
         string='Is associate member',
@@ -123,6 +131,8 @@ class ResPartner(models.Model):
                 item.flux_membership = 'asso'
             else:
                 item.flux_membership = 'free'
+            item.flux_membership_display = \
+                FLUX_MEMBERSHIP_OPTIONS_DICT[item.flux_membership]
 
     @api.multi
     @api.depends('flux_membership')
@@ -270,3 +280,19 @@ class ResPartner(models.Model):
         if self.website_published:
             # handle profile step upgrade
             self.sudo().update_profile_state(step=2)
+
+    def get_membership_cost(self):
+        product = self.env['product.product'].sudo().search([
+            ('default_code', '=', 'associate')])
+        total_price = product.list_price
+        tax_amount = 0
+        if product.taxes_id:
+            tax_amount = product.list_price * (
+                product.taxes_id[0].amount / 100)
+            total_price += tax_amount
+        return {
+            'product': product,
+            'product_price': product.list_price,
+            'total_price': total_price,
+            'tax_amount': tax_amount,
+        }

@@ -21,6 +21,10 @@ class MyHome(website_account):
             # default website_portal template wants this
             # but we don't need it
             response.qcontext['sales_rep'] = None
+
+        partner = response.qcontext['partner']
+        membership_info = partner.get_membership_cost()
+        response.qcontext['membership_info'] = membership_info
         return response
 
     def _account_extra_qcontext(self):

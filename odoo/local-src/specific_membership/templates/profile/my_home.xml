@@ -128,17 +128,36 @@
         </div>
     </template>
 
+    <template id="membership_status_free_claim" name="Fluxdock my home status free claim">
+        You are a Fluxdock member. You can create your public profile on Fluxdock and register company references.
+        As Fluxdock associate members you have full access on the market.
+        For <t t-esc="product_price" t-esc-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}' /> per year you can make proposals and read all proposals on the market.
+        Become a Fluxdock associate member now.
+    </template>
+
+    <template id="membership_status_associate_claim" name="Fluxdock my home status associate claim">
+        You are a Fluxdock associate member. You have full access on the market, you can add proposals and read all proposals on the market.
+    </template>
+
     <template id="website_membership_status" name="Fluxdock membership status homebox">
         <div id="website_membership_status" class="home_box">
             <h3 class="page-header">Membership status</h3>
-            <p>Members have public profile on Fluxdock and can register company references.<br/>Associated Members have full access on the market. For CHF 60.- per year they can make proposals and read all proposals on the market.</p>
-            <p>
-                <b t-esc="dict(partner.fields_get(allfields=['flux_membership'])['flux_membership']['selection'])[partner.flux_membership]" />
-                <t t-if="partner.flux_membership == 'asso'">
-                    <b>Expiration: <span t-esc="partner.membership_stop"/></b>
-                </t>
-            </p>
+
+            <t t-if="partner.flux_membership == 'asso'">
+                <p>
+                    <b class="state" t-esc="partner.flux_membership_display" /> -
+                    <b class="expiration">Expiration: </b> <span t-field="partner.membership_stop" t-field-options='{"format": "dd / MM / yyyy"}'/>
+                </p>
+                <div class="claim">
+                    <t t-call="specific_membership.membership_status_associate_claim" />
+                </div>
+            </t>
             <t t-if="partner.flux_membership == 'free'">
+                <div class="claim">
+                    <t t-call="specific_membership.membership_status_free_claim">
+                        <t t-set="product_price" t-value="membership_info['product_price']" />
+                    </t>
+                </div>
                 <div class="actions">
                     <a t-attf-class="btn btn-dark mb32 center-block #{not partner.website_published and 'disabled'}"
                        t-att-href="partner.website_published and '/my/membership'">
