@@ -12,7 +12,10 @@
         <t t-if="typeid == matches_subtype.id">
           <p>There are new proposals matches for your company:</p>
           <ul style="margin:10px 20px">
-            <t t-foreach="messages" t-as="msg"><t t-raw="msg.body" /></t>
+            <t t-foreach="messages" t-as="item">
+              <a style="color:white;text-decoration:underline" class="ref_link"
+                 t-att-href="item.ref_item_id.website_url" t-field="item.ref_item_id.name" />
+            </t>
           </ul>
         </t>
         <t t-if="typeid != matches_subtype.id">

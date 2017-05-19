@@ -38,7 +38,7 @@
                   <t t-raw="0" />
                   <p>Kind regards,</p>
                   <p>Your Fluxdock Team</p>
-                  <p>If you don't want to receive these notifications any more, you can deactivate them in the <a t-attf-href="#{base_url}/web/login?redirect=/my/settings/notifications">notification settings.</a></p>
+                  <p>If you don't want to receive these notifications any more, you can deactivate them in the <a style="color:white;text-decoration:underline" t-attf-href="#{base_url}/web/login?redirect=/my/settings/notifications">notification settings.</a></p>
                 </td>
               </tr>
             </table>
