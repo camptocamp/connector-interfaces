@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="partner_form_industry_help" name="Fluxdock reference form industry help">
+    Don't find your industry or expertise? Write us an email at
+    <a href="mailto:expertise@fluxdock.io?subject=new%20industry%20/%20expertise">expertise@fluxdock.io</a>
+  </template>
+
+</odoo>
