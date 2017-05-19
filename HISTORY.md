@@ -14,6 +14,12 @@ Latest (Unreleased)
 
 **Build**
 
+* Use odoo project image 2.2.0
+  
+  * use redis-sentinel
+  * add before/start entrypoints
+
+
 **Documentation**
 
 

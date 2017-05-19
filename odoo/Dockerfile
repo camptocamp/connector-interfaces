@@ -1,4 +1,4 @@
-FROM camptocamp/odoo-project:9.0-2.1.1
+FROM camptocamp/odoo-project:9.0-2.2.0
 MAINTAINER Camptocamp
 
 # Install additional python packages if needed
@@ -11,6 +11,11 @@ RUN apt-get update && \
 RUN set -x; \
     curl -SL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | \
     tar xj --strip-components=2 -C /usr/local/bin/ phantomjs-2.1.1-linux-x86_64/bin/phantomjs
+
+COPY ./before-migrate-entrypoint.d/* odoo/before-migrate-entrypoint.d/
+COPY ./start-entrypoint.d/* odoo/start-entrypoint.d/
+RUN chmod +x odoo/before-migrate-entrypoint.d/* \
+    && chmod +x odoo/start-entrypoint.d/*
 
 ENV ADDONS_PATH="/opt/odoo/local-src, \
 /opt/odoo/external-src/server-tools, \
