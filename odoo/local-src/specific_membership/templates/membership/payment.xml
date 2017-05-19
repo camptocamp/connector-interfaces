@@ -13,11 +13,11 @@ After confirmation you will receive per email the invoice for the membership fee
         <div>
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
-              <h1>Membership Upgrade</h1>
-              <div class="item-description">
+              <h1 class="mt32">Membership Upgrade</h1>
+              <div class="item-description mt32">
                 <t t-call="specific_membership.membership_payment_address_claim"/>
               </div>
-              <div class="info border-tnb mb32 mt16 pt1 pb1">
+              <div class="info border-tnb mb32 mt32 pt2 pb2">
                 <div class="row">
                   <div class="col-md-3"><strong>Name:</strong>
                   </div>
@@ -68,7 +68,7 @@ After confirmation you will receive per email the invoice for the membership fee
                 </div>
               </div>
               <div class="controls text-center pb2">
-                <a class="btn btn-primary" href="/my/account?redirect=/my/membership">Edit information</a>
+                <a class="btn btn-primary" href="/my/account?redirect=/my/membership">Edit payment address</a>
                 <form name="membership_buy" action="/my/membership/buy" method="POST" class="inline ml16">
                   <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                   <button type="submit" class="btn btn-primary">Confirm</button>
@@ -88,8 +88,8 @@ After confirmation you will receive per email the invoice for the membership fee
         <div>
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
-              <h1>Confirmation</h1>
-              <div class="item-description">
+              <h1 class="mt32">Confirmation</h1>
+              <div class="item-description mt32 mb32">
                 <p/>
                 <div style="text-align: center;">Thank you for signing up as an Associate Member.&amp;nbsp;</div>
                 <div style="text-align: center;">The invoice for the membership fee has been sent to you by email. Please pay the amount within the next 30 days.</div>
