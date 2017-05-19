@@ -48,6 +48,7 @@
         'templates/assets.xml',
         'templates/membership.xml',
         'templates/signup.xml',
+        'templates/help_msgs.xml',
         'templates/profile/reset.xml',
         'templates/profile/profile-progress.xml',
         'templates/profile/widgets.xml',

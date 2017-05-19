@@ -94,6 +94,9 @@ class PartnerForm(models.AbstractModel):
                 'This field holds the company logo, '
                 'limited to 1024x1024px, square aspect ratio.'
             ),
+            'expertise_ids':
+                '_xmlid:specific_membership.partner_form_industry_help',
+            'website': '',
         }
         return texts
 
@@ -114,11 +117,15 @@ class PartnerForm(models.AbstractModel):
 
         # add extra help texts
         for fname, help_text in self.help_texts.iteritems():
+            if help_text.startswith('_xmlid:'):
+                tmpl = self.env.ref(
+                    help_text[len('_xmlid:'):], raise_if_not_found=False)
+                if not tmpl:
+                    continue
+                help_text = tmpl.render({
+                    'form_field': _fields[fname],
+                })
             _fields[fname]['help'] = help_text
-
-        # remove some help texts
-        for fname in ('website', 'expertise_ids'):
-            _fields[fname]['help'] = ''
 
         # update some labels
         for fname, label in self.field_label_overrides.iteritems():
