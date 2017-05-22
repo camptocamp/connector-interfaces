@@ -9,6 +9,7 @@ Latest (Unreleased)
 * Notifications: hide item w/ unpublished refs
 * Notifications: hide label and model name
 * Invert colors for publish/unpublish buttons
+* Change notification link color and fix listing of matches
 
 
 **Bugfixes**
