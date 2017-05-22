@@ -7,6 +7,9 @@ Latest (Unreleased)
 
 **Bugfixes**
 
+* Run upgrade of emails (missing in previous release)
+
+
 **Build**
 
 **Documentation**
