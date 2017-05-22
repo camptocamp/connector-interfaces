@@ -11,6 +11,7 @@ Latest (Unreleased)
 **Bugfixes**
 
 * Run upgrade of emails (missing in previous release)
+* Fix email message lang default with fallback
 
 
 **Build**
