@@ -6,6 +6,9 @@ Latest (Unreleased)
 **Features and Improvements**
 
 * Notification settings: hide required fields markers
+* Notifications: hide item w/ unpublished refs
+* Notifications: hide label and model name
+* Invert colors for publish/unpublish buttons
 
 
 **Bugfixes**
