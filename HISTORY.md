@@ -5,6 +5,9 @@ Latest (Unreleased)
 
 **Features and Improvements**
 
+* Notification settings: hide required fields markers
+
+
 **Bugfixes**
 
 * Run upgrade of emails (missing in previous release)
