@@ -4,6 +4,10 @@
 <template id="notif_listing" name="Fluxdock CMS notification listing" inherit_id="cms_notifications.listing">
 
   <!-- The body for us contains aleady the link to the match -->
+  <xpath expr="//div[@t-att-data-id='item.id']" position="attributes">
+    <attribute name="t-if">ref and can_view_ref</attribute>
+  </xpath>
+
   <xpath expr="//div[@t-field='item.body']" position="replace" />
 
 </template>
