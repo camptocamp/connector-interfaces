@@ -109,6 +109,7 @@ migration:
           - cms_notifications
           - theme_fluxdocs
           - specific_project_proposal
+          - specific_membership
       operations:
         post:
           - anthem songs.install.post::update_emails

@@ -143,11 +143,14 @@
         <div id="website_membership_status" class="home_box">
             <h3 class="page-header">Membership status</h3>
 
-            <t t-if="partner.flux_membership == 'asso'">
-                <p>
-                    <b class="state" t-esc="partner.flux_membership_display" /> -
+            <p>
+                <b class="state">Status:</b> <span class="ml8" t-esc="partner.flux_membership_display" />
+                <t t-if="partner.flux_membership == 'asso'">
+                    <span class="sep" t-translation="off"> - </span>
                     <b class="expiration">Expiration: </b> <span t-field="partner.membership_stop" t-field-options='{"format": "dd / MM / yyyy"}'/>
-                </p>
+                </t>
+            </p>
+            <t t-if="partner.flux_membership == 'asso'">
                 <div class="claim">
                     <t t-call="specific_membership.membership_status_associate_claim" />
                 </div>
