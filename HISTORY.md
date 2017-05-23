@@ -18,6 +18,7 @@ Latest (Unreleased)
 
 * Run upgrade of emails (missing in previous release)
 * Fix email message lang default with fallback
+* /my/membership only `confirm` button is blue
 
 
 **Build**
