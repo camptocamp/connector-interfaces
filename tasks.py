@@ -123,31 +123,40 @@ def push_branches(ctx, force=False):
                 )
 
 
-@task
-def bump(ctx, feature=False, patch=False):
-    """ Increase the version number where needed """
-    if not (feature or patch):
-        exit_msg("should be a --feature or a --patch version")
-    old_version = _current_version()
-    if not old_version:
-        exit_msg("the version file is empty")
+def validated_version(version):
+    if not version:
+        exit_msg("Version is empty")
     try:
-        version = StrictVersion(old_version)
+        return StrictVersion(version)
     except ValueError:
         exit_msg("'{}' is not a valid version".format(version))
 
-    if not len(version.version) == 3:
-        exit_msg("'{}' should be x.y.z".format(version.version))
 
-    if feature:
-        version = (version.version[0],
-                   version.version[1] + 1,
-                   0)
-    elif patch:
-        version = (version.version[0],
-                   version.version[1],
-                   version.version[2] + 1)
-    version = '.'.join([str(v) for v in version])
+@task
+def bump(ctx, feature=False, patch=False, forceversion=''):
+    """ Increase the version number where needed """
+    if not (feature or patch) and not forceversion:
+        exit_msg(
+            "should be a --feature or a --patch version or --forceversion")
+
+    old_version = _current_version()
+
+    if forceversion:
+        version = str(validated_version(forceversion))
+    else:
+        version = validated_version(old_version)
+        if not len(version.version) == 3:
+            exit_msg("'{}' should be x.y.z".format(version.version))
+
+        if feature:
+            version = (version.version[0],
+                       version.version[1] + 1,
+                       0)
+        elif patch:
+            version = (version.version[0],
+                       version.version[1],
+                       version.version[2] + 1)
+        version = '.'.join([str(v) for v in version])
 
     print('Increasing version number from {} '
           'to {}...'.format(old_version, version))
