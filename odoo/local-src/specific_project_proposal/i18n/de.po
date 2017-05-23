@@ -440,9 +440,8 @@ msgstr "Proposal ids"
 #. module: specific_project_proposal
 #: code:addons/odoo/local-src/specific_project_proposal/models/project_proposal.py:285
 #: code:addons/specific_project_proposal/models/project_proposal.py:285
-#, fuzzy, python-format
 msgid "Proposal match"
-msgstr "Titel"
+msgstr "Projektvorschlag"
 
 #. module: specific_project_proposal
 #: model:ir.actions.act_window,name:specific_project_proposal.action_project_proposal

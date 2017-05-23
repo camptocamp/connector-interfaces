@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-23 07:38+0000\n"
-"PO-Revision-Date: 2017-05-23 07:38+0000\n"
+"POT-Creation-Date: 2017-05-23 11:41+0000\n"
+"PO-Revision-Date: 2017-05-23 11:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -310,9 +310,12 @@ msgid "Associate Member have full access to the project market<br/>\n"
 msgstr ""
 
 #. module: specific_membership
+#: code:addons/odoo/local-src/specific_membership/models/res_partner.py:16
+#: code:addons/specific_membership/models/res_partner.py:16
 #: model:product.product,name:specific_membership.membership_variable_year
 #: model:product.template,name:specific_membership.membership_variable_year_product_template
 #: selection:res.partner,flux_membership:0
+#, python-format
 msgid "Associate Membership"
 msgstr ""
 
@@ -556,7 +559,10 @@ msgid "Forgot your password?"
 msgstr ""
 
 #. module: specific_membership
+#: code:addons/odoo/local-src/specific_membership/models/res_partner.py:15
+#: code:addons/specific_membership/models/res_partner.py:15
 #: selection:res.partner,flux_membership:0
+#, python-format
 msgid "Free Membership"
 msgstr ""
 
@@ -1109,3 +1115,4 @@ msgstr ""
 #: model:ir.ui.view,arch_db:specific_membership.become_member_claim
 msgid "your company to become a Fluxdock Member."
 msgstr ""
+

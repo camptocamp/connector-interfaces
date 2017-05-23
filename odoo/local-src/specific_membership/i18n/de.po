@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 9.0c\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-23 07:38+0000\n"
+"POT-Creation-Date: 2017-05-23 11:41+0000\n"
 "PO-Revision-Date: 2017-03-24 18:07+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
@@ -346,7 +346,7 @@ msgstr ""
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.website_membership_status
 msgid "<b class=\"expiration\">Expiration: </b>"
-msgstr ""
+msgstr "<b class=\"expiration\">gültig bis: </b>"
 
 #. module: specific_membership
 #: model:ir.ui.view,arch_db:specific_membership.website_membership_status
@@ -453,7 +453,8 @@ msgid ""
 "don't forget to publish your profile after completion."
 msgstr ""
 "Nach der Bestätigung können Sie Ihr Firmenprofil bearbeiten und "
-"vervollständigen. Bitte denken Sie daran, das Profil nach der Vervollständigung zu veröffentlichen."
+"vervollständigen. Bitte denken Sie daran, das Profil nach der "
+"Vervollständigung zu veröffentlichen."
 
 #. module: specific_membership
 #: model:ir.model.fields,help:specific_membership.field_res_partner_agree_to_terms
@@ -506,9 +507,12 @@ msgstr ""
 "Bitte"
 
 #. module: specific_membership
+#: code:addons/odoo/local-src/specific_membership/models/res_partner.py:16
+#: code:addons/specific_membership/models/res_partner.py:16
 #: model:product.product,name:specific_membership.membership_variable_year
 #: model:product.template,name:specific_membership.membership_variable_year_product_template
 #: selection:res.partner,flux_membership:0
+#, python-format
 msgid "Associate Membership"
 msgstr "Assoziierte Mitgliedschaft"
 
@@ -786,7 +790,10 @@ msgid "Forgot your password?"
 msgstr "Passwort vergessen?"
 
 #. module: specific_membership
+#: code:addons/odoo/local-src/specific_membership/models/res_partner.py:15
+#: code:addons/specific_membership/models/res_partner.py:15
 #: selection:res.partner,flux_membership:0
+#, python-format
 msgid "Free Membership"
 msgstr "Mitglied"
 
@@ -823,6 +830,7 @@ msgid "Important"
 msgstr "Important"
 
 #. module: specific_membership
+#: code:addons/odoo/local-src/specific_membership/models/forms.py:110
 #: code:addons/odoo/local-src/specific_membership/models/forms.py:296
 #: code:addons/specific_membership/models/forms.py:110
 #: code:addons/specific_membership/models/forms.py:296
@@ -1154,11 +1162,6 @@ msgstr ""
 "erklären Sie sich mit diesen Bedingungen einverstanden</span>."
 
 #. module: specific_membership
-#, python-format
-msgid "This field holds the company logo, limited to 1024x1024px"
-msgstr "Bitte laden Sie hier Ihr Unternehmenslogo hoch, max. 1024x1024px"
-
-#. module: specific_membership
 #: code:addons/odoo/local-src/specific_membership/models/forms.py:93
 #: code:addons/specific_membership/models/forms.py:93
 #, fuzzy, python-format
@@ -1393,11 +1396,5 @@ msgstr "Sie sich, um ein Mitglied von Fluxdock zu werden."
 msgid "your company to become a Fluxdock Member."
 msgstr "Sie sich, um ein Mitglied von Fluxdock zu werden."
 
-#~ msgid "Change password"
-#~ msgstr "Passwort ändern"
-
-#~ msgid "Edit information"
-#~ msgstr "Bearbeiten"
-
-#~ msgid "Expiration:"
-#~ msgstr "gültig bis:"
+msgid "Expiration:"
+msgstr "gültig bis:"

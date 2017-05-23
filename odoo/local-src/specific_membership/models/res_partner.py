@@ -12,10 +12,9 @@ import threading
 _logger = logging.getLogger(__file__)
 
 FLUX_MEMBERSHIP_OPTIONS = [
-    ('free', 'Free Membership'),
-    ('asso', 'Associate Membership')
+    ('free', _('Free Membership')),
+    ('asso', _('Associate Membership')),
 ]
-FLUX_MEMBERSHIP_OPTIONS_DICT = dict(FLUX_MEMBERSHIP_OPTIONS)
 
 
 class ResPartner(models.Model):
@@ -38,11 +37,6 @@ class ResPartner(models.Model):
         default='free',
         compute='_compute_flux_membership',
         required=True
-    )
-    flux_membership_display = fields.Char(
-        string='Flux membership display',
-        compute='_compute_flux_membership',
-        readonly=True
     )
     is_associate = fields.Boolean(
         string='Is associate member',
@@ -132,8 +126,12 @@ class ResPartner(models.Model):
                 item.flux_membership = 'asso'
             else:
                 item.flux_membership = 'free'
-            item.flux_membership_display = \
-                FLUX_MEMBERSHIP_OPTIONS_DICT[item.flux_membership]
+
+    @property
+    def flux_membership_display(self):
+        opts = dict(self.fields_get(
+            allfields=['flux_membership'])['flux_membership']['selection'])
+        return opts[self.flux_membership]
 
     @api.multi
     @api.depends('flux_membership')
