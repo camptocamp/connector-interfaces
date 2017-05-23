@@ -10,6 +10,7 @@ Latest (Unreleased)
 * Notifications: hide label and model name
 * Invert colors for publish/unpublish buttons
 * Change notification link color and fix listing of matches
+* Force translation of startdate/enddate error msg
 
 
 **Bugfixes**
