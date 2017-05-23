@@ -106,6 +106,7 @@ migration:
     - version: 9.4.0b3
       addons:
         upgrade:
+          - mail_digest
           - cms_notifications
           - theme_fluxdocs
           - specific_project_proposal

@@ -11,6 +11,7 @@ Latest (Unreleased)
 * Invert colors for publish/unpublish buttons
 * Change notification link color and fix listing of matches
 * Force translation of startdate/enddate error msg
+* Include site name in mail digest subject
 
 
 **Bugfixes**
