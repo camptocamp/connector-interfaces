@@ -56,8 +56,12 @@ var _t = core._t;
                 if( moment($start.val()) > moment($stop.val()) ) {
                     var start_label = $start.closest('.form-group').find('label').text(),
                         stop_label = $stop.closest('.form-group').find('label').text(),
+                        // FIXME: dirty hack to enforce translation that sometime does not work w/ JS
+                        txt_en = 'End date must be greate than start date',
+                        txt_de = 'Enddatum muss grösser sein als Startdatum',
+                        txt = $('html').attr('lang') == 'de-DE' ? txt_de: txt_en,
                         msg = {
-                            'msg': stop_label + _t(' must be greater than ') + start_label,
+                            'msg': txt,
                             'type': 'danger',
                             'dismissible': false
                         }

@@ -5,7 +5,24 @@ Latest (Unreleased)
 
 **Features and Improvements**
 
+* Notification settings: hide required fields markers
+* Notifications: hide item w/ unpublished refs
+* Notifications: hide label and model name
+* Invert colors for publish/unpublish buttons
+* Change notification link color and fix listing of matches
+* Force translation of startdate/enddate error msg
+* Include site name in mail digest subject
+* Homepage: hide only login buttons when logged in
+* Update translation for reset pwd view
+
+
 **Bugfixes**
+
+* Run upgrade of emails (missing in previous release)
+* Fix email message lang default with fallback
+* /my/membership only `confirm` button is blue
+* User menu dropdown: make sure german text not cut
+
 
 **Build**
 

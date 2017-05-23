@@ -437,11 +437,18 @@
 	}
 
 	// cms_notifications dot
-	#user-menu.has_unread_notif{
-	    &::before{
-            top: 5px;
-            left: -5px;
-	    }
+	#user-menu{
+		.dropdown-menu{
+			// allign to the right to make german text not cut
+			left: initial;
+			right: 0;
+		}
+		&.has_unread_notif{
+		    &::before{
+	            top: 5px;
+	            left: -5px;
+		    }
+		}
 	}
 
 } // #wrapwrap wrapping end

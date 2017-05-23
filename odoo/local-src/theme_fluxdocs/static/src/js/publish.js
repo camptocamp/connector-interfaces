@@ -11,7 +11,7 @@ odoo.define('theme_fluxdock.publish', function (require) {
     $(document).ready(function() {
         if($('section.signup_login').length && $('#user-menu').length){
             // dirty trick to remove login/signup snippet if the user is not logged-in
-            $('section.signup_login').remove();
+            $('section.signup_login a.btn').parent().remove();
         }
     });
 
