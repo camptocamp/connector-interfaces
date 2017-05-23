@@ -13,6 +13,7 @@ Latest (Unreleased)
 * Force translation of startdate/enddate error msg
 * Include site name in mail digest subject
 * Homepage: hide only login buttons when logged in
+* Update translation for reset pwd view
 
 
 **Bugfixes**
