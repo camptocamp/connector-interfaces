@@ -5,6 +5,18 @@ Latest (Unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.4b3 (2017-05-23)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * Notification settings: hide required fields markers
 * Notifications: hide item w/ unpublished refs
 * Notifications: hide label and model name

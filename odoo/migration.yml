@@ -103,7 +103,7 @@ migration:
           - specific_membership
           - specific_project
     - version: 9.4.0b2
-    - version: 9.4.0b3
+    - version: 9.4b3
       addons:
         upgrade:
           - mail_digest
