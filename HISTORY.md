@@ -12,6 +12,14 @@ Latest (Unreleased)
 **Documentation**
 
 
+9.4 (2017-05-23)
+++++++++++++++++
+
+**Bugfixes**
+
+* Fix some translations
+
+
 9.4b3 (2017-05-23)
 ++++++++++++++++++
 

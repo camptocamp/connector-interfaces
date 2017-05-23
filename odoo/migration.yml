@@ -114,3 +114,9 @@ migration:
       operations:
         post:
           - anthem songs.install.post::update_emails
+    - version: 9.4.0
+      addons:
+        upgrade:
+          - cms_notifications
+          - specific_project_proposal
+          - specific_membership
