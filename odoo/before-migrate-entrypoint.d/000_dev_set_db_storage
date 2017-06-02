@@ -1,4 +1,6 @@
 #!/bin/bash
+# This file has been generated with 'invoke project.sync'.
+# Do not modify. Any manual change will be lost.
 
 #
 # Often in development mode, we retrieve a database from a production server
@@ -9,13 +11,6 @@
 # When one needs to work on S3 with a development instance, he might set the
 # ODOO_DEV_KEEP_ATTACHMENT_S3=true environment variable
 #
-
-if [ "$( psql -tAc "SELECT 1 FROM pg_database WHERE datname='$DB_NAME'" )" != '1' ]
-then
-    echo "Database does not exist"
-    exit 0
-fi
-
 keep_location=$(echo "${ODOO_DEV_KEEP_ATTACHMENT_S3}" | tr '[:upper:]' '[:lower:]' )
 
 if [ "$keep_location" = "true" ]; then
@@ -23,6 +18,13 @@ if [ "$keep_location" = "true" ]; then
 fi
 
 if [ "$RUNNING_ENV" = "dev" ] ; then
+
+    if [ "$( psql -tAc "SELECT 1 FROM pg_database WHERE datname='$DB_NAME'" )" != '1' ]
+    then
+        echo "Database does not exist, ignoring script"
+        exit 0
+    fi
+
 
     echo "Deleting web attachment when ir_attachment.location parameter is 's3'"
 
@@ -56,4 +58,3 @@ EOF
 EOF
 
 fi
-
