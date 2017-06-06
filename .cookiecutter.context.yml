@@ -1,0 +1,7 @@
+customer_name: fluxdock
+odoo_version: '9.0'
+customer_shortname: fluxdock
+repo_name: fluxdock
+project_id: '3582'
+project_name: fluxdock_odoo
+odoo_company_name: Fluxdock

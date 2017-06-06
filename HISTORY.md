@@ -9,6 +9,8 @@ Latest (Unreleased)
 
 **Build**
 
+* Sync from odoo-template
+
 **Documentation**
 
 
