@@ -12,6 +12,11 @@ Latest (Unreleased)
 **Build**
 
 * Sync from odoo-template
+* Fix travis build w/ support for SNI to requests to avoid SSL  certificate mismatches.
+
+  This fixes SSL errors when creating minions python requests lib 
+  lacks support for NSI thus fall back on the wrong domain name 
+  thus certifactes mismatches and minion were not created.
 
 **Documentation**
 
