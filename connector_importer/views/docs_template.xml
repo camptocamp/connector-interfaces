@@ -86,7 +86,7 @@
                       <t t-foreach="defaults.iterkeys()" t-as="key">
                         <tr>
                           <td class="text-left"><t t-esc="key"/></td>
-                          <td class="text-left"><t t-esc="defaults[key]"/></td>
+                          <td class="text-left"><t t-esc="str(defaults[key])"/></td>
                         </tr>
                       </t>
                     </tbody>

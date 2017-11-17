@@ -96,9 +96,10 @@ class CSVReporter(models.AbstractModel):
                 for key in report_keys:
                     extra_keys.append(self._report_make_key(key, model=model))
 
-        orig_content = recordset.csv_file.decode('base64').splitlines()
-        delimiter = recordset.csv_delimiter.encode('utf-8')
-        quotechar = recordset.csv_quotechar.encode('utf-8')
+        source = recordset.get_source()
+        orig_content = source.csv_file.decode('base64').splitlines()
+        delimiter = source.csv_delimiter.encode('utf-8')
+        quotechar = source.csv_quotechar.encode('utf-8')
 
         columns = self.report_get_columns(
             recordset, orig_content,

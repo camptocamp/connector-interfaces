@@ -15,7 +15,6 @@ from odoo.addons.queue_job.job import (
 from .job_mixin import JobRelatedMixin
 from ..log import logger
 from ..utils.misc import import_klass_from_dotted_path
-from ..utils.importer_utils import guess_csv_metadata
 
 
 def get_record_importer(env, importer_dotted_path=None):
@@ -86,14 +85,6 @@ class ImportRecordSet(models.Model, JobRelatedMixin):
     docs_html = fields.Html(
         'Docs', compute='_compute_docs_html')
     notes = fields.Html('Notes', help="Useful info for your users")
-
-    @api.onchange('csv_file')
-    def _onchance_csv_file(self):
-        if self.csv_file:
-            meta = guess_csv_metadata(self.csv_file.decode('base64'))
-            if meta:
-                self.csv_delimiter = meta['delimiter']
-                self.csv_quotechar = meta['quotechar']
 
     @api.multi
     def unlink(self):
@@ -223,14 +214,11 @@ class ImportRecordSet(models.Model, JobRelatedMixin):
 
     @api.multi
     def generate_report(self):
-        # TODO: schedule a job for this?
-        # if we do so: we must really do it after ALL jobs have been DONE
-        # but how do we state this?
-        # we can have jobs running in parallel
-        # we can run w/out jobs (debug mode)
         self.ensure_one()
-        # TODO: make this configurable
-        reporter = self.env['reporter.csv']
+        reporter = self.get_source().get_reporter()
+        if not reporter:
+            logger.debug('No reporter found...')
+            return
         metadata, content = reporter.report_get(self)
         self.write({
             'report_file': content.encode('base64'),

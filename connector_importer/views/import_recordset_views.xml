@@ -12,16 +12,20 @@
                 <field name="override_existing" />
             </group>
             <group col="4" string="Source">
-                <field name="source_model" />
-                <button
-                  name="open_source_config"
-                  type="object"
-                  class="btn-default btn-sm"
-                  string="Configure source"
-                  attrs="{'invisible': [('source_model', '=', False)]}" />
-                <field name="source_id" invisible="1" />
-                <field name="source_ref_id" invisible="1" />
-                <field name="source_config_summary" />
+                <group name="config" colspan="4">
+                    <field name="source_model" />
+                    <button
+                        name="open_source_config"
+                        type="object"
+                        class="btn-default btn-sm"
+                        string="Configure source"
+                        attrs="{'invisible': [('source_model', '=', False)]}" />
+                </group>
+                <group name="summary" colspan="4">
+                    <field name="source_id" invisible="1" />
+                    <field name="source_ref_id" invisible="1" />
+                    <field name="source_config_summary" />
+                </group>
             </group>
             <group name="buttons">
                 <button name="run_import"

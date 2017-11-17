@@ -33,12 +33,8 @@ class RecordSetImporter(BaseImporter):
 
         record_model = recordset.record_ids
 
-        # read CSV
-        # TODO: when we solve the issue of source relation on recordset
-        # this will be something like:
-        # source = recordset.get_source()
-        # source.get_lines()
-        for chunk in recordset.get_lines():
+        source = recordset.get_source()
+        for chunk in source.get_lines():
             # create chuncked records and run their imports
             record = record_model.create({'recordset_id': recordset.id})
             # store data

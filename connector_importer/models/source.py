@@ -5,7 +5,7 @@
 
 from odoo import models, fields, api, tools
 
-from ..utils.importer_utils import gen_chunks, CSVReader
+from ..utils.importer_utils import gen_chunks, CSVReader, guess_csv_metadata
 
 
 class ImportSourceConsumerdMixin(models.AbstractModel):
@@ -69,11 +69,15 @@ class ImportSourceConsumerdMixin(models.AbstractModel):
         })
         return action
 
+    def get_source(self):
+        return self.source_ref_id
+
 
 class ImportSource(models.AbstractModel):
     _name = 'import.source'
     _description = 'Import source'
     _source_type = 'none'
+    _reporter_model = ''
 
     name = fields.Char(
         compute=lambda self: self._source_type,
@@ -111,9 +115,10 @@ class ImportSource(models.AbstractModel):
     @api.model
     def create(self, vals):
         res = super(ImportSource, self).create(vals)
-        # update reference on consumer
-        self.env[self.env.context['active_model']].browse(
-            self.env.context['active_id']).source_id = res.id
+        if self.env.context.get('active_model'):
+            # update reference on consumer
+            self.env[self.env.context['active_model']].browse(
+                self.env.context['active_id']).source_id = res.id
         return res
 
     @api.multi
@@ -141,12 +146,16 @@ class ImportSource(models.AbstractModel):
             ('model', '=', self._name),
             ('type', '=', 'form')], limit=1).id
 
+    def get_reporter(self):
+        return self.env.get(self._reporter_model)
+
 
 class CSVSource(models.Model):
     _name = 'import.source.csv'
     _inherit = 'import.source'
     _description = 'CSV import source'
     _source_type = 'csv'
+    _reporter_model = 'reporter.csv'
 
     csv_file = fields.Binary('CSV file')
     # use these to load file from an FS path
@@ -169,6 +178,14 @@ class CSVSource(models.Model):
         'csv_filename', 'csv_filesize', 'csv_delimiter', 'csv_quotechar',
     )
 
+    @api.onchange('csv_file')
+    def _onchance_csv_file(self):
+        if self.csv_file:
+            meta = guess_csv_metadata(self.csv_file.decode('base64'))
+            if meta:
+                self.csv_delimiter = meta['delimiter']
+                self.csv_quotechar = meta['quotechar']
+
     def _filesize_human(self, size, suffix='B'):
         for unit in ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z']:
             if abs(size) < 1024.0:
@@ -180,7 +197,8 @@ class CSVSource(models.Model):
     def _compute_csv_filesize(self):
         for item in self:
             if item.csv_file:
-                item.csv_filesize = self._filesize_human(len(item.csv_file))
+                item.csv_filesize = self._filesize_human(
+                    len(item.csv_file.decode('base64')))
 
     def _get_lines(self):
         # read CSV
