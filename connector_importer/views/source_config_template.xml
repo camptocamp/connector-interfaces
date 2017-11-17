@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="source_config_summary" name="Source config summary">
+    <div class="source_config">
+      <h3>Source config summary</h3>
+      <t t-foreach="summary_fields" t-as="fname">
+        <strong t-esc="fields_info[fname]['string']" />: <span t-esc="source[fname]" /> <br />
+      </t>
+    </div>
+  </template>
+
+</odoo>

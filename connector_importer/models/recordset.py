@@ -29,14 +29,7 @@ def get_record_importer(env, importer_dotted_path=None):
 
 class ImportRecordSet(models.Model, JobRelatedMixin):
     _name = 'import.recordset'
-    # TODO: temporary inherit!
-    # `import.source.*` model should have a dynamic relation
-    # with the recordset so that we can easily define new source types
-    # and attach them to the recordset on the fly via UI.
-    # Unfortunately the `fields.Reference` field sucks
-    # especially if you want to create new records on the fly.
-    # We need a better solution for this.
-    _inherit = 'import.source.csv'
+    _inherit = 'import.source.consumer.mixin'
     _description = 'Import recordset'
     _order = 'sequence ASC, create_date DESC'
     _backend_type = 'import_backend'

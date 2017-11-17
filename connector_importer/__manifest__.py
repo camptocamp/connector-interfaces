@@ -20,8 +20,10 @@
         'security/ir.model.access.csv',
         'views/import_backend_views.xml',
         'views/import_recordset_views.xml',
+        'views/import_source_views.xml',
         'views/report_template.xml',
         'views/docs_template.xml',
+        'views/source_config_template.xml',
         # TODO
         # 'views/import_user_views.xml',
         # TODO

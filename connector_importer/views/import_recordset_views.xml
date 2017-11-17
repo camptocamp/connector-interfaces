@@ -11,20 +11,17 @@
                 <field name="import_type_id" options="{'no_create': True}" />
                 <field name="override_existing" />
             </group>
-            <group col="4" string="Source (CSV)">
-              <field name="chunk_size" />
-              <field name="example_file_url" widget="url" />
-              <field name="csv_file" filename="csv_filename"
-                     attrs="{'required':[('csv_path','=',False)]}" />
-              <field name="csv_filename" />
-              <field name="csv_path"
-                     attrs="{'required':[('csv_file','=',False)], 'invisible':[('csv_file','!=',False)]}" />
-              <field name="csv_delimiter" />
-            </group>
-            <group col="4" string="Job info" attrs="{'invisible': [('job_id', '=', False)]}">
-              <field name="job_id" />
-              <field name="job_state" />
-              <field name="jobs_global_state" />
+            <group col="4" string="Source">
+                <field name="source_model" />
+                <button
+                  name="open_source_config"
+                  type="object"
+                  class="btn-default btn-sm"
+                  string="Configure source"
+                  attrs="{'invisible': [('source_model', '=', False)]}" />
+                <field name="source_id" invisible="1" />
+                <field name="source_ref_id" invisible="1" />
+                <field name="source_config_summary" />
             </group>
             <group name="buttons">
                 <button name="run_import"
