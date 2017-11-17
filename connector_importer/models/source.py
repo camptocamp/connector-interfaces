@@ -19,9 +19,7 @@ class ImportSourceConsumerdMixin(models.AbstractModel):
     )
     source_model = fields.Selection(
         string='Source type',
-        selection=[
-            ('import.source.csv', 'CSV'),
-        ]
+        selection='_selection_source_ref_id',
     )
     source_ref_id = fields.Reference(
         string='Source',
@@ -45,9 +43,10 @@ class ImportSourceConsumerdMixin(models.AbstractModel):
     @api.model
     @tools.ormcache('self')
     def _selection_source_ref_id(self):
-        """Allow any model; after all, this field is readonly."""
-        return [(r.model, r.name) for r in self.env['ir.model'].search(
-            [('model', '=like', 'import.source.%')])]
+        domain = [('model', '=like', 'import.source.%')]
+        return [(r.model, r.name)
+                for r in self.env['ir.model'].search(domain)
+                if not r.model.endswith('mixin')]
 
     @api.multi
     @api.depends('source_ref_id', )
