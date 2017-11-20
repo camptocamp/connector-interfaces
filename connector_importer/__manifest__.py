@@ -16,6 +16,7 @@
     'category': 'Uncategorized',
     'website': 'http://www.camptocamp.com',
     'data': [
+        'data/ir_cron.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/import_backend_views.xml',

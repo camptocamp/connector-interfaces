@@ -79,4 +79,31 @@
         </tree>
       </field>
     </record>
+
+    <record id="view_import_recordset_search" model="ir.ui.view">
+      <field name="model">import.recordset</field>
+      <field name="arch" type="xml">
+        <search string="Search recordset">
+          <field name="name"/>
+          <field name="backend_id" string="Backend"/>
+          <field name="import_type_id" string="Type"/>
+          <field name="create_date"/>
+          <field name="job_state" />
+          <group expand="0" string="Group By">
+            <filter name="by_backend" string="Backend" domain="[]" context="{'group_by':'backend_id'}" />
+            <filter name="by_type" string="Type" domain="[]" context="{'group_by':'import_type_id'}"/>
+            <filter name="by_state" string="Job State" domain="[]" context="{'group_by':'job_state'}"/>
+          </group>
+      </search>
+      </field>
+    </record>
+
+    <record id="action_import_recordset" model="ir.actions.act_window">
+      <field name="name">Import Recordsets</field>
+      <field name="res_model">import.recordset</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{"search_default_by_backend":1}</field>
+    </record>
 </odoo>

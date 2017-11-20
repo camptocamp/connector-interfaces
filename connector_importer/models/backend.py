@@ -6,6 +6,9 @@
 from contextlib import contextmanager
 from odoo.addons.connector.connector import ConnectorEnvironment
 from odoo import models, fields, api, exceptions, _
+import logging
+
+cleanup_logger = logging.getLogger('[recordset-cleanup]')
 
 BACKEND_VERSIONS = [
     ('1.0', 'Version 1.0'),
@@ -64,7 +67,23 @@ class ImportBackend(models.Model):
     )
     cron_id = fields.Many2one(
         'ir.cron',
-        string='Related cron'
+        string='Related cron',
+        domain=lambda self: [('model', '=', self._name)],
+    )
+    cron_master_recordset_id = fields.Many2one(
+        'import.recordset',
+        string='Master recordset',
+        help=('If an existing recordset is selected '
+              'it will be used to create a new recordset '
+              'each time the cron runs. '
+              '\nIn this way you can keep every import session isolated. '
+              '\nIf none, all recordsets will run.')
+    )
+    cron_cleanup_keep = fields.Integer(
+        string='Cron cleanup keep',
+        help=('If this value is greater than 0 '
+              'a cron will cleanup old recordsets '
+              'and keep only the latest N records matching this value.'),
     )
     notes = fields.Text('Notes')
     debug_mode = fields.Boolean(
@@ -99,16 +118,22 @@ class ImportBackend(models.Model):
             'nextcall': backend.cron_start_date,
         }
 
+    def _update_or_create_cron(self):
+        """Update or create cron record if needed."""
+        if self.cron_mode:
+            cron_model = self.env['ir.cron']
+            cron_vals = self.get_cron_vals()
+            if not self.cron_id:
+                self.cron_id = cron_model.create(cron_vals)
+            else:
+                self.cron_id.write(cron_vals)
+
     @api.model
     def create(self, vals):
         """ handle cron stuff
         """
         backend = super(ImportBackend, self).create(vals)
-        if backend.cron_mode:
-            cron_model = self.env['ir.cron']
-            cron_vals = self.get_cron_vals(backend)
-            cron = cron_model.create(cron_vals)
-            backend.cron_id = cron.id
+        backend._update_or_create_cron()
         return backend
 
     @api.multi
@@ -117,10 +142,7 @@ class ImportBackend(models.Model):
         """
         res = super(ImportBackend, self).write(vals)
         for backend in self:
-            if backend.cron_mode:
-                # update related cron values
-                cron_vals = self.get_cron_vals(backend)
-                backend.cron_id.write(cron_vals)
+            backend._update_or_create_cron()
         return res
 
     @api.multi
@@ -156,8 +178,35 @@ class ImportBackend(models.Model):
         """ run all recordset imports
         """
         backend = backend_id and self.browse(backend_id) or self
-        for recordset in backend.recordset_ids:
+        backend.ensure_one()
+        recordsets = backend.recordset_ids
+        if backend.cron_master_recordset_id:
+            # clone and use it to run
+            recordsets = backend.cron_master_recordset_id.copy()
+        for recordset in recordsets:
             recordset.run_import()
+
+    @api.model
+    def cron_cleanup_recordsets(self):
+        cleanup_logger.info('Looking for recorsets to cleanup.')
+        backends = self.search([('cron_cleanup_keep', '>', 0)])
+        to_clean = self.env['import.recordset']
+        for backend in backends:
+            if len(backend.recordset_ids) <= backend.cron_cleanup_keep:
+                continue
+            to_keep = backend.recordset_ids.sorted(
+                lambda x: x.create_date,
+                reverse=True
+            )[:backend.cron_cleanup_keep]
+            # always keep this
+            to_keep |= backend.cron_master_recordset_id
+            to_clean = backend.recordset_ids - to_keep
+        if to_clean:
+            msg = 'Cleaning up {}'.format(','.join(to_clean.mapped('name')))
+            cleanup_logger.info(msg)
+            to_clean.unlink()
+        else:
+            cleanup_logger.info('Nothing to do.')
 
     @api.multi
     def button_complete_jobs(self):

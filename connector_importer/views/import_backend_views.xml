@@ -16,10 +16,12 @@
             </group>
             <group col="4" string="Cron"
                    attrs="{'invisible':[('cron_mode','=',False)]}">
-                <field name="cron_start_date" />
-                <field name="cron_interval_number" />
-                <field name="cron_interval_type" />
-                <field name="cron_id" />
+                <field name="cron_start_date" attrs="{'required':[('cron_mode','=',True)]}" />
+                <field name="cron_interval_number" attrs="{'required':[('cron_mode','=',True)]}" />
+                <field name="cron_interval_type" attrs="{'required':[('cron_mode','=',True)]}" />
+                <field name="cron_id" readonly="1"/>
+                <field name="cron_master_recordset_id" />
+                <field name="cron_cleanup_keep" />
             </group>
 
             <group col="6" name="actions">
