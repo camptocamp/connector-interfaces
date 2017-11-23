@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # This file has been generated with 'invoke project.sync'.
 # Do not modify. Any manual change will be lost.
+# Please propose your modification on
+# https://github.com/camptocamp/odoo-template instead.
 # Copyright 2017 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
@@ -10,6 +12,7 @@ import shutil
 import tempfile
 import yaml
 
+import fileinput
 from contextlib import contextmanager
 from invoke import exceptions
 
@@ -19,8 +22,7 @@ def root_path():
 
 
 def build_path(path, from_root=True, from_file=None):
-    assert not (from_root and from_file)
-    if from_root:
+    if not from_file and from_root:
         base_path = root_path()
     else:
         if from_file is None:
@@ -33,10 +35,11 @@ def build_path(path, from_root=True, from_file=None):
 VERSION_FILE = build_path('odoo/VERSION')
 HISTORY_FILE = build_path('HISTORY.rst')
 PENDING_MERGES = build_path('odoo/pending-merges.yaml')
-GIT_REMOTE_NAME = 'camptocamp'
 MIGRATION_FILE = build_path('odoo/migration.yml')
-TEMPLATE_GIT = 'git@github.com:camptocamp/odoo-template.git'
 COOKIECUTTER_CONTEXT = build_path('.cookiecutter.context.yml')
+
+GIT_REMOTE_NAME = 'camptocamp'
+TEMPLATE_GIT = 'git@github.com:camptocamp/odoo-template.git'
 
 
 def cookiecutter_context():
@@ -90,3 +93,12 @@ def tempdir():
             # already deleted
             if e.errno != errno.ENOENT:
                 raise
+
+
+def search_replace(file_path, old, new):
+    """ Replace a text in a file on each lines """
+    shutil.move(file_path, file_path + '.bak')
+    with open(file_path + '.bak', 'r') as f_r:
+        with open(file_path, 'w') as f_w:
+            for line in f_r:
+                f_w.write(line.replace(old, new))
