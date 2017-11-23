@@ -120,10 +120,15 @@ migration:
           - cms_notifications
           - specific_project_proposal
           - specific_membership
-    - version: 9.5.0
+    - version: 9.4.1
       addons:
         upgrade:
           # OCA/server-tools
           - server_environment_ir_config_parameter
           # OCA/web
           - web_environment_ribbon
+    - version: 9.4.2
+      operations:
+        post:
+          # fix error in lang
+          - anthem songs.install.post::add_matches_notification_template

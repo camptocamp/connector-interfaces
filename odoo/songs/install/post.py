@@ -143,8 +143,8 @@ def add_matches_notification_template(ctx):
         'subject': subject,
         'model_id': ctx.env.ref('mail.model_mail_message').id,
         'auto_delete': True,
-        'lang': """${object.mapped('partner_ids').lang
-        if object.mapped('partner_ids') else object.user_id.lang}""",
+        'lang': """${object.mapped('partner_ids').mapped('lang')[0]
+         if object.mapped('partner_ids') else object.user_id.lang}""",
     }
     xmlid = 'specific_project_proposal.mail_matches_notification'
     create_or_update_email_template(ctx, xmlid, values)
