@@ -15,7 +15,7 @@ class Proposal(http.Controller):
             proposal.check_access_rights('read')
             proposal.check_access_rule('read')
             redirect = ''
-        except:
+        except Exception:
             redirect = '/market'
         if redirect:
             return request.redirect(redirect)
