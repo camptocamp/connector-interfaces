@@ -128,6 +128,9 @@ migration:
           # OCA/web
           - web_environment_ribbon
     - version: 9.4.2
+      addons:
+        upgrade:
+          - mail_digest
       operations:
         post:
           # fix error in lang

@@ -9,6 +9,9 @@ Latest (Unreleased)
 
 **Bugfixes**
 
+* Upgrade `mail_digest` to pull recent imp/fix BSFLU-52
+* Lint fixes based on new checks on MQT
+
 **Build**
 
 * Sync from odoo-template
