@@ -10,6 +10,9 @@ Latest (Unreleased)
 **Build**
 
 * Sync from odoo-template
+* Upgrade docker-compose to 1.17.1
+* Remove unused PO file to reduce docker image size
+
 
 **Documentation**
 
