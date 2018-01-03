@@ -5,7 +5,7 @@ Latest (Unreleased)
 
 **Features and Improvements**
 
-* Install module web_environment_ribbon
+* Install module `web_environment_ribbon`
 
 **Bugfixes**
 
@@ -17,6 +17,9 @@ Latest (Unreleased)
   This fixes SSL errors when creating minions python requests lib 
   lacks support for NSI thus fall back on the wrong domain name 
   thus certifactes mismatches and minion were not created.
+
+* Upgrade docker-compose to 1.17.1
+* Remove unused PO file to reduce docker image size
 
 **Documentation**
 
