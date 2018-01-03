@@ -36,7 +36,7 @@ class CMSNotificationPanel(models.AbstractModel):
                 "select value from ir_translation where src='Digest'")
             try:
                 val = self.env.cr.fetchone()[0]
-            except:
+            except Exception:
                 val = None
             if val:
                 options = dict(_fields['notify_email']['selection'])
