@@ -23,6 +23,7 @@ Latest (Unreleased)
 
 * Upgrade docker-compose to 1.17.1
 * Remove unused PO file to reduce docker image size
+* Update odoo-cloud-platform (BIZ-1093)
 
 **Documentation**
 
