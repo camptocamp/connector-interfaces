@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-# This file has been generated with 'invoke project.sync'.
-# Do not modify. Any manual change will be lost.
-# Please propose your modification on
-# https://github.com/camptocamp/odoo-template instead.
 # Copyright 2017 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
+
+from __future__ import print_function
 
 import errno
 import os
@@ -12,7 +10,8 @@ import shutil
 import tempfile
 import yaml
 
-import fileinput
+from builtins import input
+
 from contextlib import contextmanager
 from invoke import exceptions
 
@@ -68,6 +67,12 @@ def current_version():
     return version
 
 
+def ask_or_abort(message):
+    r = input(message + ' (y/N) ')
+    if r not in ('y', 'Y', 'yes'):
+        exit_msg('Aborted')
+
+
 def check_git_diff(ctx, direct_abort=False):
     try:
         ctx.run('git diff --quiet --exit-code')
@@ -75,10 +80,8 @@ def check_git_diff(ctx, direct_abort=False):
     except exceptions.Failure:
         if direct_abort:
             exit_msg('Your repository has local changes. Abort.')
-        r = raw_input('Your repository has local changes, '
-                      'are you sure you want to continue? (y/N) ')
-        if r not in ('y', 'Y', 'yes'):
-            exit_msg('Aborted')
+        ask_or_abort('Your repository has local changes, '
+                     'are you sure you want to continue?')
 
 
 @contextmanager
