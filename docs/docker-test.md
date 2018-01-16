@@ -1,9 +1,3 @@
-<!--
-This file has been generated with 'invoke project.sync'.
-Do not modify. Any manual change will be lost.
-Please propose your modification on
-https://github.com/camptocamp/odoo-template instead.
--->
 # How to run a test server, the short way
 
 This method is mostly for project managers or functional testers because it uses the pre-generated Docker images. Developers will prefer to use [Docker in development mode](docker-dev.md).

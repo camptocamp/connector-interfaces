@@ -1,9 +1,3 @@
-<!--
-This file has been generated with 'invoke project.sync'.
-Do not modify. Any manual change will be lost.
-Please propose your modification on
-https://github.com/camptocamp/odoo-template instead.
--->
 # Using automated tasks with Invoke
 
 This project uses `invoke` to run some automated tasks.
@@ -73,13 +67,40 @@ invoke translate.generate odoo/external-src/sale-workflow/my_addon
 ### submodule.init
 
 Add git submodules from the `.gitmodules` file configuration.
-Instead of using `git submodule add -b 9.0 {url}`
+Instead of using `git submodule add -b 11.0 {url}`
 {path}, for every branch you need to add, you can edit the `.gitmodules` file,
 add the entries you want, and run this command.
 
 
 ```
 invoke submodule.init
+```
+
+### submodule.list
+
+List submodules paths which can be directly used to directly copy-paste the
+addons paths in the Dockerfile. The order depends of the order in the
+.gitmodules file.
+
+```
+invoke submodule.list
+```
+
+### submodule.merges
+
+Generate and push a branch including the pending pull requests.
+
+```
+invoke submodule.merges odoo/external-src/sale-workflow
+```
+
+
+### submodule.show-closed-prs
+
+Show a list of closed pull requests in the pending merges.
+
+```
+invoke submodule.show-closed-prs
 ```
 
 ### songs.rip
