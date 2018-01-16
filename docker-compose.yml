@@ -7,9 +7,9 @@
 version: '2'
 services:
   odoo:
-    tty: true
-    stdin_open: true
     build: ./odoo/
+    # Enable if you use oca/connector:
+    # command: "odoo.py --load=web,connector"
     depends_on:
       - db
     volumes:
@@ -20,21 +20,20 @@ services:
       - DB_NAME=odoodb
       - ADMIN_PASSWD=4EnAUNJksta+
       - RUNNING_ENV=dev
+      # Enable if you use oca/connector:
+      # - ODOO_CONNECTOR_CHANNELS=root:4
 
   db:
     image: camptocamp/postgresql:pg9.5-latest
+    command: -c shared_buffers=256MB -c maintenance_work_mem=256MB -c wal_buffers=8MB -c effective_cache_size=1024MB
     environment:
       - POSTGRES_USER=odoo
       - POSTGRES_PASSWORD=odoo
-      - PG_SYSTEM_SHARED_BUFFERS=256MB
-      - PG_SYSTEM_MAINTENANCE_WORK_MEM=256MB
-      - PG_SYSTEM_WAL_BUFFERS=8MB
-      - PG_SYSTEM_EFFECTIVE_CACHE_SIZE=1024MB
     volumes:
       - "data-db:/var/lib/postgresql/data"
 
   nginx:
-    image: camptocamp/odoo-nginx:9.0
+    image: camptocamp/odoo-nginx:9.0-1.1.0
     depends_on:
       - odoo
 
