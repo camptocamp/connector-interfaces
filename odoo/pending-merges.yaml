@@ -1,29 +1,22 @@
-# file used with gitaggregator: https://github.com/acsone/git-aggregator/
-# please see docs in docs/how-to-integrate-pull-request.md
 ./external-src/website-cms:
   remotes:
     oca: git@github.com:OCA/website-cms.git
     c2c: git@github.com:camptocamp/website-cms.git
     smk: git@github.com:simahawk/website-cms.git
   merges:
-    - oca 9.0
-      # add cms_form
-    - oca refs/pull/9/head
-      # add cms_notifications 
-    - oca refs/pull/13/head
-  target: &default_target c2c merge-branch-3582-master
-./src:
-  defaults:
-    depth: 50
+    - oca 11.0
+      # migrate all to 11.0
+    - oca refs/pull/32/head
+  target: &default_target c2c merge-branch-3582-dev
+./external-src/server-env:
   remotes:
-    oca: git@github.com:OCA/OCB.git
-    c2c: git@github.com:camptocamp/odoo.git
+    oca: git@github.com:OCA/server-env.git
+    c2c: git@github.com:camptocamp/server-env.git
+    smk: git@github.com:simahawk/server-env.git
   merges:
-    # last OCA tested version
-    - oca 6e62783d8b15c8ac55bfb421a8141661d78518a7
+    - oca 11.0
+    # MIG mail_environment
+    - oca refs/pull/7/head
+    # MIG server_environment_ir_config_parameter
+    - oca refs/pull/8/head
   target: *default_target
-  shell_command_after:
-    # [SEC] ODOO-SA-2017-06-02-1 https://github.com/odoo/odoo/issues/17394
-    - git am "$(git format-patch -1 98f5f1b888415be018467c6646f4e05301c001c2 -o ../patches)"
-  fetch_all:
-    - oca
