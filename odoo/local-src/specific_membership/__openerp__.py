@@ -63,6 +63,6 @@
         'data/email_data.xml',
         'data/website_menu.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
 }
