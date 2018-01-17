@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
-# This file has been generated with 'invoke project.sync'.
-# Do not modify. Any manual change will be lost.
-# Please propose your modification on
-# https://github.com/camptocamp/odoo-template instead.
 # Copyright 2017 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 from __future__ import print_function
 
 import os
 
-from ruamel.yaml import YAML
+try:
+    from ruamel.yaml import YAML
+except ImportError:
+    print('Please install ruamel.yaml')
 
 from invoke import task
 from .common import (
@@ -108,7 +107,7 @@ def demo_to_sample(ctx):
 
     folder = 'odoo/data/sample'
     try:
-        os.mkdir(folder, 0775)
+        os.mkdir(folder, 0o775)
     except OSError:
         print("odoo/data/sample directory already exists")
     # move odoo/data/demo to odoo/data/sample
@@ -123,7 +122,7 @@ def demo_to_sample(ctx):
     # move odoo/songs/install/data_demo.py to odoo/songs/sample/data_sample.py
     folder = 'odoo/songs/sample'
     try:
-        os.mkdir(folder, 0775)
+        os.mkdir(folder, 0o775)
         with open(folder + '/__init__.py', 'w') as f:
             f.write('')
     except OSError:
@@ -135,6 +134,15 @@ def demo_to_sample(ctx):
                 'odoo/songs/sample/data_sample.py'))
     except Exception:
         print('nothing to move')
+
+    # Change strings referencing 'data/demo' to 'data/sample'
+    path = build_path('odoo/songs/sample/data_sample.py')
+    search_replace(
+         path,
+         'data/demo',
+         'data/sample')
+    change_list.append(path)
+
     ctx.run('git add odoo/songs/sample')
 
     print("Deprecation applied")
@@ -144,6 +152,8 @@ def demo_to_sample(ctx):
     print("- docker-compose.overide.yml")
     print("- odoo/migration.yml")
     print("- odoo/songs/install/data_all.py (for comment)")
+    print("- odoo/songs/install/data_demo.py (path 'data/demo' to "
+          "'data/sample')")
     print("- test.yml")
     print("- travis/minion-files/rancher.list")
 
@@ -155,6 +165,8 @@ def demo_to_sample(ctx):
     print()
     print("Please check your staged files:")
     print("   git diff --cached")
+    print("Please search for any unchanged 'demo' string in odoo/songs "
+          "and fix it manually.")
     print("If everything is good:")
     print("   git commit -m 'Apply depreciation of demo in favor of sample'")
     print("      git push")

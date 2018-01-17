@@ -29,4 +29,5 @@
         'cms_notifications',
         'mail_digest',
     ],
+    'installable': False,
 }

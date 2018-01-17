@@ -1,8 +1,4 @@
 #!/bin/bash
-# This file has been generated with 'invoke project.sync'.
-# Do not modify. Any manual change will be lost.
-# Please propose your modification on
-# https://github.com/camptocamp/odoo-template instead.
 
 #
 # Often in development mode, we retrieve a database from a production server
@@ -16,7 +12,6 @@ if [ "$RUNNING_ENV" = "dev" ] ; then
         echo "Database does not exist, ignoring script"
         exit 0
     fi
-
 
     echo "Setting users' passwords to their usernames."
 

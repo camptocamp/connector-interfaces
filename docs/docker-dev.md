@@ -1,9 +1,3 @@
-<!--
-This file has been generated with 'invoke project.sync'.
-Do not modify. Any manual change will be lost.
-Please propose your modification on
-https://github.com/camptocamp/odoo-template instead.
--->
 # Working on the project as developers
 
 ## Pre-requisite
@@ -63,7 +57,7 @@ environment we share the local (source code) folders with the container using
 Building the image is required when:
 
 * you start to work on the project
-* the base image (`camptocamp/odoo-project:9.0`) has been updated and you need
+* the base image (`camptocamp/odoo-project:11.0`) has been updated and you need
   the new version
 * the local Dockerfile has been modified (for example when dependency or addons
   repository is added)

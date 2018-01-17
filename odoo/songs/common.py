@@ -7,7 +7,7 @@ from pkg_resources import Requirement
 from pkg_resources import resource_stream
 from anthem.lyrics.loaders import load_csv_stream
 
-req = Requirement.parse('fluxdock')
+req = Requirement.parse('fluxdock-odoo')
 
 
 def load_file_content(path):

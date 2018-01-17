@@ -5,25 +5,9 @@ __pycache__/
 # C extensions
 *.so
 
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-eggs/
-./lib/
-lib64/
-parts/
-sdist/
-var/
 *.egg-info/
 .installed.cfg
 *.egg
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
@@ -36,19 +20,14 @@ coverage.xml
 # Translations
 *.mo
 
-# Mr Developer
-.mr.developer.cfg
 .project
 .pydevproject
 
-# Rope
-.ropeproject
-
-# Django stuff:
-*.log
-
 # Sphinx documentation
 docs/_build/
+# backup files
+*.~*
 
-# project specific
-rancher/*/rancher.env
+
+# local dev requirements
+odoo/dev_requirements.txt

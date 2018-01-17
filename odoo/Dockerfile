@@ -1,16 +1,17 @@
-FROM camptocamp/odoo-project:9.0-2.2.0
+FROM camptocamp/odoo-project:11.0-2.5.1
 MAINTAINER Camptocamp
 
-# Install additional python packages if needed
-COPY ./requirements.txt /opt/odoo
-RUN cd /opt/odoo && pip install -r requirements.txt
+COPY ./*requirements.txt /opt/odoo/
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl bzip2
-
+# Install additional debian and python packages if needed
 RUN set -x; \
-    curl -SL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 | \
-    tar xj --strip-components=2 -C /usr/local/bin/ phantomjs-2.1.1-linux-x86_64/bin/phantomjs
+        apt-get update \
+        && apt-get install -y --no-install-recommends \
+        libmagic1 \
+        && cd /opt/odoo \
+        && find . -maxdepth 1 -name "*requirements.txt" ! -name src_requirements.txt ! -name base_requirements.txt -exec pip install -r {} \; \
+        && apt-get clean \
+        && rm -rf /var/lib/apt/lists/*
 
 COPY ./before-migrate-entrypoint.d/* odoo/before-migrate-entrypoint.d/
 COPY ./start-entrypoint.d/* odoo/start-entrypoint.d/
@@ -19,8 +20,8 @@ RUN chmod +x odoo/before-migrate-entrypoint.d/* \
 
 ENV ADDONS_PATH="/opt/odoo/local-src, \
 /opt/odoo/external-src/server-tools, \
+/opt/odoo/external-src/server-env, \
 /opt/odoo/src/addons, \
-/opt/odoo/external-src/vertical-association, \
 /opt/odoo/external-src/website-cms, \
 /opt/odoo/external-src/social, \
 /opt/odoo/external-src/odoo-cloud-platform, \

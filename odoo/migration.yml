@@ -1,137 +1,37 @@
 migration:
   options:
-    install_args: --load=web,web_kanban,session_redis,attachment_s3,logging_json
+    install_command: odoo
+    ## PLATFORM
+    #install_args: --load=web,session_redis,attachment_s3,logging_json
   versions:
-    - version: 9.2.0
-      addons:
-        upgrade:
-          - base_technical_features
-          - l10n_ch
-          - specific_membership
-          - specific_project
-          - specific_project_proposal
-          - theme_fluxdocs
-          # env conf
-          - mail_environment
-          # camptocamp/cloud-platform
-          - cloud_platform
-          - attachment_s3
+    - version: 11.0.0
       operations:
         pre:
           - anthem songs.install.pre::main
         post:
+          ## PLATFORM
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
-          - anthem songs.install.post::main
-      modes:
-        demo:
-          operations:
-            post:
-              - anthem songs.demo.data_demo::main
-    - version: 9.2.1
-      # here we start with cloud platform.
-      # This step is needed to update current prod DB.
+      #     - anthem songs.install.data_all::main
+      # modes:
+      #   full:
+      #     operations:
+      #       post:
+      #         - anthem songs.install.data_full::main
+      #   sample:
+      #     operations:
+      #       post:
+      #         - anthem songs.sample.data_sample::main
       addons:
         upgrade:
-          # camptocamp/cloud-platform
-          - cloud_platform
+          ## PLATFORM
+          - cloud_platform_exoscale
           - attachment_s3
-      operations:
-        post:
-          - anthem openerp.addons.cloud_platform.songs::install_exoscale
-    - version: 9.2.2
-      addons:
-        upgrade:
+          #### oca/server-tools
           - base_technical_features
-          - document
-          - mail_environment
-        #   updated OCB version
-          - base
-      operations:
-        post:
-          - anthem songs.install.post::enable_html_compression
-          # this is needed after updating ALL modules
-          - anthem songs.install.post::remove_useless_menuitems
-          - anthem songs.install.defaults::default_values
-    - version: 9.2.3
-      addons:
-        upgrade:
-          - attachment_s3
-          - cms_status_message
-          - cms_form
-    - version: 9.2.4b1
-    - version: 9.2.4b2
-    - version: 9.2.4b3
-    - version: 9.2.4b4
-    - version: 9.2.4b5
-    - version: 9.3.0
-    - version: 9.3.1
-    - version: 9.3.2
-    - version: 9.3.3
-    - version: 9.3.4
-    - version: 9.3.5
-    - version: 9.3.6
-      operations:
-        post:
-          - anthem songs.upgrades.upgrade_9_2_4::main
-          - anthem songs.upgrades.upgrade_9_3_0::main
-          - anthem songs.install.post::update_emails
-          # update user template defaults
-          - anthem songs.install.defaults::default_values
-      addons:
-        upgrade:
-          - mail_digest
-          - cms_form
-          - cms_notifications
-          - cms_delete_content
-          - cms_status_message
-          - theme_fluxdocs
-          - specific_project_proposal
-          - specific_membership
-          - specific_project
-    - version: 9.3.7
-    - version: 9.4.0b1
-      operations:
-        post:
-          - anthem songs.upgrades.upgrade_9_4_0::main
-      addons:
-        upgrade:
-          - mail_digest
-          - cms_form
-          - cms_notifications
-          - theme_fluxdocs
-          - specific_project_proposal
-          - specific_membership
-          - specific_project
-    - version: 9.4.0b2
-    - version: 9.4b3
-      addons:
-        upgrade:
-          - mail_digest
-          - cms_notifications
-          - theme_fluxdocs
-          - specific_project_proposal
-          - specific_membership
-      operations:
-        post:
-          - anthem songs.install.post::update_emails
-    - version: 9.4.0
-      addons:
-        upgrade:
-          - cms_notifications
-          - specific_project_proposal
-          - specific_membership
-    - version: 9.4.1
-      addons:
-        upgrade:
-          # OCA/server-tools
+          - server_environment
           - server_environment_ir_config_parameter
-          # OCA/web
+          #### oca/web
           - web_environment_ribbon
-    - version: 9.4.2
-      addons:
-        upgrade:
-          - mail_digest
-      operations:
-        post:
-          # fix error in lang
-          - anthem songs.install.post::add_matches_notification_template
+          #### camptocamp/odoo-prototype
+          - base_dj
+          #### local-src

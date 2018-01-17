@@ -35,7 +35,7 @@
         'templates/notify.xml',
         'templates/notification_listing.xml',
     ],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'application': True,
 }

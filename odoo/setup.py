@@ -6,9 +6,9 @@ with open('VERSION') as fd:
     version = fd.read().strip()
 
 setup(
-    name="fluxdock",
+    name="fluxdock-odoo",
     version=version,
-    description="project description",
+    description="Fluxdock Odoo",
     license='GNU Affero General Public License v3 or later (AGPLv3+)',
     author="Camptocamp",
     author_email="info@camptocamp.com",
