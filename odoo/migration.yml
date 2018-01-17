@@ -24,7 +24,7 @@ migration:
       addons:
         upgrade:
           ## PLATFORM
-          - cloud_platform
+          - cloud_platform_exoscale
           - attachment_s3
           #### oca/server-tools
           - base_technical_features
