@@ -32,6 +32,8 @@ migration:
           - server_environment_ir_config_parameter
           #### oca/web
           - web_environment_ribbon
-          #### camptocamp/odoo-prototype
+          #### oca/social
+          - mail_digest
+          #### camptocamp/odoo-dj
           - base_dj
           #### local-src

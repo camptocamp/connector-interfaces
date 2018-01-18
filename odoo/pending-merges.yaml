@@ -20,3 +20,13 @@
     # MIG server_environment_ir_config_parameter
     - oca refs/pull/8/head
   target: *default_target
+./external-src/social:
+  remotes:
+    oca: git@github.com:OCA/social.git
+    c2c: git@github.com:camptocamp/social.git
+    smk: git@github.com:simahawk/social.git
+  merges:
+    - oca 11.0
+    # MIG mail_digest
+    - oca refs/pull/225/head
+  target: *default_target
