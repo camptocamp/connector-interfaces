@@ -1,7 +1,6 @@
 odoo.define('theme_fluxdock.publish', function (require) {
     'use strict';
 
-    // var Model = require('web.Model');
     var ajax = require('web.ajax');
     var base = require('web_editor.base');
     var msg_tool = require('cms_status_message.tool');

@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # © 2016 Simone Orsi (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from openerp import models, api, SUPERUSER_ID, fields
+from odoo import models, api, SUPERUSER_ID, fields
 
 
 def smart_truncate(text, length=100, suffix='...'):

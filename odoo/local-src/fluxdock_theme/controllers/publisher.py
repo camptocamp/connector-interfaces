@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # © 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
-from openerp.addons.web import http
-from openerp.addons.web.http import request
+from odoo.addons.web import http
+from odoo.addons.web.http import request
 
 
 class Publisher(http.Controller):

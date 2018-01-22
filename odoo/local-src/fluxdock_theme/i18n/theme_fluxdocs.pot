@@ -467,7 +467,7 @@ msgid "If you don't want to receive these notifications any more, you can deacti
 msgstr ""
 
 #. module: fluxdock_theme
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_theme/static/src/js/publish.js:33
 #: code:addons/fluxdock_theme/static/src/js/publish.js:33
 #, python-format
@@ -480,7 +480,7 @@ msgid "Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At v
 msgstr ""
 
 #. module: fluxdock_theme
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_theme/static/src/js/publish.js:32
 #: code:addons/fluxdock_theme/static/src/js/publish.js:32
 #, python-format
@@ -488,7 +488,7 @@ msgid "Item published."
 msgstr ""
 
 #. module: fluxdock_theme
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_theme/static/src/js/publish.js:37
 #: code:addons/fluxdock_theme/static/src/js/publish.js:37
 #, python-format
@@ -820,7 +820,7 @@ msgid "Untitled Post"
 msgstr ""
 
 #. module: fluxdock_theme
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_theme/static/src/js/publish.js:38
 #: code:addons/fluxdock_theme/static/src/js/publish.js:38
 #, python-format

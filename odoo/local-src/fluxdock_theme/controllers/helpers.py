@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 # © 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import json
-from openerp.addons.web import http
-from openerp.addons.web.http import request
-from openerp.addons.website.models.website import slug
+from odoo.addons.web import http
+from odoo.addons.web.http import request
+from odoo.addons.website.models.website import slug
 
 IMG_FOLDER_PATH = '/fluxdock_theme/static/img/'
 

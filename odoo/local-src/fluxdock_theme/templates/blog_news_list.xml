@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<openerp>
+<odoo>
 	<data>
 		<!-- TODO 2017-03-06: is this used at all? -->
 		<!-- Customize News List -->
@@ -41,4 +41,4 @@
 		</template>
 
 	</data>
-</openerp>
+</odoo>

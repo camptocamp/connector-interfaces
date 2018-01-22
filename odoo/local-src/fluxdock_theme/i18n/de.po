@@ -533,7 +533,7 @@ msgid ""
 msgstr "Wenn Sie diese Benachrichtigungen nicht mehr erhalten möchten, können Sie dies in den"
 
 #. module: fluxdock_theme
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_theme/static/src/js/publish.js:33
 #: code:addons/fluxdock_theme/static/src/js/publish.js:33
 #, python-format
@@ -552,7 +552,7 @@ msgstr ""
 "no sea takimata sanctus est Lorem ipsum dolor sit amet."
 
 #. module: fluxdock_theme
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_theme/static/src/js/publish.js:32
 #: code:addons/fluxdock_theme/static/src/js/publish.js:32
 #, python-format
@@ -560,7 +560,7 @@ msgid "Item published."
 msgstr "Element wurde veröffentlicht"
 
 #. module: fluxdock_theme
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_theme/static/src/js/publish.js:37
 #: code:addons/fluxdock_theme/static/src/js/publish.js:37
 #, python-format
@@ -927,7 +927,7 @@ msgid "Untitled Post"
 msgstr "Untitled Post"
 
 #. module: fluxdock_theme
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_theme/static/src/js/publish.js:38
 #: code:addons/fluxdock_theme/static/src/js/publish.js:38
 #, python-format

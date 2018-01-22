@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<openerp>
+<odoo>
 	<data>
 
 		<template id="snippet_content_opt" name="Fluxdock Snippet Content Options" inherit_id="website.snippet_options">
@@ -41,4 +41,4 @@
 		</template>
 
 	</data>
-</openerp>
+</odoo>

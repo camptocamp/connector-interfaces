@@ -4,7 +4,7 @@
     <template id="field_widget_m2o" name="Fluxdock styled m2o field widget" inherit_id="cms_form.field_widget_m2o">
       <select position="replace">
         <div class="styled-select">
-          <select t-attf-class="form-control #{widget.css_klass}"
+          <select t-attf-class="form-control #{widget.w_css_klass}"
                   t-att-name="widget.fname"
                   t-att-required="widget.field['required'] and '1' or None"
                   t-att-data-params="widget.data">

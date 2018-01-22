@@ -1,7 +1,6 @@
 odoo.define('theme_fluxdock.mosaic', function (require) {
     'use strict';
 
-    // var Model = require('web.Model');
     var ajax = require('web.ajax');
     var base = require('web_editor.base');
     var core = require('web.core');
