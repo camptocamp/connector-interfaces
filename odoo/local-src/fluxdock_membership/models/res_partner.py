@@ -200,14 +200,14 @@ class ResPartner(models.Model):
         if email:
             # handy flag for disable this (tests i.e.)
             template = self.env.ref(
-                'specific_membership.mail_membership_upgrade')
+                'fluxdock_membership.mail_membership_upgrade')
 
             if template:
                 template.send_mail(inv.id)
             else:
                 _logger.warning(
                     "No email template found for "
-                    "`specific_membership.mail_membership_upgrade`")
+                    "`fluxdock_membership.mail_membership_upgrade`")
 
         # make original action happy and returns list of ids
         return inv.ids

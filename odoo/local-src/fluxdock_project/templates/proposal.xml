@@ -128,7 +128,7 @@
           </t>
 
           <t t-if="not can_view_details">
-            <t t-call="specific_membership.membership_actions"/>
+            <t t-call="fluxdock_membership.membership_actions"/>
           </t>
 
           <!-- <div class="white_bg pt2 backto_actions">

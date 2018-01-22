@@ -71,7 +71,7 @@ class WebsiteMembership(WebsiteMembershipController,
         }
         values.update(partner.get_membership_cost())
         return request.website.render(
-            "specific_membership.membership_payment_address", values)
+            "fluxdock_membership.membership_payment_address", values)
 
     @http.route(['/my/membership/buy'],
                 type='http', auth="user", website=True, methods=['POST'])
@@ -93,4 +93,4 @@ class WebsiteMembership(WebsiteMembershipController,
         })
 
         return request.website.render(
-            "specific_membership.membership_payment_confirmation", values)
+            "fluxdock_membership.membership_payment_confirmation", values)

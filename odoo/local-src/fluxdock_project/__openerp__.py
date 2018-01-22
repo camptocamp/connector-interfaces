@@ -16,7 +16,7 @@
           'mail_digest',
           'partner_project_expertise',
           'project',
-          'specific_membership',
+          'fluxdock_membership',
      ],
      'data': [
           # demo

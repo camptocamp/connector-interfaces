@@ -32,7 +32,7 @@
                         <t t-if="show_tooltips">
                             <span class="tooltips sticky">
                                 <span class="text">Member profile published</span>
-                                <span class="msg"><t t-call="specific_membership.profile_step_2_msg" /></span>
+                                <span class="msg"><t t-call="fluxdock_membership.profile_step_2_msg" /></span>
                             </span>
                         </t>
                         <t t-if="not show_tooltips">
@@ -45,7 +45,7 @@
                         <t t-if="show_tooltips">
                             <span class="tooltips sticky">
                                 <span class="text">Upload references</span>
-                                <span class="msg"><t t-call="specific_membership.profile_step_3_msg" /></span>
+                                <span class="msg"><t t-call="fluxdock_membership.profile_step_3_msg" /></span>
                             </span>
                         </t>
                         <t t-if="not show_tooltips">
@@ -55,7 +55,7 @@
                 </div>
                 <t t-if="partner.profile_completed">
                     <div class="center-block main-content-wrapper profile-complete-msg">
-                        <t t-call="specific_membership.profile_completed_msg" />
+                        <t t-call="fluxdock_membership.profile_completed_msg" />
                     </div>
                 </t>
             </div>

@@ -20,7 +20,7 @@ class AuthSignupHome(SignupVerifyEmail):
 
     @http.route('/web/presignup', type='http', auth='public', website=True)
     def website_fluxdock_presignup(self, *args, **kw):
-        return request.render('specific_membership.presignup', {})
+        return request.render('fluxdock_membership.presignup', {})
 
     @http.route()
     def web_auth_signup(self, *args, **kw):
@@ -110,7 +110,7 @@ class AuthSignupHome(SignupVerifyEmail):
                     })
                     qcontext['show_thanks'] = True
                     # return request.render(
-                    #     'specific_membership.thanks_for_registration',
+                    #     'fluxdock_membership.thanks_for_registration',
                     #     {})
             except (SignupError, AssertionError) as e:
                 qcontext['error'] = _(e.message)

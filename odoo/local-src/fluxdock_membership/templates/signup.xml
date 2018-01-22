@@ -142,7 +142,7 @@
 					<a href="/web/login" class="btn btn-link pull-right">Back to Login</a>
 				</div>
 				<t t-if="show_thanks">
-					<t t-call="specific_membership.thanks_for_registration" />
+					<t t-call="fluxdock_membership.thanks_for_registration" />
 				</t>
 				<form class="oe_reset_password_form" role="form" method="post"
 					t-if="not message">
@@ -230,7 +230,7 @@
         </div>
 
 		<t t-if="not token">
-		  <t t-call="specific_membership.signup_modals" />
+		  <t t-call="fluxdock_membership.signup_modals" />
 		  <div class="form-group field-agree_to_terms form-group-checkbox">
 			<input type="checkbox" name="agree_to_terms" t-att-value="agree_to_terms"
 			  id="agree_to_terms" class="window-new" required="required" />

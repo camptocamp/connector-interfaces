@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<template id="account" name="Fluxdock my/home: add references" inherit_id="specific_membership.my_home_content">
+<template id="account" name="Fluxdock my/home: add references" inherit_id="fluxdock_membership.my_home_content">
   <xpath expr="//div[@id='col-1']/t[@t-call][last()]" position="after">
         <t t-call="fluxdock_project.reference_overview" />
   </xpath>

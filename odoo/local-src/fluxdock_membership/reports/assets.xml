@@ -5,7 +5,7 @@
     <template id="assets_common" name="Fluxdock reports assets" inherit_id="report.assets_common">
         <xpath expr="." position="inside">
             <link href="/fluxdock_theme/static/less/webfonts.css" rel="stylesheet" type="text/css" />
-            <link href="/specific_membership/static/src/less/report.less" rel="stylesheet"/>
+            <link href="/fluxdock_membership/static/src/less/report.less" rel="stylesheet"/>
         </xpath>
     </template>
 

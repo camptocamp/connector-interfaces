@@ -1,5 +1,5 @@
 /*global $, _, PDFJS */
-odoo.define('specific_membership.widgets', function (require) {
+odoo.define('fluxdock_membership.widgets', function (require) {
 "use strict";
 
 var ajax = require('web.ajax');

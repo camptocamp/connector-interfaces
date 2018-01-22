@@ -3,7 +3,7 @@
 
     <template id="members_search_form_header" name="Fluxdock members search form header">
       <div class="content-icon">
-          <img src="/specific_membership/static/src/img/members-white.png"></img>
+          <img src="/fluxdock_membership/static/src/img/members-white.png"></img>
       </div>
       <h2>Members</h2>
     </template>

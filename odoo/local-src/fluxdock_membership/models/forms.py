@@ -95,7 +95,7 @@ class PartnerForm(models.AbstractModel):
                 'limited to 1024x1024px, square aspect ratio.'
             ),
             'expertise_ids':
-                '_xmlid:specific_membership.partner_form_industry_help',
+                '_xmlid:fluxdock_membership.partner_form_industry_help',
             'website': '',
         }
         return texts
@@ -145,7 +145,7 @@ class PartnerForm(models.AbstractModel):
 
         # use another template for email widget
         _fields['email']['widget'].key = \
-            'specific_membership.email_field_widget_char'
+            'fluxdock_membership.email_field_widget_char'
 
         # pre-sorted countries widget
         _fields['country_id']['widget'] = PriorityCountryM2OWidget(
@@ -237,9 +237,9 @@ class PartnerSearchForm(models.AbstractModel):
         'expertise_ids',
         'country_id',
     )
-    form_fields_template = 'specific_membership.search_form_fields'
+    form_fields_template = 'fluxdock_membership.search_form_fields'
     fluxdock_search_header_template = \
-        'specific_membership.members_search_form_header'
+        'fluxdock_membership.members_search_form_header'
 
     def listing_options(self):
         return {

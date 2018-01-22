@@ -5,7 +5,7 @@
     <template id="account" name="Fluxdock my home view" inherit_id="website_portal.account">
 
         <xpath expr="//div[contains(@class,'o_my_documents')]" position="inside">
-            <t t-call="specific_membership.my_home_content" />
+            <t t-call="fluxdock_membership.my_home_content" />
         </xpath>
         <!-- reset classes -->
         <xpath expr="//div[contains(@class,'container mb64')]" position="attributes">
@@ -23,10 +23,10 @@
         <div class="container my_home_content">
             <div class="row">
                 <div id="col-1" class="col col-md-6">
-                    <t t-call="specific_membership.partner_table" />
+                    <t t-call="fluxdock_membership.partner_table" />
                 </div>
                 <div id="col-2" class="col col-md-6">
-                    <t t-call="specific_membership.website_membership_status" />
+                    <t t-call="fluxdock_membership.website_membership_status" />
                 </div>
             </div>
         </div>
@@ -39,13 +39,13 @@
             <section class="content members-list opt_dark_bg">
               <div class="content-wrap">
                 <div class="content-icon">
-                  <img src="/specific_membership/static/src/img/member-white.png"></img>
+                  <img src="/fluxdock_membership/static/src/img/member-white.png"></img>
                 </div>
                 <h2>My Account</h2>
                 <p>Manage your company profile, your membership and your project proposals on the market. Matching project proposals from the market will also be shown here.</p>
               </div>
             </section>
-            <t t-call="specific_membership.profile_progress_bar" />
+            <t t-call="fluxdock_membership.profile_progress_bar" />
         </xpath>
     </template>
 
@@ -152,12 +152,12 @@
             </p>
             <t t-if="partner.flux_membership == 'asso'">
                 <div class="claim">
-                    <t t-call="specific_membership.membership_status_associate_claim" />
+                    <t t-call="fluxdock_membership.membership_status_associate_claim" />
                 </div>
             </t>
             <t t-if="partner.flux_membership == 'free'">
                 <div class="claim">
-                    <t t-call="specific_membership.membership_status_free_claim">
+                    <t t-call="fluxdock_membership.membership_status_free_claim">
                         <t t-set="product_price" t-value="membership_info['product_price']" />
                     </t>
                 </div>

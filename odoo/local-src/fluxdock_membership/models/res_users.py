@@ -85,12 +85,12 @@ class ResUsers(models.Model):
             try:
                 # get_object() raises ValueError if record does not exist
                 template = self.pool.get('ir.model.data').get_object(
-                    cr, uid, 'specific_membership', 'set_password_email')
+                    cr, uid, 'fluxdock_membership', 'set_password_email')
             except ValueError:
                 pass
         if not bool(template):
             template = self.pool.get('ir.model.data').get_object(
-                cr, uid, 'specific_membership', 'reset_password_email')
+                cr, uid, 'fluxdock_membership', 'reset_password_email')
         assert template._name == 'mail.template'
 
         for user in self.browse(cr, uid, ids, context):

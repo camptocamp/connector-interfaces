@@ -80,7 +80,7 @@
                       </t>
                       <t t-if="partner">
                         <div class="item-description" t-field="partner.website_short_description" />
-                        <t t-call="specific_membership.member_item_tags">
+                        <t t-call="fluxdock_membership.member_item_tags">
                             <t t-set="item" t-value="partner" />
                         </t>
                       </t>

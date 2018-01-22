@@ -20,12 +20,12 @@ and support Fluxdock as a collaboration network.<br/>
                     <h2>Membership</h2>
                     <t t-if="is_anon">
                       <div class="is_anon">
-                          <t t-call="specific_membership.become_member_claim"/>
+                          <t t-call="fluxdock_membership.become_member_claim"/>
                       </div>
                     </t>
                     <t t-if="is_free_member">
                       <div class="is_free_member">
-                          <t t-call="specific_membership.become_associate_member_claim"/>
+                          <t t-call="fluxdock_membership.become_associate_member_claim"/>
                       </div>
                     </t>
                 </div>

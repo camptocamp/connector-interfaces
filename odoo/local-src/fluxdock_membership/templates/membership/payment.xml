@@ -15,7 +15,7 @@ After confirmation you will receive per email the invoice for the membership fee
             <div class="center-block main-content-wrapper" id="ref_content">
               <h1 class="mt32">Membership Upgrade</h1>
               <div class="item-description mt32">
-                <t t-call="specific_membership.membership_payment_address_claim"/>
+                <t t-call="fluxdock_membership.membership_payment_address_claim"/>
               </div>
               <div class="info border-tnb mb32 mt32 pt2 pb2">
                 <div class="row">

@@ -39,7 +39,7 @@ def change_signup_email(ctx):
     """ Updating signup email """
     # The goal of this method is to override the signup email wich has a
     # noupdate. Original template is as sample in
-    # 'specific_membership/data/signup_data.xml'
+    # 'fluxdock_membership/data/signup_data.xml'
     content = resource_stream(req, 'data/mail_signup.html').read()
     values = {
         'name': 'Fluxdock Signup',
@@ -51,7 +51,7 @@ def change_signup_email(ctx):
         'lang': '${object.partner_id.lang}',
         'auto_delete': False,
     }
-    xmlid = 'specific_membership.set_password_email'
+    xmlid = 'fluxdock_membership.set_password_email'
     # `anthem.lyrics.create_or_update`
     # will not update if existing and modified TTW :S
     create_or_update_email_template(ctx, xmlid, values)
@@ -71,7 +71,7 @@ def change_reset_pwd_email(ctx):
         'lang': '${object.partner_id.lang}',
         'auto_delete': False,
     }
-    xmlid = 'specific_membership.reset_password_email'
+    xmlid = 'fluxdock_membership.reset_password_email'
     # `anthem.lyrics.create_or_update`
     # will not update if existing and modified TTW :S
     create_or_update_email_template(ctx, xmlid, values)
@@ -96,7 +96,7 @@ def add_membership_upgrade_email(ctx):
         ),
         'auto_delete': False,
     }
-    xmlid = 'specific_membership.mail_membership_upgrade'
+    xmlid = 'fluxdock_membership.mail_membership_upgrade'
     # `anthem.lyrics.create_or_update`
     # will not update if existing and modified TTW :S
     create_or_update_email_template(ctx, xmlid, values)
