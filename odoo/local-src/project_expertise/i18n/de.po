@@ -18,91 +18,91 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise_create_uid
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise_create_uid
 msgid "Created by"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise_create_date
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise_create_date
 msgid "Created on"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise_display_name
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise_display_name
 msgid "Display Name"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,help:partner_project_expertise.field_partner_project_expertise_partner_id
+#. module: project_expertise
+#: model:ir.model.fields,help:project_expertise.field_project_expertise_partner_id
 msgid "Enter Partner Name"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_project_project_expertise_ids
-#: model:ir.model.fields,field_description:partner_project_expertise.field_res_partner_expertise_ids
-#: model:ir.model.fields,help:partner_project_expertise.field_res_partner_expertise_ids
-#: model:ir.ui.view,arch_db:partner_project_expertise.view_partner_project_expertise_expertise_filter
-#: model:ir.ui.view,arch_db:partner_project_expertise.view_partner_project_expertise_expertise_form
-#: model:ir.ui.view,arch_db:partner_project_expertise.view_partner_project_expertise_expertise_tree
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_project_expertise_ids
+#: model:ir.model.fields,field_description:project_expertise.field_res_partner_expertise_ids
+#: model:ir.model.fields,help:project_expertise.field_res_partner_expertise_ids
+#: model:ir.ui.view,arch_db:project_expertise.view_project_expertise_expertise_filter
+#: model:ir.ui.view,arch_db:project_expertise.view_project_expertise_expertise_form
+#: model:ir.ui.view,arch_db:project_expertise.view_project_expertise_expertise_tree
 msgid "Expertise"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise_id
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise_id
 msgid "ID"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise___last_update
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise___last_update
 msgid "Last Modified on"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise_write_uid
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise_write_uid
 msgid "Last Updated by"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise_write_date
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise_write_date
 msgid "Last Updated on"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise_name
-#: model:ir.ui.view,arch_db:partner_project_expertise.view_partner_project_expertise_expertise_filter
+#. module: project_expertise
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise_name
+#: model:ir.ui.view,arch_db:project_expertise.view_project_expertise_expertise_filter
 msgid "Name"
 msgstr "Bezeichnung"
 
-#. module: partner_project_expertise
-#: model:ir.model,name:partner_project_expertise.model_res_partner
-#: model:ir.model.fields,field_description:partner_project_expertise.field_partner_project_expertise_partner_id
+#. module: project_expertise
+#: model:ir.model,name:project_expertise.model_res_partner
+#: model:ir.model.fields,field_description:project_expertise.field_project_expertise_partner_id
 msgid "Partner"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.actions.act_window,name:partner_project_expertise.action_partner_project_expertise_expertise
-#: model:ir.ui.menu,name:partner_project_expertise.menu_expertise
-#: model:ir.ui.menu,name:partner_project_expertise.menu_expertise_sale
+#. module: project_expertise
+#: model:ir.actions.act_window,name:project_expertise.action_project_expertise_expertise
+#: model:ir.ui.menu,name:project_expertise.menu_expertise
+#: model:ir.ui.menu,name:project_expertise.menu_expertise_sale
 msgid "Partner Project Expertise"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.actions.act_window,name:partner_project_expertise.action_partner_project_expertise_expertise_partner
+#. module: project_expertise
+#: model:ir.actions.act_window,name:project_expertise.action_project_expertise_expertise_partner
 msgid "Partner Project Expertise Sale"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model,name:partner_project_expertise.model_partner_project_expertise
+#. module: project_expertise
+#: model:ir.model,name:project_expertise.model_project_expertise
 msgid "Partner and project expertise"
 msgstr ""
 
-#. module: partner_project_expertise
-#: model:ir.model,name:partner_project_expertise.model_project_project
+#. module: project_expertise
+#: model:ir.model,name:project_expertise.model_project_project
 msgid "Project"
 msgstr "Projekt"
 
-#. module: partner_project_expertise
-#: model:ir.ui.view,arch_db:partner_project_expertise.view_partner_project_expertise_expertise_form
+#. module: project_expertise
+#: model:ir.ui.view,arch_db:project_expertise.view_project_expertise_expertise_form
 msgid "expertise"
 msgstr ""

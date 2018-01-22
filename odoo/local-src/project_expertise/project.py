@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
-# For copyright and license notices, see __openerp__.py file in module root
+# For copyright and license notices, see __odoo__.py file in module root
 # directory
 ##############################################################################
-from openerp import models, fields
+from odoo import models, fields
 
 
 class project(models.Model):
@@ -13,6 +12,6 @@ class project(models.Model):
         'partner.project.expertise',
         'project_project_ids_rel',
         'project_id',
-        'partner_project_expertise_id',
+        'project_expertise_id',
         string='Expertise')
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

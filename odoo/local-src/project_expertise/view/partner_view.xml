@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
 
         <!-- INHERITED SEARCH -->
-        <record id="view_partner_project_expertise_partner_filter" model="ir.ui.view">
-            <field name="name">partner_project_expertise.partner.select</field>
+        <record id="view_project_expertise_partner_filter" model="ir.ui.view">
+            <field name="name">project_expertise.partner.select</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_res_partner_filter"/>
             <field name="arch" type="xml">
@@ -15,8 +15,8 @@
         </record>
  
         <!-- INHERITED FORM -->
-        <record id="view_partner_project_expertise_partner_form" model="ir.ui.view">
-            <field name="name">partner_project_expertise.partner.form</field>
+        <record id="view_project_expertise_partner_form" model="ir.ui.view">
+            <field name="name">project_expertise.partner.form</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
@@ -27,8 +27,8 @@
         </record>
 
         <!-- INHERITED KANBAN -->
-        <!-- <record model="ir.ui.view" id="view_partner_project_expertise_kanban"> -->
-        <!--     <field name="name">partner_project_expertise.partner.kanban</field> -->
+        <!-- <record model="ir.ui.view" id="view_project_expertise_kanban"> -->
+        <!--     <field name="name">project_expertise.partner.kanban</field> -->
         <!--     <field name="model">res.partner</field> -->
         <!--     <field name="inherit_id" ref="base.res_partner_kanban_view"/> -->
         <!--     <field name="arch" type="xml"> -->
@@ -44,6 +44,6 @@
         <!-- </record> -->
 
     </data>
-</openerp>
+</odoo>
 <!-- vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4
      -->

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
-# For copyright and license notices, see __openerp__.py file in module root
+# For copyright and license notices, see __odoo__.py file in module root
 # directory
 ##############################################################################
-from openerp.osv import fields, osv
+from odoo.osv import fields, osv
 
 
 class res_partner(osv.osv):
@@ -14,7 +13,7 @@ class res_partner(osv.osv):
             'partner.project.expertise',
             'res_partner_rel',
             'partner_id',
-            'partner_project_expertise_id',
+            'project_expertise_id',
             'Expertise', help='Expertise'),
     }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

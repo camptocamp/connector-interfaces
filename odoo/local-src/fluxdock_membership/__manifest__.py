@@ -27,7 +27,7 @@
         'website_portal_sale',
         'website_partner',
         'website_membership',
-        'partner_project_expertise',
+        'project_expertise',
         'cms_status_message',
         'cms_form',
         # flux
