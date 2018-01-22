@@ -1,4 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-project_expertise_leader,project_expertise.expertise,model_project_expertise,project.group_project_manager,1,1,1,1
-project_expertise_leader,project_expertise.expertise,model_project_expertise,base.group_sale_manager,1,1,1,1
-project_expertise_user,project_expertise.expertise,model_project_expertise,,1,0,0,0
+project_expertise_project_manager,project_expertise_project_manager,model_project_partner_expertise,project.group_project_manager,1,1,1,1
+project_expertise_sale_manager,project_expertise_sale_manager,model_project_partner_expertise,sales_team.group_sale_manager,1,1,1,1
+project_expertise_user,project_expertise_user,model_project_partner_expertise,,1,0,0,0

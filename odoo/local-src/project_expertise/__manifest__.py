@@ -1,40 +1,22 @@
-##############################################################################
-#
-#    Copyright (C) 2016  Goran Sunjka  (http://www.sunjka.de)
-#    All Rights Reserved.
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Copyright 2016 Goran Sunjka  (http://www.sunjka.de)
+# Copyright 2017-2018 Camptocamp SA
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
+
 {
     'name': 'Partner Project Expertise',
-    'version': '9.0.1.0.0',
+    'version': '11.0.1.0.0',
     'category': 'Projects & Services',
-    'sequence': 14,
-    'summary': '',
-    'description': """
+    'summary': """
 Partner Project Expertise
-============
-    Add expertise to partner and project.
+==========================
+Add expertise to partner and project.
     """,
-    'author': 'Goran Sunjka',
-    'website': 'www.sunjka.de',
+    'author': 'Goran Sunjka,Camptocamp',
+    'website': 'www.camptomcamp.com',
     'license': 'AGPL-3',
-    'images': [
-    ],
     'depends': [
         'project',
+        'sales_team',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -43,12 +25,6 @@ Partner Project Expertise
         'view/expertise_view.xml',
     ],
     'demo': [
-        'data/demo.xml',
+        'demo/partner_expertise.xml',
     ],
-    'test': [
-    ],
-    'installable': False,
-    'auto_install': False,
-    'application': False,
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
