@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-import openerp.tests.common as test_common
+import odoo.tests.common as test_common
 
 
 class TestMatches(test_common.TransactionCase):
@@ -11,7 +10,7 @@ class TestMatches(test_common.TransactionCase):
         self.cat1 = self.env.ref('base.res_partner_category_4')
         self.cat2 = self.env.ref('base.res_partner_category_5')
         self.cat3 = self.env.ref('base.res_partner_category_6')
-        Expertise = self.env['partner.project.expertise']
+        Expertise = self.env['project.partner.expertise']
         self.exp1 = Expertise.create({'name': 'Origami'})
         self.exp2 = Expertise.create({'name': 'Dart throwing'})
         self.exp3 = Expertise.create({'name': 'Caps stacking up'})

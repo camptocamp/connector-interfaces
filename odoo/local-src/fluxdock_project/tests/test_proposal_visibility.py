@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-import openerp.tests.common as test_common
+import odoo.tests.common as test_common
 
 
 class TestVisibility(test_common.TransactionCase):
@@ -47,13 +46,13 @@ class TestVisibility(test_common.TransactionCase):
         seen_by_user1 = self.Proposal.sudo(self.user1).search([])
         seen_by_user2 = self.Proposal.sudo(self.user2).search([])
 
-        self.assertEquals(len(seen_by_user1), 3 + len(self.seen_usr1))
-        self.assertEquals(len(seen_by_user2), 4 + len(self.seen_usr2))
+        self.assertEqual(len(seen_by_user1), 3 + len(self.seen_usr1))
+        self.assertEqual(len(seen_by_user2), 4 + len(self.seen_usr2))
 
         visible = self.prop1usr1 | self.prop2usr1 | self.prop1usr2
-        self.assertEquals(seen_by_user1, visible | self.seen_usr1)
+        self.assertEqual(seen_by_user1, visible | self.seen_usr1)
         visible |= self.prop2usr2
-        self.assertEquals(seen_by_user2, visible | self.seen_usr2)
+        self.assertEqual(seen_by_user2, visible | self.seen_usr2)
 
         self.prop1usr1.toggle_published()
         self.prop2usr1.toggle_published()
@@ -61,11 +60,11 @@ class TestVisibility(test_common.TransactionCase):
 
         seen_by_user1 = self.Proposal.sudo(self.user1).search([])
         seen_by_user2 = self.Proposal.sudo(self.user2).search([])
-        self.assertEquals(len(seen_by_user1), 4 + len(self.seen_usr1))
-        self.assertEquals(len(seen_by_user2), 2 + len(self.seen_usr2))
+        self.assertEqual(len(seen_by_user1), 4 + len(self.seen_usr1))
+        self.assertEqual(len(seen_by_user2), 2 + len(self.seen_usr2))
 
         # this time user one sees everything
         visible = visible
-        self.assertEquals(seen_by_user1, visible | self.seen_usr1)
+        self.assertEqual(seen_by_user1, visible | self.seen_usr1)
         visible = self.prop1usr2 | self.prop2usr2
-        self.assertEquals(seen_by_user2, visible | self.seen_usr2)
+        self.assertEqual(seen_by_user2, visible | self.seen_usr2)

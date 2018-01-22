@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2017 Simone Orsi
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import threading
-from openerp import models, api
+from odoo import models, api
 
 
 class ResPartner(models.Model):
@@ -73,7 +72,7 @@ class ResPartner(models.Model):
 
         emails = self.env['mail.mail']
         recipients_nbr, recipients_max = 0, 50
-        for email_type, recipient_template_values in recipients.iteritems():
+        for email_type, recipient_template_values in recipients.items():
             if recipient_template_values['followers']:
                 # generate notification email content
                 template_fol_values = dict(

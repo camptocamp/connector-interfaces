@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+  <!-- TODO: my home is going to be dropped -->
+
 <template id="account" name="Fluxdock my/home add proposals" inherit_id="fluxdock_membership.my_home_content">
   <xpath expr="//div[@id='col-2']/t[@t-call][last()]" position="after">
     <t t-call="fluxdock_project.matches_overview" />

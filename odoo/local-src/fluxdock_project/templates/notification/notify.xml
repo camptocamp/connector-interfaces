@@ -7,7 +7,7 @@
 
   <template id="default_digest_tmpl" inherit_id="mail_digest.default_digest_tmpl" name="Fluxdock Mail digest message">
     <xpath expr="//div[@id='mail_inner_content']" position="replace">
-      <t t-foreach="grouped_messages.iterkeys()" t-as="typeid">
+      <t t-foreach="grouped_messages.keys()" t-as="typeid">
         <t t-set="messages" t-value="grouped_messages[typeid]" />
         <t t-if="typeid == matches_subtype.id">
           <p>There are new proposals matches for your company:</p>

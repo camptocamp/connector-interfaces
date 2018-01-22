@@ -1,8 +1,7 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-from openerp import api, fields, models
-from openerp.addons.website.models.website import slug
+from odoo import api, fields, models
+from odoo.addons.http_routing.models.ir_http import slug
 
 STATIC_FOLDER = '/fluxdock_project/static'
 
@@ -16,7 +15,6 @@ class ProjectReference(models.Model):
     _description = "Project reference"
     _inherit = [
         'mail.thread',
-        'ir.needaction_mixin',
         'website.published.mixin',
     ]
 
@@ -48,7 +46,7 @@ class ProjectReference(models.Model):
         help="To which industries belongs the project?",
     )
     expertise_ids = fields.Many2many(
-        comodel_name="partner.project.expertise",
+        comodel_name="project.partner.expertise",
         string="Expertises",
         help="Which expertises did your company bring to the project?",
     )

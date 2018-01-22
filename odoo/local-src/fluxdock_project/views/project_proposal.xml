@@ -98,7 +98,11 @@
 </record>
 
 <!-- Project Proposal Calendar -->
-<record model="ir.ui.view" id="view_project_proposal_calendar">
+<!--
+FIXME: broken in v11 (probably because of `[name]`)
+Is it still needed?    
+-->
+<!-- <record model="ir.ui.view" id="view_project_proposal_calendar">
   <field name="name">Fluxdock Proposal</field>
   <field name="model">project.proposal</field>
   <field name="arch" type="xml">
@@ -109,7 +113,7 @@
       <field name="color_owner_id"/>
     </calendar>
   </field>
-</record>
+</record> -->
 
 <!-- Project Proposal Search View  -->
 <record id="view_project_proposal_search" model="ir.ui.view">

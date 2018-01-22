@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from openerp import models
-from openerp import fields
-from openerp import _
-from openerp.addons.cms_form.widgets import ImageWidget
+from odoo import models
+from odoo import fields
+from odoo import _
 
 
 class ReferenceForm(models.AbstractModel):
@@ -59,12 +57,13 @@ class ReferenceForm(models.AbstractModel):
             _fields['linked_partner_ids']['domain'] = \
                 '[["id","!=",{}]]'.format(self.env.user.partner_id.id)
 
-        # update image widget to force size
-        _fields['image']['widget'] = ImageWidget(
-            self, 'image', _fields['image'], data={
-                'image_preview_width': 600,
-                'image_preview_height': 400,
-            })
+        # FIXME: widgets have changed in cms_form
+        # # update image widget to force size
+        # _fields['image']['widget'] = ImageWidget(
+        #     self, 'image', _fields['image'], data={
+        #         'image_preview_width': 600,
+        #         'image_preview_height': 400,
+        #     })
 
 
 class ReferenceSearchForm(models.AbstractModel):

@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from openerp import _, api, exceptions, fields, models
-from openerp.addons.website.models.website import slug
+from odoo import _, api, exceptions, fields, models
+from odoo.addons.http_routing.models.ir_http import slug
 
 from datetime import datetime, timedelta
 import logging
@@ -18,7 +17,6 @@ class ProjectProposal(models.Model):
     _description = "Project proposal"
     _inherit = [
         'mail.thread',
-        'ir.needaction_mixin',
         'website.published.mixin',
     ]
     _order = 'website_published DESC, create_date DESC'
@@ -51,6 +49,7 @@ class ProjectProposal(models.Model):
         select=True,
         readonly=True,
     )
+    # TODO: still needed?
     color_owner_id = fields.Integer(
         string="Color index of owner",
         compute='_get_color_owner_id',
@@ -78,7 +77,7 @@ class ProjectProposal(models.Model):
         help="In which Industries do you need a collaborator?",
     )
     expertise_ids = fields.Many2many(
-        comodel_name="partner.project.expertise",
+        comodel_name="project.partner.expertise",
         string="Expertises",
         help="Which expertises do you need for your project?",
     )
@@ -301,13 +300,15 @@ class ProjectProposal(models.Model):
             # hence we must render message by partner lang.
             # We group them here and we create 1 message per lang.
             grouped = {}
+            domain = [
+                ('id', 'in', to_be_notified),
+                ('notification_type', '=', 'email'),
+            ]
             partner_langs = self.env['res.partner'].search_read(
-                [('id', 'in', to_be_notified),
-                 ('notify_email', '!=', 'none')],
-                ['lang', ])
+                domain, ['lang', ])
             for rec in partner_langs:
                 grouped.setdefault(rec['lang'], []).append(rec['id'])
-            for lang, pids in grouped.iteritems():
+            for lang, pids in grouped.items():
                 values['body'] = self._match_message_body(item, lang)
                 values['partner_ids'] = [
                     (4, id) for id in pids

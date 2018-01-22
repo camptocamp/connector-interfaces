@@ -3,7 +3,7 @@
 
     <menuitem
         id="fluxdock_menu_project" name="Fluxdock"
-        parent="base.menu_main_pm"
+        parent="project.menu_main_pm"
         sequence="99"
         groups="base.group_no_one,project.group_project_user"
         />

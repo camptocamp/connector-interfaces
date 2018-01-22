@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+  <!-- TODO: my home is going to be dropped -->
 
 <template id="account" name="Fluxdock my/home: add references" inherit_id="fluxdock_membership.my_home_content">
   <xpath expr="//div[@id='col-1']/t[@t-call][last()]" position="after">

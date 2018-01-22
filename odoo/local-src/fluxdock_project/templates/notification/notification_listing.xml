@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-<template id="notif_listing" name="Fluxdock CMS notification listing" inherit_id="cms_notifications.listing">
+<template id="notif_listing" name="Fluxdock CMS notification listing" inherit_id="cms_notification.listing">
 
   <!-- The body for us contains aleady the link to the match -->
   <xpath expr="//div[@t-att-data-id='item.id']" position="attributes">

@@ -1,15 +1,16 @@
-# -*- coding: utf-8 -*-
 
-from openerp import models
-from openerp import fields
-from openerp import _
-from openerp.addons.cms_form.widgets import DEFAULT_WIDGETS
+from odoo import models
+from odoo import fields
+from odoo import _
 
-WIDGETS = DEFAULT_WIDGETS.copy()
-WIDGETS['image'].data = {
-    'image_preview_width': 600,
-    'image_preview_height': 400,
-}
+# FIXME: widgets have changed
+# from odoo.addons.cms_form.widgets import DEFAULT_WIDGETS
+#
+# WIDGETS = DEFAULT_WIDGETS.copy()
+# WIDGETS['image'].data = {
+#     'image_preview_width': 600,
+#     'image_preview_height': 400,
+# }
 
 
 class ProposalForm(models.AbstractModel):
@@ -40,7 +41,8 @@ class ProposalForm(models.AbstractModel):
     )
     _form_wrapper_extra_css_klass = 'opt_dark_grid_bg'
     _form_extra_css_klass = 'center-block main-content-wrapper'
-    _form_widgets = WIDGETS
+    # FIXME
+    # _form_widgets = WIDGETS
 
     @property
     def form_description(self):
@@ -59,7 +61,8 @@ class ProposalForm(models.AbstractModel):
             _fields['expertise_ids']['help'] = help_text
 
         # limit claim length
-        _fields['website_short_description']['widget'].maxlength = 200
+        # FIXME
+        # _fields['website_short_description']['widget'].maxlength = 200
 
     def form_validate(self, request_values=None):
         errors, errors_message = super(

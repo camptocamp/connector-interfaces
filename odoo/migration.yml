@@ -36,4 +36,11 @@ migration:
           - mail_digest
           #### camptocamp/odoo-dj
           - base_dj
+    # TMP version
+    - version: 11.0.1 
+      addons:
+        upgrade:
           #### local-src
+          - fluxdock_membership
+          - fluxdock_theme
+          - fluxdock_project

@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 
-from openerp import http
-from openerp.addons.cms_form.controllers.main import FormControllerMixin
+from odoo import http
+from odoo.addons.cms_form.controllers.main import FormControllerMixin
 
 
 class ProposalFormController(http.Controller, FormControllerMixin):
