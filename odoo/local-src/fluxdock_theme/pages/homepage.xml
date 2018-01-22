@@ -8,7 +8,7 @@
 	      <section class="animated-logo">
 	        <div class="logo">
 	          <canvas width="350" height="350" id="logo-canvas"/>
-	          <img class="fluxdock-title" src="/theme_fluxdocs/static/img/fluxdock_title_2.png"/>
+	          <img class="fluxdock-title" src="/fluxdock_theme/static/img/fluxdock_title_2.png"/>
 	        </div>
 	        <script type="text/JavaScript" class="o_default_snippet_text">
 	                                var THREE = {
@@ -18,9 +18,9 @@
 										}
 									};
 								</script>
-	        <script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Matrix4.js"/>
-	        <script type="text/JavaScript" src="/theme_fluxdocs/static/js/threejs/Vector3.js"/>
-	        <script type="text/JavaScript" src="/theme_fluxdocs/static/js/line_cube.js"/>
+	        <script type="text/JavaScript" src="/fluxdock_theme/static/js/threejs/Matrix4.js"/>
+	        <script type="text/JavaScript" src="/fluxdock_theme/static/js/threejs/Vector3.js"/>
+	        <script type="text/JavaScript" src="/fluxdock_theme/static/js/line_cube.js"/>
 	      </section>
 	      <section class="content signup_login opt_dark_grid_bg">
 	        <div class="content-wrap">
@@ -80,7 +80,7 @@
 	      <section class="content opt_dark_bg">
 	        <div class="content-wrap">
 	          <div class="content-icon">
-	            <img src="/theme_fluxdocs/static/img/content-icons/collaborative.png" style=""/>
+	            <img src="/fluxdock_theme/static/img/content-icons/collaborative.png" style=""/>
 	          </div>
 	          <h2 class="o_default_snippet_text"/>
 	          <h2 style="color: rgb(255, 255, 255);">
@@ -93,7 +93,7 @@
 	      <section class="content">
 	        <div class="content-wrap">
 	          <div class="content-icon">
-	            <img src="/theme_fluxdocs/static/img/content-icons/methods.png" style=""/>
+	            <img src="/fluxdock_theme/static/img/content-icons/methods.png" style=""/>
 	          </div>
 	          <h2>Methods</h2>
 	          <p align="left">We believe that agile methods and methods of design thinking are best suited to promote collaboration and thereby innovation. An iterative approach, transparency, flexibility and trust are essential and can be lived by agile methods. Scrum provides a suitable framework for successful collaboration and innovation between companies. Fluxdock will therefore provide regular information, events, and offers on these methods in order to promote collaboration and innovation.</p>
@@ -112,7 +112,7 @@
 	      <section class="content opt_dark_bg">
 	        <div class="content-wrap">
 	          <div class="content-icon">
-	            <img src="/theme_fluxdocs/static/img/content-icons/platform.png" style=""/>
+	            <img src="/fluxdock_theme/static/img/content-icons/platform.png" style=""/>
 	          </div>
 	          <h2>Platform</h2>
 	          <p/>
@@ -131,7 +131,7 @@
 	      <section class="content with-image">
 	        <div class="content-wrap">
 	          <div class="content-icon">
-	            <img src="/theme_fluxdocs/static/img/content-icons/members.png"/>
+	            <img src="/fluxdock_theme/static/img/content-icons/members.png"/>
 	          </div>
 	          <h2>Facility</h2>
 	          <p align="left">Successful collaboration requires physical interaction. In the Transitlager on the Dreispitz in Basel Fluxdock operates a place for companies to work and collaborate permanently or temporarily. The site provides up to 90 permanent workplaces and workplaces, meeting and event rooms as well as workshops and a studio that can be rented temporarily. The entire infrastructure is flexible, adaptable and designed to support agile ways of working and collaboration optimally.</p>
@@ -145,7 +145,7 @@
 	        </div>
 	        <div class="image-wrap">
 	          <img style="animation: 0s ease 0s normal none 1 running none;"
-				   src="/theme_fluxdocs/static/img/content-icons/map.png"/>
+				   src="/fluxdock_theme/static/img/content-icons/map.png"/>
 	        </div>
 	      </section>
 	      <section class="content newsletter_subscribe opt_dark_bg">

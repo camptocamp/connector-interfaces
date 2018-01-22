@@ -13,7 +13,7 @@
      'specific_membership',
      'cms_form',
      'cms_delete_content',
-     'theme_fluxdocs',
+     'fluxdock_theme',
  ],
  'data': [
      'security/ir.model.access.csv',

@@ -11,8 +11,8 @@ class FluxdockSearchForm(models.AbstractModel):
     _name = 'fluxdock.cms.form.search'
     _description = 'Fluxdock CMS search form'
     _inherit = 'cms.form.search'
-    form_wrapper_template = 'theme_fluxdocs.search_form_wrapper'
-    form_template = 'theme_fluxdocs.search_form'
+    form_wrapper_template = 'fluxdock_theme.search_form_wrapper'
+    form_template = 'fluxdock_theme.search_form'
     fluxdock_search_header_template = ''
 
     def listing_options(self):

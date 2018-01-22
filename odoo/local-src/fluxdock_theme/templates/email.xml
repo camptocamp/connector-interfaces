@@ -11,7 +11,7 @@
         </head>
 
         <body style="margin: 0; padding: 0; background-color:white">
-          <t t-call="theme_fluxdocs.mail_body_wrapper">
+          <t t-call="fluxdock_theme.mail_body_wrapper">
             <t t-raw="0" />
           </t>
         </body>
@@ -24,14 +24,14 @@
       <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
         <tr>
           <td align="center" style="text-align:center">
-            <img t-attf-src="#{base_url}/theme_fluxdocs/static/email/images/fluxdock-email-logo.png" alt="Fluxdock Logo" />
+            <img t-attf-src="#{base_url}/fluxdock_theme/static/email/images/fluxdock-email-logo.png" alt="Fluxdock Logo" />
           </td>
         </tr>
         <tr bgcolor="#463246">
           <td align="center" style="color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 14px; padding-top:18px; padding-bottom:18px;">Please do not reply! This email was generated automatically.</td>
         </tr>
         <tr bgcolor="#2e112d">
-          <td t-attf-style="background: url(#{base_url}/theme_fluxdocs/static/img/netz.png);">
+          <td t-attf-style="background: url(#{base_url}/fluxdock_theme/static/img/netz.png);">
             <table border="0" cellpadding="0" cellspacing="0" width="600" style="margin:0 auto;">
               <tr>
                 <td align="left" style="text-align:left;width:600px; color: #ffffff; font-family: 'Lucida Grande', Arial, sans-serif; font-size: 16px; padding-top:50px; padding-bottom:100px; padding-left: 10px; padding-right: 10px;">
@@ -73,7 +73,7 @@
 
     <template id="digest_layout" inherit_id="mail_digest.digest_layout" name="Fluxdock Mail digest layout">
       <xpath expr="//html" position="replace">
-        <t t-call="theme_fluxdocs.mail_base_layout">
+        <t t-call="fluxdock_theme.mail_base_layout">
           <t t-raw="0" />
         </t>
       </xpath>

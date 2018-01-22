@@ -27,7 +27,7 @@ class Website(models.Model):
     def image_url(self, record, field, size=None):
         if record._name == 'res.partner':
             if field == 'image' and not record.image:
-                return '/theme_fluxdocs/static/img/member-placeholder.png'
+                return '/fluxdock_theme/static/img/member-placeholder.png'
         return super(Website, self).image_url(record, field, size=size)
 
 

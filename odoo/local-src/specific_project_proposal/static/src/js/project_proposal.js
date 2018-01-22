@@ -8,7 +8,7 @@ var msg_tool = require('cms_status_message.tool');
 
 var _t = core._t;
 
-// TODO: move this to theme_fluxdocs as it's general stuff now
+// TODO: move this to fluxdock_theme as it's general stuff now
 
 
     $('.hide_listing_item').on('click', function (ev) {

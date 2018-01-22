@@ -19,7 +19,7 @@ except ImportError:
 
 class PriorityCountryM2OWidget(M2OWidget):
 
-    key = 'theme_fluxdocs.country_field_widget_m2o'
+    key = 'fluxdock_theme.country_field_widget_m2o'
 
     priority_countries = (
         'base.ch',

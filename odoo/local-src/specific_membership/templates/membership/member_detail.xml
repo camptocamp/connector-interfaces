@@ -31,7 +31,7 @@
 
     <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">
 
-      <!--  we use theme_fluxdocs.mgmt_actions -->
+      <!--  we use fluxdock_theme.mgmt_actions -->
       <xpath expr="//t[@t-call='website.publish_management']" position="replace" />
 
       <xpath expr="//h1[@id='partner_name']" position="replace">
@@ -44,7 +44,7 @@
       </xpath>
       <xpath expr="//div[@class='col-md-4']" position="replace">
 
-        <t t-call="theme_fluxdocs.mgmt_actions">
+        <t t-call="fluxdock_theme.mgmt_actions">
           <t t-set="object" t-value="partner"/>
           <t t-set="show_delete" t-value="False"/>
           <t t-set="show_add" t-value="False"/>
@@ -55,7 +55,7 @@
             <t t-if="carousel_items">
                 <div class="container-xxlg">
                     <div class="references-slider">
-                        <t t-call="theme_fluxdocs.carousel">
+                        <t t-call="fluxdock_theme.carousel">
                             <t t-set="carousel_data" t-value='"""{"auto":true, "mode": "fade"}"""' />
                         </t>
                     </div>
@@ -140,7 +140,7 @@
                         <h2>Reference Projects</h2>
                       </div>
                     </section>
-                    <t t-call="theme_fluxdocs.mosaic">
+                    <t t-call="fluxdock_theme.mosaic">
                         <t t-set="mosaic_items" t-value="partner_user.references_ids[:4]" />
                     </t>
                 </div>

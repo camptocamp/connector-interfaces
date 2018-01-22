@@ -1,4 +1,4 @@
-odoo.define('theme_fluxdocs.image_upload', function (require) {
+odoo.define('fluxdock_theme.image_upload', function (require) {
 "use strict";
 
     var core = require('web.core');

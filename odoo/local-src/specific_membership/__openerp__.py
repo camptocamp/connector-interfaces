@@ -32,7 +32,7 @@
         'cms_status_message',
         'cms_form',
         # flux
-        'theme_fluxdocs',
+        'fluxdock_theme',
     ],
     'data': [
         'security/ir.model.access.csv',

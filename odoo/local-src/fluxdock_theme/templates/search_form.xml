@@ -28,11 +28,11 @@
             <div class="container">
               <div class="center-block main-content-wrapper" id="ref_content">
                 <t t-set="listing_options" t-value="form.listing_options()" />
-                <t t-call="theme_fluxdocs.listing">
+                <t t-call="fluxdock_theme.listing">
                   <t t-set="listing_items" t-value="form.form_search_results['results']" />
                   <t t-set="show_create_date" t-value="listing_options.get('show_create_date')" />
                   <t t-set="show_preview" t-value="listing_options.get('show_preview')" />
-                  <t t-set="item_tags_template" t-value="'theme_fluxdocs.item_tags'" />
+                  <t t-set="item_tags_template" t-value="'fluxdock_theme.item_tags'" />
                 </t>
               </div>
             </div>

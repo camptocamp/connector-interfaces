@@ -4,7 +4,7 @@
   <template id="reference_detail" name="Fluxdock Reference detail view">
     <t t-call="website.layout">
       <div class="opt_dark_bg reference-detail" id="wrap">
-        <t t-call="theme_fluxdocs.mgmt_actions">
+        <t t-call="fluxdock_theme.mgmt_actions">
             <t t-set="object" t-value="reference"/>
             <t t-set="show_add" t-value="False"/>
         </t>

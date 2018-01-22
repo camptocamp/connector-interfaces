@@ -7,7 +7,7 @@ from openerp.addons.web import http
 from openerp.addons.web.http import request
 from openerp.addons.website.models.website import slug
 
-IMG_FOLDER_PATH = '/theme_fluxdocs/static/img/'
+IMG_FOLDER_PATH = '/fluxdock_theme/static/img/'
 
 
 class JSHelpers(http.Controller):

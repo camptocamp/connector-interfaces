@@ -11,7 +11,7 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
     ajax.jsonRpc('/web/dataset/call', 'call', {
         'model': 'ir.ui.view',
         'method': 'read_template',
-        'args': ['theme_fluxdocs.mosaic_item']
+        'args': ['fluxdock_theme.mosaic_item']
     }).done(function (data) {
         qweb.add_template(data);
     });
@@ -40,7 +40,7 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
         },
         _render: function _render(item) {
             return qweb.render(
-                'theme_fluxdocs.mosaic_item', {'item': item}
+                'fluxdock_theme.mosaic_item', {'item': item}
             );
         },
         load_items: function load_items() {

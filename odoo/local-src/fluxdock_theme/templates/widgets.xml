@@ -23,7 +23,7 @@
 
     <template id="country_field_widget_m2o"
               name="Fluxdock country m2o field widget"
-              inherit_id="theme_fluxdocs.field_widget_m2o"
+              inherit_id="fluxdock_theme.field_widget_m2o"
               primary="True">
       <xpath expr="//option[contains(@class,'value')]" position="attributes">
         <attribute name="t-att-data-country">widget.country_info(opt_item)</attribute>
@@ -120,7 +120,7 @@
                     data-action="publish">Publish</button>
             <button class="btn btn-danger btn-bg-sticky js_publish_btn css_unpublish" data-action="unpublish">Unpublish</button>
             <div id="popover_html_content" style="display:none!important">
-                <t t-call="theme_fluxdocs.popover_html_content" />
+                <t t-call="fluxdock_theme.popover_html_content" />
             </div>
         </div>
     </template>
@@ -158,7 +158,7 @@
                             <a class="btn btn-default" t-att-href="object.cms_edit_url">Edit</a>
                         </t>
                         <t t-if="show_publish">
-                            <t t-call="theme_fluxdocs.publish_short" />
+                            <t t-call="fluxdock_theme.publish_short" />
                         </t>
                         <t t-if="show_delete">
                             <a class="btn btn-danger btn-bg-sticky cms_delete_confirm" t-att-href="object.cms_delete_confirm_url">Delete</a>

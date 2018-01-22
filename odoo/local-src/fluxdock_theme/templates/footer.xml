@@ -31,7 +31,7 @@
 		    <div class="footer-row clearfix">
 		      <div class="footer-logo">
 		        <a href="/">
-		          <img src="/theme_fluxdocs/static/img/fluxdock_logo_f.png"/>
+		          <img src="/fluxdock_theme/static/img/fluxdock_logo_f.png"/>
 		        </a>
 		      </div>
 		      <div class="footer-links clearfix">
@@ -66,22 +66,22 @@
 		      <div class="sponsors">
 		        <div class="sponsor sponsor-iart">
 		          <a href="http://www.iart.ch" target="_blank">
-		            <img src="/theme_fluxdocs/static/img/footer-logos/iart.png"/>
+		            <img src="/fluxdock_theme/static/img/footer-logos/iart.png"/>
 		          </a>
 		        </div>
 		        <div class="sponsor sponsor-mengagement">
 		          <a href="http://www.engagement-migros.ch" target="_blank">
-		            <img src="/theme_fluxdocs/static/img/footer-logos/mengagement.png"/>
+		            <img src="/fluxdock_theme/static/img/footer-logos/mengagement.png"/>
 		          </a>
 		        </div>
 		        <div class="sponsor sponsor-cms">
 		          <a href="http://www.cms-basel.ch" target="_blank">
-		            <img src="/theme_fluxdocs/static/img/footer-logos/cms.png"/>
+		            <img src="/fluxdock_theme/static/img/footer-logos/cms.png"/>
 		          </a>
 		        </div>
 						<div class="sponsor sponsor-c2c">
 							<a href="http://www.camptocamp.com" target="_blank">
-								<img src="/theme_fluxdocs/static/img/footer-logos/c2c.png" />
+								<img src="/fluxdock_theme/static/img/footer-logos/c2c.png" />
 							</a>
 						</div>
 		      </div>

@@ -12,7 +12,7 @@
       <t t-set="can_view_details" t-value="is_associate or is_owner"/>
 
       <div class="opt_dark_bg proposal-detail" id="wrap">
-        <t t-call="theme_fluxdocs.mgmt_actions">
+        <t t-call="fluxdock_theme.mgmt_actions">
             <t t-set="object" t-value="main_object"/>
             <t t-set="show_add" t-value="False"/>
         </t>

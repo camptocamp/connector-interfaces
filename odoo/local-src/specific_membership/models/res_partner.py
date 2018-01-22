@@ -77,7 +77,7 @@ class ResPartner(models.Model):
     def _compute_image_url(self):
         ws_model = self.env['website']
         for item in self:
-            image_url = '/theme_fluxdocs/static/img/member-placeholder.png'
+            image_url = '/fluxdock_theme/static/img/member-placeholder.png'
             if item.image:
                 image_url = ws_model.image_url(item, 'image')
             item.image_url = image_url
@@ -261,7 +261,7 @@ class ResPartner(models.Model):
                     'base', 'static/src/img', 'company_image.png')
             else:
                 img_path = openerp.modules.get_module_resource(
-                    'theme_fluxdocs', 'static/img', 'member-placeholder.png')
+                    'fluxdock_theme', 'static/img', 'member-placeholder.png')
         with open(img_path, 'rb') as f:
             image = f.read()
 
