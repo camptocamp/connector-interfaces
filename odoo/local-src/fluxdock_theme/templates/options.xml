@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-	<data>
 
 		<template id="snippet_content_opt" name="Fluxdock Snippet Content Options" inherit_id="website.snippet_options">
 			<xpath expr="//div[@data-js='background']" position="replace">
@@ -23,14 +22,6 @@
 				</div>
 			</xpath>
 
-			<xpath expr="//div[@data-js='colorpicker']" position="replace">
-				<!-- Naught -->
-			</xpath>
-
-			<xpath expr="//div[@data-js='blog-style']" position="replace">
-				<!-- Naught -->
-			</xpath>
-
 			<xpath expr="//div[@data-js='content']" position="after">
 				<div data-js='mybutton'
 			        data-selector='.mybutton'
@@ -40,5 +31,4 @@
 
 		</template>
 
-	</data>
 </odoo>

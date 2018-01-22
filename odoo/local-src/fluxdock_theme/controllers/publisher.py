@@ -1,8 +1,8 @@
-# © 2016 Camptocamp SA
+# Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
-from odoo.addons.web import http
-from odoo.addons.web.http import request
+from odoo import http
+from odoo.http import request
 
 
 class Publisher(http.Controller):

@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <data>
+
 
         <!-- FLUXDOCS SNIPPETS -->
         <template id="place_into_bar" name="Fluxdock Snippets" inherit_id="website.snippets">
 
-            <!--
-            <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="inside">
-
-            </xpath>
-             -->
-
-            <xpath expr="//div[@id='snippet_content']/div[@class='o_panel_body']" position="replace">
+            <xpath expr="//div[@id='snippet_content']/div[hasclass('o_panel_body')]" position="replace">
 
                 <div class="o_panel_body">
 
@@ -651,17 +645,17 @@
                 </div>
             </xpath>
 
-            <xpath expr="//div[@id='snippet_feature']/div[@class='o_panel_body']" position="replace">
+            <xpath expr="//div[@id='snippet_feature']/div[hasclass('o_panel_body')]" position="replace">
                 <!-- Remove all Snippets  -->
                 <div class="o_panel_body"></div>
             </xpath>
 
-            <xpath expr="//div[@id='snippet_structure']/div[@class='o_panel_body']" position="replace">
+            <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="replace">
                 <!-- Remove all Snippets  -->
                 <div class="o_panel_body"></div>
             </xpath>
 
-            <xpath expr="//div[@id='snippet_effect']/div[@class='o_panel_body']" position="replace">
+            <xpath expr="//div[@id='snippet_effect']/div[hasclass('o_panel_body')]" position="replace">
                 <!-- Remove all Snippets  -->
                 <div class="o_panel_body"></div>
             </xpath>
@@ -670,5 +664,5 @@
         </template>
 
 
-    </data>
+
 </odoo>

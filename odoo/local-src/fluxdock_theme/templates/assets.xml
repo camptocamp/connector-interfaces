@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-	<data>
-		<template id="mystyle" name="Fluxdock frontend assets" inherit_id="website.assets_frontend">
+
+		<template id="assets_frontend" name="Fluxdock frontend assets" inherit_id="website.assets_frontend">
 
 			<!-- CSS -->
-			<xpath expr="link[@href='/website/static/src/css/website.css']" position="replace">
+			<xpath expr="//link[last()]" position="after">
 				<link href="/fluxdock_theme/static/lib/bootstrap-imgupload/css/bootstrap-imgupload.css" rel="stylesheet" type="text/css" />
 				<link href="/fluxdock_theme/static/less/webfonts.css" rel="stylesheet" type="text/css" />
 				<link href="/fluxdock_theme/static/less/bxslider/bxslider.css" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
 
 
  			<!-- JS & Favicon -->
-			<xpath expr="." position="inside">
+			<xpath expr="//script[last()]" position="after">
 				<link rel="shortcut icon" href="/fluxdock_theme/static/favicon/favicon_v02.png" type="image/x-icon" />
 				<link rel="icon" href="/fluxdock_theme/static/favicon/favicon_v01.png" type="image/x-icon" />
 				<script type="text/javascript" src="/fluxdock_theme/static/js/bxslider.js"></script>
@@ -34,9 +34,6 @@
 				<script type="text/javascript" src="/fluxdock_theme/static/src/js/publish.js"></script>
 				<script type="text/javascript" src="/fluxdock_theme/static/js/fluxdock.js"></script>
 			</xpath>
-
-
 		</template>
 
-	</data>
 </odoo>

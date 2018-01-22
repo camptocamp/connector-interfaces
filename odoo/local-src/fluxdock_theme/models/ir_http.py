@@ -11,12 +11,12 @@ from odoo import models
 from odoo.http import SessionExpiredException
 
 
-class IrHttp(models.Model):
-
-    _inherit = 'ir.http'
-
-    def _auth_method_user(self):
-        try:
-            return super(IrHttp, self)._auth_method_user()
-        except SessionExpiredException:
-            return self._auth_method_public()
+# class IrHttp(models.AbstractModel):
+#
+#     _inherit = 'ir.http'
+#
+#     def _auth_method_user(self):
+#         try:
+#             return super(IrHttp, self)._auth_method_user()
+#         except SessionExpiredException:
+#             return self._auth_method_public()

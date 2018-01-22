@@ -5,14 +5,14 @@
       <select position="replace">
         <div class="styled-select">
           <select t-attf-class="form-control #{widget.w_css_klass}"
-                  t-att-name="widget.fname"
-                  t-att-required="widget.field['required'] and '1' or None"
-                  t-att-data-params="widget.data">
-            <option value=""><t t-esc="widget.field['string'] + '...'" /></option>
-            <t t-foreach="widget.option_items" t-as="opt_item">
+                  t-att-name="widget.w_fname"
+                  t-att-required="widget.w_field['required'] and '1' or None"
+                  t-att-data-params="widget.w_data">
+            <option value=""><t t-esc="widget.w_field['string'] + '...'" /></option>
+            <t t-foreach="widget.w_option_items" t-as="opt_item">
              <option class="value"
                      t-att-value="opt_item.id"
-                     t-att-selected="opt_item.id == widget.field_value">
+                     t-att-selected="opt_item.id == widget.w_field_value">
                 <t t-esc="opt_item.name"/>
              </option>
             </t>
@@ -25,25 +25,25 @@
               name="Fluxdock country m2o field widget"
               inherit_id="fluxdock_theme.field_widget_m2o"
               primary="True">
-      <xpath expr="//option[contains(@class,'value')]" position="attributes">
+      <xpath expr="//option[hasclass('value')]" position="attributes">
         <attribute name="t-att-data-country">widget.country_info(opt_item)</attribute>
       </xpath>
     </template>
 
 
     <template id="field_widget_image" name="Fluxdock image upload widget" inherit_id="cms_form.field_widget_image">
-      <xpath expr="//div[contains(@class,'image-widget-wrapper')]" position="replace">
+      <xpath expr="//div[hasclass('image-widget-wrapper')]" position="replace">
         <div class="image-widget-wrapper">
-          <div class="image-upload-widget" t-att-style="widget.data.get('forced_style')">
+          <div class="image-upload-widget" t-att-style="widget.w_data.get('forced_style')">
             <t t-set="image_input_name" t-value="image_input_name or 'image'" />
-            <t t-if="widget.field_value">
-              <img class="img img-responsive" t-att-src="widget.field_value.get('value')" />
+            <t t-if="widget.w_field_value">
+              <img class="img img-responsive" t-att-src="widget.w_field_value.get('value')" />
             </t>
             <div class="imgupload"
-                 t-att-data-preview-width="widget.data.get('image_preview_width', 200)"
-                 t-att-data-preview-height="widget.data.get('image_preview_height', 200)">
+                 t-att-data-preview-width="widget.w_data.get('image_preview_width', 200)"
+                 t-att-data-preview-height="widget.w_data.get('image_preview_height', 200)">
                 <div class="file-tab">
-                    <label t-att-for="widget.fname" class="btn btn-file">
+                    <label t-att-for="widget.w_fname" class="btn btn-file">
                         <span class="info overlay overlay-slideup">
                             <span class="browse">Browse</span>
                             <info class="format">Format: *.png/*.jpg</info>
@@ -51,15 +51,15 @@
                         <input
                             type="file" capture="camera" accept="image/*"
                             t-att-id="fname"
-                            t-att-name="widget.fname"
+                            t-att-name="widget.w_fname"
                             class="form-control"
                             />
                     </label>
                 </div>
             </div>
           </div>
-          <t t-if="widget.field_value">
-            <t t-set="prefix" t-value="widget.fname"/>
+          <t t-if="widget.w_field_value">
+            <t t-set="prefix" t-value="widget.w_fname"/>
             <div t-attf-id="#{prefix}_keepbox" class="keepbox text-center">
               <div class="form-group">
                 <label class="checkbox inline" t-attf-for="#{prefix}_keepcheck_yes">

@@ -1,4 +1,4 @@
-# © 2016 Simone Orsi (Camptocamp)
+# Copyright 2016 Simone Orsi (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import models, api, SUPERUSER_ID, fields
 
@@ -30,7 +30,7 @@ class Website(models.Model):
         return super(Website, self).image_url(record, field, size=size)
 
 
-class WebsiteMixin(models.Model):
+class WebsiteMixin(models.AbstractModel):
     _inherit = 'website.published.mixin'
 
     @api.model

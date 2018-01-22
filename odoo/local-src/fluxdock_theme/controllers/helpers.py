@@ -1,10 +1,10 @@
-# © 2016 Camptocamp SA
+# Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
 import json
-from odoo.addons.web import http
-from odoo.addons.web.http import request
-from odoo.addons.website.models.website import slug
+from odoo import http
+from odoo.http import request
+from odoo.addons.http_routing.models.ir_http import slug
 
 IMG_FOLDER_PATH = '/fluxdock_theme/static/img/'
 

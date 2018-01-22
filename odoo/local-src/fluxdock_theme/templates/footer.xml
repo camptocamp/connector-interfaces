@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-	<data>
+
 
 		<!-- Customize footer -->
 		<template id="fluxdock_footer" inherit_id="website.layout" name="Fluxdock Footer">
@@ -94,5 +94,5 @@
 		</template>
 
 
-	</data>
+
 </odoo>

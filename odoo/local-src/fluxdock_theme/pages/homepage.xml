@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-	<data>
+
 
 <template id="homepage" inherit_id="website.homepage" name="Fluxdock homepage">
 	<div id="wrap" position="replace">
@@ -165,5 +165,5 @@
 	</div>
 </template>
 
-	</data>
+
 </odoo>
