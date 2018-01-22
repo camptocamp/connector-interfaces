@@ -3,8 +3,8 @@
 
 <template id="account" name="Fluxdock my/home add proposals" inherit_id="specific_membership.my_home_content">
   <xpath expr="//div[@id='col-2']/t[@t-call][last()]" position="after">
-    <t t-call="specific_project_proposal.matches_overview" />
-    <t t-call="specific_project_proposal.proposals_overview" />
+    <t t-call="fluxdock_project.matches_overview" />
+    <t t-call="fluxdock_project.proposals_overview" />
   </xpath>
 </template>
 

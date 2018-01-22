@@ -424,3 +424,601 @@ msgstr ""
 #: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
 msgid "not published"
 msgstr "nicht veröffentlicht"
+
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+msgid "&lt;b&gt;NEW!"
+msgstr "&lt;b&gt;NEU!"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+msgid "<span> days</span>"
+msgstr "<span> Tage</span>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+#: model:ir.ui.view,arch_db:fluxdock_project.proposals_overview
+msgid "<span>Show more</span><span class=\"hidden\">Show less</span>"
+msgstr ""
+"<span>Mehr azeigen</span><span class=\"hidden\">Weniger anzeigen</span>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposal_detail
+msgid "<strong>Country:</strong>"
+msgstr "<b>Land:</b>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposal_detail
+msgid "<strong>Duration:</strong>"
+msgstr "<b>Zeitraum:</b>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposal_detail
+msgid "<strong>Expertise:</strong>"
+msgstr "<b>Expertisen:</b>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposal_detail
+msgid "<strong>Industry:</strong>"
+msgstr "<strong>Branche:</strong>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposal_detail
+msgid "<strong>Location:</strong>"
+msgstr "<b>Ort:</b>"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposals_overview
+msgid "Add a proposal"
+msgstr "Projekt hinzufügen"
+
+#. module: fluxdock_project
+#: code:addons/odoo/local-src/fluxdock_project/models/forms.py:47
+#: code:addons/fluxdock_project/models/forms.py:47
+#, python-format
+msgid "Announce here a project your looking for collaborators. "
+msgstr ""
+"Schreiben Sie hier ein Projekt aus, für das Sie Kollaborationspartner suchen."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_res_users_proposal_blacklist_ids
+msgid "Blacklisted proposals"
+msgstr "Blacklisted proposals"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_cms_form_project_proposal
+msgid "CMS Form mixin"
+msgstr "CMS Form mixin"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_cms_delete_url
+msgid "CMS delete URL"
+msgstr "CMS delete URL"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_cms_delete_confirm_url
+msgid "CMS delete confirm URL"
+msgstr "CMS delete confirm URL"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_cms_edit_url
+msgid "CMS edit URL"
+msgstr "CMS edit URL"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_cms_notification_panel_form
+msgid "CMS notifications control panel"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.actions.act_window,help:fluxdock_project.action_project_proposal
+msgid "Click to add a proposal."
+msgstr "Klicken, um Projekt hinzuzufügen."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_color_owner_id
+msgid "Color index of owner"
+msgstr "Color index of owner"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposal_detail
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_contact_email
+msgid "Contact email"
+msgstr "Kontakt E-Mail"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_contact_name
+msgid "Contact name"
+msgstr "Kontakt Name"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_contact_name
+msgid "Contact person for this project."
+msgstr "Kontaktperson für dieses Projekt."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_contact_phone
+msgid "Contact phone"
+msgstr "Kontakt Telefon"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_country_id
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_search
+msgid "Country"
+msgstr "Land"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr "Datum der letzten Nachricht."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_website_description
+msgid "Describe the project you have in mind."
+msgstr "Beschreiben Sie das Projekt, das Sie vorhaben."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_website_description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_project_proposal_display_name
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_search_project_proposal_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_display_name
+msgid "Display name"
+msgstr "Display name"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_duration
+msgid "Duration"
+msgstr "Dauer"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposals_overview
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_notification_panel_form_enable_matches
+msgid "Enable matches notifications"
+msgstr "Benachrichtigung zu Projektvorschlägen"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_tree
+msgid "End Date"
+msgstr "Enddatum"
+
+#. module: fluxdock_project
+#: code:addons/odoo/local-src/fluxdock_project/models/project_proposal.py:157
+#: code:addons/fluxdock_project/models/project_proposal.py:157
+#, python-format
+msgid "End Date cannot be set before Start Date."
+msgstr "Das gesetzte Enddatum ist vor dem Startdatum."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_stop_date
+msgid "End date"
+msgstr "Enddatum"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+msgid "Ending on"
+msgstr "Endet am"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_expertise_ids
+msgid "Expertises"
+msgstr "Expertisen"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_cms_form_search_project_proposal
+msgid "Fluxdock CMS search form"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:mail.message.subtype,name:fluxdock_project.mt_proposal_matches
+msgid "Fluxdock Proposal matches"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_follower_ids
+msgid "Followers"
+msgstr "Followers"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Beobachter (Kanäle)"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Followers (Partner)"
+
+#. module: fluxdock_project
+#: model:mail.message.subtype,description:fluxdock_project.mt_proposal_matches
+msgid "Get notified when a proposal match happens."
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_search
+msgid "Group By"
+msgstr "Gruppiere nach"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_project_proposal_id
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_search_project_proposal_id
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_id
+msgid "ID"
+msgstr "ID"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_cms_notification_panel_form_enable_matches
+msgid "If active, you will receive notifications about proposals matches."
+msgstr "Benachrichtigung zu neuen Projektvorschlägen erhalten"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_message_unread
+msgid "If checked new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_industry_ids
+msgid "In which Industries do you need a collaborator?"
+msgstr "In welchen Branchen suchen Sie einen Kollaborationspartner?"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_industry_ids
+msgid "Industries"
+msgstr "Branchen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_is_follower
+msgid "Is Follower"
+msgstr "Ist Beobachter"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_is_new
+msgid "Is new"
+msgstr "Neu"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_last_post
+msgid "Last Message Date"
+msgstr "Letzte Benachrichtigung"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_project_proposal___last_update
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_search_project_proposal___last_update
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_location
+msgid "Location"
+msgstr "Ort"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_mail_digest
+msgid "Mail digest"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_image_url
+msgid "Main image URL"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+#: model:ir.ui.view,arch_db:fluxdock_project.proposal_search_form_header
+#: model:website.menu,name:fluxdock_project.menu_project_proposal
+msgid "Market"
+msgstr "Projektmarkt"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+msgid "Matches"
+msgstr "Projektvorschläge"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+msgid "Matches are projects on the market, that correspond to your industry and expertise."
+msgstr "Projektvorschläge sind Projekte auf dem Projektmarkt, die mit Ihrer Branche oder Expertise übereinstimmen."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_matching_partner_ids
+msgid "Matching partners"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_ids
+msgid "Messages"
+msgstr "Mitteilungen"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+msgid "No matches"
+msgstr "Keine Treffer"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_notify_dirty
+msgid "Notify dirty"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_create_uid
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_search
+msgid "Owner"
+msgstr "Besitzer"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+msgid ""
+"Please, verify you have set your expertises and industry on your profile."
+msgstr ""
+"Bitte prüfen Sie, ob in Ihrem Profil Branche und Expertise gesetzt sind."
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+msgid "Project Details"
+msgstr "Projektdetails"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_tree
+msgid "Project name"
+msgstr "Titel"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_project_proposal
+msgid "Project proposal"
+msgstr "Projektausschreibung"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_search
+msgid "Proposal"
+msgstr "Projektausschreibung"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_name
+msgid "Proposal Name"
+msgstr "Titel"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_res_users_proposal_ids
+msgid "Proposal ids"
+msgstr "Proposal ids"
+
+#. module: fluxdock_project
+#: code:addons/odoo/local-src/fluxdock_project/models/project_proposal.py:285
+#: code:addons/fluxdock_project/models/project_proposal.py:285
+msgid "Proposal match"
+msgstr "Projektvorschlag"
+
+#. module: fluxdock_project
+#: model:ir.actions.act_window,name:fluxdock_project.action_project_proposal
+#: model:ir.ui.menu,name:fluxdock_project.fluxdock_base_menu_proposals
+#: model:ir.ui.view,arch_db:fluxdock_project.proposals_overview
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_calendar
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_tree
+msgid "Proposals"
+msgstr "Projektausschreibungen"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposals_overview
+msgid ""
+"Proposals are your entries on the market to look for collaboration partners "
+"in a certain industry or with a certain expertise."
+msgstr ""
+"Projektauschreibungen sind Ihre Einträge auf Projektmarkt, mit welchen Sie "
+"nach Kollaborationspartnern in einer gewissen Branche oder mit einer "
+"gewissen Expertise suchen."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_res_users_proposal_match_ids
+msgid ""
+"Proposals that match with user expertises and industries. (Blacklisted and "
+"own proposals are not part of this list)"
+msgstr ""
+"Proposals that match with user expertises and industries. (Blacklisted and "
+"own proposals are not part of this list)"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+msgid "Read More"
+msgstr "Mehr"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_search
+msgid "Search Proposals"
+msgstr "Projekte durchsuchen"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposals_overview
+msgid "Show all proposals"
+msgstr "Meine Projekte"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_search_project_proposal_only_my
+msgid "Show only my proposals"
+msgstr "Nur meine Projektausschreibungen"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_tree
+msgid "Start Date"
+msgstr "Startdatum"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_start_date
+msgid "Start date"
+msgstr "Startdatum"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+msgid "Starting on"
+msgstr "Starting on"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_res_users_proposal_match_ids
+msgid "Suggested proposals"
+msgstr "Projektvorschläge"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_website_short_description
+msgid "Teaser text"
+msgstr "Kurzbeschreibung"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+msgid "Test notify match"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_website_url
+msgid "The full URL to access the document through the website."
+msgstr ""
+"Die vollständige URL mit der das Dokument überall aufgerufen werden kann."
+
+#. module: fluxdock_project
+#: model:ir.actions.act_window,help:fluxdock_project.action_project_proposal
+msgid ""
+"The proposal will shared with parners depending on industries and expertises."
+msgstr ""
+"The proposal will shared with parners depending on industries and expertises."
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.default_digest_tmpl
+msgid "There are new proposals matches for your company:"
+msgstr "Für Ihre Firma gibt es folgende neue Projektvorschläge:"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_unread
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_search
+msgid "Unread Messages"
+msgstr "Ungelesene Mitteilungen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Zähler der ungelesenen Nachrichten"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_website_published
+msgid "Visible in Website"
+msgstr "Sichtbar in Webseite"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+msgid ""
+"Warning: this test will schedule emails to send to all matches. Are you sure?"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_website_message_ids
+msgid "Website Messages"
+msgstr "Website Nachrichten"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_website_url
+msgid "Website URL"
+msgstr "Website URL"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_website_message_ids
+msgid "Website communication history"
+msgstr "Website Kommunikationshistorie"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_expertise_ids
+msgid "Which expertises do you need for your project?"
+msgstr "Welche Expertisen suchen Sie für Ihr Projekt?"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_proposal_website_short_description
+msgid "Write a short description of the Project."
+msgstr "Schreiben Sie eine Projektbeschreibung."
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.proposals_overview
+msgid "You have currently registered no proposals on your account."
+msgstr ""
+"Sie haben zur Zeit keine Projektausschreibungen in Ihrem Profil erfasst."
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_proposal_form
+msgid "e.g. My great project"
+msgstr "e.g. My great project"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_proposal_image
+msgid "image"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.matches_overview
+#: model:ir.ui.view,arch_db:fluxdock_project.proposals_overview
+msgid "not published"
+msgstr "nicht veröffentlicht"

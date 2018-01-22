@@ -13,7 +13,9 @@ class BaseTestCase(object):
 
     def setUp(self):
         super(BaseTestCase, self).setUp()
-        user_model = self.env['res.users'].with_context(no_reset_password=1)
+        user_model = self.env['res.users'].with_context(
+            {'no_reset_password': True,
+             'tracking_disable': True, })
         self.user1 = user_model.create({
             'name': 'User 1 (test ref)',
             'login': 'testref_user1',
@@ -29,10 +31,7 @@ class BaseTestCase(object):
             'groups_id': [(6, 0, [self.env.ref('base.group_portal').id])]
         })
         self.group_public = self.env.ref('base.group_public')
-        self.user_public = self.env['res.users'].with_context(
-            {'no_reset_password': True,
-             'mail_create_nosubscribe': True}
-        ).create({
+        self.user_public = user_model.create({
             'name': 'Public User',
             'login': 'publicuser',
             'email': 'publicuser@example.com',
@@ -44,38 +43,38 @@ class BaseTestCase(object):
         raise NotImplementedError()
 
     def test_perm_create(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
-        self.assertTrue(self.model.browse(ref.id))
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        self.assertTrue(self.model.browse(obj.id))
 
     def test_perm_write(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
-        ref.name = 'Baz'
-        self.assertEqual(ref.name, 'Baz')
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        obj.name = 'Baz'
+        self.assertEqual(obj.name, 'Baz')
 
     def test_perm_write_only_owner(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
         with self.assertRaises(exceptions.AccessError):
-            ref.sudo(self.user2.id).name = 'cannot do this!'
-        ref = self.model.sudo(self.user2.id).create({'name': 'Foo 2'})
+            obj.sudo(self.user2.id).name = 'cannot do this!'
+        obj = self.model.sudo(self.user2.id).create({'name': 'Foo 2'})
         with self.assertRaises(exceptions.AccessError):
-            ref.sudo(self.user1.id).name = 'cannot do this!'
+            obj.sudo(self.user1.id).name = 'cannot do this!'
 
     def test_delete(self):
-        ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})
-        ref_id = ref.id
-        ref.unlink()
-        self.assertFalse(self.model.browse(ref_id).exists())
-
-        # test delete w/ attachment field
-        # Reported issue https://github.com/odoo/odoo/issues/15311
-        # Overridden unlink method in ProjectReference
-        ref = self.model.sudo(self.user1.id).create({
-            'name': 'Foo',
-            'image': 'fake image here!'.encode('base64')
-        })
-        ref_id = ref.id
-        ref.unlink()
-        self.assertFalse(self.model.browse(ref_id).exists())
+        obj = self.model.sudo(self.user1.id).create({'name': 'Foo'})
+        obj_id = obj.id
+        obj.unlink()
+        self.assertFalse(self.model.browse(obj_id).exists())
+        if 'image' in obj:
+            # test delete w/ attachment field
+            # Reported issue https://github.com/odoo/odoo/issues/15311
+            # Overridden unlink method in ProjectReference
+            ref = self.model.sudo(self.user1.id).create({
+                'name': 'Foo',
+                'image': 'fake image here!'.encode('base64')
+            })
+            ref_id = ref.id
+            ref.unlink()
+            self.assertFalse(self.model.browse(ref_id).exists())
 
     def test_delete_only_owner(self):
         ref = self.model.sudo(self.user1.id).create({'name': 'Foo'})

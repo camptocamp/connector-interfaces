@@ -1,4 +1,4 @@
-odoo.define('specific_project_proposal.specific_project_proposal', function (require) {
+odoo.define('fluxdock_project.fluxdock_project', function (require) {
 'use strict';
 
 var ajax = require('web.ajax');

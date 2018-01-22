@@ -50,11 +50,11 @@ class ResPartner(models.Model):
 
         # #### PATCH START
         matches_subtype = self.env.ref(
-            'specific_project_proposal.mt_proposal_matches'
+            'fluxdock_project.mt_proposal_matches'
         )
         if message.subtype_id == matches_subtype:
             base_template = self.env.ref(
-                'specific_project_proposal.mail_matches_notification')
+                'fluxdock_project.mail_matches_notification')
         # #### PATCH STOP
 
         base_template_ctx = self._notify_prepare_template_context(message)

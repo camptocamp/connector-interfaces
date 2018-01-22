@@ -48,7 +48,7 @@ class CMSNotificationPanel(models.AbstractModel):
         res = super(CMSNotificationPanel, self)._form_subtype_fields
         res.update({
             'enable_matches':
-                'specific_project_proposal.mt_proposal_matches',
+                'fluxdock_project.mt_proposal_matches',
         })
         return res
 

@@ -11,3 +11,10 @@ class TestReference(BaseTestCase, test_common.TransactionCase):
     @property
     def model(self):
         return self.env['project.reference'].with_context(no_profile_update=1)
+
+
+class TestProposal(BaseTestCase, test_common.TransactionCase):
+
+    @property
+    def model(self):
+        return self.env['project.proposal'].with_context(no_profile_update=1)

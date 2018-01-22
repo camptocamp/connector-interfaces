@@ -6,7 +6,7 @@ from openerp import http
 from openerp.http import request
 
 
-class WebsiteReference(http.Controller):
+class ReferenceDetail(http.Controller):
     """Controller for reference model."""
 
     @http.route([

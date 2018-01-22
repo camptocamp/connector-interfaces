@@ -15,4 +15,11 @@
         action="fluxdock_project.action_project_reference"
         />
 
+    <menuitem
+        name="Proposals" id="fluxdock_base_menu_proposals"
+        parent="fluxdock_project.fluxdock_menu_project"
+        groups="base.group_user"
+        action="fluxdock_project.action_project_proposal"
+        />
+
 </odoo>

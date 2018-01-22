@@ -19,7 +19,7 @@ class Proposal(http.Controller):
             redirect = '/market'
         if redirect:
             return request.redirect(redirect)
-        return request.render("specific_project_proposal.proposal_detail", {
+        return request.render("fluxdock_project.proposal_detail", {
             'proposal': proposal,
             'main_object': proposal,
         })

@@ -146,7 +146,7 @@ def add_matches_notification_template(ctx):
         'lang': """${object.mapped('partner_ids').mapped('lang')[0]
          if object.mapped('partner_ids') else object.user_id.lang}""",
     }
-    xmlid = 'specific_project_proposal.mail_matches_notification'
+    xmlid = 'fluxdock_project.mail_matches_notification'
     create_or_update_email_template(ctx, xmlid, values)
 
 

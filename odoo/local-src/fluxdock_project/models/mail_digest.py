@@ -10,6 +10,6 @@ class MailDigest(models.Model):
         values = super(MailDigest, self)._get_template_values()
         values.update({
             'matches_subtype': self.env.ref(
-                'specific_project_proposal.mt_proposal_matches')
+                'fluxdock_project.mt_proposal_matches')
         })
         return values

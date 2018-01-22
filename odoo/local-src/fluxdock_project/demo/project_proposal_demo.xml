@@ -25,7 +25,7 @@
   <field name="website_published" eval="1"/>
   <field name="create_uid" ref="base.user_demo"></field>
   <field name="country_id" ref="base.ch"/>
-  <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_architecture')])]"/>
+  <field name="industry_ids" eval="[(6,0,[ref('fluxdock_project.industry_architecture')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_business_planning')])]"/>
 </record>
 
@@ -35,7 +35,7 @@
   <field name="website_published" eval="1"/>
   <field name="create_uid" ref="base.user_demo"></field>
   <field name="country_id" ref="base.ch"/>
-  <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_scenography')])]"/>
+  <field name="industry_ids" eval="[(6,0,[ref('fluxdock_project.industry_scenography')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_branding')])]"/>
 </record>
 
@@ -45,7 +45,7 @@
   <field name="website_published" eval="1"/>
   <field name="create_uid" ref="base.user_demo"></field>
   <field name="country_id" ref="base.ch"/>
-  <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_acoustic'), ref('specific_project_proposal.industry_interior_design'), ref('specific_project_proposal.industry_graphic_design')])]"/>
+  <field name="industry_ids" eval="[(6,0,[ref('fluxdock_project.industry_acoustic'), ref('fluxdock_project.industry_interior_design'), ref('fluxdock_project.industry_graphic_design')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_branding'), ref('partner_project_expertise.expertise_business_planning'), ref('partner_project_expertise.expertise_innovation_design')])]"/>
 </record>
 
@@ -55,7 +55,7 @@
   <field name="website_published" eval="1"/>
   <field name="create_uid" ref="base.user_root"></field>
   <field name="country_id" ref="base.ch"/>
-  <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_scenography')])]"/>
+  <field name="industry_ids" eval="[(6,0,[ref('fluxdock_project.industry_scenography')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_branding')])]"/>
 </record>
 
@@ -65,7 +65,7 @@
   <field name="website_published" eval="1"/>
   <field name="create_uid" ref="base.user_root"></field>
   <field name="country_id" ref="base.ch"/>
-  <field name="industry_ids" eval="[(6,0,[ref('specific_project_proposal.industry_scenography')])]"/>
+  <field name="industry_ids" eval="[(6,0,[ref('fluxdock_project.industry_scenography')])]"/>
   <field name="expertise_ids" eval="[(6,0,[ref('partner_project_expertise.expertise_product_dev')])]"/>
 </record>
 

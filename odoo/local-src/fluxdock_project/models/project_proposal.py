@@ -182,7 +182,7 @@ class ProjectProposal(models.Model):
     @property
     def _matches_subtype(self):
         return self.env.ref(
-            'specific_project_proposal.mt_proposal_matches'
+            'fluxdock_project.mt_proposal_matches'
         )
 
     @api.model
@@ -274,7 +274,7 @@ class ProjectProposal(models.Model):
 
     def _match_message_body(self, proposal, lang):
         template = self.env.ref(
-            'specific_project_proposal.message_proposal_match')
+            'fluxdock_project.message_proposal_match')
         return template.with_context(lang=lang).render({'proposal': proposal})
 
     @api.multi
