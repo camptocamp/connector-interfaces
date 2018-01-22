@@ -3,7 +3,7 @@
 
     <template id="reference_search_form_header" name="Fluxdock reference search form header">
       <div class="content-icon">
-        <img src="/specific_project/static/src/img/references_icon_white.png"/>
+        <img src="/fluxdock_project/static/src/img/references_icon_white.png"/>
       </div>
       <h2>Member references</h2>
     </template>

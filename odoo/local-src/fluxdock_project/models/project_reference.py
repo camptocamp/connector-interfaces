@@ -4,7 +4,7 @@
 from openerp import api, fields, models
 from openerp.addons.website.models.website import slug
 
-STATIC_FOLDER = '/specific_project/static'
+STATIC_FOLDER = '/fluxdock_project/static'
 
 
 class ProjectReference(models.Model):

@@ -16,5 +16,5 @@ class WebsiteReference(http.Controller):
         values = {
             'reference': reference
         }
-        return request.website.render("specific_project.reference_detail",
+        return request.website.render("fluxdock_project.reference_detail",
                                       values)

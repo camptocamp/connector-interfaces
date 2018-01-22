@@ -1,0 +1,426 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fluxdock_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-06 10:34+0000\n"
+"PO-Revision-Date: 2017-03-03 15:47+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.8.12\n"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
+msgid "<span>Show more</span><span class=\"hidden\">Show less</span>"
+msgstr ""
+"<span>Mehr anzeigen</span><span class=\"hidden\">Weniger anzeigen</span>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_detail
+msgid "<strong>Country:</strong>"
+msgstr "<strong>Land:</strong>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_detail
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Datum:</strong>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_detail
+msgid "<strong>Expertise:</strong>"
+msgstr "<strong>Expertise:</strong>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_detail
+msgid "<strong>Industry:</strong>"
+msgstr "<strong>Branche:</strong>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_detail
+msgid "<strong>Location:</strong>"
+msgstr "<strong>Ort:</strong>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_detail
+msgid "<strong>Video URL:</strong>"
+msgstr "<strong>Video URL:</strong>"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_detail
+msgid "<strong>Website URL:</strong>"
+msgstr "<strong>Website URL:</strong>"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
+msgid "Add a reference"
+msgstr "Referenzprojekt hinzufügen"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_cms_form_project_reference
+msgid "CMS Form mixin"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_cms_delete_url
+msgid "CMS delete URL"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_cms_delete_confirm_url
+msgid "CMS delete confirm URL"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_cms_edit_url
+#, fuzzy
+msgid "CMS edit URL"
+msgstr "Webseite URL"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_country_id
+msgid "Country"
+msgstr "Land"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr "Datum der letzten Nachricht."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_website_short_description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_project_reference_display_name
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_search_project_reference_display_name
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.ref_form_industry_help
+msgid "Don't find your industry or expertise? Write us an email at"
+msgstr ""
+"Ist Ihre Branche oder Expertise nicht aufgeführt? Schreiben Sie uns eine "
+"Email an"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.ref_form_partner_help
+msgid ""
+"Don't find your partner? Write us an email with the partner company name and "
+"email address at"
+msgstr ""
+"Ist Ihr Projektpartner noch kein Fluxdock Mitglied? Schreiben Sie uns eine "
+"Email mit Firmenname und Email-Adresse des Projektpartners an"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_expertise_ids
+msgid "Expertises"
+msgstr "Expertises"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_ext_website_url
+msgid "External Website URL"
+msgstr "Website URL"
+
+#. module: fluxdock_project
+#: model:ir.ui.menu,name:fluxdock_project.fluxdock_menu_project
+msgid "Fluxdock"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_cms_form_search_project_reference
+msgid "Fluxdock CMS search form"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_follower_ids
+msgid "Followers"
+msgstr "Followers"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Beobachter (Kanäle)"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Followers (Partner)"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_project_reference_id
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_search_project_reference_id
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_id
+msgid "ID"
+msgstr "ID"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_message_unread
+msgid "If checked new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_implementation_date
+msgid "Implementation date"
+msgstr "Fertigstellung"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_industry_ids
+msgid "Industries"
+msgstr "Branchen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_is_follower
+msgid "Is Follower"
+msgstr "Ist Beobachter"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_last_post
+msgid "Last Message Date"
+msgstr "Letzte Benachrichtigung"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_project_reference___last_update
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_search_project_reference___last_update
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_location
+msgid "Location"
+msgstr "Ort"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_image_url
+msgid "Main image URL"
+msgstr "Main image URL"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_search_form_header
+msgid "Member references"
+msgstr "Mitglieder Referenzen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_ids
+msgid "Messages"
+msgstr "Mitteilungen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_create_uid
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_reference_form
+msgid "Owner"
+msgstr "Besitzer"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_reference_form
+msgid "Project Details"
+msgstr "Projektdetails"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_project_reference
+msgid "Project reference"
+msgstr "Referenzprojekt"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_image
+msgid "Reference image"
+msgstr "Bild"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_name
+msgid "Reference title"
+msgstr "Titel"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_linked_partner_ids
+msgid "Referenced partners"
+msgstr "Projektpartner"
+
+#. module: fluxdock_project
+#: model:ir.actions.act_window,name:fluxdock_project.action_project_reference
+#: model:ir.ui.menu,name:fluxdock_project.fluxdock_base_menu_references
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_reference_form
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_reference_tree
+msgid "References"
+msgstr "Referenzen"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
+msgid "References are projects your company has realized."
+msgstr "Referenzen sind Projekte, die Ihre Firma umgesetzt hat."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_res_users_references_ids
+msgid "References ids"
+msgstr "References ids"
+
+#. module: fluxdock_project
+#: code:addons/odoo/local-src/fluxdock_project/models/forms.py:43
+#: code:addons/fluxdock_project/models/forms.py:43
+#, python-format
+msgid "Register here projects your company accomplished successfully."
+msgstr ""
+"Erfassen Sie hier Projekte, die Ihre Firma erfolgreich durchgeführt hat."
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_detail
+msgid "Related Members"
+msgstr "Projektpartner"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.search_form_fields
+msgid "Search"
+msgstr "Suche"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
+msgid "Show all references"
+msgstr "Alle Referenzen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_cms_form_search_project_reference_only_my
+msgid "Show only my references"
+msgstr "Nur meine Referenzprojekte"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_website_url
+msgid "The full URL to access the document through the website."
+msgstr ""
+"Die vollständige URL mit der das Dokument überall aufgerufen werden kann."
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_industry_ids
+msgid "To which industries belongs the project?"
+msgstr "Welchen Branchen ist das Projekt zuzuordnen?"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_unread
+msgid "Unread Messages"
+msgstr "Ungelesene Mitteilungen"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Zähler der ungelelesen Nachrichten"
+
+#. module: fluxdock_project
+#: model:ir.model,name:fluxdock_project.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_video_url
+msgid "Video URL"
+msgstr "Video URL"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_website_published
+msgid "Visible in Website"
+msgstr "Sichtbar in Webseite"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_website_message_ids
+msgid "Website Messages"
+msgstr "Website Nachrichten"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,field_description:fluxdock_project.field_project_reference_website_url
+msgid "Website URL"
+msgstr "Website URL"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_website_message_ids
+msgid "Website communication history"
+msgstr "Website Kommunikationshistorie"
+
+#. module: fluxdock_project
+#: model:ir.model.fields,help:fluxdock_project.field_project_reference_expertise_ids
+msgid "Which expertises did your company bring to the project?"
+msgstr "Welche Expertisen hat Ihre Firma in das Projekt eingebracht?"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
+msgid "You have currently registred no references on your account."
+msgstr "Sie haben zur Zeit noch kein Referenzprojekt hinzugefügt."
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.view_project_reference_form
+msgid "e.g. My great project"
+msgstr "e.g. My great project"
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.ref_form_industry_help
+msgid "expertise@fluxdock.io"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.ref_form_partner_help
+msgid "for inviting him."
+msgstr "um ihn einzuladen."
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.ref_form_partner_help
+msgid "newpartner@fluxdock.io"
+msgstr ""
+
+#. module: fluxdock_project
+#: model:ir.ui.view,arch_db:fluxdock_project.reference_overview
+msgid "not published"
+msgstr "nicht veröffentlicht"

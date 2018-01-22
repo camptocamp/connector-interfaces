@@ -40,7 +40,7 @@ class ReferenceForm(models.AbstractModel):
         """Override to add help messages."""
         super(ReferenceForm, self).form_update_fields_attributes(_fields)
         industry_help = self.env.ref(
-            'specific_project.ref_form_industry_help',
+            'fluxdock_project.ref_form_industry_help',
             raise_if_not_found=False)
         if industry_help:
             help_text = industry_help.render({
@@ -48,7 +48,7 @@ class ReferenceForm(models.AbstractModel):
             })
             _fields['expertise_ids']['help'] = help_text
         partner_help = self.env.ref(
-            'specific_project.ref_form_partner_help',
+            'fluxdock_project.ref_form_partner_help',
             raise_if_not_found=False)
         if partner_help:
             help_text = partner_help.render({
@@ -81,9 +81,9 @@ class ReferenceSearchForm(models.AbstractModel):
         'location',
         'only_my',
     )
-    form_fields_template = 'specific_project.search_form_fields'
+    form_fields_template = 'fluxdock_project.search_form_fields'
     fluxdock_search_header_template = \
-        'specific_project.reference_search_form_header'
+        'fluxdock_project.reference_search_form_header'
 
     only_my = fields.Boolean(string="Show only my references")
 

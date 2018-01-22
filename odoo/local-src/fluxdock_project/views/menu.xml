@@ -10,9 +10,9 @@
 
     <menuitem
         name="References" id="fluxdock_base_menu_references"
-        parent="specific_project.fluxdock_menu_project"
+        parent="fluxdock_project.fluxdock_menu_project"
         groups="base.group_user"
-        action="specific_project.action_project_reference"
+        action="fluxdock_project.action_project_reference"
         />
 
 </odoo>

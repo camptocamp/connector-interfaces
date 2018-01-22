@@ -3,7 +3,7 @@
     
     <menuitem
         name="Proposals" id="fluxdock_base_menu_proposals"
-        parent="specific_project.fluxdock_menu_project"
+        parent="fluxdock_project.fluxdock_menu_project"
         groups="base.group_user"
         action="specific_project_proposal.action_project_proposal"
         />

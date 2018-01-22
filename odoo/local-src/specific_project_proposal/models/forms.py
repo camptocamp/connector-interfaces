@@ -50,7 +50,7 @@ class ProposalForm(models.AbstractModel):
         """Override to add help messages."""
         super(ProposalForm, self).form_update_fields_attributes(_fields)
         industry_help = self.env.ref(
-            'specific_project.ref_form_industry_help',
+            'fluxdock_project.ref_form_industry_help',
             raise_if_not_found=False)
         if industry_help:
             help_text = industry_help.render({

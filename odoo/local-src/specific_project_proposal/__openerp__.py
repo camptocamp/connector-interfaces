@@ -12,7 +12,7 @@
         'project',
         'partner_project_expertise',
         'specific_membership',
-        'specific_project',
+        'fluxdock_project',
         'fluxdock_theme',
         'mail_digest',
         'cms_delete_content',

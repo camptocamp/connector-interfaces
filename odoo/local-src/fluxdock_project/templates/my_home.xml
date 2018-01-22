@@ -3,7 +3,7 @@
 
 <template id="account" name="Fluxdock my/home: add references" inherit_id="specific_membership.my_home_content">
   <xpath expr="//div[@id='col-1']/t[@t-call][last()]" position="after">
-        <t t-call="specific_project.reference_overview" />
+        <t t-call="fluxdock_project.reference_overview" />
   </xpath>
 </template>
 
