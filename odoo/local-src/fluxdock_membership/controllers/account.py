@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import http
-from openerp.http import request
-from openerp.addons.website_portal.controllers.main import website_account
+from odoo import http
+from odoo.http import request
+from odoo.addons.website_portal.controllers.main import website_account
 
-from openerp.addons.cms_form.controllers.main import FormControllerMixin
+from odoo.addons.cms_form.controllers.main import FormControllerMixin
 
 import datetime
 

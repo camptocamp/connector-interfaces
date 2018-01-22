@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from openerp import models, fields, _
-from openerp import SUPERUSER_ID
-from openerp.addons.base.ir.ir_mail_server import MailDeliveryException
-from openerp.addons.cms_form.widgets import ImageWidget
-from openerp.addons.cms_form.widgets import M2OWidget
+from odoo import models, fields, _
+from odoo import SUPERUSER_ID
+from odoo.addons.base.ir.ir_mail_server import MailDeliveryException
+from odoo.addons.cms_form.widgets import ImageWidget
+from odoo.addons.cms_form.widgets import M2OWidget
 
 import json
 import logging

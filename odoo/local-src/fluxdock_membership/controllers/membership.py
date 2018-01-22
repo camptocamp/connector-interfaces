@@ -1,16 +1,15 @@
-# -*- coding: utf-8 -*-
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from openerp import http
-from openerp.http import request
-from openerp.addons.website_membership.controllers.main import (
+from odoo import http
+from odoo.http import request
+from odoo.addons.website_membership.controllers.main import (
     WebsiteMembership as WebsiteMembershipController
 )
-from openerp.addons.website.models.website import unslug
+from odoo.addons.website.models.website import unslug
 
 
-from openerp.addons.cms_form.controllers.main import SearchFormControllerMixin
+from odoo.addons.cms_form.controllers.main import SearchFormControllerMixin
 
 
 class WebsiteMembership(WebsiteMembershipController,

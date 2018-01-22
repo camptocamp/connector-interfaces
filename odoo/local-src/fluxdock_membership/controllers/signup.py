@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
 import logging
 import werkzeug
 import json
 
-from openerp import SUPERUSER_ID
-from openerp import http
-from openerp.http import request
-from openerp.tools.translate import _
-from openerp.addons.auth_signup_verify_email.controllers.main\
+from odoo import SUPERUSER_ID
+from odoo import http
+from odoo.http import request
+from odoo.tools.translate import _
+from odoo.addons.auth_signup_verify_email.controllers.main\
     import SignupVerifyEmail
-from openerp.addons.auth_signup.res_users import SignupError
-from openerp.addons.web.controllers.main import ensure_db
-from openerp.addons.web.controllers.main import db_info
+from odoo.addons.auth_signup.res_users import SignupError
+from odoo.addons.web.controllers.main import ensure_db
+from odoo.addons.web.controllers.main import db_info
 
 _logger = logging.getLogger(__name__)
 

@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # © 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import openerp
-from openerp import api, models, fields, exceptions, _
-from openerp.addons.website.models.website import slug
+import odoo
+from odoo import api, models, fields, exceptions, _
+from odoo.addons.website.models.website import slug
 
 import logging
 import threading
@@ -250,22 +249,22 @@ class ResPartner(models.Model):
             return False
 
         if self.env.context.get('partner_type') == 'delivery':
-            img_path = openerp.modules.get_module_resource(
+            img_path = odoo.modules.get_module_resource(
                 'base', 'static/src/img', 'truck.png')
         elif self.env.context.get('partner_type') == 'invoice':
-            img_path = openerp.modules.get_module_resource(
+            img_path = odoo.modules.get_module_resource(
                 'base', 'static/src/img', 'money.png')
         else:
             if is_company:
-                img_path = openerp.modules.get_module_resource(
+                img_path = odoo.modules.get_module_resource(
                     'base', 'static/src/img', 'company_image.png')
             else:
-                img_path = openerp.modules.get_module_resource(
+                img_path = odoo.modules.get_module_resource(
                     'fluxdock_theme', 'static/img', 'member-placeholder.png')
         with open(img_path, 'rb') as f:
             image = f.read()
 
-        return openerp.tools.image_resize_image_big(image.encode('base64'))
+        return odoo.tools.image_resize_image_big(image.encode('base64'))
 
     @api.multi
     def redirect_after_publish(self):

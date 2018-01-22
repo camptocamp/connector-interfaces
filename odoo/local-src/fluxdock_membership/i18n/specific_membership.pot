@@ -420,7 +420,7 @@ msgid "Contact"
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/xml/image_upload.xml:20
 #: code:addons/fluxdock_membership/static/src/xml/image_upload.xml:20
 #, python-format
@@ -438,7 +438,7 @@ msgid "Create a free account here"
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/xml/image_upload.xml:40
 #: code:addons/fluxdock_membership/static/src/xml/image_upload.xml:40
 #, python-format
@@ -583,7 +583,7 @@ msgid "If you modify your email, your login will be updated as well."
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/xml/image_upload.xml:28
 #: code:addons/fluxdock_membership/static/src/xml/image_upload.xml:28
 #, python-format
@@ -730,7 +730,7 @@ msgid "Phone:"
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/js/widgets.js:67
 #: code:addons/fluxdock_membership/static/src/js/widgets.js:67
 #, python-format
@@ -803,7 +803,7 @@ msgid "SET / CONFIRM PASSWORD"
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/xml/image_upload.xml:38
 #: code:addons/fluxdock_membership/static/src/xml/image_upload.xml:38
 #, python-format
@@ -930,7 +930,7 @@ msgid "Twitter:"
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/xml/image_upload.xml:9
 #: code:addons/fluxdock_membership/static/src/xml/image_upload.xml:9
 #, python-format
@@ -943,7 +943,7 @@ msgid "Upload picture"
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/xml/image_upload.xml:12
 #: code:addons/fluxdock_membership/static/src/xml/image_upload.xml:12
 #, python-format
@@ -1017,7 +1017,7 @@ msgid "You can now proceed to the project market."
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/js/widgets.js:76
 #: code:addons/fluxdock_membership/static/src/js/widgets.js:76
 #, python-format
@@ -1082,7 +1082,7 @@ msgid "member profile"
 msgstr ""
 
 #. module: fluxdock_membership
-#. openerp-web
+#. odoo-web
 #: code:addons/odoo/local-src/fluxdock_membership/static/src/xml/image_upload.xml:38
 #: code:addons/fluxdock_membership/static/src/xml/image_upload.xml:38
 #: model:ir.ui.view,arch_db:fluxdock_membership.become_member_claim
