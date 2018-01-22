@@ -1,16 +1,13 @@
 import logging
 import werkzeug
-import json
 
 from odoo import SUPERUSER_ID
 from odoo import http
 from odoo.http import request
-from odoo.tools.translate import _
 from odoo.addons.auth_signup_verify_email.controllers.main\
     import SignupVerifyEmail
-from odoo.addons.auth_signup.res_users import SignupError
 from odoo.addons.web.controllers.main import ensure_db
-from odoo.addons.web.controllers.main import db_info
+from odoo.exceptions import AccessError
 
 _logger = logging.getLogger(__name__)
 
@@ -32,6 +29,8 @@ class AuthSignupHome(SignupVerifyEmail):
             })
         return response
 
+    # TODO: split this to website module
+    # and make redirect and groups configurable
     @http.route('/web', type='http', auth="none")
     def web_client(self, s_action=None, **kw):
         """Protect backend home.
@@ -44,76 +43,40 @@ class AuthSignupHome(SignupVerifyEmail):
         if kw.get('redirect'):
             return werkzeug.utils.redirect(kw.get('redirect'), 303)
 
-        request.uid = request.session.uid
-
-        # check backend permissions
-        has_backend_permissions = False
-        if request.uid == SUPERUSER_ID:
-            has_backend_permissions = True
-        else:
-            for xmlid in ('base.group_website_designer',):
-                if request.env.user.has_group(xmlid):
-                    has_backend_permissions = True
-                    break
-
-        if not has_backend_permissions:
+        backend_access = self._check_home_access()
+        if not backend_access:
             # redirect to public homepage
             return http.local_redirect('/my/home',
                                        query=request.params,
                                        keep_hash=True)
 
-        menu_data = request.registry['ir.ui.menu'].load_menus(
-            request.cr, request.uid, request.debug, context=request.context)
-        return request.render('web.webclient_bootstrap',
-                              qcontext={'menu_data': menu_data,
-                                        'db_info': json.dumps(db_info())})
+        request.uid = request.session.uid
 
-    def _get_user_lang(self):
-        """Retrieve user language."""
-        langs = request.env['res.lang'].search_read([], ['code'])
-        supported_langs = [
-            lang['code'] for lang in langs
-        ]
-        lang = 'en_US'
-        if request.lang in supported_langs:
-            lang = request.lang
-        return lang
+        try:
+            context = request.env['ir.http'].webclient_rendering_context()
+            response = request.render(
+                'web.webclient_bootstrap', qcontext=context)
+            response.headers['X-Frame-Options'] = 'DENY'
+            return response
+        except AccessError:
+            return werkzeug.utils.redirect('/web/login?error=access')
 
-    def passwordless_signup(self, values):
-        """Override to handle country and other values on partner."""
-        # normally the lang is computed when you finalize the signup
-        # here we need to force it since at this point the user will be created
-        # and `auth_signup_verify_email` does not handle this
-        # since it does not use `do_signup`.
-        # See https://github.com/OCA/server-tools/issues/585
-        values['lang'] = self._get_user_lang()
-        response = super(AuthSignupHome, self).passwordless_signup(values)
-        qcontext = response.qcontext
-        if 'error' not in qcontext and request.httprequest.method == 'POST':
-            try:
-                login = qcontext.get('login')
-                res_users = request.env['res.users'].sudo()
-                user = res_users.search([('login', '=', login)])
-                if user:
-                    partner = user.partner_id
-                    partner.write({
-                        'is_company': True,
-                        # publish member only after confirm!
-                        'website_published': False,
-                        'free_member': 'true',
-                        # FIXME: make sure partner is attached to its user
-                        # sounds like this is no happening ALWAYS
-                        # and we really need this for website features.
-                        # OTOH the user is always attached to the partner :S
-                        'user_id': user.id
-                    })
-                    qcontext['show_thanks'] = True
-                    # return request.render(
-                    #     'fluxdock_membership.thanks_for_registration',
-                    #     {})
-            except (SignupError, AssertionError) as e:
-                qcontext['error'] = _(e.message)
-        return response
+    def _check_home_access(self):
+        # check backend permissions
+        has_backend_permissions = False
+        user = request.env.user
+        # surprisingly enough: sometimes you don't get the user here
+        # even if you are logged in :(
+        if not user and request.session.uid:
+            user = request.env['res.users'].browse(request.session.uid)
+        if user._is_admin() or user._is_system():
+            has_backend_permissions = True
+        else:
+            for xmlid in ('base.group_website_designer', ):
+                if request.env.user.has_group(xmlid):
+                    has_backend_permissions = True
+                    break
+        return has_backend_permissions
 
 
 class PrivatePerson(http.Controller):

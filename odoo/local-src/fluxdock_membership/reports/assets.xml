@@ -2,12 +2,18 @@
 <odoo>
     <data>
 
-    <template id="assets_common" name="Fluxdock reports assets" inherit_id="report.assets_common">
+    <!-- FIXME 2018-01-24
+    ATM is not clear if we have to keep this report. If yes:
+        - fix templates according to https://github.com/OCA/maintainer-tools/wiki/Migration-to-version-11.0
+        - reports have to be splitted out to fluxdock_reports
+    -->
+
+    <!-- <template id="assets_common" name="Fluxdock reports assets" inherit_id="web.report_assets_common">
         <xpath expr="." position="inside">
             <link href="/fluxdock_theme/static/less/webfonts.css" rel="stylesheet" type="text/css" />
             <link href="/fluxdock_membership/static/src/less/report.less" rel="stylesheet"/>
         </xpath>
-    </template>
+    </template> -->
 
     </data>
 </odoo>

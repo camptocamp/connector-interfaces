@@ -19,7 +19,8 @@
 
       </field>
     </record>
-
+    <!-- TODO: membership cleanup -->
+<!--
     <record model="ir.ui.view" id="partner_membership_form">
         <field name="name">Fluxdock partner membership form</field>
         <field name="model">res.partner</field>
@@ -30,7 +31,7 @@
             <field name="flux_membership"/>
           </xpath>
         </field>
-    </record>
+    </record> -->
 
     <record model="ir.ui.view" id="profile_view_partner_form">
       <field name="name">Fluxdock partner form profile</field>

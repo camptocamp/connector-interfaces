@@ -1,4 +1,4 @@
-# © 2016 Denis Leemann (Camptocamp)
+# Copyright 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import models, fields, api, _
 
@@ -36,6 +36,8 @@ class ResUsers(models.Model):
         )
     ]
 
+    # FIXME: user_id is used by odoo for "salesman". Yes, I know... :(
+    # So we should rely on user_ids[0]
     @api.model
     def _handle_partner_user(self, user):
         if user.has_group('base.group_portal') \
@@ -58,6 +60,7 @@ class ResUsers(models.Model):
             self._handle_partner_user(user)
         return res
 
+    # TODO: check if still needed in v11
     # overridden to be able to use our own email templates!
     def action_reset_password(self, cr, uid, ids, context=None):
         """ create signup token for each user, and send their signup url by email """ # noqa

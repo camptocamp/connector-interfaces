@@ -1,9 +1,9 @@
-# © 2016 Denis Leemann (Camptocamp)
+# Copyright 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import odoo
 from odoo import api, models, fields, exceptions, _
-from odoo.addons.website.models.website import slug
+from odoo.addons.http_routing.models.ir_http import slug
 
 import logging
 import threading
@@ -37,6 +37,9 @@ class ResPartner(models.Model):
         compute='_compute_flux_membership',
         required=True
     )
+    # TODO: TMP field to fixup membership module removal
+    # we some features like RR relying on this
+    membership_state = fields.Char(default='free')
     is_associate = fields.Boolean(
         string='Is associate member',
         compute='_compute_is_associate',
@@ -117,14 +120,18 @@ class ResPartner(models.Model):
         ]
         return options
 
+    # TODO: cleanup membeship stuff
+    # all the methods from here to the bottom must be reviewed
+
     @api.multi
-    @api.depends('membership_state')
+    # @api.depends('membership_state')
     def _compute_flux_membership(self):
         for item in self:
-            if (item.membership_state in ['paid', 'invoiced']):
-                item.flux_membership = 'asso'
-            else:
-                item.flux_membership = 'free'
+            # if (item.membership_state in ['paid', 'invoiced']):
+            #     item.flux_membership = 'asso'
+            # else:
+            #     item.flux_membership = 'free'
+            item.flux_membership = 'free'
 
     @property
     def flux_membership_display(self):

@@ -4,8 +4,6 @@
 from odoo import models, fields, _
 from odoo import SUPERUSER_ID
 from odoo.addons.base.ir.ir_mail_server import MailDeliveryException
-from odoo.addons.cms_form.widgets import ImageWidget
-from odoo.addons.cms_form.widgets import M2OWidget
 
 import json
 import logging
@@ -16,9 +14,10 @@ except ImportError:
     _logger.debug("Cannot import `validate_email`.")
 
 
-class PriorityCountryM2OWidget(M2OWidget):
-
-    key = 'fluxdock_theme.country_field_widget_m2o'
+class PriorityCountryM2OWidget(models.AbstractModel):
+    _name = 'fluxdock.form.widget.country_m2o'
+    _inherit = 'cms.form.widget.many2one'
+    _w_template = 'fluxdock_theme.country_field_widget_m2o'
 
     priority_countries = (
         'base.ch',
@@ -49,6 +48,14 @@ class PriorityCountryM2OWidget(M2OWidget):
         return result
 
 
+# TODO: this should be part of the account form
+class EmailWidget(models.AbstractModel):
+    _name = 'fluxdock.form.widget.email'
+    _inherit = 'cms.form.widget.char'
+    _w_template = 'fluxdock_membership.email_field_widget_char'
+
+
+# TODO: this should be (most of it) part of the cms_account_form
 class PartnerForm(models.AbstractModel):
     """Partner model form."""
 
@@ -115,7 +122,7 @@ class PartnerForm(models.AbstractModel):
         super(PartnerForm, self).form_update_fields_attributes(_fields)
 
         # add extra help texts
-        for fname, help_text in self.help_texts.iteritems():
+        for fname, help_text in self.help_texts.items():
             if help_text.startswith('_xmlid:'):
                 tmpl = self.env.ref(
                     help_text[len('_xmlid:'):], raise_if_not_found=False)
@@ -127,28 +134,31 @@ class PartnerForm(models.AbstractModel):
             _fields[fname]['help'] = help_text
 
         # update some labels
-        for fname, label in self.field_label_overrides.iteritems():
+        for fname, label in self.field_label_overrides.items():
             _fields[fname]['string'] = label
 
+    @property
+    def form_widgets(self):
+        widgets = super().form_widgets
+
+        # FIXME: handle this param w/ new widgets
         # update image widget to force size
-        data = {
-            'image_preview_width': 200,
-            'image_preview_height': 200,
-        }
-        data['forced_style'] = (
-            'width:{image_preview_width}px;'
-            'height:{image_preview_height}px;'
-        ).format(**data)
-        _fields['image']['widget'] = ImageWidget(
-            self, 'image', _fields['image'], data=data)
+        # data = {
+        #     'image_preview_width': 200,
+        #     'image_preview_height': 200,
+        # }
+        # data['forced_style'] = (
+        #     'width:{image_preview_width}px;'
+        #     'height:{image_preview_height}px;'
+        # ).format(**data)
+        # _fields['image']['widget'] = ImageWidget(
+        #     self, 'image', _fields['image'], data=data)
 
-        # use another template for email widget
-        _fields['email']['widget'].key = \
-            'fluxdock_membership.email_field_widget_char'
-
-        # pre-sorted countries widget
-        _fields['country_id']['widget'] = PriorityCountryM2OWidget(
-            self, 'country_id', _fields['country_id'], data={})
+        widgets.update({
+            'email': 'fluxdock.form.widget.email',
+            'country_id': 'fluxdock.form.widget.country_m2o'
+        })
+        return widgets
 
     def form_validate_email(self, value, **req_values):
         error, message = None, None

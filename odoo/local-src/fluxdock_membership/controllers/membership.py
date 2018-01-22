@@ -1,4 +1,4 @@
-# © 2016 Denis Leemann (Camptocamp)
+# Copyright 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 from odoo import http
@@ -6,8 +6,7 @@ from odoo.http import request
 from odoo.addons.website_membership.controllers.main import (
     WebsiteMembership as WebsiteMembershipController
 )
-from odoo.addons.website.models.website import unslug
-
+from odoo.addons.http_routing.models.ir_http import unslug
 
 from odoo.addons.cms_form.controllers.main import SearchFormControllerMixin
 
@@ -57,6 +56,8 @@ class WebsiteMembership(WebsiteMembershipController,
                 return request.website.render(
                     "website_membership.partner", values)
         return request.redirect('/members', code=302)
+
+    # TODO: drop this stuff as we drop membership upgrades
 
     @http.route(['/my/membership'], type='http', auth="user", website=True)
     def details(self, redirect=None, **post):

@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 
 <odoo>
-    <record model="ir.cron" id="cron_membership_check_payment">
+  <!-- TODO: broken, but we should drop this as we drop membership stuff -->
+    <!-- <record model="ir.cron" id="cron_membership_check_payment">
         <field name="name">Check membership invoice payment</field>
         <field name="interval_number">1</field>
         <field name="priority">10</field>
@@ -26,7 +27,7 @@
             <field name="taxes_id" eval="[(6,0, [ref('l10n_ch.vat_80')])]"/>
             <field name="type">service</field>
         </record>
-    </data>
+    </data> -->
 
     <!-- override address format -->
     <record id="base.ch" model="res.country">
