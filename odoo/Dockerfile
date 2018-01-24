@@ -21,6 +21,7 @@ RUN chmod +x odoo/before-migrate-entrypoint.d/* \
 ENV ADDONS_PATH="/opt/odoo/local-src, \
 /opt/odoo/external-src/server-tools, \
 /opt/odoo/external-src/server-env, \
+/opt/odoo/external-src/server-auth, \
 /opt/odoo/src/addons, \
 /opt/odoo/external-src/website-cms, \
 /opt/odoo/external-src/social, \

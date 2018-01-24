@@ -5,28 +5,11 @@
     smk: git@github.com:simahawk/website-cms.git
   merges:
     - oca 11.0
-      # migrate all to 11.0
-    - oca refs/pull/32/head
+    # migrate all to 11.0
+    # [MIG][11.0] cms_form #36
+    #- oca refs/pull/36/head
+    # [MIG][11] cms_notification #37
+    #- oca refs/pull/37/head
+    # catch them all to skip conflicts
+    - c2c v11-3582-merge-all-pending
   target: &default_target c2c merge-branch-3582-dev
-./external-src/server-env:
-  remotes:
-    oca: git@github.com:OCA/server-env.git
-    c2c: git@github.com:camptocamp/server-env.git
-    smk: git@github.com:simahawk/server-env.git
-  merges:
-    - oca 11.0
-    # MIG mail_environment
-    - oca refs/pull/7/head
-    # MIG server_environment_ir_config_parameter
-    - oca refs/pull/8/head
-  target: *default_target
-./external-src/social:
-  remotes:
-    oca: git@github.com:OCA/social.git
-    c2c: git@github.com:camptocamp/social.git
-    smk: git@github.com:simahawk/social.git
-  merges:
-    - oca 11.0
-    # MIG mail_digest
-    - oca refs/pull/225/head
-  target: *default_target
