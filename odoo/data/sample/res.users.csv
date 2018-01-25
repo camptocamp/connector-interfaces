@@ -1,0 +1,4 @@
+id,login,name,password,lang,email,country_id/id,tz,groups_id/id
+__sample__.res_user_freemember,freemember,Demo Free Member,freemember,en_US,freemember@fludock.io,base.ch,Europe/Brussels,base.group_portal
+__sample__.res_user_associatemember,associatemember,Demo Associate Member,associatemember,en_US,associatemember@fludock.io,base.ch,Europe/Brussels,base.group_portal
+__sample__.res_user_freemember_pvt,freemember_pvt,Demo Free Private Member,freemember_pvt,en_US,freemember_pvt@fludock.io,base.ch,Europe/Brussels,base.group_portal

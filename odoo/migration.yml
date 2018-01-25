@@ -11,16 +11,18 @@ migration:
         post:
           ## PLATFORM
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
-      #     - anthem songs.install.data_all::main
-      # modes:
-      #   full:
-      #     operations:
-      #       post:
-      #         - anthem songs.install.data_full::main
-      #   sample:
-      #     operations:
-      #       post:
-      #         - anthem songs.sample.data_sample::main
+          - anthem songs.install.post::main
+          - anthem songs.install.users::main
+          - anthem songs.install.email::main
+      modes:
+        # full:
+        #   operations:
+        #     post:
+        #       - anthem songs.install.data_full::main
+        sample:
+          operations:
+            post:
+              - anthem songs.sample.data_sample::main
       addons:
         upgrade:
           ## PLATFORM
@@ -28,18 +30,16 @@ migration:
           - attachment_s3
           #### oca/server-tools
           - base_technical_features
+          #### oca/server-env
           - server_environment
           - server_environment_ir_config_parameter
+          - mail_environment
           #### oca/web
           - web_environment_ribbon
           #### oca/social
           - mail_digest
           #### camptocamp/odoo-dj
           - base_dj
-    # TMP version
-    - version: 11.0.1 
-      addons:
-        upgrade:
           #### local-src
           - fluxdock_membership
           - fluxdock_theme

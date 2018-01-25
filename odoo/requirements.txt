@@ -15,4 +15,9 @@ statsd==3.2.1
 ## PLATFORM, for s3 storage at Exoscale
 boto==2.42.0
 
+
+# auth_signup_verify_email + cms_account_form
+validate_email
+
 ## custom
+

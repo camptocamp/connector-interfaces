@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
@@ -42,7 +41,7 @@ def create_default_value(ctx, model, field, value, company_id):
 
 def set_default_values(ctx, company, defaults):
     for model, field, value in defaults:
-        if isinstance(value, basestring) and value.startswith('ref:'):
+        if isinstance(value, str) and value.startswith('ref:'):
             record = ctx.env.ref(value[3:])
             value = record.id
         create_default_value(ctx, model, field, value, company.id)

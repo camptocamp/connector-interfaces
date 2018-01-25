@@ -164,6 +164,7 @@ class ResPartner(models.Model):
         res = super(ResPartner, self).is_owner(uid)
         return res or self.user_id.id == uid
 
+    # TODO: very likely to be dropped as we are dropping membership features
     @api.multi
     def create_membership_invoice(
             self, product_id=None, datas=None, email=True):

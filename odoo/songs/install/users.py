@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
@@ -28,7 +27,12 @@ def configure_admin_user(ctx):
     admin.write(
         {'company_ids': [(6, 0, companies.ids)]}
     )
+    # enable multicompany
     ctx.env.ref('base.group_multi_company').write(
+        {'users': [(4, admin.id)]}
+    )
+    # enable tech features
+    ctx.env.ref('base.group_no_one').write(
         {'users': [(4, admin.id)]}
     )
 
