@@ -2,11 +2,13 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import odoo
-from odoo import api, models, fields, exceptions, _
+from odoo import api, models, fields, exceptions, tools, _
 from odoo.addons.http_routing.models.ir_http import slug
+from odoo.modules import get_module_resource
 
 import logging
 import threading
+import base64
 
 _logger = logging.getLogger(__file__)
 
@@ -137,7 +139,7 @@ class ResPartner(models.Model):
     def flux_membership_display(self):
         opts = dict(self.fields_get(
             allfields=['flux_membership'])['flux_membership']['selection'])
-        return opts[self.flux_membership]
+        return opts.get(self.flux_membership, 'FIXME')
 
     @api.multi
     @api.depends('flux_membership')
@@ -250,29 +252,39 @@ class ResPartner(models.Model):
         return res
 
     @api.model
-    def _get_default_image(self, is_company, colorize=False):
-        """Override to change default partner avatar."""
-        if getattr(threading.currentThread(), 'testing', False) \
-                or self.env.context.get('install_mode'):
+    def _get_default_image(self, partner_type, is_company, parent_id):
+        """Bare copy/paste of original code: change default avatar only."""
+        if (getattr(threading.currentThread(), 'testing', False)
+                or self._context.get('install_mode')):
             return False
 
-        if self.env.context.get('partner_type') == 'delivery':
-            img_path = odoo.modules.get_module_resource(
-                'base', 'static/src/img', 'truck.png')
-        elif self.env.context.get('partner_type') == 'invoice':
-            img_path = odoo.modules.get_module_resource(
-                'base', 'static/src/img', 'money.png')
-        else:
-            if is_company:
-                img_path = odoo.modules.get_module_resource(
-                    'base', 'static/src/img', 'company_image.png')
-            else:
-                img_path = odoo.modules.get_module_resource(
-                    'fluxdock_theme', 'static/img', 'member-placeholder.png')
-        with open(img_path, 'rb') as f:
-            image = f.read()
+        colorize, img_path, image = False, False, False
 
-        return odoo.tools.image_resize_image_big(image.encode('base64'))
+        if partner_type in ['other'] and parent_id:
+            parent_image = self.browse(parent_id).image
+            image = parent_image and base64.b64decode(parent_image) or None
+
+        if not image and partner_type == 'invoice':
+            img_path = get_module_resource(
+                'base', 'static/src/img', 'money.png')
+        elif not image and partner_type == 'delivery':
+            img_path = get_module_resource(
+                'base', 'static/src/img', 'truck.png')
+        elif not image and is_company:
+            img_path = get_module_resource(
+                'base', 'static/src/img', 'company_image.png')
+        elif not image:
+            img_path = get_module_resource(
+                'fluxdock_theme', 'static/img', 'member-placeholder.png')
+            colorize = True
+
+        if img_path:
+            with open(img_path, 'rb') as f:
+                image = f.read()
+        if image and colorize:
+            image = tools.image_colorize(image)
+
+        return tools.image_resize_image_big(base64.b64encode(image))
 
     @api.multi
     def redirect_after_publish(self):
