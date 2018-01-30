@@ -7,6 +7,8 @@ Latest (Unreleased)
 
 **Bugfixes**
 
+* Add oca/web to addon path.
+
 **Build**
 
 **Documentation**

@@ -133,3 +133,7 @@ migration:
         post:
           # fix error in lang
           - anthem songs.install.post::add_matches_notification_template
+    - version: 9.5.1
+      addons:
+        upgrade:
+          - web_environment_ribbon

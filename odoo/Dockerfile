@@ -24,4 +24,5 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
 /opt/odoo/external-src/website-cms, \
 /opt/odoo/external-src/social, \
 /opt/odoo/external-src/odoo-cloud-platform, \
+/opt/odoo/external-src/web \
 "
