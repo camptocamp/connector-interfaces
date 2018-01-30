@@ -7,12 +7,17 @@ Latest (Unreleased)
 
 **Bugfixes**
 
-* Add oca/web to addon path.
-
 **Build**
 
 **Documentation**
 
+
+9.5.1 (2018-01-30)
+++++++++++++++++++
+
+**Bugfixes**
+
+* Add oca/web to addon path.
 
 9.5.0 (2018-01-30)
 ++++++++++++++++++
