@@ -120,16 +120,14 @@ migration:
           - cms_notifications
           - specific_project_proposal
           - specific_membership
-    - version: 9.4.1
+    - version: 9.5.0
       addons:
         upgrade:
           # OCA/server-tools
           - server_environment_ir_config_parameter
           # OCA/web
           - web_environment_ribbon
-    - version: 9.4.2
-      addons:
-        upgrade:
+          # OCA/social
           - mail_digest
       operations:
         post:

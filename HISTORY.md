@@ -5,6 +5,18 @@ Latest (Unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+9.5.0 (2018-01-30)
+++++++++++++++++++
+
+**Features and Improvements**
+
 * Install module `web_environment_ribbon`
 
 **Bugfixes**
@@ -24,9 +36,6 @@ Latest (Unreleased)
 * Upgrade docker-compose to 1.17.1
 * Remove unused PO file to reduce docker image size
 * Update odoo-cloud-platform (BIZ-1093)
-
-**Documentation**
-
 
 9.4 (2017-05-23)
 ++++++++++++++++
