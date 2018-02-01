@@ -162,21 +162,27 @@ class ProjectProposal(models.Model):
     @api.depends('industry_ids', 'expertise_ids')
     def _compute_matching_partner_ids(self):
         """Get matching partners by expertise and industry."""
-        Partner = self.env['res.partner'].sudo()
+        partner_sudo = self.env['res.partner'].sudo()
         for item in self:
+            # TODO 2018-02-1: as of v11 refactoring and membership cleanup
+            # we are getting a perm issue here in tests.
+            # Should be ok to sudo here as we need to compute
+            # all possible matches. Nevertheless: let's double check this
+            # when we have time.
+            item_sudo = item.sudo()
             if isinstance(item.id, models.NewId):
                 # bad fields behavior in form:
                 # when removing a tag here you get a new object :/
                 continue
-            ind_ids = item.industry_ids.ids
-            exp_ids = item.expertise_ids.ids
-            item.matching_partner_ids = Partner.search(
-                ['|', ('expertise_ids', 'in', exp_ids),
-                      ('category_id', 'in', ind_ids),
-                 ('user_id.proposal_blacklist_ids', 'not in', [item.id, ]),
-                 ('id', '!=', item.create_uid.partner_id.id),
-                 ],
-            )
+            ind_ids = item_sudo.industry_ids.ids
+            exp_ids = item_sudo.expertise_ids.ids
+            item.matching_partner_ids = partner_sudo.search([
+                '|',
+                ('expertise_ids', 'in', exp_ids),
+                ('category_id', 'in', ind_ids),
+                ('user_id.proposal_blacklist_ids', 'not in', [item_sudo.id, ]),
+                ('id', '!=', item_sudo.create_uid.partner_id.id),
+            ])
 
     @property
     def _matches_subtype(self):

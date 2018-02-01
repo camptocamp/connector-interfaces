@@ -1,7 +1,7 @@
 # Copyright 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, models, fields, exceptions, tools, _
+from odoo import api, models, fields, tools, _
 from odoo.addons.http_routing.models.ir_http import slug
 from odoo.modules import get_module_resource
 
@@ -13,7 +13,6 @@ _logger = logging.getLogger(__file__)
 
 FLUX_MEMBERSHIP_OPTIONS = [
     ('free', _('Free Membership')),
-    ('asso', _('Associate Membership')),
 ]
 
 
@@ -28,6 +27,7 @@ class ResPartner(models.Model):
         # This is due to a bug in v8/9 whereas some inheritance on res.partner
         # model are broken at some point.
         # https://github.com/odoo/odoo/issues/9084#issuecomment-148373268
+        # TODO: v11 should fix this -> check!
         'website.published.mixin',
     ]
 
@@ -41,11 +41,6 @@ class ResPartner(models.Model):
     # TODO: TMP field to fixup membership module removal
     # we some features like RR relying on this
     membership_state = fields.Char(default='free')
-    is_associate = fields.Boolean(
-        string='Is associate member',
-        compute='_compute_is_associate',
-        readonly=True,
-    )
     is_free = fields.Boolean(
         string='Is free member',
         compute='_compute_is_free',
@@ -124,27 +119,11 @@ class ResPartner(models.Model):
     # TODO: cleanup membeship stuff
     # all the methods from here to the bottom must be reviewed
 
-    @api.multi
-    # @api.depends('membership_state')
-    def _compute_flux_membership(self):
-        for item in self:
-            # if (item.membership_state in ['paid', 'invoiced']):
-            #     item.flux_membership = 'asso'
-            # else:
-            #     item.flux_membership = 'free'
-            item.flux_membership = 'free'
-
     @property
     def flux_membership_display(self):
         opts = dict(self.fields_get(
-            allfields=['flux_membership'])['flux_membership']['selection'])
+            ['flux_membership'])['flux_membership']['selection'])
         return opts.get(self.flux_membership, 'FIXME')
-
-    @api.multi
-    @api.depends('flux_membership')
-    def _compute_is_associate(self):
-        for item in self:
-            item.is_associate = item.flux_membership == 'asso'
 
     @api.multi
     @api.depends('flux_membership')
@@ -164,84 +143,6 @@ class ResPartner(models.Model):
     def is_owner(self, uid):
         res = super(ResPartner, self).is_owner(uid)
         return res or self.user_id.id == uid
-
-    # TODO: very likely to be dropped as we are dropping membership features
-    @api.multi
-    def create_membership_invoice(
-            self, product_id=None, datas=None, email=True):
-        """Override to update add fluxdock  goodies.
-
-        Goodies:
-        * update fluxdock status
-        * generate invoice
-        * send notifcation to partner w/ invoice attached
-        """
-        # `datas` is so wrong, yes,
-        # but it's the original method's signature from membership module
-        self.ensure_one()
-        prod_obj = self.env['product.product']
-        acc_inv_obj = self.env['account.invoice']
-        if datas is None:
-            datas = {}
-
-        product_id = product_id or datas.get('membership_product_id')
-        product = prod_obj.browse(product_id) or prod_obj.search(
-            [('default_code', '=', 'associate')])
-        if not product:
-            raise exceptions.Warning(
-                _('There is no associate default product'))
-
-        datas = {'membership_product_id': product.id,
-                 'amount': product.list_price}
-
-        if self.free_member is True:
-            self.free_member = False
-
-        inv = super(ResPartner, self).create_membership_invoice(
-            product_id=product,
-            datas=datas)
-        inv = acc_inv_obj.browse(inv)
-        inv.signal_workflow('invoice_open')
-
-        self.flux_membership = 'asso'
-
-        if email:
-            # handy flag for disable this (tests i.e.)
-            template = self.env.ref(
-                'fluxdock_membership.mail_membership_upgrade')
-
-            if template:
-                template.send_mail(inv.id)
-            else:
-                _logger.warning(
-                    "No email template found for "
-                    "`fluxdock_membership.mail_membership_upgrade`")
-
-        # make original action happy and returns list of ids
-        return inv.ids
-
-    @api.multi
-    def button_buy_membership(self):
-        self.create_membership_invoice()
-
-    @api.model
-    def check_membership_payment(self):
-        partners = self.search(
-            [('membership_state', '=', 'invoiced')])
-        acc_inv_obj = self.env['account.invoice']
-        today = fields.Date.today()
-
-        part_to_update = self.env['res.partner']
-
-        for partner in partners:
-            acc_inv = acc_inv_obj.search_count(
-                [('partner_id', '=', partner.id),
-                 ('date_due', '<', today),
-                 ('state', '=', 'open')])
-            if acc_inv:
-                part_to_update |= partner
-
-        part_to_update.write({'flux_membership': 'free'})
 
     @api.multi
     def _website_url(self, field_name, arg):

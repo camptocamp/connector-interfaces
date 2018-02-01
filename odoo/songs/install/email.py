@@ -77,33 +77,6 @@ def change_reset_pwd_email(ctx):
     create_or_update_email_template(ctx, xmlid, values)
 
 
-# TODO: very likely to be dropped as we are dropping membership features
-# @anthem.log
-# def add_membership_upgrade_email(ctx):
-#     """ Add membership upgrade email """
-#     content = resource_stream(
-#          req, 'data/install/emails/mail_membership_upgrade.html').read()
-#     values = {
-#         'name': 'Fluxdock membership upgrade',
-#         'subject': 'Fluxdock membership upgrade confirmed',
-#         'body_html': content,
-#         'email_from': 'noreply@fluxdock.io',
-#         'model_id': ctx.env.ref('account.model_account_invoice').id,
-#         'partner_to': '${object.partner_id.id}',
-#         'lang': '${object.partner_id.lang}',
-#         'report_template': ctx.env.ref('account.account_invoices').id,
-#         'report_name': (
-#             "Invoice_${(object.number or '')"
-#             ".replace('/','_')}_${object.state == 'draft' and 'draft' or ''}"
-#         ),
-#         'auto_delete': False,
-#     }
-#     xmlid = 'fluxdock_membership.mail_membership_upgrade'
-#     # `anthem.lyrics.create_or_update`
-#     # will not update if existing and modified TTW :S
-#     create_or_update_email_template(ctx, xmlid, values)
-
-
 @anthem.log
 def override_default_notification_template(ctx):
     content = resource_stream(

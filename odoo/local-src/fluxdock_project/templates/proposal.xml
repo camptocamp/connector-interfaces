@@ -6,10 +6,7 @@
       <t t-set="is_anon" t-value="not request.session.uid"/>
       <!-- important to check for `is_anon` too because when you are anonymous user
   you are "Public User" indeed, so you could have a membership state (default to `free`)-->
-      <t t-set="is_associate" t-value="not is_anon and request.env.user.is_associate"/>
-      <t t-set="is_free_member" t-value="not is_anon and request.env.user.is_free"/>
-      <t t-set="is_owner" t-value="main_object.create_uid.id == request.session.uid"/>
-      <t t-set="can_view_details" t-value="is_associate or is_owner"/>
+      <t t-set="is_owner" t-value="main_object.is_owner(equest.session.uid)"/>
 
       <div class="opt_dark_bg proposal-detail" id="wrap">
         <t t-call="fluxdock_theme.mgmt_actions">
@@ -24,23 +21,17 @@
             </div>
             <p><b t-field="main_object.website_short_description"/></p>
             <div class="details border-tnb mb32 mt16 pt1 pb1">
-              <t t-if="can_view_details">
-                  <p t-field="main_object.website_description"/>
-              </t>
-              <div t-if="can_view_details">
-                <div class="row">
-                  <div class="col-md-3"><strong>Country:</strong>
-                  </div>
-                  <div class="col-md-9"><span t-field="main_object.country_id" />
-                  </div>
+              <p t-field="main_object.website_description"/>
+              <div class="row">
+                <div class="col-md-3"><strong>Country:</strong>
+                </div>
+                <div class="col-md-9"><span t-field="main_object.country_id" />
                 </div>
               </div>
-              <div t-if="can_view_details">
-                <div class="row">
-                  <div class="col-md-3"><strong>Location:</strong>
-                  </div>
-                  <div class="col-md-9"><span t-field="main_object.location" />
-                  </div>
+              <div class="row">
+                <div class="col-md-3"><strong>Location:</strong>
+                </div>
+                <div class="col-md-9"><span t-field="main_object.location" />
                 </div>
               </div>
               <div>
@@ -54,7 +45,7 @@
                   </div>
                 </div>
               </div>
-              <t t-if="can_view_details and main_object.industry_ids">
+              <t t-if="main_object.industry_ids">
                 <div class="row">
                   <div class="col-md-3"><strong>Industry:</strong>
                   </div>
@@ -65,7 +56,7 @@
                   </div>
                 </div>
               </t>
-              <t t-if="can_view_details and main_object.expertise_ids">
+              <t t-if="main_object.expertise_ids">
                 <div class="row">
                   <div class="col-md-3"><strong>Expertise:</strong>
                   </div>
@@ -80,7 +71,7 @@
           </div>
           <t t-set="owner_partner" t-value="main_object.sudo().create_uid.partner_id"/>
           <t t-set="owner_partner" t-value="owner_partner.parent_id if owner_partner.parent_id else owner_partner"/>
-          <t t-if="owner_partner and can_view_details">
+          <t t-if="owner_partner">
               <!-- TODO: make this a reusable template since is used also in member detail -->
             <section class="content detail-address proposal-address white_bg">
                 <div class="content-wrap">
@@ -126,19 +117,6 @@
                 </div>
             </section>
           </t>
-
-          <t t-if="not can_view_details">
-            <t t-call="fluxdock_membership.membership_actions"/>
-          </t>
-
-          <!-- <div class="white_bg pt2 backto_actions">
-            <div class="center-block main-content-wrapper text-center">
-              <a class="btn btn-dark" t-att-href="TODO">
-                <t t-if="filters == 'match'">Return to my account</t>
-                <t t-if="filters != 'match'">Return to list</t>
-              </a>
-            </div>
-          </div> -->
         </div>
       </div>
     </t>

@@ -7,10 +7,6 @@
     and to be able to use html file for it.
     See `songs/install/post`
     -->
-    <record id="mail_membership_upgrade" model="mail.template">
-        <field name="name">Fluxdock membership upgrade</field>
-    </record>
-
     <record id="set_password_email" model="mail.template">
         <field name="name">Fluxdock Signup</field>
     </record>

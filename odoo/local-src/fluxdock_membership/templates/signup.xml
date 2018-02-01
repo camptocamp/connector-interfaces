@@ -25,7 +25,7 @@
 			<div class="login-notice-wrap">
 				<div t-if="signup_enabled">
 					Not registered yet?
-					<a t-attf-href="/web/presignup?{{ keep_query() }}">Create a free account here</a>
+					<a t-attf-href="/web/signup?{{ keep_query() }}">Create a free account here</a>
 				</div>
 				<div t-if="reset_password_enabled">
 					Forgot your password?
@@ -55,26 +55,6 @@
 		</t>
 	</template>
 
-	<template id="presignup" name="Fluxdock Pre Signup Form">
-		<t t-call="web.login_layout">
-			<div class="clearfix oe_login_buttons presignup">
-				<h2>
-					THROUGH COLLABORATION TO INNOVATION
-				</h2>
-				<div class="presignup-buttons">
-					<label class="presignup-label">
-						I represent a
-					</label>
-					<a t-attf-href="/web/signup" class="btn btn-primary">Company</a>
-					<a t-attf-href="/web/privateperson" class="btn btn-primary">Private individual</a>
-				</div>
-				<p>
-					Are you already registered?
-					<a t-attf-href="/web/login">Log in here</a>
-				</p>
-			</div>
-		</t>
-	</template>
 
 	<template id="thanks_for_registration" name="Fluxdock Thanks for registration">
 		<div class="clearfix oe_login_buttons">
@@ -87,33 +67,6 @@
 		</div>
 	</template>
 
-	<template id="privateperson" name="Fluxdock Private person">
-		<t t-call="web.login_layout">
-			<div>
-				<section class="content newsletter_subscribe opt_dark_bg">
-					<div class="content-wrap">
-						<div class="content-icon">
-							<img src="/fluxdock_theme/static/img/content-icons/members-white.png"></img>
-						</div>
-						<h2>Newsletter</h2>
-						<p>Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia
-							quam ex eium Et maximos ut mole.</p>
-					</div>
-					<div class="content-wrap newsletter-form-wrap">
-						<!-- Campain Monitor form -->
-						<form id="subForm" class="newsletter-form"
-							action="//fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
-							<input name="cm-name" placeholder="Name" class="form-control"
-								type="text"></input>
-							<input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com"
-								required="required"></input>
-							<button type="submit">Subscribe</button>
-						</form>
-					</div>
-				</section>
-			</div>
-		</t>
-	</template>
 
 	<template id="reset_password" inherit_id="auth_signup.reset_password"
 		      name="Fluxdock Reset password">
@@ -340,6 +293,7 @@
 			</div>
 		  </div>
 		</div>
+		<!-- TODO: this stuff should be moved to website_legal_page features -->
 		<!-- modal end -->
 		<!-- modal for privacy policy -->
 		<div class="modal fade privacy_policy_modal" tabindex="-1" role="dialog"

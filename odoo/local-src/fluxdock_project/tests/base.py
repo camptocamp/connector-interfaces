@@ -1,7 +1,7 @@
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-# import odoo.tests.common as test_common
 from odoo import exceptions
+import base64
 
 
 class BaseTestCase(object):
@@ -69,7 +69,7 @@ class BaseTestCase(object):
             # Overridden unlink method in ProjectReference
             ref = self.model.sudo(self.user1.id).create({
                 'name': 'Foo',
-                'image': 'fake image here!'.encode('base64')
+                'image': base64.b64encode(bytes('fake image', 'utf-8'))
             })
             ref_id = ref.id
             ref.unlink()

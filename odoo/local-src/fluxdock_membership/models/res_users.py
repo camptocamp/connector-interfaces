@@ -17,11 +17,6 @@ def now(**kwargs):
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    is_associate = fields.Boolean(
-        string='Is associate member',
-        related='partner_id.is_associate',
-        readonly=True,
-    )
     is_free = fields.Boolean(
         string='Is free member',
         related='partner_id.is_free',
