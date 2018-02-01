@@ -1,7 +1,6 @@
 # Copyright 2016 Denis Leemann (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-import odoo
 from odoo import api, models, fields, exceptions, tools, _
 from odoo.addons.http_routing.models.ir_http import slug
 from odoo.modules import get_module_resource
@@ -254,8 +253,8 @@ class ResPartner(models.Model):
     @api.model
     def _get_default_image(self, partner_type, is_company, parent_id):
         """Bare copy/paste of original code: change default avatar only."""
-        if (getattr(threading.currentThread(), 'testing', False)
-                or self._context.get('install_mode')):
+        if (getattr(threading.currentThread(), 'testing', False) or
+                self._context.get('install_mode')):
             return False
 
         colorize, img_path, image = False, False, False

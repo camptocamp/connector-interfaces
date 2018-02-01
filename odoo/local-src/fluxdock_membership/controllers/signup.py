@@ -1,7 +1,6 @@
 import logging
 import werkzeug
 
-from odoo import SUPERUSER_ID
 from odoo import http
 from odoo.http import request
 from odoo.addons.auth_signup_verify_email.controllers.main\
