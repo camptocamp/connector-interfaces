@@ -25,6 +25,9 @@ ENV ADDONS_PATH="/opt/odoo/local-src, \
 /opt/odoo/external-src/odoo-dj, \
 /opt/odoo/external-src/website-cms, \
 /opt/odoo/external-src/social, \
+/opt/odoo/external-src/connector, \
+/opt/odoo/external-src/connector-interfaces, \
+/opt/odoo/external-src/queue, \
 /opt/odoo/external-src/odoo-cloud-platform, \
 /opt/odoo/src/addons, \
 "

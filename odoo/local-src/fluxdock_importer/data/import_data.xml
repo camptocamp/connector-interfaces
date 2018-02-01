@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="v9_rpc_config" model="import.odoorpc.config">
+    <field name="odoo_host">fluxdock.odoo.camptocamp.ch</field>
+    <field name="odoo_port">443</field>
+    <field name="odoo_db">polished_morning_3582</field>
+    <!-- TODO: drop these -->
+    <field name="odoo_user">admin</field>
+    <field name="odoo_pwd">wRatamAw8j</field>
+  </record>
+
+  <record id="v9_backend" model="import.backend">
+    <field name="name">Fluxdock v9</field>
+    <field name="version">1.0</field>
+  </record>
+
+  <!-- CATEGORIES / INDUSTRIES -> PROFESSIONS -->
+  <record id="v9_import_professions" model="import.type">
+    <field name="name">Fluxdock v9 Professions</field>
+    <field name="key">v9_professions</field>
+    <field name="settings">
+project.partner.profession::fluxdock.v9.profession.importer
+    </field>
+  </record>
+
+  <record id="v9_source_professions_from_categ" model="import.source.odoorpc">
+    <field name="chunk_size" eval="50" />
+    <field name="odoo_rpc_config_id" ref="v9_rpc_config" />
+    <field name="odoo_source_model">res.partner.category</field>
+    <field name="odoo_source_fields">name</field>
+  </record>
+
+  <record id="v9_recordset_professions_from_categ" model="import.recordset">
+    <field name="sequence" eval="10" />
+    <field name="backend_id" ref="v9_backend" />
+    <field name="source_model">import.source.odoorpc</field>
+    <field name="source_id" ref="v9_source_professions_from_categ" />
+    <field name="import_type_id" ref="v9_import_professions" />
+  </record>
+
+  <record id="v9_source_professions_from_exp" model="import.source.odoorpc">
+    <field name="chunk_size" eval="50" />
+    <field name="odoo_rpc_config_id" ref="v9_rpc_config" />
+    <field name="odoo_source_model">partner.project.expertise</field>
+    <field name="odoo_source_fields">name</field>
+  </record>
+
+  <record id="v9_recordset_professions_from_exp" model="import.recordset">
+    <field name="sequence" eval="20" />
+    <field name="backend_id" ref="v9_backend" />
+    <field name="source_model">import.source.odoorpc</field>
+    <field name="source_id" ref="v9_source_professions_from_exp" />
+    <field name="import_type_id" ref="v9_import_professions" />
+  </record>
+
+  <!-- USERS n PARTNERS -->
+  <record id="v9_import_users" model="import.type">
+    <field name="name">Fluxdock v9 Users</field>
+    <field name="key">v9_users</field>
+    <field name="settings">
+res.users::fluxdock.v9.user.importer
+res.partner::fluxdock.v9.partner.importer
+    </field>
+  </record>
+
+  <record id="v9_source_users" model="import.source.odoorpc">
+    <field name="chunk_size" eval="50" />
+    <field name="odoo_rpc_config_id" ref="v9_rpc_config" />
+    <field name="odoo_source_model">res.users</field>
+    <field name="odoo_source_domain">[('login', '!=', 'admin')]</field>
+    <field name="odoo_source_fields">
+      login;name;password;partner_id:*
+    </field>
+  </record>
+
+  <record id="v9_recordset_users" model="import.recordset">
+    <field name="sequence" eval="50" />
+    <field name="backend_id" ref="v9_backend" />
+    <field name="source_model">import.source.odoorpc</field>
+    <field name="source_id" ref="v9_source_users" />
+    <field name="import_type_id" ref="v9_import_users" />
+  </record>
+
+</odoo>
