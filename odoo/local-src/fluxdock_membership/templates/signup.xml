@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-	<template id="login_layout" inherit_id="website.login_layout" name="Fluxdock Login Layout">
-		<xpath expr="//div[contains(@class,'oe_website_login_container')]"  position="attributes">
-			<attribute name="class" add="opt_dark_grid_bg" separator=" " />
-	    </xpath>
-	</template>
-
 	<!-- disable original -->
 	<record id="auth_signup.login" model="ir.ui.view">
 		<field name="name">[DISABLED] auth_signup Loging/reset pwd</field>
@@ -19,6 +13,11 @@
 			<h2>
 				THROUGH COLLABORATION TO INNOVATION
 			</h2>
+		</xpath>
+
+		<xpath expr="//button[@type='submit']" position="attributes">
+			<!-- drop btn-primary -->
+			<attributes name="class">btn</attributes>
 		</xpath>
 
 		<xpath expr="//button[@type='submit']" position="after">

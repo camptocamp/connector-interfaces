@@ -5,6 +5,7 @@
     'author': 'Camptocamp',
     'data': [
         'templates/layout.xml',
+        'templates/login.xml',
         'templates/footer.xml',
         'templates/snippets.xml',
         'templates/options.xml',

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<template id="login_layout" inherit_id="website.login_layout" name="Fluxdock Login Layout">
+  <xpath expr="//div[contains(@class,'oe_website_login_container')]"  position="attributes">
+    <attribute name="class" add="opt_dark_grid_bg" separator=" " />
+    </xpath>
+</template>
+
+</odoo>

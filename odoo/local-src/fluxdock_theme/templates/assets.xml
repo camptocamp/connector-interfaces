@@ -8,6 +8,7 @@
 				<link href="/fluxdock_theme/static/lib/bootstrap-imgupload/css/bootstrap-imgupload.css" rel="stylesheet" type="text/css" />
 				<link href="/fluxdock_theme/static/less/webfonts.css" rel="stylesheet" type="text/css" />
 				<link href="/fluxdock_theme/static/less/bxslider/bxslider.css" rel="stylesheet" type="text/css" />
+				<link href="/fluxdock_theme/static/less/mixins.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/buttons.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/style.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/utils.less" rel="stylesheet" type="text/less" />

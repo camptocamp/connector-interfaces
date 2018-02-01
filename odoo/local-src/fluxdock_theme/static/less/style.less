@@ -14,7 +14,7 @@ html[lang="en-US"] a.js_change_lang[data-lang="en_US"] {
 
 // select2 dropdown menu
 .select2-drop {
-	background: @darkColor !important;
+	background: @fluxPurple !important;
 	color: #fff;
 	border: 1px solid #fff;
 }
@@ -43,7 +43,7 @@ html[lang="en-US"] a.js_change_lang[data-lang="en_US"] {
 }
 
 .select2-container-multi .select2-choices .select2-search-field input.select2-active {
-    background: @darkColor url('select2-spinner.gif') no-repeat 100% !important;
+    background: @fluxPurple url('select2-spinner.gif') no-repeat 100% !important;
 }
 
 .select2-choice {
@@ -53,11 +53,11 @@ html[lang="en-US"] a.js_change_lang[data-lang="en_US"] {
 body #wrapwrap{ //Outside of wrapwrap is the backend
 
 	.select2-drop.select2-drop-multi.select2-display-none.select2-drop-active {
-		background: @darkColor !important;
+		background: @fluxPurple !important;
 	}
 
 	font-size: 20px;
-	color: @darkColor;
+	color: @fluxPurple;
 	font-family: "noyh_rlight";
 	min-width: @minWidth;
 
@@ -89,7 +89,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		font-weight: normal;
 	}
 	.label{
-		color: @darkColor;
+		color: @fluxPurple;
 	}
 
 	.breadcrumb {
@@ -104,7 +104,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	}
 
 	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-	    -webkit-box-shadow: 0 0 0px 1000px @darkColor inset!important;
+	    -webkit-box-shadow: 0 0 0px 1000px @fluxPurple inset!important;
 	    -webkit-text-fill-color: white !important;
 	}
 
@@ -141,7 +141,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		background-repeat: no-repeat;
 		background-position: right 11px top 16px;
 		background-size: 26px 9px;
-		background-color: @darkColor;
+		background-color: @fluxPurple;
 		select{
 			border: none;
 			background-color: transparent;
@@ -152,7 +152,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				height: 42px;
 				padding-top: 10px;
 				color: white;
-				background-color: @darkColor;
+				background-color: @fluxPurple;
 			}
 		}
 		select[name="country_id"] {
@@ -174,18 +174,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 	}
 
-	.opt_dark_grid_bg {
-		background-image: url("/fluxdock_theme/static/img/netz.png");
-		background-position: center center;
-	}
-
-	.opt_dark_bg,
-	.opt_dark_grid_bg {
-		background-color: @darkColor;
+	.opt_dark_bg {
+		background-color: @fluxPurple;
 		border-color: white;
 		color: white;
 		.mybutton a {
-			background-color: @darkColor;
+			background-color: @fluxPurple;
 			border-color: white;
 		}
 		a {
@@ -197,7 +191,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		a.btn:not(.btn-primary), button.btn:not(.btn-primary){
 			&:not(.btn-bg-sticky){
-				background-color: @darkColor;
+				background-color: @fluxPurple;
 			}
 			border-color: white;
 			&:hover{
@@ -212,29 +206,50 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
 			color: white;
 			border-color: white;
-			background-color: @darkColor;
+			background-color: fade(@fluxPurple, 50%);
 		}
 		.styled-select {
-			background-color: @darkColor;
+			background-color: @fluxPurple;
 			select {
 				background-color: transparent;
 
 			}
 		}
 		select {
-			background-color: @darkColor;
+			background-color: @fluxPurple;
 		}
 	}
+
+	.opt_dark_grid_bg{
+		.opt_dark_bg;
+		.grad_purple_to_blue_w_grid;
+
+		a {
+			&:hover{
+				color: white;
+			}
+		}
+		a.btn:not(.btn-primary), button.btn:not(.btn-primary){
+			&:not(.btn-bg-sticky){
+				background-color: transparent;
+			}
+			&:hover{
+				color: @fluxPurple;
+				border-color: @fluxPurple;
+			}
+		}
+	}
+
 	a.cta{
 		color: @brand-success;
 		padding: 0 0.2em;
 	}
 	.white_bg{
 		background-color: white;
-		color: @darkColor;
-		border-color: @darkColor;
+		color: @fluxPurple;
+		border-color: @fluxPurple;
 		a:not(.btn-dark):not(.cta)  {
-			color: @darkColor;
+			color: @fluxPurple;
 			&:hover{
 				color: @brand-success;
 				border-color: @brand-success;
@@ -244,7 +259,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 
 	//Read more link. Used in News and Member list
 	a.read-more{
-		color: @brightColor;
+		color: @fluxPurpleLight;
 		white-space: nowrap;
 		padding: 0 0.2em;
 		&:hover {
@@ -328,7 +343,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					display: table-cell;
 					padding: 11px 11px;
  					a{
-						color: @darkColor;
+						color: @fluxPurple;
 					}
 					&.active a{
 						color: @brand-success;
@@ -626,7 +641,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					padding: 0 10px;
 					margin-bottom: 30px;
 					.news-teaser-date{
-						color: @brightColor;
+						color: @fluxPurpleLight;
 						margin-bottom: 8px;
 					}
 					h2{
@@ -642,7 +657,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					.read-more{
 						margin-top: 6px;
 						a{
-							color: @brightColor;
+							color: @fluxPurpleLight;
 						}
 					}
 				}
@@ -865,7 +880,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.copyright{
 			//COPYRIGHT
 			min-height: 84px;
-			background-color: @darkColor;
+			background-color: @fluxPurple;
 			padding-left: 5px;
 			padding-right: 5px;
 			padding-top: 25px;
@@ -879,6 +894,9 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 	}
 
 	//LOGIN
+	.oe_login_form {
+		max-width: 100%;
+	}
 	.oe_website_login_container, .profile_details {
 		// TODO: move form styles to `form.less`
 		padding: 50px 20px;
@@ -890,7 +908,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			color: black;
 			.modal-header button.close {
 				font-size: 40px;
-				color: @darkColor;
+				color: @fluxPurple;
 				background-color: transparent;
 			}
 		}
@@ -924,15 +942,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				width: auto;
 			}
 		}
-		input[type="text"],
-		input[type="tel"],
-		input[type="email"],
-		input[type="password"],
-		textarea {
-			color: white;
-			border-color: white;
-			background-color: @darkColor;
-		}
 		textarea {
 			resize: none;
 		}
@@ -953,7 +962,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			&:not(.btn-primary){
 				color: white;
 				border-color: white;
-				background-color: @darkColor;
+				background-color: @fluxPurple;
 			}
 			min-width: 130px;
 		}
@@ -971,36 +980,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			max-width: 1000px;
 			margin-left: auto;
 			margin-right: auto;
-		}
-		.presignup {
-			margin-top: 100px;
-			margin-bottom: 100px;
-			max-width: 1000px;
-			text-align: center;
-			margin: 0 auto 40px;
-			padding: 0 20px;
-			.presignup-buttons {
-				position: relative;
-				margin-top: 40px;
-				margin-bottom: 40px;
-				padding-left: 180px;
-    			padding-right: 180px;
-				.presignup-label {
-					position: absolute;
-					display: inline-block;
-					left: 0;
-					top: 5px;
-					text-align: right;
-    				width: 175px;
-				}
-				a.btn:first-of-type {
-					margin-right: 10px;
-				}
-				a.btn {
-					display: inline-block;
-					min-width: 290px;
-				}
-			}
 		}
 	}
 
@@ -1037,7 +1016,7 @@ body #wrapwrap {
 	top: 0;
 	bottom: 0;
 	width: 260px;
-	background-color: @darkColor;
+	background-color: @fluxPurple;
 	font-family: "noyh_rlight";
 	padding-top: 50px;
 	ul {
@@ -1068,7 +1047,7 @@ body #wrapwrap {
 				font-size: 16px;
 				margin-bottom: 6px;
 				a {
-					color: @brightColor;
+					color: @fluxPurpleLight;
 				}
 			}
 		}
@@ -1081,7 +1060,7 @@ body #wrapwrap {
 				font-size: 16px;
 				display: inline-block;
 				a {
-					color: @brightColor;
+					color: @fluxPurpleLight;
 					font-size: 0;
 					display: inline-block;
 					width: 20px;
@@ -1244,34 +1223,6 @@ ul.service-menu {
 }
 
 @media only screen and (max-width : 1050px) {
-	//Presignup
-	body #wrapwrap .oe_website_login_container .presignup {
-		max-width: 646px;
-		.presignup-buttons {
-			padding-left: 0;
-			padding-right: 0;
-			.presignup-label {
-				width: auto;
-				position: static;
-				display: block;
-				text-align: left;
-				padding-left: 5px;
-				padding-right: 5px;
-		 	}
-		}
-	}
-}
-@media only screen and (max-width : 700px) {
-	body #wrapwrap .oe_website_login_container .presignup .presignup-buttons a.btn {
-		display: block;
-		margin-bottom: 10px;
-		min-width: auto;
-		&:first-of-type {
-			margin-right: 0;
-		}
-	}
-}
-@media only screen and (max-width : 1050px) {
 	// login
 	body #wrapwrap .oe_website_login_container {
 		// fix responsive for current non-BS markup
@@ -1287,20 +1238,6 @@ ul.service-menu {
 	}
 }
 
-
-//Projects boxes
-@media only screen and (max-width : 700px) {
-	body #wrapwrap main section.projects .projects-container{
-		.project-box {
-			position: relative;
-			float: none;
-			width: 100%;
-		}
-	}
-	.projects-teaser-container {
-//		display: none;
-	}
-}
 
 //Memberslide Responsive 2 col
 @media only screen and (max-width : 700px) {
@@ -1432,7 +1369,7 @@ body #wrapwrap main .pagination > li > a {
 }
 
 body #wrapwrap main .pagination > .active > a {
-  background-color: @darkColor;
+  background-color: @fluxPurple;
   color: #fff;
 }
 

@@ -1,0 +1,27 @@
+.grad_purple_to_blue{
+  background: @fluxPurple;
+  background-image: -moz-linear-gradient(left, @fluxPurple 0%, @fluxBlue 100%);
+  background-image: -webkit-gradient(left top, right top, color-stop(0%, @fluxPurple), color-stop(100%, @fluxBlue));
+  background-image: -webkit-linear-gradient(left, @fluxPurple 0%, @fluxBlue 100%);
+  background-image: -o-linear-gradient(left, @fluxPurple 0%, @fluxBlue 100%);
+  background-image: -ms-linear-gradient(left, @fluxPurple 0%, @fluxBlue 100%);
+  background-image: linear-gradient(to right, @fluxPurple 0%, @fluxBlue 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#581b5f', endColorstr='#0084bb', GradientType=1 );
+}
+
+// a bit hard to add grid image w/ another class since both gradient and image act on the same property `backgroud-image`
+.grad_purple_to_blue_w_grid{
+  background: @fluxPurple;
+  background-image: url("/fluxdock_theme/static/img/netz.png"), -moz-linear-gradient(left, @fluxPurple 0%, @fluxBlue 100%);
+  background-image: url("/fluxdock_theme/static/img/netz.png"), -webkit-gradient(left top, right top, color-stop(0%, @fluxPurple), color-stop(100%, @fluxBlue));
+  background-image: url("/fluxdock_theme/static/img/netz.png"), -webkit-linear-gradient(left, @fluxPurple 0%, @fluxBlue 100%);
+  background-image: url("/fluxdock_theme/static/img/netz.png"), -o-linear-gradient(left, @fluxPurple 0%, @fluxBlue 100%);
+  background-image: url("/fluxdock_theme/static/img/netz.png"), -ms-linear-gradient(left, @fluxPurple 0%, @fluxBlue 100%);
+  background-image: url("/fluxdock_theme/static/img/netz.png"), linear-gradient(to right, @fluxPurple 0%, @fluxBlue 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#581b5f', endColorstr='#0084bb', GradientType=1 );
+}
+
+.netz_grid_bg {
+  background-image: url("/fluxdock_theme/static/img/netz.png");
+  background-position: center center;
+}
