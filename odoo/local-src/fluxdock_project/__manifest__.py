@@ -37,6 +37,7 @@
         'views/menu.xml',
         # frontend
         'templates/assets.xml',
+        'templates/personal_menu.xml',
         'templates/reference/reference_detail.xml',
         # TODO: my home is going to be dropped
         # 'templates/reference/my_home.xml',
