@@ -1,98 +1,102 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+	<!-- disable original templates -->
+	<record id="website.layout_footer_copyright" model="ir.ui.view">
+		<field name="active" eval="0" />
+		<field name="customize_show" eval="0" />
+	</record>
+	<record id="website.footer_default" model="ir.ui.view">
+		<field name="active" eval="0" />
+		<field name="customize_show" eval="0" />
+	</record>
+	<record id="website.footer_custom" model="ir.ui.view">
+		<field name="active" eval="0" />
+		<field name="customize_show" eval="0" />
+	</record>
 
-		<!-- Customize footer -->
-		<template id="fluxdock_footer" inherit_id="website.layout" name="Fluxdock Footer">
+	<!-- Customize footer -->
+	<template id="fluxdock_footer" inherit_id="website.layout" name="Fluxdock Footer">
 
-			<!-- ADD ID -->
-			<xpath expr="//div[@id='wrapwrap']/footer" position="attributes">
-				<attribute name="id">my_footer</attribute>
-			</xpath>
-
-		</template>
-
-		<!-- disable original templates -->
-		<record id="website.layout_footer_copyright" model="ir.ui.view">
-			<field name="active" eval="0" />
-			<field name="customize_show" eval="0" />
-		</record>
-		<record id="website.footer_default" model="ir.ui.view">
-			<field name="active" eval="0" />
-			<field name="customize_show" eval="0" />
-		</record>
-		<record id="website.footer_custom" model="ir.ui.view">
-			<field name="active" eval="0" />
-			<field name="customize_show" eval="0" />
-		</record>
-
-		<template id="layout_footer_copyright" inherit_id="website.layout" name="Fluxdock Footer Copyright">
-		  <xpath expr="//footer" position="inside">
-		    <div class="footer-row clearfix">
-		      <div class="footer-logo">
-		        <a href="/">
-		          <img src="/fluxdock_theme/static/img/fluxdock_logo_f.png"/>
-		        </a>
-		      </div>
-		      <div class="footer-links clearfix">
-		        <div class="footer-col">
-		          <h4>FLUXDOCK</h4>
-		          <p>
-		            <a href="/">Home</a>
-		          </p>
-		          <p>
-		            <a href="/page/about">About us</a>
-		          </p>
-		        </div>
-		        <div class="footer-col">
-		          <h4>SOCIAL</h4>
-		          <p>
-		            <a href="https://www.facebook.com/fluxdock" target="_blank">Facebook</a>
-		          </p>
-		          <p>
-		            <a href="https://www.twitter.com/fluxdock" target="_blank">Twitter</a>
-		          </p>
-		        </div>
-		        <div class="footer-col">
-		          <h4>LEGAL</h4>
-		          <p>
-		            <a href="/page/terms">Terms of Use</a>
-		          </p>
-		          <p>
-		            <a href="/page/privacy">Privacy Policy</a>
-		          </p>
-		        </div>
-		      </div>
-		      <div class="sponsors">
-		        <div class="sponsor sponsor-iart">
-		          <a href="http://www.iart.ch" target="_blank">
-		            <img src="/fluxdock_theme/static/img/footer-logos/iart.png"/>
-		          </a>
-		        </div>
-		        <div class="sponsor sponsor-mengagement">
-		          <a href="http://www.engagement-migros.ch" target="_blank">
-		            <img src="/fluxdock_theme/static/img/footer-logos/mengagement.png"/>
-		          </a>
-		        </div>
-		        <div class="sponsor sponsor-cms">
-		          <a href="http://www.cms-basel.ch" target="_blank">
-		            <img src="/fluxdock_theme/static/img/footer-logos/cms.png"/>
-		          </a>
-		        </div>
-						<div class="sponsor sponsor-c2c">
-							<a href="http://www.camptocamp.com" target="_blank">
-								<img src="/fluxdock_theme/static/img/footer-logos/c2c.png" />
-							</a>
-						</div>
-		      </div>
-		    </div>
-		    <div class="copyright">
-					<!-- Use `div` to prevent inline elements to be included in translations -->
-					<div class="inline copy">Product of a collaboration</div> <span class="year pl02" t-translation="off" t-esc="time.strftime('%Y')"/>
+		<xpath expr="//div[@id='wrapwrap']/footer" position="replace">
+			<footer id="fluxdock_footer">
+				<div class="row main">
+					<div class="col-md-2 col-xs-12 footer-left">
+						<a class="logo" title="Footer logo" href="/">
+							<img src="/fluxdock_theme/static/img/fluxdock_logo_f.png" alt="Fluxdock footer logo"/>
+						</a>
+					</div>
+					<div class="col-md-6 col-md-offset-1 col-xs-12 footer-middle">
+						<placeholder name="footer_middle" />
+					</div>
+					<div class="col-md-2 col-md-offset-1 col-xs-12 footer-right">
+						<placeholder name="footer_right" />
+					</div>
 				</div>
-			</xpath>
-		</template>
+			</footer>
+		</xpath>
 
+	</template>
 
+	<template id="fluxdock_footer_middle" inherit_id="fluxdock_footer" name="Fluxdock Footer middle content">
+		<placeholder name="footer_middle" position="replace">
+			<div class="row footer-links">
+				<div class="col-md-4 col-sm-4 col-xs-12 about">
+					<h4>FLUXDOCK</h4>
+					<p>
+						<a href="/">Home</a>
+					</p>
+					<p>
+						<a href="/page/about">About us</a>
+					</p>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-12 social">
+					<h4>SOCIAL</h4>
+					<p>
+						<a href="https://www.facebook.com/fluxdock" target="_blank">Facebook</a>
+					</p>
+					<p>
+						<a href="https://www.twitter.com/fluxdock" target="_blank">Twitter</a>
+					</p>
+				</div>
+				<div class="col-md-4 col-sm-4 col-xs-12 legal">
+					<h4>LEGAL</h4>
+					<p>
+						<a href="/page/terms">Terms of Use</a>
+					</p>
+					<p>
+						<a href="/page/privacy">Privacy Policy</a>
+					</p>
+				</div>
+			</div>
+		</placeholder>
+	</template>
+
+	<template id="fluxdock_footer_right" inherit_id="fluxdock_footer" name="Fluxdock Footer right content">
+		<placeholder name="footer_right" position="replace">
+			<div class="sponsors">
+				<div class="sponsor sponsor-iart">
+					<a href="http://www.iart.ch" target="_blank">
+						<img src="/fluxdock_theme/static/img/footer-logos/iart.png"/>
+					</a>
+				</div>
+				<div class="sponsor sponsor-mengagement">
+					<a href="http://www.engagement-migros.ch" target="_blank">
+						<img src="/fluxdock_theme/static/img/footer-logos/mengagement.png"/>
+					</a>
+				</div>
+				<div class="sponsor sponsor-cms">
+					<a href="http://www.cms-basel.ch" target="_blank">
+						<img src="/fluxdock_theme/static/img/footer-logos/cms.png"/>
+					</a>
+				</div>
+				<div class="sponsor sponsor-c2c">
+					<a href="http://www.camptocamp.com" target="_blank">
+						<img src="/fluxdock_theme/static/img/footer-logos/c2c.png"/>
+					</a>
+				</div>
+			</div>
+		</placeholder>
+	</template>
 
 </odoo>

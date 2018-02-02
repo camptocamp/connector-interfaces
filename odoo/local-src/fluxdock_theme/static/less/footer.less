@@ -1,0 +1,67 @@
+footer#fluxdock_footer{
+  h4{
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+  .row {
+    &:first-of-type{
+      padding: 3em 2em 0 2em;
+    }
+    min-height: 200px;
+    .footer-left {
+      text-align: center;
+      img {
+        max-width: 70%;
+      }
+    }
+    .footer-right {
+      text-align: center;
+      .sponsors{
+        margin: 1em;
+        .sponsor{
+          text-align: right;
+          margin-bottom: 16px;
+          a{
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .copyright{
+    //COPYRIGHT
+    min-height: 84px;
+    background-color: @fluxPurple;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 25px;
+    padding-bottom: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 26px;
+  }
+}
+
+//Newsletter fields
+@media only screen and (max-width : 480px) {
+	body #wrapwrap #fluxdock_footer {
+    .footer-left {
+      img {
+        max-width: 50%;
+      }
+    }
+		.footer-middle {
+      text-align: center;
+    }
+    .footer-links > div {
+      margin: 1em 0;
+    }
+    .sponsors{
+      text-align: center;
+      > div {
+        margin: 1em 0;
+      }
+    }
+	}
+}
