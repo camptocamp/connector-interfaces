@@ -1,33 +1,6 @@
 <?xml version="1.0"?>
 
 <odoo>
-  <!-- TODO: broken, but we should drop this as we drop membership stuff -->
-    <!-- <record model="ir.cron" id="cron_membership_check_payment">
-        <field name="name">Check membership invoice payment</field>
-        <field name="interval_number">1</field>
-        <field name="priority">10</field>
-        <field name="interval_type">days</field>
-        <field name="numbercall">-1</field>
-        <field name="doall" eval="False"/>
-        <field name="model" eval="'res.partner'"/>
-        <field name="function" eval="'check_membership_payment'"/>
-        <field name="args" eval="'()'"/>
-    </record>
-
-    <data noupdate="1">
-        <record id="membership_variable_year" model="product.product">
-            <field name="membership">True</field>
-            <field name="name">Associate Membership</field>
-            <field name="membership_type">variable</field>
-            <field name="membership_interval_qty">1</field>
-            <field name="membership_interval_unit">years</field>
-            <field name="default_code">associate</field>
-            <field name="categ_id" ref="product.product_category_1"/>
-            <field name="list_price">60</field>
-            <field name="taxes_id" eval="[(6,0, [ref('l10n_ch.vat_80')])]"/>
-            <field name="type">service</field>
-        </record>
-    </data> -->
 
     <!-- override address format -->
     <record id="base.ch" model="res.country">

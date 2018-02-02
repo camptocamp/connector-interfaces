@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+		<template id="personal_menu_content" inherit_id="fluxdock_theme.personal_menu_content">
+			<li id="myprofile" position="after">
+				<li role="separator" class="divider"></li>
+				<li id="add_reference">
+					<a t-att-href="request.env['project.reference'].cms_add_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add reference</a>
+				</li>
+				<li id="add_proposal">
+					<a t-att-href="request.env['project.proposal'].cms_add_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add proposal</a>
+				</li>
+			</li>
+		</template>
+
+</odoo>

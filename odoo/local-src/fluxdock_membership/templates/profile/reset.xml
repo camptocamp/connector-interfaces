@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<odoo>
-    <!--  disable gmap template add -->
-    <!-- <record model="ir.ui.view" id="website_membership.opt_index_google_map">
-        <field name="active" eval="0" />
-        <field name="customize_show" eval="0" />
-    </record> -->
-
-</odoo>

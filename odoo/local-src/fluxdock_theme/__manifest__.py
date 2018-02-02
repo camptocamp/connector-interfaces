@@ -19,12 +19,14 @@
     ],
     'category': 'Theme/Creative',
     'depends': [
-        'http_routing',
-        'website',
         'cms_status_message',
         'cms_delete_content',
         'cms_form',
         'cms_notification',
+        'http_routing',
         'mail_digest',
+        'website',
+        # need for personal menu content (see layout.xml)
+        'website_partner',
     ],
 }

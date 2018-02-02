@@ -13,3 +13,13 @@
     # catch them all to skip conflicts
     - c2c v11-3582-merge-all-pending
   target: &default_target c2c merge-branch-3582-dev
+./src:
+  remotes:
+    oca: git@github.com:OCA/OCB.git
+    c2c: git@github.com:camptocamp/odoo.git
+    smk: git@github.com:simahawk/OCB.git
+  merges:
+    - oca 11.0
+    # [FIX] website: user navbar check for `main_object` #694
+    - smk 11-odoo-website-navbar-fix
+  target: *default_target

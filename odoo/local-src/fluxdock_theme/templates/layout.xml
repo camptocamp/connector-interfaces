@@ -28,13 +28,6 @@
 			    </a>
 			</li>
 			<li role="separator" class="divider"></li>
-			<li id="add_reference">
-				<a t-att-href="request.env['project.reference'].cms_add_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add reference</a>
-			</li>
-			<li id="add_proposal">
-				<a t-att-href="request.env['project.proposal'].cms_add_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add proposal</a>
-			</li>
-			<li role="separator" class="divider"></li>
 			<li id="reset_pwd">
 				<a role="menuitem" t-attf-href="/web/reset_password?login=#{quote_plus(request.env.user.login)}"><i class="fa fa-lock" t-translation="off" /> Change password</a>
 			</li>

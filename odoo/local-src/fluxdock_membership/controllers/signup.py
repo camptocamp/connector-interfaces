@@ -13,10 +13,6 @@ _logger = logging.getLogger(__name__)
 
 class AuthSignupHome(SignupVerifyEmail):
 
-    @http.route('/web/presignup', type='http', auth='public', website=True)
-    def website_fluxdock_presignup(self, *args, **kw):
-        return request.render('fluxdock_membership.presignup', {})
-
     @http.route()
     def web_auth_signup(self, *args, **kw):
         """Override to inject countries."""
@@ -76,10 +72,3 @@ class AuthSignupHome(SignupVerifyEmail):
                     has_backend_permissions = True
                     break
         return has_backend_permissions
-
-
-class PrivatePerson(http.Controller):
-
-    @http.route('/web/privateperson', type='http', auth='public', website=True)
-    def website_fluxdock_privateperson(self, *args, **kw):
-        return request.render('website_fluxdock_signup.privateperson', {})

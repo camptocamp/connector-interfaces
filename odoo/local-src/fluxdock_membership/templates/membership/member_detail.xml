@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="partner" inherit_id="website_membership.partner" name="Fluxdock partner detail override">
-        <xpath expr="//div[@id='wrap']" position="attributes">
-            <attribute name="class" add="opt_dark_grid_bg member-detail" separator=" " />
-        </xpath>
-        <xpath expr="//div[contains(@class,'container')]"  position="attributes">
-            <attribute name="class">container-fluid</attribute>
-        </xpath>
-    </template>
-
     <template id="member_item_tags" name="Fluxdock member tags template">
         <div class="item-tags">
             <strong>Industry:</strong>
@@ -30,9 +21,6 @@
     </template>
 
     <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">
-
-      <!--  we use fluxdock_theme.mgmt_actions -->
-      <xpath expr="//t[@t-call='website.publish_management']" position="replace" />
 
       <xpath expr="//h1[@id='partner_name']" position="replace">
         <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
