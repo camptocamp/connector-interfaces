@@ -70,7 +70,7 @@
 					<a href="/web/login?redirect=/my/home">Login</a>
 				</li>
 				<li>
-					<a href="/web/presignup">Sign Up</a>
+					<a href="/web/signup">Sign Up</a>
 				</li>
 				<li>
 					<t t-call="website.language_selector"/>
@@ -145,7 +145,7 @@
 							<a href="/web/login?redirect=/my/home">Login</a>
 						</li>
 						<li>
-							<a href="/web/presignup">Sign Up</a>
+							<a href="/web/signup">Sign Up</a>
 						</li>
 					</ul>
 

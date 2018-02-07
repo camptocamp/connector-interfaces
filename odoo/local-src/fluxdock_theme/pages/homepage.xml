@@ -31,50 +31,11 @@
 	          <p/>
 	          <div class="content-wrap">
 	            <a class="btn o_default_snippet_text" href="/web/login">Login</a>
-	            <a class="btn o_default_snippet_text" href="/web/presignup">Sign up</a>
+	            <a class="btn o_default_snippet_text" href="/web/signup">Sign up</a>
 	          </div>
 	          <p>People. Methods. Collaboration.</p>
 	          <p>Fluxdock enables firms to innovate.</p>
 	          <p>Join Fluxdock now.</p>
-	        </div>
-	      </section>
-	      <section class="content latest_news">
-	        <div class="content-wrap">
-	          <h2>News </h2>
-	          <div class="latest-news-container">
-	            <div class="news-teaser">
-	              <div class="news-teaser-date o_default_snippet_text">5 Apr 2016 </div>
-	              <h2 class="o_default_snippet_text">
-	                <a href="/web/presignup">SIGN UP NOW </a>
-	              </h2>
-	              <p>Fluxdock is now open for registration. Firms can sign up before the network is launched mid april. </p>
-	              <div class="read-more">
-	                <a href="/web/presignup">Register here </a>
-	              </div>
-	            </div>
-	            <div class="news-teaser">
-	              <div class="news-teaser-date o_default_snippet_text">1 Apr 2016 </div>
-	              <h2 class="o_default_snippet_text">
-	                <a href="/page/simulation">FLUXDOCK 3D MODEL: </a>
-	              </h2>
-	              <h2 class="o_default_snippet_text">
-	                <a href="/page/simulation">ONLINE NOW </a>
-	              </h2>
-	              <p>Step into Fluxdock and see the current planning status of the facility in the Transitlager at the Dreispitz. </p>
-	              <div class="read-more">
-	                <a href="/page/simulation" class="o_default_snippet_text">Start Simulation </a>
-	              </div>
-	            </div>
-	            <div class="news-teaser">
-	              <div class="news-teaser-date o_default_snippet_text">4 Feb 2016 </div>
-	              <h2 class="o_default_snippet_text">
-	                <a href="/slides/slide/stellenausschrieb-k02-1">FLUXDOCK IS RECRUTING </a>
-	              </h2>
-	              <p class="o_default_snippet_text">
-	                <a href="/slides/slide/stellenausschrieb-k02-1">We are currently looking for a software developer who drives the development of our platform for collaborative innovation jointly with us. </a>
-	              </p>
-	            </div>
-	          </div>
 	        </div>
 	      </section>
 	      <section class="content opt_dark_bg">
