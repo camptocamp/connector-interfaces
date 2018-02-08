@@ -167,21 +167,17 @@
       }
     }
 
-    .opt_dark_bg.form_white_bg,
-    .opt_dark_grid_bg.form_white_bg {
+    .opt_dark_bg.white_content_wrapper,
+    .opt_dark_grid_bg.white_content_wrapper {
       form {
-        background-color: white;
-        color: @fluxPurple;
-        -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
-        -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
-        box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+        .make_white_content_wrapper;
         .form-control {
           border-color: @fluxPurple;
         }
       }
     }
-    .opt_dark_bg:not(.form_white_bg),
-    .opt_dark_grid_bg:not(.form_white_bg) {
+    .opt_dark_bg:not(.white_content_wrapper),
+    .opt_dark_grid_bg:not(.white_content_wrapper) {
 			input[type="text"], input[type="tel"], input[type="email"],
 			input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
 				color: white;

@@ -1,6 +1,7 @@
 # Copyright 2016 Simone Orsi (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 from odoo import models, api, SUPERUSER_ID, fields
+from odoo.http import request
 
 
 def smart_truncate(text, length=100, suffix='...'):
@@ -28,6 +29,14 @@ class Website(models.Model):
             if field == 'image' and not record.image:
                 return '/fluxdock_theme/static/img/member-placeholder.png'
         return super(Website, self).image_url(record, field, size=size)
+
+    @api.model
+    def get_extra_body_klass(self, _request=None):
+        _request = _request or request
+        klasses = []
+        if _request.session.uid:
+            klasses.append('authenticated_user')
+        return ' '.join(klasses)
 
 
 class WebsiteMixin(models.AbstractModel):

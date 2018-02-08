@@ -5,12 +5,12 @@ body #wrapwrap main #wrap.o_editable{
 	 }
 }
 
-// FIXME: add space above wrap when logged in (see hidden description of forms)
-// html[data-editable="1"] {
-// 	#wrap {
-// 		padding-top: 5em;
-// 	}
-// }
+// we add this class into `models.webste.Website.get_extra_body_klass` ;)
+body.authenticated_user{
+	#wrap {
+		padding-top: 5em;
+	}
+}
 html[lang="de-DE"] a.js_change_lang[data-lang="de_DE"] {
 	font-weight: bold;
 }
@@ -217,7 +217,7 @@ body #wrapwrap {
 
 
 	// HEADER
-	#my_header{
+	#fluxdock_header{
 		position: fixed;
 		left: 0;
 		right: 0;
@@ -1015,7 +1015,7 @@ ul.service-menu {
 
 // Header title
 @media only screen and (max-width : 1250px) and (min-width : 980px) {
-	body #wrapwrap #my_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title {
+	body #wrapwrap #fluxdock_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title {
 		opacity: 0;
 		transition: opacity .25s ease-in-out;
 	   -moz-transition: opacity .25s ease-in-out;
@@ -1026,7 +1026,7 @@ ul.service-menu {
 
 //Header
 @media only screen and (max-width : 980px) {
-	body #wrapwrap #my_header {
+	body #wrapwrap #fluxdock_header {
 		min-width: @minWidth;
 		.fluxdock-topbar {
 			#mobile-menu-trigger {
@@ -1296,7 +1296,7 @@ body #wrapwrap main .pagination > li:last-child > a:after {
 /* ---- END of PUBLISH ---- */
 
 body.editor_enable{
-	#my_header{
+	#fluxdock_header{
 		// make sure the <main /> tag is positioned correctly on edit
 		position: static;
 	}

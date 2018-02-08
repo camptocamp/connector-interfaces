@@ -9,7 +9,7 @@
 
 	<template id="login" inherit_id="web.login" name="Fluxdock Sign up - Reset Password">
 
-		<xpath expr="//div[contains(@class,'field-db')]" position="before">
+		<xpath expr="//div[hasclass('field-db')]" position="before">
 			<h2>
 				THROUGH COLLABORATION TO INNOVATION
 			</h2>
@@ -130,7 +130,7 @@
 	</template>
 
 	<template id="signup_buttons" name="Fluxdock sign up buttons" inherit_id="auth_signup.signup">
-		<xpath expr="//div[contains(@class,'oe_login_buttons')]"
+		<xpath expr="//div[hasclass('oe_login_buttons')]"
 			position="replace">
 			<div class="clearfix oe_login_buttons">
 				<div class="button-wrap">
