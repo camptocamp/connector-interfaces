@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-	<template id="login_layout" inherit_id="website.login_layout" name="Fluxdock Login Layout">
-		<xpath expr="//div[contains(@class,'oe_website_login_container')]"  position="attributes">
-			<attribute name="class" add="opt_dark_grid_bg" separator=" " />
-	    </xpath>
-	</template>
+	<!-- TODO: most of this stuff (where no dependency is needed on fluxdock_membership) can be moved to theme -->
 
 	<!-- disable original -->
 	<record id="auth_signup.login" model="ir.ui.view">
@@ -15,10 +11,15 @@
 
 	<template id="login" inherit_id="web.login" name="Fluxdock Sign up - Reset Password">
 
-		<xpath expr="//div[contains(@class,'field-db')]" position="before">
+		<xpath expr="//div[hasclass('field-db')]" position="before">
 			<h2>
 				THROUGH COLLABORATION TO INNOVATION
 			</h2>
+		</xpath>
+
+		<xpath expr="//button[@type='submit']" position="attributes">
+			<!-- drop btn-primary -->
+			<attributes name="class">btn</attributes>
 		</xpath>
 
 		<xpath expr="//button[@type='submit']" position="after">
@@ -131,7 +132,7 @@
 	</template>
 
 	<template id="signup_buttons" name="Fluxdock sign up buttons" inherit_id="auth_signup.signup">
-		<xpath expr="//div[contains(@class,'oe_login_buttons')]"
+		<xpath expr="//div[hasclass('oe_login_buttons')]"
 			position="replace">
 			<div class="clearfix oe_login_buttons">
 				<div class="button-wrap">

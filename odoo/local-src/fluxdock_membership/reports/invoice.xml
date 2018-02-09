@@ -4,17 +4,17 @@
 <template id="report_invoice_document" inherit_id="account.report_invoice_document" name="Fluxdock invoice document">
 
     <!-- add class to page wrapper -->
-    <xpath expr="//div[contains(@class,'page')]" position="attributes">
+    <xpath expr="//div[hasclass('page')]" position="attributes">
         <attribute name="class" add="report_invoice" separator=" " />
     </xpath>
 
     <!-- align address left -->
-    <xpath expr="//div[contains(@class,'col-xs-5 col-xs-offset-7')]" position="attributes">
+    <xpath expr="//div[hasclass('col-xs-5 col-xs-offset-7')]" position="attributes">
         <attribute name="class">col-xs-12 text-left</attribute>
     </xpath>
 
     <!-- add membership info -->
-    <xpath expr="//table[contains(@class,'table')][1]" position="before">
+    <xpath expr="//table[hasclass('table')][1]" position="before">
         <p class="membership-info">
             <strong>Membership duration:</strong>
             <span t-field="o.partner_id.membership_start" t-field-options='{"widget": "date"}'/> -

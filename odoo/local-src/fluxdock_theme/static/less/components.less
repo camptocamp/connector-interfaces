@@ -37,50 +37,10 @@
 
 .popover{
 	border-radius: 0;
-	color: @darkColor;
+	color: @fluxPurple;
 }
 
 #wrapwrap {
-	// select2 >>
-	.select2-container.select2-container-multi.form-control {
-		display: block;
-		border: none;
-		border-radius: 0;
-		background-color: @darkColor;
-	}
-	.form-control .select2-choice {
-		border: 0;
-		border-radius: 0;
-		background-color: @darkColor;
-	}
-	.form-control.select2-container.select2-dropdown-open {
-		border-radius: 0;
-	}
-	.form-control .select2-container.select2-dropdown-open .select2-choices {
-		border-radius: 0;
-	}
-	.form-control.select2-container .select2-choices {
-		border: 0 !important;
-		border-radius: 0;
-	}
-	.select2-choices {
-		background-color: @darkColor;
-	}
-	.select2-search-field {
-		background-color: @darkColor;
-		dropdown-bg: @darkColor;
-	}
-	.select2-container.select2-container-multi.form-control {
-		background-color: @darkColor;
-		border: 1px solid #fff
-	}
-	.select2-input {
-		background-color: @darkColor;
-		border: none !important;
-		font-family: inherit;
-	}
-	// >> select2
-
 	// my home boxes >>
 	.my_home{
 		.col {
@@ -108,7 +68,7 @@
 		h3 {
 			text-transform: uppercase;
 			text-align: center;
-			border-bottom: 1px solid @darkColor;
+			border-bottom: 1px solid @fluxPurple;
 			font-weight: bold;
 		}
 		tr {
@@ -165,7 +125,7 @@
 
 	// status message >>
 	.status_message{
-	  background-color: @darkColor;
+	  background-color: @fluxPurple;
 	  width: 100%;
 	  .alert{
 	    padding-top: 10px;
@@ -456,4 +416,12 @@
 // this stays out of #wrapwrap
 .select2-results .select2-no-results{
 	background-color: @brand-warning;
+}
+
+.make_white_content_wrapper {
+  background-color: white;
+  color: @fluxPurple;
+  -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+  -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
+  box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="add_body_classes" inherit_id="web.layout">
+    <body position="attributes">
+      <attribute name="t-att-class">body_classname or '' + (' ' + website.get_extra_body_klass(request) if website else '')</attribute>
+    </body>
+  </template>
+
+</odoo>

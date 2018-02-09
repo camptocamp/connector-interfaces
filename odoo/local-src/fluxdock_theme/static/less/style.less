@@ -5,6 +5,12 @@ body #wrapwrap main #wrap.o_editable{
 	 }
 }
 
+// we add this class into `models.webste.Website.get_extra_body_klass` ;)
+body.authenticated_user{
+	#wrap {
+		padding-top: 5em;
+	}
+}
 html[lang="de-DE"] a.js_change_lang[data-lang="de_DE"] {
 	font-weight: bold;
 }
@@ -12,52 +18,9 @@ html[lang="en-US"] a.js_change_lang[data-lang="en_US"] {
 	font-weight: bold;
 }
 
-// select2 dropdown menu
-.select2-drop {
-	background: @darkColor !important;
-	color: #fff;
-	border: 1px solid #fff;
-}
-
-.select2-drop-multi {
-	border-radius: 0;
-}
-
-.select2-results {
-	display: block;
-}
-
-.select2-container-multi .select2-choices {
-    height: auto !important;
-    height: 1%;
-    margin: 0;
-    padding: 0 5px 0 0;
-    position: relative;
-
-    border: 1px solid #aaa;
-    cursor: text;
-    overflow: hidden;
-
-    background-color: #2E112D;
-    background-image: none;
-}
-
-.select2-container-multi .select2-choices .select2-search-field input.select2-active {
-    background: @darkColor url('select2-spinner.gif') no-repeat 100% !important;
-}
-
-.select2-choice {
-	background-color: red;
-}
-
-body #wrapwrap{ //Outside of wrapwrap is the backend
-
-	.select2-drop.select2-drop-multi.select2-display-none.select2-drop-active {
-		background: @darkColor !important;
-	}
-
+body #wrapwrap {
 	font-size: 20px;
-	color: @darkColor;
+	color: @fluxPurple;
 	font-family: "noyh_rlight";
 	min-width: @minWidth;
 
@@ -89,7 +52,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		font-weight: normal;
 	}
 	.label{
-		color: @darkColor;
+		color: @fluxPurple;
 	}
 
 	.breadcrumb {
@@ -103,89 +66,12 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		padding: 6px 10px;
 	}
 
-	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-	    -webkit-box-shadow: 0 0 0px 1000px @darkColor inset!important;
-	    -webkit-text-fill-color: white !important;
-	}
-
-	//Placeholder
-	input::input-placeholder {
-		color: @placeholderColor;
-		opacity: 1;
-	}
-
-	input::-webkit-input-placeholder {
-		opacity: 1;
-		color: @placeholderColor;
-	}
-
-	input::-moz-placeholder {
-		opacity: 1;
-		color: @placeholderColor;
-	}
-	textarea {
-		color: black;
-		border: solid 1px black;
-		border-radius: 0;
-		box-shadow: none;
-		font-size: 20px;
-		padding-left: 10px;
-		padding-right: 10px;
-		background-color: white;
-	}
-
-	.styled-select{
-		overflow: hidden;
-		border: solid 1px white;
-		background-image: url("/fluxdock_theme/static/img/arrow-white-down.png");
-		background-repeat: no-repeat;
-		background-position: right 11px top 16px;
-		background-size: 26px 9px;
-		background-color: @darkColor;
-		select{
-			border: none;
-			background-color: transparent;
-			width: 110%;
-			font-size: 20px;
-			color: white;
-			option{
-				height: 42px;
-				padding-top: 10px;
-				color: white;
-				background-color: @darkColor;
-			}
-		}
-		select[name="country_id"] {
-			option:first-of-type {
-				color: @placeholderColor;
-			}
-		}
-	}
-
-	select{
-		border: solid 1px white;
-		height: 42px;
-		padding-left: 6px;
-		padding-right: 6px;
-		-webkit-appearance: none;
-		option{
-			height: 42px;
-			padding-top: 10px;
-		}
-	}
-
-	.opt_dark_grid_bg {
-		background-image: url("/fluxdock_theme/static/img/netz.png");
-		background-position: center center;
-	}
-
-	.opt_dark_bg,
-	.opt_dark_grid_bg {
-		background-color: @darkColor;
+	.opt_dark_bg {
+		background-color: @fluxPurple;
 		border-color: white;
 		color: white;
 		.mybutton a {
-			background-color: @darkColor;
+			background-color: @fluxPurple;
 			border-color: white;
 		}
 		a {
@@ -197,7 +83,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		}
 		a.btn:not(.btn-primary), button.btn:not(.btn-primary){
 			&:not(.btn-bg-sticky){
-				background-color: @darkColor;
+				background-color: @fluxPurple;
 			}
 			border-color: white;
 			&:hover{
@@ -208,33 +94,36 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 		.label {
 			color: white;
 		}
-		input[type="text"], input[type="tel"], input[type="email"],
-		input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
-			color: white;
-			border-color: white;
-			background-color: @darkColor;
-		}
-		.styled-select {
-			background-color: @darkColor;
-			select {
-				background-color: transparent;
-
+	}
+	.opt_dark_grid_bg{
+		.opt_dark_bg;
+		.grad_purple_to_blue_w_grid;
+		a {
+			&:hover{
+				color: white;
 			}
 		}
-		select {
-			background-color: @darkColor;
+		a.btn:not(.btn-primary), button.btn:not(.btn-primary){
+			&:not(.btn-bg-sticky){
+				background-color: transparent;
+			}
+			&:hover{
+				color: @fluxPurple;
+				border-color: @fluxPurple;
+			}
 		}
 	}
+
 	a.cta{
 		color: @brand-success;
 		padding: 0 0.2em;
 	}
 	.white_bg{
 		background-color: white;
-		color: @darkColor;
-		border-color: @darkColor;
+		color: @fluxPurple;
+		border-color: @fluxPurple;
 		a:not(.btn-dark):not(.cta)  {
-			color: @darkColor;
+			color: @fluxPurple;
 			&:hover{
 				color: @brand-success;
 				border-color: @brand-success;
@@ -244,7 +133,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 
 	//Read more link. Used in News and Member list
 	a.read-more{
-		color: @brightColor;
+		color: @fluxPurpleLight;
 		white-space: nowrap;
 		padding: 0 0.2em;
 		&:hover {
@@ -259,7 +148,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 
 
 	// HEADER
-	#my_header{
+	#fluxdock_header{
 		position: fixed;
 		left: 0;
 		right: 0;
@@ -328,7 +217,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					display: table-cell;
 					padding: 11px 11px;
  					a{
-						color: @darkColor;
+						color: @fluxPurple;
 					}
 					&.active a{
 						color: @brand-success;
@@ -626,7 +515,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					padding: 0 10px;
 					margin-bottom: 30px;
 					.news-teaser-date{
-						color: @brightColor;
+						color: @fluxPurpleLight;
 						margin-bottom: 8px;
 					}
 					h2{
@@ -642,7 +531,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 					.read-more{
 						margin-top: 6px;
 						a{
-							color: @brightColor;
+							color: @fluxPurpleLight;
 						}
 					}
 				}
@@ -815,70 +704,11 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 
 	}
 
-
-	// FOOTER
-	footer#my_footer{
-		margin-top: 50px;
-		position: relative;
-		.footer-row {
-			min-height: 200px;
-			.footer-logo {
-				position: absolute;
-				top: -18px;
-				left: 30px;
-				img{
-					width: 144px;
-					height: 145px;
-				}
-			}
-
-			.footer-links {
-				position: relative;
-				margin-bottom: 40px;
-				max-width: 700px;
-				box-sizing: border-box;
-				margin: 0 auto;
-				.footer-col{
-					float: left;
-					width: 33%;
-					padding-left: 50px;
-					padding-right: 0;
-					h4{
-						font-size: 24px;
-						text-transform: UPPERCASE;
-					}
-				}
-			}
-			.sponsors{
-				position: absolute;
-				top: 4px;
-				right: 54px;
-				.sponsor{
-					text-align: right;
-					margin-bottom: 16px;
-					a{
-						display: block;
-					}
-				}
-			}
-		}
-		.copyright{
-			//COPYRIGHT
-			min-height: 84px;
-			background-color: @darkColor;
-			padding-left: 5px;
-			padding-right: 5px;
-			padding-top: 25px;
-			padding-bottom: 12px;
-			text-align: center;
-			text-transform: uppercase;
-			color: white;
-			font-size: 26px;
-
-		}
-	}
-
 	//LOGIN
+	.oe_login_form, .oe_signup_form, .oe_reset_password_form {
+    // fix form size (website.ui override)
+		max-width: 100%;
+	}
 	.oe_website_login_container, .profile_details {
 		// TODO: move form styles to `form.less`
 		padding: 50px 20px;
@@ -890,7 +720,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			color: black;
 			.modal-header button.close {
 				font-size: 40px;
-				color: @darkColor;
+				color: @fluxPurple;
 				background-color: transparent;
 			}
 		}
@@ -924,15 +754,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 				width: auto;
 			}
 		}
-		input[type="text"],
-		input[type="tel"],
-		input[type="email"],
-		input[type="password"],
-		textarea {
-			color: white;
-			border-color: white;
-			background-color: @darkColor;
-		}
 		textarea {
 			resize: none;
 		}
@@ -953,7 +774,7 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			&:not(.btn-primary){
 				color: white;
 				border-color: white;
-				background-color: @darkColor;
+				background-color: @fluxPurple;
 			}
 			min-width: 130px;
 		}
@@ -971,36 +792,6 @@ body #wrapwrap{ //Outside of wrapwrap is the backend
 			max-width: 1000px;
 			margin-left: auto;
 			margin-right: auto;
-		}
-		.presignup {
-			margin-top: 100px;
-			margin-bottom: 100px;
-			max-width: 1000px;
-			text-align: center;
-			margin: 0 auto 40px;
-			padding: 0 20px;
-			.presignup-buttons {
-				position: relative;
-				margin-top: 40px;
-				margin-bottom: 40px;
-				padding-left: 180px;
-    			padding-right: 180px;
-				.presignup-label {
-					position: absolute;
-					display: inline-block;
-					left: 0;
-					top: 5px;
-					text-align: right;
-    				width: 175px;
-				}
-				a.btn:first-of-type {
-					margin-right: 10px;
-				}
-				a.btn {
-					display: inline-block;
-					min-width: 290px;
-				}
-			}
 		}
 	}
 
@@ -1037,7 +828,7 @@ body #wrapwrap {
 	top: 0;
 	bottom: 0;
 	width: 260px;
-	background-color: @darkColor;
+	background-color: @fluxPurple;
 	font-family: "noyh_rlight";
 	padding-top: 50px;
 	ul {
@@ -1068,7 +859,7 @@ body #wrapwrap {
 				font-size: 16px;
 				margin-bottom: 6px;
 				a {
-					color: @brightColor;
+					color: @fluxPurpleLight;
 				}
 			}
 		}
@@ -1081,7 +872,7 @@ body #wrapwrap {
 				font-size: 16px;
 				display: inline-block;
 				a {
-					color: @brightColor;
+					color: @fluxPurpleLight;
 					font-size: 0;
 					display: inline-block;
 					width: 20px;
@@ -1155,7 +946,7 @@ ul.service-menu {
 
 // Header title
 @media only screen and (max-width : 1250px) and (min-width : 980px) {
-	body #wrapwrap #my_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title {
+	body #wrapwrap #fluxdock_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title {
 		opacity: 0;
 		transition: opacity .25s ease-in-out;
 	   -moz-transition: opacity .25s ease-in-out;
@@ -1166,7 +957,7 @@ ul.service-menu {
 
 //Header
 @media only screen and (max-width : 980px) {
-	body #wrapwrap #my_header {
+	body #wrapwrap #fluxdock_header {
 		min-width: @minWidth;
 		.fluxdock-topbar {
 			#mobile-menu-trigger {
@@ -1244,34 +1035,6 @@ ul.service-menu {
 }
 
 @media only screen and (max-width : 1050px) {
-	//Presignup
-	body #wrapwrap .oe_website_login_container .presignup {
-		max-width: 646px;
-		.presignup-buttons {
-			padding-left: 0;
-			padding-right: 0;
-			.presignup-label {
-				width: auto;
-				position: static;
-				display: block;
-				text-align: left;
-				padding-left: 5px;
-				padding-right: 5px;
-		 	}
-		}
-	}
-}
-@media only screen and (max-width : 700px) {
-	body #wrapwrap .oe_website_login_container .presignup .presignup-buttons a.btn {
-		display: block;
-		margin-bottom: 10px;
-		min-width: auto;
-		&:first-of-type {
-			margin-right: 0;
-		}
-	}
-}
-@media only screen and (max-width : 1050px) {
 	// login
 	body #wrapwrap .oe_website_login_container {
 		// fix responsive for current non-BS markup
@@ -1287,20 +1050,6 @@ ul.service-menu {
 	}
 }
 
-
-//Projects boxes
-@media only screen and (max-width : 700px) {
-	body #wrapwrap main section.projects .projects-container{
-		.project-box {
-			position: relative;
-			float: none;
-			width: 100%;
-		}
-	}
-	.projects-teaser-container {
-//		display: none;
-	}
-}
 
 //Memberslide Responsive 2 col
 @media only screen and (max-width : 700px) {
@@ -1432,7 +1181,7 @@ body #wrapwrap main .pagination > li > a {
 }
 
 body #wrapwrap main .pagination > .active > a {
-  background-color: @darkColor;
+  background-color: @fluxPurple;
   color: #fff;
 }
 
@@ -1478,7 +1227,7 @@ body #wrapwrap main .pagination > li:last-child > a:after {
 /* ---- END of PUBLISH ---- */
 
 body.editor_enable{
-	#my_header{
+	#fluxdock_header{
 		// make sure the <main /> tag is positioned correctly on edit
 		position: static;
 	}

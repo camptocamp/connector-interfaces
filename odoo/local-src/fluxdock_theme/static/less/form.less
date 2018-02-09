@@ -1,265 +1,397 @@
-#wrapwrap{
-    main{
-        form{
-            padding-top: 2em;
-            padding-bottom: 2em;
-            .form-control{
-                font-size: 20px;
-                .select2-search-choice{
-                    font-size: 80%;
-                }
-                &[type="checkbox"]{
-                    width: 20px;
-                }
-            }
-            .form-group {
-                label {
-                    text-align: left;
-                    a{
-                        padding-left: 0.2em;
-                        padding-right: 0.2em;
-                    }
-                }
-                &.has-error{
-                    label {
-        				color: @brand-danger;
-        			}
-                    .form-control{
-                        border-color: @brand-danger;
-                    }
-                }
-                &.field-required{
-                    label.control-label::after{
-                        content: '*';
-                    }
-                }
-                .styled-select {
-                    width: 100%;
-                }
-                .checkbox.inline{
-                    margin-right: 0.5em;
-                }
-                .keepbox{
-                    padding: 0.2em;
-                }
-                .help-block{
-                    font-size: 90%;
-                    a {
-                        padding: 0 0.2em;
-                    }
-                }
-            }
-            .form-group.form-group-checkbox {
-                label {
-                    display: inline;
-                    padding-left: 0;
-                    padding-right: 0;
-                }
-            }
-            h2{
-                margin-bottom: 2em;
-            }
-            .form-controls, .controls{
-                .btn{
-                    margin-right: 0.5em;
-                    &:last-child{
-                        margin-right: 0;
-                    }
-                }
-            }
-            .image-upload-widget{
-                position: relative;
-                height: 100%;
-                min-height: 4em;
-                overflow: hidden;
-    			border: 1px solid #fff;
-    			background-color: @darkColor;
-                div{
-                    height: 100%;
-                    width: 100%;
-                }
-                &:hover .overlay{
-                    display: none;
-                }
-                img{
-                    max-width: 100%;
-                    &.thumbnail{
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        padding: 0;
-                        margin: 0;
-                        background: none;
-                        border: none;
-                    }
-                }
-                .file-tab label {
-                    // TODO: remove ``!important` when styles get cleaned up
-                    cursor: pointer !important;
-                    position: absolute;
-                    top: 0 !important;
-                    left: 0;
-                    z-index: 2;
-                    height: 100% !important;
-                    width: 100% !important;
-                    max-width: 100%;
-                    padding: 0 !important;
-                    margin: 0 !important;
-                    font-size: 18px;
-                    float: none;
-                }
-                .file-tab .overlay{
-                	background-color: rgba(0,0,0,0.65);
-                	bottom: 0;
-                	left: 0;
-                	height: 100%;
-                	width: 100%;
-                	z-index: 10;
-                	color: white;
-                	margin: 0;
-                    position: absolute;
-                    top: 0;
-                	span{
-                		display: block;
-                	}
-                	&.info{
-                		text-align: left;
-                		padding: 0.5em;
-                		font-size: 0.9em;
-                	}
-                }
-                .alert{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            }
-        } // form
-        .cms_form_wrapper{
-            .form_description{
-                text-align: center;
-            }
-        }
-        .cms_form_wrapper.project_reference{
-            .image-widget-wrapper{
-                height: 300px;
-                .image-upload-widget{
-                    height: 80%;
-                }
-                img{
-                    width: 100%;
-                }
-            }
-        }
-        .cms_form_wrapper.res_partner{
-            .image-upload-widget{ margin: 0 auto; }
-            .field-image .help-block{ text-align: center }
-        }
-        // search forms >>
-        //  .members-listing form => temporary waiting to migrate members search to cms form
-        .cms_form_wrapper.mode_search form, .members-listing form {
-            margin-top: 40px;
+#wrapwrap {
+  main {
+    form {
+      padding: 2em;
+      margin-bottom: 2em;
 
-            button[type="submit"] {
-                width: 100%;
-            }
+      input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px @fluxPurple inset!important;
+          -webkit-text-fill-color: white !important;
+      }
 
-            .filter-row {
-                margin-bottom: 20px;
+      //Placeholder
+      input::input-placeholder {
+        color: @placeholderColor;
+        opacity: 1;
+      }
 
-                .styled-select {
-                    &:nth-of-type(3n) {
-                        margin-right: 0;
-                    }
+      input::-webkit-input-placeholder {
+        opacity: 1;
+        color: @placeholderColor;
+      }
 
-                    select {
-                        display: block;
-                        width: 120%;
-                    }
-                }
-            }
-            .checkbox{
-                text-align: left;
-                input{
-                    width: auto;
-                    height: auto;
-                    margin-top: 8px;
-                }
-            }
+      input::-moz-placeholder {
+        opacity: 1;
+        color: @placeholderColor;
+      }
+      textarea {
+        color: black;
+        border: solid 1px black;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: white;
+      }
+
+      .form-control {
+        font-size: 20px;
+
+        .select2-search-choice {
+          font-size: 80%;
         }
-        @media only screen and (max-width : 1050px) {
-            .cms_form_wrapper.mode_search form, .members-listing form {
-                .filter-row > div:not(:last-child) {
-                    margin-bottom: 20px;
-                }
-            }
+        &.select2-container-multi .select2-choices .select2-search-field input {
+          font-size: 90% !important;
         }
 
-    	// >> search form
-        .opt_dark_grid_bg{
-            form{
-                input[type="file"].form-control{
-                    background-color: @darkColor;
-                    color: white;
-                }
-                .help-block{
-                    color: #ccc;
-                }
-            }
-        } // opt_dark_grid_bg
+        &[type="checkbox"] {
+          width: 20px;
+        }
+      }
 
-        .reference-form{
-            .image-upload-widget{
-                height: 200px;
-                img{
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    max-height: 2000px !important;
-                }
-            }
+      .styled-select{
+        overflow: hidden;
+        border: solid 1px white;
+        background-image: url("/fluxdock_theme/static/img/arrow-white-down.png");
+        background-repeat: no-repeat;
+        background-position: right 11px top 16px;
+        background-size: 26px 9px;
+        &.form-control {
+          padding: 0;
+        }
+        select{
+          border: none;
+          background-color: transparent;
+          width: 100%;
+          font-size: 20px;
+          option{
+            height: 42px;
+            padding-top: 10px;
+          }
+        }
+        select[name="country_id"] {
+          option:first-of-type {
+            color: @placeholderColor;
+          }
+        }
+      }
+
+      select{
+        border: solid 1px white;
+        height: 42px;
+        padding-left: 6px;
+        padding-right: 6px;
+        -webkit-appearance: none;
+        option{
+          height: 42px;
+          padding-top: 10px;
+        }
+      }
+
+      .form-group {
+        label {
+          text-align: left;
+
+          a {
+            padding-left: 0.2em;
+            padding-right: 0.2em;
+          }
         }
 
-        //MY ACCOUNT
-    	.profile-form{
-    		//Logo upload
-    		.media {
-    			position: absolute;
-    			right: 0;
-    			top: 0;
-    			margin-top: 0;
-    			max-width: 170px;
-    			width: 170px;
-    			height: 170px;
-    			padding: 0;
-    		}
-    	}
+        &.has-error {
+          label {
+            color: @brand-danger;
+          }
 
+          .form-control {
+            border-color: @brand-danger;
+          }
+        }
 
-    } // main
-}
+        &.field-required {
+          label.control-label::after {
+            content: '*';
+          }
+        }
 
-@media only screen and (max-width : 1050px) {
-    // temp fix for non-BS form
-    body #wrapwrap .profile-form form{
-        .media{
-            position: static;
-            margin-bottom: 0.5em;
+        .styled-select {
+          width: 100%;
         }
-        label{
-            width: auto !important;
-            position: static !important;
-            display: block !important;
-            text-align: left !important;
-            padding-left: 5px !important;
-            padding-right: 5px !important;
+
+        .checkbox.inline {
+          margin-right: 0.5em;
         }
-        input{
-            width: 100%;
+
+        .keepbox {
+          padding: 0.2em;
         }
-        .form-group{
-            padding-left: 0;
-            padding-right: 0;
-            max-width: 600px;
+
+        .help-block {
+          font-size: 90%;
+
+          a {
+            padding: 0 0.2em;
+          }
         }
+      }
+
+      .form-group.form-group-checkbox {
+        label {
+          display: inline;
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+
+      h2 {
+        margin-bottom: 2em;
+      }
+
+      .controls,
+      .form-controls {
+        .btn {
+          margin-right: 0.5em;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .image-upload-widget {
+        position: relative;
+        height: 100%;
+        min-height: 4em;
+        overflow: hidden;
+        border: 1px solid #fff;
+        background-color: @fluxPurple;
+
+        div {
+          height: 100%;
+          width: 100%;
+        }
+
+        &:hover .overlay {
+          display: none;
+        }
+
+        img {
+          max-width: 100%;
+
+          &.thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0;
+            margin: 0;
+            background: none;
+            border: none;
+          }
+        }
+
+        .file-tab label {
+          // TODO: remove ``!important` when styles get cleaned up
+          cursor: pointer !important;
+          position: absolute;
+          top: 0 !important;
+          left: 0;
+          z-index: 2;
+          height: 100% !important;
+          width: 100% !important;
+          max-width: 100%;
+          padding: 0 !important;
+          margin: 0 !important;
+          font-size: 18px;
+          float: none;
+        }
+
+        .file-tab .overlay {
+          background-color: rgba(0,0,0,0.65);
+          bottom: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index: 10;
+          color: white;
+          margin: 0;
+          position: absolute;
+          top: 0;
+
+          span {
+            display: block;
+          }
+
+          &.info {
+            text-align: left;
+            padding: 0.5em;
+            font-size: 0.9em;
+          }
+        }
+
+        .alert {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
     }
+
+    .opt_dark_bg.white_content_wrapper,
+    .opt_dark_grid_bg.white_content_wrapper {
+      form {
+        .make_white_content_wrapper;
+        .form-control {
+          border-color: @fluxPurple;
+        }
+      }
+    }
+    .opt_dark_bg:not(.white_content_wrapper),
+    .opt_dark_grid_bg:not(.white_content_wrapper) {
+      input[type="text"], input[type="tel"], input[type="email"],
+      input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
+        color: white;
+        border-color: white;
+        background-color: fade(@fluxPurple, 50%);
+      }
+      .styled-select {
+        background-color: fade(@fluxPurple, 50%);
+        select {
+          background-color: transparent;
+        }
+      }
+      select {
+        background-color: fade(@fluxPurple, 50%);
+      }
+    }
+    // form
+
+    .cms_form_wrapper {
+      .form_description {
+        text-align: center;
+      }
+    }
+
+    .cms_form_wrapper.project_reference {
+      .image-widget-wrapper {
+        height: 300px;
+
+        .image-upload-widget {
+          height: 80%;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+
+    .cms_form_wrapper.res_partner {
+      .image-upload-widget {
+        margin: 0 auto;
+      }
+
+      .field-image .help-block {
+        text-align: center;
+      }
+    }
+    // search forms >>
+    //  .members-listing form => temporary waiting to migrate members search to cms form
+    .cms_form_wrapper.mode_search form,
+    .members-listing form {
+      margin-top: 40px;
+
+      button[type="submit"] {
+        width: 100%;
+      }
+
+      .filter-row {
+        margin-bottom: 20px;
+
+        .styled-select {
+          &:nth-of-type(3n) {
+            margin-right: 0;
+          }
+
+          select {
+            display: block;
+            width: 120%;
+          }
+        }
+      }
+
+      .checkbox {
+        text-align: left;
+
+        input {
+          width: auto;
+          height: auto;
+          margin-top: 8px;
+        }
+      }
+    }
+    @media only screen and (max-width : 1050px) {
+      .cms_form_wrapper.mode_search form,
+      .members-listing form {
+        .filter-row > div:not(:last-child) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+    // >> search form
+    .reference-form {
+      .image-upload-widget {
+        height: 200px;
+
+        img {
+          width: 100% !important;
+          max-width: 100% !important;
+          max-height: 2000px !important;
+        }
+      }
+    }
+    //MY ACCOUNT
+    .profile-form {
+      //Logo upload
+      .media {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 0;
+        max-width: 170px;
+        width: 170px;
+        height: 170px;
+        padding: 0;
+      }
+    }
+  }
+  // main
+}
+@media only screen and (max-width : 1050px) {
+  // temp fix for non-BS form
+  body #wrapwrap .profile-form form {
+    .media {
+      position: static;
+      margin-bottom: 0.5em;
+    }
+
+    label {
+      width: auto !important;
+      position: static !important;
+      display: block !important;
+      text-align: left !important;
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    .form-group {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 600px;
+    }
+  }
 }

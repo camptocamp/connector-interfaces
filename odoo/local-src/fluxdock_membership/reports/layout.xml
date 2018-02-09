@@ -2,7 +2,7 @@
 <odoo>
 
     <template id="external_layout_header" inherit_id="report.external_layout_header" name="Fluxdock report external layout header">
-        <xpath expr="//div[contains(@class,'header')]"  position="replace">
+        <xpath expr="//div[hasclass('header')]"  position="replace">
             <div class="header">
                 <div class="text-center">
                     <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % company.logo" style="max-height: 130px;"/>

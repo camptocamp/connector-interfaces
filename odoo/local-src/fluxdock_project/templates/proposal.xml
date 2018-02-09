@@ -83,7 +83,7 @@
                             <span t-esc="main_object[fname]" /><br />
                         </t>
                     </t>
-                    <span t-esc="owner_partner.street2" /><br />
+                    <span t-esc="owner_partner.street" /><br />
                     <t t-if="owner_partner.country_id">
                       <span t-esc="owner_partner.country_id.name" /> -
                     </t>

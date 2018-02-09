@@ -10,7 +10,7 @@ $(document).ready(function() {
 				$('nav.mobile-menu').addClass('menu-open');
 			});
 
-		$('body #wrapwrap, body #wrapwrap #my_header').animate(
+		$('body #wrapwrap, body #wrapwrap #fluxdock_header').animate(
 			{
 				left: "-260",
 				right: "260",
@@ -25,7 +25,7 @@ $(document).ready(function() {
 			right: "-260"
 		}, 260).removeClass('menu-open');
 
-		$('body #wrapwrap, body #wrapwrap #my_header').animate({
+		$('body #wrapwrap, body #wrapwrap #fluxdock_header').animate({
 			left: "0",
 			right: "0",
 		}, 260);
