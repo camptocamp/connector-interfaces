@@ -18,6 +18,7 @@
         'auth_signup',
         'cms_form',
         'cms_status_message',
+        'cms_account_form',
         'fluxdock_theme',
         'http_routing',
         'l10n_ch',

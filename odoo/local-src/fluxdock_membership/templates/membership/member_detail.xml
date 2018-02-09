@@ -86,7 +86,7 @@
                 <h2 class="border-bottom">Contact</h2>
                 <div class="member-fields">
                   <span t-esc="partner.name" /><br />
-                  <span t-esc="partner.street2" /><br />
+                  <span t-esc="partner.street" /><br />
                   <t t-if="partner.country_id">
                     <span t-esc="partner.country_id.name" />-
                   </t>

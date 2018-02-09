@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+	<!-- TODO: most of this stuff (where no dependency is needed on fluxdock_membership) can be moved to theme -->
+
 	<!-- disable original -->
 	<record id="auth_signup.login" model="ir.ui.view">
 		<field name="name">[DISABLED] auth_signup Loging/reset pwd</field>
