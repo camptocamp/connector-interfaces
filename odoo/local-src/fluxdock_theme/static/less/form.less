@@ -4,6 +4,37 @@
       padding: 2em;
       margin-bottom: 2em;
 
+      input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px @fluxPurple inset!important;
+          -webkit-text-fill-color: white !important;
+      }
+
+      //Placeholder
+      input::input-placeholder {
+        color: @placeholderColor;
+        opacity: 1;
+      }
+
+      input::-webkit-input-placeholder {
+        opacity: 1;
+        color: @placeholderColor;
+      }
+
+      input::-moz-placeholder {
+        opacity: 1;
+        color: @placeholderColor;
+      }
+      textarea {
+        color: black;
+        border: solid 1px black;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: white;
+      }
+
       .form-control {
         font-size: 20px;
 
@@ -16,6 +47,45 @@
 
         &[type="checkbox"] {
           width: 20px;
+        }
+      }
+
+      .styled-select{
+        overflow: hidden;
+        border: solid 1px white;
+        background-image: url("/fluxdock_theme/static/img/arrow-white-down.png");
+        background-repeat: no-repeat;
+        background-position: right 11px top 16px;
+        background-size: 26px 9px;
+        &.form-control {
+          padding: 0;
+        }
+        select{
+          border: none;
+          background-color: transparent;
+          width: 100%;
+          font-size: 20px;
+          option{
+            height: 42px;
+            padding-top: 10px;
+          }
+        }
+        select[name="country_id"] {
+          option:first-of-type {
+            color: @placeholderColor;
+          }
+        }
+      }
+
+      select{
+        border: solid 1px white;
+        height: 42px;
+        padding-left: 6px;
+        padding-right: 6px;
+        -webkit-appearance: none;
+        option{
+          height: 42px;
+          padding-top: 10px;
         }
       }
 
@@ -178,22 +248,22 @@
     }
     .opt_dark_bg:not(.white_content_wrapper),
     .opt_dark_grid_bg:not(.white_content_wrapper) {
-			input[type="text"], input[type="tel"], input[type="email"],
-			input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
-				color: white;
-				border-color: white;
-				background-color: fade(@fluxPurple, 50%);
-			}
-			.styled-select {
-				background-color: fade(@fluxPurple, 50%);
-				select {
-					background-color: transparent;
-				}
-			}
-			select {
-				background-color: fade(@fluxPurple, 50%);
-			}
-  	}
+      input[type="text"], input[type="tel"], input[type="email"],
+      input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
+        color: white;
+        border-color: white;
+        background-color: fade(@fluxPurple, 50%);
+      }
+      .styled-select {
+        background-color: fade(@fluxPurple, 50%);
+        select {
+          background-color: transparent;
+        }
+      }
+      select {
+        background-color: fade(@fluxPurple, 50%);
+      }
+    }
     // form
 
     .cms_form_wrapper {
