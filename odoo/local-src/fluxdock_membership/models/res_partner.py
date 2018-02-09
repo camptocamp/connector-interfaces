@@ -9,7 +9,7 @@ import logging
 import threading
 import base64
 
-_logger = logging.getLogger(__file__)
+_logger = logging.getLogger(__name__)
 
 FLUX_MEMBERSHIP_OPTIONS = [
     ('free', _('Free Membership')),
@@ -182,7 +182,14 @@ class ResPartner(models.Model):
             with open(img_path, 'rb') as f:
                 image = f.read()
         if image and colorize:
-            image = tools.image_colorize(image)
+            try:
+                image = tools.image_colorize(image)
+            except ValueError as err:
+                # PIL/Image.py", line 1344, in paste
+                # self.im.paste(im, box, mask.im)
+                # ValueError: bad transparency mask
+                _logger.warn('_get_default_image ' + str(err))
+                pass
 
         return tools.image_resize_image_big(base64.b64encode(image))
 
