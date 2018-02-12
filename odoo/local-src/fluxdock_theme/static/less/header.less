@@ -1,0 +1,159 @@
+#wrapwrap {
+
+	header#fluxdock_header{
+		position: fixed;
+		left: 0;
+		right: 0;
+		background-color: white;
+		z-index: 100;
+		height: @fluxHeaderHeight;
+		box-shadow: 0 1px 5px #ccc;
+		#top_menu{
+			display: none;
+		}
+		.fluxdock-topbar{
+			background-color: transparent;
+			border: none;
+			padding: 0 210px;
+			#mobile-menu-trigger{
+				display: none;
+			}
+			.navbar-brand{
+				display: none;
+			}
+			.fluxdock-header-logo{
+				opacity: 0;
+				transition: opacity .25s ease-in-out;
+			   -moz-transition: opacity .25s ease-in-out;
+			   -webkit-transition: opacity .25s ease-in-out;
+				position: absolute;
+				top: 5px;
+				left: 34px;
+				width: 250px;
+				height: 70px;
+				&.visible-scroll{
+					opacity: 1;
+				}
+				.fluxdock-logo{
+					width: 70px;
+					height: 70px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background-image: url("/fluxdock_theme/static/img/fluxdock_logo_f.png");
+					background-size: 70px;
+				}
+				.fluxdock-title{
+					width: 150px;
+					height: 13px;
+					position: absolute;
+					top: 30px;
+					right: 0;
+					display: block;
+					background-image: url("/fluxdock_theme/static/img/fluxdock_title_2.png");
+					background-size: 150px;
+					background-repeat: no-repeat;
+				}
+			}
+
+			ul.main-menu{
+				width: 100%;
+				max-width: 630px;
+				margin: 0 auto;
+				text-align: center;
+				margin-top: 17px;
+				display: table;
+				padding-left: 0;
+				li{
+					float: none;
+					display: table-cell;
+					padding: 11px 11px;
+ 					a{
+						color: @fluxPurple;
+					}
+					&.active a{
+						color: @brand-success;
+						background-color: transparent;
+					}
+				}
+				>li{
+					&:first-of-type{
+						display: none;
+					}
+				}
+			}
+			ul.service-menu{
+				position: absolute;
+				right: 40px;
+				top: 16px;
+				list-style-type: none;
+				> li{
+					display: inline-block;
+					margin-left: 10px;
+					font-size: 16px;
+					a{
+						&:hover{
+							text-decoration: none;
+						}
+					}
+				}
+
+				ul.js_language_selector{
+					display: inline-block;
+					>li{
+						margin-left: 0;
+						margin-right: 0;
+						a{
+							display: inline-block;
+								&:hover{
+								text-decoration: none;
+							}
+							&:first-letter{
+								font-size: 16px;
+							}
+						}
+						&[groups="base.group_website_publisher"]{
+							a{
+								font-size: 12px;
+								width: auto;
+							}
+						}
+					}
+				}
+				.fa{
+					padding-right: 0.2em;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width : 980px) {
+	#wrapwrap #fluxdock_header {
+		min-width: @minWidth;
+		.fluxdock-topbar {
+			#mobile-menu-trigger {
+				display: block;
+				position: absolute;
+				top: 11px;
+				right: 26px;
+				font-size: 32px;
+				padding: 10px;
+				cursor: pointer;
+			}
+			ul.main-menu {
+				display: none;
+			}
+			ul.service-menu {
+				display: none;
+			}
+			.fluxdock-logo {
+				display: none;
+			}
+			.fluxdock-title {
+				opacity: 1;
+				left: 0;
+			}
+		}
+	}
+}
