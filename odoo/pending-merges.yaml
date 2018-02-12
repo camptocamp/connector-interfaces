@@ -5,11 +5,7 @@
     smk: git@github.com:simahawk/website-cms.git
   merges:
     - oca 11.0
-    # migrate all to 11.0
-    # [MIG][11] cms_notification #37
-    - oca refs/pull/37/head
-    # [add][11] cms_account_form #TODO
-    - oca refs/pull/38/head
-    # catch them all to skip conflicts
-    #- c2c v11-3582-merge-all-pending
+    # PLACEHOLDER: we are going to have some other PR to merge here
+    # [add] XXX
+    # oca refs/pull/XX/head
   target: &default_target c2c merge-branch-3582-dev
