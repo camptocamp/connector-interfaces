@@ -69,6 +69,8 @@ class ResPartner(models.Model):
     profile_completed_date = fields.Date(
         string='Profile completed date',
     )
+    # TODO: v11 removed this field. Adding it to make detail view work
+    fax = fields.Char(string='Fax')
 
     @api.multi
     @api.depends('image')
@@ -132,7 +134,7 @@ class ResPartner(models.Model):
             item.is_free = item.flux_membership == 'free'
 
     # CMS stuff
-    cms_search_url = '/members'
+    cms_search_url = '/dock/partners'
 
     @api.multi
     def _compute_cms_edit_url(self):
@@ -145,11 +147,9 @@ class ResPartner(models.Model):
         return res or self.user_id.id == uid
 
     @api.multi
-    def _website_url(self, field_name, arg):
-        res = {}
-        for item in self:
-            res[item.id] = "/members/%s" % slug(item)
-        return res
+    def _compute_website_url(self):
+        for partner in self:
+            partner.website_url = self.cms_search_url + '/' + slug(partner)
 
     @api.model
     def _get_default_image(self, partner_type, is_company, parent_id):
