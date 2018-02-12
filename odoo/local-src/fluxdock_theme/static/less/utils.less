@@ -33,21 +33,26 @@
 .main-content-wrapper{
 	// you can use this with `center-block` BS class
 	// to create fluxdock content columns
-	max-width: 780px;
+	max-width: @fluxInnerContentMaxWidth;
+}
+.container-md{
+	// large screen container
+	max-width: @fluxInnerContentMaxWidth;
+	.center-block;
 }
 .container-lg{
 	// large screen container
-	max-width: 1366px;
+	max-width: @fluxContainerLargeWidth;
 	.center-block;
 }
 .container-xlg{
 	// XL screen container
-	max-width: 1920px;
+	max-width: @fluxContainerXLargeWidth;
 	.center-block;
 }
 .container-xxlg{
 	// XXL screen container
-	max-width: 2560px;
+	max-width: @fluxContainerXXLargeWidth;
 	.center-block;
 }
 .clickable{ cursor: pointer }

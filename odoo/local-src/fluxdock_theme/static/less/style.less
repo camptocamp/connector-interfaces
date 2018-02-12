@@ -1,10 +1,17 @@
+// TODO: this file is still a mess since the 1st version of this theme
 body #wrapwrap main #wrap.o_editable{
 	// We are in edit mode
 	 .accordion .accordion-content{
 	 	display: block;
 	 }
 }
-
+body {
+	overflow-x: hidden;
+  #wrapwrap {
+		top: 0;
+		left: 0;
+	}
+}
 // we add this class into `models.webste.Website.get_extra_body_klass` ;)
 body.authenticated_user{
 	#wrap {
@@ -66,6 +73,11 @@ body #wrapwrap {
 		padding: 6px 10px;
 	}
 
+	.opt_blue_bg {
+		background-color: @fluxBlue;
+		border-color: white;
+		color: white;
+	}
 	.opt_dark_bg {
 		background-color: @fluxPurple;
 		border-color: white;
@@ -206,79 +218,6 @@ body #wrapwrap {
 					-o-transform: rotate(180deg);
 					transform: rotate(180deg);
 					right: 28px;
-				}
-			}
-		}
-
-		section.top-spacer {
-			height: 182px;
-		}
-		section.top-spacer-small {
-			height: 100px;
-		}
-
-		section.content{
-			padding-top: 55px;
-			padding-bottom: 24px;
-			&.with-image{
-				padding-bottom: 0;
-			}
-			.content-wrap {
-				max-width: 646px;
-				text-align: center;
-				margin: 0 auto 40px;
-				padding: 0 20px;
-				h2{
-					max-width: 392px;
-					margin-left: auto;
-					margin-right: auto;
-					margin-bottom: 20px;
-				}
-				.content-icon{
-					margin-bottom: 55px;
-					img{
-						width: 150px;
-						height: 100px;
-					}
-				}
-				.two-col{
-					float: left;
-					width: 50%;
-					font-size: 18px;
-					h3{
-						text-align: left;
-						text-transform: uppercase;
-						margin-bottom: 38px;
-					}
-					h4{
-						text-align: left;
-						font-family: "noyh_rmedium";
-						font-size: 22px;
-						margin-bottom: 4px;
-						margin-top: 20px;
-						a{
-							text-decoration: underline;
-						}
-					}
-					ul{
-						font-family: "noyh_rmedium";
-						list-style-type: circle;
-						padding-left: 24px;
-					}
-					&.two-col-left {
-						padding-right: 12px;
-					}
-					&.two-col-right {
-						padding-left: 12px;
-					}
-				}
-			}
-			.image-wrap{
-				margin-top: 60px;
-				img{
-					max-width: 100%;
-					min-width: 100%;
-					height: auto;
 				}
 			}
 		}
@@ -426,34 +365,6 @@ body #wrapwrap {
 			}
 		}
 
-		//Members List and Detail
-		section.content.member-detail-view{
-			padding-top: 3em;
-			.content-wrap h2 {
-				font-size: 26px;
-			}
-		}
-		section.content.member-detail-view {
-			.content-wrap h2 {
-				max-width: none;
-			}
-		}
-		section.content.member-detail-view {
-			.member-logo {
-				img {
-					max-width: 180px;
-				}
-			}
-			.member-details {
-				padding-left: 210px;
-			}
-		}
-		section.content.detail-address {
-			padding-top: 0;
-			h2{
-				margin-top: 0;
-			}
-		}
 
 		.row-centered {
 			text-align: center;
@@ -674,15 +585,7 @@ body #wrapwrap {
 	}
 }
 
-body {
-	overflow-x: hidden;
-}
 
-body #wrapwrap {
-	position: relative;
-	top: 0;
-	left: 0;
-}
 
 .mobile-menu {
 	position: fixed;

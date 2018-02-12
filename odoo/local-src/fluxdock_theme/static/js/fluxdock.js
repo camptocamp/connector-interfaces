@@ -47,21 +47,6 @@ $(document).ready(function() {
 		}
 	});
 
-	//Header logo fadein
-	if($('section.animated-logo').length > 0){
-		$(window).scroll(function(event) {
-			var scrollPosition = $(window).scrollTop();
-			var logo = $('.fluxdock-header-logo');
-			if(scrollPosition > 500){
-				logo.addClass('visible-scroll');
-			}else{
-				logo.removeClass('visible-scroll');
-			}
-	    });
-	}else{
-		$('.fluxdock-header-logo').addClass('visible-scroll');
-	}
-
 	// FIXME: since the slider is a snippet we should move this to snippet JS
 	var boxWidth = 157;
 	var setup_members_slider = function set_members_slide(membersWrap){

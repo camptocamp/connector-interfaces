@@ -14,7 +14,8 @@
 				<link href="/fluxdock_theme/static/less/utils.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/form.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/select2.less" rel="stylesheet" type="text/less" />
-				<link href="/fluxdock_theme/static/less/components.less" rel="stylesheet" type="text/less" />
+				<link href="/fluxdock_theme/static/less/components/components.less" rel="stylesheet" type="text/less" />
+				<link href="/fluxdock_theme/static/less/components/section_content.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/listing.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/header.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/footer.less" rel="stylesheet" type="text/less" />

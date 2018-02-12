@@ -6,39 +6,44 @@
 
 			<xpath expr="//div[@id='wrapwrap']/header" position="replace">
 				<header id="fluxdock_header">
-					<div class="fluxdock-topbar">
+					<div class="header-content-wrapper">
+						<div class="fluxdock-topbar">
 
-						<a href="/" class="navbar-brand">
-							<!-- Needed for other modules to put their stuff in it -->
-						</a>
+							<a href="/" class="fluxdock-header-logo">
+								<div class="fluxdock-logo"></div>
+								<div class="fluxdock-title"></div>
+							</a>
 
-						<a href="/" class="fluxdock-header-logo">
-							<div class="fluxdock-logo"></div>
-							<div class="fluxdock-title"></div>
-						</a>
-						<ul id="top_menu">
-							<li></li>
-							<!-- Needed for other modules to put their stuff in it -->
-						</ul>
+							<ul class="main-menu">
+								<t t-foreach="website.menu_id.child_id" t-as="submenu">
+									<t t-call="fluxdock_theme.submenu"/>
+								</t>
+							</ul>
 
-						<ul class="main-menu">
-							<t t-foreach="website.menu_id.child_id" t-as="submenu">
-								<t t-call="fluxdock_theme.submenu"/>
-							</t>
-						</ul>
+							<t t-call="fluxdock_theme.service_menu"/>
 
-						<t t-call="fluxdock_theme.service_menu"/>
+							<ul style="display:none!important">
+								<li id="o_logout">
+									<!-- fake hook for other website modules that want this
+											 to inject their stuff, but we don't want them to show anything here -->
+								</li>
+							</ul>
 
-						<ul style="display:none!important">
-							<li id="o_logout">
-								<!-- fake hook for other website modules that want this
-										 to inject their stuff, but we don't want them to show anything here -->
-							</li>
-						</ul>
+							<!-- TODO: this header has been created by original dev with a mixture of boostrap nav and custom stuff
+						 	we should refactor it to match as much as possible the BS markup -->
+							<a href="/" class="navbar-brand" style="display:none!important" />
+								<!-- Needed for other modules to put their stuff in it -->
 
-						<!-- Hamburger -->
-						<div id="mobile-menu-trigger">
-							<i class="fa fa-bars"></i>
+							<ul id="top_menu" style="display:none!important">
+								<li></li>
+								<!-- Needed for other modules to put their stuff in it -->
+							</ul>
+
+							<!-- Hamburger -->
+							<div id="mobile-menu-trigger">
+								<i class="fa fa-bars"></i>
+							</div>
+
 						</div>
 					</div>
 				</header>
