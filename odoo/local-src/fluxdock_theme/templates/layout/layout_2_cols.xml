@@ -4,7 +4,7 @@
   <template id="layout_2_cols" name="Fluxdock layout: 2 cols">
     <t t-call="website.layout">
       <div id="wrap" class="layout_2_cols">
-        <div id="main_row" class="flex-grid">
+        <div id="main_row" class="flex-grid container-lg">
           <div id="sidebar" class="col col-left opt_dark_bg">
             <div class="above_content_wrapper opt_white_bg">
               <div class="section_info">

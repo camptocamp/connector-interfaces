@@ -1,10 +1,17 @@
+// TODO: this file is still a mess since the 1st version of this theme
 body #wrapwrap main #wrap.o_editable{
 	// We are in edit mode
 	 .accordion .accordion-content{
 	 	display: block;
 	 }
 }
-
+body {
+	overflow-x: hidden;
+  #wrapwrap {
+		top: 0;
+		left: 0;
+	}
+}
 // we add this class into `models.webste.Website.get_extra_body_klass` ;)
 body.authenticated_user{
 	#wrap {
@@ -674,15 +681,7 @@ body #wrapwrap {
 	}
 }
 
-body {
-	overflow-x: hidden;
-}
 
-body #wrapwrap {
-	position: relative;
-	top: 0;
-	left: 0;
-}
 
 .mobile-menu {
 	position: fixed;

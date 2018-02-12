@@ -7,9 +7,10 @@
 		background-color: white;
 		z-index: 100;
 		height: @fluxHeaderHeight;
-		box-shadow: 0 1px 5px #ccc;
-		#top_menu{
-			display: none;
+		.header-content-wrapper {
+			// constrain size on large screens
+			.container-lg;
+			position: relative;
 		}
 		.fluxdock-topbar{
 			background-color: transparent;
@@ -18,22 +19,12 @@
 			#mobile-menu-trigger{
 				display: none;
 			}
-			.navbar-brand{
-				display: none;
-			}
 			.fluxdock-header-logo{
-				opacity: 0;
-				transition: opacity .25s ease-in-out;
-			   -moz-transition: opacity .25s ease-in-out;
-			   -webkit-transition: opacity .25s ease-in-out;
 				position: absolute;
 				top: 5px;
 				left: 34px;
 				width: 250px;
 				height: 70px;
-				&.visible-scroll{
-					opacity: 1;
-				}
 				.fluxdock-logo{
 					width: 70px;
 					height: 70px;
@@ -58,12 +49,12 @@
 
 			ul.main-menu{
 				width: 100%;
-				max-width: 630px;
+				max-width: 700px;
 				margin: 0 auto;
 				text-align: center;
-				margin-top: 17px;
 				display: table;
 				padding-left: 0;
+				padding-top: 15px;
 				li{
 					float: none;
 					display: table-cell;
@@ -151,7 +142,6 @@
 				display: none;
 			}
 			.fluxdock-title {
-				opacity: 1;
 				left: 0;
 			}
 		}

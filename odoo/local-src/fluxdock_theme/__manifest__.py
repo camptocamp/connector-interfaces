@@ -10,6 +10,7 @@
         'templates/layout/footer.xml',
         'templates/layout/menu.xml',
         'templates/layout/listing.xml',
+        'templates/layout/layout_2_cols.xml',
         'templates/snippets/snippets.xml',
         'templates/snippets/options.xml',
         'templates/forms/search_form.xml',
