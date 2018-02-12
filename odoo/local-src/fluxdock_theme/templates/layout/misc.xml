@@ -7,4 +7,11 @@
     </body>
   </template>
 
+  <template id="language_selector" inherit_id="website.language_selector">
+    <xpath expr="//a[hasclass('js_change_lang')]/t" position="replace">
+      <!-- display only EN or DE from lang code -->
+      <t t-esc="lg[0][:2].upper()"/>
+    </xpath>
+  </template>
+
 </odoo>

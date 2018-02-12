@@ -1,0 +1,29 @@
+.flex-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 100vh;
+  .col {
+    padding: 3rem;
+  }
+}
+.layout_2_cols {
+  .flex-grid {
+    #sidebar.col {
+      flex: 0 0 25%;
+    }
+    #content.col {
+      flex: 1;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .flex-grid {
+    display: block;
+  }
+}
+
+// .content_wrapper {
+//   min-height: 300px;
+// }

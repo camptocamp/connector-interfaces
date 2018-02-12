@@ -20,15 +20,15 @@
                      t-att-data-publish="handle_publish and (item.website_published and 'on' or 'off') or None">
                     <t t-set="detail_href" t-value="detail_url and detail_url.format(slug(item)) or item.website_url"/>
                     <t t-if="show_preview">
-                        <div class="col-md-3">
-                            <a class="item-preview"
+                        <div class="col-md-3 item-preview">
+                            <a class="item-link"
                                t-att-href="detail_href">
                                <img class="img img-responsive center-block"
                                     t-att-src="website.image_url(item, 'image', '128x128')" />
                             </a>
                         </div>
                     </t>
-                    <div t-att-class="show_preview and 'col-md-9' or 'col-md-12'">
+                    <div t-attf-class="item-content #{show_preview and 'col-md-9' or 'col-md-12'}">
                         <div class="item-details">
                             <t t-if="show_create_date">
                                 <div class="text-muted">
