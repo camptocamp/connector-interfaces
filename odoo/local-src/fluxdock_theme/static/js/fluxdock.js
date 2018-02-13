@@ -207,12 +207,16 @@ $(document).ready(function() {
 
 	//Init Carousel with bxslider
 	$('.bxslider').each(function(){
-		var data = $(this).data('slider') ? $(this).data('slider'): {};
+		var slider_config = $(this).data('slider') ? $(this).data('slider'): {};
 		var only_one = $(this).children().length < 2;
 		if(only_one){
-			data['auto'] = false;
+			slider_config['auto'] = false;
 		}
-		$(this).bxSlider(data);
+    // TODO: test it!
+		slider_config['onSlideBefore'] = function($slideElement, oldIndex, newIndex){
+      $slideElement.find(".lazy").Lazy();
+    }
+		$(this).bxSlider(slider_config);
 		if(only_one){
 			// remove useless controls
 			$(this).closest('.bx-wrapper').find('.bx-controls').remove();

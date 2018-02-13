@@ -35,6 +35,7 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
                 $('.clickable').on('click', function(){
                     window.location.href = $(this).data('url');
                 })
+                self.$grid.find('.lazy').Lazy();
             })
         },
         _render: function _render(item) {
