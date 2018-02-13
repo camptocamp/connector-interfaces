@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-		<template id="submenu" name="Fluxdock submenu">
-			<!-- barely copied from website and fixed "active" class -->
-		    <li t-if="not submenu.child_id" t-att-class="
-		        'active' if submenu.url and submenu.url != '/' and submenu.url in request.httprequest.path else None">
-		        <a t-att-href="(website.menu_id.child_id[0] == submenu) and '/' or submenu.url" t-ignore="true" t-att-target="'_blank' if submenu.new_window else None">
-		            <span t-field="submenu.name"/>
-		        </a>
-		    </li>
-		</template>
+
 
 
 		<template id="personal_menu_content" name="Fluxdock personal menu content">
@@ -85,7 +77,7 @@
 				<nav class="mobile-menu">
 					<ul class="main-menu">
 						<t t-foreach="website.menu_id.child_id" t-as="submenu">
-							<t t-call="fluxdock_theme.submenu"/>
+							<t t-call="website.submenu"/>
 						</t>
 					</ul>
 
