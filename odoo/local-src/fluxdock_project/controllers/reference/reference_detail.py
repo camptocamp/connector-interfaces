@@ -9,11 +9,10 @@ class ReferenceDetail(http.Controller):
     """Controller for reference model."""
 
     @http.route([
-        '/references/<model("project.reference"):reference>',
+        '/dock/references/<model("project.reference"):reference>',
     ], type='http', auth='public', website=True)
     def reference_detail(self, reference, **kw):
-        values = {
-            'reference': reference
-        }
-        return request.website.render("fluxdock_project.reference_detail",
-                                      values)
+        return request.render("fluxdock_project.reference_detail", {
+            'proposal': reference,
+            'main_object': reference,
+        })

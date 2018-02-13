@@ -6,7 +6,7 @@
       <t t-set="is_anon" t-value="not request.session.uid"/>
       <!-- important to check for `is_anon` too because when you are anonymous user
   you are "Public User" indeed, so you could have a membership state (default to `free`)-->
-      <t t-set="is_owner" t-value="main_object.is_owner(equest.session.uid)"/>
+      <t t-set="is_owner" t-value="main_object.is_owner(request.session.uid)"/>
 
       <div class="opt_dark_bg proposal-detail" id="wrap">
         <t t-call="fluxdock_theme.mgmt_actions">
