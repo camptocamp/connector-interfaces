@@ -14,9 +14,9 @@
 								<div class="fluxdock-title"></div>
 							</a>
 
-							<ul class="main-menu">
+							<ul id="top_menu" class="nav navbar-nav">
 								<t t-foreach="website.menu_id.child_id" t-as="submenu">
-									<t t-call="fluxdock_theme.submenu"/>
+									<t t-call="website.submenu"/>
 								</t>
 							</ul>
 
