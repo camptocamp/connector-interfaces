@@ -22,17 +22,19 @@ class ProjectProposal(models.Model):
     _order = 'website_published DESC, create_date DESC'
 
     # we use this for website template add action
-    cms_add_url = '/market/proposals/add'
+    cms_add_url = '/proposals/add'
     cms_after_delete_url = '/my/home'
-
-    @property
-    def cms_search_url(self):
-        return '/market'
+    cms_search_url = '/dock/proposals'
 
     @api.multi
     def _compute_cms_edit_url(self):
         for item in self:
             item.cms_edit_url = item.website_url + '/edit'
+
+    @api.multi
+    def _compute_website_url(self):
+        for item in self:
+            item.website_url = self.cms_search_url + '/' + slug(item)
 
     name = fields.Char(
         string="Proposal Name",
@@ -112,13 +114,6 @@ class ProjectProposal(models.Model):
         """
         for record in self:
             record.website_published = not record.website_published
-
-    @api.multi
-    @api.depends('name')
-    def _website_url(self, name, arg):
-        res = super(ProjectProposal, self)._website_url(name, arg)
-        res.update({(p.id, '/market/proposals/%s' % slug(p)) for p in self})
-        return res
 
     @api.multi
     def _is_new(self):

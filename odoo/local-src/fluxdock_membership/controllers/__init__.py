@@ -1,2 +1,3 @@
 from . import signup
-from . import account
+from . import member_detail
+from . import member_search

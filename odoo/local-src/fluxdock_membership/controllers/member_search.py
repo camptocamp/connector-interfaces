@@ -1,23 +1,25 @@
 # Copyright 2018 Simone Orsi - Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
+
 from odoo import http, _
 from odoo.http import request
 from odoo.addons.cms_form.controllers.main import SearchFormControllerMixin
 
 
-class ProposalSearch(http.Controller, SearchFormControllerMixin):
+class MembersSearch(http.Controller, SearchFormControllerMixin):
 
     @http.route([
-        '/dock/proposals',
-        '/dock/proposals/page/<int:page>',
+        '/dock/partners',
+        '/dock/partners/page/<int:page>',
     ], type='http', auth="public", website=True)
-    def market(self, **kw):
-        model = 'project.proposal'
+    def partners_search(self, **kw):
+        model = 'res.partner'
         section_vals = {
             'section_logo':
-                '/fluxdock_project/static/src/img/market.png',
-            'section_title': _('Proposals'),
+                # TODO: pick the right image
+                '/fluxdock_membership/static/src/img/members-white.png',
+            'section_title': _('Partners'),
             'context_menu': self._get_context_menu(),
         }
         kw.update(section_vals)

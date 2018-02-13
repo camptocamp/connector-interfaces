@@ -52,7 +52,7 @@
 
       .styled-select{
         overflow: hidden;
-        border: solid 1px white;
+        border: solid 1px #ccc;
         background-image: url("/fluxdock_theme/static/img/arrow-white-down.png");
         background-repeat: no-repeat;
         background-position: right 11px top 16px;
@@ -296,15 +296,11 @@
       }
     }
     // search forms >>
-    //  .members-listing form => temporary waiting to migrate members search to cms form
-    .cms_form_wrapper.mode_search form,
-    .members-listing form {
-      margin-top: 40px;
-
+    .cms_form_wrapper.mode_search form {
+      margin-bottom: 0;
       button[type="submit"] {
         width: 100%;
       }
-
       .filter-row {
         margin-bottom: 20px;
 
@@ -331,8 +327,7 @@
       }
     }
     @media only screen and (max-width : 1050px) {
-      .cms_form_wrapper.mode_search form,
-      .members-listing form {
+      .cms_form_wrapper.mode_search form {
         .filter-row > div:not(:last-child) {
           margin-bottom: 20px;
         }

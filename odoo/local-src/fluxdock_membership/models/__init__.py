@@ -4,3 +4,4 @@
 from . import res_partner
 from . import res_users
 from . import forms
+from . import website

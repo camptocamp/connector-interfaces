@@ -38,6 +38,17 @@ class Website(models.Model):
             klasses.append('authenticated_user')
         return ' '.join(klasses)
 
+    @staticmethod
+    def menu_item_is_active(path):
+        return request.httprequest.path.startswith(path)
+
+    def _get_dock_context_menu(self):
+        """Centralized menu for `dock` section."""
+
+        # TODO: get rid of this once we have cms.page
+        # w/ auto context nav in place.
+        return []
+
 
 class WebsiteMixin(models.AbstractModel):
     _inherit = 'website.published.mixin'

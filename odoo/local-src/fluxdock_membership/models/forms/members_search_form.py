@@ -1,4 +1,4 @@
-# Copyright 2016 Camptocamp SA
+# Copyright 2018 Simone Orsi - Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
 from odoo import models, fields, _
@@ -20,8 +20,6 @@ class PartnerSearchForm(models.AbstractModel):
         'country_id',
     )
     form_fields_template = 'fluxdock_membership.search_form_fields'
-    fluxdock_search_header_template = \
-        'fluxdock_membership.members_search_form_header'
 
     def listing_options(self):
         return {

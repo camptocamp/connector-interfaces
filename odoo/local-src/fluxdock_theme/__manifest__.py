@@ -19,6 +19,7 @@
         'templates/mosaic.xml',
         'templates/status_msg.xml',
         'templates/email.xml',
+        'templates/design_test/layout_2_cols_test.xml',
         'pages/homepage.xml',
     ],
     'category': 'Theme/Creative',
@@ -33,4 +34,5 @@
         # need for personal menu content (see layout.xml)
         'website_partner',
     ],
+    'post_load': 'patch_web_asset',
 }

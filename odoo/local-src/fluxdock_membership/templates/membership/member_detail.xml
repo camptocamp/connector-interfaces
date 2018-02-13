@@ -20,17 +20,15 @@
         </div>
     </template>
 
-    <template id="fluxdock_partner_detail" name="Fluxdock partner details" inherit_id="website_partner.partner_detail">
-
-      <xpath expr="//h1[@id='partner_name']" position="replace">
+  <template id="partner_detail" name="Fluxdock partner details">
+    <t t-call="website.layout">
+      <div id="wrap" class="member-detail">
+        <!-- TODO: old inheritance removed. We can now cleanup this mess and split in sub templates -->
         <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
-      </xpath>
-      <xpath expr="//h1[@id='partner_name']" position="after">
         <t t-if="not partner.is_owner(request.session.uid)">
           <section class="top-spacer-small opt_dark_grid_bg"></section>
         </t>
-      </xpath>
-      <xpath expr="//div[@class='col-md-4']" position="replace">
+
 
         <t t-call="fluxdock_theme.mgmt_actions">
           <t t-set="object" t-value="partner"/>
@@ -134,8 +132,6 @@
                 </div>
             </div>
         </t>
-      </xpath>
-      <xpath expr="//div[@class='col-md-8 mt32']" position="replace">
         <div class="col-md-8 mt32 hide">
           <t t-if="partner">
             <div t-field="partner.website_description" />
@@ -146,7 +142,8 @@
           </t>
           <t t-raw="right_column or ''" />
         </div>
-      </xpath>
-    </template>
+      </div>
+    </t>
+  </template>
 
 </odoo>
