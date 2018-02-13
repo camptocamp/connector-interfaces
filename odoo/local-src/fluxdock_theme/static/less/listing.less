@@ -2,13 +2,12 @@
   .listing {
     padding: 1em;
     .list-item {
-      &:not(.no-results) {
-        > div {
-          border-bottom: 1px solid @fluxPurple;
-        }
+      padding: 2em;
+      &:not(.no-results),
+      &:not(:last-child){
+        border-bottom: 1px solid @fluxPurple;
       }
       .item-content {
-        padding: 2em;
         .main-content-wrapper;
       }
     }

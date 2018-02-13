@@ -19,6 +19,7 @@
         'templates/mosaic.xml',
         'templates/status_msg.xml',
         'templates/email.xml',
+        'templates/design_test/layout_2_cols_test.xml',
         'pages/homepage.xml',
     ],
     'category': 'Theme/Creative',
