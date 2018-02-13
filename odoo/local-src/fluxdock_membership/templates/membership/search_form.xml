@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="members_search_form_header" name="Fluxdock members search form header">
-      <div class="content-icon">
-          <img src="/fluxdock_membership/static/src/img/members-white.png"></img>
-      </div>
-      <h2>Members</h2>
-    </template>
-
-
     <template id="search_form_fields" name="Fluxdock partner search form fields">
 
       <div class="row filter-row row-1">
@@ -19,10 +11,8 @@
           <button type="submit" class="btn btn-default ">Search</button>
         </div>
       </div>
-      <a class="advanced-search" role="button" data-toggle="collapse" href="#advanced_search"
-         aria-expanded="false" aria-controls="advanced_search">Advanced search</a>
 
-      <div class="collapse" id="advanced_search">
+      <t t-call="fluxdock_theme.search_form_advanced_search">
         <div class="row filter-row row-2">
           <div class="col-md-4 col-xs-12">
             <t t-raw="form_fields['category_id']['widget'].render()"/>
@@ -34,7 +24,7 @@
             <t t-raw="form_fields['country_id']['widget'].render()"/>
           </div>
         </div>
-      </div>
+      </t>
 
     </template>
 

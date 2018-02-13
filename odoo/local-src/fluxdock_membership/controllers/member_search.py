@@ -18,7 +18,7 @@ class MembersSearch(http.Controller, SearchFormControllerMixin):
         section_vals = {
             'section_logo':
                 # TODO: pick the right image
-                '/fluxdock_theme/static/img/content-icons/collaborative.png',
+                '/fluxdock_membership/static/src/img/members-white.png',
             'section_title': _('Partners'),
             'context_menu': self._get_context_menu(),
         }

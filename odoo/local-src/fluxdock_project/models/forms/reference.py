@@ -81,8 +81,6 @@ class ReferenceSearchForm(models.AbstractModel):
         'only_my',
     )
     form_fields_template = 'fluxdock_project.search_form_fields'
-    fluxdock_search_header_template = \
-        'fluxdock_project.reference_search_form_header'
 
     only_my = fields.Boolean(string="Show only my references")
 

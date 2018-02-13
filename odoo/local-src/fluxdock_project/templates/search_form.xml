@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="reference_search_form_header" name="Fluxdock reference search form header">
-      <div class="content-icon">
-        <img src="/fluxdock_project/static/src/img/references_icon_white.png"/>
+  <template id="search_form_fields" name="Fluxdock project search form fields">
+    <div class="row filter-row row-1">
+      <div class="col-md-9 col-xs-12">
+        <t t-raw="form_fields['name']['widget'].render()"/>
       </div>
-      <h2>Member references</h2>
-    </template>
-
-    <template id="search_form_fields" name="Fluxdock project search form fields">
-
-      <div class="row filter-row row-1">
-        <div class="col-md-9 col-xs-12">
-          <t t-raw="form_fields['name']['widget'].render()"/>
-        </div>
-        <div class="col-md-3 col-xs-12">
-          <button type="submit" class="btn btn-default">Search</button>
-        </div>
+      <div class="col-md-3 col-xs-12">
+        <button type="submit" class="btn btn-default">Search</button>
       </div>
+    </div>
+    <t t-call="fluxdock_theme.search_form_advanced_search">
       <div class="row filter-row row-2">
         <div class="col-md-6 col-xs-12">
           <t t-raw="form_fields['industry_ids']['widget'].render()"/>
@@ -47,7 +40,9 @@
           </div>
         </div>
       </t>
+    </t>
 
-    </template>
+  </template>
+
 
 </odoo>

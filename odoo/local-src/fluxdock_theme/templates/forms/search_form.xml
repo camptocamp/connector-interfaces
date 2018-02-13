@@ -36,6 +36,15 @@
         </div>
       </t>
     </t>
+
+  </template>
+
+  <template id="search_form_advanced_search" name="Fluxdock search form advanced search">
+    <a class="advanced-search" role="button" data-toggle="collapse" href="#advanced_search"
+       aria-expanded="false" aria-controls="advanced_search">Advanced search</a>
+    <div class="collapse" id="advanced_search">
+      <t t-raw="0" />
+    </div>
   </template>
 
 </odoo>

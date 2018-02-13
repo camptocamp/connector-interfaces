@@ -38,14 +38,10 @@
         # frontend
         'templates/assets.xml',
         'templates/personal_menu.xml',
+        'templates/search_form.xml',
+        'templates/proposal/proposal_detail.xml',
         'templates/reference/reference_detail.xml',
-        # TODO: my home is going to be dropped
-        # 'templates/reference/my_home.xml',
-        'templates/reference/search_form.xml',
         'templates/reference/help_msgs.xml',
-        'templates/proposal/search_form.xml',
-        # TODO: my home is going to be dropped
-        # 'templates/proposal/my_home.xml',
         'templates/notification/notify.xml',
         'templates/notification/notification_listing.xml',
     ],
