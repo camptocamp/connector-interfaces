@@ -31,6 +31,7 @@
 				<link rel="shortcut icon" href="/fluxdock_theme/static/favicon/favicon_v02.png" type="image/x-icon" />
 				<link rel="icon" href="/fluxdock_theme/static/favicon/favicon_v01.png" type="image/x-icon" />
 				<script type="text/javascript" src="/fluxdock_theme/static/js/bxslider.js"></script>
+				<script type="text/javascript" src="/fluxdock_theme/static/lib/jquery.lazyload/jquery.lazy.min.js"></script>
 				<script type="text/javascript" src="/fluxdock_theme/static/lib/bootstrap-imgupload/js/bootstrap-imgupload.js"></script>
 				<script type="text/javascript" src="/fluxdock_theme/static/js/image_upload.js"></script>
 
@@ -39,6 +40,7 @@
 				<script type="text/javascript" src="/fluxdock_theme/static/js/mosaic.js"></script>
 				<script type="text/javascript" src="/fluxdock_theme/static/js/tooltips.js"></script>
 				<script type="text/javascript" src="/fluxdock_theme/static/src/js/publish.js"></script>
+				<script type="text/javascript" src="/fluxdock_theme/static/js/lazyload.js"></script>
 				<script type="text/javascript" src="/fluxdock_theme/static/js/fluxdock.js"></script>
 			</xpath>
 		</template>

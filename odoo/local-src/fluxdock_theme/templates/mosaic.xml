@@ -50,17 +50,17 @@
              data-fields='{"display_name":"title","website_url":"url","image_url":"src"}'>
           <t t-if="not mosaic_items">
               <!-- rendered via JS -->
-              <div class="grid-item"
-                   style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg)">
+              <div class="grid-item lazy"
+                   data-src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg">
                 <h4>Lorem ipsum</h4>
               </div>
-              <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg)">
+              <div class="grid-item lazy" data-src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg">
                 <h4>Lorem ipsum</h4>
               </div>
-              <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
+              <div class="grid-item lazy" data-src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg">
                 <h4>Lorem ipsum</h4>
               </div>
-              <div class="grid-item" style="background-image:url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg)">
+              <div class="grid-item lazy" data-src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg">
                 <h4>Lorem ipsum</h4>
               </div>
           </t>
@@ -74,10 +74,10 @@
     </template>
 
     <template id="mosaic_item" name="Fluxdock mosaic item">
-        <div class="grid-item clickable"
+        <div class="grid-item lazy clickable"
              t-att-data-url="item.website_url"
              t-att-title="item.name"
-             t-attf-style="background-image:url(#{item.image_url})">
+             t-attf-data-src="#{item.image_url})">
           <h4><span t-esc="item.name" /></h4>
         </div>
     </template>

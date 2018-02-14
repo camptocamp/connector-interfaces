@@ -5,76 +5,77 @@
     <t t-call="website.layout">
       <div class="opt_dark_bg reference-detail" id="wrap">
         <t t-call="fluxdock_theme.mgmt_actions">
-            <t t-set="object" t-value="reference"/>
+          <!-- TODO: check if publisher still need this `object` var -->
+            <t t-set="object" t-value="main_object"/>
             <t t-set="show_add" t-value="False"/>
         </t>
         <div>
           <div class="container-xxlg">
-            <div class="top-image jumbotron" t-att-style="'background-image:url({})'.format(reference.image_url)">
+            <div class="top-image jumbotron lazy" t-att-data-src="main_object.image_url">
             </div>
           </div>
           <div class="container">
             <div class="center-block main-content-wrapper" id="ref_content">
-              <h1><t t-esc="reference.name"/></h1>
-              <div class="item-description" t-field="reference.website_short_description" />
+              <h1><t t-esc="main_object.name"/></h1>
+              <div class="item-description" t-field="main_object.website_short_description" />
               <div class="info border-tnb mb32 mt16 pt1 pb1">
-                <t t-if="reference.implementation_date">
+                <t t-if="main_object.implementation_date">
                   <div class="row">
                     <div class="col-md-3"><strong>Date:</strong>
                     </div>
-                    <div class="col-md-9"><span t-field="reference.implementation_date" />
+                    <div class="col-md-9"><span t-field="main_object.implementation_date" />
                     </div>
                   </div>
                 </t>
-                <t t-if="reference.location">
+                <t t-if="main_object.location">
                   <div class="row">
                     <div class="col-md-3"><strong>Location:</strong>
                     </div>
-                    <div class="col-md-9"><span t-field="reference.location" />
+                    <div class="col-md-9"><span t-field="main_object.location" />
                     </div>
                   </div>
                 </t>
-                <t t-if="reference.country_id">
+                <t t-if="main_object.country_id">
                   <div class="row">
                     <div class="col-md-3"><strong>Country:</strong>
                     </div>
-                    <div class="col-md-9"><span t-field="reference.country_id" />
+                    <div class="col-md-9"><span t-field="main_object.country_id" />
                     </div>
                   </div>
                 </t>
-                <t t-if="reference.video_url">
+                <t t-if="main_object.video_url">
                   <div class="row">
                     <div class="col-md-3"><strong>Video URL:</strong>
                     </div>
-                    <div class="col-md-9"><a t-att-href="reference.video_url" t-esc="reference.video_url"/>
+                    <div class="col-md-9"><a t-att-href="main_object.video_url" t-esc="main_object.video_url"/>
                     </div>
                   </div>
                 </t>
-                <t t-if="reference.ext_website_url">
+                <t t-if="main_object.ext_website_url">
                   <div class="row">
                     <div class="col-md-3"><strong>Website URL:</strong>
                     </div>
-                    <div class="col-md-9"><a t-att-href="reference.ext_website_url" t-esc="reference.ext_website_url"/>
+                    <div class="col-md-9"><a t-att-href="main_object.ext_website_url" t-esc="main_object.ext_website_url"/>
                     </div>
                   </div>
                 </t>
-                <t t-if="reference.industry_ids">
+                <t t-if="main_object.industry_ids">
                   <div class="row">
                     <div class="col-md-3"><strong>Industry:</strong>
                     </div>
                     <div class="col-md-9">
-                      <t t-foreach="reference.industry_ids" t-as="one_tag">
+                      <t t-foreach="main_object.industry_ids" t-as="one_tag">
                         <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                       </t>
                     </div>
                   </div>
                 </t>
-                <t t-if="reference.expertise_ids">
+                <t t-if="main_object.expertise_ids">
                   <div class="row">
                     <div class="col-md-3"><strong>Expertise:</strong>
                     </div>
                     <div class="col-md-9">
-                      <t t-foreach="reference.expertise_ids" t-as="one_tag">
+                      <t t-foreach="main_object.expertise_ids" t-as="one_tag">
                         <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                       </t>
                     </div>
@@ -85,14 +86,14 @@
               <div class="linked-partners mb64 mt32">
                 <h3 class="text-center border-bottom pb05">Related Members</h3>
                 <div class="row">
-                  <t t-set="owner" t-value="reference.create_uid.partner_id" />
+                  <t t-set="owner" t-value="main_object.create_uid.partner_id" />
                   <div class="col-md-12">
                     <a t-att-href="owner.website_url">
                         <span t-esc="owner.name"/><span class="pull-right fa fa-arrow-right"/>
                     </a>
                   </div>
                 </div>
-                <t t-foreach="reference.linked_partner_ids" t-as="linked_partner">
+                <t t-foreach="main_object.linked_partner_ids" t-as="linked_partner">
                   <div class="row">
                     <div class="col-md-12">
                       <a t-att-href="linked_partner.website_url">

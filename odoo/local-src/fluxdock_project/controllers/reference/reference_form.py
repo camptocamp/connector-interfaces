@@ -7,8 +7,8 @@ class ReferenceFormController(http.Controller, FormControllerMixin):
     """Reference form controller."""
 
     @http.route([
-        '/references/add',
-        '/references/<model("project.reference"):reference>/edit',
+        '/dock/references/add',
+        '/dock/references/<model("project.reference"):reference>/edit',
     ], type='http', auth='user', website=True)
     def cms_form(self, reference=None, **kw):
         """Handle a `form` route.
