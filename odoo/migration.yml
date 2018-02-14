@@ -7,13 +7,15 @@ migration:
     - version: 11.0.0
       operations:
         pre:
-          - anthem songs.install.pre::main
+          - anthem songs.install.generated.base.core::pre
         post:
           ## PLATFORM
           - anthem openerp.addons.cloud_platform.songs::install_exoscale
-          - anthem songs.install.post::main
+          - anthem songs.install.generated.base.core::post
+          - anthem songs.install.generated.base.website::post
           - anthem songs.install.users::main
           - anthem songs.install.email::main
+
       modes:
         # full:
         #   operations:
@@ -40,6 +42,7 @@ migration:
           - mail_digest
           #### camptocamp/odoo-dj
           - base_dj
+          - dj_website
           #### local-src
           - fluxdock_membership
           - fluxdock_theme

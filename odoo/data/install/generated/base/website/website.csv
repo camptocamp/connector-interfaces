@@ -1,0 +1,6 @@
+"id","name","google_management_client_secret","language_ids/id","cdn_url","auto_redirect_lang","domain","cdn_filters","default_lang_id/id","cdn_activated","favicon","user_id/id","company_id/id","homepage_id/id","default_lang_code","google_analytics_key","google_management_client_id"
+"website.default_website","Fluxdock","","base.lang_en,base.lang_de","","True","localhost","^/[^/]+/static/
+^/web/(css|js)/
+^/web/image
+^/web/content
+^/website/image/","base.lang_en","False","dj_path:data/binaries/website.default_website__favicon.png","base.public_user","base.main_company","website.homepage_page","en_US","UA-86438274-1",""

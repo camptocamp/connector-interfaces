@@ -13,9 +13,9 @@ def load_file_content(path):
     return resource_stream(req, path)
 
 
-def load_csv(ctx, path, model, delimiter=','):
+def load_csv(ctx, path, model, delimiter=',', **kw):
     content = resource_stream(req, path)
-    load_csv_stream(ctx, model, content, delimiter=delimiter)
+    load_csv_stream(ctx, model, content, delimiter=delimiter, **kw)
 
 
 def create_default_value(ctx, model, field, value, company_id):
