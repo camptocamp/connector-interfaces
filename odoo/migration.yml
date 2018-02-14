@@ -25,6 +25,7 @@ migration:
           operations:
             post:
               - anthem songs.sample.data_sample::main
+              - anthem songs.sample.generated.custom.fluxdock::post
       addons:
         upgrade:
           ## PLATFORM

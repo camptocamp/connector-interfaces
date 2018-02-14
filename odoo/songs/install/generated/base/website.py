@@ -18,6 +18,15 @@ def load_website(ctx):
 
 
 @anthem.log
+def load_website_de_DE(ctx):
+    """ Import website from csv """
+    path = 'data/install/generated/base/website/website.de_DE.csv'
+    model = ctx.env['website'].with_context(
+        lang='de_DE', tracking_disable=True)
+    load_csv(ctx, path, model)
+
+
+@anthem.log
 def load_website_menu(ctx):
     """ Import website.menu from csv """
     path = 'data/install/generated/base/website/website.menu.csv'
@@ -26,15 +35,6 @@ def load_website_menu(ctx):
     load_csv(ctx, path, model, header_exclude=header_exclude)
     if header_exclude:
         load_csv(ctx, path, model)
-
-
-@anthem.log
-def load_website_de_DE(ctx):
-    """ Import website from csv """
-    path = 'data/install/generated/base/website/website.de_DE.csv'
-    model = ctx.env['website'].with_context(
-        lang='de_DE', tracking_disable=True)
-    load_csv(ctx, path, model)
 
 
 @anthem.log

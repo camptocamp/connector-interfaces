@@ -18,22 +18,22 @@ def load_res_lang(ctx):
 
 
 @anthem.log
-def load_res_company(ctx):
-    """ Import res.company from csv """
-    path = 'data/install/generated/base/core/res.company.csv'
-    model = ctx.env['res.company'].with_context(tracking_disable=True)
-    header_exclude = ['parent_id/id']
+def load_res_groups(ctx):
+    """ Import res.groups from csv """
+    path = 'data/install/generated/base/core/res.groups.csv'
+    model = ctx.env['res.groups'].with_context(tracking_disable=True)
+    header_exclude = ['implied_ids/id']
     load_csv(ctx, path, model, header_exclude=header_exclude)
     if header_exclude:
         load_csv(ctx, path, model)
 
 
 @anthem.log
-def load_res_groups(ctx):
-    """ Import res.groups from csv """
-    path = 'data/install/generated/base/core/res.groups.csv'
-    model = ctx.env['res.groups'].with_context(tracking_disable=True)
-    header_exclude = ['implied_ids/id']
+def load_res_company(ctx):
+    """ Import res.company from csv """
+    path = 'data/install/generated/base/core/res.company.csv'
+    model = ctx.env['res.company'].with_context(tracking_disable=True)
+    header_exclude = ['parent_id/id']
     load_csv(ctx, path, model, header_exclude=header_exclude)
     if header_exclude:
         load_csv(ctx, path, model)
@@ -55,6 +55,6 @@ def pre(ctx):
 
 @anthem.log
 def post(ctx):
-    load_res_company(ctx)
     load_res_groups(ctx)
+    load_res_company(ctx)
     load_ir_default(ctx)
