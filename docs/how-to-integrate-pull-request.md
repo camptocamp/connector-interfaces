@@ -1,3 +1,9 @@
+<!--
+This file has been generated with 'invoke project.sync'.
+Do not modify. Any manual change will be lost.
+Please propose your modification on
+https://github.com/camptocamp/odoo-template instead.
+-->
 # How to integrate an open pull request of an external repository
 
 First, ensure that you have `git-aggregator`:
