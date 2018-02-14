@@ -6,5 +6,4 @@
 "__setup__.website_menu_dock","Dock","website.default_website","website.main_menu","","/dock/partners","False","3"
 "__setup__.website_menu_proposals","Proposals","website.default_website","__setup__.website_menu_dock","","/dock/proposals","False","3"
 "__setup__.website_menu_references","References","website.default_website","__setup__.website_menu_dock","","/dock/references","False","4"
-"fluxdock_project.menu_project_proposal","Market","","website.main_menu","","/market","False","20"
 "website.menu_contactus","Contact us","website.default_website","website.main_menu","website.contactus_page","/contactus","False","60"

@@ -10,8 +10,7 @@ logger = logging.getLogger('[project_proposal]')
 
 
 class ProjectProposal(models.Model):
-    """ProjectProposal contains future project set on market place to find
-    partners and collaborators. """
+    """Future project to find partners and collaborators. """
 
     _name = 'project.proposal'
     _description = "Project proposal"

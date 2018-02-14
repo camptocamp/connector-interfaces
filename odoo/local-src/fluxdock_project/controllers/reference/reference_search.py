@@ -12,7 +12,7 @@ class ReferenceSearch(http.Controller, SearchFormControllerMixin):
         '/dock/references',
         '/dock/references/page/<int:page>',
     ], type='http', auth="public", website=True)
-    def market(self, **kw):
+    def references(self, **kw):
         model = 'project.reference'
         section_vals = {
             'section_logo':
