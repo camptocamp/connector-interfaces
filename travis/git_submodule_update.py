@@ -1,20 +1,32 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# This file has been generated with 'invoke project.sync'.
+# Do not modify. Any manual change will be lost.
+# Please propose your modification on
+# https://github.com/camptocamp/odoo-template instead.
 # Download submodules from Github zip archive url
 # Keep standard update form private repositories
 # listed in `travis/private_repo`
 #
 import os
 import shutil
-from urllib import urlretrieve
+import urllib2
 import yaml
 import zipfile
 
 from git import Repo
 
+https_proxy = os.environ.get('https_proxy')
+if https_proxy:
+    proxy = urllib2.ProxyHandler({'https': https_proxy})
+    opener = urllib2.build_opener(proxy)
+    urllib2.install_opener(opener)
+
 DL_DIR = 'download'
 ZIP_PATH = '%s/submodule.zip' % DL_DIR
 
+if os.path.exists(DL_DIR):  # clean if previous build failed
+    shutil.rmtree(DL_DIR)
 os.makedirs(DL_DIR)
 
 with open('travis/private_repos') as f:
@@ -68,7 +80,9 @@ for sub in submodules:
     if use_archive:
         url = git_url(sub.url)
         archive_url = "%s/archive/%s.zip" % (url, sub.hexsha)
-        urlretrieve(archive_url, ZIP_PATH)
+        request = urllib2.Request(archive_url)
+        with open(ZIP_PATH, 'wb') as f:
+            f.write(urllib2.urlopen(request).read())
         try:
             with zipfile.ZipFile(ZIP_PATH) as zf:
                 zf.extractall(DL_DIR)

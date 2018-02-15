@@ -28,10 +28,8 @@
     ],
     'data': [
         # data
-        'data/membership_data.xml',
         'data/group_data.xml',
         'data/email_data.xml',
-        'data/website_menu.xml',
         # security
         'security/ir.model.access.csv',
         'security/partner_rules.xml',

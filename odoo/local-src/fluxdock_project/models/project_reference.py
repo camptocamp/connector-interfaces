@@ -19,7 +19,7 @@ class ProjectReference(models.Model):
     ]
 
     # we use this for website template add action
-    cms_add_url = '/references/add'
+    cms_add_url = '/dock/references/add'
     cms_after_delete_url = '/my/home'
     cms_search_url = '/dock/references'
 

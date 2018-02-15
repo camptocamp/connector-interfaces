@@ -5,22 +5,6 @@ import anthem
 from ..common import load_csv
 
 
-@anthem.log
-def load_expertises(ctx):
-    load_csv(
-        ctx, 'data/sample/project.partner.expertise.csv',
-        'project.partner.expertise')
-
-
-# TODO: we'll use a specific model for this.
-# No more partner category for industries
-@anthem.log
-def load_partner_categories(ctx):
-    load_csv(
-        ctx, 'data/sample/res.partner.category.csv',
-        'res.partner.category')
-
-
 # TODO: review this when we introduce the 2 profiles company/user
 @anthem.log
 def load_users(ctx):
@@ -45,6 +29,4 @@ def load_users(ctx):
 @anthem.log
 def main(ctx):
     """ Installing sample data """
-    load_expertises(ctx)
-    load_partner_categories(ctx)
     load_users(ctx)

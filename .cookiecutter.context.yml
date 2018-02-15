@@ -1,5 +1,5 @@
 customer_name: fluxdock
-odoo_version: '9.0'
+odoo_version: '11.0'
 customer_shortname: fluxdock
 repo_name: fluxdock
 project_id: '3582'

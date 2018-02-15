@@ -12,7 +12,7 @@ class ProposalSearch(http.Controller, SearchFormControllerMixin):
         '/dock/proposals',
         '/dock/proposals/page/<int:page>',
     ], type='http', auth="public", website=True)
-    def market(self, **kw):
+    def references(self, **kw):
         model = 'project.proposal'
         section_vals = {
             'section_logo':

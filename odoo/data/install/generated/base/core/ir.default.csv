@@ -1,0 +1,4 @@
+"id","condition","field_id/id","json_value","company_id/id","user_id/id"
+"__setup__.ir_default_1","","base.field_res_partner_lang","""en_US""","",""
+"__setup__.ir_default_2","","account.field_product_template_taxes_id","l10n_ch.1_vat_80_incl","base.main_company",""
+"__setup__.ir_default_3","","account.field_product_template_supplier_taxes_id","l10n_ch.1_vat_80_purchase_incl","base.main_company",""

@@ -1,0 +1,3 @@
+"id","active","date_format","decimal_point","grouping","thousands_sep","time_format"
+"base.lang_en","True","%m/%d/%Y",".","[3,0]",",","%H:%M:%S"
+"base.lang_de","True","%d.%m.%Y",",","[3,0]",".","%H:%M:%S"

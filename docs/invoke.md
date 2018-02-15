@@ -1,3 +1,9 @@
+<!--
+This file has been generated with 'invoke project.sync'.
+Do not modify. Any manual change will be lost.
+Please propose your modification on
+https://github.com/camptocamp/odoo-template instead.
+-->
 # Using automated tasks with Invoke
 
 This project uses `invoke` to run some automated tasks.
@@ -118,7 +124,7 @@ odoo/songs/install/generated
 and
 odoo/data/install/generated
 
-See https://github.com/camptocamp/odoo-prototyper for more details about dj.compilation
+See https://github.com/camptocamp/odoo-dj for more details about dj.compilation
 
 
 ```

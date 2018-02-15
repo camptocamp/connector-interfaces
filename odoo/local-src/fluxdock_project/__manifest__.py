@@ -24,7 +24,6 @@
         # data
         'data/ir_cron.xml',
         'data/mail_message_subtype.xml',
-        'data/proposal_data_menu.xml',
         'data/proposal_email_data.xml',
         # security
         'security/proposal/ir.model.access.csv',

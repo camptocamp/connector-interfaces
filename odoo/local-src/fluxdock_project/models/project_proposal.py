@@ -10,8 +10,7 @@ logger = logging.getLogger('[project_proposal]')
 
 
 class ProjectProposal(models.Model):
-    """ProjectProposal contains future project set on market place to find
-    partners and collaborators. """
+    """Future project to find partners and collaborators. """
 
     _name = 'project.proposal'
     _description = "Project proposal"
@@ -22,7 +21,7 @@ class ProjectProposal(models.Model):
     _order = 'website_published DESC, create_date DESC'
 
     # we use this for website template add action
-    cms_add_url = '/proposals/add'
+    cms_add_url = '/dock/proposals/add'
     cms_after_delete_url = '/my/home'
     cms_search_url = '/dock/proposals'
 

@@ -1,11 +1,21 @@
 # -*- coding: utf-8 -*-
 # This file has been generated with 'invoke project.sync'.
 # Do not modify. Any manual change will be lost.
+# Please propose your modification on
+# https://github.com/camptocamp/odoo-template instead.
+# This file has been generated with 'invoke project.sync'.
+# Do not modify. Any manual change will be lost.
 # Copyright 2016 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 import io
 import zipfile
-from urllib.parse import urlparse
+
+try:
+    # Python 2
+    from urlparse import urlparse
+except ImportError:
+    # Python 3
+    from urllib.parse import urlparse
 try:
     import requests
 except ImportError:
@@ -73,13 +83,14 @@ def rip(ctx, location, login='admin', password='admin',
         zipdata = io.BytesIO()
         zipdata.write(resp.content)
     else:
-        zipdata = open(location)
+        zipdata = location
     handle_zip_data(zipdata, dryrun=dryrun)
 
 
 def handle_zip_data(zipdata, dryrun=False):
     if dryrun:
         print("Dry-run mode activated: no file will be extracted.")
+
     zf = zipfile.ZipFile(zipdata)
 
     # Unzip file and push files at the right path
@@ -93,10 +104,12 @@ def handle_zip_data(zipdata, dryrun=False):
         if 'DEV_README.rst' in path:
             readme_path = path
         else:
-            if dryrun:
+            if not dryrun:
                 print("Extracting ./odoo/%s" % path)
                 zf.extract(path, './odoo')
 
     print('-' * 79)
     # Print README file
-    print(zf.open(readme_path).read())
+    readme_content = zf.open(readme_path).read()
+    readme_content = readme_content.decode('utf-8')
+    print(readme_content)

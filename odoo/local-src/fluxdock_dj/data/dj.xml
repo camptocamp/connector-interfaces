@@ -1,0 +1,38 @@
+<odoo>
+  <record model="dj.compilation" id="dj_fluxdock">
+    <field name="name">Fluxdock</field>
+    <field name="data_mode">sample</field>
+    <field name="genre_id" ref="dj_core.dj_custom_genre" />
+  </record>
+
+  <record model="dj.song" id="dj_song_industries">
+    <field name="compilation_id" ref="dj_fluxdock"/>
+    <field name="model_id" ref="base.model_res_partner_category" />
+    <field name="sequence" eval="10" />
+    <field name="song_type">load_csv</field>
+  </record>
+
+  <record model="dj.song" id="dj_song_experties">
+    <field name="compilation_id" ref="dj_fluxdock"/>
+    <field name="model_id" ref="project_expertise.model_project_partner_expertise" />
+    <field name="sequence" eval="20" />
+    <field name="song_type">load_csv</field>
+  </record>
+
+  <record model="dj.song" id="dj_song_proposal">
+    <field name="compilation_id" ref="dj_fluxdock"/>
+    <field name="model_id" ref="fluxdock_project.model_project_proposal" />
+    <field name="sequence" eval="30" />
+    <field name="song_type">load_csv</field>
+    <field name="model_fields_blacklist_ids" eval="[(6,0,[
+      ref('fluxdock_project.field_project_proposal_notify_dirty')])]"/>
+  </record>
+
+  <record model="dj.song" id="dj_song_reference">
+    <field name="compilation_id" ref="dj_fluxdock"/>
+    <field name="model_id" ref="fluxdock_project.model_project_reference" />
+    <field name="sequence" eval="40" />
+    <field name="song_type">load_csv</field>
+  </record>
+
+</odoo>
