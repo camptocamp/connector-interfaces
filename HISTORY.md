@@ -5,6 +5,18 @@ Latest (Unreleased)
 
 **Features and Improvements**
 
+**Bugfixes**
+
+**Build**
+
+**Documentation**
+
+
+11.0.1 (2018-02-20)
++++++++++++++++++++
+
+**Features and Improvements**
+
 * Install module `web_environment_ribbon`
 
 **Bugfixes**
@@ -23,8 +35,6 @@ Latest (Unreleased)
 
 * Upgrade docker-compose to 1.17.1
 * Remove unused PO file to reduce docker image size
-
-**Documentation**
 
 
 9.4 (2017-05-23)
