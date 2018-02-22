@@ -94,18 +94,17 @@
   <template id="s_fluxdock_newsletter" name="Fluxdock newsletter">
     <section class="content newsletter_subscribe bg-flux_dark">
       <div class="content-wrap">
-        <div class="content-icon">
-          <img src="/fluxdock_theme/static/img/content-icons/members-white.png"></img>
-        </div>
         <h2>Newsletter</h2>
-        <p>Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia quam ex eium Et maximos ut mole.</p>
+        <p class="text-center">This is our newsletter. We only send it if there are real news.</p>
       </div>
       <div class="content-wrap newsletter-form-wrap">
         <!-- Campain Monitor form -->
         <form id="subForm" class="newsletter-form" action="//fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
-          <input name="cm-name" placeholder="Name" type="text"></input>
-          <input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required"></input>
-          <button type="submit">Subscribe</button>
+          <input name="cm-name" placeholder="Name" type="text" class="form-control"/>
+          <input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required" class="form-control mt16 mb16"/>
+          <div class="buttons text-center">
+            <button type="submit" class="btn btn-default">Subscribe</button>
+          </div>
         </form>
       </div>
     </section>
