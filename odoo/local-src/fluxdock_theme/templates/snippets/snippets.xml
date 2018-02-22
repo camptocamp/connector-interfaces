@@ -113,9 +113,6 @@
           </div>
           <section class="content signup_login opt_dark_bg">
             <div class="content-wrap">
-              <div class="content-icon">
-                <img src="/fluxdock_theme/static/img/content-icons/members-white.png"></img>
-              </div>
               <h2>Lorem ipsum dolor</h2>
               <p>Collaborative. Effective. Innovative. Fluxdock is a project management platform for startups and agile developers &amp; designers who want a simple, beautiful tool that makes work truly enjoyable.</p>
             </div>
@@ -123,7 +120,6 @@
               <a class="btn" href="/web/signup">Sign up</a>
               <a class="btn" href="/web/login?redirect=/my/home">Login</a>
             </div>
-
           </section>
         </div>
 
