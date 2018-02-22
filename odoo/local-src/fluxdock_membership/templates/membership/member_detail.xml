@@ -26,7 +26,7 @@
         <!-- TODO: old inheritance removed. We can now cleanup this mess and split in sub templates -->
         <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
         <t t-if="not partner.is_owner(request.session.uid)">
-          <section class="top-spacer-small opt_dark_grid_bg"></section>
+          <section class="top-spacer-small bg-flux_dark_grid"></section>
         </t>
 
 
@@ -49,7 +49,7 @@
             </t>
         </t>
 
-        <section class="content member-detail-view white_bg">
+        <section class="content member-detail-view bg-flux_white">
           <div class="content-wrap">
             <t t-if="partner.image">
               <div class="row mb32">
@@ -79,7 +79,7 @@
           </address>
         </section>
         <t t-if="partner">
-          <section class="content detail-address member-address white_bg">
+          <section class="content detail-address member-address bg-flux_white">
               <div class="content-wrap">
                 <h2 class="border-bottom">Contact</h2>
                 <div class="member-fields">
@@ -119,7 +119,7 @@
           </section>
         </t>
         <t t-if="partner_user and partner_user.references_ids">
-            <div class="project-references opt_dark_bg">
+            <div class="project-references bg-flux_dark">
                 <div class="container-xxlg">
                     <section class="content">
                       <div class="content-wrap">

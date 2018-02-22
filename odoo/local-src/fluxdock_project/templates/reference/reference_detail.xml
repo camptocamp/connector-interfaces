@@ -3,7 +3,7 @@
 
   <template id="reference_detail" name="Fluxdock Reference detail view">
     <t t-call="website.layout">
-      <div class="opt_dark_bg reference-detail" id="wrap">
+      <div class="bg-flux_dark reference-detail" id="wrap">
         <t t-call="fluxdock_theme.mgmt_actions">
           <!-- TODO: check if publisher still need this `object` var -->
             <t t-set="object" t-value="main_object"/>

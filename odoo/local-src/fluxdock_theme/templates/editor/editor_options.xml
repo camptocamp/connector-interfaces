@@ -4,10 +4,10 @@
 	<template id="colorpicker" inherit_id="web_editor.colorpicker" name="Fluxdock Color-Picker">
     <xpath expr="//div[hasclass('o_colorpicker_section')][1]" position="before">
       <div class="o_colorpicker_section" data-name="fluxdock_theme" data-icon-class="fa fa-flask">
-        <button data-color="opt_white_bg">White</button>
-				<button data-color="opt_blue_bg">Blue</button>
-        <button data-color="opt_dark_bg">Dark</button>
-        <button data-color="opt_dark_grid_bg">Dark with grid</button>
+        <button data-color="flux_white">White</button>
+				<button data-color="flux_blue">Blue</button>
+        <button data-color="flux_dark">Dark</button>
+        <button data-color="flux_dark_grid">Dark with grid</button>
       </div>
 		</xpath>
 	</template>

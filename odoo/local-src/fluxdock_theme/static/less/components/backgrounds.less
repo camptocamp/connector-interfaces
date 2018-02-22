@@ -1,0 +1,60 @@
+.bg-flux_blue {
+  background-color: @fluxBlue;
+  border-color: white;
+  color: white;
+}
+.bg-flux_dark {
+  background-color: @fluxPurple;
+  border-color: white;
+  color: white;
+  a {
+    color: white;
+    &:hover{
+      color: @brand-success;
+      border-color: @brand-success;
+    }
+  }
+  a.btn:not(.btn-primary), button.btn:not(.btn-primary){
+    &:not(.btn-bg-sticky){
+      background-color: @fluxPurple;
+    }
+    border-color: white;
+    &:hover{
+      color: @brand-success;
+      border-color: @brand-success;
+    }
+  }
+  .label {
+    color: white;
+  }
+}
+.bg-flux_dark_grid{
+  .bg-flux_dark;
+  .grad_purple_to_blue_w_grid;
+  a {
+    &:hover{
+      color: white;
+    }
+  }
+  a.btn:not(.btn-primary), button.btn:not(.btn-primary){
+    &:not(.btn-bg-sticky){
+      background-color: transparent;
+    }
+    &:hover{
+      color: @fluxPurple;
+      border-color: @fluxPurple;
+    }
+  }
+}
+.bg-flux_white{
+  background-color: white;
+  color: @fluxPurple;
+  border-color: @fluxPurple;
+  a:not(.btn-dark):not(.cta)  {
+    color: @fluxPurple;
+    &:hover{
+      color: @brand-success;
+      border-color: @brand-success;
+    }
+  }
+}

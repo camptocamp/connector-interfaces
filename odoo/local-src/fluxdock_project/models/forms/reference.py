@@ -26,7 +26,7 @@ class ReferenceForm(models.AbstractModel):
         'linked_partner_ids',
     )
     _form_required_fields = ('name', 'website_short_description', )
-    _form_wrapper_extra_css_klass = 'opt_dark_grid_bg white_content_wrapper'
+    _form_wrapper_extra_css_klass = 'bg-flux_dark_grid white_content_wrapper'
     _form_extra_css_klass = 'center-block main-content-wrapper'
 
     @property

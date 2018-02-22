@@ -22,7 +22,7 @@
 	        <script type="text/JavaScript" src="/fluxdock_theme/static/js/threejs/Vector3.js"/>
 	        <script type="text/JavaScript" src="/fluxdock_theme/static/js/line_cube.js"/>
 	      </section>
-	      <section class="content signup_login opt_dark_grid_bg">
+	      <section class="content signup_login bg-flux_dark_grid">
 	        <div class="content-wrap">
 	          <h2 class="o_default_snippet_text"/>
 	          <p/>
@@ -38,7 +38,7 @@
 	          <p>Join Fluxdock now.</p>
 	        </div>
 	      </section>
-	      <section class="content opt_dark_bg">
+	      <section class="content bg-flux_dark">
 	        <div class="content-wrap">
 	          <div class="content-icon">
 	            <img src="/fluxdock_theme/static/img/content-icons/collaborative.png" style=""/>
@@ -70,7 +70,7 @@
 	          </p>
 	        </div>
 	      </section>
-	      <section class="content opt_dark_bg">
+	      <section class="content bg-flux_dark">
 	        <div class="content-wrap">
 	          <div class="content-icon">
 	            <img src="/fluxdock_theme/static/img/content-icons/platform.png" style=""/>
@@ -109,7 +109,7 @@
 				   src="/fluxdock_theme/static/img/content-icons/map.png"/>
 	        </div>
 	      </section>
-	      <section class="content newsletter_subscribe opt_dark_bg">
+	      <section class="content newsletter_subscribe bg-flux_dark">
 	        <div class="content-wrap">
 	          <h2 class="o_default_snippet_text">Newsletter</h2>
 	          <p class="o_default_snippet_text">Sign up for our newsletter and stay up to date:</p>

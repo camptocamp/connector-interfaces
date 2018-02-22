@@ -67,70 +67,9 @@ body #wrapwrap {
 	}
 	a:not(.disabled){ cursor: pointer; }
 	a.disabled{ cursor: not-allowed;}
-	.opt_blue_bg {
-		background-color: @fluxBlue;
-		border-color: white;
-		color: white;
-	}
-	.opt_dark_bg {
-		background-color: @fluxPurple;
-		border-color: white;
-		color: white;
-		a {
-			color: white;
-			&:hover{
-				color: @brand-success;
-				border-color: @brand-success;
-			}
-		}
-		a.btn:not(.btn-primary), button.btn:not(.btn-primary){
-			&:not(.btn-bg-sticky){
-				background-color: @fluxPurple;
-			}
-			border-color: white;
-			&:hover{
-				color: @brand-success;
-				border-color: @brand-success;
-			}
-		}
-		.label {
-			color: white;
-		}
-	}
-	.opt_dark_grid_bg{
-		.opt_dark_bg;
-		.grad_purple_to_blue_w_grid;
-		a {
-			&:hover{
-				color: white;
-			}
-		}
-		a.btn:not(.btn-primary), button.btn:not(.btn-primary){
-			&:not(.btn-bg-sticky){
-				background-color: transparent;
-			}
-			&:hover{
-				color: @fluxPurple;
-				border-color: @fluxPurple;
-			}
-		}
-	}
-
 	a.cta{
 		color: @brand-success;
 		padding: 0 0.2em;
-	}
-	.white_bg{
-		background-color: white;
-		color: @fluxPurple;
-		border-color: @fluxPurple;
-		a:not(.btn-dark):not(.cta)  {
-			color: @fluxPurple;
-			&:hover{
-				color: @brand-success;
-				border-color: @brand-success;
-			}
-		}
 	}
 
 	//Read more link. Used in News and Member list

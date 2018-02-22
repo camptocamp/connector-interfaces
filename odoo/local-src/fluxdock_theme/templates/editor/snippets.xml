@@ -79,7 +79,7 @@
   </template>
 
   <template id="s_fluxdock_signup" name="Fluxdock signup">
-    <section class="content signup_login opt_dark_bg">
+    <section class="content signup_login bg-flux_dark">
       <div class="content-wrap">
         <h2>Lorem ipsum dolor</h2>
         <p>Collaborative. Effective. Innovative. Fluxdock is a project management platform for startups and agile developers &amp; designers who want a simple, beautiful tool that makes work truly enjoyable.</p>
@@ -92,7 +92,7 @@
   </template>
 
   <template id="s_fluxdock_newsletter" name="Fluxdock newsletter">
-    <section class="content newsletter_subscribe opt_dark_bg">
+    <section class="content newsletter_subscribe bg-flux_dark">
       <div class="content-wrap">
         <div class="content-icon">
           <img src="/fluxdock_theme/static/img/content-icons/members-white.png"></img>
@@ -285,7 +285,7 @@
   </template>
 
   <template id="s_fluxdock_mosaic_references" name="Fluxdock references mosaic">
-    <section class="content opt_dark_bg">
+    <section class="content bg-flux_dark">
       <div class="container-xxlg">
         <div class="content-wrap">
           <div class="content-icon">

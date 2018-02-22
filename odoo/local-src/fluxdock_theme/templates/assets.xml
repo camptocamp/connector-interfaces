@@ -13,6 +13,7 @@
 				<link href="/fluxdock_theme/static/less/utils.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/components/components.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/components/section_content.less" rel="stylesheet" type="text/less" />
+				<link href="/fluxdock_theme/static/less/components/backgrounds.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/select2.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/style.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/nav.less" rel="stylesheet" type="text/less" />

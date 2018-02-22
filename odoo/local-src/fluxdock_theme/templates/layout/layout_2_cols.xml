@@ -5,7 +5,7 @@
     <t t-call="website.layout">
       <div id="wrap" class="layout_2_cols">
         <div id="main_row" class="flex-grid container-lg">
-          <div id="sidebar" class="col col-left opt_blue_bg">
+          <div id="sidebar" class="col col-left bg-flux_blue">
             <div class="above_content_wrapper">
               <div class="section_info">
                 <t t-if="section_logo">
