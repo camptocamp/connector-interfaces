@@ -127,14 +127,6 @@
     </section>
   </template>
 
-  <template id="s_fluxdock_button" name="Fluxdock button [TO BE REVIEWED]">
-    <section class="mybutton">
-      <a class="btn" type="submit">
-        My Button
-      </a>
-    </section>
-  </template>
-
   <template id="s_fluxdock_3d_simulation" name="Fluxdock 3D simulation [TO BE REVIEWED]">
     <section class="content">
       <div class="content-wrap">
@@ -323,7 +315,6 @@
       <t t-snippet="fluxdock_theme.s_fluxdock_signup" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/signup_login.png"/>
       <t t-snippet="fluxdock_theme.s_fluxdock_newsletter" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/newsletter.png"/>
       <t t-snippet="fluxdock_theme.s_fluxdock_carousel" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/carousel.png"/>
-      <t t-snippet="fluxdock_theme.s_fluxdock_button" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/button.png"/>
       <t t-snippet="fluxdock_theme.s_fluxdock_3d_simulation" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/simulation.png"/>
       <t t-snippet="fluxdock_theme.s_fluxdock_members" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/members.png"/>
       <t t-snippet="fluxdock_theme.s_fluxdock_mosaic_references" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/references-aggregation.png"/>
