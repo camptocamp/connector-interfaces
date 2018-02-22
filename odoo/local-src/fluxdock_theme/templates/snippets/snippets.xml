@@ -54,44 +54,6 @@
           </section>
         </div>
 
-        <!-- CONTENT TWO COL -->
-        <div>
-          <div class="oe_snippet_thumbnail">
-            <img class="oe_snippet_thumbnail_img" src="/fluxdock_theme/static/img/snippet-thumbs/content-two-col.png"/>
-            <span class="oe_snippet_thumbnail_title">Two Columns Content</span>
-          </div>
-          <section class="content">
-            <div class="content-wrap clearfix">
-              <h2>Lorem ipsum dolor</h2>
-              <div class="two-col two-col-left">
-                <p align="left">
-                  Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                </p>
-              </div>
-              <div class="two-col two-col-right">
-                <ul>
-                  <li>
-                    <div align="left">
-                      Consetetur sadipscing elitr
-                    </div>
-                  </li>
-                  <li>
-                    <div align="left">
-                      Sadipscing elitr, sed diam nonumy eirmod tempor.
-                    </div>
-                  </li>
-                  <li>
-                    <div align="left">
-                      Sed diam nonumy eirmod tempor.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </section>
-        </div>
-
         <!-- CONTENT WITH IMAGE -->
         <div>
           <div class="oe_snippet_thumbnail">
@@ -215,43 +177,6 @@
                 <a href="/blog/news-1">
                   Alle News...
                 </a>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <!-- COMMUNITY NUMBERS -->
-        <div>
-          <div class="oe_snippet_thumbnail">
-            <img class="oe_snippet_thumbnail_img" src="/fluxdock_theme/static/img/snippet-thumbs/numbers.png"/>
-            <span class="oe_snippet_thumbnail_title">Community Members</span>
-          </div>
-          <section class="content numbers opt_dark_bg">
-            <div class="content-wrap">
-              <div class="content-icon">
-                <img src="/fluxdock_theme/static/img/content-icons/members-white.png"></img>
-              </div>
-              <h2>Lorem ipsum dolor</h2>
-              <p>fluxdock bieten Firmen die Plattform um sich zu präsentieren, vernetzen und den offenen, interdisziplinären Austausch und die gleichberechtigte Kollaboration zu pflegen. Durch geeignete Regeln, Methoden und Tools befähigt fluxdock dabei seine
-                Mitglieder zu mehr Innovation.</p>
-            </div>
-            <div class="numbers-wrap">
-              <div class="content-wrap">
-                <div class="number-entry">
-                  <span class="number-value">52</span>
-                  <!-- TODO Get dymamically -->
-                  <span class="number-label">Members</span>
-                </div>
-                <div class="number-entry">
-                  <span class="number-value">86</span>
-                  <!-- TODO Get dymamically -->
-                  <span class="number-label">Users</span>
-                </div>
-                <div class="number-entry">
-                  <span class="number-value">17</span>
-                  <!-- TODO Get dymamically -->
-                  <span class="number-label">Projects</span>
-                </div>
               </div>
             </div>
           </section>
