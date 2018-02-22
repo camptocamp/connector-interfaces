@@ -14,6 +14,7 @@
 				<link href="/fluxdock_theme/static/less/components/components.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/components/section_content.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/components/backgrounds.less" rel="stylesheet" type="text/less" />
+				<link href="/fluxdock_theme/static/less/columns.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/select2.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/style.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/nav.less" rel="stylesheet" type="text/less" />
@@ -21,7 +22,6 @@
 				<link href="/fluxdock_theme/static/less/header.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/footer.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/listing.less" rel="stylesheet" type="text/less" />
-				<link href="/fluxdock_theme/static/less/layout_2_cols.less" rel="stylesheet" type="text/less" />
 				<!-- variables must stay at the end https://github.com/odoo/odoo/issues/14657 -->
 				<link href="/fluxdock_theme/static/less/variables.less" rel="stylesheet" type="text/less" />
 			</xpath>

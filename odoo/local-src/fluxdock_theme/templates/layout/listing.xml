@@ -43,9 +43,11 @@
                             <t t-if="show_published">
                                 <span t-if="not item.website_published" class="label label-danger">not published</span>
                             </t>
-                            <a class="item-heading" t-att-href="detail_href">
-                                <strong t-field="item.display_name"/>
-                            </a>
+                            <h3 class="item-heading">
+                                <a t-att-href="detail_href">
+                                    <strong t-field="item.display_name"/>
+                                </a>
+                            </h3>
                             <div class="item-description">
                                 <span t-esc="website.truncate_text(item.website_short_description, length=200)"/>
                                 <a class="read-more" t-att-href="detail_href">Read More
@@ -64,24 +66,33 @@
     </template>
 
     <template id="item_tags" name="Fluxdock item tags template">
-        <div class="item-tags">
-            <strong>Industry:</strong>
-            <span class="tag-value">
-                <!-- TODO: get rid of this after migrating `category_id` to `industry_ids` on partner model -->
-                <t t-set="industries" t-value="item.category_id if item._name == 'res.partner' else item.industry_ids" />
-                <t t-foreach="industries" t-as="one_tag">
-                    <t t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
-                </t>
-            </span>
-        </div>
-        <div class="item-tags">
-            <strong>Expertise:</strong>
-            <span class="tag-value">
-                <t t-foreach="item.expertise_ids" t-as="one_tag">
-                    <t t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
-                </t>
-            </span>
-        </div>
+        <t t-set="industries" t-value="item.category_id if item._name == 'res.partner' else item.industry_ids" />
+        <t t-if="industries">
+          <div class="flex flex-grid-fit item-tags industry">
+              <div class="col col-pd-1 tag-label">
+                  <strong>Industry:</strong>
+              </div>
+              <div class="col col-pd-1 tag-value">
+                  <!-- TODO: get rid of this after migrating `category_id` to `industry_ids` on partner model -->
+                  <t t-foreach="industries" t-as="one_tag">
+                      <span t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
+                  </t>
+              </div>
+          </div>
+        </t>
+        <t t-set="expertises" t-value="item.expertise_ids" />
+        <t t-if="expertises">
+            <div class="flex flex-grid-fit item-tags expertise">
+                <div class="col col-pd-1 tag-label">
+                    <strong>Expertise:</strong>
+                </div>
+                <div class="col col-pd-1 tag-value">
+                    <t t-foreach="expertises" t-as="one_tag">
+                        <span t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
+                    </t>
+                </div>
+            </div>
+        </t>
     </template>
 
 </odoo>

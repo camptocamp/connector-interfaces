@@ -4,30 +4,32 @@
   <template id="layout_2_cols" name="Fluxdock layout: 2 cols">
     <t t-call="website.layout">
       <div id="wrap" class="layout_2_cols">
-        <div id="main_row" class="flex-grid container-lg">
-          <div id="sidebar" class="col col-left bg-flux_blue">
-            <div class="above_content_wrapper">
-              <div class="section_info">
-                <t t-if="section_logo">
-                  <img class="img img-responsive section_logo center-block" t-att-src="section_logo" t-att-alt="section_title" />
+        <div class="container-lg">
+          <div id="main_row" class="flex flex-grid">
+            <div id="sidebar" class="col col-left col-w25 col-pd-3 bg-flux_blue">
+              <div class="above_content_wrapper">
+                <div class="section_info">
+                  <t t-if="section_logo">
+                    <img class="img img-responsive section_logo center-block" t-att-src="section_logo" t-att-alt="section_title" />
+                  </t>
+                  <t t-if="section_title">
+                    <h1 class="section_title"><t t-esc="section_title" /></h1>
+                  </t>
+                </div>
+              </div>
+              <div class="content_wrapper">
+                <t t-if="col_left_content">
+                  <t t-raw="col_left_content" />
                 </t>
-                <t t-if="section_title">
-                  <h1 class="section_title"><t t-esc="section_title" /></h1>
+                <t t-else="context_menu">
+                  <t t-call="fluxdock_theme.sidebar_context_menu" />
                 </t>
               </div>
             </div>
-            <div class="content_wrapper">
-              <t t-if="col_left_content">
-                <t t-raw="col_left_content" />
-              </t>
-              <t t-else="context_menu">
-                <t t-call="fluxdock_theme.sidebar_context_menu" />
-              </t>
-            </div>
-          </div>
-          <div id="content" class="col col-content">
-            <div class="content_wrapper">
-              <t t-raw="main_content" />
+            <div id="content" class="col col-content col-w75 col-pd-3">
+              <div class="content_wrapper">
+                <t t-raw="main_content" />
+              </div>
             </div>
           </div>
         </div>
