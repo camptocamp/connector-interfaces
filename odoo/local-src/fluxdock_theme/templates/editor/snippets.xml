@@ -98,7 +98,6 @@
         <p class="text-center">This is our newsletter. We only send it if there are real news.</p>
       </div>
       <div class="content-wrap newsletter-form-wrap">
-        <!-- Campain Monitor form -->
         <form id="subForm" class="newsletter-form" action="//fluxdock.createsend.com/t/i/s/hlykhj/" method="post">
           <input name="cm-name" placeholder="Name" type="text" class="form-control"/>
           <input type="email" name="cm-hlykhj-hlykhj" placeholder="email@domain.com" required="required" class="form-control mt16 mb16"/>
