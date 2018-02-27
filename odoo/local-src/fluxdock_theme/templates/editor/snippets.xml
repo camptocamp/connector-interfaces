@@ -86,7 +86,7 @@
       </div>
       <div class="content-wrap">
         <a class="btn" href="/web/signup">Sign up</a>
-        <a class="btn" href="/web/login?redirect=/my/home">Login</a>
+        <a class="btn" href="/web/login?redirect=/my/dock">Login</a>
       </div>
     </section>
   </template>

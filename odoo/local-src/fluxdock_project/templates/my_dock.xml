@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="my_dock" name="Fluxdock my dock">
+  <t t-call="website.layout">
+    <div id="wrap" class="my_dock">
+      <div class="container-lg">
+        <div id="content-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 content-logo">
+                <!-- TODO: replace this w/ an image -->
+                <i class="fa fa-user" />
+                <t t-set="user" t-value="request.env.user" />
+                <div class="user-actions profile-actions">
+                  <ul class="list-inline">
+                    <li>
+                      <a class="edit-profile" href="/my/account" title="Edit profile"><i class="fa fa-pencil" t-translation="off" /> Edit</a>
+                    </li>
+                    <li>
+                      <a class="view-profile" t-att-href="user.partner_id.website_url" title="View profile"><i class="fa fa-eye" t-translation="off" />View</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-4 content-title">
+                <h1>My dock</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="content" class="flex flex-grid">
+          <div id="projects" class="col col-w25 col-pd2">
+            <t t-call="fluxdock_project.my_dock_projects" />
+          </div>
+          <div id="proposals" class="col col-w25 col-pd2">
+            <t t-call="fluxdock_project.my_dock_proposals" />
+          </div>
+          <div id="matches" class="col col-w25 col-pd2">
+            <t t-call="fluxdock_project.my_dock_matches" />
+          </div>
+          <div id="references" class="col col-w25 col-pd2">
+            <t t-call="fluxdock_project.my_dock_references" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </t>
+</template>
+
+<template id="my_dock_projects" name="Fluxdock my dock projects">
+  <t t-call="fluxdock_project.my_dock_listing_block">
+    <t t-set="block_title">
+      <span>Projects</span>
+    </t>
+    <t t-set="summary">
+      TODO.
+    </t>
+    <t t-set="block_items" t-value="[]" />
+    <t t-set="view_all_link" t-value="'#'" />
+  </t>
+</template>
+
+<template id="my_dock_proposals" name="Fluxdock my dock proposals">
+  <t t-call="fluxdock_project.my_dock_listing_block">
+    <t t-set="block_title">
+      <span>Proposals</span>
+    </t>
+    <t t-set="summary">
+      Proposals are your entries on the market to look for collaboration partners in a certain industry or with a certain expertise.
+    </t>
+    <t t-set="block_items" t-value="request.env.user.proposal_ids" />
+  </t>
+</template>
+
+<template id="my_dock_matches" name="Fluxdock my dock matches">
+  <t t-call="fluxdock_project.my_dock_listing_block">
+    <t t-set="block_title">
+      <span>Matches</span>
+    </t>
+    <t t-set="summary">
+      Matches are projects on the market, that correspond to your industry and expertise.
+    </t>
+    <t t-set="block_items" t-value="request.env.user.proposal_match_ids" />
+    <t t-set="show_view_all" t-value="False" />
+  </t>
+</template>
+
+<template id="my_dock_references" name="Fluxdock my dock references">
+  <t t-call="fluxdock_project.my_dock_listing_block">
+    <t t-set="block_title">
+      <span>References</span>
+    </t>
+    <t t-set="summary">
+      References are projects your company has realized.
+    </t>
+    <t t-set="block_items" t-value="request.env.user.references_ids" />
+  </t>
+</template>
+
+<template id="my_dock_listing_block" name="Fluxdock my dock listing block">
+  <t t-set="block_items_limit" t-value="block_items_limit or 4" />
+  <t t-set="show_view_all" t-value="show_view_all if show_view_all is not None else True" />
+  <t t-set="view_all_link" t-value="view_all_link if view_all_link is not None else block_items.cms_search_url" />
+  <div class="listing-block well full-height">
+    <div class="content_wrapper">
+      <h3><t t-raw="block_title" /></h3>
+      <p class="summary text-muted" t-raw="summary" />
+      <t t-if="not block_items">
+        <div class="no-items">
+          <p>No items.</p>
+        </div>
+      </t>
+      <t t-if="block_items">
+        <t t-foreach="block_items[:block_items_limit]" t-as="item">
+          <div t-attf-class="row list-item state-#{'published' if item.website_published else 'not-published'} #{'last' if item_last else ''}">
+            <div class="item-content col-md-12">
+              <a t-att-href="item.website_url" t-att-title="item.name" t-esc="item.name" />
+              <br />
+              <span t-field="item.create_date" class="dates text-muted" t-field-options='{"format": "d MMMM y"}'/>
+            </div>
+          </div>
+        </t>
+      </t>
+      <div class="actions" t-if="block_items and show_view_all">
+        <a class="view-all" t-att-href="view_all_link" title="View all">View all items</a>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+</odoo>

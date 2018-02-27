@@ -41,7 +41,7 @@ class AuthSignupHome(SignupVerifyEmail):
         backend_access = self._check_home_access()
         if not backend_access:
             # redirect to public homepage
-            return http.local_redirect('/my/home',
+            return http.local_redirect('/my/dock',
                                        query=request.params,
                                        keep_hash=True)
 
