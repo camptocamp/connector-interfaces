@@ -83,14 +83,13 @@ def rip(ctx, location, login='admin', password='admin',
         zipdata = io.BytesIO()
         zipdata.write(resp.content)
     else:
-        zipdata = location
+        zipdata = open(location)
     handle_zip_data(zipdata, dryrun=dryrun)
 
 
 def handle_zip_data(zipdata, dryrun=False):
     if dryrun:
         print("Dry-run mode activated: no file will be extracted.")
-
     zf = zipfile.ZipFile(zipdata)
 
     # Unzip file and push files at the right path
@@ -110,6 +109,4 @@ def handle_zip_data(zipdata, dryrun=False):
 
     print('-' * 79)
     # Print README file
-    readme_content = zf.open(readme_path).read()
-    readme_content = readme_content.decode('utf-8')
-    print(readme_content)
+    print(zf.open(readme_path).read())
