@@ -12,6 +12,24 @@ Latest (Unreleased)
 **Documentation**
 
 
+11.0.2 (2018-02-27)
++++++++++++++++++++
+
+**Features and Improvements**
+
+* Theme and snippets improvements
+
+
+**Bugfixes**
+
+**Build**
+
+* Drop CMS pending merges
+
+
+**Documentation**
+
+
 11.0.1 (2018-02-20)
 +++++++++++++++++++
 
