@@ -54,3 +54,7 @@ migration:
           - fluxdock_dj
           # will upgrade all flux* modules
           - fluxdock_theme
+    - version: 11.0.3
+      addons:
+        upgrade:
+          - fluxdock_theme
