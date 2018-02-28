@@ -22,7 +22,7 @@ class ProjectProposal(models.Model):
 
     # we use this for website template add action
     cms_add_url = '/dock/proposals/add'
-    cms_after_delete_url = '/my/home'
+    cms_after_delete_url = '/my/dock'
     cms_search_url = '/dock/proposals'
 
     @api.multi

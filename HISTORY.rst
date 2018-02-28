@@ -5,6 +5,9 @@ Latest (Unreleased)
 
 **Features and Improvements**
 
+* Add `/my/dock` draft (replaces `/my/home`)
+
+
 **Bugfixes**
 
 **Build**

@@ -7,7 +7,7 @@
 		<template id="personal_menu_content" name="Fluxdock personal menu content">
 			<t t-set="user" t-value="request.env.user" />
 			<li id="myhome">
-				<a href="/my/home" role="menuitem"><i class="fa fa-user" t-translation="off" /> My home</a>
+				<a href="/my/dock" role="menuitem"><i class="fa fa-user" t-translation="off" /> My dock</a>
 			</li>
 			<li id="myprofile_edit">
 				<a href="/my/account" role="menuitem"><i class="fa fa-pencil" t-translation="off" /> Edit my profile</a>
@@ -59,7 +59,7 @@
 			<!-- Anonymous -->
 			<ul class="service-menu" t-ignore="true" t-if="not request.session.uid">
 				<li>
-					<a href="/web/login?redirect=/my/home">Login</a>
+					<a href="/web/login?redirect=/my/dock">Login</a>
 				</li>
 				<li>
 					<a href="/web/signup">Sign Up</a>
@@ -89,7 +89,7 @@
 					<!-- Anonymous -->
 					<ul class="service-menu" t-ignore="true" t-if="not request.session.uid">
 						<li>
-							<a href="/web/login?redirect=/my/home">Login</a>
+							<a href="/web/login?redirect=/my/dock">Login</a>
 						</li>
 						<li>
 							<a href="/web/signup">Sign Up</a>

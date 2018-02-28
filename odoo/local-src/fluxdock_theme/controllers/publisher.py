@@ -25,7 +25,7 @@ class Publisher(http.Controller):
         redirect = ''
         if hasattr(obj, 'redirect_after_publish') \
                 and obj.redirect_after_publish():
-            redirect = '/my/home'
+            redirect = '/my/dock'
         if hasattr(obj, 'do_after_publish'):
             obj.do_after_publish()
         return {

@@ -34,4 +34,28 @@
   .white_content_wrapper .listing {
     .make_white_content_wrapper;
   }
+  .listing-block {
+    position: relative;
+    .row {
+      padding: 0.2em 1.5em;
+    }
+    .item-content {
+      border-bottom: 1px dotted #ccc;
+      padding-bottom: 0.5em;
+    }
+    .row.last {
+      margin-bottom: 1rem;
+      .item-content{
+        border-bottom: none;
+      }
+    }
+    .actions {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+    }
+    .summary, .dates {
+      font-size: 90%;
+    }
+  }
 }

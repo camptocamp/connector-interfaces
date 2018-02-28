@@ -120,7 +120,7 @@
 					<p class="alert alert-danger" t-if="error">
 						<t t-esc="error" />
 					</p>
-					<input type="hidden" name="redirect" t-att-value="redirect or '/my/home'" />
+					<input type="hidden" name="redirect" t-att-value="redirect or '/my/dock'" />
 					<input type="hidden" name="token" t-att-value="token" />
 					<div class="clearfix oe_login_buttons">
 						<button type="submit" class="btn btn-primary">Confirm</button>

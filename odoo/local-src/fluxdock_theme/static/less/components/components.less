@@ -424,3 +424,27 @@
   -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.35);
 }
+
+#content-header {
+	.bg-flux_dark;
+	padding: 5rem 2rem;
+	h1 { font-size: 6rem !important; }
+	.content-logo {
+		text-align: right;
+		color: white;
+		.fa-user {
+      // TODO: replace this w/ an image
+			font-size: 16rem;
+		}
+		.profile-actions {
+			font-size: 85%;
+		}
+	}
+}
+@media only screen and (max-width : 480px) {
+	#content-header {
+		.content-logo {
+			text-align: center;
+		}
+	}
+}

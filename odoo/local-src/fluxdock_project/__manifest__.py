@@ -38,6 +38,7 @@
         'templates/assets.xml',
         'templates/personal_menu.xml',
         'templates/search_form.xml',
+        'templates/my_dock.xml',
         'templates/proposal/proposal_detail.xml',
         'templates/reference/reference_detail.xml',
         'templates/reference/help_msgs.xml',
