@@ -1,8 +1,7 @@
 odoo.define('fluxdock_theme.image_upload', function (require) {
 "use strict";
 
-    var core = require('web.core');
-    var website = require('website.website');
+    require('web.dom_ready');
 
     if(!$('.imgupload').length) {
         return $.Deferred().reject("DOM doesn't contain '.imgupload'");

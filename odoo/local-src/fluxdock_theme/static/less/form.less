@@ -286,13 +286,17 @@
       }
     }
 
+    // profile form
     .cms_form_wrapper.res_partner {
-      .image-upload-widget {
-        margin: 0 auto;
-      }
-
-      .field-image .help-block {
-        text-align: center;
+      .field-image {
+        .image-upload-widget {
+          margin: 0 auto;
+          width: 200px;
+          height: 200px;
+        }
+        .help-block {
+          text-align: center;
+        }
       }
     }
     // search forms >>
@@ -345,48 +349,6 @@
         }
       }
     }
-    //MY ACCOUNT
-    .profile-form {
-      //Logo upload
-      .media {
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin-top: 0;
-        max-width: 170px;
-        width: 170px;
-        height: 170px;
-        padding: 0;
-      }
-    }
   }
   // main
-}
-@media only screen and (max-width : 1050px) {
-  // temp fix for non-BS form
-  body #wrapwrap .profile-form form {
-    .media {
-      position: static;
-      margin-bottom: 0.5em;
-    }
-
-    label {
-      width: auto !important;
-      position: static !important;
-      display: block !important;
-      text-align: left !important;
-      padding-left: 5px !important;
-      padding-right: 5px !important;
-    }
-
-    input {
-      width: 100%;
-    }
-
-    .form-group {
-      padding-left: 0;
-      padding-right: 0;
-      max-width: 600px;
-    }
-  }
 }
