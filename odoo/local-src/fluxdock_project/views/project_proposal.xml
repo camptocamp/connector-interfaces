@@ -101,22 +101,19 @@
 </record>
 
 <!-- Project Proposal Calendar -->
-<!--
-FIXME: broken in v11 (probably because of `[name]`)
-Is it still needed?    
--->
-<!-- <record model="ir.ui.view" id="view_project_proposal_calendar">
+<record model="ir.ui.view" id="view_project_proposal_calendar">
   <field name="name">Fluxdock Proposal</field>
   <field name="model">project.proposal</field>
   <field name="arch" type="xml">
-    <calendar string="Proposals" date_start="start_date" date_stop="stop_date" date_delay="duration"
-      display="[name]" color="color_owner_id" mode="month">
+    <calendar string="Proposals"
+              date_start="start_date" date_stop="stop_date"
+              date_delay="duration" color="color_owner_id" mode="month">
       <field name="name"/>
       <field name="create_uid"/>
       <field name="color_owner_id"/>
     </calendar>
   </field>
-</record> -->
+</record>
 
 <!-- Project Proposal Search View  -->
 <record id="view_project_proposal_search" model="ir.ui.view">
