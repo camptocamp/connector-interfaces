@@ -100,6 +100,7 @@ class ProjectProposal(models.Model):
     )
     # flag used to determine if the proposal needs notification
     notify_dirty = fields.Boolean(default=False)
+    enable_matches_notification = fields.Boolean(default=True)
 
     @api.depends('create_uid')
     def _get_color_owner_id(self):
@@ -203,7 +204,8 @@ class ProjectProposal(models.Model):
         if not self.env.context.get('notify_disable'):
             for item in self:
                 # notify only published objects
-                if not item.website_published:
+                if (not item.website_published or
+                        not item.enable_matches_notification):
                     continue
                 # yes, we write once more but we don't want tracking here
                 # and we need proposal to be saved to fetch updated matches
@@ -265,7 +267,8 @@ class ProjectProposal(models.Model):
         if domain is None:
             domain = [
                 ('website_published', '=', True),
-                ('notify_dirty', '=', True)
+                ('notify_dirty', '=', True),
+                ('enable_matches_notification', '=', True),
             ]
         proposals = self.search(domain)
         proposals._create_match_messages()
@@ -311,7 +314,7 @@ class ProjectProposal(models.Model):
             for lang, pids in grouped.items():
                 values['body'] = self._match_message_body(item, lang)
                 values['partner_ids'] = [
-                    (4, id) for id in pids
+                    (4, _id) for _id in pids
                 ]
                 msg_model.create(values)
             logger.info(
