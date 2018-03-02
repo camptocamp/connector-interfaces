@@ -5,7 +5,6 @@ import anthem
 from ..common import load_csv
 
 
-# TODO: review this when we introduce the 2 profiles company/user
 @anthem.log
 def load_users(ctx):
     model = ctx.env['res.users'].with_context({
@@ -17,13 +16,12 @@ def load_users(ctx):
         model, delimiter=',')
 
     # update partners
-    free_member = ctx.env.ref('__sample__.res_user_freemember')
-    asso_member = ctx.env.ref('__sample__.res_user_associatemember')
-    free_member.partner_id.free_member = True
-    free_member.partner_id.website_published = True
-    asso_member.partner_id.free_member = True
-    asso_member.partner_id.website_published = True
-    # asso_member.partner_id.create_membership_invoice(email=False)
+    users = ctx.env['res.users']
+    users |= ctx.env.ref('__sample__.res_user_one')
+    users |= ctx.env.ref('__sample__.res_user_two')
+    users.mapped('partner_id').write({'website_published': True})
+    ctx.env.ref(
+        '__sample__.res_user_three').partner_id.website_published = False
 
 
 @anthem.log
