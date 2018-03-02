@@ -56,6 +56,9 @@
             <field name="website_description"/>
           </page>
           <page string="Matches">
+            <group name="match_settings">
+              <field name="enable_matches_notification" />
+            </group>
             <field name="matching_partner_ids">
               <tree>
                 <field name="name" />
