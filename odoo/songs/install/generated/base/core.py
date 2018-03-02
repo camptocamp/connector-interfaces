@@ -18,6 +18,17 @@ def load_res_lang(ctx):
 
 
 @anthem.log
+def load_res_company(ctx):
+    """ Import res.company from csv """
+    path = 'data/install/generated/base/core/res.company.csv'
+    model = ctx.env['res.company'].with_context(tracking_disable=True)
+    header_exclude = ['parent_id/id']
+    load_csv(ctx, path, model, header_exclude=header_exclude)
+    if header_exclude:
+        load_csv(ctx, path, model)
+
+
+@anthem.log
 def load_res_groups(ctx):
     """ Import res.groups from csv """
     path = 'data/install/generated/base/core/res.groups.csv'
@@ -29,14 +40,14 @@ def load_res_groups(ctx):
 
 
 @anthem.log
-def load_res_company(ctx):
-    """ Import res.company from csv """
-    path = 'data/install/generated/base/core/res.company.csv'
-    model = ctx.env['res.company'].with_context(tracking_disable=True)
-    header_exclude = ['parent_id/id']
-    load_csv(ctx, path, model, header_exclude=header_exclude)
-    if header_exclude:
-        load_csv(ctx, path, model)
+def add_xmlid_to_existing_ir_default(ctx):
+    # this works if `base_dj` is installed
+    model = ctx.env['ir.default'].with_context(
+        dj_xmlid_fields_map={'ir.default': []},
+        dj_multicompany=False,
+    )
+    for item in model.search([]):
+        item._dj_export_xmlid()
 
 
 @anthem.log
@@ -55,6 +66,7 @@ def pre(ctx):
 
 @anthem.log
 def post(ctx):
-    load_res_groups(ctx)
     load_res_company(ctx)
+    load_res_groups(ctx)
+    add_xmlid_to_existing_ir_default(ctx)
     load_ir_default(ctx)

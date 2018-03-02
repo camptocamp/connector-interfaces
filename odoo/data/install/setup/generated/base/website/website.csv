@@ -1,6 +1,0 @@
-"id","name","auto_redirect_lang","cdn_activated","cdn_filters","cdn_url","company_id/id","default_lang_code","default_lang_id/id","domain","favicon","google_analytics_key","google_management_client_id","google_management_client_secret","homepage_id/id","language_ids/id","user_id/id"
-"website.default_website","Fluxdock","True","False","^/[^/]+/static/
-^/web/(css|js)/
-^/web/image
-^/web/content
-^/website/image/","","base.main_company","en_US","base.lang_en","localhost","dj_path:data/binaries/website.default_website__favicon.png","UA-86438274-1","","","website.homepage_page","base.lang_en,base.lang_de","base.public_user"
