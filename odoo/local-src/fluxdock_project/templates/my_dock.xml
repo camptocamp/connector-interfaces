@@ -29,6 +29,9 @@
             </div>
           </div>
         </div>
+        <div id="above-content">
+          <t t-call="fluxdock_project.above_my_dock_content" />
+        </div>
         <div id="content" class="flex flex-grid">
           <div id="projects" class="col col-w25 col-pd2">
             <t t-call="fluxdock_project.my_dock_projects" />
@@ -42,6 +45,9 @@
           <div id="references" class="col col-w25 col-pd2">
             <t t-call="fluxdock_project.my_dock_references" />
           </div>
+        </div>
+        <div id="below-content">
+          <t t-call="fluxdock_project.below_my_dock_content" />
         </div>
       </div>
     </div>
@@ -127,6 +133,15 @@
       </div>
     </div>
   </div>
+</template>
+
+<!-- decouple editable contents -->
+<template id="above_my_dock_content" name="Fluxdock above my dock content">
+  <div class="oe_structure"><!-- drop snippets here --></div>
+</template>
+
+<template id="below_my_dock_content" name="Fluxdock below my dock content">
+  <div class="oe_structure"><!-- drop snippets here --></div>
 </template>
 
 
