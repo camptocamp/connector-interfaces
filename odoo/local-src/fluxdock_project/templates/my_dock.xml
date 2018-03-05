@@ -32,17 +32,17 @@
         <div id="above-content">
           <t t-call="fluxdock_project.above_my_dock_content" />
         </div>
-        <div id="content" class="flex flex-grid">
-          <div id="projects" class="col col-w25 col-pd2">
+        <div id="content" class="flex flex-grid flex-grid-4">
+          <div id="projects" class="col">
             <t t-call="fluxdock_project.my_dock_projects" />
           </div>
-          <div id="proposals" class="col col-w25 col-pd2">
+          <div id="proposals" class="col">
             <t t-call="fluxdock_project.my_dock_proposals" />
           </div>
-          <div id="matches" class="col col-w25 col-pd2">
+          <div id="matches" class="col">
             <t t-call="fluxdock_project.my_dock_matches" />
           </div>
-          <div id="references" class="col col-w25 col-pd2">
+          <div id="references" class="col">
             <t t-call="fluxdock_project.my_dock_references" />
           </div>
         </div>
@@ -108,8 +108,8 @@
   <t t-set="block_items_limit" t-value="block_items_limit or 4" />
   <t t-set="show_view_all" t-value="show_view_all if show_view_all is not None else True" />
   <t t-set="view_all_link" t-value="view_all_link if view_all_link is not None else block_items.cms_search_url" />
-  <div class="listing-block well full-height">
-    <div class="content_wrapper">
+  <div class="listing-block full-height">
+    <div class="content_wrapper well full-height">
       <h3><t t-raw="block_title" /></h3>
       <p class="summary text-muted" t-raw="summary" />
       <t t-if="not block_items">

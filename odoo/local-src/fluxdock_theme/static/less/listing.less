@@ -35,7 +35,10 @@
     .make_white_content_wrapper;
   }
   .listing-block {
-    position: relative;
+    padding: 1rem;
+    .content_wrapper {
+      position: relative;
+    }
     .row {
       padding: 0.2em 1.5em;
     }
@@ -51,11 +54,23 @@
     }
     .actions {
       position: absolute;
-      bottom: 2rem;
+      bottom: 1rem;
       right: 2rem;
     }
     .summary, .dates {
       font-size: 90%;
+    }
+  }
+}
+
+@media only screen and (max-width : 480px) {
+  #wrapwrap{
+    .listing {
+      padding: 0;
+      .list-item {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
 }

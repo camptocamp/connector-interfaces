@@ -22,6 +22,7 @@
 				<link href="/fluxdock_theme/static/less/nav.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/form.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/header.less" rel="stylesheet" type="text/less" />
+				<link href="/fluxdock_theme/static/less/mobile_menu.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/footer.less" rel="stylesheet" type="text/less" />
 				<link href="/fluxdock_theme/static/less/listing.less" rel="stylesheet" type="text/less" />
 				<!-- variables must stay at the end https://github.com/odoo/odoo/issues/14657 -->

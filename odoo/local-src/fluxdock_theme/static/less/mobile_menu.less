@@ -1,0 +1,140 @@
+#mobile-menu-trigger,
+nav.mobile-menu {
+	display: none;
+}
+
+@media only screen and (max-width : 980px) {
+	#wrapwrap #fluxdock_header {
+		.fluxdock-topbar {
+			#mobile-menu-trigger {
+				display: block;
+				position: absolute;
+				top: 11px;
+				right: 26px;
+				font-size: 32px;
+				padding: 10px;
+				cursor: pointer;
+			}
+		}
+	}
+	nav.mobile-menu {
+		display: block;
+		position: fixed;
+		right: -260px;
+		top: 0;
+		bottom: 0;
+		width: 260px;
+		background-color: @fluxPurple;
+		font-family: "noyh_rlight";
+		padding: 50px 2em 1em 2em;
+		.dropdown-backdrop {
+			display: none;
+		}
+		ul {
+			padding: 0;
+			list-style-type: none;
+			&.main-menu {
+				font-family: noyh_rsemilight;
+				text-transform: UPPERCASE;
+				font-size: 20px;
+				a:hover {
+					text-decoration: none;
+				}
+				margin-bottom: 40px;
+				li {
+					margin-bottom: 6px;
+					a {
+						color: white;
+					}
+				}
+				> li {
+					&:first-of-type {
+						//Hide "Home"
+						display: none;
+					}
+				}
+			}
+			&.service-menu {
+				li {
+					font-size: 16px;
+					margin-bottom: 6px;
+					a {
+						color: white;
+					}
+					a:hover {
+						text-decoration: none;
+					}
+					i.fa {
+						width: 40px;
+						text-align: center;
+					}
+				}
+			}
+			&.js_language_selector {
+				//visibility: hidden; //hide language menu
+				text-align: center;
+				margin-left: 0;
+				margin-right: 0;
+				li {
+					font-size: 16px;
+					display: inline-block;
+					a {
+						color: @fluxPurpleLight;
+						display: inline-block;
+						&:hover {
+							text-decoration: none;
+						}
+						&:first-letter {
+							font-size: 16px;
+						}
+					}
+					&[groups="base.group_website_publisher"] {
+						a {
+							font-size: 12px;
+							width: auto;
+						}
+					}
+				}
+			}
+			.dropdown.open {
+				.dropdown-menu {
+					position: static;
+					width: 100%;
+					box-shadow: none;
+					background-color: @fluxPurple;
+					font-size: 100%;
+					padding: 1em 0;
+					margin-bottom: 1em;
+					border: none;
+					border-bottom: 1px dashed #ccc;
+				}
+			}
+		}
+		.social-media {
+			text-align: center;
+			margin-top: 64px;
+			a {
+				display: inline-block;
+				height: 36px;
+				width: 45px;
+				background-repeat: no-repeat;
+				background-position: center center;
+				margin-left: 4px;
+				margin-right: 4px;
+				&.facebook {
+					background-image: url("/fluxdock_theme/static/img/social-media/facebook.png");
+					background-size: 9px 18px;
+				}
+				&.twitter {
+					background-image: url("/fluxdock_theme/static/img/social-media/twitter.png");
+					background-size: 19px 15px;
+
+				}
+				&.mail {
+					background-image: url("/fluxdock_theme/static/img/social-media/mail.png");
+					background-size: 19px 15px;
+				}
+			}
+		}
+	}
+}

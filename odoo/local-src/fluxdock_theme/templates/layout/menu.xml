@@ -48,7 +48,7 @@
 					</div>
 				</li>
 				<li>
-					<t t-call="website.language_selector"/>
+					<t t-call="fluxdock_theme.language_selector"/>
 				</li>
 			</ul>
 
@@ -61,7 +61,7 @@
 					<a href="/web/signup">Sign Up</a>
 				</li>
 				<li>
-					<t t-call="website.language_selector"/>
+					<t t-call="fluxdock_theme.language_selector"/>
 				</li>
 			</ul>
 		</template>
@@ -92,7 +92,7 @@
 						</li>
 					</ul>
 
-					<t t-call="website.language_selector"/>
+					<t t-call="fluxdock_theme.language_selector" />
 
 					<div class="social-media">
 						<a class="facebook" href="https://www.facebook.com/fluxdock/" target="_blank"></a>

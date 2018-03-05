@@ -15,10 +15,6 @@ odoo.define('theme_fluxdock.mosaic', function (require) {
         qweb.add_template(data);
     });
 
-    if(!$('.mosaic.grid').length) {
-        return $.Deferred().reject("DOM doesn't contain '.mosaic.grid'");
-    }
-
     var Mosaic = function(el, loadfrom) {
         this.$grid = $(el);
         this.loadfrom = loadfrom;

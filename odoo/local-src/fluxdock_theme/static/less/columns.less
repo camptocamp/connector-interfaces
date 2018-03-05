@@ -1,27 +1,35 @@
 @colPadding1: 1rem;
 @colPadding2: 2rem;
 @colPadding3: 3rem;
-
+.col-pd1{ padding: @colPadding1; }
+.col-pd2{ padding: @colPadding2; }
+.col-pd3{ padding: @colPadding3; }
 .flex {
   width: 100%;
-  .col {
-    &.col-pd1{ padding: @colPadding1; }
-    &.col-pd2{ padding: @colPadding2; }
-    &.col-pd3{ padding: @colPadding3; }
-    &.col-w25 { flex: 0 0 25%; }
-    &.col-w75 { flex: 0 0 75%; }
-    &.col-w50 { flex: 0 0 50%; }
-  }
 }
 .flex-grid {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: stretch;
+  &.flex-grid-4 {
+    > .col {
+      width: 25%;
+    }
+  }
+  &.flex-grid-side {
+    > .col { padding: @colPadding3 }
+    > .col-left {
+      width: 25%;
+    }
+    > .col-content {
+      width: 75%;
+      overflow: hidden;
+    }
+  }
 }
 .flex-height-fit {
   min-height: 100vh;
 }
-
 .flex-grid-fit {
   // fit boxes width to inner content
   display: inline-flex;
@@ -33,18 +41,6 @@
 }
 
 .layout_2_cols {
-  .flex-grid {
-    // TMP test
-    // border: 1px solid;
-    #sidebar.col {
-      flex: 0 0 25%;
-    }
-    #content.col {
-      flex: 0 0 75%;
-      // border: 1px dashed red;
-      overflow: hidden;
-    }
-  }
   .section_info {
     border-bottom: 1px dashed #ddd;
     margin-bottom: 3rem;
@@ -72,8 +68,20 @@
   }
 }
 
-@media (max-width: 400px) {
+@media only screen and (max-width : 769px) {
+  .flex-grid {
+    &.flex-grid-4 {
+      > .col {
+        width: 50%;
+      }
+    }
+  }
+}
+@media only screen and (max-width : 400px) {
   .flex-grid {
     display: block;
+    > .col {
+      width: 100% !important;
+    }
   }
 }

@@ -5,8 +5,8 @@
     <t t-call="website.layout">
       <div id="wrap" class="layout_2_cols">
         <div class="container-lg">
-          <div id="main_row" class="flex flex-grid flex-height-fit">
-            <div id="sidebar" class="col col-left col-w25 col-pd3 bg-flux_blue">
+          <div id="main_row" class="flex flex-grid flex-height-fit flex-grid-side">
+            <div id="sidebar" class="col col-left bg-flux_blue">
               <div class="above_content_wrapper">
                 <div class="section_info">
                   <t t-if="section_logo">
@@ -26,7 +26,7 @@
                 </t>
               </div>
             </div>
-            <div id="content" class="col col-content col-w75 col-pd3">
+            <div id="content" class="col col-content">
               <div class="content_wrapper">
                 <t t-raw="main_content" />
               </div>
