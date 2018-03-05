@@ -41,7 +41,7 @@
         <t t-set="data_domain" t-value="data_domain or '[]'" />
         <t t-set="data_loadfrom" t-value="data_loadfrom or None" />
 
-        <div class="mosaic grid"
+        <div t-attf-class="mosaic grid mosaic_items_#{mosaic_items and len(mosaic_items) or 'none'}"
              t-att-data-model="data_model"
              t-att-data-limit="data_limit"
              t-att-data-order="data_order"
@@ -77,7 +77,7 @@
         <div class="grid-item lazy clickable"
              t-att-data-url="item.website_url"
              t-att-title="item.name"
-             t-attf-data-src="#{item.image_url})">
+             t-attf-data-src="#{item.image_url}">
           <h4><span t-esc="item.name" /></h4>
         </div>
     </template>
