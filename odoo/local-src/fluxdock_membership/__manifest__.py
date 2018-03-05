@@ -19,6 +19,7 @@
         'cms_form',
         'cms_status_message',
         'cms_account_form',
+        'cms_info',
         'fluxdock_theme',
         'http_routing',
         'l10n_ch',

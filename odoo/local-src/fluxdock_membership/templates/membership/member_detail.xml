@@ -25,17 +25,12 @@
       <div id="wrap" class="member-detail">
         <!-- TODO: old inheritance removed. We can now cleanup this mess and split in sub templates -->
         <h1 class="hide col-md-12 text-center" id="partner_name" t-field="partner.display_name" />
-        <t t-if="not partner.is_owner(request.session.uid)">
+        <t t-if="not partner.cms_is_owner()">
           <section class="top-spacer-small bg-flux_dark_grid"></section>
         </t>
-
-
-        <t t-call="fluxdock_theme.mgmt_actions">
-          <t t-set="object" t-value="partner"/>
-          <t t-set="show_delete" t-value="False"/>
-          <t t-set="show_add" t-value="False"/>
-        </t>
-
+        <div class="container-md">
+          <t t-raw="main_object.cms_render_toolbar(show_delete=False, show_create=False)" />
+        </div>
         <t t-if="partner_user">
             <t t-set="carousel_items" t-value="[x for x in partner_user.references_ids if x.image]" />
             <t t-if="carousel_items">
@@ -48,7 +43,6 @@
                 </div>
             </t>
         </t>
-
         <section class="content member-detail-view bg-flux_white">
           <div class="content-wrap">
             <t t-if="partner.image">

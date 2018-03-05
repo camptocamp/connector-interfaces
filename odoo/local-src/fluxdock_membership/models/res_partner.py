@@ -141,11 +141,6 @@ class ResPartner(models.Model):
         for item in self:
             item.cms_edit_url = '/my/account'
 
-    @api.model
-    def is_owner(self, uid):
-        res = super(ResPartner, self).is_owner(uid)
-        return res or self.user_id.id == uid
-
     @api.multi
     def _compute_website_url(self):
         for partner in self:

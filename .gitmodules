@@ -19,7 +19,7 @@
 	url = git@github.com:OCA/server-env.git
 [submodule "odoo/external-src/website-cms"]
 	path = odoo/external-src/website-cms
-	url = git@github.com:OCA/website-cms.git
+	url = git@github.com:camptocamp/website-cms.git
 [submodule "odoo/external-src/social"]
 	path = odoo/external-src/social
 	url = git@github.com:OCA/social.git

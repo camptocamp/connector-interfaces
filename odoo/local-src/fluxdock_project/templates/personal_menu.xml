@@ -5,10 +5,10 @@
 			<li id="myprofile" position="after">
 				<li role="separator" class="divider"></li>
 				<li id="add_reference">
-					<a t-att-href="request.env['project.reference'].cms_add_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add reference</a>
+					<a t-att-href="request.env['project.reference'].cms_create_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add reference</a>
 				</li>
 				<li id="add_proposal">
-					<a t-att-href="request.env['project.proposal'].cms_add_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add proposal</a>
+					<a t-att-href="request.env['project.proposal'].cms_create_url" role="menuitem"><i class="fa fa-plus" t-translation="off" /> Add proposal</a>
 				</li>
 			</li>
 		</template>
