@@ -32,7 +32,7 @@ def load_res_partner_category(ctx):
 @anthem.log
 def load_project_partner_expertise(ctx):
     """ Import project.partner.expertise from csv """
-    path = ('data/sample/generated/custom/',
+    path = ('data/sample/generated/custom/'
             'fluxdock/project.partner.expertise.csv')
     model = ctx.env['project.partner.expertise'].with_context(
         tracking_disable=True)
