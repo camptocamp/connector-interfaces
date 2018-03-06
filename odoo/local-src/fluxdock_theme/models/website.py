@@ -1,6 +1,6 @@
 # Copyright 2016 Simone Orsi (Camptocamp)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-from odoo import models, api, SUPERUSER_ID, fields
+from odoo import models, api, fields
 from odoo.http import request
 
 
@@ -52,14 +52,6 @@ class Website(models.Model):
 
 class WebsiteMixin(models.AbstractModel):
     _inherit = 'website.published.mixin'
-
-    @api.model
-    def is_owner(self, uid):
-        if not uid:
-            return False
-        if uid == SUPERUSER_ID:
-            return True
-        return self.create_uid.id == uid
 
     # placeholder fields to make image_url compute method happy
     image = fields.Binary('image')

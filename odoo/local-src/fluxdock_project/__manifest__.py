@@ -1,4 +1,4 @@
-# Copyright 2016 Denis Leemann (Camptocamp SA)
+# Copyright 2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': 'Fluxdock Project specific development',
@@ -11,6 +11,8 @@
         'cms_delete_content',
         'cms_form',
         'cms_notification',
+        'cms_info',
+        'cms_toolbar',
         'fluxdock_membership',
         'fluxdock_theme',
         'mail_digest',

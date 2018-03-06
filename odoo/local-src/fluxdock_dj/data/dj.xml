@@ -5,6 +5,17 @@
     <field name="genre_id" ref="dj_core.dj_custom_genre" />
   </record>
 
+  <record model="dj.song" id="dj_song_users">
+    <field name="compilation_id" ref="dj_fluxdock"/>
+    <field name="model_id" ref="base.model_res_users" />
+    <field name="sequence" eval="10" />
+    <field name="song_type">load_csv</field>
+    <field name="field_list">
+      name,active,company_id,digest_frequency,digest_mode,
+      groups_id,login,notification_type,password
+    </field>
+  </record>
+
   <record model="dj.song" id="dj_song_industries">
     <field name="compilation_id" ref="dj_fluxdock"/>
     <field name="model_id" ref="base.model_res_partner_category" />

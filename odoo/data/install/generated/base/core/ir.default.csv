@@ -1,4 +1,4 @@
-"id","condition","field_id/id","json_value","company_id/id","user_id/id"
-"__setup__.ir_default_1","","base.field_res_partner_lang","""en_US""","",""
-"__setup__.ir_default_2","","account.field_product_template_taxes_id","l10n_ch.1_vat_80_incl","base.main_company",""
-"__setup__.ir_default_3","","account.field_product_template_supplier_taxes_id","l10n_ch.1_vat_80_purchase_incl","base.main_company",""
+"id","company_id/id","condition","field_id/id","json_value","user_id/id"
+"__setup__.ir_default_221ff447a2e54a9f89056f279f2611a2","","","base.field_res_partner_lang","""en_US""",""
+"__setup__.ir_default_033639e73e89defb72026b1e9426163a","base.main_company","","account.field_product_template_taxes_id","l10n_ch.1_vat_80_incl",""
+"__setup__.ir_default_e9896c3d286ff4838bcdb688db5e031d","base.main_company","","account.field_product_template_supplier_taxes_id","l10n_ch.1_vat_80_purchase_incl",""

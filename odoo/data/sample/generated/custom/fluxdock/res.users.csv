@@ -1,0 +1,4 @@
+id,name,active,company_id/id,digest_frequency,digest_mode,groups_id/id,login,notification_type,password
+__sample__.user_user1,User 1,True,base.main_company,weekly,False,base.group_portal,user1,email,user1
+__sample__.user_user2,User 2,True,base.main_company,weekly,False,base.group_portal,user2,email,user2
+__sample__.user_user3,User 3,True,base.main_company,weekly,False,base.group_portal,user3,email,user3

@@ -28,6 +28,7 @@
         'cms_delete_content',
         'cms_form',
         'cms_notification',
+        'cms_toolbar',
         'http_routing',
         'mail_digest',
         'website',

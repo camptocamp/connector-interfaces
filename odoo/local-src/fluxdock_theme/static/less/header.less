@@ -18,9 +18,18 @@
 			#top_menu.nav {
 				width: 100%;
 				text-align: center;
-			}
-			#mobile-menu-trigger{
-				display: none;
+				> li > a:hover,
+				> li > a:focus {
+					background-color: transparent;
+				}
+				li {
+					font-family: noyh_rsemilight;
+					text-transform: UPPERCASE;
+					font-size: 20px;
+					a:hover {
+						text-decoration: none;
+					}
+				}
 			}
 			.fluxdock-header-logo{
 				position: absolute;
@@ -94,6 +103,123 @@
 				}
 			}
 		}
+
+		#mobile-menu-trigger{
+			display: none;
+			position: absolute;
+			top: 11px;
+			right: 26px;
+			font-size: 32px;
+			padding: 10px;
+			cursor: pointer;
+		}
+		.mobile-menu {
+			position: fixed;
+			right: -260px;
+			top: 0;
+			bottom: 0;
+			width: 260px;
+			background-color: @fluxPurple;
+			font-family: "noyh_rlight";
+			padding-top: 50px;
+			ul {
+				list-style-type: none;
+				padding-left: 10px;
+				padding-right: 10px;
+				li {
+					text-align: center;
+				}
+				&.main-menu {
+					margin-bottom: 40px;
+					li {
+						margin-bottom: 6px;
+						a {
+							color: white;
+						}
+					}
+					>li {
+						&:first-of-type {
+							//Hide "Home"
+							display: none;
+						}
+					}
+				}
+				&.service-menu {
+		//			display: none; //Hide service menu
+					li {
+						font-size: 16px;
+						margin-bottom: 6px;
+						a {
+							color: @fluxPurpleLight;
+						}
+					}
+				}
+				&.js_language_selector {
+					//visibility: hidden; //hide language menu
+					text-align: center;
+					margin-left: 0;
+					margin-right: 0;
+					li {
+						font-size: 16px;
+						display: inline-block;
+						a {
+							color: @fluxPurpleLight;
+							font-size: 0;
+							display: inline-block;
+							width: 20px;
+							&:hover {
+								text-decoration: none;
+							}
+							&:first-letter {
+								font-size: 16px;
+							}
+						}
+						&[groups="base.group_website_publisher"] {
+							a {
+								font-size: 12px;
+								width: auto;
+							}
+						}
+					}
+				}
+			}
+			.social-media {
+				text-align: center;
+				margin-top: 64px;
+				a {
+					display: inline-block;
+					height: 36px;
+					width: 45px;
+					background-repeat: no-repeat;
+					background-position: center center;
+					margin-left: 4px;
+					margin-right: 4px;
+					&.facebook {
+						background-image: url("/fluxdock_theme/static/img/social-media/facebook.png");
+						background-size: 9px 18px;
+					}
+					&.twitter {
+						background-image: url("/fluxdock_theme/static/img/social-media/twitter.png");
+						background-size: 19px 15px;
+
+					}
+					&.mail {
+						background-image: url("/fluxdock_theme/static/img/social-media/mail.png");
+						background-size: 19px 15px;
+					}
+				}
+			}
+		}
+		ul.main-menu {
+
+		}
+		ul.service-menu {
+			li {
+				a:hover {
+					text-decoration: none;
+				}
+			}
+		}
 	}
 }
 
@@ -120,14 +246,8 @@
 		.fluxdock-topbar {
 			#mobile-menu-trigger {
 				display: block;
-				position: absolute;
-				top: 11px;
-				right: 26px;
-				font-size: 32px;
-				padding: 10px;
-				cursor: pointer;
 			}
-			ul.main-menu {
+			ul#top_menu.nav {
 				display: none;
 			}
 			ul.service-menu {
@@ -140,5 +260,22 @@
 				left: 0;
 			}
 		}
+    // adjust dropdown menus
+		.dropdown.open {
+			position: static;
+			width: 100%;
+			box-shadow: none;
+		}
+	}
+}
+
+
+// Header title
+@media only screen and (max-width : 1250px) and (min-width : 980px) {
+	body #wrapwrap #fluxdock_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title {
+		opacity: 0;
+		transition: opacity .25s ease-in-out;
+	   -moz-transition: opacity .25s ease-in-out;
+	   -webkit-transition: opacity .25s ease-in-out;
 	}
 }

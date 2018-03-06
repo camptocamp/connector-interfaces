@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-
-
-
 		<template id="personal_menu_content" name="Fluxdock personal menu content">
 			<t t-set="user" t-value="request.env.user" />
 			<li id="myhome">
@@ -13,11 +10,10 @@
 				<a href="/my/account" role="menuitem"><i class="fa fa-pencil" t-translation="off" /> Edit my profile</a>
 			</li>
 			<li id="myprofile">
-				<t t-set="profile_published" t-value="user.partner_id.website_published" />
-				<a t-att-href="user.partner_id.website_url if profile_published else None" role="menuitem"
-				   t-att-class="'disabled text-line-trough' if not profile_published else None">
+				<a t-att-href="user.partner_id.website_url" role="menuitem"
+				   t-att-class="'not-published' if not user.partner_id.website_published else None">
 				   <i class="fa fa-user" t-translation="off" /> My public profile
-			    </a>
+			   </a>
 			</li>
 			<li role="separator" class="divider"></li>
 			<li id="reset_pwd">
@@ -52,7 +48,7 @@
 					</div>
 				</li>
 				<li>
-					<t t-call="website.language_selector"/>
+					<t t-call="fluxdock_theme.language_selector"/>
 				</li>
 			</ul>
 
@@ -65,7 +61,7 @@
 					<a href="/web/signup">Sign Up</a>
 				</li>
 				<li>
-					<t t-call="website.language_selector"/>
+					<t t-call="fluxdock_theme.language_selector"/>
 				</li>
 			</ul>
 		</template>
@@ -96,7 +92,7 @@
 						</li>
 					</ul>
 
-					<t t-call="website.language_selector"/>
+					<t t-call="fluxdock_theme.language_selector" />
 
 					<div class="social-media">
 						<a class="facebook" href="https://www.facebook.com/fluxdock/" target="_blank"></a>

@@ -21,7 +21,7 @@ class ProjectProposal(models.Model):
     _order = 'website_published DESC, create_date DESC'
 
     # we use this for website template add action
-    cms_add_url = '/dock/proposals/add'
+    cms_create_url = '/dock/proposals/add'
     cms_after_delete_url = '/my/dock'
     cms_search_url = '/dock/proposals'
 

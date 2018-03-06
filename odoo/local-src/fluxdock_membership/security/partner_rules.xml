@@ -10,6 +10,7 @@
   <field name="perm_create" eval="False"/>
   <field name="perm_unlink" eval="False"/>
   <field name="groups" eval="[(4, ref('base.group_portal')),(4, ref('base.group_public'))]"/>
+  <!-- TODO: double check this condition, we don't have these states anymore, just  "free"  -->
   <field name="domain_force">['&amp;', ('membership_state', 'in', ('free', 'paid', 'invoiced')), ('website_published', '=', True)]</field>
 </record>
 

@@ -4,15 +4,10 @@
   <template id="proposal_detail" name="Fluxdock proposal detail view">
     <t t-call="website.layout">
       <t t-set="is_anon" t-value="not request.session.uid"/>
-      <!-- important to check for `is_anon` too because when you are anonymous user
-  you are "Public User" indeed, so you could have a membership state (default to `free`)-->
-      <t t-set="is_owner" t-value="main_object.is_owner(request.session.uid)"/>
-
       <div class="bg-flux_dark proposal-detail" id="wrap">
-        <t t-call="fluxdock_theme.mgmt_actions">
-            <t t-set="object" t-value="main_object"/>
-            <t t-set="show_add" t-value="False"/>
-        </t>
+        <div class="container-md">
+          <t t-raw="main_object.cms_render_toolbar()" />
+        </div>
         <div class="bg-flux_white pt2">
           <div class="center-block main-content-wrapper" id="ref_content">
             <h1><t t-esc="main_object.name"/></h1>

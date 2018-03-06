@@ -4,11 +4,9 @@
   <template id="reference_detail" name="Fluxdock Reference detail view">
     <t t-call="website.layout">
       <div class="bg-flux_dark reference-detail" id="wrap">
-        <t t-call="fluxdock_theme.mgmt_actions">
-          <!-- TODO: check if publisher still need this `object` var -->
-            <t t-set="object" t-value="main_object"/>
-            <t t-set="show_add" t-value="False"/>
-        </t>
+        <div class="container-md">
+          <t t-raw="main_object.cms_render_toolbar()" />
+        </div>
         <div>
           <div class="container-xxlg">
             <div class="top-image jumbotron lazy" t-att-data-src="main_object.image_url">

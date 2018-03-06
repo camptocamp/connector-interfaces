@@ -1,0 +1,14 @@
+./external-src/website-cms:
+  remotes:
+    oca: git@github.com:OCA/website-cms.git
+    c2c: git@github.com:camptocamp/website-cms.git
+    smk: git@github.com:simahawk/website-cms.git
+  merges:
+    - oca 11.0
+    # cms form misc fixes
+    - oca refs/pull/44/head
+    # add cms_info
+    - oca refs/pull/45/head
+    # add cms_toolbar
+    - oca refs/pull/46/head
+  target: &default_target c2c merge-branch-3582-v11

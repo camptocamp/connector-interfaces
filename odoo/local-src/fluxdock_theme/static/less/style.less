@@ -13,11 +13,12 @@ body {
 	}
 }
 // we add this class into `models.webste.Website.get_extra_body_klass` ;)
-body.authenticated_user{
-	#wrap {
-		padding-top: 5em;
-	}
-}
+// TODO: verify if needed, sounds not.
+// body.authenticated_user{
+// 	#wrap {
+// 		padding-top: 5em;
+// 	}
+// }
 html[lang="de-DE"] a.js_change_lang[data-lang="de_DE"] {
 	font-weight: bold;
 }
@@ -462,135 +463,9 @@ body #wrapwrap {
 
 
 
-.mobile-menu {
-	position: fixed;
-	right: -260px;
-	top: 0;
-	bottom: 0;
-	width: 260px;
-	background-color: @fluxPurple;
-	font-family: "noyh_rlight";
-	padding-top: 50px;
-	ul {
-		list-style-type: none;
-		padding-left: 10px;
-		padding-right: 10px;
-		li {
-			text-align: center;
-		}
-		&.main-menu {
-			margin-bottom: 40px;
-			li {
-				margin-bottom: 6px;
-				a {
-					color: white;
-				}
-			}
-			>li {
-				&:first-of-type {
-					//Hide "Home"
-					display: none;
-				}
-			}
-		}
-		&.service-menu {
-//			display: none; //Hide service menu
-			li {
-				font-size: 16px;
-				margin-bottom: 6px;
-				a {
-					color: @fluxPurpleLight;
-				}
-			}
-		}
-		&.js_language_selector {
-			//visibility: hidden; //hide language menu
-			text-align: center;
-			margin-left: 0;
-			margin-right: 0;
-			li {
-				font-size: 16px;
-				display: inline-block;
-				a {
-					color: @fluxPurpleLight;
-					font-size: 0;
-					display: inline-block;
-					width: 20px;
-					&:hover {
-						text-decoration: none;
-					}
-					&:first-letter {
-						font-size: 16px;
-					}
-				}
-				&[groups="base.group_website_publisher"] {
-					a {
-						font-size: 12px;
-						width: auto;
-					}
-				}
-			}
-		}
-	}
-	.social-media {
-		text-align: center;
-		margin-top: 64px;
-		a {
-			display: inline-block;
-			height: 36px;
-			width: 45px;
-			background-repeat: no-repeat;
-			background-position: center center;
-			margin-left: 4px;
-			margin-right: 4px;
-			&.facebook {
-				background-image: url("/fluxdock_theme/static/img/social-media/facebook.png");
-				background-size: 9px 18px;
-			}
-			&.twitter {
-				background-image: url("/fluxdock_theme/static/img/social-media/twitter.png");
-				background-size: 19px 15px;
-
-			}
-			&.mail {
-				background-image: url("/fluxdock_theme/static/img/social-media/mail.png");
-				background-size: 19px 15px;
-			}
-		}
-	}
-}
-ul.main-menu {
-	li {
-		font-family: noyh_rsemilight;
-		text-transform: UPPERCASE;
-		font-size: 20px;
-		a:hover {
-			text-decoration: none;
-		}
-	}
-}
-ul.service-menu {
-	li {
-		a:hover {
-			text-decoration: none;
-		}
-	}
-}
-
-
 @media only screen and (max-width : 700px) {
 	body #wrapwrap main .animated-logo {
 		padding-top: 0;
-	}
-}
-
-// Header title
-@media only screen and (max-width : 1250px) and (min-width : 980px) {
-	body #wrapwrap #fluxdock_header .fluxdock-topbar .fluxdock-header-logo .fluxdock-title {
-		opacity: 0;
-		transition: opacity .25s ease-in-out;
-	   -moz-transition: opacity .25s ease-in-out;
-	   -webkit-transition: opacity .25s ease-in-out;
 	}
 }
 
@@ -751,21 +626,6 @@ body #wrapwrap main .pagination > li:last-child > a:after {
   vertical-align: top;
 }
 
-/* ---- PUBLISH ---- */
-.css_published .css_publish {
-  display: none;
-}
-
-.css_unpublished .css_unpublish {
-  display: none;
-}
-
-[data-publish='off'] > *:not(.css_options) {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-  opacity: 0.5;
-}
-
-/* ---- END of PUBLISH ---- */
 
 body.editor_enable{
 	#fluxdock_header{
@@ -776,7 +636,4 @@ body.editor_enable{
 		// show it only when editing at 1st
 		display: block;
 	}
-}
-div.mgmt-actions{
-	padding: 10px;
 }

@@ -7,3 +7,4 @@
 "__setup__.website_menu_dock","Dock"
 "__setup__.website_menu_references","References"
 "website.menu_contactus","Kontaktieren Sie uns"
+"__setup__.website_menu_foo","Foo"
