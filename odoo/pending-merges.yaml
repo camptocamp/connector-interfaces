@@ -21,5 +21,6 @@
      - oca 11.0
      # [11][ADD] connector_importer #44
      - oca refs/pull/44/head
-     - smk 11-add-connector_importer_source_odoorpc 
+     #- smk 11-add-connector_importer_source_odoorpc
+     - oca refs/pull/45/head
    target: *default_target

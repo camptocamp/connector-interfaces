@@ -34,7 +34,7 @@
 	url = git@github.com:OCA/connector.git
 [submodule "odoo/external-src/connector-interfaces"]
 	path = odoo/external-src/connector-interfaces
-	url = git@github.com:OCA/connector-interfaces.git
+	url = git@github.com:camptocamp/connector-interfaces.git
 [submodule "odoo/external-src/queue"]
 	path = odoo/external-src/queue
 	url = git@github.com:OCA/queue.git
