@@ -42,15 +42,10 @@ class ProjectReference(models.Model):
         required=False,
     )
     location = fields.Char()
-    industry_ids = fields.Many2many(
-        comodel_name="res.partner.category",
-        string="Industries",
-        help="To which industries belongs the project?",
-    )
-    expertise_ids = fields.Many2many(
-        comodel_name="project.partner.expertise",
-        string="Expertises",
-        help="Which expertises did your company bring to the project?",
+    profession_ids = fields.Many2many(
+        comodel_name="project.partner.profession",
+        string="Professions",
+        help="Which professions did your company bring to the project?",
     )
     image = fields.Binary(
         "Reference image",

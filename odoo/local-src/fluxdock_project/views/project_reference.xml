@@ -35,8 +35,7 @@
                 <field name="implementation_date"/>
                 <field name="location"/>
                 <field name='country_id'/>
-                <field name="industry_ids" widget="many2many_tags" />
-                <field name="expertise_ids" widget="many2many_tags" />
+                <field name="profession_ids" widget="many2many_tags" />
                 <field name="linked_partner_ids" widget="many2many_tags" />
                 <field name="video_url"/>
                 <field name="ext_website_url"/>

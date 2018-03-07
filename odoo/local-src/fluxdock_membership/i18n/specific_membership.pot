@@ -202,7 +202,7 @@ msgstr ""
 
 #. module: fluxdock_membership
 #: model:ir.ui.view,arch_db:fluxdock_membership.member_item_tags
-msgid "<strong>Expertise:</strong>"
+msgid "<strong>Profession:</strong>"
 msgstr ""
 
 #. module: fluxdock_membership
@@ -457,8 +457,8 @@ msgid "Display Name"
 msgstr ""
 
 #. module: fluxdock_membership
-#: model:ir.ui.view,arch_db:fluxdock_membership.partner_form_industry_help
-msgid "Don't find your industry or expertise? Write us an email at"
+#: model:ir.ui.view,arch_db:fluxdock_membership.partner_form_profession_help
+msgid "Don't find your profession? Write us an email at"
 msgstr ""
 
 #. module: fluxdock_membership
@@ -490,14 +490,14 @@ msgid "Evelendi nimpore sitia quam ex eium Et maximos ut mole sitia\n"
 msgstr ""
 
 #. module: fluxdock_membership
-#: model:ir.model.fields,field_description:fluxdock_membership.field_res_partner_expertise
-#: model:ir.model.fields,field_description:fluxdock_membership.field_res_users_expertise
-msgid "Expertise"
+#: model:ir.model.fields,field_description:fluxdock_membership.field_res_partner_profession
+#: model:ir.model.fields,field_description:fluxdock_membership.field_res_users_profession
+msgid "Profession"
 msgstr ""
 
 #. module: fluxdock_membership
 #: model:ir.ui.view,arch_db:fluxdock_membership.partner_table
-msgid "Expertise:"
+msgid "Profession:"
 msgstr ""
 
 #. module: fluxdock_membership
@@ -1067,8 +1067,8 @@ msgid "email@domain.com"
 msgstr ""
 
 #. module: fluxdock_membership
-#: model:ir.ui.view,arch_db:fluxdock_membership.partner_form_industry_help
-msgid "expertise@fluxdock.io"
+#: model:ir.ui.view,arch_db:fluxdock_membership.partner_form_profession_help
+msgid "profession@fluxdock.io"
 msgstr ""
 
 #. module: fluxdock_membership

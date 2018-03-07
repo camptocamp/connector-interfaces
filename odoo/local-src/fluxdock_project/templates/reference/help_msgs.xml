@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <template id="ref_form_industry_help" name="Fluxdock reference form industry help">
+  <template id="ref_form_profession_help" name="Fluxdock reference form profession help">
     <t t-if="form_field.get('help')">
         <t t-esc="form_field.get('help')" /><br /><br />
     </t>
-    Don't find your industry or expertise? Write us an email at
-    <a href="mailto:expertise@fluxdock.io?subject=new%20industry%20/%20expertise">expertise@fluxdock.io</a>
+    Don't find your profession? Write us an email at
+    <a href="mailto:profession@fluxdock.io?subject=new%20profession">profession@fluxdock.io</a>
   </template>
 
   <template id="ref_form_partner_help" name="Fluxdock reference form partner help">

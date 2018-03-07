@@ -17,8 +17,7 @@ class ReferenceForm(models.AbstractModel):
         'implementation_date',
         'location',
         'country_id',
-        'industry_ids',
-        'expertise_ids',
+        'profession_ids',
         'website_short_description',
         'image',
         'video_url',
@@ -37,14 +36,14 @@ class ReferenceForm(models.AbstractModel):
     def form_update_fields_attributes(self, _fields):
         """Override to add help messages."""
         super(ReferenceForm, self).form_update_fields_attributes(_fields)
-        industry_help = self.env.ref(
-            'fluxdock_project.ref_form_industry_help',
+        profession_help = self.env.ref(
+            'fluxdock_project.ref_form_profession_help',
             raise_if_not_found=False)
-        if industry_help:
-            help_text = industry_help.render({
-                'form_field': _fields['expertise_ids'],
+        if profession_help:
+            help_text = profession_help.render({
+                'form_field': _fields['profession_ids'],
             })
-            _fields['expertise_ids']['help'] = help_text
+            _fields['profession_ids']['help'] = help_text
         partner_help = self.env.ref(
             'fluxdock_project.ref_form_partner_help',
             raise_if_not_found=False)
@@ -74,8 +73,7 @@ class ReferenceSearchForm(models.AbstractModel):
     _form_model = 'project.reference'
     _form_fields_order = (
         'name',
-        'industry_ids',
-        'expertise_ids',
+        'profession_ids',
         'country_id',
         'location',
         'only_my',
@@ -99,13 +97,4 @@ class ReferenceSearchForm(models.AbstractModel):
         # if value is submitted then filter by owner
         if self.o_request.session.uid and search_values.get('only_my'):
             domain.append(('create_uid', '=', self.env.user.id))
-        # put industry_ids and expertise_ids in OR
-        exp = [x for x in domain if x[0] == 'industry_ids']
-        ind = [x for x in domain if x[0] == 'expertise_ids']
-        if ind and exp:
-            common_domain = [
-                x for x in domain
-                if x[0] not in ('industry_ids', 'expertise_ids')
-            ]
-            domain = ['&', '|', ] + ind + exp + ['&'] + common_domain
         return domain

@@ -12,11 +12,8 @@
     </div>
     <t t-call="fluxdock_theme.search_form_advanced_search">
       <div class="row filter-row row-2">
-        <div class="col-md-6 col-xs-12">
-          <t t-raw="form_fields['industry_ids']['widget'].render()"/>
-        </div>
-        <div class="col-md-6 col-xs-12">
-          <t t-raw="form_fields['expertise_ids']['widget'].render()"/>
+        <div class="col-md-12 col-xs-12">
+          <t t-raw="form_fields['profession_ids']['widget'].render()"/>
         </div>
       </div>
       <div class="row filter-row row-3">

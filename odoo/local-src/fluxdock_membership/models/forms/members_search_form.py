@@ -1,7 +1,7 @@
 # Copyright 2018 Simone Orsi - Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from odoo import models, fields, _
+from odoo import models, fields
 
 
 MEMBERSHIP_STATES = ('free', 'paid', 'invoiced')
@@ -15,8 +15,7 @@ class PartnerSearchForm(models.AbstractModel):
     _form_model = 'res.partner'
     _form_fields_order = (
         'name',
-        'category_id',
-        'expertise_ids',
+        'profession_ids',
         'country_id',
     )
     form_fields_template = 'fluxdock_membership.search_form_fields'
@@ -72,8 +71,6 @@ class PartnerSearchForm(models.AbstractModel):
         super(PartnerSearchForm, self).form_update_fields_attributes(_fields)
         # TODO: move this to a custom widget
         # _fields['country_id']['domain'] = self.get_country_domain()
-        # TODO: remove when moving to proper industry_ids field
-        _fields['category_id']['string'] = _('Industries')
 
     def form_search_domain(self, search_values):
         """Adapt domain."""
@@ -91,13 +88,4 @@ class PartnerSearchForm(models.AbstractModel):
                 ('name', 'ilike', search_name),
                 ('website_description', 'ilike', search_name)
             ]
-        # put industry_ids and expertise_ids in OR
-        exp = [x for x in domain if x[0] == 'category_id']
-        ind = [x for x in domain if x[0] == 'expertise_ids']
-        if ind and exp:
-            common_domain = [
-                x for x in domain
-                if x[0] not in ('category_id', 'expertise_ids')
-            ]
-            domain = ['&', '|', ] + ind + exp + ['&'] + common_domain
         return domain

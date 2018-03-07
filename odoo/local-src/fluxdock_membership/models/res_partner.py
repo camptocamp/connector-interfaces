@@ -49,8 +49,6 @@ class ResPartner(models.Model):
     facebook = fields.Char(string='Facebook')
     twitter = fields.Char(string='Twitter')
     skype = fields.Char(string='Skype')
-    # TODO: do we need this field? expertise_ids is a relation field.
-    expertise = fields.Char(string='Expertise')
     agree_to_terms = fields.Boolean(
         'Agree to unity terms',
         help='Agree to terms'

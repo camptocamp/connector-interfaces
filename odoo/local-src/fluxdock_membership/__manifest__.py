@@ -23,7 +23,7 @@
         'fluxdock_theme',
         'http_routing',
         'l10n_ch',
-        'project_expertise',
+        'project_profession',
         'website_partner',
         'website',
     ],

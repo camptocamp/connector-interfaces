@@ -72,15 +72,10 @@ class ProjectProposal(models.Model):
     start_date = fields.Date(string="Start date")
     stop_date = fields.Date(string="End date")
     duration = fields.Integer()
-    industry_ids = fields.Many2many(
-        comodel_name="res.partner.category",
-        string="Industries",
-        help="In which Industries do you need a collaborator?",
-    )
-    expertise_ids = fields.Many2many(
-        comodel_name="project.partner.expertise",
-        string="Expertises",
-        help="Which expertises do you need for your project?",
+    profession_ids = fields.Many2many(
+        comodel_name="project.partner.profession",
+        string="Professions",
+        help="Which professions do you need for your project?",
     )
 
     is_new = fields.Boolean(
@@ -154,9 +149,9 @@ class ProjectProposal(models.Model):
                     _('End Date cannot be set before Start Date.'))
 
     @api.multi
-    @api.depends('industry_ids', 'expertise_ids')
+    @api.depends('profession_ids')
     def _compute_matching_partner_ids(self):
-        """Get matching partners by expertise and industry."""
+        """Get matching partners by profession."""
         partner_sudo = self.env['res.partner'].sudo()
         for item in self:
             # TODO 2018-02-1: as of v11 refactoring and membership cleanup
@@ -169,12 +164,9 @@ class ProjectProposal(models.Model):
                 # bad fields behavior in form:
                 # when removing a tag here you get a new object :/
                 continue
-            ind_ids = item_sudo.industry_ids.ids
-            exp_ids = item_sudo.expertise_ids.ids
             item.matching_partner_ids = partner_sudo.search([
                 '|',
-                ('expertise_ids', 'in', exp_ids),
-                ('category_id', 'in', ind_ids),
+                ('profession_ids', 'in', item_sudo.profession_ids.ids),
                 ('user_id.proposal_blacklist_ids', 'not in', [item_sudo.id, ]),
                 ('id', '!=', item_sudo.create_uid.partner_id.id),
             ])
