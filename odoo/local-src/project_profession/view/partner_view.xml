@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- INHERITED SEARCH -->
+  <record id="view_project_profession_partner_search" model="ir.ui.view">
+      <field name="name">project_profession.partner.select</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_res_partner_filter"/>
+      <field name="arch" type="xml">
+          <field name="name" position="after">
+              <field name="profession_ids"/>
+          </field>
+      </field>
+  </record>
+
+  <!-- INHERITED FORM -->
+  <record id="view_project_profession_partner_form" model="ir.ui.view">
+      <field name="name">project_profession.partner.form</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+          <field name="category_id" position="after">
+              <field name="profession_ids" widget="many2many_tags"/>
+          </field>
+      </field>
+  </record>
+
+</odoo>
