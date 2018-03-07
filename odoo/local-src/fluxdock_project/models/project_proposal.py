@@ -47,7 +47,7 @@ class ProjectProposal(models.Model):
     create_uid = fields.Many2one(
         'res.users',
         'Owner',
-        select=True,
+        index=True,
         readonly=True,
     )
     # TODO: still needed?

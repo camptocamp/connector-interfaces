@@ -65,7 +65,7 @@ class ProjectReference(models.Model):
     create_uid = fields.Many2one(
         'res.users',
         'Owner',
-        select=True,
+        index=True,
         readonly=True,
     )
     country_id = fields.Many2one(comodel_name='res.country', string="Country")
