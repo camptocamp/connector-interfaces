@@ -27,8 +27,7 @@ class ProposalForm(models.AbstractModel):
         'website_description',
         'start_date',
         'stop_date',
-        'industry_ids',
-        'expertise_ids',
+        'profession_ids',
         'contact_name',
         'contact_email',
         'contact_phone',
@@ -36,8 +35,7 @@ class ProposalForm(models.AbstractModel):
     _form_required_fields = (
         'name',
         'website_short_description',
-        'industry_ids',
-        'expertise_ids',
+        'profession_ids',
     )
     _form_wrapper_extra_css_klass = 'bg-flux_dark_grid white_content_wrapper'
     _form_extra_css_klass = 'center-block main-content-wrapper'
@@ -51,14 +49,14 @@ class ProposalForm(models.AbstractModel):
     def form_update_fields_attributes(self, _fields):
         """Override to add help messages."""
         super(ProposalForm, self).form_update_fields_attributes(_fields)
-        industry_help = self.env.ref(
-            'fluxdock_project.ref_form_industry_help',
+        profession_help = self.env.ref(
+            'fluxdock_project.ref_form_profession_help',
             raise_if_not_found=False)
-        if industry_help:
-            help_text = industry_help.render({
-                'form_field': _fields['expertise_ids'],
+        if profession_help:
+            help_text = profession_help.render({
+                'form_field': _fields['profession_ids'],
             })
-            _fields['expertise_ids']['help'] = help_text
+            _fields['profession_ids']['help'] = help_text
 
         # limit claim length
         # FIXME

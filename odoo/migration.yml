@@ -26,6 +26,8 @@ migration:
               - anthem songs.sample.generated.custom.fluxdock::post
       addons:
         upgrade:
+          ## core
+          - contacts
           ## PLATFORM
           - cloud_platform_exoscale
           - attachment_s3
@@ -40,7 +42,6 @@ migration:
           #### oca/social
           - mail_digest
           #### camptocamp/odoo-dj
-          - base_dj
           - dj_website
           #### local-src
           - fluxdock_membership
@@ -57,3 +58,9 @@ migration:
       addons:
         upgrade:
           - fluxdock_theme
+    - version: 11.0.4
+      addons:
+        upgrade:
+          - contacts
+          - fluxdock_theme
+          - fluxdock_importer

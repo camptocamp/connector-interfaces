@@ -14,13 +14,10 @@
 
       <t t-call="fluxdock_theme.search_form_advanced_search">
         <div class="row filter-row row-2">
-          <div class="col-md-4 col-xs-12">
-            <t t-raw="form_fields['category_id']['widget'].render()"/>
+          <div class="col-md-6 col-xs-12">
+            <t t-raw="form_fields['profession_ids']['widget'].render()"/>
           </div>
-          <div class="col-md-4 col-xs-12">
-            <t t-raw="form_fields['expertise_ids']['widget'].render()"/>
-          </div>
-          <div class="col-md-4 col-xs-12">
+          <div class="col-md-6 col-xs-12">
             <t t-raw="form_fields['country_id']['widget'].render()"/>
           </div>
         </div>

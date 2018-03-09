@@ -12,3 +12,15 @@
     # add cms_toolbar
     - oca refs/pull/46/head
   target: &default_target c2c merge-branch-3582-v11
+./external-src/connector-interfaces:
+   remotes:
+     oca: git@github.com:OCA/connector-interfaces.git
+     c2c: git@github.com:camptocamp/connector-interfaces.git
+     smk: git@github.com:simahawk/connector-interfaces.git
+   merges:
+     - oca 11.0
+     # [11][ADD] connector_importer #44
+     - oca refs/pull/44/head
+     #- smk 11-add-connector_importer_source_odoorpc
+     - oca refs/pull/45/head
+   target: *default_target

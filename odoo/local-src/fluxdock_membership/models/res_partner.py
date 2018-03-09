@@ -49,8 +49,6 @@ class ResPartner(models.Model):
     facebook = fields.Char(string='Facebook')
     twitter = fields.Char(string='Twitter')
     skype = fields.Char(string='Skype')
-    # TODO: do we need this field? expertise_ids is a relation field.
-    expertise = fields.Char(string='Expertise')
     agree_to_terms = fields.Boolean(
         'Agree to unity terms',
         help='Agree to terms'
@@ -185,8 +183,14 @@ class ResPartner(models.Model):
                 # ValueError: bad transparency mask
                 _logger.warn('_get_default_image ' + str(err))
                 pass
-
-        return tools.image_resize_image_big(base64.b64encode(image))
+        try:
+            return tools.image_resize_image_big(base64.b64encode(image))
+        except ValueError as err:
+            # PIL/Image.py", line 1344, in paste
+            # self.im.paste(im, box, mask.im)
+            # ValueError: bad transparency mask
+            _logger.warn('_get_default_image ' + str(err))
+            return None
 
     @api.multi
     def redirect_after_publish(self):

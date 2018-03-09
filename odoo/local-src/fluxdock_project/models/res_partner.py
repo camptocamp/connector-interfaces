@@ -11,7 +11,7 @@ class ResPartner(models.Model):
     @api.multi
     def write(self, vals):
         res = super(ResPartner, self).write(vals)
-        if 'category_id' in vals or 'expertise_ids' in vals:
+        if 'profession_ids' in vals:
             self._update_matches()
         return res
 

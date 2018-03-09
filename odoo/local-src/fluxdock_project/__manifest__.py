@@ -16,11 +16,8 @@
         'fluxdock_membership',
         'fluxdock_theme',
         'mail_digest',
-        'project_expertise',
+        'project_profession',
         'project',
-    ],
-    'demo': [
-        'demo/project_proposal_demo.xml',
     ],
     'data': [
         # data

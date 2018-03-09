@@ -66,28 +66,14 @@
     </template>
 
     <template id="item_tags" name="Fluxdock item tags template">
-        <t t-set="industries" t-value="item.category_id if item._name == 'res.partner' else item.industry_ids" />
-        <t t-if="industries">
-          <div class="flex flex-grid-fit item-tags industry">
-              <div class="col col-pd-1 tag-label">
-                  <strong>Industry:</strong>
-              </div>
-              <div class="col col-pd-1 tag-value">
-                  <!-- TODO: get rid of this after migrating `category_id` to `industry_ids` on partner model -->
-                  <t t-foreach="industries" t-as="one_tag">
-                      <span t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
-                  </t>
-              </div>
-          </div>
-        </t>
-        <t t-set="expertises" t-value="item.expertise_ids" />
-        <t t-if="expertises">
-            <div class="flex flex-grid-fit item-tags expertise">
+        <t t-set="professions" t-value="item.profession_ids" />
+        <t t-if="professions">
+            <div class="flex flex-grid-fit item-tags profession">
                 <div class="col col-pd-1 tag-label">
-                    <strong>Expertise:</strong>
+                    <strong>Profession:</strong>
                 </div>
                 <div class="col col-pd-1 tag-value">
-                    <t t-foreach="expertises" t-as="one_tag">
+                    <t t-foreach="professions" t-as="one_tag">
                         <span t-esc="one_tag.name + ('' if one_tag_last else ', ')"/>
                     </t>
                 </div>

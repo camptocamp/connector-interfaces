@@ -19,5 +19,10 @@ boto==2.42.0
 # auth_signup_verify_email + cms_account_form
 validate_email
 
-## custom
+## queue
+cachetools
 
+## connector_importer_source_odoorpc
+odoorpc
+
+## custom

@@ -57,23 +57,12 @@
                     </div>
                   </div>
                 </t>
-                <t t-if="main_object.industry_ids">
+                <t t-if="main_object.profession_ids">
                   <div class="row">
-                    <div class="col-md-3"><strong>Industry:</strong>
+                    <div class="col-md-3"><strong>Profession:</strong>
                     </div>
                     <div class="col-md-9">
-                      <t t-foreach="main_object.industry_ids" t-as="one_tag">
-                        <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
-                      </t>
-                    </div>
-                  </div>
-                </t>
-                <t t-if="main_object.expertise_ids">
-                  <div class="row">
-                    <div class="col-md-3"><strong>Expertise:</strong>
-                    </div>
-                    <div class="col-md-9">
-                      <t t-foreach="main_object.expertise_ids" t-as="one_tag">
+                      <t t-foreach="main_object.profession_ids" t-as="one_tag">
                         <t t-esc="one_tag.name + ('' if one_tag_last else ', ')" />
                       </t>
                     </div>

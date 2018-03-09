@@ -29,3 +29,12 @@
 [submodule "odoo/external-src/server-auth"]
 	path = odoo/external-src/server-auth
 	url = git@github.com:OCA/server-auth.git
+[submodule "odoo/external-src/connector"]
+	path = odoo/external-src/connector
+	url = git@github.com:OCA/connector.git
+[submodule "odoo/external-src/connector-interfaces"]
+	path = odoo/external-src/connector-interfaces
+	url = git@github.com:camptocamp/connector-interfaces.git
+[submodule "odoo/external-src/queue"]
+	path = odoo/external-src/queue
+	url = git@github.com:OCA/queue.git

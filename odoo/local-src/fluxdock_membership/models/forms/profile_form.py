@@ -61,10 +61,7 @@ class ProfileForm(models.AbstractModel):
         'twitter',
         'skype',
         'website_short_description',
-        # TODO:: add `industry_ids` field
-        # category_id = industry_ids
-        'category_id',
-        'expertise_ids',
+        'profession_ids',
     )
     _form_fields_order = _form_model_fields
     _form_required_fields = (
@@ -75,8 +72,8 @@ class ProfileForm(models.AbstractModel):
     @property
     def help_texts(self):
         texts = {
-            'expertise_ids':
-                '_xmlid:fluxdock_membership.partner_form_industry_help',
+            'profession_ids':
+                '_xmlid:fluxdock_membership.partner_form_profession_help',
             'website': '',
         }
         return texts
@@ -88,7 +85,6 @@ class ProfileForm(models.AbstractModel):
             'name': _('Company name'),
             'street': _('Street / No.'),
             'website_short_description': _('Claim'),
-            'category_id': _('Industries'),
         }
         return texts
 

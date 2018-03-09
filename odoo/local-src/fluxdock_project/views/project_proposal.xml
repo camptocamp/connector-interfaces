@@ -38,8 +38,7 @@
                     <span> days</span>
                 </div>
                 <group>
-                  <field name="industry_ids" widget="many2many_tags" />
-                  <field name="expertise_ids" widget="many2many_tags" />
+                  <field name="profession_ids" widget="many2many_tags" />
                   <field name="location" />
                   <field name="country_id" />
                 </group>
@@ -122,8 +121,7 @@
   <field name="arch" type="xml">
     <search string="Search Proposals">
       <field name="name" string="Proposal" filter_domain="[('name','ilike',self)]"/>
-      <field name="industry_ids"/>
-      <field name="expertise_ids"/>
+      <field name="profession_ids"/>
       <field name="country_id"/>
       <field name="create_uid"/>
       <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction','=',True)]"/>
@@ -145,7 +143,7 @@
   <field name="search_view_id" ref="view_project_proposal_search"/>
   <field name="help" type="html">
     <p class="oe_view_nocontent_create">Click to add a proposal.</p>
-    <p>The proposal will shared with parners depending on industries and expertises.</p>
+    <p>The proposal will shared with parners depending on professions.</p>
   </field>
 </record>
 
