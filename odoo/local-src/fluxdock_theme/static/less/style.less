@@ -28,7 +28,7 @@ html[lang="en-US"] a.js_change_lang[data-lang="en_US"] {
 
 body #wrapwrap {
 	font-size: 20px;
-	color: @fluxPurple;
+	color: @fluxTextColor;
 	font-family: "noyh_rlight";
 	min-width: @minWidth;
 
@@ -40,6 +40,9 @@ body #wrapwrap {
 		text-transform: uppercase;
 		text-align: center;
 	}
+	h1, h2, h3, h4, h5, h6 {
+		color: @fluxHeadingTextColor;
+	}
 	p{
 		line-height: 1.3;
 	}
@@ -49,11 +52,15 @@ body #wrapwrap {
 	}
 
 	h1{
-		font-size: 24px;
+		font-size: 36px;
 	}
 
 	h2{
-		font-size: 26px;
+		font-size: 30px;
+	}
+
+	#wrap a {
+		color: @fluxBlue;
 	}
 
 	label{
