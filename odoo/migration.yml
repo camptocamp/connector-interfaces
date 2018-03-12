@@ -67,3 +67,6 @@ migration:
           - contacts
           - fluxdock_theme
           - fluxdock_importer
+          - website_snippet_anchor
+          - website_anchor_smooth_scroll
+          - website_snippet_preset
