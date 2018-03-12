@@ -11,32 +11,52 @@
 
 
   <template id="search_form_wrapper" name="Fluxdock search form wrapper">
-
-    <t t-call="fluxdock_theme.layout_2_cols">
+    <t t-call="website.layout">
       <t t-set="title" t-value="form.form_title" />
-      <t t-set="main_content">
-        <div t-att-class="form.form_wrapper_css_klass">
-          <t t-raw="form.form_render()" />
-        </div>
-        <div class="container">
-          <div id="search_results" class="center-block main-content-wrapper">
-            <t t-set="listing_options" t-value="form.listing_options()" />
-            <t t-call="fluxdock_theme.listing">
-              <t t-set="listing_items" t-value="form.form_search_results['results']" />
-              <t t-set="show_create_date" t-value="listing_options.get('show_create_date')" />
-              <t t-set="show_preview" t-value="listing_options.get('show_preview')" />
-              <t t-set="item_tags_template" t-value="'fluxdock_theme.item_tags'" />
-            </t>
+      <div id="wrap" class="my_dock">
+        <div class="container-lg">
+          <div id="editable-header">
+            <div class="oe_structure">
+              <section class="s_section_header content with-image">
+                <div class="content-wrap">
+                  <div class="content-icon">
+                    <img src="/fluxdock_theme/static/img/content-icons/methods.png"></img>
+                  </div>
+                  <ul class="list-inline section-menu pb1">
+                    <li><a class="section-title" href="/dock/partners">Partners</a></li>
+                    <li><a class="section-title" href="/dock/proposals">Proposals</a></li>
+                    <li><a class="section-title" href="/dock/references">References</a></li>
+                  </ul>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div id="content">
+            <div class="container">
+              <div class="content_wrapper">
+                <div t-attf-class="center-block main-content-wrapper #{form.form_wrapper_css_klass}">
+                  <t t-raw="form.form_render()" />
+                </div>
+                <div id="search_results" class="center-block main-content-wrapper">
+                  <t t-set="listing_options" t-value="form.listing_options()" />
+                  <t t-call="fluxdock_theme.listing">
+                    <t t-set="listing_items" t-value="form.form_search_results['results']" />
+                    <t t-set="show_create_date" t-value="listing_options.get('show_create_date')" />
+                    <t t-set="show_preview" t-value="listing_options.get('show_preview')" />
+                    <t t-set="item_tags_template" t-value="'fluxdock_theme.item_tags'" />
+                  </t>
+                </div>
+                <div class="text-center mb32 bottom-pager">
+                  <t t-call="website.pager">
+                    <t t-set="pager" t-value="form.form_search_results['pager']" />
+                  </t>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="text-center mb32">
-          <t t-call="website.pager">
-            <t t-set="pager" t-value="form.form_search_results['pager']" />
-          </t>
-        </div>
-      </t>
+      </div>
     </t>
-
   </template>
 
   <template id="search_form_advanced_search" name="Fluxdock search form advanced search">
