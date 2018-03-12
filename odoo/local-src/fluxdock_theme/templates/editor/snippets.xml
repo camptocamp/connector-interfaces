@@ -335,4 +335,24 @@
     </xpath>
   </template>
 
+  <template id="s_company_team" inherit_id="website.s_company_team" name="Fluxdock company team">
+    <!-- weird stuff: there are 4 images and you have to select them all one after each other -->
+    <xpath expr="//img[hasclass('img-circle')]" position="attributes">
+      <!-- cicle -> hexagon -->
+      <attribute name="class">img-responsive img-hexagon center-block shadow</attribute>
+    </xpath>
+    <xpath expr="//img[hasclass('img-circle')]" position="attributes">
+      <!-- cicle -> hexagon -->
+      <attribute name="class">img-responsive img-hexagon center-block shadow</attribute>
+    </xpath>
+    <xpath expr="//img[hasclass('img-circle')]" position="attributes">
+      <!-- cicle -> hexagon -->
+      <attribute name="class">img-responsive img-hexagon center-block shadow</attribute>
+    </xpath>
+    <xpath expr="//img[hasclass('img-circle')]" position="attributes">
+      <!-- cicle -> hexagon -->
+      <attribute name="class">img-responsive img-hexagon center-block shadow</attribute>
+    </xpath>
+  </template>
+
 </odoo>
