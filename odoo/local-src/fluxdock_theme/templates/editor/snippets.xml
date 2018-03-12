@@ -4,7 +4,7 @@
   <template id="s_fluxdock_logo" name="Fluxdock logo">
     <section class="animated-logo">
       <div class="logo">
-        <canvas width="350" height="350" id="logo-canvas"/>
+        <canvas width="280" height="280" id="logo-canvas"/>
         <img class="fluxdock-title" src="/fluxdock_theme/static/img/fluxdock_title_2.png"/>
       </div>
       <script type="text/JavaScript">
