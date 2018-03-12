@@ -90,3 +90,12 @@ i.fa,span.fa{
 }
 .full-height { height: 100% }
 .full-width { width: 100% }
+
+.clip-hexagon {
+	-webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+	clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.img-hexagon {
+	.clip-hexagon;
+}

@@ -20,6 +20,7 @@
         'templates/status_msg.xml',
         'templates/email.xml',
         'templates/design_test/layout_2_cols_test.xml',
+        'templates/design_test/gradients_test.xml',
         'pages/homepage.xml',
     ],
     'category': 'Theme/Creative',

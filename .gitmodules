@@ -38,3 +38,6 @@
 [submodule "odoo/external-src/queue"]
 	path = odoo/external-src/queue
 	url = git@github.com:OCA/queue.git
+[submodule "odoo/external-src/website"]
+	path = odoo/external-src/website
+	url = git@github.com:OCA/website.git

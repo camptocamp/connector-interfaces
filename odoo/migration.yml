@@ -59,8 +59,14 @@ migration:
         upgrade:
           - fluxdock_theme
     - version: 11.0.4
+      operations:
+        post:
+          - anthem songs.upgrades.upgrade_11_0_4::post
       addons:
         upgrade:
           - contacts
           - fluxdock_theme
           - fluxdock_importer
+          - website_snippet_anchor
+          - website_anchor_smooth_scroll
+          - website_snippet_preset

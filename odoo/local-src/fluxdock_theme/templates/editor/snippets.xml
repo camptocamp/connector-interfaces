@@ -4,7 +4,7 @@
   <template id="s_fluxdock_logo" name="Fluxdock logo">
     <section class="animated-logo">
       <div class="logo">
-        <canvas width="350" height="350" id="logo-canvas"/>
+        <canvas width="280" height="280" id="logo-canvas"/>
         <img class="fluxdock-title" src="/fluxdock_theme/static/img/fluxdock_title_2.png"/>
       </div>
       <script type="text/JavaScript">
@@ -304,6 +304,21 @@
     </section>
   </template>
 
+  <template id="s_fluxdock_section_header" name="Fluxdock section header">
+    <section class="s_section_header content with-image">
+      <div class="content-wrap">
+        <div class="content-icon">
+          <img src="/fluxdock_theme/static/img/content-icons/methods.png"></img>
+        </div>
+        <ul class="list-inline section-menu pb1">
+          <li><a class="section-title" href="/dock/partners">Partners</a></li>
+          <li><a class="section-title" href="/dock/proposals">Proposals</a></li>
+          <li><a class="section-title" href="/dock/references">References</a></li>
+        </ul>
+      </div>
+    </section>
+  </template>
+
   <template id="place_into_bar" name="Fluxdock Snippets" inherit_id="website.snippets">
     <xpath expr="//div[@id='snippet_structure']//t[@t-snippet][last()]" position="after">
       <t t-snippet="fluxdock_theme.s_fluxdock_logo" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/logo.png"/>
@@ -316,6 +331,27 @@
       <t t-snippet="fluxdock_theme.s_fluxdock_3d_simulation" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/simulation.png"/>
       <t t-snippet="fluxdock_theme.s_fluxdock_members" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/members.png"/>
       <t t-snippet="fluxdock_theme.s_fluxdock_mosaic_references" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/references-aggregation.png"/>
+      <t t-snippet="fluxdock_theme.s_fluxdock_section_header" t-thumbnail="/fluxdock_theme/static/img/snippet-thumbs/content-image.png"/>
+    </xpath>
+  </template>
+
+  <template id="s_company_team" inherit_id="website.s_company_team" name="Fluxdock company team">
+    <!-- weird stuff: there are 4 images and you have to select them all one after each other -->
+    <xpath expr="//img[hasclass('img-circle')]" position="attributes">
+      <!-- cicle -> hexagon -->
+      <attribute name="class">img-responsive img-hexagon center-block shadow</attribute>
+    </xpath>
+    <xpath expr="//img[hasclass('img-circle')]" position="attributes">
+      <!-- cicle -> hexagon -->
+      <attribute name="class">img-responsive img-hexagon center-block shadow</attribute>
+    </xpath>
+    <xpath expr="//img[hasclass('img-circle')]" position="attributes">
+      <!-- cicle -> hexagon -->
+      <attribute name="class">img-responsive img-hexagon center-block shadow</attribute>
+    </xpath>
+    <xpath expr="//img[hasclass('img-circle')]" position="attributes">
+      <!-- cicle -> hexagon -->
+      <attribute name="class">img-responsive img-hexagon center-block shadow</attribute>
     </xpath>
   </template>
 

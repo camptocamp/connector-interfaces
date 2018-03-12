@@ -1,0 +1,226 @@
+main {
+	//Snippets
+	.animated-logo{
+		.logo{
+			text-align: center;
+			margin: 0 auto 40px;
+			max-width: 610px;
+			#logo-canvas{
+				display: block;
+				max-width: 100%;
+				margin: 0 auto;
+			}
+			img.fluxdock-title{
+				display: block;
+				width: 240px;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	//Carousel (bxslider)
+	.bx-wrapper{
+		.bx-viewport{
+			border: none;
+			box-shadow: none;
+			left: 0;
+		}
+		.bx-pager.bx-default-pager{
+			bottom: 0;
+			a{
+				background-color: #929292;
+			}
+			 a.active, a:hover{
+				background-color: #fff;
+			}
+		}
+		.bx-controls-direction a{
+			margin-top: -32px;
+			height: 75px;
+			width: 50px;
+			background-size: 25px 75px;
+			background-position: 0 0;
+			&.bx-prev{
+				background-image: url("/fluxdock_theme/static/img/arrow-white.png");
+				left: 28px;
+			}
+			&.bx-next{
+				background-image: url("/fluxdock_theme/static/img/arrow-white.png");
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
+				right: 28px;
+			}
+		}
+	}
+
+	//Login Signup
+	.content.signup_login{
+		padding-top: 46px;
+		p{
+			font-size: 26px;
+			margin-bottom: 0;
+		}
+		a.btn {
+			margin: 5px;
+			min-width: 140px;
+		}
+	}
+
+	//Numbers
+	.numbers-wrap{
+		background-color: rgba(255, 255, 255, 0.13);
+		height: 168px;
+		padding-top: 45px;
+		.content-wrap{
+			font-size: 0;
+		}
+		.number-entry{
+			display: inline-block;
+			width: 33%;
+			font-size: 20px;
+			.number-value{
+				font-size: 60px;
+			}
+			.number-label{
+				text-transform: UPPERCASE;
+				font-size: 26px;
+				position: relative;
+				top: 13px;
+					vertical-align: top;
+			}
+		}
+	}
+
+	//Accordion
+	.accordion{
+		border-bottom: 2px solid #a096a0;
+		text-align: left;
+		position: relative;
+		.accordion-trigger{
+			position: relative;
+			cursor: pointer;
+			&:after {
+				font-size: 20px;
+				font-family: FontAwesome;
+				content: "\f107";
+				position: absolute;
+				top: -6px;
+				right: 0;
+			}
+		}
+		.accordion-content{
+			display: none;
+			font-size: 22px;
+		}
+		&.open{
+			.accordion-trigger:after{
+				content: "\f106";
+			}
+		}
+		&:nth-of-type(1) {
+			border-top: 2px solid #a096a0;
+		}
+	}
+
+	//Simulation
+	button.startButton{
+		min-width: 200px;
+		margin: 0 auto;
+	}
+
+	.member-logo {
+		display: block;
+		position: absolute;
+		img {
+			max-width: 130px;
+		}
+	}
+	.member-social-media {
+		.social-media {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			border-radius: 25px;
+			border: 1px solid white;
+			margin: 0 5px;
+			i.fa{
+				font-size: 22px;
+				line-height: 48px;
+			}
+		}
+	}
+	.member-fields {
+		margin-bottom: 50px;
+		span {
+			padding: 0 0.2em;
+		}
+	}
+
+	//Members Slider
+	.members-wrap{
+		position: relative;
+		display: none;
+		.arrow-left, .arrow-right{
+			position: absolute;
+			top: 100px;
+			width: 50px;
+			height: 75px;
+			cursor: pointer;
+			background-image: url("/fluxdock_theme/static/img/arrow.png");
+			background-size: 25px 75px;
+			background-repeat: no-repeat;
+			&.disabled{
+				background-image: url("/fluxdock_theme/static/img/arrow-disabled.png");
+			}
+		}
+		.arrow-left{
+			left: -80px;
+		}
+		.arrow-right{
+			right: -80px;
+				transform: rotate(180deg);
+			-webkit-transform: rotate(180deg);
+				-moz-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+		}
+
+		.members-container{
+			overflow: hidden;
+			.members-slide{
+				width: 1818px;
+				position: relative;
+				left: 0;
+			}
+			.members-box{
+				background-color: #ddd;
+				margin-right: 22px;
+				margin-bottom: 22px;
+				position: relative;
+				a{
+					display: block;
+					height: 100%;
+				}
+				img{
+					position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						margin: auto;
+					max-width: 100%;
+					opacity: 0.3;
+					&:hover{
+						opacity: 1;
+					}
+				}
+				display: block;
+				width: 135px;
+				height: 135px;
+				float: left;
+			}
+		}
+	}
+}

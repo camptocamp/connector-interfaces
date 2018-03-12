@@ -5,9 +5,15 @@
     <xpath expr="//div[hasclass('o_colorpicker_section')][1]" position="before">
       <div class="o_colorpicker_section" data-name="fluxdock_theme" data-icon-class="fa fa-flask">
         <button data-color="flux_white">White</button>
-				<button data-color="flux_blue">Blue</button>
         <button data-color="flux_dark">Dark</button>
-        <button data-color="flux_dark_grid">Dark with grid</button>
+        <button data-color="flux_dark_grad_TL2BR">Gradient: TL -> BR</button>
+        <button data-color="flux_dark_grad_BL2TR">Gradient: BL -> TR</button>
+        <button data-color="flux_dark_grad_TR2BL">Gradient: TR -> BL</button>
+        <button data-color="flux_dark_grad_BR2TL">Gradient: BR -> TL</button>
+        <button data-color="flux_dark_grad_TL2BR_grid">Grad + Grid: TL -> BR</button>
+        <button data-color="flux_dark_grad_BL2TR_grid">Grad + Grid: BL -> TR</button>
+        <button data-color="flux_dark_grad_TR2BL_grid">Grad + Grid: TR -> BL</button>
+        <button data-color="flux_dark_grad_BR2TL_grid">Grad + Grid: BR -> TL</button>
       </div>
 		</xpath>
 	</template>
