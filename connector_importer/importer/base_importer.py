@@ -27,7 +27,7 @@ class RecordSetImporter(BaseImporter):
         recordset.set_report({
             '_last_start': fields.Datetime.now(),
         }, reset=True)
-        msg = 'START RECORDSET {0}({1})'.format(recordset.name,
+        msg = u'START RECORDSET {0}({1})'.format(recordset.name,
                                                 recordset.id)
         logger.info(msg)
 
@@ -393,7 +393,7 @@ class RecordImporter(BaseImporter, OdooRecordMixin, TrackingMixin):
         self.record = record
         if not self.record:
             # maybe deleted???
-            msg = 'NO RECORD FOUND, maybe deleted? Check your jobs!'
+            msg = u'NO RECORD FOUND, maybe deleted? Check your jobs!'
             logger.error(msg)
             return
 
