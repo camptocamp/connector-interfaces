@@ -49,4 +49,10 @@
 			</xpath>
 		</template>
 
+		<template id="summernote" name="Fluxdock summernote assets" inherit_id="web_editor.assets_editor">
+			<xpath expr="//script[last()]" position="after">
+				<script type="text/javascript" src="/fluxdock_theme/static/js/summernote_overrides.js"></script>
+			</xpath>
+		</template>
+
 </odoo>
