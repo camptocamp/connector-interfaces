@@ -31,9 +31,28 @@
     color: white;
   }
 }
+.bg-flux_dark_grad_TL2BR {
+  .bg-flux_dark;
+  // gradient top left -> bottom right
+  .make_gradient(@direction: -45deg)
+}
+.bg-flux_dark_grad_BL2TR {
+  .bg-flux_dark;
+  // gradient bottom left to top right
+  .make_gradient(@direction: 45deg)
+}
+.bg-flux_dark_grad_TR2BL {
+  .bg-flux_dark;
+  // gradient top right to bottom left
+  .make_gradient(@direction: 45deg, @color1: @fluxBlue, @color2: @fluxPurple)
+}
+.bg-flux_dark_grad_BR2TL {
+  .bg-flux_dark;
+  // gradient top right to left bottom
+  .make_gradient(@direction: -45deg, @color1: @fluxBlue, @color2: @fluxPurple)
+}
 .bg-flux_dark_grid{
   .bg-flux_dark;
-  .grad_purple_to_blue_w_grid;
   &:not(.white_content_wrapper) {
     a {
       &:hover{
@@ -50,6 +69,26 @@
       }
     }
   }
+}
+.bg-flux_dark_grad_TL2BR_grid {
+  .bg-flux_dark_grid;
+  // gradient top left -> bottom right
+  .make_gradient_grid(@direction: -45deg)
+}
+.bg-flux_dark_grad_BL2TR_grid {
+  .bg-flux_dark_grid;
+  // gradient bottom left to top right
+  .make_gradient_grid(@direction: 45deg)
+}
+.bg-flux_dark_grad_TR2BL_grid {
+  .bg-flux_dark_grid;
+  // gradient top right to bottom left
+  .make_gradient_grid(@direction: 45deg, @color1: @fluxBlue, @color2: @fluxPurple)
+}
+.bg-flux_dark_grad_BR2TL_grid {
+  .bg-flux_dark_grid;
+  // gradient top right to left bottom
+  .make_gradient_grid(@direction: -45deg, @color1: @fluxBlue, @color2: @fluxPurple)
 }
 .bg-flux_white{
   background-color: white;

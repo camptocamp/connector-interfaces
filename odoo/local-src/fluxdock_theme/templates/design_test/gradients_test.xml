@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+  <template id="gradients" name="Fluxdock layout: gradients">
+    <t t-call="website.layout">
+      <div id="wrap">
+        <div class="bg-flux_dark" style="height:400px">
+          <h2>Dark</h2>
+        </div>
+        <div class="bg-flux_dark_grad_TL2BR" style="height:400px">
+          <h2>Dark gradient: top left -> bottom right</h2>
+        </div>
+        <div class="bg-flux_dark_grad_BL2TR" style="height:400px">
+          <h2>Dark gradient: bottom left -> top right</h2>
+        </div>
+        <div class="bg-flux_dark_grad_TR2BL" style="height:400px">
+          <h2>Dark gradient: top right -> bottom left</h2>
+        </div>
+        <div class="bg-flux_dark_grad_BR2TL" style="height:400px">
+          <h2>Dark gradient: bottom right -> top left</h2>
+        </div>
+        <div class="bg-flux_dark_grad_TL2BR_grid" style="height:400px">
+          <h2>Dark gradient w/ grid: top left -> bottom right</h2>
+        </div>
+        <div class="bg-flux_dark_grad_BL2TR_grid" style="height:400px">
+          <h2>Dark gradient w/ grid: bottom left -> top right</h2>
+        </div>
+        <div class="bg-flux_dark_grad_TR2BL_grid" style="height:400px">
+          <h2>Dark gradient w/ grid: top right -> bottom left</h2>
+        </div>
+        <div class="bg-flux_dark_grad_BR2TL_grid" style="height:400px">
+          <h2>Dark gradient w/ grid: bottom right -> top left</h2>
+        </div>
+      </div>
+    </t>
+  </template>
+
+
+</odoo>

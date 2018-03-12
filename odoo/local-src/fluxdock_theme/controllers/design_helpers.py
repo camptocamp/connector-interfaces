@@ -18,3 +18,9 @@ class DesignHelpers(http.Controller):
             'section_title': 'Test section',
         }
         return request.render("fluxdock_theme.test_2cols_layout", vals)
+
+    @http.route(
+        ['/flux-design/gradients'],
+        type='http', auth="public", website=True)
+    def gradients(self, **post):
+        return request.render("fluxdock_theme.gradients", {})
