@@ -7,6 +7,8 @@ Latest (Unreleased)
 
 **Bugfixes**
 
+* BSFLU-78 Signup page returns 404
+
 **Build**
 
 **Documentation**
