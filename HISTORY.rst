@@ -7,11 +7,17 @@ Latest (Unreleased)
 
 **Bugfixes**
 
-* Reinstall email song to fix missing model_id on mail.template.
-
 **Build**
 
 **Documentation**
+
+
+11.0.5 (2018-03-15)
++++++++++++++++++++
+
+**Bugfixes**
+
+* Reinstall email song to fix missing model_id on mail.template.
 
 
 11.0.4 (2018-03-13)
