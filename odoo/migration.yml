@@ -70,3 +70,7 @@ migration:
           - website_snippet_anchor
           - website_anchor_smooth_scroll
           - website_snippet_preset
+    - version: 11.0.5
+      operations:
+        post:
+          - anthem songs.install.email::main
