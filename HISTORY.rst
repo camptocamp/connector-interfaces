@@ -7,11 +7,17 @@ Latest (Unreleased)
 
 **Bugfixes**
 
-* Fix email content.
-
 **Build**
 
 **Documentation**
+
+
+11.0.6 (2018-03-15)
++++++++++++++++++++
+
+**Bugfixes**
+
+* Fix email content.
 
 
 11.0.5 (2018-03-15)
