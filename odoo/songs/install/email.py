@@ -43,7 +43,7 @@ def change_signup_email(ctx):
     values = {
         'name': 'Fluxdock Signup',
         'subject': 'Fluxdock account confirmation',
-        'body_html': content,
+        'body_html': content.decode("utf-8"),
         'email_from': 'noreply@fluxdock.io',
         'model_id': ctx.env.ref('base.model_res_users').id,
         'email_to': '${object.email|safe}',
@@ -64,7 +64,7 @@ def change_reset_pwd_email(ctx):
     values = {
         'name': 'Fluxdock Password Reset',
         'subject': 'Fluxdock password reset',
-        'body_html': content,
+        'body_html': content.decode("utf-8"),
         'email_from': 'noreply@fluxdock.io',
         'model_id': ctx.env.ref('base.model_res_users').id,
         'email_to': '${object.email|safe}',
@@ -89,7 +89,7 @@ def override_default_notification_template(ctx):
     or (object.parent_id and object.parent_id.record_name
     and 'Re: %s' % object.parent_id.record_name)}"""
     values = {
-        'body_html': content,
+        'body_html': content.decode("utf-8"),
         'email_from': 'noreply@fluxdock.io',
         'name': 'Fluxdock Notification Email',
         'subject': subject,
@@ -114,7 +114,7 @@ def add_matches_notification_template(ctx):
     or (object.parent_id and object.parent_id.record_name
     and 'Re: %s' % object.parent_id.record_name)}"""
     values = {
-        'body_html': content,
+        'body_html': content.decode("utf-8"),
         'email_from': 'noreply@fluxdock.io',
         'name': 'Fluxdock Matches Notification Email',
         'subject': subject,
