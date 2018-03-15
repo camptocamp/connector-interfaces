@@ -7,6 +7,8 @@ Latest (Unreleased)
 
 **Bugfixes**
 
+* Reinstall email song to fix missing model_id on mail.template.
+
 **Build**
 
 **Documentation**
