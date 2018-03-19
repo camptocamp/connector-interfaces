@@ -249,7 +249,8 @@
     .bg-flux_dark:not(.white_content_wrapper),
     .bg-flux_dark_grid:not(.white_content_wrapper) {
       input[type="text"], input[type="tel"], input[type="email"],
-      input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
+      input[type="password"], textarea,
+      button[type="submit"]:not(.btn-primary):not(.btn-default) {
         color: white;
         border-color: white;
         background-color: fade(@fluxPurple, 50%);
