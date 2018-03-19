@@ -36,22 +36,24 @@ class ReferenceForm(models.AbstractModel):
     def form_update_fields_attributes(self, _fields):
         """Override to add help messages."""
         super(ReferenceForm, self).form_update_fields_attributes(_fields)
-        profession_help = self.env.ref(
-            'fluxdock_project.ref_form_profession_help',
-            raise_if_not_found=False)
-        if profession_help:
-            help_text = profession_help.render({
-                'form_field': _fields['profession_ids'],
-            })
-            _fields['profession_ids']['help'] = help_text
-        partner_help = self.env.ref(
-            'fluxdock_project.ref_form_partner_help',
-            raise_if_not_found=False)
-        if partner_help:
-            help_text = partner_help.render({
-                'form_field': _fields['linked_partner_ids'],
-            })
-            _fields['linked_partner_ids']['help'] = help_text
+        # FIXME: tmp disabled as the html is rendered w/ raw markup
+        # See https://trello.com/c/ezz8LHYX
+        # profession_help = self.env.ref(
+        #     'fluxdock_project.ref_form_profession_help',
+        #     raise_if_not_found=False)
+        # if profession_help:
+        #     help_text = profession_help.render({
+        #         'form_field': _fields['profession_ids'],
+        #     })
+        #     _fields['profession_ids']['help'] = help_text
+        # partner_help = self.env.ref(
+        #     'fluxdock_project.ref_form_partner_help',
+        #     raise_if_not_found=False)
+        # if partner_help:
+        #     help_text = partner_help.render({
+        #         'form_field': _fields['linked_partner_ids'],
+        #     })
+        #     _fields['linked_partner_ids']['help'] = help_text
         if self.env.user and self.env.user.partner_id:
             _fields['linked_partner_ids']['domain'] = \
                 '[["id","!=",{}]]'.format(self.env.user.partner_id.id)
