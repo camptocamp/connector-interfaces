@@ -305,8 +305,24 @@
       button[type="submit"] {
         width: 100%;
       }
+
+      .advanced-search {
+        padding-left: 0.3em;
+      }
+
       .filter-row {
         margin-bottom: 20px;
+        padding-left: 1em;
+        padding-right: 1em;
+
+        :last-child {
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+
+        :first-child {
+          padding-left: 0px;
+        }
 
         .styled-select {
           &:nth-of-type(3n) {
