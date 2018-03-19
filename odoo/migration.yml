@@ -81,3 +81,5 @@ migration:
     - version: 11.0.7
       addons:
         upgrade:
+          - fluxdock_theme
+          - fluxdock_membership
