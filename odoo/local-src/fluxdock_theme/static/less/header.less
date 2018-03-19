@@ -226,11 +226,18 @@
 @media (min-width: 768px) {
 	.navbar-nav > li {
     // reset float from std BS: we center menu items via text align
+      padding: 30px 30px 0 30px;
+
     float: none;
 		display: inline-block;
 	}
-	.navbar-nav > li > a {
-    padding: 30px 30px 0 30px;
+	.navbar-nav > li {
+		&.active > a {
+			border-bottom: 1px solid;
+		}
+		& > a {
+			padding: 0px;
+		}
 	}
 	#top_menu.nav {
 		.dropdown-menu {
