@@ -78,3 +78,6 @@ migration:
       operations:
         post:
           - anthem songs.install.email::main
+    - version: 11.0.7
+      addons:
+        upgrade:
