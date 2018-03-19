@@ -37,7 +37,8 @@ class ProposalForm(models.AbstractModel):
         'website_short_description',
         'profession_ids',
     )
-    _form_wrapper_extra_css_klass = 'bg-flux_dark_grid white_content_wrapper'
+    _form_wrapper_extra_css_klass = \
+        'bg-flux_dark_grad_TL2BR white_content_wrapper'
     _form_extra_css_klass = 'center-block main-content-wrapper'
     # FIXME
     # _form_widgets = WIDGETS
