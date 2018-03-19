@@ -20,17 +20,19 @@
 
 		<xpath expr="//div[@id='wrapwrap']/footer" position="replace">
 			<footer id="fluxdock_footer">
-				<div class="row main">
-					<div class="col-md-2 col-xs-12 footer-left">
-						<a class="logo" title="Footer logo" href="/">
-							<img src="/fluxdock_theme/static/img/fluxdock_logo_f.png" alt="Fluxdock footer logo"/>
-						</a>
-					</div>
-					<div class="col-md-6 col-md-offset-1 col-xs-12 footer-middle">
-						<placeholder name="footer_middle" />
-					</div>
-					<div class="col-md-2 col-md-offset-1 col-xs-12 footer-right">
-						<placeholder name="footer_right" />
+				<div class="container-lg footer_wrapper">
+					<div class="row main">
+						<div class="col-md-2 col-xs-12 footer-left">
+							<a class="logo" title="Footer logo" href="/">
+								<img src="/fluxdock_theme/static/img/fluxdock_logo_f.png" alt="Fluxdock footer logo"/>
+							</a>
+						</div>
+						<div class="col-md-6 col-md-offset-1 col-xs-12 footer-middle">
+							<placeholder name="footer_middle" />
+						</div>
+						<div class="col-md-2 col-md-offset-1 col-xs-12 footer-right">
+							<placeholder name="footer_right" />
+						</div>
 					</div>
 				</div>
 			</footer>
