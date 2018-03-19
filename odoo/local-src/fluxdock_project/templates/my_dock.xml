@@ -114,8 +114,13 @@
       <p class="summary text-muted" t-raw="summary" />
       <t t-if="not block_items">
         <div class="no-items">
-          <p>No items.</p>
-        </div>
+          <t t-if="no_items_msg">
+            <t t-raw="no_items_msg" />
+          </t>
+          <t t-else="">
+            <p>No entries yet.</p>
+          </t>
+      </div>
       </t>
       <t t-if="block_items">
         <t t-foreach="block_items[:block_items_limit]" t-as="item">
