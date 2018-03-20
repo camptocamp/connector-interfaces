@@ -19,6 +19,8 @@ class ProposalSearch(http.Controller, SearchFormControllerMixin):
                 '/fluxdock_project/static/src/img/market.png',
             'section_title': _('Proposals'),
             'context_menu': self._get_context_menu(),
+            'custom_header_template':
+                'fluxdock_project.dock_proposals_editable_header',
         }
         kw.update(section_vals)
         return self.make_response(model, **kw)

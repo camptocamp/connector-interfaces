@@ -19,6 +19,8 @@ class ReferenceSearch(http.Controller, SearchFormControllerMixin):
                 '/fluxdock_project/static/src/img/market.png',
             'section_title': _('References'),
             'context_menu': self._get_context_menu(),
+            'custom_header_template':
+                'fluxdock_project.dock_references_editable_header',
         }
         kw.update(section_vals)
         return self.make_response(model, **kw)
