@@ -37,7 +37,8 @@ class ProposalForm(models.AbstractModel):
         'website_short_description',
         'profession_ids',
     )
-    _form_wrapper_extra_css_klass = 'bg-flux_dark_grid white_content_wrapper'
+    _form_wrapper_extra_css_klass = \
+        'bg-flux_dark_grad_TL2BR white_content_wrapper'
     _form_extra_css_klass = 'center-block main-content-wrapper'
     # FIXME
     # _form_widgets = WIDGETS
@@ -49,14 +50,16 @@ class ProposalForm(models.AbstractModel):
     def form_update_fields_attributes(self, _fields):
         """Override to add help messages."""
         super(ProposalForm, self).form_update_fields_attributes(_fields)
-        profession_help = self.env.ref(
-            'fluxdock_project.ref_form_profession_help',
-            raise_if_not_found=False)
-        if profession_help:
-            help_text = profession_help.render({
-                'form_field': _fields['profession_ids'],
-            })
-            _fields['profession_ids']['help'] = help_text
+        # FIXME: tmp disabled as the html is rendered w/ raw markup
+        # See https://trello.com/c/ezz8LHYX
+        # profession_help = self.env.ref(
+        #     'fluxdock_project.ref_form_profession_help',
+        #     raise_if_not_found=False)
+        # if profession_help:
+        #     help_text = profession_help.render({
+        #         'form_field': _fields['profession_ids'],
+        #     })
+        #     _fields['profession_ids']['help'] = help_text
 
         # limit claim length
         # FIXME

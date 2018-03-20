@@ -1,11 +1,12 @@
 # Copyright 2017 Simone Orsi
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import fields, models, _
 
 
 class CMSNotificationPanel(models.AbstractModel):
     """Hold users notifications settings."""
+
     _inherit = 'cms.notification.panel.form'
     _form_fields_order = (
         'notification_type',
@@ -13,7 +14,8 @@ class CMSNotificationPanel(models.AbstractModel):
         'digest_frequency',
         'enable_matches',
     )
-    _form_wrapper_extra_css_klass = 'bg-flux_dark_grid white_content_wrapper'
+    _form_wrapper_extra_css_klass = \
+        'bg-flux_dark_grad_TL2BR white_content_wrapper'
     _form_extra_css_klass = 'center-block main-content-wrapper'
 
     enable_matches = fields.Boolean(
@@ -22,10 +24,15 @@ class CMSNotificationPanel(models.AbstractModel):
               "about proposals matches.")
     )
 
-    # def form_update_fields_attributes(self, _fields):
-    #     """Override to add help messages."""
-    #     super(CMSNotificationPanel,
-    #           self).form_update_fields_attributes(_fields)
+    def form_update_fields_attributes(self, _fields):
+        """Override to add help messages."""
+        super(CMSNotificationPanel,
+              self).form_update_fields_attributes(_fields)
+        _fields['notification_type']['help'] = ''
+        _fields['notification_type']['selection'] = [
+            ('inbox', _('Internal')),
+            ('email', _('By email'))
+        ]
     #     if self.env.context.get('lang') == 'de_DE':
     #         # FIXME: brute force translation for "Digest".
     #         # The only translation that is not loaded

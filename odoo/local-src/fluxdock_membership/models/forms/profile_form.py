@@ -66,7 +66,8 @@ class ProfileForm(models.AbstractModel):
     _form_fields_order = _form_model_fields
     _form_required_fields = (
         "name", "street", "zip", "city", "country_id", "phone", "email")
-    _form_wrapper_extra_css_klass = 'bg-flux_dark_grid white_content_wrapper'
+    _form_wrapper_extra_css_klass = \
+        'bg-flux_dark_grad_TL2BR white_content_wrapper'
     _form_extra_css_klass = 'center-block main-content-wrapper'
 
     @property

@@ -7,6 +7,10 @@
 	strong{
 		padding-right: 1em;
 	}
+	&.alert-warning {
+		color: @brand-warning;
+		background-color: @alert-danger-bg;
+	}
 	&.alert-dismissible{
 		position: relative;
 		.close{
@@ -68,7 +72,6 @@
 			}
 		}
 		h3 {
-			text-transform: uppercase;
 			text-align: center;
 			border-bottom: 1px solid @fluxPurple;
 			font-weight: bold;
@@ -322,7 +325,7 @@
 }
 
 #content-header {
-	.bg-flux_dark;
+	.bg-flux_dark_grad_TL2BR;
 	padding: 5rem 2rem;
 	h1 { font-size: 6rem !important; }
 	.content-logo {

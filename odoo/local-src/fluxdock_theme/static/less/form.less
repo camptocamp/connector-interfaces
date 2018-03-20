@@ -1,3 +1,5 @@
+@fluxFormFieldHeight: 42px;
+
 #wrapwrap {
   main {
     form {
@@ -37,14 +39,29 @@
 
       .form-control {
         font-size: 20px;
-
-        .select2-search-choice {
-          font-size: 80%;
+        &.select2-container {
+          min-height: calc(@fluxFormFieldHeight - 2px) !important;
+          overflow: hidden;
+          &.select2-container-multi .select2-choices .select2-search-choice {
+            padding: 9px 5px 9px 18px !important;
+          }
+          .select2-choices {
+            min-height: calc(@fluxFormFieldHeight - 2px) !important;
+            .select2-search-choice {
+              font-size: 80%;
+            }
+            .select2-search-choice-close {
+              top: 8px;
+            }
+            .select2-search-field input {
+              min-height: calc(@fluxFormFieldHeight - 2px) !important;
+              padding: 0 10px !important;
+              margin: 0 !important;
+              color: inherit;
+              font-family: inherit;
+            }
+          }
         }
-        &.select2-container-multi .select2-choices .select2-search-field input {
-          font-size: 90% !important;
-        }
-
         &[type="checkbox"] {
           width: 20px;
         }
@@ -66,25 +83,27 @@
           width: 100%;
           font-size: 20px;
           option{
-            height: 42px;
+            height: @fluxFormFieldHeight;
             padding-top: 10px;
           }
         }
-        select[name="country_id"] {
-          option:first-of-type {
-            color: @placeholderColor;
+        select {
+          padding-left: 10px;
+          color: @placeholderColor;
+          option {
+            color: inherit;
           }
         }
       }
 
       select{
         border: solid 1px white;
-        height: 42px;
+        height: @fluxFormFieldHeight;
         padding-left: 6px;
         padding-right: 6px;
         -webkit-appearance: none;
         option{
-          height: 42px;
+          height: @fluxFormFieldHeight;
           padding-top: 10px;
         }
       }
@@ -237,8 +256,7 @@
       }
     }
 
-    .bg-flux_dark.white_content_wrapper,
-    .bg-flux_dark_grid.white_content_wrapper {
+    .white_content_wrapper {
       form {
         .make_white_content_wrapper;
         .form-control {
@@ -249,7 +267,8 @@
     .bg-flux_dark:not(.white_content_wrapper),
     .bg-flux_dark_grid:not(.white_content_wrapper) {
       input[type="text"], input[type="tel"], input[type="email"],
-      input[type="password"], button[type="submit"]:not(.btn-primary), textarea {
+      input[type="password"], textarea,
+      button[type="submit"]:not(.btn-primary):not(.btn-default) {
         color: white;
         border-color: white;
         background-color: fade(@fluxPurple, 50%);
@@ -304,9 +323,26 @@
       margin-bottom: 0;
       button[type="submit"] {
         width: 100%;
+        min-height: 42px;
       }
+
+      .advanced-search {
+        padding-left: 0.3em;
+      }
+
       .filter-row {
         margin-bottom: 20px;
+        padding-left: 1em;
+        padding-right: 1em;
+
+        & > div:last-child {
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+
+        & > div:first-child {
+          padding-left: 0px;
+        }
 
         .styled-select {
           &:nth-of-type(3n) {

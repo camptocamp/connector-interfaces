@@ -8,9 +8,10 @@
         <div id="content-header">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 content-logo">
-                <!-- TODO: replace this w/ an image -->
-                <i class="fa fa-user" />
+              <div class="col-md-12 text-center">
+                <img src="/fluxdock_theme/static/img/content-icons/mydock-icon.png" />
+                <h1>My dock</h1>
+
                 <t t-set="user" t-value="request.env.user" />
                 <div class="user-actions profile-actions">
                   <ul class="list-inline">
@@ -22,9 +23,6 @@
                     </li>
                   </ul>
                 </div>
-              </div>
-              <div class="col-md-4 content-title">
-                <h1>My dock</h1>
               </div>
             </div>
           </div>
@@ -60,7 +58,7 @@
       <span>Projects</span>
     </t>
     <t t-set="summary">
-      TODO.
+      Projects you are currently assigned to.
     </t>
     <t t-set="block_items" t-value="[]" />
     <t t-set="view_all_link" t-value="'#'" />
@@ -73,7 +71,7 @@
       <span>Proposals</span>
     </t>
     <t t-set="summary">
-      Proposals are your entries on the market to look for collaboration partners in a certain profession or with a certain profession.
+      Proposals you published on the platform.
     </t>
     <t t-set="block_items" t-value="request.env.user.proposal_ids" />
   </t>
@@ -85,7 +83,7 @@
       <span>Matches</span>
     </t>
     <t t-set="summary">
-      Matches are projects on the market, that correspond to your profession and profession.
+      These projects need someone like you.
     </t>
     <t t-set="block_items" t-value="request.env.user.proposal_match_ids" />
     <t t-set="show_view_all" t-value="False" />
@@ -98,7 +96,7 @@
       <span>References</span>
     </t>
     <t t-set="summary">
-      References are projects your company has realized.
+      Completed projects you were assigned to.
     </t>
     <t t-set="block_items" t-value="request.env.user.references_ids" />
   </t>
@@ -114,8 +112,13 @@
       <p class="summary text-muted" t-raw="summary" />
       <t t-if="not block_items">
         <div class="no-items">
-          <p>No items.</p>
-        </div>
+          <t t-if="no_items_msg">
+            <t t-raw="no_items_msg" />
+          </t>
+          <t t-else="">
+            <p>No entries yet.</p>
+          </t>
+      </div>
       </t>
       <t t-if="block_items">
         <t t-foreach="block_items[:block_items_limit]" t-as="item">
