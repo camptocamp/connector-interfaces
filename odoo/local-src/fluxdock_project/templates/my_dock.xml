@@ -60,7 +60,7 @@
       <span>Projects</span>
     </t>
     <t t-set="summary">
-      TODO.
+      Projects you are currently assigned to.
     </t>
     <t t-set="block_items" t-value="[]" />
     <t t-set="view_all_link" t-value="'#'" />
@@ -73,7 +73,7 @@
       <span>Proposals</span>
     </t>
     <t t-set="summary">
-      Proposals are your entries on the market to look for collaboration partners in a certain profession or with a certain profession.
+      Proposals you published on the platform.
     </t>
     <t t-set="block_items" t-value="request.env.user.proposal_ids" />
   </t>
@@ -85,7 +85,7 @@
       <span>Matches</span>
     </t>
     <t t-set="summary">
-      Matches are projects on the market, that correspond to your profession and profession.
+      These projects need someone like you.
     </t>
     <t t-set="block_items" t-value="request.env.user.proposal_match_ids" />
     <t t-set="show_view_all" t-value="False" />
@@ -98,7 +98,7 @@
       <span>References</span>
     </t>
     <t t-set="summary">
-      References are projects your company has realized.
+      Completed projects you were assigned to.
     </t>
     <t t-set="block_items" t-value="request.env.user.references_ids" />
   </t>
