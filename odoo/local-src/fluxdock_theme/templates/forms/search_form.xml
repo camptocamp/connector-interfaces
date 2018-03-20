@@ -22,11 +22,6 @@
                   <div class="content-icon">
                     <img src="/fluxdock_theme/static/img/content-icons/methods.png"></img>
                   </div>
-                  <ul class="list-inline section-menu pb1">
-                    <li><a class="section-title" href="/dock/partners">Partners</a></li>
-                    <li><a class="section-title" href="/dock/proposals">Proposals</a></li>
-                    <li><a class="section-title" href="/dock/references">References</a></li>
-                  </ul>
                 </div>
               </section>
             </div>
@@ -34,6 +29,17 @@
           <div id="content">
             <div class="container">
               <div class="content_wrapper">
+                <t t-if="context_menu">
+                  <ul class="nav nav-tabs nav-justified context-menu center-block main-content-wrapper">
+                    <t t-foreach="context_menu" t-as="menu_item">
+                      <li t-att-id="menu_item['id']" t-att-class="'active' if menu_item['active'] else None">
+                        <a t-att-href="menu_item['url']" t-att-title="menu_item['name']">
+                          <span t-esc="menu_item['name']" />
+                        </a>
+                      </li>
+                    </t>
+                  </ul>
+                </t>
                 <div t-attf-class="center-block main-content-wrapper #{form.form_wrapper_css_klass}">
                   <t t-raw="form.form_render()" />
                 </div>
