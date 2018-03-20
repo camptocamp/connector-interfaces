@@ -8,9 +8,10 @@
         <div id="content-header">
           <div class="container">
             <div class="row">
-              <div class="col-md-4 content-logo">
-                <!-- TODO: replace this w/ an image -->
-                <i class="fa fa-user" />
+              <div class="col-md-12 text-center">
+                <img src="/fluxdock_theme/static/img/content-icons/mydock-icon.png" />
+                <h1>My dock</h1>
+
                 <t t-set="user" t-value="request.env.user" />
                 <div class="user-actions profile-actions">
                   <ul class="list-inline">
@@ -22,9 +23,6 @@
                     </li>
                   </ul>
                 </div>
-              </div>
-              <div class="col-md-4 content-title">
-                <h1>My dock</h1>
               </div>
             </div>
           </div>
