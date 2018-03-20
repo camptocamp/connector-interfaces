@@ -6,6 +6,7 @@ from odoo import fields, models, _
 
 class CMSNotificationPanel(models.AbstractModel):
     """Hold users notifications settings."""
+
     _inherit = 'cms.notification.panel.form'
     _form_fields_order = (
         'notification_type',
@@ -26,7 +27,7 @@ class CMSNotificationPanel(models.AbstractModel):
     def form_update_fields_attributes(self, _fields):
         """Override to add help messages."""
         super(CMSNotificationPanel,
-           self).form_update_fields_attributes(_fields)
+              self).form_update_fields_attributes(_fields)
         _fields['notification_type']['help'] = ''
         _fields['notification_type']['selection'] = [
             ('inbox', _('Internal')),
