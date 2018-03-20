@@ -21,6 +21,8 @@ class MembersSearch(http.Controller, SearchFormControllerMixin):
                 '/fluxdock_membership/static/src/img/members-white.png',
             'section_title': _('Partners'),
             'context_menu': self._get_context_menu(),
+            'custom_header_template':
+                'fluxdock_membership.dock_members_editable_header',
         }
         kw.update(section_vals)
         return self.make_response(model, **kw)

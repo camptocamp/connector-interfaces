@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="dock_proposals_editable_header" name="Fluxdock dock proposals editable header">
+  <div id="editable-header">
+    <div class="oe_structure">
+      <section class="s_section_header content with-image pb2">
+        <div class="content-wrap">
+          <div class="content-icon">
+            <img src="/fluxdock_theme/static/img/content-icons/methods.png"></img>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</template>
+
+<template id="dock_references_editable_header" name="Fluxdock dock references editable header">
+  <div id="editable-header">
+    <div class="oe_structure">
+      <section class="s_section_header content with-image pb2">
+        <div class="content-wrap">
+          <div class="content-icon">
+            <img src="/fluxdock_theme/static/img/content-icons/methods.png"></img>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</template>
+
+</odoo>

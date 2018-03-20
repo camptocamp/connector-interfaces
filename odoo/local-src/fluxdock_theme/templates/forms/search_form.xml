@@ -15,17 +15,9 @@
       <t t-set="title" t-value="form.form_title" />
       <div id="wrap" class="my_dock">
         <div class="container-lg">
-          <div id="editable-header">
-            <div class="oe_structure">
-              <section class="s_section_header content with-image">
-                <div class="content-wrap">
-                  <div class="content-icon">
-                    <img src="/fluxdock_theme/static/img/content-icons/methods.png"></img>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
+          <t t-if="custom_header_template">
+            <t t-call="#{custom_header_template}" />
+          </t>
           <div id="content">
             <div class="container">
               <div class="content_wrapper">

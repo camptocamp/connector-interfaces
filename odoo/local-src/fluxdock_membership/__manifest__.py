@@ -49,6 +49,7 @@
         'templates/assets.xml',
         'templates/signup.xml',
         'templates/help_msgs.xml',
+        'templates/dock.xml',
         'templates/profile/widgets.xml',
         'templates/profile/upload.xml',
         'templates/membership/search_form.xml',
