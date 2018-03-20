@@ -87,3 +87,7 @@ migration:
       operations:
         post:
           - anthem songs.sample.generated.custom.fluxdock::load_project_partner_profession
+    - version: 11.0.8
+      addons:
+        upgrade:
+          - fluxdock_membership
