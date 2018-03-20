@@ -7,11 +7,21 @@ Latest (Unreleased)
 
 **Bugfixes**
 
-* BSFLU-78 Signup page returns 404
-
 **Build**
 
 **Documentation**
+
+
+11.0.7 (2018-03-20)
++++++++++++++++++++
+
+**Features and Improvements**
+
+* BSFLU-75 Various theme adjustments.
+
+**Bugfixes**
+
+* BSFLU-78 Signup page returns 404
 
 
 11.0.6 (2018-03-15)

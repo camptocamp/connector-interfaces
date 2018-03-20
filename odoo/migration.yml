@@ -83,6 +83,7 @@ migration:
         upgrade:
           - fluxdock_theme
           - fluxdock_membership
+          - fluxdock_project
       operations:
         post:
           - anthem songs.sample.generated.custom.fluxdock::load_project_partner_profession
