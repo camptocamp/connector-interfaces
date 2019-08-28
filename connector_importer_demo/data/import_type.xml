@@ -5,7 +5,7 @@
 
   <record id="import_type_partner" model="import.type">
     <field name="name">Partner</field>
-    <field name="key">id</field>
+    <field name="key">partner</field>
     <field name="settings">
 res.partner::demo.partner.importer
     </field>
