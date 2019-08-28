@@ -9,7 +9,7 @@ class OdooRecordHandlerCSVStd(Component):
 
     _name = 'importer.odoorecord.handler.csv.std'
     _inherit = 'importer.odoorecord.handler'
-
+    _usage = 'odoorecord.handler.csv'
     xmlid_key = 'id'    # CSV field containing the record XML-ID
 
     def odoo_find(self, values, orig_values, use_xmlid=False):

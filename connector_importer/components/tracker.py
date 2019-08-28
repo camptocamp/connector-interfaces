@@ -90,13 +90,13 @@ class Tracker(Component):
         )
         handler(msg)
 
-    def log_updated(self, values, line, odoo_record, message=''):
+    def log_updated(self, values, line, odoo_record=None, message=''):
         self._log('UPDATED [id: {}]'.format(odoo_record.id), line=line)
         self.chunk_report.track_updated(self.chunk_report_item(
             line, odoo_record=odoo_record, message=message
         ))
 
-    def log_error(self, values, line, odoo_record, message=''):
+    def log_error(self, values, line, odoo_record=None, message=''):
         if isinstance(message, Exception):
             message = str(message)
         self._log(message, line=line, level='error')
@@ -104,7 +104,7 @@ class Tracker(Component):
             line, odoo_record=odoo_record, message=message
         ))
 
-    def log_created(self, values, line, odoo_record, message=''):
+    def log_created(self, values, line, odoo_record=None, message=''):
         self._log('CREATED [id: {}]'.format(odoo_record.id), line=line)
         self.chunk_report.track_created(self.chunk_report_item(
             line, odoo_record=odoo_record, message=message

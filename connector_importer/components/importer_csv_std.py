@@ -16,13 +16,14 @@ class RecordImporterCSVStd(Component):
     _name = 'importer.record.csv.std'
     _inherit = ['importer.record']
     _break_on_error = True  # We want the import to stop if an error occurs
-
+    _apply_on = None
     _use_xmlid = True
+    _record_handler_usage = 'odoorecord.handler.csv'
 
     @property
     def mapper(self):
         if not self._mapper:
-            self._mapper = self.component(usage='importer.mapper.csv.std')
+            self._mapper = self.component(usage='importer.automapper')
         return self._mapper
 
     def prepare_load_params(self, lines):
@@ -56,11 +57,11 @@ class RecordImporterCSVStd(Component):
             # maybe deleted???
             msg = 'NO RECORD FOUND, maybe deleted? Check your jobs!'
             logger.error(msg)
-            return
+            return msg
 
         self._init_importer(self.record.recordset_id)
 
-        mapped_lines = []
+        dataset = []
         tracker_data = {
             'created': {
                 # line_nr: (values, line, odoo_record),
@@ -70,6 +71,10 @@ class RecordImporterCSVStd(Component):
             },
         }
         lines = self._record_lines()
+        # The `load` method for standard import works on the whole dataset.
+        # First we prepare all lines with the mapper
+        # (so you can still customize imported data if needed)
+        # and we create dataset to pass to `load`.
         for i, line in enumerate(lines):
             line = self.prepare_line(line)
             options = self._load_mapper_options()
@@ -80,7 +85,7 @@ class RecordImporterCSVStd(Component):
             except Exception as err:
                 values = {}
                 self.tracker.log_error(
-                    values, line, odoo_record=None, message=err)
+                    values, line, message=err)
                 if self._break_on_error:
                     raise
                 continue
@@ -102,15 +107,18 @@ class RecordImporterCSVStd(Component):
             if skip_info:
                 self.tracker.log_skipped(values, line, skip_info)
                 continue
-            mapped_lines.append(values)
+            dataset.append(values)
 
-        if mapped_lines:
+        if dataset:
             try:
                 with self.env.cr.savepoint():
-                    fieldnames, data = self.prepare_load_params(mapped_lines)
+                    fieldnames, data = self.prepare_load_params(dataset)
                     load_res = self.model.load(fieldnames, data)
 
-                    # Log load errors
+                    # In case of errors `load` returns a list of messages with
+                    # the cause and the rows range. Here we map these messages
+                    # to tracked data and update the references to be able
+                    # to provide a precise report.
                     for message in load_res['messages']:
                         if message.get('rows'):
                             line_numbers = range(
@@ -124,17 +132,17 @@ class RecordImporterCSVStd(Component):
                                 # from 1 + header line
                                 line = {'_line_nr': line_nr + 2}
                                 self.tracker.log_error(
-                                    {}, line, odoo_record=None,
+                                    {}, line,
                                     message=message['message'])
                         else:
                             line = {'_line_nr': 0}
                             self.tracker.log_error(
-                                {}, line, odoo_record=None,
+                                {}, line,
                                 message=message['message'])
             except Exception as err:
                 line = {'_line_nr': 0}
                 self.tracker.log_error(
-                    {}, line, odoo_record=None, message=err)
+                    {}, line, message=err)
                 if self._break_on_error:
                     raise
 

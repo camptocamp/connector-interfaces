@@ -5,10 +5,10 @@ from odoo.addons.component.core import Component
 from odoo.addons.connector.components.mapper import mapping
 
 
-class ImportMapperCSVStd(Component):
-    _name = 'importer.base.mapper.csv.std'
+class AutoMapper(Component):
+    _name = 'importer.mapper.auto'
     _inherit = 'importer.base.mapper'
-    _usage = 'importer.mapper.csv.std'
+    _usage = 'importer.automapper'
 
     @mapping
     def auto_mapping(self, record):

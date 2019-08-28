@@ -7,7 +7,7 @@
     <field name="name">Partner</field>
     <field name="key">partner</field>
     <field name="settings">
-res.partner::demo.partner.importer
+res.partner::importer.record.csv.std
     </field>
   </record>
 

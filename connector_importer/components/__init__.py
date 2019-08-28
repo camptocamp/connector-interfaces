@@ -5,4 +5,4 @@ from . import odoorecord_csv_std
 from . import importer
 from . import importer_csv_std
 from . import mapper
-from . import mapper_csv_std
+from . import automapper
