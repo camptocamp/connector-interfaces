@@ -17,6 +17,8 @@ class RecordImporterCSVStd(Component):
     _inherit = ['importer.record']
     _break_on_error = True  # We want the import to stop if an error occurs
 
+    _use_xmlid = True
+
     @property
     def mapper(self):
         if not self._mapper:
@@ -87,10 +89,10 @@ class RecordImporterCSVStd(Component):
             # functions, excepted the odoo_record which could not be known
             # for newly created records
             odoo_record_exists = self.record_handler.odoo_exists(
-                values, line, use_xmlid=True)
+                values, line, use_xmlid=self._use_xmlid)
             if odoo_record_exists:
                 odoo_record = self.record_handler.odoo_find(
-                    values, line, use_xmlid=True)
+                    values, line, use_xmlid=self._use_xmlid)
                 tracker_data['updated'][i] = [line, odoo_record]
             else:
                 tracker_data['created'][i] = [line, None]
