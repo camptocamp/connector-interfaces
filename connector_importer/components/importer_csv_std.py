@@ -15,6 +15,9 @@ class RecordImporterCSVStd(Component):
 
     _name = 'importer.record.csv.std'
     _inherit = ['importer.record']
+
+    # TODO: we should be able to set simple settings in the configuration
+    # so we don't have to create a new importer for it
     _break_on_error = True  # We want the import to stop if an error occurs
     _apply_on = None
     _use_xmlid = True
@@ -98,9 +101,9 @@ class RecordImporterCSVStd(Component):
             if odoo_record_exists:
                 odoo_record = self.record_handler.odoo_find(
                     values, line, use_xmlid=self._use_xmlid)
-                tracker_data['updated'][i] = [line, odoo_record]
+                tracker_data['updated'][i] = [values, line, odoo_record]
             else:
-                tracker_data['created'][i] = [line, None]
+                tracker_data['created'][i] = [values, line]
 
             # handle forced skipping
             skip_info = self.skip_it(values, line)
@@ -146,15 +149,10 @@ class RecordImporterCSVStd(Component):
                 if self._break_on_error:
                     raise
 
-        # Record the tracker data for the report
-        # We are using 'tracker.chunk_report' methods instead of 'tracker'
-        # as the formers don't require an 'odoo_record' (which we don't have)
-        for args in tracker_data['created'].values():
-            self.tracker.chunk_report.track_created(
-                self.tracker.chunk_report_item(*args))
-        for args in tracker_data['updated'].values():
-            self.tracker.chunk_report.track_updated(
-                self.tracker.chunk_report_item(*args))
+        for arguments in tracker_data['created'].values():
+            self.tracker.log_created(*arguments)
+        for arguments in tracker_data['updated'].values():
+            self.tracker.log_updated(*arguments)
 
         # update report
         self._do_report()

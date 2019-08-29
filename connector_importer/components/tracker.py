@@ -91,7 +91,8 @@ class Tracker(Component):
         handler(msg)
 
     def log_updated(self, values, line, odoo_record=None, message=''):
-        self._log('UPDATED [id: {}]'.format(odoo_record.id), line=line)
+        if odoo_record:
+            self._log('UPDATED [id: {}]'.format(odoo_record.id), line=line)
         self.chunk_report.track_updated(self.chunk_report_item(
             line, odoo_record=odoo_record, message=message
         ))
@@ -105,7 +106,8 @@ class Tracker(Component):
         ))
 
     def log_created(self, values, line, odoo_record=None, message=''):
-        self._log('CREATED [id: {}]'.format(odoo_record.id), line=line)
+        if odoo_record:
+            self._log('CREATED [id: {}]'.format(odoo_record.id), line=line)
         self.chunk_report.track_created(self.chunk_report_item(
             line, odoo_record=odoo_record, message=message
         ))
