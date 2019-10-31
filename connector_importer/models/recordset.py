@@ -81,13 +81,11 @@ class ImportRecordset(models.Model, JobRelatedMixin):
     docs_html = fields.Html(string="Docs", compute="_compute_docs_html")
     notes = fields.Html("Notes", help="Useful info for your users")
 
-    @api.multi
     def unlink(self):
         # inheritance of non-model mixin - like JobRelatedMixin -
         # does not work w/out this
         return super().unlink()
 
-    @api.multi
     @api.depends("backend_id.name")
     def _compute_name(self):
         for item in self:
@@ -116,24 +114,20 @@ class ImportRecordset(models.Model, JobRelatedMixin):
         # TL/DR integer dict keys will always be converted to strings, beware
         self.invalidate_cache((fname,))
 
-    @api.multi
     def set_report(self, values, reset=False):
         """Update import report values."""
         self.ensure_one()
         self._set_serialized("report_data", values, reset=reset)
 
-    @api.multi
     def get_report(self):
         self.ensure_one()
         return self.report_data or {}
 
-    @api.multi
     def set_shared(self, values, reset=False):
         """Update import report values."""
         self.ensure_one()
         self._set_serialized("shared_data", values, reset=reset)
 
-    @api.multi
     def get_shared(self):
         self.ensure_one()
         return self.shared_data or {}
@@ -182,7 +176,6 @@ class ImportRecordset(models.Model, JobRelatedMixin):
             data = item._get_report_html_data()
             item.report_html = template.render(data)
 
-    @api.multi
     def _compute_full_report_url(self):
         for item in self:
             item.full_report_url = "/importer/import-recordset/{}".format(item.id)
@@ -190,7 +183,6 @@ class ImportRecordset(models.Model, JobRelatedMixin):
     def debug_mode(self):
         return self.backend_id.debug_mode or os.getenv("IMPORTER_DEBUG_MODE")
 
-    @api.multi
     @api.depends("job_id.state", "record_ids.job_id.state")
     def _compute_jobs_global_state(self):
         for item in self:
@@ -214,7 +206,6 @@ class ImportRecordset(models.Model, JobRelatedMixin):
     def available_models(self):
         return self.import_type_id.available_models()
 
-    @api.multi
     @job
     def import_recordset(self):
         """This job will import a recordset."""
@@ -222,7 +213,6 @@ class ImportRecordset(models.Model, JobRelatedMixin):
             importer = work.component(usage="recordset.importer")
             return importer.run(self)
 
-    @api.multi
     def run_import(self):
         """ queue a job for creating records (import.record items)
         """
@@ -252,7 +242,6 @@ class ImportRecordset(models.Model, JobRelatedMixin):
             #     )
             pass
 
-    @api.multi
     def generate_report(self):
         self.ensure_one()
         reporter = self.get_source().get_reporter()
