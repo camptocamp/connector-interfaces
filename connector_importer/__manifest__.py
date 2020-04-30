@@ -5,7 +5,7 @@
 {
     'name': 'Connector Importer',
     'summary': """This module takes care of import sessions.""",
-    'version': '12.0.1.3.1',
+    'version': '12.0.1.3.2',
     'depends': [
         'connector',
         'queue_job',
@@ -26,5 +26,5 @@
         'views/source_config_template.xml',
         'menuitems.xml',
     ],
-    'external_dependencies': {'python': ['chardet']},
+    'external_dependencies': {'python': ['chardet', 'magic']},
 }
