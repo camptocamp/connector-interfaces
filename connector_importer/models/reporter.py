@@ -7,17 +7,10 @@ import csv
 import io
 import time
 import base64
-import logging
 
 from odoo import models, api
 
-_logger = logging.getLogger(__name__)
-
-try:
-    import magic
-except ImportError as err:
-    _logger.debug(err)
-    magic = None
+from ..utils.import_utils import get_encoding
 
 
 class ReporterMixin(models.AbstractModel):
@@ -148,10 +141,8 @@ class CSVReporter(models.AbstractModel):
 
         source = recordset.get_source()
         csv_file_bin = base64.b64decode(source.csv_file)
-        # Try to guess the encoding of the file supplied (we possibly have no
-        # control on this)
-        m = magic.Magic(mime_encoding=True)
-        csv_file_encoding = m.from_buffer(csv_file_bin) or "utf-8"
+        # Try to guess the encoding of the file supplied
+        csv_file_encoding = get_encoding(csv_file_bin).get("encoding", "utf-8")
         orig_content = csv_file_bin.decode(csv_file_encoding).splitlines()
         delimiter = source.csv_delimiter
         quotechar = source.csv_quotechar
