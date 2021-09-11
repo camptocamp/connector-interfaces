@@ -7,6 +7,7 @@ import json
 import os
 
 from odoo import api, fields, models
+from odoo.tools import DotDict
 
 from ..log import logger
 
@@ -79,9 +80,12 @@ class ImportRecord(models.Model):
         :param model_name: name of the model to import
         :param is_last_importer: flag for last importer of the recordset
         """
+        if type(importer_config) is dict:
+            importer_config = DotDict(importer_config)
         kwargs = {
             "options": importer_config.options,
         }
+        # Put assert False here to test import.recordset._get_global_state
         with self.backend_id.with_context(**importer_config.context).work_on(
             self._name, **kwargs
         ) as work:
