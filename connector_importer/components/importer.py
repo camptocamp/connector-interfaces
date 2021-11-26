@@ -272,13 +272,20 @@ class RecordImporter(Component):
         return {"override_existing": self.recordset.override_existing}
 
     # TODO: make these contexts customizable via recordset settings
+    def _odoo_default_context(self):
+        """Default context to be used in both create and write methods"""
+        return {
+            "importer_type": self.recordset.import_type_id.id,
+            "tracking_disable": True,
+        }
+
     def _odoo_create_context(self):
         """Inject context variables on create, merged by odoorecord handler."""
-        return {"tracking_disable": True}
+        return self._odoo_default_context()
 
     def _odoo_write_context(self):
         """Inject context variables on write, merged by odoorecord handler."""
-        return {"tracking_disable": True}
+        return self._odoo_default_context()
 
     def run(self, record, is_last_importer=True, **kw):
         """Run record job.
@@ -304,6 +311,7 @@ class RecordImporter(Component):
             return
 
         self._init_importer(self.record.recordset_id)
+
         for line in self._record_lines():
             line = self.prepare_line(line)
             options = self._load_mapper_options()
@@ -342,6 +350,7 @@ class RecordImporter(Component):
                             continue
                         odoo_record = self.record_handler.odoo_create(values, line)
                         self.tracker.log_created(values, line, odoo_record)
+                    self._after_import(odoo_record, values, line)
             except Exception as err:
                 self.tracker.log_error(values, line, odoo_record, message=err)
                 if self._break_on_error:
@@ -363,8 +372,15 @@ class RecordImporter(Component):
             ]
         ).format(**counters)
         self.tracker._log(msg)
+        self._set_shared_storage_values(self.tracker.chunk_report)
         self._trigger_finish_events(record, is_last_importer=is_last_importer)
         return counters
+
+    def _after_import(self, odoo_record, values, line):
+        """ Can do several actions after importing a record on the backend"""
+
+    def _set_shared_storage_values(self, chunk_report):
+        """Put desired values in shared storage from the chunk report"""
 
     def _trigger_finish_events(self, record, is_last_importer=False):
         """Trigger events when the importer has done its job."""
