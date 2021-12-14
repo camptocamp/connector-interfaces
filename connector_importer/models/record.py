@@ -75,7 +75,7 @@ class ImportRecord(models.Model):
     def import_record(self, importer_config_dict):
         """This job will import a record.
 
-        :param importer_config: configuration of the importer
+        :param importer_config_dict: configuration of the importer
         """
         # set the importer_config as DotDict
         importer_config = DotDict(importer_config_dict)

@@ -1,7 +1,6 @@
 # Author: Simone Orsi
 # Copyright 2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
-
 from odoo import _, exceptions
 
 from odoo.addons.component.core import Component
@@ -275,7 +274,7 @@ class RecordImporter(Component):
     def _odoo_default_context(self):
         """Default context to be used in both create and write methods"""
         return {
-            "importer_type": self.recordset.import_type_id.id,
+            "importer_type_id": self.recordset.import_type_id.id,
             "tracking_disable": True,
         }
 
