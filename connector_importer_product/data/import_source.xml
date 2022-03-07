@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+  <record id="import_source_csv_product_category" model="import.source.csv.sftp">
+    <field name="name">product_category</field>
+    <field name="chunk_size" eval="0" />  <!-- do not chunk CSV lines -->
+    <field name="csv_delimiter">,</field>
+    <field name="csv_encoding">utf-8</field>
+    <field name="storage_id" ref="storage_backend_importer" />
+    <field name="move_file_after_import" eval="1" />
+  </record>
+
+  <record id="import_source_csv_product_attribute" model="import.source.csv.sftp">
+    <field name="name">product_attribute</field>
+    <field name="chunk_size" eval="0" />  <!-- do not chunk CSV lines -->
+    <field name="csv_delimiter">,</field>
+    <field name="csv_encoding">utf-8</field>
+    <field name="storage_id" ref="storage_backend_importer" />
+    <field name="move_file_after_import" eval="1" />
+  </record>
+
+  <record id="import_source_csv_product_attribute_value" model="import.source.csv.sftp">
+    <field name="name">product_attribute_value</field>
+    <field name="chunk_size" eval="0" />  <!-- do not chunk CSV lines -->
+    <field name="csv_delimiter">,</field>
+    <field name="csv_encoding">utf-8</field>
+    <field name="storage_id" ref="storage_backend_importer" />
+    <field name="move_file_after_import" eval="1" />
+  </record>
+
+  <record id="import_source_csv_product_product" model="import.source.csv.sftp">
+    <field name="name">product_product</field>
+    <field name="chunk_size" eval="300" />
+    <field name="csv_delimiter">,</field>
+    <field name="csv_encoding">utf-8</field>
+    <field name="storage_id" ref="storage_backend_importer" />
+    <field name="move_file_after_import" eval="1" />
+  </record>
+
+  <record id="import_source_csv_product_supplierinfo" model="import.source.csv.sftp">
+    <field name="name">product_supplierinfo</field>
+    <field name="chunk_size" eval="0" />  <!-- do not chunk CSV lines -->
+    <field name="csv_delimiter">,</field>
+    <field name="csv_encoding">utf-8</field>
+    <field name="storage_id" ref="storage_backend_importer" />
+    <field name="move_file_after_import" eval="1" />
+  </record>
+
+  <record id="import_source_csv_product_packaging" model="import.source.csv.sftp">
+    <field name="name">product_packaging</field>
+    <field name="chunk_size" eval="0" />  <!-- do not chunk CSV lines -->
+    <field name="csv_delimiter">,</field>
+    <field name="csv_encoding">utf-8</field>
+    <field name="storage_id" ref="storage_backend_importer" />
+    <field name="move_file_after_import" eval="1" />
+  </record>
+
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+  <record id="import_type_product_category" model="import.type">
+    <field name="name">Import Product Category</field>
+    <field name="key">product_category</field>
+    <field name="settings">
+product.category::product.category.importer
+    </field>
+  </record>
+
+  <record id="import_type_product_attribute" model="import.type">
+    <field name="name">Import Product Attribute</field>
+    <field name="key">product_attribute</field>
+    <field name="settings">
+product.attribute::product.attribute.importer
+    </field>
+  </record>
+
+  <record id="import_type_product_attribute_value" model="import.type">
+    <field name="name">Import Product Attribute Value</field>
+    <field name="key">product_attribute_value</field>
+    <field name="settings">
+product.attribute.value::product.attribute.value.importer
+    </field>
+  </record>
+
+  <record id="import_type_product_product" model="import.type">
+    <field name="name">Import Product</field>
+    <field name="key">product_product</field>
+    <field name="settings">
+product.product::product.product.importer
+    </field>
+  </record>
+
+  <record id="import_type_product_supplierinfo" model="import.type">
+    <field name="name">Import Product Supplier Info</field>
+    <field name="key">product_supplierinfo</field>
+    <field name="settings">
+product.supplierinfo::product.supplierinfo.importer
+    </field>
+  </record>
+
+  <record id="import_type_product_packaging" model="import.type">
+    <field name="name">Import Product Packaging</field>
+    <field name="key">product_packaging</field>
+    <field name="settings">
+product.packaging::product.packaging.importer
+    </field>
+  </record>
+
+</odoo>

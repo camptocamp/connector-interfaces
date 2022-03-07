@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2022 Camptocamp SA
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+
+  <record id="demo_import_recordset_product_attribute" model="import.recordset">
+    <field name="sequence" eval="30" />
+    <field name="backend_id" ref="import_backend" />
+    <field name="import_type_id" ref="import_type_product_attribute" />
+    <field name="source_id" ref="demo_import_source_csv_product_attribute" />
+    <field name="source_model">import.source.csv</field>
+  </record>
+
+  <record id="demo_import_recordset_product_attribute_value" model="import.recordset">
+    <field name="sequence" eval="35" />
+    <field name="backend_id" ref="import_backend" />
+    <field name="import_type_id" ref="import_type_product_attribute_value" />
+    <field name="source_id" ref="demo_import_source_csv_product_attribute_value" />
+    <field name="source_model">import.source.csv</field>
+  </record>
+
+  <record id="demo_import_recordset_product_product" model="import.recordset">
+    <field name="sequence" eval="45" />
+    <field name="backend_id" ref="import_backend" />
+    <field name="import_type_id" ref="import_type_product_product" />
+    <field name="source_id" ref="demo_import_source_csv_product_product" />
+    <field name="source_model">import.source.csv</field>
+  </record>
+
+</odoo>
