@@ -1,1 +1,3 @@
 odoo-test-helper
+
+odoo-addon-connector_importer @ git+https://github.com/OCA/connector-interfaces@refs/pull/100/head#subdirectory=setup/connector_importer
