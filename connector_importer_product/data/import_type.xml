@@ -91,10 +91,10 @@
     <field name="options">
 - model: product.packaging
   options:
-    importer:
-      odoo_unique_key: id
     mapper:
       name: importer.mapper.dynamic
+    record_handler:
+      match_domain: "[('product_id', '=', values['product_id']), ('qty', '=', values['qty'])]"
     </field>
   </record>
 
