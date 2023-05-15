@@ -62,12 +62,15 @@ class OdooRecordHandler(Component):
 
     def _domain_from_options_eval_ctx(self, values, orig_values):
         return {
+            "env": self.env,
             "user": self.env.user,
             "datetime": safe_eval.datetime,
             "dateutil": safe_eval.dateutil,
             "time": safe_eval.time,
             "values": values,
             "orig_values": orig_values,
+            "ref_id": lambda x: self._smart_ref(x).id,
+            "ref": lambda x: self._smart_ref(x),
         }
 
     def _odoo_find_domain_from_unique_key(self, values, orig_values):
@@ -96,10 +99,13 @@ class OdooRecordHandler(Component):
         )
         return item
 
+    def _smart_ref(self, xid):
+        return self.env.ref(sanitize_external_id(xid))
+
     def _get_xmlid(self, values, orig_values):
         # Mappers will remove `xid::` prefix from the final values
         # hence, look for the original key.
-        return sanitize_external_id(orig_values.get(self.unique_key))
+        return self._smart_ref(orig_values.get(self.unique_key))
 
     def odoo_exists(self, values, orig_values):
         """Return true if the items exists."""
