@@ -107,7 +107,9 @@ class ImportType(models.Model):
             )
 
     def _load_options(self):
-        options = yaml.safe_load(self.options, "") or []
+        options = []
+        if self.options:
+            options = yaml.safe_load(self.options)
         return options if isinstance(options, list) else [options]
 
     def available_importers(self):
@@ -148,7 +150,7 @@ class ImportType(models.Model):
     def _legacy_available_importers(self):
         for item in self.available_models():
             yield self._make_importer_info(
-                {"model": item[0], "importer": item[1]}, is_last_importer=item[2]
+                {"model": item[0], "name": item[1]}, is_last_importer=item[2]
             )
 
     def available_models(self):
