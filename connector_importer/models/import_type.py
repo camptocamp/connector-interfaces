@@ -107,7 +107,8 @@ class ImportType(models.Model):
             )
 
     def _load_options(self):
-        return yaml.safe_load(self.options or "") or []
+        options = yaml.safe_load(self.options, "") or []
+        return options if isinstance(options, list) else [options]
 
     def available_importers(self):
         self.ensure_one()
