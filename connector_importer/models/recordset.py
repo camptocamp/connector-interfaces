@@ -2,12 +2,13 @@
 # Copyright 2018 Camptocamp SA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
+import base64
+import json
 import os
 from collections import OrderedDict
 
 from odoo import api, fields, models
 
-from odoo.addons.base_sparse_field.models.fields import Serialized
 from odoo.addons.component.utils import is_component_registry_ready
 from odoo.addons.queue_job.job import DONE, STATES
 
@@ -64,8 +65,8 @@ class ImportRecordset(models.Model):
     create_date = fields.Datetime()
     record_ids = fields.One2many("import.record", "recordset_id", string="Records")
     # store info about imports report
-    report_data = Serialized()
-    shared_data = Serialized()
+    report_data = fields.Binary(attachment=True)
+    shared_data = fields.Binary(attachment=True)
     report_html = fields.Html("Report summary", compute="_compute_report_html")
     full_report_url = fields.Char(compute="_compute_full_report_url")
     jobs_global_state = fields.Selection(
@@ -141,9 +142,15 @@ class ImportRecordset(models.Model):
         """Update serialized data."""
         _values = {}
         if not reset:
-            _values = self[fname]
+            _values = getattr(self, fname) or {}
+            if _values:
+                raw_data = base64.b64decode(_values).decode("utf-8")
+                _values = json.loads(raw_data)
+
         _values.update(values)
-        self[fname] = _values
+        json_report_data = json.dumps(_values)
+        _values = base64.b64encode(bytes(json_report_data, "utf-8"))
+        setattr(self, fname, _values)
         # Without invalidating cache we will have a bug because of Serialized
         # field in odoo. It uses json.loads on convert_to_cache, which leads
         # to all of our int dict keys converted to strings. Except for the
@@ -162,7 +169,11 @@ class ImportRecordset(models.Model):
 
     def get_report(self):
         self.ensure_one()
-        return self.report_data or {}
+        json_raw_data = None
+        if self.report_data:
+            json_raw_data = base64.b64decode(self.report_data).decode("utf-8")
+            json_raw_data = json.loads(json_raw_data)
+        return json_raw_data or {}
 
     def set_shared(self, values, reset=False):
         """Update import report values."""
@@ -171,7 +182,11 @@ class ImportRecordset(models.Model):
 
     def get_shared(self):
         self.ensure_one()
-        return self.shared_data or {}
+        json_raw_data = None
+        if self.shared_data:
+            raw_data = base64.b64decode(self.shared_data).decode("utf-8")
+            json_raw_data = json.loads(raw_data)
+        return json_raw_data or {}
 
     def _prepare_for_import_session(self, start=True):
         """Wipe all session related data."""
@@ -180,9 +195,10 @@ class ImportRecordset(models.Model):
             report_data["_last_start"] = fields.Datetime.to_string(
                 fields.Datetime.now()
             )
+        json_report_data = json.dumps(report_data)
         values = {
             "record_ids": [(5, 0, 0)],
-            "report_data": report_data,
+            "report_data": base64.b64encode(bytes(json_report_data, "utf-8")),
             "shared_data": {},
         }
         self.write(values)
