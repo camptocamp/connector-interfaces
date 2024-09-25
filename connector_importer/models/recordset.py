@@ -175,6 +175,11 @@ class ImportRecordset(models.Model):
 
     def get_report(self):
         self.ensure_one()
+        # We need to invalidate cache because the context dict
+        # bin_size=False triggers the _compute_datas(self) method
+        # which has the @api.depends_context('bin_size') decorator.
+        # Flush all pending computations and updates to the database.
+        self.env.invalidate_all(flush=True)
         json_raw_data = self._get_json_from_binary(
             self.with_context(bin_size=False).report_data
         )
@@ -187,6 +192,11 @@ class ImportRecordset(models.Model):
 
     def get_shared(self):
         self.ensure_one()
+        # We need to invalidate cache because the context dict
+        # bin_size=False triggers the _compute_datas(self) method
+        # which has the @api.depends_context('bin_size') decorator.
+        # Flush all pending computations and updates to the database.
+        self.env.invalidate_all(flush=True)
         json_raw_data = self._get_json_from_binary(
             self.with_context(bin_size=False).shared_data
         )
