@@ -150,6 +150,11 @@ class ImportRecordset(models.Model):
         json_report_data = json.dumps(_values)
         _values = base64.b64encode(bytes(json_report_data, "utf-8"))
         setattr(self, fname, _values)
+        # We need to invalidate the cache because the context dict
+        # bin_size=False triggers the _compute_datas(self) method
+        # which has the @api.depends_context('bin_size') decorator.
+        # Flush all pending computations and updates to the database.
+        self.env["ir.attachment"].invalidate_model()
         # Without invalidating cache we will have a bug because of Serialized
         # field in odoo. It uses json.loads on convert_to_cache, which leads
         # to all of our int dict keys converted to strings. Except for the
