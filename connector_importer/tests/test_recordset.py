@@ -66,12 +66,16 @@ class TestRecordset(common.TransactionCase):
         self.recordset.set_report(new_val)
         merged = val.copy()
         merged.update(new_val)
+        # Ensure the attachment datas can be read directly
+        self.env.invalidate_all()
         # by default previous value is preserved and merged w/ the new one
         self.assertDictEqual(self.recordset.get_report(), merged)
         # unless we use `reset`
         val = {"goo": "gle"}
         # store report
         self.recordset.set_report(val, reset=True)
+        # Ensure the attachment datas can be read directly
+        self.env.invalidate_all()
         self.assertDictEqual(self.recordset.get_report(), val)
 
     def test_get_report_html(self):
